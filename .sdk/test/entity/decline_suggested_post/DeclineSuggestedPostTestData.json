@@ -1,0 +1,46 @@
+{
+  "existing": {
+    "decline_suggested_post": {
+      "DECLINE_SUGGESTED_POST00": {
+        "chat_id": "CHAT01",
+        "description": "s47",
+        "error_code": "s48",
+        "message_id": "MESSAGE01",
+        "ok": true,
+        "parameter": {},
+        "result": "s4c"
+      },
+      "DECLINE_SUGGESTED_POST01": {
+        "chat_id": "CHAT01",
+        "description": "s8d",
+        "error_code": "s8e",
+        "message_id": "MESSAGE01",
+        "ok": true,
+        "parameter": {},
+        "result": "s92"
+      },
+      "DECLINE_SUGGESTED_POST02": {
+        "chat_id": "CHAT01",
+        "description": "sd3",
+        "error_code": "sd4",
+        "message_id": "MESSAGE01",
+        "ok": true,
+        "parameter": {},
+        "result": "sd8"
+      }
+    }
+  },
+  "new": {
+    "decline_suggested_post": {
+      "decline_suggested_post_ref01": {
+        "chat_id": "CHAT01",
+        "description": "s119",
+        "error_code": "s11a",
+        "message_id": "MESSAGE01",
+        "ok": true,
+        "parameter": {},
+        "result": "s11e"
+      }
+    }
+  }
+}

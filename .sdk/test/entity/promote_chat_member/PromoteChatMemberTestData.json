@@ -1,0 +1,66 @@
+{
+  "existing": {
+    "promote_chat_member": {
+      "PROMOTE_CHAT_MEMBER00": {
+        "can_delete_message": true,
+        "can_edit_message": false,
+        "can_manage_chat": true,
+        "can_manage_direct_message": false,
+        "can_post_message": true,
+        "chat_id": "CHAT01",
+        "description": "s7e",
+        "error_code": "s7f",
+        "ok": true,
+        "parameter": {},
+        "result": "s82",
+        "user_id": "USER01"
+      },
+      "PROMOTE_CHAT_MEMBER01": {
+        "can_delete_message": true,
+        "can_edit_message": false,
+        "can_manage_chat": true,
+        "can_manage_direct_message": false,
+        "can_post_message": true,
+        "chat_id": "CHAT01",
+        "description": "sf6",
+        "error_code": "sf7",
+        "ok": true,
+        "parameter": {},
+        "result": "sfa",
+        "user_id": "USER01"
+      },
+      "PROMOTE_CHAT_MEMBER02": {
+        "can_delete_message": true,
+        "can_edit_message": false,
+        "can_manage_chat": true,
+        "can_manage_direct_message": false,
+        "can_post_message": true,
+        "chat_id": "CHAT01",
+        "description": "s16e",
+        "error_code": "s16f",
+        "ok": true,
+        "parameter": {},
+        "result": "s172",
+        "user_id": "USER01"
+      }
+    }
+  },
+  "new": {
+    "promote_chat_member": {
+      "promote_chat_member_ref01": {
+        "can_delete_message": true,
+        "can_edit_message": false,
+        "can_manage_chat": true,
+        "can_manage_direct_message": false,
+        "can_post_message": true,
+        "chat_id": "CHAT01",
+        "description": "s1e6",
+        "error_code": "s1e7",
+        "ok": true,
+        "parameter": {},
+        "result": "s1ea",
+        "user_id": "USER01"
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+# BasicDeleteForumTopicFlow
+
+main: kit: flow: BasicDeleteForumTopicFlow:
+{
+  entity: "delete_forum_topic",
+  kind: "basic",
+  name: "BasicDeleteForumTopicFlow",
+  step: [
+    {
+      input: {
+        ref: "delete_forum_topic_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicDeleteForumTopicFlow"
+}

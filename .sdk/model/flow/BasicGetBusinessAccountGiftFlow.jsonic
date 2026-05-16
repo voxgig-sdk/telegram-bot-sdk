@@ -1,0 +1,18 @@
+# BasicGetBusinessAccountGiftFlow
+
+main: kit: flow: BasicGetBusinessAccountGiftFlow:
+{
+  entity: "get_business_account_gift",
+  kind: "basic",
+  name: "BasicGetBusinessAccountGiftFlow",
+  step: [
+    {
+      input: {
+        ref: "get_business_account_gift_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicGetBusinessAccountGiftFlow"
+}

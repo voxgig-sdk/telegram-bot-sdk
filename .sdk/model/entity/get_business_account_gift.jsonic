@@ -1,0 +1,72 @@
+# Entity: get_business_account_gift
+
+main: kit: entity: get_business_account_gift: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "description"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "error_code"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "exclude_from_blockchain"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "exclude_limited_non_upgradable"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "exclude_limited_upgradable"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "ok"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "parameter"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "result"
+      req: false
+      type: "`$ANY`"
+    }
+  ]
+
+  name: "get_business_account_gift"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/getBusinessAccountGifts"
+          parts: [
+            "getBusinessAccountGifts"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

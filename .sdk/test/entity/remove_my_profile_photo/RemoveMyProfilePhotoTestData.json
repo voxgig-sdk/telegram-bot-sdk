@@ -1,0 +1,38 @@
+{
+  "existing": {
+    "remove_my_profile_photo": {
+      "REMOVE_MY_PROFILE_PHOTO00": {
+        "description": "s32",
+        "error_code": "s33",
+        "ok": true,
+        "parameter": {},
+        "result": "s36"
+      },
+      "REMOVE_MY_PROFILE_PHOTO01": {
+        "description": "s64",
+        "error_code": "s65",
+        "ok": true,
+        "parameter": {},
+        "result": "s68"
+      },
+      "REMOVE_MY_PROFILE_PHOTO02": {
+        "description": "s96",
+        "error_code": "s97",
+        "ok": true,
+        "parameter": {},
+        "result": "s9a"
+      }
+    }
+  },
+  "new": {
+    "remove_my_profile_photo": {
+      "remove_my_profile_photo_ref01": {
+        "description": "sc8",
+        "error_code": "sc9",
+        "ok": true,
+        "parameter": {},
+        "result": "scc"
+      }
+    }
+  }
+}

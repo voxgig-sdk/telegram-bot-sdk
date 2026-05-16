@@ -1,0 +1,38 @@
+{
+  "existing": {
+    "get_me": {
+      "GET_ME00": {
+        "description": "s32",
+        "error_code": "s33",
+        "ok": true,
+        "parameter": {},
+        "result": "s36"
+      },
+      "GET_ME01": {
+        "description": "s64",
+        "error_code": "s65",
+        "ok": true,
+        "parameter": {},
+        "result": "s68"
+      },
+      "GET_ME02": {
+        "description": "s96",
+        "error_code": "s97",
+        "ok": true,
+        "parameter": {},
+        "result": "s9a"
+      }
+    }
+  },
+  "new": {
+    "get_me": {
+      "get_me_ref01": {
+        "description": "sc8",
+        "error_code": "sc9",
+        "ok": true,
+        "parameter": {},
+        "result": "scc"
+      }
+    }
+  }
+}

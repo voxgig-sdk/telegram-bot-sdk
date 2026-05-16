@@ -1,0 +1,2362 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Telegram Bot API",
+    "description": "The Bot API is an HTTP-based interface created for developers keen on building bots for Telegram.",
+    "version": "9.4",
+    "contact": {
+      "name": "Telegram Bot API Documentation",
+      "url": "https://core.telegram.org/bots/api"
+    },
+    "license": {
+      "name": "Telegram Bot API License",
+      "url": "https://core.telegram.org/bots/api"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.telegram.org/bot{token}",
+      "description": "Telegram Bot API Server",
+      "variables": {
+        "token": {
+          "default": "",
+          "description": "Bot authentication token obtained from BotFather"
+        }
+      }
+    }
+  ],
+  "security": [
+    {
+      "BotToken": []
+    }
+  ],
+  "paths": {
+    "/getMe": {
+      "get": {
+        "summary": "Get Bot Information",
+        "description": "Returns basic information about the bot in form of a User object.",
+        "operationId": "getMe",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Getting Updates"
+        ]
+      },
+      "post": {
+        "summary": "Get Bot Information",
+        "description": "Returns basic information about the bot in form of a User object.",
+        "operationId": "getMePost",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Getting Updates"
+        ]
+      }
+    },
+    "/getUpdates": {
+      "get": {
+        "summary": "Get Updates",
+        "description": "Use this method to receive incoming updates using long polling.",
+        "operationId": "getUpdates",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Identifier of the first update to be returned",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limits the number of updates to be retrieved. Values between 1-100 are accepted. Defaults to 100.",
+            "schema": {
+              "type": "integer",
+              "default": 100,
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "timeout",
+            "in": "query",
+            "description": "Timeout in seconds for long polling.",
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "allowed_updates",
+            "in": "query",
+            "description": "A JSON-serialized list of the update types you want your bot to receive.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Update objects",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdatesResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Getting Updates"
+        ]
+      },
+      "post": {
+        "summary": "Get Updates",
+        "description": "Use this method to receive incoming updates using long polling.",
+        "operationId": "getUpdatesPost",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "offset": {
+                    "type": "integer"
+                  },
+                  "limit": {
+                    "type": "integer",
+                    "default": 100
+                  },
+                  "timeout": {
+                    "type": "integer",
+                    "default": 0
+                  },
+                  "allowed_updates": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Array of Update objects",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdatesResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Getting Updates"
+        ]
+      }
+    },
+    "/sendMessage": {
+      "post": {
+        "summary": "Send Message",
+        "description": "Use this method to send text messages.",
+        "operationId": "sendMessage",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "chat_id",
+                  "text"
+                ],
+                "properties": {
+                  "chat_id": {
+                    "oneOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ],
+                    "description": "Unique identifier for the target chat or username"
+                  },
+                  "message_thread_id": {
+                    "type": "integer",
+                    "description": "Unique identifier for the target message thread (topic) of the forum"
+                  },
+                  "text": {
+                    "type": "string",
+                    "description": "Text of the message to be sent"
+                  },
+                  "parse_mode": {
+                    "type": "string",
+                    "enum": [
+                      "Markdown",
+                      "MarkdownV2",
+                      "HTML"
+                    ],
+                    "description": "Mode for parsing entities in the message text"
+                  },
+                  "disable_web_page_preview": {
+                    "type": "boolean",
+                    "description": "Disables link previews for links in this message"
+                  },
+                  "disable_notification": {
+                    "type": "boolean",
+                    "description": "Sends the message silently"
+                  },
+                  "protect_content": {
+                    "type": "boolean",
+                    "description": "Protects the contents of the sent message from forwarding and saving"
+                  },
+                  "reply_to_message_id": {
+                    "type": "integer",
+                    "description": "If the message is a reply, ID of the original message"
+                  },
+                  "message_effect_id": {
+                    "type": "string",
+                    "description": "Unique identifier of the message effect to be added to the message"
+                  },
+                  "direct_messages_topic_id": {
+                    "type": "integer",
+                    "description": "Unique identifier for the target direct messages topic"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Message sent successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Messages"
+        ]
+      }
+    },
+    "/sendMessageDraft": {
+      "post": {
+        "summary": "Send Message Draft",
+        "description": "Use this method to send partial messages to a user while being generated (streaming).",
+        "operationId": "sendMessageDraft",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "chat_id",
+                  "text"
+                ],
+                "properties": {
+                  "chat_id": {
+                    "oneOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "text": {
+                    "type": "string"
+                  },
+                  "message_thread_id": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Draft message sent successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Messages"
+        ]
+      }
+    },
+    "/sendPhoto": {
+      "post": {
+        "summary": "Send Photo",
+        "description": "Use this method to send photos.",
+        "operationId": "sendPhoto",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "chat_id",
+                  "photo"
+                ],
+                "properties": {
+                  "chat_id": {
+                    "oneOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_thread_id": {
+                    "type": "integer"
+                  },
+                  "photo": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "caption": {
+                    "type": "string"
+                  },
+                  "parse_mode": {
+                    "type": "string",
+                    "enum": [
+                      "Markdown",
+                      "MarkdownV2",
+                      "HTML"
+                    ]
+                  },
+                  "disable_notification": {
+                    "type": "boolean"
+                  },
+                  "protect_content": {
+                    "type": "boolean"
+                  },
+                  "reply_to_message_id": {
+                    "type": "integer"
+                  },
+                  "message_effect_id": {
+                    "type": "string"
+                  },
+                  "direct_messages_topic_id": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Photo sent successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Messages"
+        ]
+      }
+    },
+    "/sendVideo": {
+      "post": {
+        "summary": "Send Video",
+        "description": "Use this method to send video files.",
+        "operationId": "sendVideo",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "chat_id",
+                  "video"
+                ],
+                "properties": {
+                  "chat_id": {
+                    "oneOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_thread_id": {
+                    "type": "integer"
+                  },
+                  "video": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "caption": {
+                    "type": "string"
+                  },
+                  "parse_mode": {
+                    "type": "string"
+                  },
+                  "disable_notification": {
+                    "type": "boolean"
+                  },
+                  "protect_content": {
+                    "type": "boolean"
+                  },
+                  "direct_messages_topic_id": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Video sent successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Messages"
+        ]
+      }
+    },
+    "/sendAudio": {
+      "post": {
+        "summary": "Send Audio",
+        "description": "Use this method to send audio files.",
+        "operationId": "sendAudio",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "chat_id",
+                  "audio"
+                ],
+                "properties": {
+                  "chat_id": {
+                    "oneOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_thread_id": {
+                    "type": "integer"
+                  },
+                  "audio": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "caption": {
+                    "type": "string"
+                  },
+                  "direct_messages_topic_id": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Audio sent successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Messages"
+        ]
+      }
+    },
+    "/sendDocument": {
+      "post": {
+        "summary": "Send Document",
+        "description": "Use this method to send general files.",
+        "operationId": "sendDocument",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "chat_id",
+                  "document"
+                ],
+                "properties": {
+                  "chat_id": {
+                    "oneOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_thread_id": {
+                    "type": "integer"
+                  },
+                  "document": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "caption": {
+                    "type": "string"
+                  },
+                  "direct_messages_topic_id": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Document sent successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Messages"
+        ]
+      }
+    },
+    "/sendSticker": {
+      "post": {
+        "summary": "Send Sticker",
+        "description": "Use this method to send static .WEBP, animated .TGS, or video .WEBM stickers.",
+        "operationId": "sendSticker",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "chat_id",
+                  "sticker"
+                ],
+                "properties": {
+                  "chat_id": {
+                    "oneOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_thread_id": {
+                    "type": "integer"
+                  },
+                  "sticker": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "direct_messages_topic_id": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sticker sent successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Messages"
+        ]
+      }
+    },
+    "/sendAnimation": {
+      "post": {
+        "summary": "Send Animation",
+        "description": "Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound).",
+        "operationId": "sendAnimation",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "chat_id",
+                  "animation"
+                ],
+                "properties": {
+                  "chat_id": {
+                    "oneOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_thread_id": {
+                    "type": "integer"
+                  },
+                  "animation": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "direct_messages_topic_id": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Animation sent successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Messages"
+        ]
+      }
+    },
+    "/sendLocation": {
+      "post": {
+        "summary": "Send Location",
+        "description": "Use this method to send point on the map.",
+        "operationId": "sendLocation",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "chat_id",
+                  "latitude",
+                  "longitude"
+                ],
+                "properties": {
+                  "chat_id": {
+                    "oneOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_thread_id": {
+                    "type": "integer"
+                  },
+                  "latitude": {
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "longitude": {
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "direct_messages_topic_id": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Location sent successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Messages"
+        ]
+      }
+    },
+    "/sendPoll": {
+      "post": {
+        "summary": "Send Poll",
+        "description": "Use this method to send a native poll.",
+        "operationId": "sendPoll",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "chat_id",
+                  "question",
+                  "options"
+                ],
+                "properties": {
+                  "chat_id": {
+                    "oneOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_thread_id": {
+                    "type": "integer"
+                  },
+                  "question": {
+                    "type": "string"
+                  },
+                  "options": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "direct_messages_topic_id": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Poll sent successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Messages"
+        ]
+      }
+    },
+    "/forwardMessage": {
+      "post": {
+        "summary": "Forward Message",
+        "description": "Use this method to forward messages of any kind.",
+        "operationId": "forwardMessage",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "chat_id",
+                  "from_chat_id",
+                  "message_id"
+                ],
+                "properties": {
+                  "chat_id": {
+                    "oneOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_thread_id": {
+                    "type": "integer"
+                  },
+                  "from_chat_id": {
+                    "oneOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_id": {
+                    "type": "integer"
+                  },
+                  "disable_notification": {
+                    "type": "boolean"
+                  },
+                  "protect_content": {
+                    "type": "boolean"
+                  },
+                  "message_effect_id": {
+                    "type": "string"
+                  },
+                  "direct_messages_topic_id": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Message forwarded successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Messages"
+        ]
+      }
+    },
+    "/copyMessage": {
+      "post": {
+        "summary": "Copy Message",
+        "description": "Use this method to copy messages of any kind.",
+        "operationId": "copyMessage",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "chat_id",
+                  "from_chat_id",
+                  "message_id"
+                ],
+                "properties": {
+                  "chat_id": {
+                    "oneOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_thread_id": {
+                    "type": "integer"
+                  },
+                  "from_chat_id": {
+                    "oneOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_id": {
+                    "type": "integer"
+                  },
+                  "message_effect_id": {
+                    "type": "string"
+                  },
+                  "direct_messages_topic_id": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Message copied successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageIdResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Messages"
+        ]
+      }
+    },
+    "/createForumTopic": {
+      "post": {
+        "summary": "Create Forum Topic",
+        "description": "Use this method to create a topic in a forum supergroup chat or private chat.",
+        "operationId": "createForumTopic",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "chat_id",
+                  "name"
+                ],
+                "properties": {
+                  "chat_id": {
+                    "oneOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "icon_color": {
+                    "type": "integer"
+                  },
+                  "icon_custom_emoji_id": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Forum topic created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForumTopicResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Forum"
+        ]
+      }
+    },
+    "/editForumTopic": {
+      "post": {
+        "summary": "Edit Forum Topic",
+        "description": "Use this method to edit name and icon of a topic in a forum supergroup chat or private chat.",
+        "operationId": "editForumTopic",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "chat_id",
+                  "message_thread_id"
+                ],
+                "properties": {
+                  "chat_id": {
+                    "oneOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_thread_id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "icon_custom_emoji_id": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Forum topic edited successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Forum"
+        ]
+      }
+    },
+    "/deleteForumTopic": {
+      "post": {
+        "summary": "Delete Forum Topic",
+        "description": "Use this method to delete a forum topic along with all its messages in a forum supergroup chat or private chat.",
+        "operationId": "deleteForumTopic",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "chat_id",
+                  "message_thread_id"
+                ],
+                "properties": {
+                  "chat_id": {
+                    "oneOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_thread_id": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Forum topic deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Forum"
+        ]
+      }
+    },
+    "/unpinAllForumTopicMessages": {
+      "post": {
+        "summary": "Unpin All Forum Topic Messages",
+        "description": "Use this method to clear the list of pinned messages in a forum topic.",
+        "operationId": "unpinAllForumTopicMessages",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "chat_id",
+                  "message_thread_id"
+                ],
+                "properties": {
+                  "chat_id": {
+                    "oneOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_thread_id": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Messages unpinned successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Forum"
+        ]
+      }
+    },
+    "/getUserGifts": {
+      "post": {
+        "summary": "Get User Gifts",
+        "description": "Use this method to get a list of gifts received by a user.",
+        "operationId": "getUserGifts",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "user_id"
+                ],
+                "properties": {
+                  "user_id": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "User gifts retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Gifts"
+        ]
+      }
+    },
+    "/getChatGifts": {
+      "post": {
+        "summary": "Get Chat Gifts",
+        "description": "Use this method to get a list of gifts received in a chat.",
+        "operationId": "getChatGifts",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "chat_id"
+                ],
+                "properties": {
+                  "chat_id": {
+                    "oneOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Chat gifts retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Gifts"
+        ]
+      }
+    },
+    "/getBusinessAccountGifts": {
+      "post": {
+        "summary": "Get Business Account Gifts",
+        "description": "Use this method to get a list of gifts associated with a business account.",
+        "operationId": "getBusinessAccountGifts",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "exclude_limited_upgradable": {
+                    "type": "boolean"
+                  },
+                  "exclude_limited_non_upgradable": {
+                    "type": "boolean"
+                  },
+                  "exclude_from_blockchain": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Business account gifts retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Gifts"
+        ]
+      }
+    },
+    "/getUserProfileAudios": {
+      "post": {
+        "summary": "Get User Profile Audios",
+        "description": "Use this method to fetch a list of audios added to the profile of a user.",
+        "operationId": "getUserProfileAudios",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "user_id"
+                ],
+                "properties": {
+                  "user_id": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "User profile audios retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/setMyProfilePhoto": {
+      "post": {
+        "summary": "Set Bot Profile Photo",
+        "description": "Use this method to change the bot's profile picture.",
+        "operationId": "setMyProfilePhoto",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "photo"
+                ],
+                "properties": {
+                  "photo": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Profile photo set successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Bot Management"
+        ]
+      }
+    },
+    "/removeMyProfilePhoto": {
+      "post": {
+        "summary": "Remove Bot Profile Photo",
+        "description": "Use this method to remove the bot's profile picture.",
+        "operationId": "removeMyProfilePhoto",
+        "responses": {
+          "200": {
+            "description": "Profile photo removed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Bot Management"
+        ]
+      }
+    },
+    "/repostStory": {
+      "post": {
+        "summary": "Repost Story",
+        "description": "Use this method to repost stories across different business accounts managed by the bot.",
+        "operationId": "repostStory",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "chat_id",
+                  "story_id"
+                ],
+                "properties": {
+                  "chat_id": {
+                    "oneOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "story_id": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Story reposted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Stories"
+        ]
+      }
+    },
+    "/approveSuggestedPost": {
+      "post": {
+        "summary": "Approve Suggested Post",
+        "description": "Use this method to approve an incoming suggested post.",
+        "operationId": "approveSuggestedPost",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "chat_id",
+                  "message_id"
+                ],
+                "properties": {
+                  "chat_id": {
+                    "oneOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_id": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Suggested post approved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Direct Messages"
+        ]
+      }
+    },
+    "/declineSuggestedPost": {
+      "post": {
+        "summary": "Decline Suggested Post",
+        "description": "Use this method to decline an incoming suggested post.",
+        "operationId": "declineSuggestedPost",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "chat_id",
+                  "message_id"
+                ],
+                "properties": {
+                  "chat_id": {
+                    "oneOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_id": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Suggested post declined successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Direct Messages"
+        ]
+      }
+    },
+    "/promoteChatMember": {
+      "post": {
+        "summary": "Promote Chat Member",
+        "description": "Use this method to promote or demote a user in a supergroup or a channel.",
+        "operationId": "promoteChatMember",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "chat_id",
+                  "user_id"
+                ],
+                "properties": {
+                  "chat_id": {
+                    "oneOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "user_id": {
+                    "type": "integer"
+                  },
+                  "can_manage_chat": {
+                    "type": "boolean"
+                  },
+                  "can_post_messages": {
+                    "type": "boolean"
+                  },
+                  "can_edit_messages": {
+                    "type": "boolean"
+                  },
+                  "can_delete_messages": {
+                    "type": "boolean"
+                  },
+                  "can_manage_direct_messages": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Chat member promoted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Chat Administration"
+        ]
+      }
+    },
+    "/sendChatAction": {
+      "post": {
+        "summary": "Send Chat Action",
+        "description": "Use this method when you need to tell the user that something is happening on the bot's side.",
+        "operationId": "sendChatAction",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "chat_id",
+                  "action"
+                ],
+                "properties": {
+                  "chat_id": {
+                    "oneOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_thread_id": {
+                    "type": "integer"
+                  },
+                  "action": {
+                    "type": "string",
+                    "enum": [
+                      "typing",
+                      "upload_photo",
+                      "record_video",
+                      "upload_video",
+                      "record_voice",
+                      "upload_voice",
+                      "upload_document",
+                      "choose_sticker",
+                      "find_location",
+                      "record_video_note",
+                      "upload_video_note"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Chat action sent successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Messages"
+        ]
+      }
+    },
+    "/getFile": {
+      "post": {
+        "summary": "Get File",
+        "description": "Use this method to get basic info about a file and prepare it for downloading.",
+        "operationId": "getFile",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "file_id"
+                ],
+                "properties": {
+                  "file_id": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "File info retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Files"
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "BotToken": {
+        "type": "apiKey",
+        "in": "path",
+        "name": "token",
+        "description": "Bot authentication token provided in the server URL path variable"
+      }
+    },
+    "schemas": {
+      "ApiResponse": {
+        "type": "object",
+        "required": [
+          "ok"
+        ],
+        "properties": {
+          "ok": {
+            "type": "boolean",
+            "description": "If true, the request was successful"
+          },
+          "result": {
+            "description": "The result of the query"
+          },
+          "description": {
+            "type": "string",
+            "description": "Human-readable description of the result"
+          },
+          "error_code": {
+            "type": "integer",
+            "description": "Error code"
+          },
+          "parameters": {
+            "$ref": "#/components/schemas/ResponseParameters"
+          }
+        }
+      },
+      "ResponseParameters": {
+        "type": "object",
+        "properties": {
+          "migrate_to_chat_id": {
+            "type": "integer"
+          },
+          "retry_after": {
+            "type": "integer"
+          }
+        }
+      },
+      "UpdatesResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApiResponse"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "result": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Update"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "MessageResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApiResponse"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "result": {
+                "$ref": "#/components/schemas/Message"
+              }
+            }
+          }
+        ]
+      },
+      "MessageIdResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApiResponse"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "result": {
+                "type": "object",
+                "properties": {
+                  "message_id": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "ForumTopicResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApiResponse"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "result": {
+                "$ref": "#/components/schemas/ForumTopic"
+              }
+            }
+          }
+        ]
+      },
+      "FileResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApiResponse"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "result": {
+                "$ref": "#/components/schemas/File"
+              }
+            }
+          }
+        ]
+      },
+      "Update": {
+        "type": "object",
+        "required": [
+          "update_id"
+        ],
+        "properties": {
+          "update_id": {
+            "type": "integer",
+            "description": "The update's unique identifier"
+          },
+          "message": {
+            "$ref": "#/components/schemas/Message"
+          },
+          "edited_message": {
+            "$ref": "#/components/schemas/Message"
+          },
+          "channel_post": {
+            "$ref": "#/components/schemas/Message"
+          },
+          "edited_channel_post": {
+            "$ref": "#/components/schemas/Message"
+          },
+          "business_connection": {
+            "$ref": "#/components/schemas/BusinessConnection"
+          },
+          "business_message": {
+            "$ref": "#/components/schemas/Message"
+          },
+          "edited_business_message": {
+            "$ref": "#/components/schemas/Message"
+          },
+          "deleted_business_messages": {
+            "$ref": "#/components/schemas/BusinessMessagesDeleted"
+          },
+          "message_reaction": {
+            "$ref": "#/components/schemas/MessageReactionUpdated"
+          },
+          "message_reaction_count": {
+            "$ref": "#/components/schemas/MessageReactionCountUpdated"
+          },
+          "inline_query": {
+            "$ref": "#/components/schemas/InlineQuery"
+          },
+          "chosen_inline_result": {
+            "$ref": "#/components/schemas/ChosenInlineResult"
+          }
+        }
+      },
+      "Message": {
+        "type": "object",
+        "required": [
+          "message_id",
+          "date",
+          "chat"
+        ],
+        "properties": {
+          "message_id": {
+            "type": "integer"
+          },
+          "message_thread_id": {
+            "type": "integer"
+          },
+          "from": {
+            "$ref": "#/components/schemas/User"
+          },
+          "date": {
+            "type": "integer"
+          },
+          "chat": {
+            "$ref": "#/components/schemas/Chat"
+          },
+          "text": {
+            "type": "string"
+          },
+          "is_topic_message": {
+            "type": "boolean"
+          },
+          "reply_to_message_id": {
+            "type": "integer"
+          },
+          "reply_to_checklist_task_id": {
+            "type": "integer"
+          },
+          "chat_owner_left": {
+            "$ref": "#/components/schemas/ChatOwnerLeft"
+          },
+          "chat_owner_changed": {
+            "$ref": "#/components/schemas/ChatOwnerChanged"
+          },
+          "gift_upgrade_sent": {
+            "type": "object"
+          },
+          "is_paid_post": {
+            "type": "boolean"
+          },
+          "suggested_post_info": {
+            "$ref": "#/components/schemas/SuggestedPostInfo"
+          },
+          "suggested_post_approved": {
+            "$ref": "#/components/schemas/SuggestedPostApproved"
+          },
+          "suggested_post_approval_failed": {
+            "$ref": "#/components/schemas/SuggestedPostApprovalFailed"
+          },
+          "suggested_post_declined": {
+            "$ref": "#/components/schemas/SuggestedPostDeclined"
+          },
+          "suggested_post_paid": {
+            "$ref": "#/components/schemas/SuggestedPostPaid"
+          },
+          "suggested_post_refunded": {
+            "$ref": "#/components/schemas/SuggestedPostRefunded"
+          },
+          "direct_messages_topic": {
+            "$ref": "#/components/schemas/DirectMessagesTopic"
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "required": [
+          "id",
+          "is_bot",
+          "first_name"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "is_bot": {
+            "type": "boolean"
+          },
+          "first_name": {
+            "type": "string"
+          },
+          "last_name": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "language_code": {
+            "type": "string"
+          },
+          "allows_users_to_create_topics": {
+            "type": "boolean"
+          },
+          "has_topics_enabled": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Chat": {
+        "type": "object",
+        "required": [
+          "id",
+          "type"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "private",
+              "group",
+              "supergroup",
+              "channel"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "first_name": {
+            "type": "string"
+          },
+          "last_name": {
+            "type": "string"
+          },
+          "is_direct_messages": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ChatFullInfo": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Chat"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "parent_chat": {
+                "$ref": "#/components/schemas/Chat"
+              },
+              "first_profile_audio": {
+                "type": "object"
+              },
+              "rating": {
+                "$ref": "#/components/schemas/UserRating"
+              },
+              "paid_message_star_count": {
+                "type": "integer"
+              },
+              "unique_gift_colors": {
+                "$ref": "#/components/schemas/UniqueGiftColors"
+              }
+            }
+          }
+        ]
+      },
+      "ForumTopic": {
+        "type": "object",
+        "required": [
+          "message_thread_id",
+          "name",
+          "icon_color"
+        ],
+        "properties": {
+          "message_thread_id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "icon_color": {
+            "type": "integer"
+          },
+          "icon_custom_emoji_id": {
+            "type": "string"
+          },
+          "is_name_implicit": {
+            "type": "boolean"
+          }
+        }
+      },
+      "BusinessConnection": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          }
+        }
+      },
+      "BusinessMessagesDeleted": {
+        "type": "object",
+        "properties": {
+          "business_connection_id": {
+            "type": "string"
+          },
+          "chat": {
+            "$ref": "#/components/schemas/Chat"
+          }
+        }
+      },
+      "MessageReactionUpdated": {
+        "type": "object",
+        "properties": {
+          "chat": {
+            "$ref": "#/components/schemas/Chat"
+          },
+          "message_id": {
+            "type": "integer"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          }
+        }
+      },
+      "MessageReactionCountUpdated": {
+        "type": "object",
+        "properties": {
+          "chat": {
+            "$ref": "#/components/schemas/Chat"
+          },
+          "message_id": {
+            "type": "integer"
+          }
+        }
+      },
+      "InlineQuery": {
+        "type": "object",
+        "required": [
+          "id",
+          "from",
+          "query",
+          "offset"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "from": {
+            "$ref": "#/components/schemas/User"
+          },
+          "query": {
+            "type": "string"
+          },
+          "offset": {
+            "type": "string"
+          }
+        }
+      },
+      "ChosenInlineResult": {
+        "type": "object",
+        "required": [
+          "result_id",
+          "from",
+          "query"
+        ],
+        "properties": {
+          "result_id": {
+            "type": "string"
+          },
+          "from": {
+            "$ref": "#/components/schemas/User"
+          },
+          "query": {
+            "type": "string"
+          }
+        }
+      },
+      "ChatOwnerLeft": {
+        "type": "object",
+        "description": "Service message about the chat owner leaving"
+      },
+      "ChatOwnerChanged": {
+        "type": "object",
+        "description": "Service message about the chat owner being changed"
+      },
+      "DirectMessagesTopic": {
+        "type": "object",
+        "properties": {
+          "topic_id": {
+            "type": "integer"
+          }
+        }
+      },
+      "SuggestedPostInfo": {
+        "type": "object",
+        "properties": {
+          "price": {
+            "$ref": "#/components/schemas/SuggestedPostPrice"
+          }
+        }
+      },
+      "SuggestedPostPrice": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "integer"
+          },
+          "currency": {
+            "type": "string"
+          }
+        }
+      },
+      "SuggestedPostApproved": {
+        "type": "object",
+        "description": "Service message about the approval of a suggested post"
+      },
+      "SuggestedPostApprovalFailed": {
+        "type": "object",
+        "description": "Service message about the failed approval of a suggested post"
+      },
+      "SuggestedPostDeclined": {
+        "type": "object",
+        "description": "Service message about the rejection of a suggested post"
+      },
+      "SuggestedPostPaid": {
+        "type": "object",
+        "description": "Service message about a successful payment for a suggested post"
+      },
+      "SuggestedPostRefunded": {
+        "type": "object",
+        "description": "Service message about a payment refund for a suggested post"
+      },
+      "UserRating": {
+        "type": "object",
+        "properties": {
+          "rating": {
+            "type": "number",
+            "format": "float"
+          }
+        }
+      },
+      "UniqueGiftColors": {
+        "type": "object",
+        "description": "Color scheme for a user's name, replies to messages and link previews based on a unique gift"
+      },
+      "File": {
+        "type": "object",
+        "required": [
+          "file_id",
+          "file_unique_id"
+        ],
+        "properties": {
+          "file_id": {
+            "type": "string"
+          },
+          "file_unique_id": {
+            "type": "string"
+          },
+          "file_size": {
+            "type": "integer"
+          },
+          "file_path": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Getting Updates",
+      "description": "Methods for receiving updates"
+    },
+    {
+      "name": "Messages",
+      "description": "Methods for sending and managing messages"
+    },
+    {
+      "name": "Forum",
+      "description": "Methods for managing forum topics"
+    },
+    {
+      "name": "Gifts",
+      "description": "Methods for managing gifts"
+    },
+    {
+      "name": "Users",
+      "description": "Methods for managing user information"
+    },
+    {
+      "name": "Bot Management",
+      "description": "Methods for managing bot settings"
+    },
+    {
+      "name": "Stories",
+      "description": "Methods for managing stories"
+    },
+    {
+      "name": "Direct Messages",
+      "description": "Methods for managing direct messages and suggested posts"
+    },
+    {
+      "name": "Chat Administration",
+      "description": "Methods for chat administration"
+    },
+    {
+      "name": "Files",
+      "description": "Methods for file management"
+    }
+  ]
+}

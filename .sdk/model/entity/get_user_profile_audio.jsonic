@@ -1,0 +1,62 @@
+# Entity: get_user_profile_audio
+
+main: kit: entity: get_user_profile_audio: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "description"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "error_code"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "ok"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "parameter"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "result"
+      req: false
+      type: "`$ANY`"
+    }
+    {
+      name: "user_id"
+      req: true
+      type: "`$INTEGER`"
+    }
+  ]
+
+  name: "get_user_profile_audio"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/getUserProfileAudios"
+          parts: [
+            "getUserProfileAudios"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

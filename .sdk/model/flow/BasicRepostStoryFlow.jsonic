@@ -1,0 +1,18 @@
+# BasicRepostStoryFlow
+
+main: kit: flow: BasicRepostStoryFlow:
+{
+  entity: "repost_story",
+  kind: "basic",
+  name: "BasicRepostStoryFlow",
+  step: [
+    {
+      input: {
+        ref: "repost_story_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicRepostStoryFlow"
+}

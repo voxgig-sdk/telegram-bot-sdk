@@ -1,0 +1,54 @@
+{
+  "existing": {
+    "update": {
+      "UPDATE00": {
+        "allowed_update": [],
+        "description": "s5b",
+        "error_code": "s5c",
+        "limit": "s5d",
+        "offset": "s5e",
+        "ok": false,
+        "parameter": {},
+        "result": [],
+        "timeout": "s62"
+      },
+      "UPDATE01": {
+        "allowed_update": [],
+        "description": "sb5",
+        "error_code": "sb6",
+        "limit": "sb7",
+        "offset": "sb8",
+        "ok": false,
+        "parameter": {},
+        "result": [],
+        "timeout": "sbc"
+      },
+      "UPDATE02": {
+        "allowed_update": [],
+        "description": "s10f",
+        "error_code": "s110",
+        "limit": "s111",
+        "offset": "s112",
+        "ok": false,
+        "parameter": {},
+        "result": [],
+        "timeout": "s116"
+      }
+    }
+  },
+  "new": {
+    "update": {
+      "update_ref01": {
+        "allowed_update": [],
+        "description": "s169",
+        "error_code": "s16a",
+        "limit": "s16b",
+        "offset": "s16c",
+        "ok": false,
+        "parameter": {},
+        "result": [],
+        "timeout": "s170"
+      }
+    }
+  }
+}

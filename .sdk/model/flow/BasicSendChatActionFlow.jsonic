@@ -1,0 +1,18 @@
+# BasicSendChatActionFlow
+
+main: kit: flow: BasicSendChatActionFlow:
+{
+  entity: "send_chat_action",
+  kind: "basic",
+  name: "BasicSendChatActionFlow",
+  step: [
+    {
+      input: {
+        ref: "send_chat_action_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicSendChatActionFlow"
+}

@@ -1,0 +1,67 @@
+# Entity: approve_suggested_post
+
+main: kit: entity: approve_suggested_post: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "chat_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "description"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "error_code"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "message_id"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "ok"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "parameter"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "result"
+      req: false
+      type: "`$ANY`"
+    }
+  ]
+
+  name: "approve_suggested_post"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/approveSuggestedPost"
+          parts: [
+            "approveSuggestedPost"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

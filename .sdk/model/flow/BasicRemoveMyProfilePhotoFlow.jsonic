@@ -1,0 +1,18 @@
+# BasicRemoveMyProfilePhotoFlow
+
+main: kit: flow: BasicRemoveMyProfilePhotoFlow:
+{
+  entity: "remove_my_profile_photo",
+  kind: "basic",
+  name: "BasicRemoveMyProfilePhotoFlow",
+  step: [
+    {
+      input: {
+        ref: "remove_my_profile_photo_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicRemoveMyProfilePhotoFlow"
+}

@@ -1,0 +1,62 @@
+# Entity: message_id
+
+main: kit: entity: message_id: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "chat_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "direct_messages_topic_id"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "from_chat_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "message_effect_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "message_id"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "message_thread_id"
+      req: false
+      type: "`$INTEGER`"
+    }
+  ]
+
+  name: "message_id"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/copyMessage"
+          parts: [
+            "copyMessage"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

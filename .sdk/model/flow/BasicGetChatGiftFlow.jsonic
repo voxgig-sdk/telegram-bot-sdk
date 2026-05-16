@@ -1,0 +1,18 @@
+# BasicGetChatGiftFlow
+
+main: kit: flow: BasicGetChatGiftFlow:
+{
+  entity: "get_chat_gift",
+  kind: "basic",
+  name: "BasicGetChatGiftFlow",
+  step: [
+    {
+      input: {
+        ref: "get_chat_gift_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicGetChatGiftFlow"
+}

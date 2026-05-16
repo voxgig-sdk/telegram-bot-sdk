@@ -1,0 +1,18 @@
+# BasicUnpinAllForumTopicMessageFlow
+
+main: kit: flow: BasicUnpinAllForumTopicMessageFlow:
+{
+  entity: "unpin_all_forum_topic_message",
+  kind: "basic",
+  name: "BasicUnpinAllForumTopicMessageFlow",
+  step: [
+    {
+      input: {
+        ref: "unpin_all_forum_topic_message_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicUnpinAllForumTopicMessageFlow"
+}

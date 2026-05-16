@@ -1,0 +1,163 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 21
+  metrics: count: path: 30
+  metrics: count: method: 32
+
+  entity: approve_suggested_post: {
+    path: "/approveSuggestedPost": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: decline_suggested_post: {
+    path: "/declineSuggestedPost": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: delete_forum_topic: {
+    path: "/deleteForumTopic": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: edit_forum_topic: {
+    path: "/editForumTopic": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: file: {
+    path: "/getFile": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: forum_topic: {
+    path: "/createForumTopic": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: get_business_account_gift: {
+    path: "/getBusinessAccountGifts": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: get_chat_gift: {
+    path: "/getChatGifts": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: get_me: {
+    path: "/getMe": {
+      op: create: method: *POST
+      op: load: method: *GET
+    }
+  }
+
+  entity: get_user_gift: {
+    path: "/getUserGifts": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: get_user_profile_audio: {
+    path: "/getUserProfileAudios": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: message: {
+    path: "/forwardMessage": {
+      op: create: method: *POST
+    }
+    path: "/sendAnimation": {
+      op: create: method: *POST
+    }
+    path: "/sendAudio": {
+      op: create: method: *POST
+    }
+    path: "/sendDocument": {
+      op: create: method: *POST
+    }
+    path: "/sendLocation": {
+      op: create: method: *POST
+    }
+    path: "/sendMessage": {
+      op: create: method: *POST
+    }
+    path: "/sendPhoto": {
+      op: create: method: *POST
+    }
+    path: "/sendPoll": {
+      op: create: method: *POST
+    }
+    path: "/sendSticker": {
+      op: create: method: *POST
+    }
+    path: "/sendVideo": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: message_id: {
+    path: "/copyMessage": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: promote_chat_member: {
+    path: "/promoteChatMember": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: remove_my_profile_photo: {
+    path: "/removeMyProfilePhoto": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: repost_story: {
+    path: "/repostStory": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: send_chat_action: {
+    path: "/sendChatAction": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: send_message_draft: {
+    path: "/sendMessageDraft": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: set_my_profile_photo: {
+    path: "/setMyProfilePhoto": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: unpin_all_forum_topic_message: {
+    path: "/unpinAllForumTopicMessages": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: update: {
+    path: "/getUpdates": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+  }
+
+}

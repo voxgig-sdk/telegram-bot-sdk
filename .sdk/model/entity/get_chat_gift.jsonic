@@ -1,0 +1,62 @@
+# Entity: get_chat_gift
+
+main: kit: entity: get_chat_gift: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "chat_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "description"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "error_code"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "ok"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "parameter"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "result"
+      req: false
+      type: "`$ANY`"
+    }
+  ]
+
+  name: "get_chat_gift"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/getChatGifts"
+          parts: [
+            "getChatGifts"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

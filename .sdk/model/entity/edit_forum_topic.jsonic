@@ -1,0 +1,77 @@
+# Entity: edit_forum_topic
+
+main: kit: entity: edit_forum_topic: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "chat_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "description"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "error_code"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "icon_custom_emoji_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "message_thread_id"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "ok"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "parameter"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "result"
+      req: false
+      type: "`$ANY`"
+    }
+  ]
+
+  name: "edit_forum_topic"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/editForumTopic"
+          parts: [
+            "editForumTopic"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

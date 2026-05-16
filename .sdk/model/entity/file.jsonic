@@ -1,0 +1,37 @@
+# Entity: file
+
+main: kit: entity: file: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "file_id"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "file"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/getFile"
+          parts: [
+            "getFile"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

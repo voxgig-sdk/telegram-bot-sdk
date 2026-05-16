@@ -1,0 +1,34 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "Telegram Bot API Documentation"
+        url: "https://core.telegram.org/bots/api"
+      }
+      description: "The Bot API is an HTTP-based interface created for developers keen on building bots for Telegram."
+      license: {
+        name: "Telegram Bot API License"
+        url: "https://core.telegram.org/bots/api"
+      }
+      servers: [
+        {
+          description: "Telegram Bot API Server"
+          url: "https://api.telegram.org/bot{token}"
+          variables: {
+            token: {
+              default: ""
+              description: "Bot authentication token obtained from BotFather"
+            }
+          }
+        }
+      ]
+      title: "Telegram Bot API"
+      version: "9.4"
+    }
+  }
+}
+
+}

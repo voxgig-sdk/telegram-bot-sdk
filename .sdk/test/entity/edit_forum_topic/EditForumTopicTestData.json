@@ -1,0 +1,54 @@
+{
+  "existing": {
+    "edit_forum_topic": {
+      "EDIT_FORUM_TOPIC00": {
+        "chat_id": "CHAT01",
+        "description": "s5b",
+        "error_code": "s5c",
+        "icon_custom_emoji_id": "ICON_CUSTOM_EMOJI01",
+        "message_thread_id": "MESSAGE_THREAD01",
+        "name": "s5f",
+        "ok": true,
+        "parameter": {},
+        "result": "s62"
+      },
+      "EDIT_FORUM_TOPIC01": {
+        "chat_id": "CHAT01",
+        "description": "sb5",
+        "error_code": "sb6",
+        "icon_custom_emoji_id": "ICON_CUSTOM_EMOJI01",
+        "message_thread_id": "MESSAGE_THREAD01",
+        "name": "sb9",
+        "ok": true,
+        "parameter": {},
+        "result": "sbc"
+      },
+      "EDIT_FORUM_TOPIC02": {
+        "chat_id": "CHAT01",
+        "description": "s10f",
+        "error_code": "s110",
+        "icon_custom_emoji_id": "ICON_CUSTOM_EMOJI01",
+        "message_thread_id": "MESSAGE_THREAD01",
+        "name": "s113",
+        "ok": true,
+        "parameter": {},
+        "result": "s116"
+      }
+    }
+  },
+  "new": {
+    "edit_forum_topic": {
+      "edit_forum_topic_ref01": {
+        "chat_id": "CHAT01",
+        "description": "s169",
+        "error_code": "s16a",
+        "icon_custom_emoji_id": "ICON_CUSTOM_EMOJI01",
+        "message_thread_id": "MESSAGE_THREAD01",
+        "name": "s16d",
+        "ok": true,
+        "parameter": {},
+        "result": "s170"
+      }
+    }
+  }
+}

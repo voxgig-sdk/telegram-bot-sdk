@@ -1,0 +1,46 @@
+{
+  "existing": {
+    "unpin_all_forum_topic_message": {
+      "UNPIN_ALL_FORUM_TOPIC_MESSAGE00": {
+        "chat_id": "CHAT01",
+        "description": "s47",
+        "error_code": "s48",
+        "message_thread_id": "MESSAGE_THREAD01",
+        "ok": true,
+        "parameter": {},
+        "result": "s4c"
+      },
+      "UNPIN_ALL_FORUM_TOPIC_MESSAGE01": {
+        "chat_id": "CHAT01",
+        "description": "s8d",
+        "error_code": "s8e",
+        "message_thread_id": "MESSAGE_THREAD01",
+        "ok": true,
+        "parameter": {},
+        "result": "s92"
+      },
+      "UNPIN_ALL_FORUM_TOPIC_MESSAGE02": {
+        "chat_id": "CHAT01",
+        "description": "sd3",
+        "error_code": "sd4",
+        "message_thread_id": "MESSAGE_THREAD01",
+        "ok": true,
+        "parameter": {},
+        "result": "sd8"
+      }
+    }
+  },
+  "new": {
+    "unpin_all_forum_topic_message": {
+      "unpin_all_forum_topic_message_ref01": {
+        "chat_id": "CHAT01",
+        "description": "s119",
+        "error_code": "s11a",
+        "message_thread_id": "MESSAGE_THREAD01",
+        "ok": true,
+        "parameter": {},
+        "result": "s11e"
+      }
+    }
+  }
+}

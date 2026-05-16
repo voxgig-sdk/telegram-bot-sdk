@@ -1,0 +1,18 @@
+# BasicMessageIdFlow
+
+main: kit: flow: BasicMessageIdFlow:
+{
+  entity: "message_id",
+  kind: "basic",
+  name: "BasicMessageIdFlow",
+  step: [
+    {
+      input: {
+        ref: "message_id_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicMessageIdFlow"
+}

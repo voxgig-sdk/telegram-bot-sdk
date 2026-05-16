@@ -1,0 +1,42 @@
+{
+  "existing": {
+    "message_id": {
+      "MESSAGE_ID00": {
+        "chat_id": "CHAT01",
+        "direct_messages_topic_id": "DIRECT_MESSAGES_TOPIC01",
+        "from_chat_id": "FROM_CHAT01",
+        "message_effect_id": "MESSAGE_EFFECT01",
+        "message_id": "MESSAGE01",
+        "message_thread_id": "MESSAGE_THREAD01"
+      },
+      "MESSAGE_ID01": {
+        "chat_id": "CHAT01",
+        "direct_messages_topic_id": "DIRECT_MESSAGES_TOPIC01",
+        "from_chat_id": "FROM_CHAT01",
+        "message_effect_id": "MESSAGE_EFFECT01",
+        "message_id": "MESSAGE01",
+        "message_thread_id": "MESSAGE_THREAD01"
+      },
+      "MESSAGE_ID02": {
+        "chat_id": "CHAT01",
+        "direct_messages_topic_id": "DIRECT_MESSAGES_TOPIC01",
+        "from_chat_id": "FROM_CHAT01",
+        "message_effect_id": "MESSAGE_EFFECT01",
+        "message_id": "MESSAGE01",
+        "message_thread_id": "MESSAGE_THREAD01"
+      }
+    }
+  },
+  "new": {
+    "message_id": {
+      "message_id_ref01": {
+        "chat_id": "CHAT01",
+        "direct_messages_topic_id": "DIRECT_MESSAGES_TOPIC01",
+        "from_chat_id": "FROM_CHAT01",
+        "message_effect_id": "MESSAGE_EFFECT01",
+        "message_id": "MESSAGE01",
+        "message_thread_id": "MESSAGE_THREAD01"
+      }
+    }
+  }
+}

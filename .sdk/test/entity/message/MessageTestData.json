@@ -1,0 +1,82 @@
+{
+  "existing": {
+    "message": {
+      "MESSAGE00": {
+        "chat_id": "CHAT01",
+        "direct_messages_topic_id": "DIRECT_MESSAGES_TOPIC01",
+        "disable_notification": true,
+        "disable_web_page_preview": false,
+        "from_chat_id": "FROM_CHAT01",
+        "latitude": 165,
+        "longitude": 166,
+        "message_effect_id": "MESSAGE_EFFECT01",
+        "message_id": "MESSAGE01",
+        "message_thread_id": "MESSAGE_THREAD01",
+        "option": [],
+        "parse_mode": "sab",
+        "protect_content": true,
+        "question": "sad",
+        "reply_to_message_id": "REPLY_TO_MESSAGE01",
+        "text": "saf"
+      },
+      "MESSAGE01": {
+        "chat_id": "CHAT01",
+        "direct_messages_topic_id": "DIRECT_MESSAGES_TOPIC01",
+        "disable_notification": true,
+        "disable_web_page_preview": false,
+        "from_chat_id": "FROM_CHAT01",
+        "latitude": 325,
+        "longitude": 326,
+        "message_effect_id": "MESSAGE_EFFECT01",
+        "message_id": "MESSAGE01",
+        "message_thread_id": "MESSAGE_THREAD01",
+        "option": [],
+        "parse_mode": "s14b",
+        "protect_content": true,
+        "question": "s14d",
+        "reply_to_message_id": "REPLY_TO_MESSAGE01",
+        "text": "s14f"
+      },
+      "MESSAGE02": {
+        "chat_id": "CHAT01",
+        "direct_messages_topic_id": "DIRECT_MESSAGES_TOPIC01",
+        "disable_notification": true,
+        "disable_web_page_preview": false,
+        "from_chat_id": "FROM_CHAT01",
+        "latitude": 485,
+        "longitude": 486,
+        "message_effect_id": "MESSAGE_EFFECT01",
+        "message_id": "MESSAGE01",
+        "message_thread_id": "MESSAGE_THREAD01",
+        "option": [],
+        "parse_mode": "s1eb",
+        "protect_content": true,
+        "question": "s1ed",
+        "reply_to_message_id": "REPLY_TO_MESSAGE01",
+        "text": "s1ef"
+      }
+    }
+  },
+  "new": {
+    "message": {
+      "message_ref01": {
+        "chat_id": "CHAT01",
+        "direct_messages_topic_id": "DIRECT_MESSAGES_TOPIC01",
+        "disable_notification": true,
+        "disable_web_page_preview": false,
+        "from_chat_id": "FROM_CHAT01",
+        "latitude": 645,
+        "longitude": 646,
+        "message_effect_id": "MESSAGE_EFFECT01",
+        "message_id": "MESSAGE01",
+        "message_thread_id": "MESSAGE_THREAD01",
+        "option": [],
+        "parse_mode": "s28b",
+        "protect_content": true,
+        "question": "s28d",
+        "reply_to_message_id": "REPLY_TO_MESSAGE01",
+        "text": "s28f"
+      }
+    }
+  }
+}

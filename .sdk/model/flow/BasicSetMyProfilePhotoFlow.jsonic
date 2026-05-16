@@ -1,0 +1,18 @@
+# BasicSetMyProfilePhotoFlow
+
+main: kit: flow: BasicSetMyProfilePhotoFlow:
+{
+  entity: "set_my_profile_photo",
+  kind: "basic",
+  name: "BasicSetMyProfilePhotoFlow",
+  step: [
+    {
+      input: {
+        ref: "set_my_profile_photo_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicSetMyProfilePhotoFlow"
+}

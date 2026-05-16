@@ -1,0 +1,18 @@
+# BasicGetUserGiftFlow
+
+main: kit: flow: BasicGetUserGiftFlow:
+{
+  entity: "get_user_gift",
+  kind: "basic",
+  name: "BasicGetUserGiftFlow",
+  step: [
+    {
+      input: {
+        ref: "get_user_gift_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicGetUserGiftFlow"
+}

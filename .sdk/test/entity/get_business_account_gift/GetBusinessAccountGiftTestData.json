@@ -1,0 +1,50 @@
+{
+  "existing": {
+    "get_business_account_gift": {
+      "GET_BUSINESS_ACCOUNT_GIFT00": {
+        "description": "s50",
+        "error_code": "s51",
+        "exclude_from_blockchain": true,
+        "exclude_limited_non_upgradable": false,
+        "exclude_limited_upgradable": true,
+        "ok": false,
+        "parameter": {},
+        "result": "s57"
+      },
+      "GET_BUSINESS_ACCOUNT_GIFT01": {
+        "description": "sa0",
+        "error_code": "sa1",
+        "exclude_from_blockchain": true,
+        "exclude_limited_non_upgradable": false,
+        "exclude_limited_upgradable": true,
+        "ok": false,
+        "parameter": {},
+        "result": "sa7"
+      },
+      "GET_BUSINESS_ACCOUNT_GIFT02": {
+        "description": "sf0",
+        "error_code": "sf1",
+        "exclude_from_blockchain": true,
+        "exclude_limited_non_upgradable": false,
+        "exclude_limited_upgradable": true,
+        "ok": false,
+        "parameter": {},
+        "result": "sf7"
+      }
+    }
+  },
+  "new": {
+    "get_business_account_gift": {
+      "get_business_account_gift_ref01": {
+        "description": "s140",
+        "error_code": "s141",
+        "exclude_from_blockchain": true,
+        "exclude_limited_non_upgradable": false,
+        "exclude_limited_upgradable": true,
+        "ok": false,
+        "parameter": {},
+        "result": "s147"
+      }
+    }
+  }
+}

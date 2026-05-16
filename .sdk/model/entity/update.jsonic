@@ -1,0 +1,135 @@
+# Entity: update
+
+main: kit: entity: update: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "allowed_update"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "description"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "error_code"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "limit"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "offset"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "ok"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "parameter"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "result"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "timeout"
+      req: false
+      type: "`$INTEGER`"
+    }
+  ]
+
+  name: "update"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/getUpdates"
+          parts: [
+            "getUpdates"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "allowed_update"
+                orig: "allowed_update"
+                reqd: false
+                type: "`$ARRAY`"
+              }
+              {
+                example: 100
+                kind: "query"
+                name: "limit"
+                orig: "limit"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "offset"
+                orig: "offset"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 0
+                kind: "query"
+                name: "timeout"
+                orig: "timeout"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/getUpdates"
+          parts: [
+            "getUpdates"
+          ]
+          select: {
+            exist: [
+              "allowed_update"
+              "limit"
+              "offset"
+              "timeout"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

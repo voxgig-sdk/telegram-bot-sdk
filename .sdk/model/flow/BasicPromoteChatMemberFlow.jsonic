@@ -1,0 +1,18 @@
+# BasicPromoteChatMemberFlow
+
+main: kit: flow: BasicPromoteChatMemberFlow:
+{
+  entity: "promote_chat_member",
+  kind: "basic",
+  name: "BasicPromoteChatMemberFlow",
+  step: [
+    {
+      input: {
+        ref: "promote_chat_member_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicPromoteChatMemberFlow"
+}

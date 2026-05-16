@@ -1,0 +1,34 @@
+{
+  "existing": {
+    "forum_topic": {
+      "FORUM_TOPIC00": {
+        "chat_id": "CHAT01",
+        "icon_color": "s29",
+        "icon_custom_emoji_id": "ICON_CUSTOM_EMOJI01",
+        "name": "s2b"
+      },
+      "FORUM_TOPIC01": {
+        "chat_id": "CHAT01",
+        "icon_color": "s51",
+        "icon_custom_emoji_id": "ICON_CUSTOM_EMOJI01",
+        "name": "s53"
+      },
+      "FORUM_TOPIC02": {
+        "chat_id": "CHAT01",
+        "icon_color": "s79",
+        "icon_custom_emoji_id": "ICON_CUSTOM_EMOJI01",
+        "name": "s7b"
+      }
+    }
+  },
+  "new": {
+    "forum_topic": {
+      "forum_topic_ref01": {
+        "chat_id": "CHAT01",
+        "icon_color": "sa1",
+        "icon_custom_emoji_id": "ICON_CUSTOM_EMOJI01",
+        "name": "sa3"
+      }
+    }
+  }
+}

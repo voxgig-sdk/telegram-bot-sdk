@@ -1,0 +1,18 @@
+# BasicSendMessageDraftFlow
+
+main: kit: flow: BasicSendMessageDraftFlow:
+{
+  entity: "send_message_draft",
+  kind: "basic",
+  name: "BasicSendMessageDraftFlow",
+  step: [
+    {
+      input: {
+        ref: "send_message_draft_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicSendMessageDraftFlow"
+}

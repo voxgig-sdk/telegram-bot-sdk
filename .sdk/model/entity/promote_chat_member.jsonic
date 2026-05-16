@@ -1,0 +1,92 @@
+# Entity: promote_chat_member
+
+main: kit: entity: promote_chat_member: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "can_delete_message"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "can_edit_message"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "can_manage_chat"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "can_manage_direct_message"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "can_post_message"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "chat_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "description"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "error_code"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "ok"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "parameter"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "result"
+      req: false
+      type: "`$ANY`"
+    }
+    {
+      name: "user_id"
+      req: true
+      type: "`$INTEGER`"
+    }
+  ]
+
+  name: "promote_chat_member"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/promoteChatMember"
+          parts: [
+            "promoteChatMember"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

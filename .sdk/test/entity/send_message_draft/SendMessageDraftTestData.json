@@ -1,0 +1,50 @@
+{
+  "existing": {
+    "send_message_draft": {
+      "SEND_MESSAGE_DRAFT00": {
+        "chat_id": "CHAT01",
+        "description": "s51",
+        "error_code": "s52",
+        "message_thread_id": "MESSAGE_THREAD01",
+        "ok": true,
+        "parameter": {},
+        "result": "s56",
+        "text": "s57"
+      },
+      "SEND_MESSAGE_DRAFT01": {
+        "chat_id": "CHAT01",
+        "description": "sa1",
+        "error_code": "sa2",
+        "message_thread_id": "MESSAGE_THREAD01",
+        "ok": true,
+        "parameter": {},
+        "result": "sa6",
+        "text": "sa7"
+      },
+      "SEND_MESSAGE_DRAFT02": {
+        "chat_id": "CHAT01",
+        "description": "sf1",
+        "error_code": "sf2",
+        "message_thread_id": "MESSAGE_THREAD01",
+        "ok": true,
+        "parameter": {},
+        "result": "sf6",
+        "text": "sf7"
+      }
+    }
+  },
+  "new": {
+    "send_message_draft": {
+      "send_message_draft_ref01": {
+        "chat_id": "CHAT01",
+        "description": "s141",
+        "error_code": "s142",
+        "message_thread_id": "MESSAGE_THREAD01",
+        "ok": true,
+        "parameter": {},
+        "result": "s146",
+        "text": "s147"
+      }
+    }
+  }
+}

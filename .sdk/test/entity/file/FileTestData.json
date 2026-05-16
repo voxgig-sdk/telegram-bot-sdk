@@ -1,0 +1,22 @@
+{
+  "existing": {
+    "file": {
+      "FILE00": {
+        "file_id": "FILE01"
+      },
+      "FILE01": {
+        "file_id": "FILE01"
+      },
+      "FILE02": {
+        "file_id": "FILE01"
+      }
+    }
+  },
+  "new": {
+    "file": {
+      "file_ref01": {
+        "file_id": "FILE01"
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+# BasicGetMeFlow
+
+main: kit: flow: BasicGetMeFlow:
+{
+  entity: "get_me",
+  kind: "basic",
+  name: "BasicGetMeFlow",
+  step: [
+    {
+      input: {
+        ref: "get_me_ref01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "get_me_ref01",
+        srcdatavar: "get_me_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-get_me_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGetMeFlow"
+}

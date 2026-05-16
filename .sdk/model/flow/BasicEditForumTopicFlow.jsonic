@@ -1,0 +1,18 @@
+# BasicEditForumTopicFlow
+
+main: kit: flow: BasicEditForumTopicFlow:
+{
+  entity: "edit_forum_topic",
+  kind: "basic",
+  name: "BasicEditForumTopicFlow",
+  step: [
+    {
+      input: {
+        ref: "edit_forum_topic_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicEditForumTopicFlow"
+}

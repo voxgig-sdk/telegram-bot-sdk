@@ -1,0 +1,18 @@
+# BasicApproveSuggestedPostFlow
+
+main: kit: flow: BasicApproveSuggestedPostFlow:
+{
+  entity: "approve_suggested_post",
+  kind: "basic",
+  name: "BasicApproveSuggestedPostFlow",
+  step: [
+    {
+      input: {
+        ref: "approve_suggested_post_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicApproveSuggestedPostFlow"
+}

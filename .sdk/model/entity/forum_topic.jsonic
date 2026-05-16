@@ -1,0 +1,52 @@
+# Entity: forum_topic
+
+main: kit: entity: forum_topic: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "chat_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "icon_color"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "icon_custom_emoji_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "forum_topic"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/createForumTopic"
+          parts: [
+            "createForumTopic"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

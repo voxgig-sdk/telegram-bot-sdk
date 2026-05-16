@@ -1,0 +1,42 @@
+{
+  "existing": {
+    "get_user_profile_audio": {
+      "GET_USER_PROFILE_AUDIO00": {
+        "description": "s3c",
+        "error_code": "s3d",
+        "ok": true,
+        "parameter": {},
+        "result": "s40",
+        "user_id": "USER01"
+      },
+      "GET_USER_PROFILE_AUDIO01": {
+        "description": "s78",
+        "error_code": "s79",
+        "ok": true,
+        "parameter": {},
+        "result": "s7c",
+        "user_id": "USER01"
+      },
+      "GET_USER_PROFILE_AUDIO02": {
+        "description": "sb4",
+        "error_code": "sb5",
+        "ok": true,
+        "parameter": {},
+        "result": "sb8",
+        "user_id": "USER01"
+      }
+    }
+  },
+  "new": {
+    "get_user_profile_audio": {
+      "get_user_profile_audio_ref01": {
+        "description": "sf0",
+        "error_code": "sf1",
+        "ok": true,
+        "parameter": {},
+        "result": "sf4",
+        "user_id": "USER01"
+      }
+    }
+  }
+}

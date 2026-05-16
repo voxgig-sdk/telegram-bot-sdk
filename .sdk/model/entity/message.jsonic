@@ -1,0 +1,211 @@
+# Entity: message
+
+main: kit: entity: message: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "chat_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "direct_messages_topic_id"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "disable_notification"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "disable_web_page_preview"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "from_chat_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "latitude"
+      req: true
+      type: "`$NUMBER`"
+    }
+    {
+      name: "longitude"
+      req: true
+      type: "`$NUMBER`"
+    }
+    {
+      name: "message_effect_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "message_id"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "message_thread_id"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "option"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      name: "parse_mode"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "protect_content"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "question"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "reply_to_message_id"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "text"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "message"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/forwardMessage"
+          parts: [
+            "forwardMessage"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "POST"
+          orig: "/sendAnimation"
+          parts: [
+            "sendAnimation"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "POST"
+          orig: "/sendAudio"
+          parts: [
+            "sendAudio"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "POST"
+          orig: "/sendDocument"
+          parts: [
+            "sendDocument"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "POST"
+          orig: "/sendLocation"
+          parts: [
+            "sendLocation"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "POST"
+          orig: "/sendMessage"
+          parts: [
+            "sendMessage"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "POST"
+          orig: "/sendPhoto"
+          parts: [
+            "sendPhoto"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "POST"
+          orig: "/sendPoll"
+          parts: [
+            "sendPoll"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "POST"
+          orig: "/sendSticker"
+          parts: [
+            "sendSticker"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "POST"
+          orig: "/sendVideo"
+          parts: [
+            "sendVideo"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
