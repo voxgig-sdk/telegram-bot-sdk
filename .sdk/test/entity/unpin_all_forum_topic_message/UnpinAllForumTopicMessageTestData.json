@@ -8,7 +8,8 @@
         "message_thread_id": "MESSAGE_THREAD01",
         "ok": true,
         "parameter": {},
-        "result": "s4c"
+        "result": "s4c",
+        "id": "UNPIN_ALL_FORUM_TOPIC_MESSAGE00"
       },
       "UNPIN_ALL_FORUM_TOPIC_MESSAGE01": {
         "chat_id": "CHAT01",
@@ -17,7 +18,8 @@
         "message_thread_id": "MESSAGE_THREAD01",
         "ok": true,
         "parameter": {},
-        "result": "s92"
+        "result": "s92",
+        "id": "UNPIN_ALL_FORUM_TOPIC_MESSAGE01"
       },
       "UNPIN_ALL_FORUM_TOPIC_MESSAGE02": {
         "chat_id": "CHAT01",
@@ -26,7 +28,8 @@
         "message_thread_id": "MESSAGE_THREAD01",
         "ok": true,
         "parameter": {},
-        "result": "sd8"
+        "result": "sd8",
+        "id": "UNPIN_ALL_FORUM_TOPIC_MESSAGE02"
       }
     }
   },

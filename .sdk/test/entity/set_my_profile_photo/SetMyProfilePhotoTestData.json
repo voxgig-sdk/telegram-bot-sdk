@@ -6,21 +6,24 @@
         "error_code": "s33",
         "ok": true,
         "parameter": {},
-        "result": "s36"
+        "result": "s36",
+        "id": "SET_MY_PROFILE_PHOTO00"
       },
       "SET_MY_PROFILE_PHOTO01": {
         "description": "s64",
         "error_code": "s65",
         "ok": true,
         "parameter": {},
-        "result": "s68"
+        "result": "s68",
+        "id": "SET_MY_PROFILE_PHOTO01"
       },
       "SET_MY_PROFILE_PHOTO02": {
         "description": "s96",
         "error_code": "s97",
         "ok": true,
         "parameter": {},
-        "result": "s9a"
+        "result": "s9a",
+        "id": "SET_MY_PROFILE_PHOTO02"
       }
     }
   },

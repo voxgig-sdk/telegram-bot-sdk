@@ -7,7 +7,8 @@
         "from_chat_id": "FROM_CHAT01",
         "message_effect_id": "MESSAGE_EFFECT01",
         "message_id": "MESSAGE01",
-        "message_thread_id": "MESSAGE_THREAD01"
+        "message_thread_id": "MESSAGE_THREAD01",
+        "id": "MESSAGE_ID00"
       },
       "MESSAGE_ID01": {
         "chat_id": "CHAT01",
@@ -15,7 +16,8 @@
         "from_chat_id": "FROM_CHAT01",
         "message_effect_id": "MESSAGE_EFFECT01",
         "message_id": "MESSAGE01",
-        "message_thread_id": "MESSAGE_THREAD01"
+        "message_thread_id": "MESSAGE_THREAD01",
+        "id": "MESSAGE_ID01"
       },
       "MESSAGE_ID02": {
         "chat_id": "CHAT01",
@@ -23,7 +25,8 @@
         "from_chat_id": "FROM_CHAT01",
         "message_effect_id": "MESSAGE_EFFECT01",
         "message_id": "MESSAGE01",
-        "message_thread_id": "MESSAGE_THREAD01"
+        "message_thread_id": "MESSAGE_THREAD01",
+        "id": "MESSAGE_ID02"
       }
     }
   },

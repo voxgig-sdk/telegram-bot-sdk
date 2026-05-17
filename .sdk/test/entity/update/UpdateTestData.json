@@ -10,7 +10,8 @@
         "ok": false,
         "parameter": {},
         "result": [],
-        "timeout": "s62"
+        "timeout": "s62",
+        "id": "UPDATE00"
       },
       "UPDATE01": {
         "allowed_update": [],
@@ -21,7 +22,8 @@
         "ok": false,
         "parameter": {},
         "result": [],
-        "timeout": "sbc"
+        "timeout": "sbc",
+        "id": "UPDATE01"
       },
       "UPDATE02": {
         "allowed_update": [],
@@ -32,7 +34,8 @@
         "ok": false,
         "parameter": {},
         "result": [],
-        "timeout": "s116"
+        "timeout": "s116",
+        "id": "UPDATE02"
       }
     }
   },

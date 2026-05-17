@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/telegram-bot-sdk"
-	"github.com/voxgig-sdk/telegram-bot-sdk/core"
+	sdk "github.com/voxgig-sdk/telegram-bot-sdk/go"
+	"github.com/voxgig-sdk/telegram-bot-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/telegram-bot-sdk/go/utility/struct"
 )
 
 func TestDeleteForumTopicEntity(t *testing.T) {

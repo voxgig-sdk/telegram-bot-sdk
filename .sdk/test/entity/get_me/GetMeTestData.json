@@ -6,21 +6,24 @@
         "error_code": "s33",
         "ok": true,
         "parameter": {},
-        "result": "s36"
+        "result": "s36",
+        "id": "GET_ME00"
       },
       "GET_ME01": {
         "description": "s64",
         "error_code": "s65",
         "ok": true,
         "parameter": {},
-        "result": "s68"
+        "result": "s68",
+        "id": "GET_ME01"
       },
       "GET_ME02": {
         "description": "s96",
         "error_code": "s97",
         "ok": true,
         "parameter": {},
-        "result": "s9a"
+        "result": "s9a",
+        "id": "GET_ME02"
       }
     }
   },

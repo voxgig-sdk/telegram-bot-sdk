@@ -5,19 +5,22 @@
         "chat_id": "CHAT01",
         "icon_color": "s29",
         "icon_custom_emoji_id": "ICON_CUSTOM_EMOJI01",
-        "name": "s2b"
+        "name": "s2b",
+        "id": "FORUM_TOPIC00"
       },
       "FORUM_TOPIC01": {
         "chat_id": "CHAT01",
         "icon_color": "s51",
         "icon_custom_emoji_id": "ICON_CUSTOM_EMOJI01",
-        "name": "s53"
+        "name": "s53",
+        "id": "FORUM_TOPIC01"
       },
       "FORUM_TOPIC02": {
         "chat_id": "CHAT01",
         "icon_color": "s79",
         "icon_custom_emoji_id": "ICON_CUSTOM_EMOJI01",
-        "name": "s7b"
+        "name": "s7b",
+        "id": "FORUM_TOPIC02"
       }
     }
   },

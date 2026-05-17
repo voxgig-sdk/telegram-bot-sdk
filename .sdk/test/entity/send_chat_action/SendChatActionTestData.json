@@ -9,7 +9,8 @@
         "message_thread_id": "MESSAGE_THREAD01",
         "ok": false,
         "parameter": {},
-        "result": "s57"
+        "result": "s57",
+        "id": "SEND_CHAT_ACTION00"
       },
       "SEND_CHAT_ACTION01": {
         "action": "sa0",
@@ -19,7 +20,8 @@
         "message_thread_id": "MESSAGE_THREAD01",
         "ok": false,
         "parameter": {},
-        "result": "sa7"
+        "result": "sa7",
+        "id": "SEND_CHAT_ACTION01"
       },
       "SEND_CHAT_ACTION02": {
         "action": "sf0",
@@ -29,7 +31,8 @@
         "message_thread_id": "MESSAGE_THREAD01",
         "ok": false,
         "parameter": {},
-        "result": "sf7"
+        "result": "sf7",
+        "id": "SEND_CHAT_ACTION02"
       }
     }
   },

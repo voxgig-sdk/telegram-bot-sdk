@@ -2,13 +2,16 @@
   "existing": {
     "file": {
       "FILE00": {
-        "file_id": "FILE01"
+        "file_id": "FILE01",
+        "id": "FILE00"
       },
       "FILE01": {
-        "file_id": "FILE01"
+        "file_id": "FILE01",
+        "id": "FILE01"
       },
       "FILE02": {
-        "file_id": "FILE01"
+        "file_id": "FILE01",
+        "id": "FILE02"
       }
     }
   },

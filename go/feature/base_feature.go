@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/telegram-bot-sdk/core"
+	"github.com/voxgig-sdk/telegram-bot-sdk/go/core"
 )
 
 type BaseFeature struct {

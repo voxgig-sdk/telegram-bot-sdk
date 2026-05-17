@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/telegram-bot-sdk"
-	"github.com/voxgig-sdk/telegram-bot-sdk/core"
+	sdk "github.com/voxgig-sdk/telegram-bot-sdk/go"
+	"github.com/voxgig-sdk/telegram-bot-sdk/go/core"
 )
 
 func TestUpdateDirect(t *testing.T) {

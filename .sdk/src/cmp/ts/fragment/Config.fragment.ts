@@ -29,7 +29,7 @@ class Config {
 
 
   options = {
-    base: 'https://api.telegram.org/bot{token}',
+    base: '$$main.kit.info.servers.0.url$$',
 
     'AUTHBLOCK'headers: 'HEADERS',
 

@@ -13,7 +13,8 @@
         "ok": true,
         "parameter": {},
         "result": "s82",
-        "user_id": "USER01"
+        "user_id": "USER01",
+        "id": "PROMOTE_CHAT_MEMBER00"
       },
       "PROMOTE_CHAT_MEMBER01": {
         "can_delete_message": true,
@@ -27,7 +28,8 @@
         "ok": true,
         "parameter": {},
         "result": "sfa",
-        "user_id": "USER01"
+        "user_id": "USER01",
+        "id": "PROMOTE_CHAT_MEMBER01"
       },
       "PROMOTE_CHAT_MEMBER02": {
         "can_delete_message": true,
@@ -41,7 +43,8 @@
         "ok": true,
         "parameter": {},
         "result": "s172",
-        "user_id": "USER01"
+        "user_id": "USER01",
+        "id": "PROMOTE_CHAT_MEMBER02"
       }
     }
   },

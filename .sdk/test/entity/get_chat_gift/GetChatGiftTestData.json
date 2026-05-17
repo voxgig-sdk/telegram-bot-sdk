@@ -7,7 +7,8 @@
         "error_code": "s3e",
         "ok": false,
         "parameter": {},
-        "result": "s41"
+        "result": "s41",
+        "id": "GET_CHAT_GIFT00"
       },
       "GET_CHAT_GIFT01": {
         "chat_id": "CHAT01",
@@ -15,7 +16,8 @@
         "error_code": "s7a",
         "ok": false,
         "parameter": {},
-        "result": "s7d"
+        "result": "s7d",
+        "id": "GET_CHAT_GIFT01"
       },
       "GET_CHAT_GIFT02": {
         "chat_id": "CHAT01",
@@ -23,7 +25,8 @@
         "error_code": "sb6",
         "ok": false,
         "parameter": {},
-        "result": "sb9"
+        "result": "sb9",
+        "id": "GET_CHAT_GIFT02"
       }
     }
   },

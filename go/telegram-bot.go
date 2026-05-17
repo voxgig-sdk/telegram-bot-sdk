@@ -1,10 +1,10 @@
 package voxgigtelegrambotsdk
 
 import (
-	"github.com/voxgig-sdk/telegram-bot-sdk/core"
-	"github.com/voxgig-sdk/telegram-bot-sdk/entity"
-	"github.com/voxgig-sdk/telegram-bot-sdk/feature"
-	_ "github.com/voxgig-sdk/telegram-bot-sdk/utility"
+	"github.com/voxgig-sdk/telegram-bot-sdk/go/core"
+	"github.com/voxgig-sdk/telegram-bot-sdk/go/entity"
+	"github.com/voxgig-sdk/telegram-bot-sdk/go/feature"
+	_ "github.com/voxgig-sdk/telegram-bot-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

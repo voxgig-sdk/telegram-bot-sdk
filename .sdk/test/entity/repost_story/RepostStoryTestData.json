@@ -8,7 +8,8 @@
         "ok": false,
         "parameter": {},
         "result": "s4b",
-        "story_id": "STORY01"
+        "story_id": "STORY01",
+        "id": "REPOST_STORY00"
       },
       "REPOST_STORY01": {
         "chat_id": "CHAT01",
@@ -17,7 +18,8 @@
         "ok": false,
         "parameter": {},
         "result": "s91",
-        "story_id": "STORY01"
+        "story_id": "STORY01",
+        "id": "REPOST_STORY01"
       },
       "REPOST_STORY02": {
         "chat_id": "CHAT01",
@@ -26,7 +28,8 @@
         "ok": false,
         "parameter": {},
         "result": "sd7",
-        "story_id": "STORY01"
+        "story_id": "STORY01",
+        "id": "REPOST_STORY02"
       }
     }
   },

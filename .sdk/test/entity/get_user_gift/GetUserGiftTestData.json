@@ -7,7 +7,8 @@
         "ok": true,
         "parameter": {},
         "result": "s40",
-        "user_id": "USER01"
+        "user_id": "USER01",
+        "id": "GET_USER_GIFT00"
       },
       "GET_USER_GIFT01": {
         "description": "s78",
@@ -15,7 +16,8 @@
         "ok": true,
         "parameter": {},
         "result": "s7c",
-        "user_id": "USER01"
+        "user_id": "USER01",
+        "id": "GET_USER_GIFT01"
       },
       "GET_USER_GIFT02": {
         "description": "sb4",
@@ -23,7 +25,8 @@
         "ok": true,
         "parameter": {},
         "result": "sb8",
-        "user_id": "USER01"
+        "user_id": "USER01",
+        "id": "GET_USER_GIFT02"
       }
     }
   },

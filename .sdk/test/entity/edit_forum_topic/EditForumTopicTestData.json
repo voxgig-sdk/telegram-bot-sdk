@@ -10,7 +10,8 @@
         "name": "s5f",
         "ok": true,
         "parameter": {},
-        "result": "s62"
+        "result": "s62",
+        "id": "EDIT_FORUM_TOPIC00"
       },
       "EDIT_FORUM_TOPIC01": {
         "chat_id": "CHAT01",
@@ -21,7 +22,8 @@
         "name": "sb9",
         "ok": true,
         "parameter": {},
-        "result": "sbc"
+        "result": "sbc",
+        "id": "EDIT_FORUM_TOPIC01"
       },
       "EDIT_FORUM_TOPIC02": {
         "chat_id": "CHAT01",
@@ -32,7 +34,8 @@
         "name": "s113",
         "ok": true,
         "parameter": {},
-        "result": "s116"
+        "result": "s116",
+        "id": "EDIT_FORUM_TOPIC02"
       }
     }
   },

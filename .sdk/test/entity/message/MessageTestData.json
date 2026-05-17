@@ -17,7 +17,8 @@
         "protect_content": true,
         "question": "sad",
         "reply_to_message_id": "REPLY_TO_MESSAGE01",
-        "text": "saf"
+        "text": "saf",
+        "id": "MESSAGE00"
       },
       "MESSAGE01": {
         "chat_id": "CHAT01",
@@ -35,7 +36,8 @@
         "protect_content": true,
         "question": "s14d",
         "reply_to_message_id": "REPLY_TO_MESSAGE01",
-        "text": "s14f"
+        "text": "s14f",
+        "id": "MESSAGE01"
       },
       "MESSAGE02": {
         "chat_id": "CHAT01",
@@ -53,7 +55,8 @@
         "protect_content": true,
         "question": "s1ed",
         "reply_to_message_id": "REPLY_TO_MESSAGE01",
-        "text": "s1ef"
+        "text": "s1ef",
+        "id": "MESSAGE02"
       }
     }
   },
