@@ -67,14 +67,12 @@ function get_me_direct_setup($mockres)
     $env = Runner::env_override([
         "TELEGRAMBOT_TEST_GET_ME_ENTID" => [],
         "TELEGRAMBOT_TEST_LIVE" => "FALSE",
-        "TELEGRAMBOT_APIKEY" => "NONE",
     ]);
 
     $live = $env["TELEGRAMBOT_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
-            "apikey" => $env["TELEGRAMBOT_APIKEY"],
         ];
         $client = new TelegramBotSDK($merged_opts);
         return [

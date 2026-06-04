@@ -80,7 +80,6 @@ function get_business_account_gift_basic_setup($extra)
         "TELEGRAMBOT_TEST_GET_BUSINESS_ACCOUNT_GIFT_ENTID" => $idmap,
         "TELEGRAMBOT_TEST_LIVE" => "FALSE",
         "TELEGRAMBOT_TEST_EXPLAIN" => "FALSE",
-        "TELEGRAMBOT_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -92,7 +91,6 @@ function get_business_account_gift_basic_setup($extra)
     if ($env["TELEGRAMBOT_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["TELEGRAMBOT_APIKEY"],
             ],
             $extra ?? [],
         ]);

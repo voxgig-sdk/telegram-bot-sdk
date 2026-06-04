@@ -127,7 +127,6 @@ func updateBasicSetup(extra map[string]any) *entityTestSetup {
 		"TELEGRAMBOT_TEST_UPDATE_ENTID": idmap,
 		"TELEGRAMBOT_TEST_LIVE":      "FALSE",
 		"TELEGRAMBOT_TEST_EXPLAIN":   "FALSE",
-		"TELEGRAMBOT_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["TELEGRAMBOT_TEST_UPDATE_ENTID"])
@@ -138,7 +137,6 @@ func updateBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["TELEGRAMBOT_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["TELEGRAMBOT_APIKEY"],
 			},
 			extra,
 		})

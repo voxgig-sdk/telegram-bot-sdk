@@ -77,7 +77,6 @@ def remove_my_profile_photo_basic_setup(extra)
     "TELEGRAMBOT_TEST_REMOVE_MY_PROFILE_PHOTO_ENTID" => idmap,
     "TELEGRAMBOT_TEST_LIVE" => "FALSE",
     "TELEGRAMBOT_TEST_EXPLAIN" => "FALSE",
-    "TELEGRAMBOT_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -89,7 +88,6 @@ def remove_my_profile_photo_basic_setup(extra)
   if env["TELEGRAMBOT_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["TELEGRAMBOT_APIKEY"],
       },
       extra || {},
     ])

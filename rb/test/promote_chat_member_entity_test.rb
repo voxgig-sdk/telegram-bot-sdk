@@ -77,7 +77,6 @@ def promote_chat_member_basic_setup(extra)
     "TELEGRAMBOT_TEST_PROMOTE_CHAT_MEMBER_ENTID" => idmap,
     "TELEGRAMBOT_TEST_LIVE" => "FALSE",
     "TELEGRAMBOT_TEST_EXPLAIN" => "FALSE",
-    "TELEGRAMBOT_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -89,7 +88,6 @@ def promote_chat_member_basic_setup(extra)
   if env["TELEGRAMBOT_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["TELEGRAMBOT_APIKEY"],
       },
       extra || {},
     ])

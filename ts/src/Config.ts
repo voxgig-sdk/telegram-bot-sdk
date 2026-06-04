@@ -38,10 +38,6 @@ class Config {
   options = {
     base: 'https://api.telegram.org/bot{token}',
 
-    auth: {
-      prefix: 'Bearer',
-    },
-
     headers: {
       "content-type": "application/json"
     },

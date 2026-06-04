@@ -27,8 +27,48 @@ main: {
       ]
       title: "Telegram Bot API"
       version: "9.4"
+      tagline: "HTTP-based interface for building bots that send messages, manage chats, and receive updates on Telegram"
+      homepage: "https://core.telegram.org/bots"
+      docs_url: "https://core.telegram.org/bots/api"
+      license_short: "Telegram Bot API Terms of Service — free to use under Telegram's bot platform terms"
+      license_md: `- Use of the API is governed by Telegram's Bot API terms and the broader Telegram Terms of Service.
+- Bots are identified by tokens issued through [@BotFather](https://t.me/BotFather); tokens must be kept secret.
+- No fee is charged by Telegram for use of the Bot API; usage is bound by Telegram's acceptable-use rules for bots and content.`
+      about_md: `The Telegram Bot API is an HTTP interface published by [Telegram](https://telegram.org) for developers building automated accounts (bots) on the Telegram messaging platform. Bots are special Telegram accounts controlled by code rather than a person, and the API exposes the operations a bot can perform on a user's behalf.
+
+What you get from the API:
+
+- Send and edit messages, including text, media, polls, stickers, and other content types
+- Receive incoming events either by long polling (\`getUpdates\`) or by registering a webhook (\`setWebhook\`)
+- Manage chats, groups, channels, forum topics, and chat member permissions
+- Read and update bot and user profile data, including profile photos and profile audio
+- Interact with Telegram's gifts system for user and business accounts
+
+All requests use the base URL \`https://api.telegram.org/bot{token}/METHOD_NAME\`, where \`{token}\` is the bot's authentication token issued by [@BotFather](https://t.me/BotFather). Methods accept GET or POST with query-string, application/json, application/x-www-form-urlencoded, or multipart/form-data payloads, and every response is a JSON object with an \`ok\` flag and either a \`result\` or an \`error_code\`/\`description\`. Telegram does not publish hard numerical rate limits, but the platform enforces flood-control limits per chat and globally; clients should respect \`retry_after\` values returned in 429 responses.`
+      entity_desc: {
+        approve_suggested_post: "Approves a post that was suggested for publication in a connected channel; corresponds to the `approveSuggestedPost` method."
+        decline_suggested_post: "Declines a post suggested for publication in a connected channel; corresponds to the `declineSuggestedPost` method."
+        delete_forum_topic: "Deletes a forum topic along with all of its messages in a forum-enabled supergroup (`deleteForumTopic`)."
+        edit_forum_topic: "Edits the name and icon of an existing forum topic in a supergroup (`editForumTopic`)."
+        file: "Represents an uploaded or downloadable file that the bot can fetch via `getFile`; resolved files are served from `https://api.telegram.org/file/bot{token}/<file_path>`."
+        forum_topic: "A topic inside a forum-enabled supergroup, created and managed through `createForumTopic`, `editForumTopic`, `closeForumTopic`, and related methods."
+        get_business_account_gift: "Retrieves the gifts owned by a connected Telegram Business account."
+        get_chat_gift: "Retrieves gifts attached to a chat (for chats that can receive gifts)."
+        get_me: "Returns the bot's own User object, including id, username, and capability flags (`getMe`)."
+        get_user_gift: "Retrieves gifts owned by a specific user, used in the gifts/business gift flow."
+        get_user_profile_audio: "Fetches a user's profile audio attachment, the audio counterpart to a profile photo."
+        message: "A single message in a chat — text, media, service, or otherwise — sent or received by the bot via methods such as `sendMessage`, `editMessageText`, and `forwardMessage`."
+        message_id: "A lightweight reference object that contains only the identifier of a message, returned by methods like `copyMessage` and `copyMessages`."
+        promote_chat_member: "Promotes or demotes a user in a supergroup or channel and sets their administrator privileges (`promoteChatMember`)."
+        remove_my_profile_photo: "Removes the bot's current profile photo, the counterpart to `setMyProfilePhoto`."
+        repost_story: "Reposts an existing story to the bot's or a connected business account's profile."
+        send_chat_action: "Tells the user that the bot is doing something (typing, uploading a photo, recording audio, etc.) via `sendChatAction`."
+        send_message_draft: "Sends a message draft on behalf of a connected business account, allowing the user to review and send it."
+        set_my_profile_photo: "Sets a new profile photo for the bot."
+        unpin_all_forum_topic_message: "Unpins every pinned message inside a specific forum topic (`unpinAllForumTopicMessages`)."
+        update: "An incoming event delivered by `getUpdates` or to the configured webhook; carries one of several optional payloads such as `message`, `edited_message`, `callback_query`, or `business_message`."
+      }
+      auth: false
     }
   }
-}
-
 }
