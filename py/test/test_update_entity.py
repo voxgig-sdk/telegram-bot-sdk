@@ -99,6 +99,7 @@ def _update_basic_setup(extra):
         "TELEGRAMBOT_TEST_UPDATE_ENTID": idmap,
         "TELEGRAMBOT_TEST_LIVE": "FALSE",
         "TELEGRAMBOT_TEST_EXPLAIN": "FALSE",
+        "TELEGRAMBOT_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -109,6 +110,7 @@ def _update_basic_setup(extra):
     if env.get("TELEGRAMBOT_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
+                "apikey": env.get("TELEGRAMBOT_APIKEY"),
             },
             extra or {},
         ])

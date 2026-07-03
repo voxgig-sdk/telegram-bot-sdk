@@ -1,9 +1,2418 @@
 {
-  "name": "telegram-bot",
-  "origin": "voxgig-sdk",
   "def": "telegram-bot_0.1.0.json",
   "main": {
+    "def": {
+      "desc": ""
+    },
     "kit": {
+      "config": {
+        "auth": {
+          "prefix": "Bearer"
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ],
+        "headers": {
+          "content-type": "application/json"
+        }
+      },
+      "entity": {
+        "approve_suggested_post": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "chat_id",
+              "req": true,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "description",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "error_code",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "message_id",
+              "req": true,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "ok",
+              "req": true,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "parameter",
+              "req": false,
+              "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
+              "name": "result",
+              "req": false,
+              "type": "`$ANY`"
+            }
+          ],
+          "name": "approve_suggested_post",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/approveSuggestedPost",
+                  "parts": [
+                    "approveSuggestedPost"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "decline_suggested_post": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "chat_id",
+              "req": true,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "description",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "error_code",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "message_id",
+              "req": true,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "ok",
+              "req": true,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "parameter",
+              "req": false,
+              "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
+              "name": "result",
+              "req": false,
+              "type": "`$ANY`"
+            }
+          ],
+          "name": "decline_suggested_post",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/declineSuggestedPost",
+                  "parts": [
+                    "declineSuggestedPost"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "delete_forum_topic": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "chat_id",
+              "req": true,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "description",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "error_code",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "message_thread_id",
+              "req": true,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "ok",
+              "req": true,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "parameter",
+              "req": false,
+              "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
+              "name": "result",
+              "req": false,
+              "type": "`$ANY`"
+            }
+          ],
+          "name": "delete_forum_topic",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/deleteForumTopic",
+                  "parts": [
+                    "deleteForumTopic"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "edit_forum_topic": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "chat_id",
+              "req": true,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "description",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "error_code",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "icon_custom_emoji_id",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "message_thread_id",
+              "req": true,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "name",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "ok",
+              "req": true,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "parameter",
+              "req": false,
+              "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
+              "name": "result",
+              "req": false,
+              "type": "`$ANY`"
+            }
+          ],
+          "name": "edit_forum_topic",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/editForumTopic",
+                  "parts": [
+                    "editForumTopic"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "file": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "file_id",
+              "req": true,
+              "type": "`$STRING`"
+            }
+          ],
+          "name": "file",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/getFile",
+                  "parts": [
+                    "getFile"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "forum_topic": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "chat_id",
+              "req": true,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "icon_color",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "icon_custom_emoji_id",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "name",
+              "req": true,
+              "type": "`$STRING`"
+            }
+          ],
+          "name": "forum_topic",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/createForumTopic",
+                  "parts": [
+                    "createForumTopic"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "get_business_account_gift": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "description",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "error_code",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "exclude_from_blockchain",
+              "req": false,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "exclude_limited_non_upgradable",
+              "req": false,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "exclude_limited_upgradable",
+              "req": false,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "ok",
+              "req": true,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "parameter",
+              "req": false,
+              "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
+              "name": "result",
+              "req": false,
+              "type": "`$ANY`"
+            }
+          ],
+          "name": "get_business_account_gift",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/getBusinessAccountGifts",
+                  "parts": [
+                    "getBusinessAccountGifts"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "get_chat_gift": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "chat_id",
+              "req": true,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "description",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "error_code",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "ok",
+              "req": true,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "parameter",
+              "req": false,
+              "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
+              "name": "result",
+              "req": false,
+              "type": "`$ANY`"
+            }
+          ],
+          "name": "get_chat_gift",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/getChatGifts",
+                  "parts": [
+                    "getChatGifts"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "get_me": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "description",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "error_code",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "ok",
+              "req": true,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "parameter",
+              "req": false,
+              "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
+              "name": "result",
+              "req": false,
+              "type": "`$ANY`"
+            }
+          ],
+          "name": "get_me",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/getMe",
+                  "parts": [
+                    "getMe"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            },
+            "load": {
+              "input": "data",
+              "name": "load",
+              "points": [
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "GET",
+                  "orig": "/getMe",
+                  "parts": [
+                    "getMe"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "get_user_gift": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "description",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "error_code",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "ok",
+              "req": true,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "parameter",
+              "req": false,
+              "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
+              "name": "result",
+              "req": false,
+              "type": "`$ANY`"
+            },
+            {
+              "active": true,
+              "name": "user_id",
+              "req": true,
+              "type": "`$INTEGER`"
+            }
+          ],
+          "name": "get_user_gift",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/getUserGifts",
+                  "parts": [
+                    "getUserGifts"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "get_user_profile_audio": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "description",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "error_code",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "ok",
+              "req": true,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "parameter",
+              "req": false,
+              "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
+              "name": "result",
+              "req": false,
+              "type": "`$ANY`"
+            },
+            {
+              "active": true,
+              "name": "user_id",
+              "req": true,
+              "type": "`$INTEGER`"
+            }
+          ],
+          "name": "get_user_profile_audio",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/getUserProfileAudios",
+                  "parts": [
+                    "getUserProfileAudios"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "message": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "chat_id",
+              "req": true,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "direct_messages_topic_id",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "disable_notification",
+              "req": false,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "disable_web_page_preview",
+              "req": false,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "from_chat_id",
+              "req": true,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "latitude",
+              "req": true,
+              "type": "`$NUMBER`"
+            },
+            {
+              "active": true,
+              "name": "longitude",
+              "req": true,
+              "type": "`$NUMBER`"
+            },
+            {
+              "active": true,
+              "name": "message_effect_id",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "message_id",
+              "req": true,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "message_thread_id",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "option",
+              "req": true,
+              "type": "`$ARRAY`"
+            },
+            {
+              "active": true,
+              "name": "parse_mode",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "protect_content",
+              "req": false,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "question",
+              "req": true,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "reply_to_message_id",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "text",
+              "req": true,
+              "type": "`$STRING`"
+            }
+          ],
+          "name": "message",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/forwardMessage",
+                  "parts": [
+                    "forwardMessage"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/sendAnimation",
+                  "parts": [
+                    "sendAnimation"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/sendAudio",
+                  "parts": [
+                    "sendAudio"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/sendDocument",
+                  "parts": [
+                    "sendDocument"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/sendLocation",
+                  "parts": [
+                    "sendLocation"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/sendMessage",
+                  "parts": [
+                    "sendMessage"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/sendPhoto",
+                  "parts": [
+                    "sendPhoto"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/sendPoll",
+                  "parts": [
+                    "sendPoll"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/sendSticker",
+                  "parts": [
+                    "sendSticker"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/sendVideo",
+                  "parts": [
+                    "sendVideo"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "message_id": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "chat_id",
+              "req": true,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "direct_messages_topic_id",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "from_chat_id",
+              "req": true,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "message_effect_id",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "message_id",
+              "req": true,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "message_thread_id",
+              "req": false,
+              "type": "`$INTEGER`"
+            }
+          ],
+          "name": "message_id",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/copyMessage",
+                  "parts": [
+                    "copyMessage"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "promote_chat_member": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "can_delete_message",
+              "req": false,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "can_edit_message",
+              "req": false,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "can_manage_chat",
+              "req": false,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "can_manage_direct_message",
+              "req": false,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "can_post_message",
+              "req": false,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "chat_id",
+              "req": true,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "description",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "error_code",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "ok",
+              "req": true,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "parameter",
+              "req": false,
+              "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
+              "name": "result",
+              "req": false,
+              "type": "`$ANY`"
+            },
+            {
+              "active": true,
+              "name": "user_id",
+              "req": true,
+              "type": "`$INTEGER`"
+            }
+          ],
+          "name": "promote_chat_member",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/promoteChatMember",
+                  "parts": [
+                    "promoteChatMember"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "remove_my_profile_photo": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "description",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "error_code",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "ok",
+              "req": true,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "parameter",
+              "req": false,
+              "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
+              "name": "result",
+              "req": false,
+              "type": "`$ANY`"
+            }
+          ],
+          "name": "remove_my_profile_photo",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/removeMyProfilePhoto",
+                  "parts": [
+                    "removeMyProfilePhoto"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "repost_story": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "chat_id",
+              "req": true,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "description",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "error_code",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "ok",
+              "req": true,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "parameter",
+              "req": false,
+              "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
+              "name": "result",
+              "req": false,
+              "type": "`$ANY`"
+            },
+            {
+              "active": true,
+              "name": "story_id",
+              "req": true,
+              "type": "`$INTEGER`"
+            }
+          ],
+          "name": "repost_story",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/repostStory",
+                  "parts": [
+                    "repostStory"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "send_chat_action": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "action",
+              "req": true,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "chat_id",
+              "req": true,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "description",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "error_code",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "message_thread_id",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "ok",
+              "req": true,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "parameter",
+              "req": false,
+              "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
+              "name": "result",
+              "req": false,
+              "type": "`$ANY`"
+            }
+          ],
+          "name": "send_chat_action",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/sendChatAction",
+                  "parts": [
+                    "sendChatAction"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "send_message_draft": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "chat_id",
+              "req": true,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "description",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "error_code",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "message_thread_id",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "ok",
+              "req": true,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "parameter",
+              "req": false,
+              "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
+              "name": "result",
+              "req": false,
+              "type": "`$ANY`"
+            },
+            {
+              "active": true,
+              "name": "text",
+              "req": true,
+              "type": "`$STRING`"
+            }
+          ],
+          "name": "send_message_draft",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/sendMessageDraft",
+                  "parts": [
+                    "sendMessageDraft"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "set_my_profile_photo": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "description",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "error_code",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "ok",
+              "req": true,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "parameter",
+              "req": false,
+              "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
+              "name": "result",
+              "req": false,
+              "type": "`$ANY`"
+            }
+          ],
+          "name": "set_my_profile_photo",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/setMyProfilePhoto",
+                  "parts": [
+                    "setMyProfilePhoto"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "unpin_all_forum_topic_message": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "chat_id",
+              "req": true,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "description",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "error_code",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "message_thread_id",
+              "req": true,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "ok",
+              "req": true,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "parameter",
+              "req": false,
+              "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
+              "name": "result",
+              "req": false,
+              "type": "`$ANY`"
+            }
+          ],
+          "name": "unpin_all_forum_topic_message",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/unpinAllForumTopicMessages",
+                  "parts": [
+                    "unpinAllForumTopicMessages"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "update": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "allowed_update",
+              "req": false,
+              "type": "`$ARRAY`"
+            },
+            {
+              "active": true,
+              "name": "description",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "error_code",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "limit",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "offset",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "ok",
+              "req": true,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "parameter",
+              "req": false,
+              "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
+              "name": "result",
+              "req": false,
+              "type": "`$ARRAY`"
+            },
+            {
+              "active": true,
+              "name": "timeout",
+              "req": false,
+              "type": "`$INTEGER`"
+            }
+          ],
+          "name": "update",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/getUpdates",
+                  "parts": [
+                    "getUpdates"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            },
+            "list": {
+              "input": "data",
+              "name": "list",
+              "points": [
+                {
+                  "active": true,
+                  "args": {
+                    "query": [
+                      {
+                        "active": true,
+                        "kind": "query",
+                        "name": "allowed_update",
+                        "orig": "allowed_update",
+                        "reqd": false,
+                        "type": "`$ARRAY`"
+                      },
+                      {
+                        "active": true,
+                        "example": 100,
+                        "kind": "query",
+                        "name": "limit",
+                        "orig": "limit",
+                        "reqd": false,
+                        "type": "`$INTEGER`"
+                      },
+                      {
+                        "active": true,
+                        "kind": "query",
+                        "name": "offset",
+                        "orig": "offset",
+                        "reqd": false,
+                        "type": "`$INTEGER`"
+                      },
+                      {
+                        "active": true,
+                        "example": 0,
+                        "kind": "query",
+                        "name": "timeout",
+                        "orig": "timeout",
+                        "reqd": false,
+                        "type": "`$INTEGER`"
+                      }
+                    ]
+                  },
+                  "method": "GET",
+                  "orig": "/getUpdates",
+                  "parts": [
+                    "getUpdates"
+                  ],
+                  "select": {
+                    "exist": [
+                      "allowed_update",
+                      "limit",
+                      "offset",
+                      "timeout"
+                    ]
+                  },
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        }
+      },
+      "feature": {
+        "test": {
+          "active": true,
+          "config": {
+            "options": {
+              "active": false
+            }
+          },
+          "hook": {
+            "GetData": {
+              "active": true,
+              "await": false
+            },
+            "GetMatch": {
+              "active": true,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": true,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": true,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PrePoint": {
+              "active": true,
+              "await": false
+            },
+            "PreRequest": {
+              "active": true,
+              "await": false
+            },
+            "PreResponse": {
+              "active": true,
+              "await": false
+            },
+            "PreResult": {
+              "active": true,
+              "await": false
+            },
+            "PreSpec": {
+              "active": true,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": true,
+              "await": false
+            },
+            "SetMatch": {
+              "active": true,
+              "await": false
+            }
+          },
+          "name": "test",
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "In-memory mock transport for testing without a live server",
+          "version": "0.0.1"
+        }
+      },
+      "flow": {
+        "BasicApproveSuggestedPostFlow": {
+          "active": true,
+          "entity": "approve_suggested_post",
+          "key$": "BasicApproveSuggestedPostFlow",
+          "kind": "basic",
+          "name": "BasicApproveSuggestedPostFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {
+                "ref": "approve_suggested_post_ref01"
+              },
+              "match": {},
+              "op": "create",
+              "spec": [],
+              "valid": []
+            }
+          ]
+        },
+        "BasicDeclineSuggestedPostFlow": {
+          "active": true,
+          "entity": "decline_suggested_post",
+          "key$": "BasicDeclineSuggestedPostFlow",
+          "kind": "basic",
+          "name": "BasicDeclineSuggestedPostFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {
+                "ref": "decline_suggested_post_ref01"
+              },
+              "match": {},
+              "op": "create",
+              "spec": [],
+              "valid": []
+            }
+          ]
+        },
+        "BasicDeleteForumTopicFlow": {
+          "active": true,
+          "entity": "delete_forum_topic",
+          "key$": "BasicDeleteForumTopicFlow",
+          "kind": "basic",
+          "name": "BasicDeleteForumTopicFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {
+                "ref": "delete_forum_topic_ref01"
+              },
+              "match": {},
+              "op": "create",
+              "spec": [],
+              "valid": []
+            }
+          ]
+        },
+        "BasicEditForumTopicFlow": {
+          "active": true,
+          "entity": "edit_forum_topic",
+          "key$": "BasicEditForumTopicFlow",
+          "kind": "basic",
+          "name": "BasicEditForumTopicFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {
+                "ref": "edit_forum_topic_ref01"
+              },
+              "match": {},
+              "op": "create",
+              "spec": [],
+              "valid": []
+            }
+          ]
+        },
+        "BasicFileFlow": {
+          "active": true,
+          "entity": "file",
+          "key$": "BasicFileFlow",
+          "kind": "basic",
+          "name": "BasicFileFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {
+                "ref": "file_ref01"
+              },
+              "match": {},
+              "op": "create",
+              "spec": [],
+              "valid": []
+            }
+          ]
+        },
+        "BasicForumTopicFlow": {
+          "active": true,
+          "entity": "forum_topic",
+          "key$": "BasicForumTopicFlow",
+          "kind": "basic",
+          "name": "BasicForumTopicFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {
+                "ref": "forum_topic_ref01"
+              },
+              "match": {},
+              "op": "create",
+              "spec": [],
+              "valid": []
+            }
+          ]
+        },
+        "BasicGetBusinessAccountGiftFlow": {
+          "active": true,
+          "entity": "get_business_account_gift",
+          "key$": "BasicGetBusinessAccountGiftFlow",
+          "kind": "basic",
+          "name": "BasicGetBusinessAccountGiftFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {
+                "ref": "get_business_account_gift_ref01"
+              },
+              "match": {},
+              "op": "create",
+              "spec": [],
+              "valid": []
+            }
+          ]
+        },
+        "BasicGetChatGiftFlow": {
+          "active": true,
+          "entity": "get_chat_gift",
+          "key$": "BasicGetChatGiftFlow",
+          "kind": "basic",
+          "name": "BasicGetChatGiftFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {
+                "ref": "get_chat_gift_ref01"
+              },
+              "match": {},
+              "op": "create",
+              "spec": [],
+              "valid": []
+            }
+          ]
+        },
+        "BasicGetMeFlow": {
+          "active": true,
+          "entity": "get_me",
+          "key$": "BasicGetMeFlow",
+          "kind": "basic",
+          "name": "BasicGetMeFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {
+                "ref": "get_me_ref01"
+              },
+              "match": {},
+              "op": "create",
+              "spec": [],
+              "valid": []
+            },
+            {
+              "active": true,
+              "data": {},
+              "input": {
+                "ref": "get_me_ref01",
+                "srcdatavar": "get_me_ref01_data",
+                "suffix": "_dt0"
+              },
+              "match": {},
+              "op": "load",
+              "spec": [],
+              "valid": [
+                {
+                  "apply": "TextFieldMark",
+                  "def": {
+                    "mark": "Mark01-get_me_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicGetUserGiftFlow": {
+          "active": true,
+          "entity": "get_user_gift",
+          "key$": "BasicGetUserGiftFlow",
+          "kind": "basic",
+          "name": "BasicGetUserGiftFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {
+                "ref": "get_user_gift_ref01"
+              },
+              "match": {},
+              "op": "create",
+              "spec": [],
+              "valid": []
+            }
+          ]
+        },
+        "BasicGetUserProfileAudioFlow": {
+          "active": true,
+          "entity": "get_user_profile_audio",
+          "key$": "BasicGetUserProfileAudioFlow",
+          "kind": "basic",
+          "name": "BasicGetUserProfileAudioFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {
+                "ref": "get_user_profile_audio_ref01"
+              },
+              "match": {},
+              "op": "create",
+              "spec": [],
+              "valid": []
+            }
+          ]
+        },
+        "BasicMessageFlow": {
+          "active": true,
+          "entity": "message",
+          "key$": "BasicMessageFlow",
+          "kind": "basic",
+          "name": "BasicMessageFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {
+                "ref": "message_ref01"
+              },
+              "match": {},
+              "op": "create",
+              "spec": [],
+              "valid": []
+            }
+          ]
+        },
+        "BasicMessageIdFlow": {
+          "active": true,
+          "entity": "message_id",
+          "key$": "BasicMessageIdFlow",
+          "kind": "basic",
+          "name": "BasicMessageIdFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {
+                "ref": "message_id_ref01"
+              },
+              "match": {},
+              "op": "create",
+              "spec": [],
+              "valid": []
+            }
+          ]
+        },
+        "BasicPromoteChatMemberFlow": {
+          "active": true,
+          "entity": "promote_chat_member",
+          "key$": "BasicPromoteChatMemberFlow",
+          "kind": "basic",
+          "name": "BasicPromoteChatMemberFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {
+                "ref": "promote_chat_member_ref01"
+              },
+              "match": {},
+              "op": "create",
+              "spec": [],
+              "valid": []
+            }
+          ]
+        },
+        "BasicRemoveMyProfilePhotoFlow": {
+          "active": true,
+          "entity": "remove_my_profile_photo",
+          "key$": "BasicRemoveMyProfilePhotoFlow",
+          "kind": "basic",
+          "name": "BasicRemoveMyProfilePhotoFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {
+                "ref": "remove_my_profile_photo_ref01"
+              },
+              "match": {},
+              "op": "create",
+              "spec": [],
+              "valid": []
+            }
+          ]
+        },
+        "BasicRepostStoryFlow": {
+          "active": true,
+          "entity": "repost_story",
+          "key$": "BasicRepostStoryFlow",
+          "kind": "basic",
+          "name": "BasicRepostStoryFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {
+                "ref": "repost_story_ref01"
+              },
+              "match": {},
+              "op": "create",
+              "spec": [],
+              "valid": []
+            }
+          ]
+        },
+        "BasicSendChatActionFlow": {
+          "active": true,
+          "entity": "send_chat_action",
+          "key$": "BasicSendChatActionFlow",
+          "kind": "basic",
+          "name": "BasicSendChatActionFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {
+                "ref": "send_chat_action_ref01"
+              },
+              "match": {},
+              "op": "create",
+              "spec": [],
+              "valid": []
+            }
+          ]
+        },
+        "BasicSendMessageDraftFlow": {
+          "active": true,
+          "entity": "send_message_draft",
+          "key$": "BasicSendMessageDraftFlow",
+          "kind": "basic",
+          "name": "BasicSendMessageDraftFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {
+                "ref": "send_message_draft_ref01"
+              },
+              "match": {},
+              "op": "create",
+              "spec": [],
+              "valid": []
+            }
+          ]
+        },
+        "BasicSetMyProfilePhotoFlow": {
+          "active": true,
+          "entity": "set_my_profile_photo",
+          "key$": "BasicSetMyProfilePhotoFlow",
+          "kind": "basic",
+          "name": "BasicSetMyProfilePhotoFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {
+                "ref": "set_my_profile_photo_ref01"
+              },
+              "match": {},
+              "op": "create",
+              "spec": [],
+              "valid": []
+            }
+          ]
+        },
+        "BasicUnpinAllForumTopicMessageFlow": {
+          "active": true,
+          "entity": "unpin_all_forum_topic_message",
+          "key$": "BasicUnpinAllForumTopicMessageFlow",
+          "kind": "basic",
+          "name": "BasicUnpinAllForumTopicMessageFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {
+                "ref": "unpin_all_forum_topic_message_ref01"
+              },
+              "match": {},
+              "op": "create",
+              "spec": [],
+              "valid": []
+            }
+          ]
+        },
+        "BasicUpdateFlow": {
+          "active": true,
+          "entity": "update",
+          "key$": "BasicUpdateFlow",
+          "kind": "basic",
+          "name": "BasicUpdateFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {
+                "ref": "update_ref01"
+              },
+              "match": {},
+              "op": "create",
+              "spec": [],
+              "valid": []
+            },
+            {
+              "active": true,
+              "data": {},
+              "input": {},
+              "match": {},
+              "op": "list",
+              "spec": [],
+              "valid": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "update_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
       "info": {
         "contact": {
           "name": "Telegram Bot API Documentation",
@@ -27,2454 +2436,35 @@
           }
         ],
         "title": "Telegram Bot API",
-        "version": "9.4",
-        "tagline": "HTTP-based interface for building bots that send messages, manage chats, and receive updates on Telegram",
-        "homepage": "https://core.telegram.org/bots",
-        "docs_url": "https://core.telegram.org/bots/api",
-        "license_short": "Telegram Bot API Terms of Service — free to use under Telegram's bot platform terms",
-        "license_md": "- Use of the API is governed by Telegram's Bot API terms and the broader Telegram Terms of Service.\n- Bots are identified by tokens issued through [@BotFather](https://t.me/BotFather); tokens must be kept secret.\n- No fee is charged by Telegram for use of the Bot API; usage is bound by Telegram's acceptable-use rules for bots and content.",
-        "about_md": "The Telegram Bot API is an HTTP interface published by [Telegram](https://telegram.org) for developers building automated accounts (bots) on the Telegram messaging platform. Bots are special Telegram accounts controlled by code rather than a person, and the API exposes the operations a bot can perform on a user's behalf.\n\nWhat you get from the API:\n\n- Send and edit messages, including text, media, polls, stickers, and other content types\n- Receive incoming events either by long polling (`getUpdates`) or by registering a webhook (`setWebhook`)\n- Manage chats, groups, channels, forum topics, and chat member permissions\n- Read and update bot and user profile data, including profile photos and profile audio\n- Interact with Telegram's gifts system for user and business accounts\n\nAll requests use the base URL `https://api.telegram.org/bot{token}/METHOD_NAME`, where `{token}` is the bot's authentication token issued by [@BotFather](https://t.me/BotFather). Methods accept GET or POST with query-string, application/json, application/x-www-form-urlencoded, or multipart/form-data payloads, and every response is a JSON object with an `ok` flag and either a `result` or an `error_code`/`description`. Telegram does not publish hard numerical rate limits, but the platform enforces flood-control limits per chat and globally; clients should respect `retry_after` values returned in 429 responses.",
-        "entity_desc": {
-          "approve_suggested_post": "Approves a post that was suggested for publication in a connected channel; corresponds to the `approveSuggestedPost` method.",
-          "decline_suggested_post": "Declines a post suggested for publication in a connected channel; corresponds to the `declineSuggestedPost` method.",
-          "delete_forum_topic": "Deletes a forum topic along with all of its messages in a forum-enabled supergroup (`deleteForumTopic`).",
-          "edit_forum_topic": "Edits the name and icon of an existing forum topic in a supergroup (`editForumTopic`).",
-          "file": "Represents an uploaded or downloadable file that the bot can fetch via `getFile`; resolved files are served from `https://api.telegram.org/file/bot{token}/<file_path>`.",
-          "forum_topic": "A topic inside a forum-enabled supergroup, created and managed through `createForumTopic`, `editForumTopic`, `closeForumTopic`, and related methods.",
-          "get_business_account_gift": "Retrieves the gifts owned by a connected Telegram Business account.",
-          "get_chat_gift": "Retrieves gifts attached to a chat (for chats that can receive gifts).",
-          "get_me": "Returns the bot's own User object, including id, username, and capability flags (`getMe`).",
-          "get_user_gift": "Retrieves gifts owned by a specific user, used in the gifts/business gift flow.",
-          "get_user_profile_audio": "Fetches a user's profile audio attachment, the audio counterpart to a profile photo.",
-          "message": "A single message in a chat — text, media, service, or otherwise — sent or received by the bot via methods such as `sendMessage`, `editMessageText`, and `forwardMessage`.",
-          "message_id": "A lightweight reference object that contains only the identifier of a message, returned by methods like `copyMessage` and `copyMessages`.",
-          "promote_chat_member": "Promotes or demotes a user in a supergroup or channel and sets their administrator privileges (`promoteChatMember`).",
-          "remove_my_profile_photo": "Removes the bot's current profile photo, the counterpart to `setMyProfilePhoto`.",
-          "repost_story": "Reposts an existing story to the bot's or a connected business account's profile.",
-          "send_chat_action": "Tells the user that the bot is doing something (typing, uploading a photo, recording audio, etc.) via `sendChatAction`.",
-          "send_message_draft": "Sends a message draft on behalf of a connected business account, allowing the user to review and send it.",
-          "set_my_profile_photo": "Sets a new profile photo for the bot.",
-          "unpin_all_forum_topic_message": "Unpins every pinned message inside a specific forum topic (`unpinAllForumTopicMessages`).",
-          "update": "An incoming event delivered by `getUpdates` or to the configured webhook; carries one of several optional payloads such as `message`, `edited_message`, `callback_query`, or `business_message`."
-        },
-        "auth": false
+        "version": "9.4"
       },
-      "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
-        "headers": {
-          "content-type": "application/json"
-        },
-        "docs_order": [
-          "ts",
-          "py",
-          "php",
-          "go",
-          "rb",
-          "lua"
-        ]
-      },
-      "entity": {
-        "approve_suggested_post": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "chat_id",
-              "req": true,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "description",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "error_code",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "message_id",
-              "req": true,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "ok",
-              "req": true,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "parameter",
-              "req": false,
-              "type": "`$OBJECT`",
-              "active": true
-            },
-            {
-              "name": "result",
-              "req": false,
-              "type": "`$ANY`",
-              "active": true
-            }
-          ],
-          "name": "approve_suggested_post",
-          "op": {
-            "create": {
-              "name": "create",
-              "points": [
-                {
-                  "method": "POST",
-                  "orig": "/approveSuggestedPost",
-                  "parts": [
-                    "approveSuggestedPost"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        },
-        "decline_suggested_post": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "chat_id",
-              "req": true,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "description",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "error_code",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "message_id",
-              "req": true,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "ok",
-              "req": true,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "parameter",
-              "req": false,
-              "type": "`$OBJECT`",
-              "active": true
-            },
-            {
-              "name": "result",
-              "req": false,
-              "type": "`$ANY`",
-              "active": true
-            }
-          ],
-          "name": "decline_suggested_post",
-          "op": {
-            "create": {
-              "name": "create",
-              "points": [
-                {
-                  "method": "POST",
-                  "orig": "/declineSuggestedPost",
-                  "parts": [
-                    "declineSuggestedPost"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        },
-        "delete_forum_topic": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "chat_id",
-              "req": true,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "description",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "error_code",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "message_thread_id",
-              "req": true,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "ok",
-              "req": true,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "parameter",
-              "req": false,
-              "type": "`$OBJECT`",
-              "active": true
-            },
-            {
-              "name": "result",
-              "req": false,
-              "type": "`$ANY`",
-              "active": true
-            }
-          ],
-          "name": "delete_forum_topic",
-          "op": {
-            "create": {
-              "name": "create",
-              "points": [
-                {
-                  "method": "POST",
-                  "orig": "/deleteForumTopic",
-                  "parts": [
-                    "deleteForumTopic"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        },
-        "edit_forum_topic": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "chat_id",
-              "req": true,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "description",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "error_code",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "icon_custom_emoji_id",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "message_thread_id",
-              "req": true,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "name",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "ok",
-              "req": true,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "parameter",
-              "req": false,
-              "type": "`$OBJECT`",
-              "active": true
-            },
-            {
-              "name": "result",
-              "req": false,
-              "type": "`$ANY`",
-              "active": true
-            }
-          ],
-          "name": "edit_forum_topic",
-          "op": {
-            "create": {
-              "name": "create",
-              "points": [
-                {
-                  "method": "POST",
-                  "orig": "/editForumTopic",
-                  "parts": [
-                    "editForumTopic"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        },
-        "file": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "file_id",
-              "req": true,
-              "type": "`$STRING`",
-              "active": true
-            }
-          ],
-          "name": "file",
-          "op": {
-            "create": {
-              "name": "create",
-              "points": [
-                {
-                  "method": "POST",
-                  "orig": "/getFile",
-                  "parts": [
-                    "getFile"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        },
-        "forum_topic": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "chat_id",
-              "req": true,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "icon_color",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "icon_custom_emoji_id",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "name",
-              "req": true,
-              "type": "`$STRING`",
-              "active": true
-            }
-          ],
-          "name": "forum_topic",
-          "op": {
-            "create": {
-              "name": "create",
-              "points": [
-                {
-                  "method": "POST",
-                  "orig": "/createForumTopic",
-                  "parts": [
-                    "createForumTopic"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        },
-        "get_business_account_gift": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "description",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "error_code",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "exclude_from_blockchain",
-              "req": false,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "exclude_limited_non_upgradable",
-              "req": false,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "exclude_limited_upgradable",
-              "req": false,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "ok",
-              "req": true,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "parameter",
-              "req": false,
-              "type": "`$OBJECT`",
-              "active": true
-            },
-            {
-              "name": "result",
-              "req": false,
-              "type": "`$ANY`",
-              "active": true
-            }
-          ],
-          "name": "get_business_account_gift",
-          "op": {
-            "create": {
-              "name": "create",
-              "points": [
-                {
-                  "method": "POST",
-                  "orig": "/getBusinessAccountGifts",
-                  "parts": [
-                    "getBusinessAccountGifts"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        },
-        "get_chat_gift": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "chat_id",
-              "req": true,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "description",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "error_code",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "ok",
-              "req": true,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "parameter",
-              "req": false,
-              "type": "`$OBJECT`",
-              "active": true
-            },
-            {
-              "name": "result",
-              "req": false,
-              "type": "`$ANY`",
-              "active": true
-            }
-          ],
-          "name": "get_chat_gift",
-          "op": {
-            "create": {
-              "name": "create",
-              "points": [
-                {
-                  "method": "POST",
-                  "orig": "/getChatGifts",
-                  "parts": [
-                    "getChatGifts"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        },
-        "get_me": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "description",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "error_code",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "ok",
-              "req": true,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "parameter",
-              "req": false,
-              "type": "`$OBJECT`",
-              "active": true
-            },
-            {
-              "name": "result",
-              "req": false,
-              "type": "`$ANY`",
-              "active": true
-            }
-          ],
-          "name": "get_me",
-          "op": {
-            "create": {
-              "name": "create",
-              "points": [
-                {
-                  "method": "POST",
-                  "orig": "/getMe",
-                  "parts": [
-                    "getMe"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                }
-              ],
-              "input": "data"
-            },
-            "load": {
-              "name": "load",
-              "points": [
-                {
-                  "method": "GET",
-                  "orig": "/getMe",
-                  "parts": [
-                    "getMe"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        },
-        "get_user_gift": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "description",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "error_code",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "ok",
-              "req": true,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "parameter",
-              "req": false,
-              "type": "`$OBJECT`",
-              "active": true
-            },
-            {
-              "name": "result",
-              "req": false,
-              "type": "`$ANY`",
-              "active": true
-            },
-            {
-              "name": "user_id",
-              "req": true,
-              "type": "`$INTEGER`",
-              "active": true
-            }
-          ],
-          "name": "get_user_gift",
-          "op": {
-            "create": {
-              "name": "create",
-              "points": [
-                {
-                  "method": "POST",
-                  "orig": "/getUserGifts",
-                  "parts": [
-                    "getUserGifts"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        },
-        "get_user_profile_audio": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "description",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "error_code",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "ok",
-              "req": true,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "parameter",
-              "req": false,
-              "type": "`$OBJECT`",
-              "active": true
-            },
-            {
-              "name": "result",
-              "req": false,
-              "type": "`$ANY`",
-              "active": true
-            },
-            {
-              "name": "user_id",
-              "req": true,
-              "type": "`$INTEGER`",
-              "active": true
-            }
-          ],
-          "name": "get_user_profile_audio",
-          "op": {
-            "create": {
-              "name": "create",
-              "points": [
-                {
-                  "method": "POST",
-                  "orig": "/getUserProfileAudios",
-                  "parts": [
-                    "getUserProfileAudios"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        },
-        "message": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "chat_id",
-              "req": true,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "direct_messages_topic_id",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "disable_notification",
-              "req": false,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "disable_web_page_preview",
-              "req": false,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "from_chat_id",
-              "req": true,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "latitude",
-              "req": true,
-              "type": "`$NUMBER`",
-              "active": true
-            },
-            {
-              "name": "longitude",
-              "req": true,
-              "type": "`$NUMBER`",
-              "active": true
-            },
-            {
-              "name": "message_effect_id",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "message_id",
-              "req": true,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "message_thread_id",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "option",
-              "req": true,
-              "type": "`$ARRAY`",
-              "active": true
-            },
-            {
-              "name": "parse_mode",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "protect_content",
-              "req": false,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "question",
-              "req": true,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "reply_to_message_id",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "text",
-              "req": true,
-              "type": "`$STRING`",
-              "active": true
-            }
-          ],
-          "name": "message",
-          "op": {
-            "create": {
-              "name": "create",
-              "points": [
-                {
-                  "method": "POST",
-                  "orig": "/forwardMessage",
-                  "parts": [
-                    "forwardMessage"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                },
-                {
-                  "method": "POST",
-                  "orig": "/sendAnimation",
-                  "parts": [
-                    "sendAnimation"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                },
-                {
-                  "method": "POST",
-                  "orig": "/sendAudio",
-                  "parts": [
-                    "sendAudio"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                },
-                {
-                  "method": "POST",
-                  "orig": "/sendDocument",
-                  "parts": [
-                    "sendDocument"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                },
-                {
-                  "method": "POST",
-                  "orig": "/sendLocation",
-                  "parts": [
-                    "sendLocation"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                },
-                {
-                  "method": "POST",
-                  "orig": "/sendMessage",
-                  "parts": [
-                    "sendMessage"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                },
-                {
-                  "method": "POST",
-                  "orig": "/sendPhoto",
-                  "parts": [
-                    "sendPhoto"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                },
-                {
-                  "method": "POST",
-                  "orig": "/sendPoll",
-                  "parts": [
-                    "sendPoll"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                },
-                {
-                  "method": "POST",
-                  "orig": "/sendSticker",
-                  "parts": [
-                    "sendSticker"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                },
-                {
-                  "method": "POST",
-                  "orig": "/sendVideo",
-                  "parts": [
-                    "sendVideo"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        },
-        "message_id": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "chat_id",
-              "req": true,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "direct_messages_topic_id",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "from_chat_id",
-              "req": true,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "message_effect_id",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "message_id",
-              "req": true,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "message_thread_id",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            }
-          ],
-          "name": "message_id",
-          "op": {
-            "create": {
-              "name": "create",
-              "points": [
-                {
-                  "method": "POST",
-                  "orig": "/copyMessage",
-                  "parts": [
-                    "copyMessage"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        },
-        "promote_chat_member": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "can_delete_message",
-              "req": false,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "can_edit_message",
-              "req": false,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "can_manage_chat",
-              "req": false,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "can_manage_direct_message",
-              "req": false,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "can_post_message",
-              "req": false,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "chat_id",
-              "req": true,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "description",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "error_code",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "ok",
-              "req": true,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "parameter",
-              "req": false,
-              "type": "`$OBJECT`",
-              "active": true
-            },
-            {
-              "name": "result",
-              "req": false,
-              "type": "`$ANY`",
-              "active": true
-            },
-            {
-              "name": "user_id",
-              "req": true,
-              "type": "`$INTEGER`",
-              "active": true
-            }
-          ],
-          "name": "promote_chat_member",
-          "op": {
-            "create": {
-              "name": "create",
-              "points": [
-                {
-                  "method": "POST",
-                  "orig": "/promoteChatMember",
-                  "parts": [
-                    "promoteChatMember"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        },
-        "remove_my_profile_photo": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "description",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "error_code",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "ok",
-              "req": true,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "parameter",
-              "req": false,
-              "type": "`$OBJECT`",
-              "active": true
-            },
-            {
-              "name": "result",
-              "req": false,
-              "type": "`$ANY`",
-              "active": true
-            }
-          ],
-          "name": "remove_my_profile_photo",
-          "op": {
-            "create": {
-              "name": "create",
-              "points": [
-                {
-                  "method": "POST",
-                  "orig": "/removeMyProfilePhoto",
-                  "parts": [
-                    "removeMyProfilePhoto"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        },
-        "repost_story": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "chat_id",
-              "req": true,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "description",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "error_code",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "ok",
-              "req": true,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "parameter",
-              "req": false,
-              "type": "`$OBJECT`",
-              "active": true
-            },
-            {
-              "name": "result",
-              "req": false,
-              "type": "`$ANY`",
-              "active": true
-            },
-            {
-              "name": "story_id",
-              "req": true,
-              "type": "`$INTEGER`",
-              "active": true
-            }
-          ],
-          "name": "repost_story",
-          "op": {
-            "create": {
-              "name": "create",
-              "points": [
-                {
-                  "method": "POST",
-                  "orig": "/repostStory",
-                  "parts": [
-                    "repostStory"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        },
-        "send_chat_action": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "action",
-              "req": true,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "chat_id",
-              "req": true,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "description",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "error_code",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "message_thread_id",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "ok",
-              "req": true,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "parameter",
-              "req": false,
-              "type": "`$OBJECT`",
-              "active": true
-            },
-            {
-              "name": "result",
-              "req": false,
-              "type": "`$ANY`",
-              "active": true
-            }
-          ],
-          "name": "send_chat_action",
-          "op": {
-            "create": {
-              "name": "create",
-              "points": [
-                {
-                  "method": "POST",
-                  "orig": "/sendChatAction",
-                  "parts": [
-                    "sendChatAction"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        },
-        "send_message_draft": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "chat_id",
-              "req": true,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "description",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "error_code",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "message_thread_id",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "ok",
-              "req": true,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "parameter",
-              "req": false,
-              "type": "`$OBJECT`",
-              "active": true
-            },
-            {
-              "name": "result",
-              "req": false,
-              "type": "`$ANY`",
-              "active": true
-            },
-            {
-              "name": "text",
-              "req": true,
-              "type": "`$STRING`",
-              "active": true
-            }
-          ],
-          "name": "send_message_draft",
-          "op": {
-            "create": {
-              "name": "create",
-              "points": [
-                {
-                  "method": "POST",
-                  "orig": "/sendMessageDraft",
-                  "parts": [
-                    "sendMessageDraft"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        },
-        "set_my_profile_photo": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "description",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "error_code",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "ok",
-              "req": true,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "parameter",
-              "req": false,
-              "type": "`$OBJECT`",
-              "active": true
-            },
-            {
-              "name": "result",
-              "req": false,
-              "type": "`$ANY`",
-              "active": true
-            }
-          ],
-          "name": "set_my_profile_photo",
-          "op": {
-            "create": {
-              "name": "create",
-              "points": [
-                {
-                  "method": "POST",
-                  "orig": "/setMyProfilePhoto",
-                  "parts": [
-                    "setMyProfilePhoto"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        },
-        "unpin_all_forum_topic_message": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "chat_id",
-              "req": true,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "description",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "error_code",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "message_thread_id",
-              "req": true,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "ok",
-              "req": true,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "parameter",
-              "req": false,
-              "type": "`$OBJECT`",
-              "active": true
-            },
-            {
-              "name": "result",
-              "req": false,
-              "type": "`$ANY`",
-              "active": true
-            }
-          ],
-          "name": "unpin_all_forum_topic_message",
-          "op": {
-            "create": {
-              "name": "create",
-              "points": [
-                {
-                  "method": "POST",
-                  "orig": "/unpinAllForumTopicMessages",
-                  "parts": [
-                    "unpinAllForumTopicMessages"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        },
-        "update": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "allowed_update",
-              "req": false,
-              "type": "`$ARRAY`",
-              "active": true
-            },
-            {
-              "name": "description",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "error_code",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "limit",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "offset",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "ok",
-              "req": true,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "parameter",
-              "req": false,
-              "type": "`$OBJECT`",
-              "active": true
-            },
-            {
-              "name": "result",
-              "req": false,
-              "type": "`$ARRAY`",
-              "active": true
-            },
-            {
-              "name": "timeout",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            }
-          ],
-          "name": "update",
-          "op": {
-            "create": {
-              "name": "create",
-              "points": [
-                {
-                  "method": "POST",
-                  "orig": "/getUpdates",
-                  "parts": [
-                    "getUpdates"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                }
-              ],
-              "input": "data"
-            },
-            "list": {
-              "name": "list",
-              "points": [
-                {
-                  "args": {
-                    "query": [
-                      {
-                        "kind": "query",
-                        "name": "allowed_update",
-                        "orig": "allowed_update",
-                        "reqd": false,
-                        "type": "`$ARRAY`",
-                        "active": true
-                      },
-                      {
-                        "example": 100,
-                        "kind": "query",
-                        "name": "limit",
-                        "orig": "limit",
-                        "reqd": false,
-                        "type": "`$INTEGER`",
-                        "active": true
-                      },
-                      {
-                        "kind": "query",
-                        "name": "offset",
-                        "orig": "offset",
-                        "reqd": false,
-                        "type": "`$INTEGER`",
-                        "active": true
-                      },
-                      {
-                        "example": 0,
-                        "kind": "query",
-                        "name": "timeout",
-                        "orig": "timeout",
-                        "reqd": false,
-                        "type": "`$INTEGER`",
-                        "active": true
-                      }
-                    ]
-                  },
-                  "method": "GET",
-                  "orig": "/getUpdates",
-                  "parts": [
-                    "getUpdates"
-                  ],
-                  "select": {
-                    "exist": [
-                      "allowed_update",
-                      "limit",
-                      "offset",
-                      "timeout"
-                    ]
-                  },
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        }
-      },
-      "feature": {
-        "test": {
-          "name": "test",
-          "title": "In-memory mock transport for testing without a live server",
-          "version": "0.0.1",
-          "active": true,
-          "config": {
-            "options": {
-              "active": false
-            }
-          },
-          "hook": {
-            "PostConstruct": {
-              "active": true,
-              "await": false
-            },
-            "PostConstructEntity": {
-              "active": true,
-              "await": false
-            },
-            "SetData": {
-              "active": true,
-              "await": false
-            },
-            "GetData": {
-              "active": true,
-              "await": false
-            },
-            "SetMatch": {
-              "active": true
-            },
-            "GetMatch": {
-              "active": true,
-              "await": false
-            },
-            "PrePoint": {
-              "active": true
-            },
-            "PreSpec": {
-              "active": true,
-              "await": false
-            },
-            "PreRequest": {
-              "active": true,
-              "await": false
-            },
-            "PreResponse": {
-              "active": true,
-              "await": false
-            },
-            "PreResult": {
-              "active": true,
-              "await": false
-            },
-            "PreTarget": {
-              "active": false,
-              "await": false
-            },
-            "PostOperation": {
-              "active": false,
-              "await": false
-            }
-          },
-          "target": {
-            "ts": {
-              "deps": {}
-            },
-            "go": {
-              "deps": {}
-            },
-            "lua": {
-              "deps": {}
-            },
-            "php": {
-              "deps": {}
-            },
-            "py": {
-              "deps": {}
-            },
-            "rb": {
-              "deps": {}
-            },
-            "go-cli": {
-              "deps": {}
-            },
-            "go-mcp": {
-              "deps": {}
-            }
-          }
-        }
-      },
-      "flow": {
-        "BasicApproveSuggestedPostFlow": {
-          "entity": "approve_suggested_post",
-          "kind": "basic",
-          "name": "BasicApproveSuggestedPostFlow",
-          "step": [
-            {
-              "input": {
-                "ref": "approve_suggested_post_ref01"
-              },
-              "op": "create",
-              "active": true,
-              "match": {},
-              "data": {},
-              "spec": [],
-              "valid": []
-            }
-          ],
-          "key$": "BasicApproveSuggestedPostFlow",
-          "active": true,
-          "param": {}
-        },
-        "BasicDeclineSuggestedPostFlow": {
-          "entity": "decline_suggested_post",
-          "kind": "basic",
-          "name": "BasicDeclineSuggestedPostFlow",
-          "step": [
-            {
-              "input": {
-                "ref": "decline_suggested_post_ref01"
-              },
-              "op": "create",
-              "active": true,
-              "match": {},
-              "data": {},
-              "spec": [],
-              "valid": []
-            }
-          ],
-          "key$": "BasicDeclineSuggestedPostFlow",
-          "active": true,
-          "param": {}
-        },
-        "BasicDeleteForumTopicFlow": {
-          "entity": "delete_forum_topic",
-          "kind": "basic",
-          "name": "BasicDeleteForumTopicFlow",
-          "step": [
-            {
-              "input": {
-                "ref": "delete_forum_topic_ref01"
-              },
-              "op": "create",
-              "active": true,
-              "match": {},
-              "data": {},
-              "spec": [],
-              "valid": []
-            }
-          ],
-          "key$": "BasicDeleteForumTopicFlow",
-          "active": true,
-          "param": {}
-        },
-        "BasicEditForumTopicFlow": {
-          "entity": "edit_forum_topic",
-          "kind": "basic",
-          "name": "BasicEditForumTopicFlow",
-          "step": [
-            {
-              "input": {
-                "ref": "edit_forum_topic_ref01"
-              },
-              "op": "create",
-              "active": true,
-              "match": {},
-              "data": {},
-              "spec": [],
-              "valid": []
-            }
-          ],
-          "key$": "BasicEditForumTopicFlow",
-          "active": true,
-          "param": {}
-        },
-        "BasicFileFlow": {
-          "entity": "file",
-          "kind": "basic",
-          "name": "BasicFileFlow",
-          "step": [
-            {
-              "input": {
-                "ref": "file_ref01"
-              },
-              "op": "create",
-              "active": true,
-              "match": {},
-              "data": {},
-              "spec": [],
-              "valid": []
-            }
-          ],
-          "key$": "BasicFileFlow",
-          "active": true,
-          "param": {}
-        },
-        "BasicForumTopicFlow": {
-          "entity": "forum_topic",
-          "kind": "basic",
-          "name": "BasicForumTopicFlow",
-          "step": [
-            {
-              "input": {
-                "ref": "forum_topic_ref01"
-              },
-              "op": "create",
-              "active": true,
-              "match": {},
-              "data": {},
-              "spec": [],
-              "valid": []
-            }
-          ],
-          "key$": "BasicForumTopicFlow",
-          "active": true,
-          "param": {}
-        },
-        "BasicGetBusinessAccountGiftFlow": {
-          "entity": "get_business_account_gift",
-          "kind": "basic",
-          "name": "BasicGetBusinessAccountGiftFlow",
-          "step": [
-            {
-              "input": {
-                "ref": "get_business_account_gift_ref01"
-              },
-              "op": "create",
-              "active": true,
-              "match": {},
-              "data": {},
-              "spec": [],
-              "valid": []
-            }
-          ],
-          "key$": "BasicGetBusinessAccountGiftFlow",
-          "active": true,
-          "param": {}
-        },
-        "BasicGetChatGiftFlow": {
-          "entity": "get_chat_gift",
-          "kind": "basic",
-          "name": "BasicGetChatGiftFlow",
-          "step": [
-            {
-              "input": {
-                "ref": "get_chat_gift_ref01"
-              },
-              "op": "create",
-              "active": true,
-              "match": {},
-              "data": {},
-              "spec": [],
-              "valid": []
-            }
-          ],
-          "key$": "BasicGetChatGiftFlow",
-          "active": true,
-          "param": {}
-        },
-        "BasicGetMeFlow": {
-          "entity": "get_me",
-          "kind": "basic",
-          "name": "BasicGetMeFlow",
-          "step": [
-            {
-              "input": {
-                "ref": "get_me_ref01"
-              },
-              "op": "create",
-              "active": true,
-              "match": {},
-              "data": {},
-              "spec": [],
-              "valid": []
-            },
-            {
-              "input": {
-                "ref": "get_me_ref01",
-                "srcdatavar": "get_me_ref01_data",
-                "suffix": "_dt0"
-              },
-              "op": "load",
-              "valid": [
-                {
-                  "apply": "TextFieldMark",
-                  "def": {
-                    "mark": "Mark01-get_me_ref01"
-                  }
-                }
-              ],
-              "active": true,
-              "match": {},
-              "data": {},
-              "spec": []
-            }
-          ],
-          "key$": "BasicGetMeFlow",
-          "active": true,
-          "param": {}
-        },
-        "BasicGetUserGiftFlow": {
-          "entity": "get_user_gift",
-          "kind": "basic",
-          "name": "BasicGetUserGiftFlow",
-          "step": [
-            {
-              "input": {
-                "ref": "get_user_gift_ref01"
-              },
-              "op": "create",
-              "active": true,
-              "match": {},
-              "data": {},
-              "spec": [],
-              "valid": []
-            }
-          ],
-          "key$": "BasicGetUserGiftFlow",
-          "active": true,
-          "param": {}
-        },
-        "BasicGetUserProfileAudioFlow": {
-          "entity": "get_user_profile_audio",
-          "kind": "basic",
-          "name": "BasicGetUserProfileAudioFlow",
-          "step": [
-            {
-              "input": {
-                "ref": "get_user_profile_audio_ref01"
-              },
-              "op": "create",
-              "active": true,
-              "match": {},
-              "data": {},
-              "spec": [],
-              "valid": []
-            }
-          ],
-          "key$": "BasicGetUserProfileAudioFlow",
-          "active": true,
-          "param": {}
-        },
-        "BasicMessageFlow": {
-          "entity": "message",
-          "kind": "basic",
-          "name": "BasicMessageFlow",
-          "step": [
-            {
-              "input": {
-                "ref": "message_ref01"
-              },
-              "op": "create",
-              "active": true,
-              "match": {},
-              "data": {},
-              "spec": [],
-              "valid": []
-            }
-          ],
-          "key$": "BasicMessageFlow",
-          "active": true,
-          "param": {}
-        },
-        "BasicMessageIdFlow": {
-          "entity": "message_id",
-          "kind": "basic",
-          "name": "BasicMessageIdFlow",
-          "step": [
-            {
-              "input": {
-                "ref": "message_id_ref01"
-              },
-              "op": "create",
-              "active": true,
-              "match": {},
-              "data": {},
-              "spec": [],
-              "valid": []
-            }
-          ],
-          "key$": "BasicMessageIdFlow",
-          "active": true,
-          "param": {}
-        },
-        "BasicPromoteChatMemberFlow": {
-          "entity": "promote_chat_member",
-          "kind": "basic",
-          "name": "BasicPromoteChatMemberFlow",
-          "step": [
-            {
-              "input": {
-                "ref": "promote_chat_member_ref01"
-              },
-              "op": "create",
-              "active": true,
-              "match": {},
-              "data": {},
-              "spec": [],
-              "valid": []
-            }
-          ],
-          "key$": "BasicPromoteChatMemberFlow",
-          "active": true,
-          "param": {}
-        },
-        "BasicRemoveMyProfilePhotoFlow": {
-          "entity": "remove_my_profile_photo",
-          "kind": "basic",
-          "name": "BasicRemoveMyProfilePhotoFlow",
-          "step": [
-            {
-              "input": {
-                "ref": "remove_my_profile_photo_ref01"
-              },
-              "op": "create",
-              "active": true,
-              "match": {},
-              "data": {},
-              "spec": [],
-              "valid": []
-            }
-          ],
-          "key$": "BasicRemoveMyProfilePhotoFlow",
-          "active": true,
-          "param": {}
-        },
-        "BasicRepostStoryFlow": {
-          "entity": "repost_story",
-          "kind": "basic",
-          "name": "BasicRepostStoryFlow",
-          "step": [
-            {
-              "input": {
-                "ref": "repost_story_ref01"
-              },
-              "op": "create",
-              "active": true,
-              "match": {},
-              "data": {},
-              "spec": [],
-              "valid": []
-            }
-          ],
-          "key$": "BasicRepostStoryFlow",
-          "active": true,
-          "param": {}
-        },
-        "BasicSendChatActionFlow": {
-          "entity": "send_chat_action",
-          "kind": "basic",
-          "name": "BasicSendChatActionFlow",
-          "step": [
-            {
-              "input": {
-                "ref": "send_chat_action_ref01"
-              },
-              "op": "create",
-              "active": true,
-              "match": {},
-              "data": {},
-              "spec": [],
-              "valid": []
-            }
-          ],
-          "key$": "BasicSendChatActionFlow",
-          "active": true,
-          "param": {}
-        },
-        "BasicSendMessageDraftFlow": {
-          "entity": "send_message_draft",
-          "kind": "basic",
-          "name": "BasicSendMessageDraftFlow",
-          "step": [
-            {
-              "input": {
-                "ref": "send_message_draft_ref01"
-              },
-              "op": "create",
-              "active": true,
-              "match": {},
-              "data": {},
-              "spec": [],
-              "valid": []
-            }
-          ],
-          "key$": "BasicSendMessageDraftFlow",
-          "active": true,
-          "param": {}
-        },
-        "BasicSetMyProfilePhotoFlow": {
-          "entity": "set_my_profile_photo",
-          "kind": "basic",
-          "name": "BasicSetMyProfilePhotoFlow",
-          "step": [
-            {
-              "input": {
-                "ref": "set_my_profile_photo_ref01"
-              },
-              "op": "create",
-              "active": true,
-              "match": {},
-              "data": {},
-              "spec": [],
-              "valid": []
-            }
-          ],
-          "key$": "BasicSetMyProfilePhotoFlow",
-          "active": true,
-          "param": {}
-        },
-        "BasicUnpinAllForumTopicMessageFlow": {
-          "entity": "unpin_all_forum_topic_message",
-          "kind": "basic",
-          "name": "BasicUnpinAllForumTopicMessageFlow",
-          "step": [
-            {
-              "input": {
-                "ref": "unpin_all_forum_topic_message_ref01"
-              },
-              "op": "create",
-              "active": true,
-              "match": {},
-              "data": {},
-              "spec": [],
-              "valid": []
-            }
-          ],
-          "key$": "BasicUnpinAllForumTopicMessageFlow",
-          "active": true,
-          "param": {}
-        },
-        "BasicUpdateFlow": {
-          "entity": "update",
-          "kind": "basic",
-          "name": "BasicUpdateFlow",
-          "step": [
-            {
-              "input": {
-                "ref": "update_ref01"
-              },
-              "op": "create",
-              "active": true,
-              "match": {},
-              "data": {},
-              "spec": [],
-              "valid": []
-            },
-            {
-              "op": "list",
-              "valid": [
-                {
-                  "apply": "ItemExists",
-                  "def": {
-                    "ref": "update_ref01"
-                  }
-                }
-              ],
-              "active": true,
-              "match": {},
-              "data": {},
-              "input": {},
-              "spec": []
-            }
-          ],
-          "key$": "BasicUpdateFlow",
-          "active": true,
-          "param": {}
-        }
-      },
+      "option": {},
       "target": {
-        "go-cli": {
-          "title": "Go CLI",
-          "ext": "go",
+        "go": {
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "go",
           "module": {
             "name": "telegram-bot"
           },
+          "name": "go",
+          "srcfeature": false,
+          "title": "Golang"
+        },
+        "go-cli": {
+          "active": true,
+          "comment": {
+            "line": "//"
+          },
+          "deps": {},
+          "ext": "go",
+          "module": {
+            "name": "telegram-bot"
+          },
+          "name": "go-cli",
           "phase": {
             "entity": {
               "active": false
@@ -2489,19 +2479,19 @@
               "active": false
             }
           },
-          "deps": {},
-          "name": "go-cli",
-          "active": true
+          "title": "Go CLI"
         },
         "go-mcp": {
-          "title": "Go MCP server",
-          "ext": "go",
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "go",
           "module": {
             "name": "telegram-bot"
           },
+          "name": "go-mcp",
           "phase": {
             "entity": {
               "active": false
@@ -2516,138 +2506,120 @@
               "active": false
             }
           },
-          "deps": {},
-          "name": "go-mcp",
-          "active": true
-        },
-        "ts": {
-          "title": "TypeScript",
-          "ext": "ts",
-          "comment": {
-            "line": "//"
-          },
-          "module": {
-            "name": "telegram-bot"
-          },
-          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
-          "deps": {
-            "dotenv": {
-              "active": true,
-              "version": "^17.4.2",
-              "kind": "dev"
-            },
-            "typescript": {
-              "active": true,
-              "version": "^5.9.3",
-              "kind": "dev"
-            },
-            "@types/node": {
-              "active": true,
-              "version": "^25.6.0",
-              "kind": "dev"
-            }
-          },
-          "name": "ts",
-          "active": true
-        },
-        "go": {
-          "title": "Golang",
-          "ext": "go",
-          "comment": {
-            "line": "//"
-          },
-          "module": {
-            "name": "telegram-bot"
-          },
-          "srcfeature": false,
-          "deps": {},
-          "name": "go",
-          "active": true
+          "title": "Go MCP server"
         },
         "lua": {
-          "title": "Lua",
-          "ext": "lua",
+          "active": true,
           "comment": {
             "line": "--"
           },
-          "module": {
-            "name": "telegram-bot"
-          },
-          "srcfeature": false,
           "deps": {
             "dkjson": {
               "active": true,
-              "version": "2.5",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "2.5"
             }
           },
+          "ext": "lua",
+          "module": {
+            "name": "telegram-bot"
+          },
           "name": "lua",
-          "active": true
+          "srcfeature": false,
+          "title": "Lua"
         },
         "php": {
-          "title": "PHP",
-          "ext": "php",
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "php",
           "module": {
             "name": "telegram-bot"
           },
-          "srcfeature": false,
-          "deps": {},
           "name": "php",
-          "active": true
+          "srcfeature": false,
+          "title": "PHP"
         },
         "py": {
-          "title": "Python",
-          "ext": "py",
+          "active": true,
           "comment": {
             "line": "#"
           },
-          "module": {
-            "name": "telegram-bot"
-          },
-          "srcfeature": false,
           "deps": {
             "requests": {
               "active": true,
-              "version": "2.33",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "2.33"
             }
           },
-          "name": "py",
-          "active": true
-        },
-        "rb": {
-          "title": "Ruby",
-          "ext": "rb",
-          "comment": {
-            "line": "#"
-          },
+          "ext": "py",
           "module": {
             "name": "telegram-bot"
           },
+          "name": "py",
           "srcfeature": false,
+          "title": "Python"
+        },
+        "rb": {
+          "active": true,
+          "comment": {
+            "line": "#"
+          },
           "deps": {
-            "voxgig-struct": {
-              "active": true,
-              "version": "0.0.10",
-              "kind": "prod"
-            },
             "json": {
               "active": true,
-              "version": "0",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "0"
+            },
+            "voxgig-struct": {
+              "active": true,
+              "kind": "prod",
+              "version": "0.0.10"
             }
           },
+          "ext": "rb",
+          "module": {
+            "name": "telegram-bot"
+          },
           "name": "rb",
-          "active": true
+          "srcfeature": false,
+          "title": "Ruby"
+        },
+        "ts": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "comment": {
+            "line": "//"
+          },
+          "deps": {
+            "@types/node": {
+              "active": true,
+              "kind": "dev",
+              "version": "^25.6.0"
+            },
+            "dotenv": {
+              "active": true,
+              "kind": "dev",
+              "version": "^17.4.2"
+            },
+            "typescript": {
+              "active": true,
+              "kind": "dev",
+              "version": "^5.9.3"
+            }
+          },
+          "ext": "ts",
+          "module": {
+            "name": "telegram-bot"
+          },
+          "name": "ts",
+          "title": "TypeScript"
         }
-      },
-      "option": {}
-    },
-    "def": {
-      "desc": ""
+      }
     }
-  }
+  },
+  "name": "telegram-bot",
+  "origin": "voxgig-sdk"
 }

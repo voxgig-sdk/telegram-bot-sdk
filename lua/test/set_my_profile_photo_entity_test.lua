@@ -86,6 +86,7 @@ function set_my_profile_photo_basic_setup(extra)
     ["TELEGRAMBOT_TEST_SET_MY_PROFILE_PHOTO_ENTID"] = idmap,
     ["TELEGRAMBOT_TEST_LIVE"] = "FALSE",
     ["TELEGRAMBOT_TEST_EXPLAIN"] = "FALSE",
+    ["TELEGRAMBOT_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -97,6 +98,7 @@ function set_my_profile_photo_basic_setup(extra)
   if env["TELEGRAMBOT_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
+        apikey = env["TELEGRAMBOT_APIKEY"],
       },
       extra or {},
     })

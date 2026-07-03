@@ -86,6 +86,7 @@ function get_user_profile_audio_basic_setup(extra)
     ["TELEGRAMBOT_TEST_GET_USER_PROFILE_AUDIO_ENTID"] = idmap,
     ["TELEGRAMBOT_TEST_LIVE"] = "FALSE",
     ["TELEGRAMBOT_TEST_EXPLAIN"] = "FALSE",
+    ["TELEGRAMBOT_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -97,6 +98,7 @@ function get_user_profile_audio_basic_setup(extra)
   if env["TELEGRAMBOT_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
+        apikey = env["TELEGRAMBOT_APIKEY"],
       },
       extra or {},
     })

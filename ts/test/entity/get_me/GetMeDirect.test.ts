@@ -74,12 +74,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'TELEGRAMBOT_TEST_GET_ME_ENTID': {},
     'TELEGRAMBOT_TEST_LIVE': 'FALSE',
+    'TELEGRAMBOT_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.TELEGRAMBOT_TEST_LIVE
 
   if (live) {
     const client = new TelegramBotSDK({
+      apikey: env.TELEGRAMBOT_APIKEY,
     })
 
     let idmap: any = env['TELEGRAMBOT_TEST_GET_ME_ENTID']

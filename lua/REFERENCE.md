@@ -30,12 +30,12 @@ Create a new SDK client instance.
 
 ### Static Methods
 
-#### `sdk.test(testopts, sdkopts)`
+#### `sdk.test(testopts?, sdkopts?)`
 
-Create a test client with mock features active. Both arguments may be `nil`.
+Create a test client with mock features active. Both arguments are optional.
 
 ```lua
-local client = sdk.test(nil, nil)
+local client = sdk.test()
 ```
 
 
@@ -186,11 +186,11 @@ local approve_suggested_post = client:ApproveSuggestedPost(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:ApproveSuggestedPost(nil):create({
+local result, err = client:ApproveSuggestedPost():create({
   chat_id = --[[ `$STRING` ]],
   message_id = --[[ `$INTEGER` ]],
   ok = --[[ `$BOOLEAN` ]],
-}, nil)
+})
 ```
 
 ### Common Methods
@@ -248,11 +248,11 @@ local decline_suggested_post = client:DeclineSuggestedPost(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:DeclineSuggestedPost(nil):create({
+local result, err = client:DeclineSuggestedPost():create({
   chat_id = --[[ `$STRING` ]],
   message_id = --[[ `$INTEGER` ]],
   ok = --[[ `$BOOLEAN` ]],
-}, nil)
+})
 ```
 
 ### Common Methods
@@ -310,11 +310,11 @@ local delete_forum_topic = client:DeleteForumTopic(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:DeleteForumTopic(nil):create({
+local result, err = client:DeleteForumTopic():create({
   chat_id = --[[ `$STRING` ]],
   message_thread_id = --[[ `$INTEGER` ]],
   ok = --[[ `$BOOLEAN` ]],
-}, nil)
+})
 ```
 
 ### Common Methods
@@ -374,11 +374,11 @@ local edit_forum_topic = client:EditForumTopic(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:EditForumTopic(nil):create({
+local result, err = client:EditForumTopic():create({
   chat_id = --[[ `$STRING` ]],
   message_thread_id = --[[ `$INTEGER` ]],
   ok = --[[ `$BOOLEAN` ]],
-}, nil)
+})
 ```
 
 ### Common Methods
@@ -430,9 +430,9 @@ local file = client:File(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:File(nil):create({
+local result, err = client:File():create({
   file_id = --[[ `$STRING` ]],
-}, nil)
+})
 ```
 
 ### Common Methods
@@ -487,10 +487,10 @@ local forum_topic = client:ForumTopic(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:ForumTopic(nil):create({
+local result, err = client:ForumTopic():create({
   chat_id = --[[ `$STRING` ]],
   name = --[[ `$STRING` ]],
-}, nil)
+})
 ```
 
 ### Common Methods
@@ -549,9 +549,9 @@ local get_business_account_gift = client:GetBusinessAccountGift(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:GetBusinessAccountGift(nil):create({
+local result, err = client:GetBusinessAccountGift():create({
   ok = --[[ `$BOOLEAN` ]],
-}, nil)
+})
 ```
 
 ### Common Methods
@@ -608,10 +608,10 @@ local get_chat_gift = client:GetChatGift(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:GetChatGift(nil):create({
+local result, err = client:GetChatGift():create({
   chat_id = --[[ `$STRING` ]],
   ok = --[[ `$BOOLEAN` ]],
-}, nil)
+})
 ```
 
 ### Common Methods
@@ -667,9 +667,9 @@ local get_me = client:GetMe(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:GetMe(nil):create({
+local result, err = client:GetMe():create({
   ok = --[[ `$BOOLEAN` ]],
-}, nil)
+})
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -677,7 +677,7 @@ local result, err = client:GetMe(nil):create({
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:GetMe(nil):load({ id = "get_me_id" }, nil)
+local result, err = client:GetMe():load({ id = "get_me_id" })
 ```
 
 ### Common Methods
@@ -734,10 +734,10 @@ local get_user_gift = client:GetUserGift(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:GetUserGift(nil):create({
+local result, err = client:GetUserGift():create({
   ok = --[[ `$BOOLEAN` ]],
   user_id = --[[ `$INTEGER` ]],
-}, nil)
+})
 ```
 
 ### Common Methods
@@ -794,10 +794,10 @@ local get_user_profile_audio = client:GetUserProfileAudio(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:GetUserProfileAudio(nil):create({
+local result, err = client:GetUserProfileAudio():create({
   ok = --[[ `$BOOLEAN` ]],
   user_id = --[[ `$INTEGER` ]],
-}, nil)
+})
 ```
 
 ### Common Methods
@@ -864,7 +864,7 @@ local message = client:Message(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:Message(nil):create({
+local result, err = client:Message():create({
   chat_id = --[[ `$STRING` ]],
   from_chat_id = --[[ `$STRING` ]],
   latitude = --[[ `$NUMBER` ]],
@@ -873,7 +873,7 @@ local result, err = client:Message(nil):create({
   option = --[[ `$ARRAY` ]],
   question = --[[ `$STRING` ]],
   text = --[[ `$STRING` ]],
-}, nil)
+})
 ```
 
 ### Common Methods
@@ -930,11 +930,11 @@ local message_id = client:MessageId(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:MessageId(nil):create({
+local result, err = client:MessageId():create({
   chat_id = --[[ `$STRING` ]],
   from_chat_id = --[[ `$STRING` ]],
   message_id = --[[ `$INTEGER` ]],
-}, nil)
+})
 ```
 
 ### Common Methods
@@ -997,11 +997,11 @@ local promote_chat_member = client:PromoteChatMember(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:PromoteChatMember(nil):create({
+local result, err = client:PromoteChatMember():create({
   chat_id = --[[ `$STRING` ]],
   ok = --[[ `$BOOLEAN` ]],
   user_id = --[[ `$INTEGER` ]],
-}, nil)
+})
 ```
 
 ### Common Methods
@@ -1057,9 +1057,9 @@ local remove_my_profile_photo = client:RemoveMyProfilePhoto(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:RemoveMyProfilePhoto(nil):create({
+local result, err = client:RemoveMyProfilePhoto():create({
   ok = --[[ `$BOOLEAN` ]],
-}, nil)
+})
 ```
 
 ### Common Methods
@@ -1117,11 +1117,11 @@ local repost_story = client:RepostStory(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:RepostStory(nil):create({
+local result, err = client:RepostStory():create({
   chat_id = --[[ `$STRING` ]],
   ok = --[[ `$BOOLEAN` ]],
   story_id = --[[ `$INTEGER` ]],
-}, nil)
+})
 ```
 
 ### Common Methods
@@ -1180,11 +1180,11 @@ local send_chat_action = client:SendChatAction(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:SendChatAction(nil):create({
+local result, err = client:SendChatAction():create({
   action = --[[ `$STRING` ]],
   chat_id = --[[ `$STRING` ]],
   ok = --[[ `$BOOLEAN` ]],
-}, nil)
+})
 ```
 
 ### Common Methods
@@ -1243,11 +1243,11 @@ local send_message_draft = client:SendMessageDraft(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:SendMessageDraft(nil):create({
+local result, err = client:SendMessageDraft():create({
   chat_id = --[[ `$STRING` ]],
   ok = --[[ `$BOOLEAN` ]],
   text = --[[ `$STRING` ]],
-}, nil)
+})
 ```
 
 ### Common Methods
@@ -1303,9 +1303,9 @@ local set_my_profile_photo = client:SetMyProfilePhoto(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:SetMyProfilePhoto(nil):create({
+local result, err = client:SetMyProfilePhoto():create({
   ok = --[[ `$BOOLEAN` ]],
-}, nil)
+})
 ```
 
 ### Common Methods
@@ -1363,11 +1363,11 @@ local unpin_all_forum_topic_message = client:UnpinAllForumTopicMessage(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:UnpinAllForumTopicMessage(nil):create({
+local result, err = client:UnpinAllForumTopicMessage():create({
   chat_id = --[[ `$STRING` ]],
   message_thread_id = --[[ `$INTEGER` ]],
   ok = --[[ `$BOOLEAN` ]],
-}, nil)
+})
 ```
 
 ### Common Methods
@@ -1427,9 +1427,9 @@ local update = client:Update(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:Update(nil):create({
+local result, err = client:Update():create({
   ok = --[[ `$BOOLEAN` ]],
-}, nil)
+})
 ```
 
 #### `list(reqmatch, ctrl) -> any, err`
@@ -1437,7 +1437,7 @@ local result, err = client:Update(nil):create({
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Update(nil):list(nil, nil)
+local results, err = client:Update():list()
 ```
 
 ### Common Methods

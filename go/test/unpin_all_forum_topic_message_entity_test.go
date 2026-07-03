@@ -110,6 +110,7 @@ func unpin_all_forum_topic_messageBasicSetup(extra map[string]any) *entityTestSe
 		"TELEGRAMBOT_TEST_UNPIN_ALL_FORUM_TOPIC_MESSAGE_ENTID": idmap,
 		"TELEGRAMBOT_TEST_LIVE":      "FALSE",
 		"TELEGRAMBOT_TEST_EXPLAIN":   "FALSE",
+		"TELEGRAMBOT_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["TELEGRAMBOT_TEST_UNPIN_ALL_FORUM_TOPIC_MESSAGE_ENTID"])
@@ -120,6 +121,7 @@ func unpin_all_forum_topic_messageBasicSetup(extra map[string]any) *entityTestSe
 	if env["TELEGRAMBOT_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["TELEGRAMBOT_APIKEY"],
 			},
 			extra,
 		})

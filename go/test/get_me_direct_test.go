@@ -99,12 +99,14 @@ func get_meDirectSetup(mockres any) *get_meDirectSetupResult {
 	env := envOverride(map[string]any{
 		"TELEGRAMBOT_TEST_GET_ME_ENTID": map[string]any{},
 		"TELEGRAMBOT_TEST_LIVE":    "FALSE",
+		"TELEGRAMBOT_APIKEY":       "NONE",
 	})
 
 	live := env["TELEGRAMBOT_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["TELEGRAMBOT_APIKEY"],
 		}
 		client := sdk.NewTelegramBotSDK(mergedOpts)
 

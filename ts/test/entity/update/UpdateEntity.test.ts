@@ -121,6 +121,7 @@ function basicSetup(extra?: any) {
     'TELEGRAM_BOT_TEST_UPDATE_ENTID': idmap,
     'TELEGRAM_BOT_TEST_LIVE': 'FALSE',
     'TELEGRAM_BOT_TEST_EXPLAIN': 'FALSE',
+    'TELEGRAM_BOT_APIKEY': 'NONE',
   })
 
   idmap = env['TELEGRAM_BOT_TEST_UPDATE_ENTID']
@@ -130,6 +131,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new TelegramBotSDK(merge([
       {
+        apikey: env.TELEGRAM_BOT_APIKEY,
       },
       extra
     ]))
