@@ -10,7 +10,7 @@ The Python SDK for the TelegramBot API — an entity-oriented client following P
 
 ## Install
 ```bash
-pip install telegram-bot-sdk
+pip install voxgig-sdk-telegram-bot
 ```
 
 Or install from source:

@@ -10,7 +10,7 @@ The Lua SDK for the TelegramBot API — an entity-oriented client using Lua conv
 
 ## Install
 ```bash
-luarocks install telegram-bot-sdk
+luarocks install voxgig-sdk-telegram-bot
 ```
 
 If the module is not yet published, add the source directory to

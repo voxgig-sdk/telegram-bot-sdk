@@ -10,7 +10,7 @@ The PHP SDK for the TelegramBot API — an entity-oriented client using PHP conv
 
 ## Install
 ```bash
-composer require voxgig/telegram-bot-sdk
+composer require voxgig-sdk/telegram-bot
 ```
 
 

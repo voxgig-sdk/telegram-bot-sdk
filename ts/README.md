@@ -10,7 +10,7 @@ The TypeScript SDK for the TelegramBot API — a type-safe, entity-oriented clie
 
 ## Install
 ```bash
-npm install telegram-bot
+npm install @voxgig-sdk/telegram-bot
 ```
 ## Tutorial: your first API call
 

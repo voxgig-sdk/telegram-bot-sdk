@@ -10,13 +10,13 @@ The Ruby SDK for the TelegramBot API — an entity-oriented client using idiomat
 
 ## Install
 ```bash
-gem install telegram-bot-sdk
+gem install voxgig-sdk-telegram-bot
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "telegram-bot-sdk"
+gem "voxgig-sdk-telegram-bot"
 ```
 
 Then run:

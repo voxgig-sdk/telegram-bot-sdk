@@ -8,12 +8,14 @@ source = {
   dir = "telegram-bot-sdk/lua"
 }
 description = {
-  summary = "TelegramBot SDK for Lua",
-  license = "MIT"
+  summary = "Unofficial generated Lua SDK for the Telegram Bot public API. Not affiliated with or endorsed by the upstream API provider.",
+  homepage = "https://github.com/voxgig-sdk/telegram-bot-sdk",
+  issues_url = "https://github.com/voxgig-sdk/telegram-bot-sdk/issues",
+  license = "MIT",
+  labels = { "voxgig", "sdk", "generated-sdk", "openapi", "api-client", "telegram-bot" }
 }
 dependencies = {
   "lua >= 5.3",
-  "dkjson >= 2.5",
   "dkjson >= 2.5",
 }
 build = {
