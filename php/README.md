@@ -34,8 +34,8 @@ $client = new TelegramBotSDK([
 ### 4. Create, update, and remove
 
 ```php
-// Create
-$created = $client->approvesuggestedpost()->create(["name" => "Example"]);
+// create() returns the bare created ApproveSuggestedPost record.
+$created = $client->ApproveSuggestedPost()->create(["name" => "Example"]);
 
 ```
 
@@ -80,13 +80,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = TelegramBotSDK::test();
+$client = TelegramBotSDK::test([
+    "entity" => ["approvesuggestedpost" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->approvesuggestedpost()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$approvesuggestedpost = $client->ApproveSuggestedPost()->load(["id" => "test01"]);
+print_r($approvesuggestedpost);
 ```
 
 ### Use a custom fetch function
@@ -167,10 +171,10 @@ Creates a test-mode client with mock transport. Both arguments may be `null`.
 | `get_utility` | `(): Utility` | Copy of the SDK utility object. |
 | `prepare` | `(array $fetchargs): array` | Build an HTTP request definition without sending. |
 | `direct` | `(array $fetchargs): array` | Build and send an HTTP request. |
-| `ApproveSuggestedPost` | `($data): ApproveSuggestedPostEntity` | Create a ApproveSuggestedPost entity instance. |
+| `ApproveSuggestedPost` | `($data): ApproveSuggestedPostEntity` | Create an ApproveSuggestedPost entity instance. |
 | `DeclineSuggestedPost` | `($data): DeclineSuggestedPostEntity` | Create a DeclineSuggestedPost entity instance. |
 | `DeleteForumTopic` | `($data): DeleteForumTopicEntity` | Create a DeleteForumTopic entity instance. |
-| `EditForumTopic` | `($data): EditForumTopicEntity` | Create a EditForumTopic entity instance. |
+| `EditForumTopic` | `($data): EditForumTopicEntity` | Create an EditForumTopic entity instance. |
 | `File` | `($data): FileEntity` | Create a File entity instance. |
 | `ForumTopic` | `($data): ForumTopicEntity` | Create a ForumTopic entity instance. |
 | `GetBusinessAccountGift` | `($data): GetBusinessAccountGiftEntity` | Create a GetBusinessAccountGift entity instance. |
@@ -186,8 +190,8 @@ Creates a test-mode client with mock transport. Both arguments may be `null`.
 | `SendChatAction` | `($data): SendChatActionEntity` | Create a SendChatAction entity instance. |
 | `SendMessageDraft` | `($data): SendMessageDraftEntity` | Create a SendMessageDraft entity instance. |
 | `SetMyProfilePhoto` | `($data): SetMyProfilePhotoEntity` | Create a SetMyProfilePhoto entity instance. |
-| `UnpinAllForumTopicMessage` | `($data): UnpinAllForumTopicMessageEntity` | Create a UnpinAllForumTopicMessage entity instance. |
-| `Update` | `($data): UpdateEntity` | Create a Update entity instance. |
+| `UnpinAllForumTopicMessage` | `($data): UnpinAllForumTopicMessageEntity` | Create an UnpinAllForumTopicMessage entity instance. |
+| `Update` | `($data): UpdateEntity` | Create an Update entity instance. |
 
 ### Entity interface
 
@@ -572,7 +576,7 @@ API path: `/getUpdates`
 
 ### ApproveSuggestedPost
 
-Create an instance: `const approve_suggested_post = client.approve_suggested_post`
+Create an instance: `$approve_suggested_post = $client->ApproveSuggestedPost();`
 
 #### Operations
 
@@ -594,18 +598,18 @@ Create an instance: `const approve_suggested_post = client.approve_suggested_pos
 
 #### Example: Create
 
-```ts
-const approve_suggested_post = await client.approve_suggested_post.create({
-  chat_id: /* `$STRING` */,
-  message_id: /* `$INTEGER` */,
-  ok: /* `$BOOLEAN` */,
-})
+```php
+$approve_suggested_post = $client->ApproveSuggestedPost()->create([
+    "chat_id" => null, // `$STRING`
+    "message_id" => null, // `$INTEGER`
+    "ok" => null, // `$BOOLEAN`
+]);
 ```
 
 
 ### DeclineSuggestedPost
 
-Create an instance: `const decline_suggested_post = client.decline_suggested_post`
+Create an instance: `$decline_suggested_post = $client->DeclineSuggestedPost();`
 
 #### Operations
 
@@ -627,18 +631,18 @@ Create an instance: `const decline_suggested_post = client.decline_suggested_pos
 
 #### Example: Create
 
-```ts
-const decline_suggested_post = await client.decline_suggested_post.create({
-  chat_id: /* `$STRING` */,
-  message_id: /* `$INTEGER` */,
-  ok: /* `$BOOLEAN` */,
-})
+```php
+$decline_suggested_post = $client->DeclineSuggestedPost()->create([
+    "chat_id" => null, // `$STRING`
+    "message_id" => null, // `$INTEGER`
+    "ok" => null, // `$BOOLEAN`
+]);
 ```
 
 
 ### DeleteForumTopic
 
-Create an instance: `const delete_forum_topic = client.delete_forum_topic`
+Create an instance: `$delete_forum_topic = $client->DeleteForumTopic();`
 
 #### Operations
 
@@ -660,18 +664,18 @@ Create an instance: `const delete_forum_topic = client.delete_forum_topic`
 
 #### Example: Create
 
-```ts
-const delete_forum_topic = await client.delete_forum_topic.create({
-  chat_id: /* `$STRING` */,
-  message_thread_id: /* `$INTEGER` */,
-  ok: /* `$BOOLEAN` */,
-})
+```php
+$delete_forum_topic = $client->DeleteForumTopic()->create([
+    "chat_id" => null, // `$STRING`
+    "message_thread_id" => null, // `$INTEGER`
+    "ok" => null, // `$BOOLEAN`
+]);
 ```
 
 
 ### EditForumTopic
 
-Create an instance: `const edit_forum_topic = client.edit_forum_topic`
+Create an instance: `$edit_forum_topic = $client->EditForumTopic();`
 
 #### Operations
 
@@ -695,18 +699,18 @@ Create an instance: `const edit_forum_topic = client.edit_forum_topic`
 
 #### Example: Create
 
-```ts
-const edit_forum_topic = await client.edit_forum_topic.create({
-  chat_id: /* `$STRING` */,
-  message_thread_id: /* `$INTEGER` */,
-  ok: /* `$BOOLEAN` */,
-})
+```php
+$edit_forum_topic = $client->EditForumTopic()->create([
+    "chat_id" => null, // `$STRING`
+    "message_thread_id" => null, // `$INTEGER`
+    "ok" => null, // `$BOOLEAN`
+]);
 ```
 
 
 ### File
 
-Create an instance: `const file = client.file`
+Create an instance: `$file = $client->File();`
 
 #### Operations
 
@@ -722,16 +726,16 @@ Create an instance: `const file = client.file`
 
 #### Example: Create
 
-```ts
-const file = await client.file.create({
-  file_id: /* `$STRING` */,
-})
+```php
+$file = $client->File()->create([
+    "file_id" => null, // `$STRING`
+]);
 ```
 
 
 ### ForumTopic
 
-Create an instance: `const forum_topic = client.forum_topic`
+Create an instance: `$forum_topic = $client->ForumTopic();`
 
 #### Operations
 
@@ -750,17 +754,17 @@ Create an instance: `const forum_topic = client.forum_topic`
 
 #### Example: Create
 
-```ts
-const forum_topic = await client.forum_topic.create({
-  chat_id: /* `$STRING` */,
-  name: /* `$STRING` */,
-})
+```php
+$forum_topic = $client->ForumTopic()->create([
+    "chat_id" => null, // `$STRING`
+    "name" => null, // `$STRING`
+]);
 ```
 
 
 ### GetBusinessAccountGift
 
-Create an instance: `const get_business_account_gift = client.get_business_account_gift`
+Create an instance: `$get_business_account_gift = $client->GetBusinessAccountGift();`
 
 #### Operations
 
@@ -783,16 +787,16 @@ Create an instance: `const get_business_account_gift = client.get_business_accou
 
 #### Example: Create
 
-```ts
-const get_business_account_gift = await client.get_business_account_gift.create({
-  ok: /* `$BOOLEAN` */,
-})
+```php
+$get_business_account_gift = $client->GetBusinessAccountGift()->create([
+    "ok" => null, // `$BOOLEAN`
+]);
 ```
 
 
 ### GetChatGift
 
-Create an instance: `const get_chat_gift = client.get_chat_gift`
+Create an instance: `$get_chat_gift = $client->GetChatGift();`
 
 #### Operations
 
@@ -813,17 +817,17 @@ Create an instance: `const get_chat_gift = client.get_chat_gift`
 
 #### Example: Create
 
-```ts
-const get_chat_gift = await client.get_chat_gift.create({
-  chat_id: /* `$STRING` */,
-  ok: /* `$BOOLEAN` */,
-})
+```php
+$get_chat_gift = $client->GetChatGift()->create([
+    "chat_id" => null, // `$STRING`
+    "ok" => null, // `$BOOLEAN`
+]);
 ```
 
 
 ### GetMe
 
-Create an instance: `const get_me = client.get_me`
+Create an instance: `$get_me = $client->GetMe();`
 
 #### Operations
 
@@ -844,22 +848,23 @@ Create an instance: `const get_me = client.get_me`
 
 #### Example: Load
 
-```ts
-const get_me = await client.get_me.load({ id: 'get_me_id' })
+```php
+// load() returns the bare GetMe record (throws on error).
+$get_me = $client->GetMe()->load(["id" => "get_me_id"]);
 ```
 
 #### Example: Create
 
-```ts
-const get_me = await client.get_me.create({
-  ok: /* `$BOOLEAN` */,
-})
+```php
+$get_me = $client->GetMe()->create([
+    "ok" => null, // `$BOOLEAN`
+]);
 ```
 
 
 ### GetUserGift
 
-Create an instance: `const get_user_gift = client.get_user_gift`
+Create an instance: `$get_user_gift = $client->GetUserGift();`
 
 #### Operations
 
@@ -880,17 +885,17 @@ Create an instance: `const get_user_gift = client.get_user_gift`
 
 #### Example: Create
 
-```ts
-const get_user_gift = await client.get_user_gift.create({
-  ok: /* `$BOOLEAN` */,
-  user_id: /* `$INTEGER` */,
-})
+```php
+$get_user_gift = $client->GetUserGift()->create([
+    "ok" => null, // `$BOOLEAN`
+    "user_id" => null, // `$INTEGER`
+]);
 ```
 
 
 ### GetUserProfileAudio
 
-Create an instance: `const get_user_profile_audio = client.get_user_profile_audio`
+Create an instance: `$get_user_profile_audio = $client->GetUserProfileAudio();`
 
 #### Operations
 
@@ -911,17 +916,17 @@ Create an instance: `const get_user_profile_audio = client.get_user_profile_audi
 
 #### Example: Create
 
-```ts
-const get_user_profile_audio = await client.get_user_profile_audio.create({
-  ok: /* `$BOOLEAN` */,
-  user_id: /* `$INTEGER` */,
-})
+```php
+$get_user_profile_audio = $client->GetUserProfileAudio()->create([
+    "ok" => null, // `$BOOLEAN`
+    "user_id" => null, // `$INTEGER`
+]);
 ```
 
 
 ### Message
 
-Create an instance: `const message = client.message`
+Create an instance: `$message = $client->Message();`
 
 #### Operations
 
@@ -952,23 +957,23 @@ Create an instance: `const message = client.message`
 
 #### Example: Create
 
-```ts
-const message = await client.message.create({
-  chat_id: /* `$STRING` */,
-  from_chat_id: /* `$STRING` */,
-  latitude: /* `$NUMBER` */,
-  longitude: /* `$NUMBER` */,
-  message_id: /* `$INTEGER` */,
-  option: /* `$ARRAY` */,
-  question: /* `$STRING` */,
-  text: /* `$STRING` */,
-})
+```php
+$message = $client->Message()->create([
+    "chat_id" => null, // `$STRING`
+    "from_chat_id" => null, // `$STRING`
+    "latitude" => null, // `$NUMBER`
+    "longitude" => null, // `$NUMBER`
+    "message_id" => null, // `$INTEGER`
+    "option" => null, // `$ARRAY`
+    "question" => null, // `$STRING`
+    "text" => null, // `$STRING`
+]);
 ```
 
 
 ### MessageId
 
-Create an instance: `const message_id = client.message_id`
+Create an instance: `$message_id = $client->MessageId();`
 
 #### Operations
 
@@ -989,18 +994,18 @@ Create an instance: `const message_id = client.message_id`
 
 #### Example: Create
 
-```ts
-const message_id = await client.message_id.create({
-  chat_id: /* `$STRING` */,
-  from_chat_id: /* `$STRING` */,
-  message_id: /* `$INTEGER` */,
-})
+```php
+$message_id = $client->MessageId()->create([
+    "chat_id" => null, // `$STRING`
+    "from_chat_id" => null, // `$STRING`
+    "message_id" => null, // `$INTEGER`
+]);
 ```
 
 
 ### PromoteChatMember
 
-Create an instance: `const promote_chat_member = client.promote_chat_member`
+Create an instance: `$promote_chat_member = $client->PromoteChatMember();`
 
 #### Operations
 
@@ -1027,18 +1032,18 @@ Create an instance: `const promote_chat_member = client.promote_chat_member`
 
 #### Example: Create
 
-```ts
-const promote_chat_member = await client.promote_chat_member.create({
-  chat_id: /* `$STRING` */,
-  ok: /* `$BOOLEAN` */,
-  user_id: /* `$INTEGER` */,
-})
+```php
+$promote_chat_member = $client->PromoteChatMember()->create([
+    "chat_id" => null, // `$STRING`
+    "ok" => null, // `$BOOLEAN`
+    "user_id" => null, // `$INTEGER`
+]);
 ```
 
 
 ### RemoveMyProfilePhoto
 
-Create an instance: `const remove_my_profile_photo = client.remove_my_profile_photo`
+Create an instance: `$remove_my_profile_photo = $client->RemoveMyProfilePhoto();`
 
 #### Operations
 
@@ -1058,16 +1063,16 @@ Create an instance: `const remove_my_profile_photo = client.remove_my_profile_ph
 
 #### Example: Create
 
-```ts
-const remove_my_profile_photo = await client.remove_my_profile_photo.create({
-  ok: /* `$BOOLEAN` */,
-})
+```php
+$remove_my_profile_photo = $client->RemoveMyProfilePhoto()->create([
+    "ok" => null, // `$BOOLEAN`
+]);
 ```
 
 
 ### RepostStory
 
-Create an instance: `const repost_story = client.repost_story`
+Create an instance: `$repost_story = $client->RepostStory();`
 
 #### Operations
 
@@ -1089,18 +1094,18 @@ Create an instance: `const repost_story = client.repost_story`
 
 #### Example: Create
 
-```ts
-const repost_story = await client.repost_story.create({
-  chat_id: /* `$STRING` */,
-  ok: /* `$BOOLEAN` */,
-  story_id: /* `$INTEGER` */,
-})
+```php
+$repost_story = $client->RepostStory()->create([
+    "chat_id" => null, // `$STRING`
+    "ok" => null, // `$BOOLEAN`
+    "story_id" => null, // `$INTEGER`
+]);
 ```
 
 
 ### SendChatAction
 
-Create an instance: `const send_chat_action = client.send_chat_action`
+Create an instance: `$send_chat_action = $client->SendChatAction();`
 
 #### Operations
 
@@ -1123,18 +1128,18 @@ Create an instance: `const send_chat_action = client.send_chat_action`
 
 #### Example: Create
 
-```ts
-const send_chat_action = await client.send_chat_action.create({
-  action: /* `$STRING` */,
-  chat_id: /* `$STRING` */,
-  ok: /* `$BOOLEAN` */,
-})
+```php
+$send_chat_action = $client->SendChatAction()->create([
+    "action" => null, // `$STRING`
+    "chat_id" => null, // `$STRING`
+    "ok" => null, // `$BOOLEAN`
+]);
 ```
 
 
 ### SendMessageDraft
 
-Create an instance: `const send_message_draft = client.send_message_draft`
+Create an instance: `$send_message_draft = $client->SendMessageDraft();`
 
 #### Operations
 
@@ -1157,18 +1162,18 @@ Create an instance: `const send_message_draft = client.send_message_draft`
 
 #### Example: Create
 
-```ts
-const send_message_draft = await client.send_message_draft.create({
-  chat_id: /* `$STRING` */,
-  ok: /* `$BOOLEAN` */,
-  text: /* `$STRING` */,
-})
+```php
+$send_message_draft = $client->SendMessageDraft()->create([
+    "chat_id" => null, // `$STRING`
+    "ok" => null, // `$BOOLEAN`
+    "text" => null, // `$STRING`
+]);
 ```
 
 
 ### SetMyProfilePhoto
 
-Create an instance: `const set_my_profile_photo = client.set_my_profile_photo`
+Create an instance: `$set_my_profile_photo = $client->SetMyProfilePhoto();`
 
 #### Operations
 
@@ -1188,16 +1193,16 @@ Create an instance: `const set_my_profile_photo = client.set_my_profile_photo`
 
 #### Example: Create
 
-```ts
-const set_my_profile_photo = await client.set_my_profile_photo.create({
-  ok: /* `$BOOLEAN` */,
-})
+```php
+$set_my_profile_photo = $client->SetMyProfilePhoto()->create([
+    "ok" => null, // `$BOOLEAN`
+]);
 ```
 
 
 ### UnpinAllForumTopicMessage
 
-Create an instance: `const unpin_all_forum_topic_message = client.unpin_all_forum_topic_message`
+Create an instance: `$unpin_all_forum_topic_message = $client->UnpinAllForumTopicMessage();`
 
 #### Operations
 
@@ -1219,18 +1224,18 @@ Create an instance: `const unpin_all_forum_topic_message = client.unpin_all_foru
 
 #### Example: Create
 
-```ts
-const unpin_all_forum_topic_message = await client.unpin_all_forum_topic_message.create({
-  chat_id: /* `$STRING` */,
-  message_thread_id: /* `$INTEGER` */,
-  ok: /* `$BOOLEAN` */,
-})
+```php
+$unpin_all_forum_topic_message = $client->UnpinAllForumTopicMessage()->create([
+    "chat_id" => null, // `$STRING`
+    "message_thread_id" => null, // `$INTEGER`
+    "ok" => null, // `$BOOLEAN`
+]);
 ```
 
 
 ### Update
 
-Create an instance: `const update = client.update`
+Create an instance: `$update = $client->Update();`
 
 #### Operations
 
@@ -1255,16 +1260,17 @@ Create an instance: `const update = client.update`
 
 #### Example: List
 
-```ts
-const updates = await client.update.list()
+```php
+// list() returns an array of Update records (throws on error).
+$updates = $client->Update()->list();
 ```
 
 #### Example: Create
 
-```ts
-const update = await client.update.create({
-  ok: /* `$BOOLEAN` */,
-})
+```php
+$update = $client->Update()->create([
+    "ok" => null, // `$BOOLEAN`
+]);
 ```
 
 
@@ -1339,7 +1345,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$approvesuggestedpost = $client->approvesuggestedpost();
+$approvesuggestedpost = $client->ApproveSuggestedPost();
 $approvesuggestedpost->load(["id" => "example_id"]);
 
 // $approvesuggestedpost->dataGet() now returns the loaded approvesuggestedpost data

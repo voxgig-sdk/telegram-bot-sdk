@@ -224,294 +224,147 @@ class TelegramBotSDK {
 
 
 
-  _approve_suggested_post?: ApproveSuggestedPostEntity
-
-  // Idiomatic facade: `client.approve_suggested_post.list()` / `client.approve_suggested_post.load({ id })`.
-  get approve_suggested_post(): ApproveSuggestedPostEntity {
-    return (this._approve_suggested_post ??= new ApproveSuggestedPostEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.approve_suggested_post` instead. */
+  // Entity access: `client.ApproveSuggestedPost().list()` / `client.ApproveSuggestedPost().load({ id })`.
   ApproveSuggestedPost(data?: any) {
     const self = this
     return new ApproveSuggestedPostEntity(self,data)
   }
 
 
-  _decline_suggested_post?: DeclineSuggestedPostEntity
-
-  // Idiomatic facade: `client.decline_suggested_post.list()` / `client.decline_suggested_post.load({ id })`.
-  get decline_suggested_post(): DeclineSuggestedPostEntity {
-    return (this._decline_suggested_post ??= new DeclineSuggestedPostEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.decline_suggested_post` instead. */
+  // Entity access: `client.DeclineSuggestedPost().list()` / `client.DeclineSuggestedPost().load({ id })`.
   DeclineSuggestedPost(data?: any) {
     const self = this
     return new DeclineSuggestedPostEntity(self,data)
   }
 
 
-  _delete_forum_topic?: DeleteForumTopicEntity
-
-  // Idiomatic facade: `client.delete_forum_topic.list()` / `client.delete_forum_topic.load({ id })`.
-  get delete_forum_topic(): DeleteForumTopicEntity {
-    return (this._delete_forum_topic ??= new DeleteForumTopicEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.delete_forum_topic` instead. */
+  // Entity access: `client.DeleteForumTopic().list()` / `client.DeleteForumTopic().load({ id })`.
   DeleteForumTopic(data?: any) {
     const self = this
     return new DeleteForumTopicEntity(self,data)
   }
 
 
-  _edit_forum_topic?: EditForumTopicEntity
-
-  // Idiomatic facade: `client.edit_forum_topic.list()` / `client.edit_forum_topic.load({ id })`.
-  get edit_forum_topic(): EditForumTopicEntity {
-    return (this._edit_forum_topic ??= new EditForumTopicEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.edit_forum_topic` instead. */
+  // Entity access: `client.EditForumTopic().list()` / `client.EditForumTopic().load({ id })`.
   EditForumTopic(data?: any) {
     const self = this
     return new EditForumTopicEntity(self,data)
   }
 
 
-  _file?: FileEntity
-
-  // Idiomatic facade: `client.file.list()` / `client.file.load({ id })`.
-  get file(): FileEntity {
-    return (this._file ??= new FileEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.file` instead. */
+  // Entity access: `client.File().list()` / `client.File().load({ id })`.
   File(data?: any) {
     const self = this
     return new FileEntity(self,data)
   }
 
 
-  _forum_topic?: ForumTopicEntity
-
-  // Idiomatic facade: `client.forum_topic.list()` / `client.forum_topic.load({ id })`.
-  get forum_topic(): ForumTopicEntity {
-    return (this._forum_topic ??= new ForumTopicEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.forum_topic` instead. */
+  // Entity access: `client.ForumTopic().list()` / `client.ForumTopic().load({ id })`.
   ForumTopic(data?: any) {
     const self = this
     return new ForumTopicEntity(self,data)
   }
 
 
-  _get_business_account_gift?: GetBusinessAccountGiftEntity
-
-  // Idiomatic facade: `client.get_business_account_gift.list()` / `client.get_business_account_gift.load({ id })`.
-  get get_business_account_gift(): GetBusinessAccountGiftEntity {
-    return (this._get_business_account_gift ??= new GetBusinessAccountGiftEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.get_business_account_gift` instead. */
+  // Entity access: `client.GetBusinessAccountGift().list()` / `client.GetBusinessAccountGift().load({ id })`.
   GetBusinessAccountGift(data?: any) {
     const self = this
     return new GetBusinessAccountGiftEntity(self,data)
   }
 
 
-  _get_chat_gift?: GetChatGiftEntity
-
-  // Idiomatic facade: `client.get_chat_gift.list()` / `client.get_chat_gift.load({ id })`.
-  get get_chat_gift(): GetChatGiftEntity {
-    return (this._get_chat_gift ??= new GetChatGiftEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.get_chat_gift` instead. */
+  // Entity access: `client.GetChatGift().list()` / `client.GetChatGift().load({ id })`.
   GetChatGift(data?: any) {
     const self = this
     return new GetChatGiftEntity(self,data)
   }
 
 
-  _get_me?: GetMeEntity
-
-  // Idiomatic facade: `client.get_me.list()` / `client.get_me.load({ id })`.
-  get get_me(): GetMeEntity {
-    return (this._get_me ??= new GetMeEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.get_me` instead. */
+  // Entity access: `client.GetMe().list()` / `client.GetMe().load({ id })`.
   GetMe(data?: any) {
     const self = this
     return new GetMeEntity(self,data)
   }
 
 
-  _get_user_gift?: GetUserGiftEntity
-
-  // Idiomatic facade: `client.get_user_gift.list()` / `client.get_user_gift.load({ id })`.
-  get get_user_gift(): GetUserGiftEntity {
-    return (this._get_user_gift ??= new GetUserGiftEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.get_user_gift` instead. */
+  // Entity access: `client.GetUserGift().list()` / `client.GetUserGift().load({ id })`.
   GetUserGift(data?: any) {
     const self = this
     return new GetUserGiftEntity(self,data)
   }
 
 
-  _get_user_profile_audio?: GetUserProfileAudioEntity
-
-  // Idiomatic facade: `client.get_user_profile_audio.list()` / `client.get_user_profile_audio.load({ id })`.
-  get get_user_profile_audio(): GetUserProfileAudioEntity {
-    return (this._get_user_profile_audio ??= new GetUserProfileAudioEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.get_user_profile_audio` instead. */
+  // Entity access: `client.GetUserProfileAudio().list()` / `client.GetUserProfileAudio().load({ id })`.
   GetUserProfileAudio(data?: any) {
     const self = this
     return new GetUserProfileAudioEntity(self,data)
   }
 
 
-  _message?: MessageEntity
-
-  // Idiomatic facade: `client.message.list()` / `client.message.load({ id })`.
-  get message(): MessageEntity {
-    return (this._message ??= new MessageEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.message` instead. */
+  // Entity access: `client.Message().list()` / `client.Message().load({ id })`.
   Message(data?: any) {
     const self = this
     return new MessageEntity(self,data)
   }
 
 
-  _message_id?: MessageIdEntity
-
-  // Idiomatic facade: `client.message_id.list()` / `client.message_id.load({ id })`.
-  get message_id(): MessageIdEntity {
-    return (this._message_id ??= new MessageIdEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.message_id` instead. */
+  // Entity access: `client.MessageId().list()` / `client.MessageId().load({ id })`.
   MessageId(data?: any) {
     const self = this
     return new MessageIdEntity(self,data)
   }
 
 
-  _promote_chat_member?: PromoteChatMemberEntity
-
-  // Idiomatic facade: `client.promote_chat_member.list()` / `client.promote_chat_member.load({ id })`.
-  get promote_chat_member(): PromoteChatMemberEntity {
-    return (this._promote_chat_member ??= new PromoteChatMemberEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.promote_chat_member` instead. */
+  // Entity access: `client.PromoteChatMember().list()` / `client.PromoteChatMember().load({ id })`.
   PromoteChatMember(data?: any) {
     const self = this
     return new PromoteChatMemberEntity(self,data)
   }
 
 
-  _remove_my_profile_photo?: RemoveMyProfilePhotoEntity
-
-  // Idiomatic facade: `client.remove_my_profile_photo.list()` / `client.remove_my_profile_photo.load({ id })`.
-  get remove_my_profile_photo(): RemoveMyProfilePhotoEntity {
-    return (this._remove_my_profile_photo ??= new RemoveMyProfilePhotoEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.remove_my_profile_photo` instead. */
+  // Entity access: `client.RemoveMyProfilePhoto().list()` / `client.RemoveMyProfilePhoto().load({ id })`.
   RemoveMyProfilePhoto(data?: any) {
     const self = this
     return new RemoveMyProfilePhotoEntity(self,data)
   }
 
 
-  _repost_story?: RepostStoryEntity
-
-  // Idiomatic facade: `client.repost_story.list()` / `client.repost_story.load({ id })`.
-  get repost_story(): RepostStoryEntity {
-    return (this._repost_story ??= new RepostStoryEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.repost_story` instead. */
+  // Entity access: `client.RepostStory().list()` / `client.RepostStory().load({ id })`.
   RepostStory(data?: any) {
     const self = this
     return new RepostStoryEntity(self,data)
   }
 
 
-  _send_chat_action?: SendChatActionEntity
-
-  // Idiomatic facade: `client.send_chat_action.list()` / `client.send_chat_action.load({ id })`.
-  get send_chat_action(): SendChatActionEntity {
-    return (this._send_chat_action ??= new SendChatActionEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.send_chat_action` instead. */
+  // Entity access: `client.SendChatAction().list()` / `client.SendChatAction().load({ id })`.
   SendChatAction(data?: any) {
     const self = this
     return new SendChatActionEntity(self,data)
   }
 
 
-  _send_message_draft?: SendMessageDraftEntity
-
-  // Idiomatic facade: `client.send_message_draft.list()` / `client.send_message_draft.load({ id })`.
-  get send_message_draft(): SendMessageDraftEntity {
-    return (this._send_message_draft ??= new SendMessageDraftEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.send_message_draft` instead. */
+  // Entity access: `client.SendMessageDraft().list()` / `client.SendMessageDraft().load({ id })`.
   SendMessageDraft(data?: any) {
     const self = this
     return new SendMessageDraftEntity(self,data)
   }
 
 
-  _set_my_profile_photo?: SetMyProfilePhotoEntity
-
-  // Idiomatic facade: `client.set_my_profile_photo.list()` / `client.set_my_profile_photo.load({ id })`.
-  get set_my_profile_photo(): SetMyProfilePhotoEntity {
-    return (this._set_my_profile_photo ??= new SetMyProfilePhotoEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.set_my_profile_photo` instead. */
+  // Entity access: `client.SetMyProfilePhoto().list()` / `client.SetMyProfilePhoto().load({ id })`.
   SetMyProfilePhoto(data?: any) {
     const self = this
     return new SetMyProfilePhotoEntity(self,data)
   }
 
 
-  _unpin_all_forum_topic_message?: UnpinAllForumTopicMessageEntity
-
-  // Idiomatic facade: `client.unpin_all_forum_topic_message.list()` / `client.unpin_all_forum_topic_message.load({ id })`.
-  get unpin_all_forum_topic_message(): UnpinAllForumTopicMessageEntity {
-    return (this._unpin_all_forum_topic_message ??= new UnpinAllForumTopicMessageEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.unpin_all_forum_topic_message` instead. */
+  // Entity access: `client.UnpinAllForumTopicMessage().list()` / `client.UnpinAllForumTopicMessage().load({ id })`.
   UnpinAllForumTopicMessage(data?: any) {
     const self = this
     return new UnpinAllForumTopicMessageEntity(self,data)
   }
 
 
-  _update?: UpdateEntity
-
-  // Idiomatic facade: `client.update.list()` / `client.update.load({ id })`.
-  get update(): UpdateEntity {
-    return (this._update ??= new UpdateEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.update` instead. */
+  // Entity access: `client.Update().list()` / `client.Update().load({ id })`.
   Update(data?: any) {
     const self = this
     return new UpdateEntity(self,data)

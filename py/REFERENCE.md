@@ -161,7 +161,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## ApproveSuggestedPostEntity
 
 ```python
-approve_suggested_post = client.approve_suggested_post
+approve_suggested_post = client.ApproveSuggestedPost()
 ```
 
 ### Fields
@@ -183,10 +183,10 @@ approve_suggested_post = client.approve_suggested_post
 Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result = client.approve_suggested_post.create({
-    "chat_id": # `$STRING`,
-    "message_id": # `$INTEGER`,
-    "ok": # `$BOOLEAN`,
+result = client.ApproveSuggestedPost().create({
+    "chat_id": ...,  # `$STRING`
+    "message_id": ...,  # `$INTEGER`
+    "ok": ...,  # `$BOOLEAN`
 })
 ```
 
@@ -222,7 +222,7 @@ Return the entity name.
 ## DeclineSuggestedPostEntity
 
 ```python
-decline_suggested_post = client.decline_suggested_post
+decline_suggested_post = client.DeclineSuggestedPost()
 ```
 
 ### Fields
@@ -244,10 +244,10 @@ decline_suggested_post = client.decline_suggested_post
 Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result = client.decline_suggested_post.create({
-    "chat_id": # `$STRING`,
-    "message_id": # `$INTEGER`,
-    "ok": # `$BOOLEAN`,
+result = client.DeclineSuggestedPost().create({
+    "chat_id": ...,  # `$STRING`
+    "message_id": ...,  # `$INTEGER`
+    "ok": ...,  # `$BOOLEAN`
 })
 ```
 
@@ -283,7 +283,7 @@ Return the entity name.
 ## DeleteForumTopicEntity
 
 ```python
-delete_forum_topic = client.delete_forum_topic
+delete_forum_topic = client.DeleteForumTopic()
 ```
 
 ### Fields
@@ -305,10 +305,10 @@ delete_forum_topic = client.delete_forum_topic
 Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result = client.delete_forum_topic.create({
-    "chat_id": # `$STRING`,
-    "message_thread_id": # `$INTEGER`,
-    "ok": # `$BOOLEAN`,
+result = client.DeleteForumTopic().create({
+    "chat_id": ...,  # `$STRING`
+    "message_thread_id": ...,  # `$INTEGER`
+    "ok": ...,  # `$BOOLEAN`
 })
 ```
 
@@ -344,7 +344,7 @@ Return the entity name.
 ## EditForumTopicEntity
 
 ```python
-edit_forum_topic = client.edit_forum_topic
+edit_forum_topic = client.EditForumTopic()
 ```
 
 ### Fields
@@ -368,10 +368,10 @@ edit_forum_topic = client.edit_forum_topic
 Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result = client.edit_forum_topic.create({
-    "chat_id": # `$STRING`,
-    "message_thread_id": # `$INTEGER`,
-    "ok": # `$BOOLEAN`,
+result = client.EditForumTopic().create({
+    "chat_id": ...,  # `$STRING`
+    "message_thread_id": ...,  # `$INTEGER`
+    "ok": ...,  # `$BOOLEAN`
 })
 ```
 
@@ -407,7 +407,7 @@ Return the entity name.
 ## FileEntity
 
 ```python
-file = client.file
+file = client.File()
 ```
 
 ### Fields
@@ -423,8 +423,8 @@ file = client.file
 Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result = client.file.create({
-    "file_id": # `$STRING`,
+result = client.File().create({
+    "file_id": ...,  # `$STRING`
 })
 ```
 
@@ -460,7 +460,7 @@ Return the entity name.
 ## ForumTopicEntity
 
 ```python
-forum_topic = client.forum_topic
+forum_topic = client.ForumTopic()
 ```
 
 ### Fields
@@ -479,9 +479,9 @@ forum_topic = client.forum_topic
 Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result = client.forum_topic.create({
-    "chat_id": # `$STRING`,
-    "name": # `$STRING`,
+result = client.ForumTopic().create({
+    "chat_id": ...,  # `$STRING`
+    "name": ...,  # `$STRING`
 })
 ```
 
@@ -517,7 +517,7 @@ Return the entity name.
 ## GetBusinessAccountGiftEntity
 
 ```python
-get_business_account_gift = client.get_business_account_gift
+get_business_account_gift = client.GetBusinessAccountGift()
 ```
 
 ### Fields
@@ -540,8 +540,8 @@ get_business_account_gift = client.get_business_account_gift
 Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result = client.get_business_account_gift.create({
-    "ok": # `$BOOLEAN`,
+result = client.GetBusinessAccountGift().create({
+    "ok": ...,  # `$BOOLEAN`
 })
 ```
 
@@ -577,7 +577,7 @@ Return the entity name.
 ## GetChatGiftEntity
 
 ```python
-get_chat_gift = client.get_chat_gift
+get_chat_gift = client.GetChatGift()
 ```
 
 ### Fields
@@ -598,9 +598,9 @@ get_chat_gift = client.get_chat_gift
 Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result = client.get_chat_gift.create({
-    "chat_id": # `$STRING`,
-    "ok": # `$BOOLEAN`,
+result = client.GetChatGift().create({
+    "chat_id": ...,  # `$STRING`
+    "ok": ...,  # `$BOOLEAN`
 })
 ```
 
@@ -636,7 +636,7 @@ Return the entity name.
 ## GetMeEntity
 
 ```python
-get_me = client.get_me
+get_me = client.GetMe()
 ```
 
 ### Fields
@@ -656,8 +656,8 @@ get_me = client.get_me
 Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result = client.get_me.create({
-    "ok": # `$BOOLEAN`,
+result = client.GetMe().create({
+    "ok": ...,  # `$BOOLEAN`
 })
 ```
 
@@ -666,7 +666,7 @@ result = client.get_me.create({
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.get_me.load({"id": "get_me_id"})
+result = client.GetMe().load({"id": "get_me_id"})
 ```
 
 ### Common Methods
@@ -701,7 +701,7 @@ Return the entity name.
 ## GetUserGiftEntity
 
 ```python
-get_user_gift = client.get_user_gift
+get_user_gift = client.GetUserGift()
 ```
 
 ### Fields
@@ -722,9 +722,9 @@ get_user_gift = client.get_user_gift
 Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result = client.get_user_gift.create({
-    "ok": # `$BOOLEAN`,
-    "user_id": # `$INTEGER`,
+result = client.GetUserGift().create({
+    "ok": ...,  # `$BOOLEAN`
+    "user_id": ...,  # `$INTEGER`
 })
 ```
 
@@ -760,7 +760,7 @@ Return the entity name.
 ## GetUserProfileAudioEntity
 
 ```python
-get_user_profile_audio = client.get_user_profile_audio
+get_user_profile_audio = client.GetUserProfileAudio()
 ```
 
 ### Fields
@@ -781,9 +781,9 @@ get_user_profile_audio = client.get_user_profile_audio
 Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result = client.get_user_profile_audio.create({
-    "ok": # `$BOOLEAN`,
-    "user_id": # `$INTEGER`,
+result = client.GetUserProfileAudio().create({
+    "ok": ...,  # `$BOOLEAN`
+    "user_id": ...,  # `$INTEGER`
 })
 ```
 
@@ -819,7 +819,7 @@ Return the entity name.
 ## MessageEntity
 
 ```python
-message = client.message
+message = client.Message()
 ```
 
 ### Fields
@@ -850,15 +850,15 @@ message = client.message
 Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result = client.message.create({
-    "chat_id": # `$STRING`,
-    "from_chat_id": # `$STRING`,
-    "latitude": # `$NUMBER`,
-    "longitude": # `$NUMBER`,
-    "message_id": # `$INTEGER`,
-    "option": # `$ARRAY`,
-    "question": # `$STRING`,
-    "text": # `$STRING`,
+result = client.Message().create({
+    "chat_id": ...,  # `$STRING`
+    "from_chat_id": ...,  # `$STRING`
+    "latitude": ...,  # `$NUMBER`
+    "longitude": ...,  # `$NUMBER`
+    "message_id": ...,  # `$INTEGER`
+    "option": ...,  # `$ARRAY`
+    "question": ...,  # `$STRING`
+    "text": ...,  # `$STRING`
 })
 ```
 
@@ -894,7 +894,7 @@ Return the entity name.
 ## MessageIdEntity
 
 ```python
-message_id = client.message_id
+message_id = client.MessageId()
 ```
 
 ### Fields
@@ -915,10 +915,10 @@ message_id = client.message_id
 Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result = client.message_id.create({
-    "chat_id": # `$STRING`,
-    "from_chat_id": # `$STRING`,
-    "message_id": # `$INTEGER`,
+result = client.MessageId().create({
+    "chat_id": ...,  # `$STRING`
+    "from_chat_id": ...,  # `$STRING`
+    "message_id": ...,  # `$INTEGER`
 })
 ```
 
@@ -954,7 +954,7 @@ Return the entity name.
 ## PromoteChatMemberEntity
 
 ```python
-promote_chat_member = client.promote_chat_member
+promote_chat_member = client.PromoteChatMember()
 ```
 
 ### Fields
@@ -981,10 +981,10 @@ promote_chat_member = client.promote_chat_member
 Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result = client.promote_chat_member.create({
-    "chat_id": # `$STRING`,
-    "ok": # `$BOOLEAN`,
-    "user_id": # `$INTEGER`,
+result = client.PromoteChatMember().create({
+    "chat_id": ...,  # `$STRING`
+    "ok": ...,  # `$BOOLEAN`
+    "user_id": ...,  # `$INTEGER`
 })
 ```
 
@@ -1020,7 +1020,7 @@ Return the entity name.
 ## RemoveMyProfilePhotoEntity
 
 ```python
-remove_my_profile_photo = client.remove_my_profile_photo
+remove_my_profile_photo = client.RemoveMyProfilePhoto()
 ```
 
 ### Fields
@@ -1040,8 +1040,8 @@ remove_my_profile_photo = client.remove_my_profile_photo
 Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result = client.remove_my_profile_photo.create({
-    "ok": # `$BOOLEAN`,
+result = client.RemoveMyProfilePhoto().create({
+    "ok": ...,  # `$BOOLEAN`
 })
 ```
 
@@ -1077,7 +1077,7 @@ Return the entity name.
 ## RepostStoryEntity
 
 ```python
-repost_story = client.repost_story
+repost_story = client.RepostStory()
 ```
 
 ### Fields
@@ -1099,10 +1099,10 @@ repost_story = client.repost_story
 Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result = client.repost_story.create({
-    "chat_id": # `$STRING`,
-    "ok": # `$BOOLEAN`,
-    "story_id": # `$INTEGER`,
+result = client.RepostStory().create({
+    "chat_id": ...,  # `$STRING`
+    "ok": ...,  # `$BOOLEAN`
+    "story_id": ...,  # `$INTEGER`
 })
 ```
 
@@ -1138,7 +1138,7 @@ Return the entity name.
 ## SendChatActionEntity
 
 ```python
-send_chat_action = client.send_chat_action
+send_chat_action = client.SendChatAction()
 ```
 
 ### Fields
@@ -1161,10 +1161,10 @@ send_chat_action = client.send_chat_action
 Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result = client.send_chat_action.create({
-    "action": # `$STRING`,
-    "chat_id": # `$STRING`,
-    "ok": # `$BOOLEAN`,
+result = client.SendChatAction().create({
+    "action": ...,  # `$STRING`
+    "chat_id": ...,  # `$STRING`
+    "ok": ...,  # `$BOOLEAN`
 })
 ```
 
@@ -1200,7 +1200,7 @@ Return the entity name.
 ## SendMessageDraftEntity
 
 ```python
-send_message_draft = client.send_message_draft
+send_message_draft = client.SendMessageDraft()
 ```
 
 ### Fields
@@ -1223,10 +1223,10 @@ send_message_draft = client.send_message_draft
 Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result = client.send_message_draft.create({
-    "chat_id": # `$STRING`,
-    "ok": # `$BOOLEAN`,
-    "text": # `$STRING`,
+result = client.SendMessageDraft().create({
+    "chat_id": ...,  # `$STRING`
+    "ok": ...,  # `$BOOLEAN`
+    "text": ...,  # `$STRING`
 })
 ```
 
@@ -1262,7 +1262,7 @@ Return the entity name.
 ## SetMyProfilePhotoEntity
 
 ```python
-set_my_profile_photo = client.set_my_profile_photo
+set_my_profile_photo = client.SetMyProfilePhoto()
 ```
 
 ### Fields
@@ -1282,8 +1282,8 @@ set_my_profile_photo = client.set_my_profile_photo
 Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result = client.set_my_profile_photo.create({
-    "ok": # `$BOOLEAN`,
+result = client.SetMyProfilePhoto().create({
+    "ok": ...,  # `$BOOLEAN`
 })
 ```
 
@@ -1319,7 +1319,7 @@ Return the entity name.
 ## UnpinAllForumTopicMessageEntity
 
 ```python
-unpin_all_forum_topic_message = client.unpin_all_forum_topic_message
+unpin_all_forum_topic_message = client.UnpinAllForumTopicMessage()
 ```
 
 ### Fields
@@ -1341,10 +1341,10 @@ unpin_all_forum_topic_message = client.unpin_all_forum_topic_message
 Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result = client.unpin_all_forum_topic_message.create({
-    "chat_id": # `$STRING`,
-    "message_thread_id": # `$INTEGER`,
-    "ok": # `$BOOLEAN`,
+result = client.UnpinAllForumTopicMessage().create({
+    "chat_id": ...,  # `$STRING`
+    "message_thread_id": ...,  # `$INTEGER`
+    "ok": ...,  # `$BOOLEAN`
 })
 ```
 
@@ -1380,7 +1380,7 @@ Return the entity name.
 ## UpdateEntity
 
 ```python
-update = client.update
+update = client.Update()
 ```
 
 ### Fields
@@ -1404,8 +1404,8 @@ update = client.update
 Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result = client.update.create({
-    "ok": # `$BOOLEAN`,
+result = client.Update().create({
+    "ok": ...,  # `$BOOLEAN`
 })
 ```
 
@@ -1414,7 +1414,9 @@ result = client.update.create({
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.update.list({})
+results = client.Update().list({})
+for update in results:
+    print(update)
 ```
 
 ### Common Methods

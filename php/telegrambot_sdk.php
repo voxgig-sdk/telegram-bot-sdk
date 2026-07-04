@@ -233,10 +233,10 @@ class TelegramBotSDK
 
     private $_approve_suggested_post = null;
 
-    // Idiomatic facade: $client->approve_suggested_post()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias ApproveSuggestedPost() (PHP method
-    // names are case-insensitive).
-    public function approve_suggested_post($data = null)
+    // Canonical facade: $client->ApproveSuggestedPost()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->approve_suggested_post()
+    // resolves here too.
+    public function ApproveSuggestedPost($data = null)
     {
         require_once __DIR__ . '/entity/approve_suggested_post_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class TelegramBotSDK
 
     private $_decline_suggested_post = null;
 
-    // Idiomatic facade: $client->decline_suggested_post()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias DeclineSuggestedPost() (PHP method
-    // names are case-insensitive).
-    public function decline_suggested_post($data = null)
+    // Canonical facade: $client->DeclineSuggestedPost()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->decline_suggested_post()
+    // resolves here too.
+    public function DeclineSuggestedPost($data = null)
     {
         require_once __DIR__ . '/entity/decline_suggested_post_entity.php';
         if ($data === null) {
@@ -269,10 +269,10 @@ class TelegramBotSDK
 
     private $_delete_forum_topic = null;
 
-    // Idiomatic facade: $client->delete_forum_topic()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias DeleteForumTopic() (PHP method
-    // names are case-insensitive).
-    public function delete_forum_topic($data = null)
+    // Canonical facade: $client->DeleteForumTopic()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->delete_forum_topic()
+    // resolves here too.
+    public function DeleteForumTopic($data = null)
     {
         require_once __DIR__ . '/entity/delete_forum_topic_entity.php';
         if ($data === null) {
@@ -287,10 +287,10 @@ class TelegramBotSDK
 
     private $_edit_forum_topic = null;
 
-    // Idiomatic facade: $client->edit_forum_topic()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias EditForumTopic() (PHP method
-    // names are case-insensitive).
-    public function edit_forum_topic($data = null)
+    // Canonical facade: $client->EditForumTopic()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->edit_forum_topic()
+    // resolves here too.
+    public function EditForumTopic($data = null)
     {
         require_once __DIR__ . '/entity/edit_forum_topic_entity.php';
         if ($data === null) {
@@ -305,10 +305,10 @@ class TelegramBotSDK
 
     private $_file = null;
 
-    // Idiomatic facade: $client->file()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias File() (PHP method
-    // names are case-insensitive).
-    public function file($data = null)
+    // Canonical facade: $client->File()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->file()
+    // resolves here too.
+    public function File($data = null)
     {
         require_once __DIR__ . '/entity/file_entity.php';
         if ($data === null) {
@@ -323,10 +323,10 @@ class TelegramBotSDK
 
     private $_forum_topic = null;
 
-    // Idiomatic facade: $client->forum_topic()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias ForumTopic() (PHP method
-    // names are case-insensitive).
-    public function forum_topic($data = null)
+    // Canonical facade: $client->ForumTopic()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->forum_topic()
+    // resolves here too.
+    public function ForumTopic($data = null)
     {
         require_once __DIR__ . '/entity/forum_topic_entity.php';
         if ($data === null) {
@@ -341,10 +341,10 @@ class TelegramBotSDK
 
     private $_get_business_account_gift = null;
 
-    // Idiomatic facade: $client->get_business_account_gift()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias GetBusinessAccountGift() (PHP method
-    // names are case-insensitive).
-    public function get_business_account_gift($data = null)
+    // Canonical facade: $client->GetBusinessAccountGift()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->get_business_account_gift()
+    // resolves here too.
+    public function GetBusinessAccountGift($data = null)
     {
         require_once __DIR__ . '/entity/get_business_account_gift_entity.php';
         if ($data === null) {
@@ -359,10 +359,10 @@ class TelegramBotSDK
 
     private $_get_chat_gift = null;
 
-    // Idiomatic facade: $client->get_chat_gift()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias GetChatGift() (PHP method
-    // names are case-insensitive).
-    public function get_chat_gift($data = null)
+    // Canonical facade: $client->GetChatGift()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->get_chat_gift()
+    // resolves here too.
+    public function GetChatGift($data = null)
     {
         require_once __DIR__ . '/entity/get_chat_gift_entity.php';
         if ($data === null) {
@@ -377,10 +377,10 @@ class TelegramBotSDK
 
     private $_get_me = null;
 
-    // Idiomatic facade: $client->get_me()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias GetMe() (PHP method
-    // names are case-insensitive).
-    public function get_me($data = null)
+    // Canonical facade: $client->GetMe()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->get_me()
+    // resolves here too.
+    public function GetMe($data = null)
     {
         require_once __DIR__ . '/entity/get_me_entity.php';
         if ($data === null) {
@@ -395,10 +395,10 @@ class TelegramBotSDK
 
     private $_get_user_gift = null;
 
-    // Idiomatic facade: $client->get_user_gift()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias GetUserGift() (PHP method
-    // names are case-insensitive).
-    public function get_user_gift($data = null)
+    // Canonical facade: $client->GetUserGift()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->get_user_gift()
+    // resolves here too.
+    public function GetUserGift($data = null)
     {
         require_once __DIR__ . '/entity/get_user_gift_entity.php';
         if ($data === null) {
@@ -413,10 +413,10 @@ class TelegramBotSDK
 
     private $_get_user_profile_audio = null;
 
-    // Idiomatic facade: $client->get_user_profile_audio()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias GetUserProfileAudio() (PHP method
-    // names are case-insensitive).
-    public function get_user_profile_audio($data = null)
+    // Canonical facade: $client->GetUserProfileAudio()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->get_user_profile_audio()
+    // resolves here too.
+    public function GetUserProfileAudio($data = null)
     {
         require_once __DIR__ . '/entity/get_user_profile_audio_entity.php';
         if ($data === null) {
@@ -431,10 +431,10 @@ class TelegramBotSDK
 
     private $_message = null;
 
-    // Idiomatic facade: $client->message()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Message() (PHP method
-    // names are case-insensitive).
-    public function message($data = null)
+    // Canonical facade: $client->Message()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->message()
+    // resolves here too.
+    public function Message($data = null)
     {
         require_once __DIR__ . '/entity/message_entity.php';
         if ($data === null) {
@@ -449,10 +449,10 @@ class TelegramBotSDK
 
     private $_message_id = null;
 
-    // Idiomatic facade: $client->message_id()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias MessageId() (PHP method
-    // names are case-insensitive).
-    public function message_id($data = null)
+    // Canonical facade: $client->MessageId()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->message_id()
+    // resolves here too.
+    public function MessageId($data = null)
     {
         require_once __DIR__ . '/entity/message_id_entity.php';
         if ($data === null) {
@@ -467,10 +467,10 @@ class TelegramBotSDK
 
     private $_promote_chat_member = null;
 
-    // Idiomatic facade: $client->promote_chat_member()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias PromoteChatMember() (PHP method
-    // names are case-insensitive).
-    public function promote_chat_member($data = null)
+    // Canonical facade: $client->PromoteChatMember()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->promote_chat_member()
+    // resolves here too.
+    public function PromoteChatMember($data = null)
     {
         require_once __DIR__ . '/entity/promote_chat_member_entity.php';
         if ($data === null) {
@@ -485,10 +485,10 @@ class TelegramBotSDK
 
     private $_remove_my_profile_photo = null;
 
-    // Idiomatic facade: $client->remove_my_profile_photo()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias RemoveMyProfilePhoto() (PHP method
-    // names are case-insensitive).
-    public function remove_my_profile_photo($data = null)
+    // Canonical facade: $client->RemoveMyProfilePhoto()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->remove_my_profile_photo()
+    // resolves here too.
+    public function RemoveMyProfilePhoto($data = null)
     {
         require_once __DIR__ . '/entity/remove_my_profile_photo_entity.php';
         if ($data === null) {
@@ -503,10 +503,10 @@ class TelegramBotSDK
 
     private $_repost_story = null;
 
-    // Idiomatic facade: $client->repost_story()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias RepostStory() (PHP method
-    // names are case-insensitive).
-    public function repost_story($data = null)
+    // Canonical facade: $client->RepostStory()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->repost_story()
+    // resolves here too.
+    public function RepostStory($data = null)
     {
         require_once __DIR__ . '/entity/repost_story_entity.php';
         if ($data === null) {
@@ -521,10 +521,10 @@ class TelegramBotSDK
 
     private $_send_chat_action = null;
 
-    // Idiomatic facade: $client->send_chat_action()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias SendChatAction() (PHP method
-    // names are case-insensitive).
-    public function send_chat_action($data = null)
+    // Canonical facade: $client->SendChatAction()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->send_chat_action()
+    // resolves here too.
+    public function SendChatAction($data = null)
     {
         require_once __DIR__ . '/entity/send_chat_action_entity.php';
         if ($data === null) {
@@ -539,10 +539,10 @@ class TelegramBotSDK
 
     private $_send_message_draft = null;
 
-    // Idiomatic facade: $client->send_message_draft()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias SendMessageDraft() (PHP method
-    // names are case-insensitive).
-    public function send_message_draft($data = null)
+    // Canonical facade: $client->SendMessageDraft()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->send_message_draft()
+    // resolves here too.
+    public function SendMessageDraft($data = null)
     {
         require_once __DIR__ . '/entity/send_message_draft_entity.php';
         if ($data === null) {
@@ -557,10 +557,10 @@ class TelegramBotSDK
 
     private $_set_my_profile_photo = null;
 
-    // Idiomatic facade: $client->set_my_profile_photo()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias SetMyProfilePhoto() (PHP method
-    // names are case-insensitive).
-    public function set_my_profile_photo($data = null)
+    // Canonical facade: $client->SetMyProfilePhoto()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->set_my_profile_photo()
+    // resolves here too.
+    public function SetMyProfilePhoto($data = null)
     {
         require_once __DIR__ . '/entity/set_my_profile_photo_entity.php';
         if ($data === null) {
@@ -575,10 +575,10 @@ class TelegramBotSDK
 
     private $_unpin_all_forum_topic_message = null;
 
-    // Idiomatic facade: $client->unpin_all_forum_topic_message()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias UnpinAllForumTopicMessage() (PHP method
-    // names are case-insensitive).
-    public function unpin_all_forum_topic_message($data = null)
+    // Canonical facade: $client->UnpinAllForumTopicMessage()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->unpin_all_forum_topic_message()
+    // resolves here too.
+    public function UnpinAllForumTopicMessage($data = null)
     {
         require_once __DIR__ . '/entity/unpin_all_forum_topic_message_entity.php';
         if ($data === null) {
@@ -593,10 +593,10 @@ class TelegramBotSDK
 
     private $_update = null;
 
-    // Idiomatic facade: $client->update()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Update() (PHP method
-    // names are case-insensitive).
-    public function update($data = null)
+    // Canonical facade: $client->Update()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->update()
+    // resolves here too.
+    public function Update($data = null)
     {
         require_once __DIR__ . '/entity/update_entity.php';
         if ($data === null) {

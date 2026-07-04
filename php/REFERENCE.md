@@ -166,7 +166,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## ApproveSuggestedPostEntity
 
 ```php
-$approve_suggested_post = $client->approve_suggested_post();
+$approve_suggested_post = $client->ApproveSuggestedPost();
 ```
 
 ### Fields
@@ -188,7 +188,7 @@ $approve_suggested_post = $client->approve_suggested_post();
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->approve_suggested_post()->create([
+$result = $client->ApproveSuggestedPost()->create([
   "chat_id" => /* `$STRING` */,
   "message_id" => /* `$INTEGER` */,
   "ok" => /* `$BOOLEAN` */,
@@ -228,7 +228,7 @@ Return the entity name.
 ## DeclineSuggestedPostEntity
 
 ```php
-$decline_suggested_post = $client->decline_suggested_post();
+$decline_suggested_post = $client->DeclineSuggestedPost();
 ```
 
 ### Fields
@@ -250,7 +250,7 @@ $decline_suggested_post = $client->decline_suggested_post();
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->decline_suggested_post()->create([
+$result = $client->DeclineSuggestedPost()->create([
   "chat_id" => /* `$STRING` */,
   "message_id" => /* `$INTEGER` */,
   "ok" => /* `$BOOLEAN` */,
@@ -290,7 +290,7 @@ Return the entity name.
 ## DeleteForumTopicEntity
 
 ```php
-$delete_forum_topic = $client->delete_forum_topic();
+$delete_forum_topic = $client->DeleteForumTopic();
 ```
 
 ### Fields
@@ -312,7 +312,7 @@ $delete_forum_topic = $client->delete_forum_topic();
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->delete_forum_topic()->create([
+$result = $client->DeleteForumTopic()->create([
   "chat_id" => /* `$STRING` */,
   "message_thread_id" => /* `$INTEGER` */,
   "ok" => /* `$BOOLEAN` */,
@@ -352,7 +352,7 @@ Return the entity name.
 ## EditForumTopicEntity
 
 ```php
-$edit_forum_topic = $client->edit_forum_topic();
+$edit_forum_topic = $client->EditForumTopic();
 ```
 
 ### Fields
@@ -376,7 +376,7 @@ $edit_forum_topic = $client->edit_forum_topic();
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->edit_forum_topic()->create([
+$result = $client->EditForumTopic()->create([
   "chat_id" => /* `$STRING` */,
   "message_thread_id" => /* `$INTEGER` */,
   "ok" => /* `$BOOLEAN` */,
@@ -416,7 +416,7 @@ Return the entity name.
 ## FileEntity
 
 ```php
-$file = $client->file();
+$file = $client->File();
 ```
 
 ### Fields
@@ -432,7 +432,7 @@ $file = $client->file();
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->file()->create([
+$result = $client->File()->create([
   "file_id" => /* `$STRING` */,
 ]);
 ```
@@ -470,7 +470,7 @@ Return the entity name.
 ## ForumTopicEntity
 
 ```php
-$forum_topic = $client->forum_topic();
+$forum_topic = $client->ForumTopic();
 ```
 
 ### Fields
@@ -489,7 +489,7 @@ $forum_topic = $client->forum_topic();
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->forum_topic()->create([
+$result = $client->ForumTopic()->create([
   "chat_id" => /* `$STRING` */,
   "name" => /* `$STRING` */,
 ]);
@@ -528,7 +528,7 @@ Return the entity name.
 ## GetBusinessAccountGiftEntity
 
 ```php
-$get_business_account_gift = $client->get_business_account_gift();
+$get_business_account_gift = $client->GetBusinessAccountGift();
 ```
 
 ### Fields
@@ -551,7 +551,7 @@ $get_business_account_gift = $client->get_business_account_gift();
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->get_business_account_gift()->create([
+$result = $client->GetBusinessAccountGift()->create([
   "ok" => /* `$BOOLEAN` */,
 ]);
 ```
@@ -589,7 +589,7 @@ Return the entity name.
 ## GetChatGiftEntity
 
 ```php
-$get_chat_gift = $client->get_chat_gift();
+$get_chat_gift = $client->GetChatGift();
 ```
 
 ### Fields
@@ -610,7 +610,7 @@ $get_chat_gift = $client->get_chat_gift();
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->get_chat_gift()->create([
+$result = $client->GetChatGift()->create([
   "chat_id" => /* `$STRING` */,
   "ok" => /* `$BOOLEAN` */,
 ]);
@@ -649,7 +649,7 @@ Return the entity name.
 ## GetMeEntity
 
 ```php
-$get_me = $client->get_me();
+$get_me = $client->GetMe();
 ```
 
 ### Fields
@@ -669,7 +669,7 @@ $get_me = $client->get_me();
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->get_me()->create([
+$result = $client->GetMe()->create([
   "ok" => /* `$BOOLEAN` */,
 ]);
 ```
@@ -679,7 +679,7 @@ $result = $client->get_me()->create([
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->get_me()->load(["id" => "get_me_id"]);
+$result = $client->GetMe()->load(["id" => "get_me_id"]);
 ```
 
 ### Common Methods
@@ -715,7 +715,7 @@ Return the entity name.
 ## GetUserGiftEntity
 
 ```php
-$get_user_gift = $client->get_user_gift();
+$get_user_gift = $client->GetUserGift();
 ```
 
 ### Fields
@@ -736,7 +736,7 @@ $get_user_gift = $client->get_user_gift();
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->get_user_gift()->create([
+$result = $client->GetUserGift()->create([
   "ok" => /* `$BOOLEAN` */,
   "user_id" => /* `$INTEGER` */,
 ]);
@@ -775,7 +775,7 @@ Return the entity name.
 ## GetUserProfileAudioEntity
 
 ```php
-$get_user_profile_audio = $client->get_user_profile_audio();
+$get_user_profile_audio = $client->GetUserProfileAudio();
 ```
 
 ### Fields
@@ -796,7 +796,7 @@ $get_user_profile_audio = $client->get_user_profile_audio();
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->get_user_profile_audio()->create([
+$result = $client->GetUserProfileAudio()->create([
   "ok" => /* `$BOOLEAN` */,
   "user_id" => /* `$INTEGER` */,
 ]);
@@ -835,7 +835,7 @@ Return the entity name.
 ## MessageEntity
 
 ```php
-$message = $client->message();
+$message = $client->Message();
 ```
 
 ### Fields
@@ -866,7 +866,7 @@ $message = $client->message();
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->message()->create([
+$result = $client->Message()->create([
   "chat_id" => /* `$STRING` */,
   "from_chat_id" => /* `$STRING` */,
   "latitude" => /* `$NUMBER` */,
@@ -911,7 +911,7 @@ Return the entity name.
 ## MessageIdEntity
 
 ```php
-$message_id = $client->message_id();
+$message_id = $client->MessageId();
 ```
 
 ### Fields
@@ -932,7 +932,7 @@ $message_id = $client->message_id();
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->message_id()->create([
+$result = $client->MessageId()->create([
   "chat_id" => /* `$STRING` */,
   "from_chat_id" => /* `$STRING` */,
   "message_id" => /* `$INTEGER` */,
@@ -972,7 +972,7 @@ Return the entity name.
 ## PromoteChatMemberEntity
 
 ```php
-$promote_chat_member = $client->promote_chat_member();
+$promote_chat_member = $client->PromoteChatMember();
 ```
 
 ### Fields
@@ -999,7 +999,7 @@ $promote_chat_member = $client->promote_chat_member();
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->promote_chat_member()->create([
+$result = $client->PromoteChatMember()->create([
   "chat_id" => /* `$STRING` */,
   "ok" => /* `$BOOLEAN` */,
   "user_id" => /* `$INTEGER` */,
@@ -1039,7 +1039,7 @@ Return the entity name.
 ## RemoveMyProfilePhotoEntity
 
 ```php
-$remove_my_profile_photo = $client->remove_my_profile_photo();
+$remove_my_profile_photo = $client->RemoveMyProfilePhoto();
 ```
 
 ### Fields
@@ -1059,7 +1059,7 @@ $remove_my_profile_photo = $client->remove_my_profile_photo();
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->remove_my_profile_photo()->create([
+$result = $client->RemoveMyProfilePhoto()->create([
   "ok" => /* `$BOOLEAN` */,
 ]);
 ```
@@ -1097,7 +1097,7 @@ Return the entity name.
 ## RepostStoryEntity
 
 ```php
-$repost_story = $client->repost_story();
+$repost_story = $client->RepostStory();
 ```
 
 ### Fields
@@ -1119,7 +1119,7 @@ $repost_story = $client->repost_story();
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->repost_story()->create([
+$result = $client->RepostStory()->create([
   "chat_id" => /* `$STRING` */,
   "ok" => /* `$BOOLEAN` */,
   "story_id" => /* `$INTEGER` */,
@@ -1159,7 +1159,7 @@ Return the entity name.
 ## SendChatActionEntity
 
 ```php
-$send_chat_action = $client->send_chat_action();
+$send_chat_action = $client->SendChatAction();
 ```
 
 ### Fields
@@ -1182,7 +1182,7 @@ $send_chat_action = $client->send_chat_action();
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->send_chat_action()->create([
+$result = $client->SendChatAction()->create([
   "action" => /* `$STRING` */,
   "chat_id" => /* `$STRING` */,
   "ok" => /* `$BOOLEAN` */,
@@ -1222,7 +1222,7 @@ Return the entity name.
 ## SendMessageDraftEntity
 
 ```php
-$send_message_draft = $client->send_message_draft();
+$send_message_draft = $client->SendMessageDraft();
 ```
 
 ### Fields
@@ -1245,7 +1245,7 @@ $send_message_draft = $client->send_message_draft();
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->send_message_draft()->create([
+$result = $client->SendMessageDraft()->create([
   "chat_id" => /* `$STRING` */,
   "ok" => /* `$BOOLEAN` */,
   "text" => /* `$STRING` */,
@@ -1285,7 +1285,7 @@ Return the entity name.
 ## SetMyProfilePhotoEntity
 
 ```php
-$set_my_profile_photo = $client->set_my_profile_photo();
+$set_my_profile_photo = $client->SetMyProfilePhoto();
 ```
 
 ### Fields
@@ -1305,7 +1305,7 @@ $set_my_profile_photo = $client->set_my_profile_photo();
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->set_my_profile_photo()->create([
+$result = $client->SetMyProfilePhoto()->create([
   "ok" => /* `$BOOLEAN` */,
 ]);
 ```
@@ -1343,7 +1343,7 @@ Return the entity name.
 ## UnpinAllForumTopicMessageEntity
 
 ```php
-$unpin_all_forum_topic_message = $client->unpin_all_forum_topic_message();
+$unpin_all_forum_topic_message = $client->UnpinAllForumTopicMessage();
 ```
 
 ### Fields
@@ -1365,7 +1365,7 @@ $unpin_all_forum_topic_message = $client->unpin_all_forum_topic_message();
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->unpin_all_forum_topic_message()->create([
+$result = $client->UnpinAllForumTopicMessage()->create([
   "chat_id" => /* `$STRING` */,
   "message_thread_id" => /* `$INTEGER` */,
   "ok" => /* `$BOOLEAN` */,
@@ -1405,7 +1405,7 @@ Return the entity name.
 ## UpdateEntity
 
 ```php
-$update = $client->update();
+$update = $client->Update();
 ```
 
 ### Fields
@@ -1429,7 +1429,7 @@ $update = $client->update();
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->update()->create([
+$result = $client->Update()->create([
   "ok" => /* `$BOOLEAN` */,
 ]);
 ```
@@ -1439,7 +1439,7 @@ $result = $client->update()->create([
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->update()->list([]);
+$results = $client->Update()->list([]);
 ```
 
 ### Common Methods

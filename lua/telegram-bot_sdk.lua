@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:approve_suggested_post():list() / client:approve_suggested_post():load({ id = ... })
-function TelegramBotSDK:approve_suggested_post(data)
+-- Idiomatic facade: client:ApproveSuggestedPost():list() / client:ApproveSuggestedPost():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function TelegramBotSDK:ApproveSuggestedPost(data)
   local EntityMod = require("entity.approve_suggested_post_entity")
   if data == nil then
     if self._approve_suggested_post == nil then
@@ -256,15 +257,10 @@ function TelegramBotSDK:approve_suggested_post(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:approve_suggested_post() instead.
-function TelegramBotSDK:ApproveSuggestedPost(data)
-  local EntityMod = require("entity.approve_suggested_post_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:decline_suggested_post():list() / client:decline_suggested_post():load({ id = ... })
-function TelegramBotSDK:decline_suggested_post(data)
+-- Idiomatic facade: client:DeclineSuggestedPost():list() / client:DeclineSuggestedPost():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function TelegramBotSDK:DeclineSuggestedPost(data)
   local EntityMod = require("entity.decline_suggested_post_entity")
   if data == nil then
     if self._decline_suggested_post == nil then
@@ -275,15 +271,10 @@ function TelegramBotSDK:decline_suggested_post(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:decline_suggested_post() instead.
-function TelegramBotSDK:DeclineSuggestedPost(data)
-  local EntityMod = require("entity.decline_suggested_post_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:delete_forum_topic():list() / client:delete_forum_topic():load({ id = ... })
-function TelegramBotSDK:delete_forum_topic(data)
+-- Idiomatic facade: client:DeleteForumTopic():list() / client:DeleteForumTopic():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function TelegramBotSDK:DeleteForumTopic(data)
   local EntityMod = require("entity.delete_forum_topic_entity")
   if data == nil then
     if self._delete_forum_topic == nil then
@@ -294,15 +285,10 @@ function TelegramBotSDK:delete_forum_topic(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:delete_forum_topic() instead.
-function TelegramBotSDK:DeleteForumTopic(data)
-  local EntityMod = require("entity.delete_forum_topic_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:edit_forum_topic():list() / client:edit_forum_topic():load({ id = ... })
-function TelegramBotSDK:edit_forum_topic(data)
+-- Idiomatic facade: client:EditForumTopic():list() / client:EditForumTopic():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function TelegramBotSDK:EditForumTopic(data)
   local EntityMod = require("entity.edit_forum_topic_entity")
   if data == nil then
     if self._edit_forum_topic == nil then
@@ -313,15 +299,10 @@ function TelegramBotSDK:edit_forum_topic(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:edit_forum_topic() instead.
-function TelegramBotSDK:EditForumTopic(data)
-  local EntityMod = require("entity.edit_forum_topic_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:file():list() / client:file():load({ id = ... })
-function TelegramBotSDK:file(data)
+-- Idiomatic facade: client:File():list() / client:File():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function TelegramBotSDK:File(data)
   local EntityMod = require("entity.file_entity")
   if data == nil then
     if self._file == nil then
@@ -332,15 +313,10 @@ function TelegramBotSDK:file(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:file() instead.
-function TelegramBotSDK:File(data)
-  local EntityMod = require("entity.file_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:forum_topic():list() / client:forum_topic():load({ id = ... })
-function TelegramBotSDK:forum_topic(data)
+-- Idiomatic facade: client:ForumTopic():list() / client:ForumTopic():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function TelegramBotSDK:ForumTopic(data)
   local EntityMod = require("entity.forum_topic_entity")
   if data == nil then
     if self._forum_topic == nil then
@@ -351,15 +327,10 @@ function TelegramBotSDK:forum_topic(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:forum_topic() instead.
-function TelegramBotSDK:ForumTopic(data)
-  local EntityMod = require("entity.forum_topic_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:get_business_account_gift():list() / client:get_business_account_gift():load({ id = ... })
-function TelegramBotSDK:get_business_account_gift(data)
+-- Idiomatic facade: client:GetBusinessAccountGift():list() / client:GetBusinessAccountGift():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function TelegramBotSDK:GetBusinessAccountGift(data)
   local EntityMod = require("entity.get_business_account_gift_entity")
   if data == nil then
     if self._get_business_account_gift == nil then
@@ -370,15 +341,10 @@ function TelegramBotSDK:get_business_account_gift(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:get_business_account_gift() instead.
-function TelegramBotSDK:GetBusinessAccountGift(data)
-  local EntityMod = require("entity.get_business_account_gift_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:get_chat_gift():list() / client:get_chat_gift():load({ id = ... })
-function TelegramBotSDK:get_chat_gift(data)
+-- Idiomatic facade: client:GetChatGift():list() / client:GetChatGift():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function TelegramBotSDK:GetChatGift(data)
   local EntityMod = require("entity.get_chat_gift_entity")
   if data == nil then
     if self._get_chat_gift == nil then
@@ -389,15 +355,10 @@ function TelegramBotSDK:get_chat_gift(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:get_chat_gift() instead.
-function TelegramBotSDK:GetChatGift(data)
-  local EntityMod = require("entity.get_chat_gift_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:get_me():list() / client:get_me():load({ id = ... })
-function TelegramBotSDK:get_me(data)
+-- Idiomatic facade: client:GetMe():list() / client:GetMe():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function TelegramBotSDK:GetMe(data)
   local EntityMod = require("entity.get_me_entity")
   if data == nil then
     if self._get_me == nil then
@@ -408,15 +369,10 @@ function TelegramBotSDK:get_me(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:get_me() instead.
-function TelegramBotSDK:GetMe(data)
-  local EntityMod = require("entity.get_me_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:get_user_gift():list() / client:get_user_gift():load({ id = ... })
-function TelegramBotSDK:get_user_gift(data)
+-- Idiomatic facade: client:GetUserGift():list() / client:GetUserGift():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function TelegramBotSDK:GetUserGift(data)
   local EntityMod = require("entity.get_user_gift_entity")
   if data == nil then
     if self._get_user_gift == nil then
@@ -427,15 +383,10 @@ function TelegramBotSDK:get_user_gift(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:get_user_gift() instead.
-function TelegramBotSDK:GetUserGift(data)
-  local EntityMod = require("entity.get_user_gift_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:get_user_profile_audio():list() / client:get_user_profile_audio():load({ id = ... })
-function TelegramBotSDK:get_user_profile_audio(data)
+-- Idiomatic facade: client:GetUserProfileAudio():list() / client:GetUserProfileAudio():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function TelegramBotSDK:GetUserProfileAudio(data)
   local EntityMod = require("entity.get_user_profile_audio_entity")
   if data == nil then
     if self._get_user_profile_audio == nil then
@@ -446,15 +397,10 @@ function TelegramBotSDK:get_user_profile_audio(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:get_user_profile_audio() instead.
-function TelegramBotSDK:GetUserProfileAudio(data)
-  local EntityMod = require("entity.get_user_profile_audio_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:message():list() / client:message():load({ id = ... })
-function TelegramBotSDK:message(data)
+-- Idiomatic facade: client:Message():list() / client:Message():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function TelegramBotSDK:Message(data)
   local EntityMod = require("entity.message_entity")
   if data == nil then
     if self._message == nil then
@@ -465,15 +411,10 @@ function TelegramBotSDK:message(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:message() instead.
-function TelegramBotSDK:Message(data)
-  local EntityMod = require("entity.message_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:message_id():list() / client:message_id():load({ id = ... })
-function TelegramBotSDK:message_id(data)
+-- Idiomatic facade: client:MessageId():list() / client:MessageId():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function TelegramBotSDK:MessageId(data)
   local EntityMod = require("entity.message_id_entity")
   if data == nil then
     if self._message_id == nil then
@@ -484,15 +425,10 @@ function TelegramBotSDK:message_id(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:message_id() instead.
-function TelegramBotSDK:MessageId(data)
-  local EntityMod = require("entity.message_id_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:promote_chat_member():list() / client:promote_chat_member():load({ id = ... })
-function TelegramBotSDK:promote_chat_member(data)
+-- Idiomatic facade: client:PromoteChatMember():list() / client:PromoteChatMember():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function TelegramBotSDK:PromoteChatMember(data)
   local EntityMod = require("entity.promote_chat_member_entity")
   if data == nil then
     if self._promote_chat_member == nil then
@@ -503,15 +439,10 @@ function TelegramBotSDK:promote_chat_member(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:promote_chat_member() instead.
-function TelegramBotSDK:PromoteChatMember(data)
-  local EntityMod = require("entity.promote_chat_member_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:remove_my_profile_photo():list() / client:remove_my_profile_photo():load({ id = ... })
-function TelegramBotSDK:remove_my_profile_photo(data)
+-- Idiomatic facade: client:RemoveMyProfilePhoto():list() / client:RemoveMyProfilePhoto():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function TelegramBotSDK:RemoveMyProfilePhoto(data)
   local EntityMod = require("entity.remove_my_profile_photo_entity")
   if data == nil then
     if self._remove_my_profile_photo == nil then
@@ -522,15 +453,10 @@ function TelegramBotSDK:remove_my_profile_photo(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:remove_my_profile_photo() instead.
-function TelegramBotSDK:RemoveMyProfilePhoto(data)
-  local EntityMod = require("entity.remove_my_profile_photo_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:repost_story():list() / client:repost_story():load({ id = ... })
-function TelegramBotSDK:repost_story(data)
+-- Idiomatic facade: client:RepostStory():list() / client:RepostStory():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function TelegramBotSDK:RepostStory(data)
   local EntityMod = require("entity.repost_story_entity")
   if data == nil then
     if self._repost_story == nil then
@@ -541,15 +467,10 @@ function TelegramBotSDK:repost_story(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:repost_story() instead.
-function TelegramBotSDK:RepostStory(data)
-  local EntityMod = require("entity.repost_story_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:send_chat_action():list() / client:send_chat_action():load({ id = ... })
-function TelegramBotSDK:send_chat_action(data)
+-- Idiomatic facade: client:SendChatAction():list() / client:SendChatAction():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function TelegramBotSDK:SendChatAction(data)
   local EntityMod = require("entity.send_chat_action_entity")
   if data == nil then
     if self._send_chat_action == nil then
@@ -560,15 +481,10 @@ function TelegramBotSDK:send_chat_action(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:send_chat_action() instead.
-function TelegramBotSDK:SendChatAction(data)
-  local EntityMod = require("entity.send_chat_action_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:send_message_draft():list() / client:send_message_draft():load({ id = ... })
-function TelegramBotSDK:send_message_draft(data)
+-- Idiomatic facade: client:SendMessageDraft():list() / client:SendMessageDraft():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function TelegramBotSDK:SendMessageDraft(data)
   local EntityMod = require("entity.send_message_draft_entity")
   if data == nil then
     if self._send_message_draft == nil then
@@ -579,15 +495,10 @@ function TelegramBotSDK:send_message_draft(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:send_message_draft() instead.
-function TelegramBotSDK:SendMessageDraft(data)
-  local EntityMod = require("entity.send_message_draft_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:set_my_profile_photo():list() / client:set_my_profile_photo():load({ id = ... })
-function TelegramBotSDK:set_my_profile_photo(data)
+-- Idiomatic facade: client:SetMyProfilePhoto():list() / client:SetMyProfilePhoto():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function TelegramBotSDK:SetMyProfilePhoto(data)
   local EntityMod = require("entity.set_my_profile_photo_entity")
   if data == nil then
     if self._set_my_profile_photo == nil then
@@ -598,15 +509,10 @@ function TelegramBotSDK:set_my_profile_photo(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:set_my_profile_photo() instead.
-function TelegramBotSDK:SetMyProfilePhoto(data)
-  local EntityMod = require("entity.set_my_profile_photo_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:unpin_all_forum_topic_message():list() / client:unpin_all_forum_topic_message():load({ id = ... })
-function TelegramBotSDK:unpin_all_forum_topic_message(data)
+-- Idiomatic facade: client:UnpinAllForumTopicMessage():list() / client:UnpinAllForumTopicMessage():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function TelegramBotSDK:UnpinAllForumTopicMessage(data)
   local EntityMod = require("entity.unpin_all_forum_topic_message_entity")
   if data == nil then
     if self._unpin_all_forum_topic_message == nil then
@@ -617,15 +523,10 @@ function TelegramBotSDK:unpin_all_forum_topic_message(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:unpin_all_forum_topic_message() instead.
-function TelegramBotSDK:UnpinAllForumTopicMessage(data)
-  local EntityMod = require("entity.unpin_all_forum_topic_message_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:update():list() / client:update():load({ id = ... })
-function TelegramBotSDK:update(data)
+-- Idiomatic facade: client:Update():list() / client:Update():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function TelegramBotSDK:Update(data)
   local EntityMod = require("entity.update_entity")
   if data == nil then
     if self._update == nil then
@@ -633,12 +534,6 @@ function TelegramBotSDK:update(data)
     end
     return self._update
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:update() instead.
-function TelegramBotSDK:Update(data)
-  local EntityMod = require("entity.update_entity")
   return EntityMod.new(self, data)
 end
 

@@ -167,7 +167,7 @@ same parameters as `direct()`. Raises on error.
 ## ApproveSuggestedPostEntity
 
 ```ruby
-approve_suggested_post = client.approve_suggested_post
+approve_suggested_post = client.ApproveSuggestedPost
 ```
 
 ### Fields
@@ -189,7 +189,7 @@ approve_suggested_post = client.approve_suggested_post
 Create a new entity with the given data. Raises on error.
 
 ```ruby
-result = client.approve_suggested_post.create({
+result = client.ApproveSuggestedPost.create({
   "chat_id" => # `$STRING`,
   "message_id" => # `$INTEGER`,
   "ok" => # `$BOOLEAN`,
@@ -229,7 +229,7 @@ Return the entity name.
 ## DeclineSuggestedPostEntity
 
 ```ruby
-decline_suggested_post = client.decline_suggested_post
+decline_suggested_post = client.DeclineSuggestedPost
 ```
 
 ### Fields
@@ -251,7 +251,7 @@ decline_suggested_post = client.decline_suggested_post
 Create a new entity with the given data. Raises on error.
 
 ```ruby
-result = client.decline_suggested_post.create({
+result = client.DeclineSuggestedPost.create({
   "chat_id" => # `$STRING`,
   "message_id" => # `$INTEGER`,
   "ok" => # `$BOOLEAN`,
@@ -291,7 +291,7 @@ Return the entity name.
 ## DeleteForumTopicEntity
 
 ```ruby
-delete_forum_topic = client.delete_forum_topic
+delete_forum_topic = client.DeleteForumTopic
 ```
 
 ### Fields
@@ -313,7 +313,7 @@ delete_forum_topic = client.delete_forum_topic
 Create a new entity with the given data. Raises on error.
 
 ```ruby
-result = client.delete_forum_topic.create({
+result = client.DeleteForumTopic.create({
   "chat_id" => # `$STRING`,
   "message_thread_id" => # `$INTEGER`,
   "ok" => # `$BOOLEAN`,
@@ -353,7 +353,7 @@ Return the entity name.
 ## EditForumTopicEntity
 
 ```ruby
-edit_forum_topic = client.edit_forum_topic
+edit_forum_topic = client.EditForumTopic
 ```
 
 ### Fields
@@ -377,7 +377,7 @@ edit_forum_topic = client.edit_forum_topic
 Create a new entity with the given data. Raises on error.
 
 ```ruby
-result = client.edit_forum_topic.create({
+result = client.EditForumTopic.create({
   "chat_id" => # `$STRING`,
   "message_thread_id" => # `$INTEGER`,
   "ok" => # `$BOOLEAN`,
@@ -417,7 +417,7 @@ Return the entity name.
 ## FileEntity
 
 ```ruby
-file = client.file
+file = client.File
 ```
 
 ### Fields
@@ -433,7 +433,7 @@ file = client.file
 Create a new entity with the given data. Raises on error.
 
 ```ruby
-result = client.file.create({
+result = client.File.create({
   "file_id" => # `$STRING`,
 })
 ```
@@ -471,7 +471,7 @@ Return the entity name.
 ## ForumTopicEntity
 
 ```ruby
-forum_topic = client.forum_topic
+forum_topic = client.ForumTopic
 ```
 
 ### Fields
@@ -490,7 +490,7 @@ forum_topic = client.forum_topic
 Create a new entity with the given data. Raises on error.
 
 ```ruby
-result = client.forum_topic.create({
+result = client.ForumTopic.create({
   "chat_id" => # `$STRING`,
   "name" => # `$STRING`,
 })
@@ -529,7 +529,7 @@ Return the entity name.
 ## GetBusinessAccountGiftEntity
 
 ```ruby
-get_business_account_gift = client.get_business_account_gift
+get_business_account_gift = client.GetBusinessAccountGift
 ```
 
 ### Fields
@@ -552,7 +552,7 @@ get_business_account_gift = client.get_business_account_gift
 Create a new entity with the given data. Raises on error.
 
 ```ruby
-result = client.get_business_account_gift.create({
+result = client.GetBusinessAccountGift.create({
   "ok" => # `$BOOLEAN`,
 })
 ```
@@ -590,7 +590,7 @@ Return the entity name.
 ## GetChatGiftEntity
 
 ```ruby
-get_chat_gift = client.get_chat_gift
+get_chat_gift = client.GetChatGift
 ```
 
 ### Fields
@@ -611,7 +611,7 @@ get_chat_gift = client.get_chat_gift
 Create a new entity with the given data. Raises on error.
 
 ```ruby
-result = client.get_chat_gift.create({
+result = client.GetChatGift.create({
   "chat_id" => # `$STRING`,
   "ok" => # `$BOOLEAN`,
 })
@@ -650,7 +650,7 @@ Return the entity name.
 ## GetMeEntity
 
 ```ruby
-get_me = client.get_me
+get_me = client.GetMe
 ```
 
 ### Fields
@@ -670,7 +670,7 @@ get_me = client.get_me
 Create a new entity with the given data. Raises on error.
 
 ```ruby
-result = client.get_me.create({
+result = client.GetMe.create({
   "ok" => # `$BOOLEAN`,
 })
 ```
@@ -680,7 +680,7 @@ result = client.get_me.create({
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.get_me.load({ "id" => "get_me_id" })
+result = client.GetMe.load({ "id" => "get_me_id" })
 ```
 
 ### Common Methods
@@ -716,7 +716,7 @@ Return the entity name.
 ## GetUserGiftEntity
 
 ```ruby
-get_user_gift = client.get_user_gift
+get_user_gift = client.GetUserGift
 ```
 
 ### Fields
@@ -737,7 +737,7 @@ get_user_gift = client.get_user_gift
 Create a new entity with the given data. Raises on error.
 
 ```ruby
-result = client.get_user_gift.create({
+result = client.GetUserGift.create({
   "ok" => # `$BOOLEAN`,
   "user_id" => # `$INTEGER`,
 })
@@ -776,7 +776,7 @@ Return the entity name.
 ## GetUserProfileAudioEntity
 
 ```ruby
-get_user_profile_audio = client.get_user_profile_audio
+get_user_profile_audio = client.GetUserProfileAudio
 ```
 
 ### Fields
@@ -797,7 +797,7 @@ get_user_profile_audio = client.get_user_profile_audio
 Create a new entity with the given data. Raises on error.
 
 ```ruby
-result = client.get_user_profile_audio.create({
+result = client.GetUserProfileAudio.create({
   "ok" => # `$BOOLEAN`,
   "user_id" => # `$INTEGER`,
 })
@@ -836,7 +836,7 @@ Return the entity name.
 ## MessageEntity
 
 ```ruby
-message = client.message
+message = client.Message
 ```
 
 ### Fields
@@ -867,7 +867,7 @@ message = client.message
 Create a new entity with the given data. Raises on error.
 
 ```ruby
-result = client.message.create({
+result = client.Message.create({
   "chat_id" => # `$STRING`,
   "from_chat_id" => # `$STRING`,
   "latitude" => # `$NUMBER`,
@@ -912,7 +912,7 @@ Return the entity name.
 ## MessageIdEntity
 
 ```ruby
-message_id = client.message_id
+message_id = client.MessageId
 ```
 
 ### Fields
@@ -933,7 +933,7 @@ message_id = client.message_id
 Create a new entity with the given data. Raises on error.
 
 ```ruby
-result = client.message_id.create({
+result = client.MessageId.create({
   "chat_id" => # `$STRING`,
   "from_chat_id" => # `$STRING`,
   "message_id" => # `$INTEGER`,
@@ -973,7 +973,7 @@ Return the entity name.
 ## PromoteChatMemberEntity
 
 ```ruby
-promote_chat_member = client.promote_chat_member
+promote_chat_member = client.PromoteChatMember
 ```
 
 ### Fields
@@ -1000,7 +1000,7 @@ promote_chat_member = client.promote_chat_member
 Create a new entity with the given data. Raises on error.
 
 ```ruby
-result = client.promote_chat_member.create({
+result = client.PromoteChatMember.create({
   "chat_id" => # `$STRING`,
   "ok" => # `$BOOLEAN`,
   "user_id" => # `$INTEGER`,
@@ -1040,7 +1040,7 @@ Return the entity name.
 ## RemoveMyProfilePhotoEntity
 
 ```ruby
-remove_my_profile_photo = client.remove_my_profile_photo
+remove_my_profile_photo = client.RemoveMyProfilePhoto
 ```
 
 ### Fields
@@ -1060,7 +1060,7 @@ remove_my_profile_photo = client.remove_my_profile_photo
 Create a new entity with the given data. Raises on error.
 
 ```ruby
-result = client.remove_my_profile_photo.create({
+result = client.RemoveMyProfilePhoto.create({
   "ok" => # `$BOOLEAN`,
 })
 ```
@@ -1098,7 +1098,7 @@ Return the entity name.
 ## RepostStoryEntity
 
 ```ruby
-repost_story = client.repost_story
+repost_story = client.RepostStory
 ```
 
 ### Fields
@@ -1120,7 +1120,7 @@ repost_story = client.repost_story
 Create a new entity with the given data. Raises on error.
 
 ```ruby
-result = client.repost_story.create({
+result = client.RepostStory.create({
   "chat_id" => # `$STRING`,
   "ok" => # `$BOOLEAN`,
   "story_id" => # `$INTEGER`,
@@ -1160,7 +1160,7 @@ Return the entity name.
 ## SendChatActionEntity
 
 ```ruby
-send_chat_action = client.send_chat_action
+send_chat_action = client.SendChatAction
 ```
 
 ### Fields
@@ -1183,7 +1183,7 @@ send_chat_action = client.send_chat_action
 Create a new entity with the given data. Raises on error.
 
 ```ruby
-result = client.send_chat_action.create({
+result = client.SendChatAction.create({
   "action" => # `$STRING`,
   "chat_id" => # `$STRING`,
   "ok" => # `$BOOLEAN`,
@@ -1223,7 +1223,7 @@ Return the entity name.
 ## SendMessageDraftEntity
 
 ```ruby
-send_message_draft = client.send_message_draft
+send_message_draft = client.SendMessageDraft
 ```
 
 ### Fields
@@ -1246,7 +1246,7 @@ send_message_draft = client.send_message_draft
 Create a new entity with the given data. Raises on error.
 
 ```ruby
-result = client.send_message_draft.create({
+result = client.SendMessageDraft.create({
   "chat_id" => # `$STRING`,
   "ok" => # `$BOOLEAN`,
   "text" => # `$STRING`,
@@ -1286,7 +1286,7 @@ Return the entity name.
 ## SetMyProfilePhotoEntity
 
 ```ruby
-set_my_profile_photo = client.set_my_profile_photo
+set_my_profile_photo = client.SetMyProfilePhoto
 ```
 
 ### Fields
@@ -1306,7 +1306,7 @@ set_my_profile_photo = client.set_my_profile_photo
 Create a new entity with the given data. Raises on error.
 
 ```ruby
-result = client.set_my_profile_photo.create({
+result = client.SetMyProfilePhoto.create({
   "ok" => # `$BOOLEAN`,
 })
 ```
@@ -1344,7 +1344,7 @@ Return the entity name.
 ## UnpinAllForumTopicMessageEntity
 
 ```ruby
-unpin_all_forum_topic_message = client.unpin_all_forum_topic_message
+unpin_all_forum_topic_message = client.UnpinAllForumTopicMessage
 ```
 
 ### Fields
@@ -1366,7 +1366,7 @@ unpin_all_forum_topic_message = client.unpin_all_forum_topic_message
 Create a new entity with the given data. Raises on error.
 
 ```ruby
-result = client.unpin_all_forum_topic_message.create({
+result = client.UnpinAllForumTopicMessage.create({
   "chat_id" => # `$STRING`,
   "message_thread_id" => # `$INTEGER`,
   "ok" => # `$BOOLEAN`,
@@ -1406,7 +1406,7 @@ Return the entity name.
 ## UpdateEntity
 
 ```ruby
-update = client.update
+update = client.Update
 ```
 
 ### Fields
@@ -1430,7 +1430,7 @@ update = client.update
 Create a new entity with the given data. Raises on error.
 
 ```ruby
-result = client.update.create({
+result = client.Update.create({
   "ok" => # `$BOOLEAN`,
 })
 ```
@@ -1440,7 +1440,7 @@ result = client.update.create({
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.update.list(nil)
+results = client.Update.list(nil)
 ```
 
 ### Common Methods

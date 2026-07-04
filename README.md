@@ -161,22 +161,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = TelegramBotSDK.test()
-const result = await client.approvesuggestedpost.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const approvesuggestedpost = await client.ApproveSuggestedPost().load({ id: 'test01' })
+// approvesuggestedpost is a bare ApproveSuggestedPost populated with mock data
+console.log(approvesuggestedpost)
 ```
 
 ### Python
 
 ```python
 client = TelegramBotSDK.test()
-result = client.approvesuggestedpost.load({"id": "test01"})
+approvesuggestedpost = client.ApproveSuggestedPost().load({"id": "test01"})
+print(approvesuggestedpost)
 ```
 
 ### PHP
 
 ```php
-$client = TelegramBotSDK::test();
-$result = $client->approvesuggestedpost()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = TelegramBotSDK::test([
+    "entity" => ["approvesuggestedpost" => ["test01" => ["id" => "test01"]]],
+]);
+$approvesuggestedpost = $client->ApproveSuggestedPost()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -191,15 +196,18 @@ result, err := client.ApproveSuggestedPost(nil).Load(
 ### Ruby
 
 ```ruby
-client = TelegramBotSDK.test
-result = client.approvesuggestedpost.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = TelegramBotSDK.test({
+  "entity" => { "approvesuggestedpost" => { "test01" => { "id" => "test01" } } },
+})
+approvesuggestedpost = client.ApproveSuggestedPost.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:approvesuggestedpost():load({ id = "test01" })
+local result, err = client:ApproveSuggestedPost():load({ id = "test01" })
 ```
 
 ## How it works
@@ -247,6 +255,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 
