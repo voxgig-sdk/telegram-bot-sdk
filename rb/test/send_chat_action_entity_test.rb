@@ -36,8 +36,7 @@ class SendChatActionEntityTest < Minitest::Test
     send_chat_action_ref01_data = Helpers.to_map(Vs.getprop(
       Vs.getpath(setup[:data], "new.send_chat_action"), "send_chat_action_ref01"))
 
-    send_chat_action_ref01_data_result, err = send_chat_action_ref01_ent.create(send_chat_action_ref01_data, nil)
-    assert_nil err
+    send_chat_action_ref01_data_result = send_chat_action_ref01_ent.create(send_chat_action_ref01_data, nil)
     send_chat_action_ref01_data = Helpers.to_map(send_chat_action_ref01_data_result)
     assert !send_chat_action_ref01_data.nil?
 

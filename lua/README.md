@@ -9,12 +9,9 @@ The Lua SDK for the TelegramBot API — an entity-oriented client using Lua conv
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-telegram-bot
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/telegram-bot-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -32,7 +29,7 @@ loading a specific record.
 local sdk = require("telegram-bot_sdk")
 
 local client = sdk.new({
-  apikey = os.getenv("TELEGRAM-BOT_APIKEY"),
+  apikey = os.getenv("TELEGRAM_BOT_APIKEY"),
 })
 ```
 
@@ -40,7 +37,7 @@ local client = sdk.new({
 
 ```lua
 -- Create
-local created, _ = client:ApproveSuggestedPost():create({ name = "Example" })
+local created, _ = client:approvesuggestedpost():create({ name = "Example" })
 
 ```
 
@@ -87,7 +84,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:TelegramBot():load({ id = "test01" })
+local result, err = client:approvesuggestedpost():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -120,8 +117,8 @@ local client = sdk.new({
 Create a `.env.local` file at the project root:
 
 ```
-TELEGRAM-BOT_TEST_LIVE=TRUE
-TELEGRAM-BOT_APIKEY=<your-key>
+TELEGRAM_BOT_TEST_LIVE=TRUE
+TELEGRAM_BOT_APIKEY=<your-key>
 ```
 
 Then run:
@@ -569,7 +566,7 @@ API path: `/getUpdates`
 
 ### ApproveSuggestedPost
 
-Create an instance: `const approve_suggested_post = client.ApproveSuggestedPost()`
+Create an instance: `const approve_suggested_post = client.approve_suggested_post`
 
 #### Operations
 
@@ -592,7 +589,7 @@ Create an instance: `const approve_suggested_post = client.ApproveSuggestedPost(
 #### Example: Create
 
 ```ts
-const approve_suggested_post = await client.ApproveSuggestedPost().create({
+const approve_suggested_post = await client.approve_suggested_post.create({
   chat_id: /* `$STRING` */,
   message_id: /* `$INTEGER` */,
   ok: /* `$BOOLEAN` */,
@@ -602,7 +599,7 @@ const approve_suggested_post = await client.ApproveSuggestedPost().create({
 
 ### DeclineSuggestedPost
 
-Create an instance: `const decline_suggested_post = client.DeclineSuggestedPost()`
+Create an instance: `const decline_suggested_post = client.decline_suggested_post`
 
 #### Operations
 
@@ -625,7 +622,7 @@ Create an instance: `const decline_suggested_post = client.DeclineSuggestedPost(
 #### Example: Create
 
 ```ts
-const decline_suggested_post = await client.DeclineSuggestedPost().create({
+const decline_suggested_post = await client.decline_suggested_post.create({
   chat_id: /* `$STRING` */,
   message_id: /* `$INTEGER` */,
   ok: /* `$BOOLEAN` */,
@@ -635,7 +632,7 @@ const decline_suggested_post = await client.DeclineSuggestedPost().create({
 
 ### DeleteForumTopic
 
-Create an instance: `const delete_forum_topic = client.DeleteForumTopic()`
+Create an instance: `const delete_forum_topic = client.delete_forum_topic`
 
 #### Operations
 
@@ -658,7 +655,7 @@ Create an instance: `const delete_forum_topic = client.DeleteForumTopic()`
 #### Example: Create
 
 ```ts
-const delete_forum_topic = await client.DeleteForumTopic().create({
+const delete_forum_topic = await client.delete_forum_topic.create({
   chat_id: /* `$STRING` */,
   message_thread_id: /* `$INTEGER` */,
   ok: /* `$BOOLEAN` */,
@@ -668,7 +665,7 @@ const delete_forum_topic = await client.DeleteForumTopic().create({
 
 ### EditForumTopic
 
-Create an instance: `const edit_forum_topic = client.EditForumTopic()`
+Create an instance: `const edit_forum_topic = client.edit_forum_topic`
 
 #### Operations
 
@@ -693,7 +690,7 @@ Create an instance: `const edit_forum_topic = client.EditForumTopic()`
 #### Example: Create
 
 ```ts
-const edit_forum_topic = await client.EditForumTopic().create({
+const edit_forum_topic = await client.edit_forum_topic.create({
   chat_id: /* `$STRING` */,
   message_thread_id: /* `$INTEGER` */,
   ok: /* `$BOOLEAN` */,
@@ -703,7 +700,7 @@ const edit_forum_topic = await client.EditForumTopic().create({
 
 ### File
 
-Create an instance: `const file = client.File()`
+Create an instance: `const file = client.file`
 
 #### Operations
 
@@ -720,7 +717,7 @@ Create an instance: `const file = client.File()`
 #### Example: Create
 
 ```ts
-const file = await client.File().create({
+const file = await client.file.create({
   file_id: /* `$STRING` */,
 })
 ```
@@ -728,7 +725,7 @@ const file = await client.File().create({
 
 ### ForumTopic
 
-Create an instance: `const forum_topic = client.ForumTopic()`
+Create an instance: `const forum_topic = client.forum_topic`
 
 #### Operations
 
@@ -748,7 +745,7 @@ Create an instance: `const forum_topic = client.ForumTopic()`
 #### Example: Create
 
 ```ts
-const forum_topic = await client.ForumTopic().create({
+const forum_topic = await client.forum_topic.create({
   chat_id: /* `$STRING` */,
   name: /* `$STRING` */,
 })
@@ -757,7 +754,7 @@ const forum_topic = await client.ForumTopic().create({
 
 ### GetBusinessAccountGift
 
-Create an instance: `const get_business_account_gift = client.GetBusinessAccountGift()`
+Create an instance: `const get_business_account_gift = client.get_business_account_gift`
 
 #### Operations
 
@@ -781,7 +778,7 @@ Create an instance: `const get_business_account_gift = client.GetBusinessAccount
 #### Example: Create
 
 ```ts
-const get_business_account_gift = await client.GetBusinessAccountGift().create({
+const get_business_account_gift = await client.get_business_account_gift.create({
   ok: /* `$BOOLEAN` */,
 })
 ```
@@ -789,7 +786,7 @@ const get_business_account_gift = await client.GetBusinessAccountGift().create({
 
 ### GetChatGift
 
-Create an instance: `const get_chat_gift = client.GetChatGift()`
+Create an instance: `const get_chat_gift = client.get_chat_gift`
 
 #### Operations
 
@@ -811,7 +808,7 @@ Create an instance: `const get_chat_gift = client.GetChatGift()`
 #### Example: Create
 
 ```ts
-const get_chat_gift = await client.GetChatGift().create({
+const get_chat_gift = await client.get_chat_gift.create({
   chat_id: /* `$STRING` */,
   ok: /* `$BOOLEAN` */,
 })
@@ -820,7 +817,7 @@ const get_chat_gift = await client.GetChatGift().create({
 
 ### GetMe
 
-Create an instance: `const get_me = client.GetMe()`
+Create an instance: `const get_me = client.get_me`
 
 #### Operations
 
@@ -842,13 +839,13 @@ Create an instance: `const get_me = client.GetMe()`
 #### Example: Load
 
 ```ts
-const get_me = await client.GetMe().load({ id: 'get_me_id' })
+const get_me = await client.get_me.load({ id: 'get_me_id' })
 ```
 
 #### Example: Create
 
 ```ts
-const get_me = await client.GetMe().create({
+const get_me = await client.get_me.create({
   ok: /* `$BOOLEAN` */,
 })
 ```
@@ -856,7 +853,7 @@ const get_me = await client.GetMe().create({
 
 ### GetUserGift
 
-Create an instance: `const get_user_gift = client.GetUserGift()`
+Create an instance: `const get_user_gift = client.get_user_gift`
 
 #### Operations
 
@@ -878,7 +875,7 @@ Create an instance: `const get_user_gift = client.GetUserGift()`
 #### Example: Create
 
 ```ts
-const get_user_gift = await client.GetUserGift().create({
+const get_user_gift = await client.get_user_gift.create({
   ok: /* `$BOOLEAN` */,
   user_id: /* `$INTEGER` */,
 })
@@ -887,7 +884,7 @@ const get_user_gift = await client.GetUserGift().create({
 
 ### GetUserProfileAudio
 
-Create an instance: `const get_user_profile_audio = client.GetUserProfileAudio()`
+Create an instance: `const get_user_profile_audio = client.get_user_profile_audio`
 
 #### Operations
 
@@ -909,7 +906,7 @@ Create an instance: `const get_user_profile_audio = client.GetUserProfileAudio()
 #### Example: Create
 
 ```ts
-const get_user_profile_audio = await client.GetUserProfileAudio().create({
+const get_user_profile_audio = await client.get_user_profile_audio.create({
   ok: /* `$BOOLEAN` */,
   user_id: /* `$INTEGER` */,
 })
@@ -918,7 +915,7 @@ const get_user_profile_audio = await client.GetUserProfileAudio().create({
 
 ### Message
 
-Create an instance: `const message = client.Message()`
+Create an instance: `const message = client.message`
 
 #### Operations
 
@@ -950,7 +947,7 @@ Create an instance: `const message = client.Message()`
 #### Example: Create
 
 ```ts
-const message = await client.Message().create({
+const message = await client.message.create({
   chat_id: /* `$STRING` */,
   from_chat_id: /* `$STRING` */,
   latitude: /* `$NUMBER` */,
@@ -965,7 +962,7 @@ const message = await client.Message().create({
 
 ### MessageId
 
-Create an instance: `const message_id = client.MessageId()`
+Create an instance: `const message_id = client.message_id`
 
 #### Operations
 
@@ -987,7 +984,7 @@ Create an instance: `const message_id = client.MessageId()`
 #### Example: Create
 
 ```ts
-const message_id = await client.MessageId().create({
+const message_id = await client.message_id.create({
   chat_id: /* `$STRING` */,
   from_chat_id: /* `$STRING` */,
   message_id: /* `$INTEGER` */,
@@ -997,7 +994,7 @@ const message_id = await client.MessageId().create({
 
 ### PromoteChatMember
 
-Create an instance: `const promote_chat_member = client.PromoteChatMember()`
+Create an instance: `const promote_chat_member = client.promote_chat_member`
 
 #### Operations
 
@@ -1025,7 +1022,7 @@ Create an instance: `const promote_chat_member = client.PromoteChatMember()`
 #### Example: Create
 
 ```ts
-const promote_chat_member = await client.PromoteChatMember().create({
+const promote_chat_member = await client.promote_chat_member.create({
   chat_id: /* `$STRING` */,
   ok: /* `$BOOLEAN` */,
   user_id: /* `$INTEGER` */,
@@ -1035,7 +1032,7 @@ const promote_chat_member = await client.PromoteChatMember().create({
 
 ### RemoveMyProfilePhoto
 
-Create an instance: `const remove_my_profile_photo = client.RemoveMyProfilePhoto()`
+Create an instance: `const remove_my_profile_photo = client.remove_my_profile_photo`
 
 #### Operations
 
@@ -1056,7 +1053,7 @@ Create an instance: `const remove_my_profile_photo = client.RemoveMyProfilePhoto
 #### Example: Create
 
 ```ts
-const remove_my_profile_photo = await client.RemoveMyProfilePhoto().create({
+const remove_my_profile_photo = await client.remove_my_profile_photo.create({
   ok: /* `$BOOLEAN` */,
 })
 ```
@@ -1064,7 +1061,7 @@ const remove_my_profile_photo = await client.RemoveMyProfilePhoto().create({
 
 ### RepostStory
 
-Create an instance: `const repost_story = client.RepostStory()`
+Create an instance: `const repost_story = client.repost_story`
 
 #### Operations
 
@@ -1087,7 +1084,7 @@ Create an instance: `const repost_story = client.RepostStory()`
 #### Example: Create
 
 ```ts
-const repost_story = await client.RepostStory().create({
+const repost_story = await client.repost_story.create({
   chat_id: /* `$STRING` */,
   ok: /* `$BOOLEAN` */,
   story_id: /* `$INTEGER` */,
@@ -1097,7 +1094,7 @@ const repost_story = await client.RepostStory().create({
 
 ### SendChatAction
 
-Create an instance: `const send_chat_action = client.SendChatAction()`
+Create an instance: `const send_chat_action = client.send_chat_action`
 
 #### Operations
 
@@ -1121,7 +1118,7 @@ Create an instance: `const send_chat_action = client.SendChatAction()`
 #### Example: Create
 
 ```ts
-const send_chat_action = await client.SendChatAction().create({
+const send_chat_action = await client.send_chat_action.create({
   action: /* `$STRING` */,
   chat_id: /* `$STRING` */,
   ok: /* `$BOOLEAN` */,
@@ -1131,7 +1128,7 @@ const send_chat_action = await client.SendChatAction().create({
 
 ### SendMessageDraft
 
-Create an instance: `const send_message_draft = client.SendMessageDraft()`
+Create an instance: `const send_message_draft = client.send_message_draft`
 
 #### Operations
 
@@ -1155,7 +1152,7 @@ Create an instance: `const send_message_draft = client.SendMessageDraft()`
 #### Example: Create
 
 ```ts
-const send_message_draft = await client.SendMessageDraft().create({
+const send_message_draft = await client.send_message_draft.create({
   chat_id: /* `$STRING` */,
   ok: /* `$BOOLEAN` */,
   text: /* `$STRING` */,
@@ -1165,7 +1162,7 @@ const send_message_draft = await client.SendMessageDraft().create({
 
 ### SetMyProfilePhoto
 
-Create an instance: `const set_my_profile_photo = client.SetMyProfilePhoto()`
+Create an instance: `const set_my_profile_photo = client.set_my_profile_photo`
 
 #### Operations
 
@@ -1186,7 +1183,7 @@ Create an instance: `const set_my_profile_photo = client.SetMyProfilePhoto()`
 #### Example: Create
 
 ```ts
-const set_my_profile_photo = await client.SetMyProfilePhoto().create({
+const set_my_profile_photo = await client.set_my_profile_photo.create({
   ok: /* `$BOOLEAN` */,
 })
 ```
@@ -1194,7 +1191,7 @@ const set_my_profile_photo = await client.SetMyProfilePhoto().create({
 
 ### UnpinAllForumTopicMessage
 
-Create an instance: `const unpin_all_forum_topic_message = client.UnpinAllForumTopicMessage()`
+Create an instance: `const unpin_all_forum_topic_message = client.unpin_all_forum_topic_message`
 
 #### Operations
 
@@ -1217,7 +1214,7 @@ Create an instance: `const unpin_all_forum_topic_message = client.UnpinAllForumT
 #### Example: Create
 
 ```ts
-const unpin_all_forum_topic_message = await client.UnpinAllForumTopicMessage().create({
+const unpin_all_forum_topic_message = await client.unpin_all_forum_topic_message.create({
   chat_id: /* `$STRING` */,
   message_thread_id: /* `$INTEGER` */,
   ok: /* `$BOOLEAN` */,
@@ -1227,7 +1224,7 @@ const unpin_all_forum_topic_message = await client.UnpinAllForumTopicMessage().c
 
 ### Update
 
-Create an instance: `const update = client.Update()`
+Create an instance: `const update = client.update`
 
 #### Operations
 
@@ -1253,13 +1250,13 @@ Create an instance: `const update = client.Update()`
 #### Example: List
 
 ```ts
-const updates = await client.Update().list()
+const updates = await client.update.list()
 ```
 
 #### Example: Create
 
 ```ts
-const update = await client.Update().create({
+const update = await client.update.create({
   ok: /* `$BOOLEAN` */,
 })
 ```
@@ -1336,11 +1333,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local approvesuggestedpost = client:approvesuggestedpost()
+approvesuggestedpost:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- approvesuggestedpost:data_get() now returns the loaded approvesuggestedpost data
+-- approvesuggestedpost:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

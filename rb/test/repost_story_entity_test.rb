@@ -36,8 +36,7 @@ class RepostStoryEntityTest < Minitest::Test
     repost_story_ref01_data = Helpers.to_map(Vs.getprop(
       Vs.getpath(setup[:data], "new.repost_story"), "repost_story_ref01"))
 
-    repost_story_ref01_data_result, err = repost_story_ref01_ent.create(repost_story_ref01_data, nil)
-    assert_nil err
+    repost_story_ref01_data_result = repost_story_ref01_ent.create(repost_story_ref01_data, nil)
     repost_story_ref01_data = Helpers.to_map(repost_story_ref01_data_result)
     assert !repost_story_ref01_data.nil?
 

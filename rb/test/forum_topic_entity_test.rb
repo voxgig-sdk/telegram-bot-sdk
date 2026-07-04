@@ -36,8 +36,7 @@ class ForumTopicEntityTest < Minitest::Test
     forum_topic_ref01_data = Helpers.to_map(Vs.getprop(
       Vs.getpath(setup[:data], "new.forum_topic"), "forum_topic_ref01"))
 
-    forum_topic_ref01_data_result, err = forum_topic_ref01_ent.create(forum_topic_ref01_data, nil)
-    assert_nil err
+    forum_topic_ref01_data_result = forum_topic_ref01_ent.create(forum_topic_ref01_data, nil)
     forum_topic_ref01_data = Helpers.to_map(forum_topic_ref01_data_result)
     assert !forum_topic_ref01_data.nil?
 

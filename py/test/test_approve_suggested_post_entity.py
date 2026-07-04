@@ -44,9 +44,7 @@ class TestApproveSuggestedPostEntity:
         approve_suggested_post_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.approve_suggested_post"), "approve_suggested_post_ref01"))
 
-        approve_suggested_post_ref01_data_result, err = approve_suggested_post_ref01_ent.create(approve_suggested_post_ref01_data, None)
-        assert err is None
-        approve_suggested_post_ref01_data = helpers.to_map(approve_suggested_post_ref01_data_result)
+        approve_suggested_post_ref01_data = helpers.to_map(approve_suggested_post_ref01_ent.create(approve_suggested_post_ref01_data, None))
         assert approve_suggested_post_ref01_data is not None
 
 

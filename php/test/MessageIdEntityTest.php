@@ -43,8 +43,7 @@ class MessageIdEntityTest extends TestCase
         $message_id_ref01_data = Helpers::to_map(Vs::getprop(
             Vs::getpath($setup["data"], "new.message_id"), "message_id_ref01"));
 
-        [$message_id_ref01_data_result, $err] = $message_id_ref01_ent->create($message_id_ref01_data, null);
-        $this->assertNull($err);
+        $message_id_ref01_data_result = $message_id_ref01_ent->create($message_id_ref01_data, null);
         $message_id_ref01_data = Helpers::to_map($message_id_ref01_data_result);
         $this->assertNotNull($message_id_ref01_data);
 

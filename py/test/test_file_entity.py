@@ -44,9 +44,7 @@ class TestFileEntity:
         file_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.file"), "file_ref01"))
 
-        file_ref01_data_result, err = file_ref01_ent.create(file_ref01_data, None)
-        assert err is None
-        file_ref01_data = helpers.to_map(file_ref01_data_result)
+        file_ref01_data = helpers.to_map(file_ref01_ent.create(file_ref01_data, None))
         assert file_ref01_data is not None
 
 

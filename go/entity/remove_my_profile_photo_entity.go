@@ -85,6 +85,27 @@ func (e *RemoveMyProfilePhotoEntity) Match(args ...any) any {
 	return out
 }
 
+// DataTyped is the statically-typed accessor for this entity's data. With no
+// argument it returns the current data as an RemoveMyProfilePhoto; with an argument it
+// sets the data and returns the stored value. It delegates to the untyped Data
+// (identical runtime) and converts at the typed boundary.
+func (e *RemoveMyProfilePhotoEntity) DataTyped(data ...RemoveMyProfilePhoto) RemoveMyProfilePhoto {
+	if len(data) > 0 {
+		return typedFrom[RemoveMyProfilePhoto](e.Data(asMap(data[0])))
+	}
+	return typedFrom[RemoveMyProfilePhoto](e.Data())
+}
+
+// MatchTyped mirrors DataTyped for the entity's match filter. The match is a
+// partial of the entity, so it round-trips through RemoveMyProfilePhoto (all fields
+// optional at the wire level).
+func (e *RemoveMyProfilePhotoEntity) MatchTyped(match ...RemoveMyProfilePhoto) RemoveMyProfilePhoto {
+	if len(match) > 0 {
+		return typedFrom[RemoveMyProfilePhoto](e.Match(asMap(match[0])))
+	}
+	return typedFrom[RemoveMyProfilePhoto](e.Match())
+}
+
 func (e *RemoveMyProfilePhotoEntity) Load(_ map[string]any, _ map[string]any) (any, error) {
 	return core.UnsupportedOp("load", e.name)
 }
@@ -116,6 +137,17 @@ func (e *RemoveMyProfilePhotoEntity) Create(reqdata map[string]any, ctrl map[str
 			}
 		}
 	})
+}
+
+// CreateTyped is the statically-typed variant of Create: it takes an
+// RemoveMyProfilePhotoCreateData and returns an RemoveMyProfilePhoto. It delegates to the untyped
+// Create (identical runtime) and converts at the typed boundary.
+func (e *RemoveMyProfilePhotoEntity) CreateTyped(reqdata RemoveMyProfilePhotoCreateData, ctrl map[string]any) (RemoveMyProfilePhoto, error) {
+	res, err := e.Create(asMap(reqdata), ctrl)
+	if err != nil {
+		return RemoveMyProfilePhoto{}, err
+	}
+	return typedFrom[RemoveMyProfilePhoto](res), nil
 }
 
 

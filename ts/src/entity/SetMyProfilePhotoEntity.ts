@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  SetMyProfilePhoto,
+  SetMyProfilePhotoCreateData,
+} from '../TelegramBotTypes'
 
 // TODO: needs Entity superclass
-class SetMyProfilePhotoEntity extends TelegramBotEntityBase {
+class SetMyProfilePhotoEntity extends TelegramBotEntityBase<SetMyProfilePhoto> {
 
   constructor(client: TelegramBotSDK, entopts: any) {
     super(client, entopts)
@@ -34,7 +38,7 @@ class SetMyProfilePhotoEntity extends TelegramBotEntityBase {
 
 
 
-  async create(this: any, reqdata?: any, ctrl?: Control) {
+  async create(this: any, reqdata?: SetMyProfilePhotoCreateData, ctrl?: Control): Promise<SetMyProfilePhoto> {
 
     const utility = this._utility
     const {
@@ -133,7 +137,9 @@ class SetMyProfilePhotoEntity extends TelegramBotEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<SetMyProfilePhoto> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

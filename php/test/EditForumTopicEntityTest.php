@@ -43,8 +43,7 @@ class EditForumTopicEntityTest extends TestCase
         $edit_forum_topic_ref01_data = Helpers::to_map(Vs::getprop(
             Vs::getpath($setup["data"], "new.edit_forum_topic"), "edit_forum_topic_ref01"));
 
-        [$edit_forum_topic_ref01_data_result, $err] = $edit_forum_topic_ref01_ent->create($edit_forum_topic_ref01_data, null);
-        $this->assertNull($err);
+        $edit_forum_topic_ref01_data_result = $edit_forum_topic_ref01_ent->create($edit_forum_topic_ref01_data, null);
         $edit_forum_topic_ref01_data = Helpers::to_map($edit_forum_topic_ref01_data_result);
         $this->assertNotNull($edit_forum_topic_ref01_data);
 

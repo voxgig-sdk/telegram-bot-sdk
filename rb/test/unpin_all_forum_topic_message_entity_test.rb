@@ -36,8 +36,7 @@ class UnpinAllForumTopicMessageEntityTest < Minitest::Test
     unpin_all_forum_topic_message_ref01_data = Helpers.to_map(Vs.getprop(
       Vs.getpath(setup[:data], "new.unpin_all_forum_topic_message"), "unpin_all_forum_topic_message_ref01"))
 
-    unpin_all_forum_topic_message_ref01_data_result, err = unpin_all_forum_topic_message_ref01_ent.create(unpin_all_forum_topic_message_ref01_data, nil)
-    assert_nil err
+    unpin_all_forum_topic_message_ref01_data_result = unpin_all_forum_topic_message_ref01_ent.create(unpin_all_forum_topic_message_ref01_data, nil)
     unpin_all_forum_topic_message_ref01_data = Helpers.to_map(unpin_all_forum_topic_message_ref01_data_result)
     assert !unpin_all_forum_topic_message_ref01_data.nil?
 

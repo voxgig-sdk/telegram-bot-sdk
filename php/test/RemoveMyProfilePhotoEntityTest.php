@@ -43,8 +43,7 @@ class RemoveMyProfilePhotoEntityTest extends TestCase
         $remove_my_profile_photo_ref01_data = Helpers::to_map(Vs::getprop(
             Vs::getpath($setup["data"], "new.remove_my_profile_photo"), "remove_my_profile_photo_ref01"));
 
-        [$remove_my_profile_photo_ref01_data_result, $err] = $remove_my_profile_photo_ref01_ent->create($remove_my_profile_photo_ref01_data, null);
-        $this->assertNull($err);
+        $remove_my_profile_photo_ref01_data_result = $remove_my_profile_photo_ref01_ent->create($remove_my_profile_photo_ref01_data, null);
         $remove_my_profile_photo_ref01_data = Helpers::to_map($remove_my_profile_photo_ref01_data_result);
         $this->assertNotNull($remove_my_profile_photo_ref01_data);
 

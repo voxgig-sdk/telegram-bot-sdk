@@ -44,9 +44,7 @@ class TestGetUserGiftEntity:
         get_user_gift_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.get_user_gift"), "get_user_gift_ref01"))
 
-        get_user_gift_ref01_data_result, err = get_user_gift_ref01_ent.create(get_user_gift_ref01_data, None)
-        assert err is None
-        get_user_gift_ref01_data = helpers.to_map(get_user_gift_ref01_data_result)
+        get_user_gift_ref01_data = helpers.to_map(get_user_gift_ref01_ent.create(get_user_gift_ref01_data, None))
         assert get_user_gift_ref01_data is not None
 
 

@@ -45,6 +45,7 @@ class RepostStoryEntity
     end
   end
 
+  # @return [RepostStory, Hash] the current RepostStory data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class RepostStoryEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of RepostStory fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -67,6 +69,11 @@ class RepostStoryEntity
   
 
   
+  # Create a new RepostStory.
+  #
+  # @param reqdata [RepostStoryCreateData, Hash, nil] body data
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [RepostStory, Hash] the created RepostStory; raises TelegramBotError on failure
   def create(reqdata, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

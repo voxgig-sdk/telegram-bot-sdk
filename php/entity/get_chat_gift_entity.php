@@ -55,6 +55,9 @@ class GetChatGiftEntity
         return new GetChatGiftEntity($this->_client, $opts);
     }
 
+    /**
+     * @param GetChatGift|array $args GetChatGift data (assoc-array) to store.
+     */
     public function data_set($args): void
     {
         if ($args) {
@@ -63,12 +66,18 @@ class GetChatGiftEntity
         }
     }
 
+    /**
+     * @return GetChatGift|array The current GetChatGift data as an assoc-array.
+     */
     public function data_get()
     {
         ($this->_utility->feature_hook)($this->_entctx, "GetData");
         return Struct::clone($this->_data);
     }
 
+    /**
+     * @param array $args Match filter (any subset of GetChatGift fields).
+     */
     public function match_set($args): void
     {
         if ($args) {
@@ -77,6 +86,9 @@ class GetChatGiftEntity
         }
     }
 
+    /**
+     * @return array The current match filter (any subset of GetChatGift fields).
+     */
     public function match_get()
     {
         ($this->_utility->feature_hook)($this->_entctx, "GetMatch");
@@ -88,7 +100,16 @@ class GetChatGiftEntity
     
 
     
-    public function create($reqdata, $ctrl = null): array
+    /**
+     * Create a new GetChatGift.
+     *
+     * @param GetChatGiftCreateData|array|null $reqdata Body data as an assoc-array;
+     *   a typed GetChatGiftCreateData names the shape.
+     * @param mixed $ctrl Optional per-call control overrides.
+     * @return GetChatGift|array The created GetChatGift as an assoc-array at the
+     *   SDK boundary; throws TelegramBotError on failure (item-5 convention).
+     */
+    public function create(?array $reqdata = null, $ctrl = null): mixed
     {
         $utility = $this->_utility;
         $ctx = ($utility->make_context)([
@@ -114,7 +135,7 @@ class GetChatGiftEntity
 
     
 
-    private function _run_op($ctx, callable $post_done): array
+    private function _run_op($ctx, callable $post_done): mixed
     {
         $utility = $this->_utility;
 

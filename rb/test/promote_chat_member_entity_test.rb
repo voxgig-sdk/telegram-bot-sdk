@@ -36,8 +36,7 @@ class PromoteChatMemberEntityTest < Minitest::Test
     promote_chat_member_ref01_data = Helpers.to_map(Vs.getprop(
       Vs.getpath(setup[:data], "new.promote_chat_member"), "promote_chat_member_ref01"))
 
-    promote_chat_member_ref01_data_result, err = promote_chat_member_ref01_ent.create(promote_chat_member_ref01_data, nil)
-    assert_nil err
+    promote_chat_member_ref01_data_result = promote_chat_member_ref01_ent.create(promote_chat_member_ref01_data, nil)
     promote_chat_member_ref01_data = Helpers.to_map(promote_chat_member_ref01_data_result)
     assert !promote_chat_member_ref01_data.nil?
 

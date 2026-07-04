@@ -44,9 +44,7 @@ class TestRepostStoryEntity:
         repost_story_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.repost_story"), "repost_story_ref01"))
 
-        repost_story_ref01_data_result, err = repost_story_ref01_ent.create(repost_story_ref01_data, None)
-        assert err is None
-        repost_story_ref01_data = helpers.to_map(repost_story_ref01_data_result)
+        repost_story_ref01_data = helpers.to_map(repost_story_ref01_ent.create(repost_story_ref01_data, None))
         assert repost_story_ref01_data is not None
 
 

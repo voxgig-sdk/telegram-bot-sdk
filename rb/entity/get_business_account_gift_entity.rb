@@ -45,6 +45,7 @@ class GetBusinessAccountGiftEntity
     end
   end
 
+  # @return [GetBusinessAccountGift, Hash] the current GetBusinessAccountGift data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class GetBusinessAccountGiftEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of GetBusinessAccountGift fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -67,6 +69,11 @@ class GetBusinessAccountGiftEntity
   
 
   
+  # Create a new GetBusinessAccountGift.
+  #
+  # @param reqdata [GetBusinessAccountGiftCreateData, Hash, nil] body data
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [GetBusinessAccountGift, Hash] the created GetBusinessAccountGift; raises TelegramBotError on failure
   def create(reqdata, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

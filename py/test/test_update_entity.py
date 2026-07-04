@@ -44,16 +44,13 @@ class TestUpdateEntity:
         update_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.update"), "update_ref01"))
 
-        update_ref01_data_result, err = update_ref01_ent.create(update_ref01_data, None)
-        assert err is None
-        update_ref01_data = helpers.to_map(update_ref01_data_result)
+        update_ref01_data = helpers.to_map(update_ref01_ent.create(update_ref01_data, None))
         assert update_ref01_data is not None
 
         # LIST
         update_ref01_match = {}
 
-        update_ref01_list_result, err = update_ref01_ent.list(update_ref01_match, None)
-        assert err is None
+        update_ref01_list_result = update_ref01_ent.list(update_ref01_match, None)
         assert isinstance(update_ref01_list_result, list)
 
         found_item = vs.select(

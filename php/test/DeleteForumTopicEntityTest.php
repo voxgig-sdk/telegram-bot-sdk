@@ -43,8 +43,7 @@ class DeleteForumTopicEntityTest extends TestCase
         $delete_forum_topic_ref01_data = Helpers::to_map(Vs::getprop(
             Vs::getpath($setup["data"], "new.delete_forum_topic"), "delete_forum_topic_ref01"));
 
-        [$delete_forum_topic_ref01_data_result, $err] = $delete_forum_topic_ref01_ent->create($delete_forum_topic_ref01_data, null);
-        $this->assertNull($err);
+        $delete_forum_topic_ref01_data_result = $delete_forum_topic_ref01_ent->create($delete_forum_topic_ref01_data, null);
         $delete_forum_topic_ref01_data = Helpers::to_map($delete_forum_topic_ref01_data_result);
         $this->assertNotNull($delete_forum_topic_ref01_data);
 

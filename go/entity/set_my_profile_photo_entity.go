@@ -85,6 +85,27 @@ func (e *SetMyProfilePhotoEntity) Match(args ...any) any {
 	return out
 }
 
+// DataTyped is the statically-typed accessor for this entity's data. With no
+// argument it returns the current data as an SetMyProfilePhoto; with an argument it
+// sets the data and returns the stored value. It delegates to the untyped Data
+// (identical runtime) and converts at the typed boundary.
+func (e *SetMyProfilePhotoEntity) DataTyped(data ...SetMyProfilePhoto) SetMyProfilePhoto {
+	if len(data) > 0 {
+		return typedFrom[SetMyProfilePhoto](e.Data(asMap(data[0])))
+	}
+	return typedFrom[SetMyProfilePhoto](e.Data())
+}
+
+// MatchTyped mirrors DataTyped for the entity's match filter. The match is a
+// partial of the entity, so it round-trips through SetMyProfilePhoto (all fields
+// optional at the wire level).
+func (e *SetMyProfilePhotoEntity) MatchTyped(match ...SetMyProfilePhoto) SetMyProfilePhoto {
+	if len(match) > 0 {
+		return typedFrom[SetMyProfilePhoto](e.Match(asMap(match[0])))
+	}
+	return typedFrom[SetMyProfilePhoto](e.Match())
+}
+
 func (e *SetMyProfilePhotoEntity) Load(_ map[string]any, _ map[string]any) (any, error) {
 	return core.UnsupportedOp("load", e.name)
 }
@@ -116,6 +137,17 @@ func (e *SetMyProfilePhotoEntity) Create(reqdata map[string]any, ctrl map[string
 			}
 		}
 	})
+}
+
+// CreateTyped is the statically-typed variant of Create: it takes an
+// SetMyProfilePhotoCreateData and returns an SetMyProfilePhoto. It delegates to the untyped
+// Create (identical runtime) and converts at the typed boundary.
+func (e *SetMyProfilePhotoEntity) CreateTyped(reqdata SetMyProfilePhotoCreateData, ctrl map[string]any) (SetMyProfilePhoto, error) {
+	res, err := e.Create(asMap(reqdata), ctrl)
+	if err != nil {
+		return SetMyProfilePhoto{}, err
+	}
+	return typedFrom[SetMyProfilePhoto](res), nil
 }
 
 

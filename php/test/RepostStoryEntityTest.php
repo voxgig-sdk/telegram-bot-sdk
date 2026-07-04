@@ -43,8 +43,7 @@ class RepostStoryEntityTest extends TestCase
         $repost_story_ref01_data = Helpers::to_map(Vs::getprop(
             Vs::getpath($setup["data"], "new.repost_story"), "repost_story_ref01"));
 
-        [$repost_story_ref01_data_result, $err] = $repost_story_ref01_ent->create($repost_story_ref01_data, null);
-        $this->assertNull($err);
+        $repost_story_ref01_data_result = $repost_story_ref01_ent->create($repost_story_ref01_data, null);
         $repost_story_ref01_data = Helpers::to_map($repost_story_ref01_data_result);
         $this->assertNotNull($repost_story_ref01_data);
 

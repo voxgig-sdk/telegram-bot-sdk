@@ -36,8 +36,7 @@ class SendMessageDraftEntityTest < Minitest::Test
     send_message_draft_ref01_data = Helpers.to_map(Vs.getprop(
       Vs.getpath(setup[:data], "new.send_message_draft"), "send_message_draft_ref01"))
 
-    send_message_draft_ref01_data_result, err = send_message_draft_ref01_ent.create(send_message_draft_ref01_data, nil)
-    assert_nil err
+    send_message_draft_ref01_data_result = send_message_draft_ref01_ent.create(send_message_draft_ref01_data, nil)
     send_message_draft_ref01_data = Helpers.to_map(send_message_draft_ref01_data_result)
     assert !send_message_draft_ref01_data.nil?
 

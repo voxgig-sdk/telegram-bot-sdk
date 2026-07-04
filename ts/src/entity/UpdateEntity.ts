@@ -14,9 +14,14 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Update,
+  UpdateListMatch,
+  UpdateCreateData,
+} from '../TelegramBotTypes'
 
 // TODO: needs Entity superclass
-class UpdateEntity extends TelegramBotEntityBase {
+class UpdateEntity extends TelegramBotEntityBase<Update> {
 
   constructor(client: TelegramBotSDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +38,7 @@ class UpdateEntity extends TelegramBotEntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: UpdateListMatch, ctrl?: Control): Promise<Update[]> {
 
     const utility = this._utility
 
@@ -133,14 +138,16 @@ class UpdateEntity extends TelegramBotEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Update[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }
 
 
 
-  async create(this: any, reqdata?: any, ctrl?: Control) {
+  async create(this: any, reqdata?: UpdateCreateData, ctrl?: Control): Promise<Update> {
 
     const utility = this._utility
     const {
@@ -239,7 +246,9 @@ class UpdateEntity extends TelegramBotEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Update> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

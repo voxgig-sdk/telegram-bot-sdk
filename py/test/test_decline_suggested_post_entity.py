@@ -44,9 +44,7 @@ class TestDeclineSuggestedPostEntity:
         decline_suggested_post_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.decline_suggested_post"), "decline_suggested_post_ref01"))
 
-        decline_suggested_post_ref01_data_result, err = decline_suggested_post_ref01_ent.create(decline_suggested_post_ref01_data, None)
-        assert err is None
-        decline_suggested_post_ref01_data = helpers.to_map(decline_suggested_post_ref01_data_result)
+        decline_suggested_post_ref01_data = helpers.to_map(decline_suggested_post_ref01_ent.create(decline_suggested_post_ref01_data, None))
         assert decline_suggested_post_ref01_data is not None
 
 

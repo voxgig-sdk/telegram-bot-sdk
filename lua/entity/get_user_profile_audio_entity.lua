@@ -83,6 +83,10 @@ end
 
 
 
+---@param reqdata GetUserProfileAudioCreateData
+---@param ctrl? table
+---@return GetUserProfileAudio
+---@return string? err
 function GetUserProfileAudioEntity:create(reqdata, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

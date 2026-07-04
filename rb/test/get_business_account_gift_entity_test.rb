@@ -36,8 +36,7 @@ class GetBusinessAccountGiftEntityTest < Minitest::Test
     get_business_account_gift_ref01_data = Helpers.to_map(Vs.getprop(
       Vs.getpath(setup[:data], "new.get_business_account_gift"), "get_business_account_gift_ref01"))
 
-    get_business_account_gift_ref01_data_result, err = get_business_account_gift_ref01_ent.create(get_business_account_gift_ref01_data, nil)
-    assert_nil err
+    get_business_account_gift_ref01_data_result = get_business_account_gift_ref01_ent.create(get_business_account_gift_ref01_data, nil)
     get_business_account_gift_ref01_data = Helpers.to_map(get_business_account_gift_ref01_data_result)
     assert !get_business_account_gift_ref01_data.nil?
 

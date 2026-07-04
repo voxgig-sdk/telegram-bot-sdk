@@ -44,9 +44,7 @@ class TestSetMyProfilePhotoEntity:
         set_my_profile_photo_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.set_my_profile_photo"), "set_my_profile_photo_ref01"))
 
-        set_my_profile_photo_ref01_data_result, err = set_my_profile_photo_ref01_ent.create(set_my_profile_photo_ref01_data, None)
-        assert err is None
-        set_my_profile_photo_ref01_data = helpers.to_map(set_my_profile_photo_ref01_data_result)
+        set_my_profile_photo_ref01_data = helpers.to_map(set_my_profile_photo_ref01_ent.create(set_my_profile_photo_ref01_data, None))
         assert set_my_profile_photo_ref01_data is not None
 
 

@@ -43,15 +43,13 @@ class GetMeEntityTest extends TestCase
         $get_me_ref01_data = Helpers::to_map(Vs::getprop(
             Vs::getpath($setup["data"], "new.get_me"), "get_me_ref01"));
 
-        [$get_me_ref01_data_result, $err] = $get_me_ref01_ent->create($get_me_ref01_data, null);
-        $this->assertNull($err);
+        $get_me_ref01_data_result = $get_me_ref01_ent->create($get_me_ref01_data, null);
         $get_me_ref01_data = Helpers::to_map($get_me_ref01_data_result);
         $this->assertNotNull($get_me_ref01_data);
 
         // LOAD
         $get_me_ref01_match_dt0 = [];
-        [$get_me_ref01_data_dt0_loaded, $err] = $get_me_ref01_ent->load($get_me_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $get_me_ref01_data_dt0_loaded = $get_me_ref01_ent->load($get_me_ref01_match_dt0, null);
         $this->assertNotNull($get_me_ref01_data_dt0_loaded);
 
     }

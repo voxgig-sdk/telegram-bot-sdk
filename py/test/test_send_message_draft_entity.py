@@ -44,9 +44,7 @@ class TestSendMessageDraftEntity:
         send_message_draft_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.send_message_draft"), "send_message_draft_ref01"))
 
-        send_message_draft_ref01_data_result, err = send_message_draft_ref01_ent.create(send_message_draft_ref01_data, None)
-        assert err is None
-        send_message_draft_ref01_data = helpers.to_map(send_message_draft_ref01_data_result)
+        send_message_draft_ref01_data = helpers.to_map(send_message_draft_ref01_ent.create(send_message_draft_ref01_data, None))
         assert send_message_draft_ref01_data is not None
 
 

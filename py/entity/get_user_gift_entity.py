@@ -1,7 +1,13 @@
 # TelegramBot SDK GetUserGift entity
 
+from __future__ import annotations
+
 from utility.voxgig_struct import voxgig_struct as vs
 from core import helpers
+from telegrambot_types import (
+    GetUserGift,
+    GetUserGiftCreateData,
+)
 
 
 class GetUserGiftEntity:
@@ -44,7 +50,7 @@ class GetUserGiftEntity:
             self._data = helpers.to_map(vs.clone(args)) or {}
             self._utility.feature_hook(self._entctx, "SetData")
 
-    def data_get(self):
+    def data_get(self) -> GetUserGift:
         self._utility.feature_hook(self._entctx, "GetData")
         return vs.clone(self._data)
 
@@ -53,7 +59,7 @@ class GetUserGiftEntity:
             self._match = helpers.to_map(vs.clone(args)) or {}
             self._utility.feature_hook(self._entctx, "SetMatch")
 
-    def match_get(self):
+    def match_get(self) -> GetUserGift:
         self._utility.feature_hook(self._entctx, "GetMatch")
         return vs.clone(self._match)
 
@@ -62,7 +68,7 @@ class GetUserGiftEntity:
     
 
     
-    def create(self, reqdata, ctrl=None):
+    def create(self, reqdata: GetUserGiftCreateData, ctrl=None) -> GetUserGift:
         utility = self._utility
         ctx = utility.make_context({
             "opname": "create",

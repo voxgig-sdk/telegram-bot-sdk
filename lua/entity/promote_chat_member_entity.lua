@@ -83,6 +83,10 @@ end
 
 
 
+---@param reqdata PromoteChatMemberCreateData
+---@param ctrl? table
+---@return PromoteChatMember
+---@return string? err
 function PromoteChatMemberEntity:create(reqdata, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

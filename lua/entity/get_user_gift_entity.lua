@@ -83,6 +83,10 @@ end
 
 
 
+---@param reqdata GetUserGiftCreateData
+---@param ctrl? table
+---@return GetUserGift
+---@return string? err
 function GetUserGiftEntity:create(reqdata, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

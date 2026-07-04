@@ -43,8 +43,7 @@ class SendMessageDraftEntityTest extends TestCase
         $send_message_draft_ref01_data = Helpers::to_map(Vs::getprop(
             Vs::getpath($setup["data"], "new.send_message_draft"), "send_message_draft_ref01"));
 
-        [$send_message_draft_ref01_data_result, $err] = $send_message_draft_ref01_ent->create($send_message_draft_ref01_data, null);
-        $this->assertNull($err);
+        $send_message_draft_ref01_data_result = $send_message_draft_ref01_ent->create($send_message_draft_ref01_data, null);
         $send_message_draft_ref01_data = Helpers::to_map($send_message_draft_ref01_data_result);
         $this->assertNotNull($send_message_draft_ref01_data);
 

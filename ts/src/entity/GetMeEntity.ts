@@ -14,9 +14,14 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  GetMe,
+  GetMeLoadMatch,
+  GetMeCreateData,
+} from '../TelegramBotTypes'
 
 // TODO: needs Entity superclass
-class GetMeEntity extends TelegramBotEntityBase {
+class GetMeEntity extends TelegramBotEntityBase<GetMe> {
 
   constructor(client: TelegramBotSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +37,7 @@ class GetMeEntity extends TelegramBotEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: GetMeLoadMatch, ctrl?: Control): Promise<GetMe> {
 
     const utility = this._utility
 
@@ -136,7 +141,9 @@ class GetMeEntity extends TelegramBotEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<GetMe> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }
@@ -144,7 +151,7 @@ class GetMeEntity extends TelegramBotEntityBase {
 
 
 
-  async create(this: any, reqdata?: any, ctrl?: Control) {
+  async create(this: any, reqdata?: GetMeCreateData, ctrl?: Control): Promise<GetMe> {
 
     const utility = this._utility
     const {
@@ -243,7 +250,9 @@ class GetMeEntity extends TelegramBotEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<GetMe> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

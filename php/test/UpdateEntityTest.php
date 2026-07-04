@@ -43,16 +43,14 @@ class UpdateEntityTest extends TestCase
         $update_ref01_data = Helpers::to_map(Vs::getprop(
             Vs::getpath($setup["data"], "new.update"), "update_ref01"));
 
-        [$update_ref01_data_result, $err] = $update_ref01_ent->create($update_ref01_data, null);
-        $this->assertNull($err);
+        $update_ref01_data_result = $update_ref01_ent->create($update_ref01_data, null);
         $update_ref01_data = Helpers::to_map($update_ref01_data_result);
         $this->assertNotNull($update_ref01_data);
 
         // LIST
         $update_ref01_match = [];
 
-        [$update_ref01_list_result, $err] = $update_ref01_ent->list($update_ref01_match, null);
-        $this->assertNull($err);
+        $update_ref01_list_result = $update_ref01_ent->list($update_ref01_match, null);
         $this->assertIsArray($update_ref01_list_result);
 
         $found_item = sdk_select(

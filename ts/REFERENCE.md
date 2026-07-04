@@ -350,7 +350,7 @@ Alias for `TelegramBotSDK.test()`.
 ## ApproveSuggestedPostEntity
 
 ```ts
-const approve_suggested_post = client.ApproveSuggestedPost()
+const approve_suggested_post = client.approve_suggested_post
 ```
 
 ### Fields
@@ -372,7 +372,7 @@ const approve_suggested_post = client.ApproveSuggestedPost()
 Create a new entity with the given data.
 
 ```ts
-const result = await client.ApproveSuggestedPost().create({
+const result = await client.approve_suggested_post.create({
   chat_id: /* `$STRING` */,
   message_id: /* `$INTEGER` */,
   ok: /* `$BOOLEAN` */,
@@ -410,7 +410,7 @@ Return a copy of the entity options.
 ## DeclineSuggestedPostEntity
 
 ```ts
-const decline_suggested_post = client.DeclineSuggestedPost()
+const decline_suggested_post = client.decline_suggested_post
 ```
 
 ### Fields
@@ -432,7 +432,7 @@ const decline_suggested_post = client.DeclineSuggestedPost()
 Create a new entity with the given data.
 
 ```ts
-const result = await client.DeclineSuggestedPost().create({
+const result = await client.decline_suggested_post.create({
   chat_id: /* `$STRING` */,
   message_id: /* `$INTEGER` */,
   ok: /* `$BOOLEAN` */,
@@ -470,7 +470,7 @@ Return a copy of the entity options.
 ## DeleteForumTopicEntity
 
 ```ts
-const delete_forum_topic = client.DeleteForumTopic()
+const delete_forum_topic = client.delete_forum_topic
 ```
 
 ### Fields
@@ -492,7 +492,7 @@ const delete_forum_topic = client.DeleteForumTopic()
 Create a new entity with the given data.
 
 ```ts
-const result = await client.DeleteForumTopic().create({
+const result = await client.delete_forum_topic.create({
   chat_id: /* `$STRING` */,
   message_thread_id: /* `$INTEGER` */,
   ok: /* `$BOOLEAN` */,
@@ -530,7 +530,7 @@ Return a copy of the entity options.
 ## EditForumTopicEntity
 
 ```ts
-const edit_forum_topic = client.EditForumTopic()
+const edit_forum_topic = client.edit_forum_topic
 ```
 
 ### Fields
@@ -554,7 +554,7 @@ const edit_forum_topic = client.EditForumTopic()
 Create a new entity with the given data.
 
 ```ts
-const result = await client.EditForumTopic().create({
+const result = await client.edit_forum_topic.create({
   chat_id: /* `$STRING` */,
   message_thread_id: /* `$INTEGER` */,
   ok: /* `$BOOLEAN` */,
@@ -592,7 +592,7 @@ Return a copy of the entity options.
 ## FileEntity
 
 ```ts
-const file = client.File()
+const file = client.file
 ```
 
 ### Fields
@@ -608,7 +608,7 @@ const file = client.File()
 Create a new entity with the given data.
 
 ```ts
-const result = await client.File().create({
+const result = await client.file.create({
   file_id: /* `$STRING` */,
 })
 ```
@@ -644,7 +644,7 @@ Return a copy of the entity options.
 ## ForumTopicEntity
 
 ```ts
-const forum_topic = client.ForumTopic()
+const forum_topic = client.forum_topic
 ```
 
 ### Fields
@@ -663,7 +663,7 @@ const forum_topic = client.ForumTopic()
 Create a new entity with the given data.
 
 ```ts
-const result = await client.ForumTopic().create({
+const result = await client.forum_topic.create({
   chat_id: /* `$STRING` */,
   name: /* `$STRING` */,
 })
@@ -700,7 +700,7 @@ Return a copy of the entity options.
 ## GetBusinessAccountGiftEntity
 
 ```ts
-const get_business_account_gift = client.GetBusinessAccountGift()
+const get_business_account_gift = client.get_business_account_gift
 ```
 
 ### Fields
@@ -723,7 +723,7 @@ const get_business_account_gift = client.GetBusinessAccountGift()
 Create a new entity with the given data.
 
 ```ts
-const result = await client.GetBusinessAccountGift().create({
+const result = await client.get_business_account_gift.create({
   ok: /* `$BOOLEAN` */,
 })
 ```
@@ -759,7 +759,7 @@ Return a copy of the entity options.
 ## GetChatGiftEntity
 
 ```ts
-const get_chat_gift = client.GetChatGift()
+const get_chat_gift = client.get_chat_gift
 ```
 
 ### Fields
@@ -780,7 +780,7 @@ const get_chat_gift = client.GetChatGift()
 Create a new entity with the given data.
 
 ```ts
-const result = await client.GetChatGift().create({
+const result = await client.get_chat_gift.create({
   chat_id: /* `$STRING` */,
   ok: /* `$BOOLEAN` */,
 })
@@ -817,7 +817,7 @@ Return a copy of the entity options.
 ## GetMeEntity
 
 ```ts
-const get_me = client.GetMe()
+const get_me = client.get_me
 ```
 
 ### Fields
@@ -837,7 +837,7 @@ const get_me = client.GetMe()
 Create a new entity with the given data.
 
 ```ts
-const result = await client.GetMe().create({
+const result = await client.get_me.create({
   ok: /* `$BOOLEAN` */,
 })
 ```
@@ -847,7 +847,7 @@ const result = await client.GetMe().create({
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.GetMe().load({ id: 'get_me_id' })
+const result = await client.get_me.load({ id: 'get_me_id' })
 ```
 
 ### Common Methods
@@ -881,7 +881,7 @@ Return a copy of the entity options.
 ## GetUserGiftEntity
 
 ```ts
-const get_user_gift = client.GetUserGift()
+const get_user_gift = client.get_user_gift
 ```
 
 ### Fields
@@ -902,7 +902,7 @@ const get_user_gift = client.GetUserGift()
 Create a new entity with the given data.
 
 ```ts
-const result = await client.GetUserGift().create({
+const result = await client.get_user_gift.create({
   ok: /* `$BOOLEAN` */,
   user_id: /* `$INTEGER` */,
 })
@@ -939,7 +939,7 @@ Return a copy of the entity options.
 ## GetUserProfileAudioEntity
 
 ```ts
-const get_user_profile_audio = client.GetUserProfileAudio()
+const get_user_profile_audio = client.get_user_profile_audio
 ```
 
 ### Fields
@@ -960,7 +960,7 @@ const get_user_profile_audio = client.GetUserProfileAudio()
 Create a new entity with the given data.
 
 ```ts
-const result = await client.GetUserProfileAudio().create({
+const result = await client.get_user_profile_audio.create({
   ok: /* `$BOOLEAN` */,
   user_id: /* `$INTEGER` */,
 })
@@ -997,7 +997,7 @@ Return a copy of the entity options.
 ## MessageEntity
 
 ```ts
-const message = client.Message()
+const message = client.message
 ```
 
 ### Fields
@@ -1028,7 +1028,7 @@ const message = client.Message()
 Create a new entity with the given data.
 
 ```ts
-const result = await client.Message().create({
+const result = await client.message.create({
   chat_id: /* `$STRING` */,
   from_chat_id: /* `$STRING` */,
   latitude: /* `$NUMBER` */,
@@ -1071,7 +1071,7 @@ Return a copy of the entity options.
 ## MessageIdEntity
 
 ```ts
-const message_id = client.MessageId()
+const message_id = client.message_id
 ```
 
 ### Fields
@@ -1092,7 +1092,7 @@ const message_id = client.MessageId()
 Create a new entity with the given data.
 
 ```ts
-const result = await client.MessageId().create({
+const result = await client.message_id.create({
   chat_id: /* `$STRING` */,
   from_chat_id: /* `$STRING` */,
   message_id: /* `$INTEGER` */,
@@ -1130,7 +1130,7 @@ Return a copy of the entity options.
 ## PromoteChatMemberEntity
 
 ```ts
-const promote_chat_member = client.PromoteChatMember()
+const promote_chat_member = client.promote_chat_member
 ```
 
 ### Fields
@@ -1157,7 +1157,7 @@ const promote_chat_member = client.PromoteChatMember()
 Create a new entity with the given data.
 
 ```ts
-const result = await client.PromoteChatMember().create({
+const result = await client.promote_chat_member.create({
   chat_id: /* `$STRING` */,
   ok: /* `$BOOLEAN` */,
   user_id: /* `$INTEGER` */,
@@ -1195,7 +1195,7 @@ Return a copy of the entity options.
 ## RemoveMyProfilePhotoEntity
 
 ```ts
-const remove_my_profile_photo = client.RemoveMyProfilePhoto()
+const remove_my_profile_photo = client.remove_my_profile_photo
 ```
 
 ### Fields
@@ -1215,7 +1215,7 @@ const remove_my_profile_photo = client.RemoveMyProfilePhoto()
 Create a new entity with the given data.
 
 ```ts
-const result = await client.RemoveMyProfilePhoto().create({
+const result = await client.remove_my_profile_photo.create({
   ok: /* `$BOOLEAN` */,
 })
 ```
@@ -1251,7 +1251,7 @@ Return a copy of the entity options.
 ## RepostStoryEntity
 
 ```ts
-const repost_story = client.RepostStory()
+const repost_story = client.repost_story
 ```
 
 ### Fields
@@ -1273,7 +1273,7 @@ const repost_story = client.RepostStory()
 Create a new entity with the given data.
 
 ```ts
-const result = await client.RepostStory().create({
+const result = await client.repost_story.create({
   chat_id: /* `$STRING` */,
   ok: /* `$BOOLEAN` */,
   story_id: /* `$INTEGER` */,
@@ -1311,7 +1311,7 @@ Return a copy of the entity options.
 ## SendChatActionEntity
 
 ```ts
-const send_chat_action = client.SendChatAction()
+const send_chat_action = client.send_chat_action
 ```
 
 ### Fields
@@ -1334,7 +1334,7 @@ const send_chat_action = client.SendChatAction()
 Create a new entity with the given data.
 
 ```ts
-const result = await client.SendChatAction().create({
+const result = await client.send_chat_action.create({
   action: /* `$STRING` */,
   chat_id: /* `$STRING` */,
   ok: /* `$BOOLEAN` */,
@@ -1372,7 +1372,7 @@ Return a copy of the entity options.
 ## SendMessageDraftEntity
 
 ```ts
-const send_message_draft = client.SendMessageDraft()
+const send_message_draft = client.send_message_draft
 ```
 
 ### Fields
@@ -1395,7 +1395,7 @@ const send_message_draft = client.SendMessageDraft()
 Create a new entity with the given data.
 
 ```ts
-const result = await client.SendMessageDraft().create({
+const result = await client.send_message_draft.create({
   chat_id: /* `$STRING` */,
   ok: /* `$BOOLEAN` */,
   text: /* `$STRING` */,
@@ -1433,7 +1433,7 @@ Return a copy of the entity options.
 ## SetMyProfilePhotoEntity
 
 ```ts
-const set_my_profile_photo = client.SetMyProfilePhoto()
+const set_my_profile_photo = client.set_my_profile_photo
 ```
 
 ### Fields
@@ -1453,7 +1453,7 @@ const set_my_profile_photo = client.SetMyProfilePhoto()
 Create a new entity with the given data.
 
 ```ts
-const result = await client.SetMyProfilePhoto().create({
+const result = await client.set_my_profile_photo.create({
   ok: /* `$BOOLEAN` */,
 })
 ```
@@ -1489,7 +1489,7 @@ Return a copy of the entity options.
 ## UnpinAllForumTopicMessageEntity
 
 ```ts
-const unpin_all_forum_topic_message = client.UnpinAllForumTopicMessage()
+const unpin_all_forum_topic_message = client.unpin_all_forum_topic_message
 ```
 
 ### Fields
@@ -1511,7 +1511,7 @@ const unpin_all_forum_topic_message = client.UnpinAllForumTopicMessage()
 Create a new entity with the given data.
 
 ```ts
-const result = await client.UnpinAllForumTopicMessage().create({
+const result = await client.unpin_all_forum_topic_message.create({
   chat_id: /* `$STRING` */,
   message_thread_id: /* `$INTEGER` */,
   ok: /* `$BOOLEAN` */,
@@ -1549,7 +1549,7 @@ Return a copy of the entity options.
 ## UpdateEntity
 
 ```ts
-const update = client.Update()
+const update = client.update
 ```
 
 ### Fields
@@ -1573,7 +1573,7 @@ const update = client.Update()
 Create a new entity with the given data.
 
 ```ts
-const result = await client.Update().create({
+const result = await client.update.create({
   ok: /* `$BOOLEAN` */,
 })
 ```
@@ -1583,7 +1583,7 @@ const result = await client.Update().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Update().list()
+const results = await client.update.list()
 ```
 
 ### Common Methods

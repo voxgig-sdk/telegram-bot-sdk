@@ -55,6 +55,9 @@ class UpdateEntity
         return new UpdateEntity($this->_client, $opts);
     }
 
+    /**
+     * @param Update|array $args Update data (assoc-array) to store.
+     */
     public function data_set($args): void
     {
         if ($args) {
@@ -63,12 +66,18 @@ class UpdateEntity
         }
     }
 
+    /**
+     * @return Update|array The current Update data as an assoc-array.
+     */
     public function data_get()
     {
         ($this->_utility->feature_hook)($this->_entctx, "GetData");
         return Struct::clone($this->_data);
     }
 
+    /**
+     * @param array $args Match filter (any subset of Update fields).
+     */
     public function match_set($args): void
     {
         if ($args) {
@@ -77,6 +86,9 @@ class UpdateEntity
         }
     }
 
+    /**
+     * @return array The current match filter (any subset of Update fields).
+     */
     public function match_get()
     {
         ($this->_utility->feature_hook)($this->_entctx, "GetMatch");
@@ -86,7 +98,16 @@ class UpdateEntity
     
 
     
-    public function list($reqmatch, $ctrl = null): array
+    /**
+     * List Update items matching the given filter.
+     *
+     * @param UpdateListMatch|array|null $reqmatch Match filter (any subset
+     *   of Update fields) as an assoc-array; UpdateListMatch names the shape.
+     * @param mixed $ctrl Optional per-call control overrides.
+     * @return Update[]|array A list of Update items as assoc-arrays at
+     *   the SDK boundary; throws TelegramBotError on failure (item-5 convention).
+     */
+    public function list(?array $reqmatch = null, $ctrl = null): mixed
     {
         $utility = $this->_utility;
         $ctx = ($utility->make_context)([
@@ -109,7 +130,16 @@ class UpdateEntity
 
 
     
-    public function create($reqdata, $ctrl = null): array
+    /**
+     * Create a new Update.
+     *
+     * @param UpdateCreateData|array|null $reqdata Body data as an assoc-array;
+     *   a typed UpdateCreateData names the shape.
+     * @param mixed $ctrl Optional per-call control overrides.
+     * @return Update|array The created Update as an assoc-array at the
+     *   SDK boundary; throws TelegramBotError on failure (item-5 convention).
+     */
+    public function create(?array $reqdata = null, $ctrl = null): mixed
     {
         $utility = $this->_utility;
         $ctx = ($utility->make_context)([
@@ -135,7 +165,7 @@ class UpdateEntity
 
     
 
-    private function _run_op($ctx, callable $post_done): array
+    private function _run_op($ctx, callable $post_done): mixed
     {
         $utility = $this->_utility;
 

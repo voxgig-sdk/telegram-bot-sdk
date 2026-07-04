@@ -45,6 +45,7 @@ class ApproveSuggestedPostEntity
     end
   end
 
+  # @return [ApproveSuggestedPost, Hash] the current ApproveSuggestedPost data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class ApproveSuggestedPostEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of ApproveSuggestedPost fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -67,6 +69,11 @@ class ApproveSuggestedPostEntity
   
 
   
+  # Create a new ApproveSuggestedPost.
+  #
+  # @param reqdata [ApproveSuggestedPostCreateData, Hash, nil] body data
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [ApproveSuggestedPost, Hash] the created ApproveSuggestedPost; raises TelegramBotError on failure
   def create(reqdata, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

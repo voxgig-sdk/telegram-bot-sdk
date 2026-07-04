@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  File,
+  FileCreateData,
+} from '../TelegramBotTypes'
 
 // TODO: needs Entity superclass
-class FileEntity extends TelegramBotEntityBase {
+class FileEntity extends TelegramBotEntityBase<File> {
 
   constructor(client: TelegramBotSDK, entopts: any) {
     super(client, entopts)
@@ -34,7 +38,7 @@ class FileEntity extends TelegramBotEntityBase {
 
 
 
-  async create(this: any, reqdata?: any, ctrl?: Control) {
+  async create(this: any, reqdata?: FileCreateData, ctrl?: Control): Promise<File> {
 
     const utility = this._utility
     const {
@@ -133,7 +137,9 @@ class FileEntity extends TelegramBotEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<File> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

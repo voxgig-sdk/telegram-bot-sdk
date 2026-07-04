@@ -44,9 +44,7 @@ class TestDeleteForumTopicEntity:
         delete_forum_topic_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.delete_forum_topic"), "delete_forum_topic_ref01"))
 
-        delete_forum_topic_ref01_data_result, err = delete_forum_topic_ref01_ent.create(delete_forum_topic_ref01_data, None)
-        assert err is None
-        delete_forum_topic_ref01_data = helpers.to_map(delete_forum_topic_ref01_data_result)
+        delete_forum_topic_ref01_data = helpers.to_map(delete_forum_topic_ref01_ent.create(delete_forum_topic_ref01_data, None))
         assert delete_forum_topic_ref01_data is not None
 
 

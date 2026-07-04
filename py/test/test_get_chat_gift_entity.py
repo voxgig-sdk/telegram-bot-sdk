@@ -44,9 +44,7 @@ class TestGetChatGiftEntity:
         get_chat_gift_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.get_chat_gift"), "get_chat_gift_ref01"))
 
-        get_chat_gift_ref01_data_result, err = get_chat_gift_ref01_ent.create(get_chat_gift_ref01_data, None)
-        assert err is None
-        get_chat_gift_ref01_data = helpers.to_map(get_chat_gift_ref01_data_result)
+        get_chat_gift_ref01_data = helpers.to_map(get_chat_gift_ref01_ent.create(get_chat_gift_ref01_data, None))
         assert get_chat_gift_ref01_data is not None
 
 

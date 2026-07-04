@@ -44,9 +44,7 @@ class TestRemoveMyProfilePhotoEntity:
         remove_my_profile_photo_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.remove_my_profile_photo"), "remove_my_profile_photo_ref01"))
 
-        remove_my_profile_photo_ref01_data_result, err = remove_my_profile_photo_ref01_ent.create(remove_my_profile_photo_ref01_data, None)
-        assert err is None
-        remove_my_profile_photo_ref01_data = helpers.to_map(remove_my_profile_photo_ref01_data_result)
+        remove_my_profile_photo_ref01_data = helpers.to_map(remove_my_profile_photo_ref01_ent.create(remove_my_profile_photo_ref01_data, None))
         assert remove_my_profile_photo_ref01_data is not None
 
 

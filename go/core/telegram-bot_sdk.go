@@ -245,106 +245,169 @@ func (sdk *TelegramBotSDK) Direct(fetchargs map[string]any) (map[string]any, err
 }
 
 
+// ApproveSuggestedPost returns a ApproveSuggestedPost entity bound to this client.
+// Idiomatic usage: client.ApproveSuggestedPost(nil).List(nil, nil) or
+// client.ApproveSuggestedPost(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *TelegramBotSDK) ApproveSuggestedPost(data map[string]any) TelegramBotEntity {
 	return NewApproveSuggestedPostEntityFunc(sdk, data)
 }
 
 
+// DeclineSuggestedPost returns a DeclineSuggestedPost entity bound to this client.
+// Idiomatic usage: client.DeclineSuggestedPost(nil).List(nil, nil) or
+// client.DeclineSuggestedPost(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *TelegramBotSDK) DeclineSuggestedPost(data map[string]any) TelegramBotEntity {
 	return NewDeclineSuggestedPostEntityFunc(sdk, data)
 }
 
 
+// DeleteForumTopic returns a DeleteForumTopic entity bound to this client.
+// Idiomatic usage: client.DeleteForumTopic(nil).List(nil, nil) or
+// client.DeleteForumTopic(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *TelegramBotSDK) DeleteForumTopic(data map[string]any) TelegramBotEntity {
 	return NewDeleteForumTopicEntityFunc(sdk, data)
 }
 
 
+// EditForumTopic returns a EditForumTopic entity bound to this client.
+// Idiomatic usage: client.EditForumTopic(nil).List(nil, nil) or
+// client.EditForumTopic(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *TelegramBotSDK) EditForumTopic(data map[string]any) TelegramBotEntity {
 	return NewEditForumTopicEntityFunc(sdk, data)
 }
 
 
+// File returns a File entity bound to this client.
+// Idiomatic usage: client.File(nil).List(nil, nil) or
+// client.File(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *TelegramBotSDK) File(data map[string]any) TelegramBotEntity {
 	return NewFileEntityFunc(sdk, data)
 }
 
 
+// ForumTopic returns a ForumTopic entity bound to this client.
+// Idiomatic usage: client.ForumTopic(nil).List(nil, nil) or
+// client.ForumTopic(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *TelegramBotSDK) ForumTopic(data map[string]any) TelegramBotEntity {
 	return NewForumTopicEntityFunc(sdk, data)
 }
 
 
+// GetBusinessAccountGift returns a GetBusinessAccountGift entity bound to this client.
+// Idiomatic usage: client.GetBusinessAccountGift(nil).List(nil, nil) or
+// client.GetBusinessAccountGift(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *TelegramBotSDK) GetBusinessAccountGift(data map[string]any) TelegramBotEntity {
 	return NewGetBusinessAccountGiftEntityFunc(sdk, data)
 }
 
 
+// GetChatGift returns a GetChatGift entity bound to this client.
+// Idiomatic usage: client.GetChatGift(nil).List(nil, nil) or
+// client.GetChatGift(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *TelegramBotSDK) GetChatGift(data map[string]any) TelegramBotEntity {
 	return NewGetChatGiftEntityFunc(sdk, data)
 }
 
 
+// GetMe returns a GetMe entity bound to this client.
+// Idiomatic usage: client.GetMe(nil).List(nil, nil) or
+// client.GetMe(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *TelegramBotSDK) GetMe(data map[string]any) TelegramBotEntity {
 	return NewGetMeEntityFunc(sdk, data)
 }
 
 
+// GetUserGift returns a GetUserGift entity bound to this client.
+// Idiomatic usage: client.GetUserGift(nil).List(nil, nil) or
+// client.GetUserGift(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *TelegramBotSDK) GetUserGift(data map[string]any) TelegramBotEntity {
 	return NewGetUserGiftEntityFunc(sdk, data)
 }
 
 
+// GetUserProfileAudio returns a GetUserProfileAudio entity bound to this client.
+// Idiomatic usage: client.GetUserProfileAudio(nil).List(nil, nil) or
+// client.GetUserProfileAudio(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *TelegramBotSDK) GetUserProfileAudio(data map[string]any) TelegramBotEntity {
 	return NewGetUserProfileAudioEntityFunc(sdk, data)
 }
 
 
+// Message returns a Message entity bound to this client.
+// Idiomatic usage: client.Message(nil).List(nil, nil) or
+// client.Message(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *TelegramBotSDK) Message(data map[string]any) TelegramBotEntity {
 	return NewMessageEntityFunc(sdk, data)
 }
 
 
+// MessageId returns a MessageId entity bound to this client.
+// Idiomatic usage: client.MessageId(nil).List(nil, nil) or
+// client.MessageId(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *TelegramBotSDK) MessageId(data map[string]any) TelegramBotEntity {
 	return NewMessageIdEntityFunc(sdk, data)
 }
 
 
+// PromoteChatMember returns a PromoteChatMember entity bound to this client.
+// Idiomatic usage: client.PromoteChatMember(nil).List(nil, nil) or
+// client.PromoteChatMember(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *TelegramBotSDK) PromoteChatMember(data map[string]any) TelegramBotEntity {
 	return NewPromoteChatMemberEntityFunc(sdk, data)
 }
 
 
+// RemoveMyProfilePhoto returns a RemoveMyProfilePhoto entity bound to this client.
+// Idiomatic usage: client.RemoveMyProfilePhoto(nil).List(nil, nil) or
+// client.RemoveMyProfilePhoto(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *TelegramBotSDK) RemoveMyProfilePhoto(data map[string]any) TelegramBotEntity {
 	return NewRemoveMyProfilePhotoEntityFunc(sdk, data)
 }
 
 
+// RepostStory returns a RepostStory entity bound to this client.
+// Idiomatic usage: client.RepostStory(nil).List(nil, nil) or
+// client.RepostStory(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *TelegramBotSDK) RepostStory(data map[string]any) TelegramBotEntity {
 	return NewRepostStoryEntityFunc(sdk, data)
 }
 
 
+// SendChatAction returns a SendChatAction entity bound to this client.
+// Idiomatic usage: client.SendChatAction(nil).List(nil, nil) or
+// client.SendChatAction(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *TelegramBotSDK) SendChatAction(data map[string]any) TelegramBotEntity {
 	return NewSendChatActionEntityFunc(sdk, data)
 }
 
 
+// SendMessageDraft returns a SendMessageDraft entity bound to this client.
+// Idiomatic usage: client.SendMessageDraft(nil).List(nil, nil) or
+// client.SendMessageDraft(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *TelegramBotSDK) SendMessageDraft(data map[string]any) TelegramBotEntity {
 	return NewSendMessageDraftEntityFunc(sdk, data)
 }
 
 
+// SetMyProfilePhoto returns a SetMyProfilePhoto entity bound to this client.
+// Idiomatic usage: client.SetMyProfilePhoto(nil).List(nil, nil) or
+// client.SetMyProfilePhoto(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *TelegramBotSDK) SetMyProfilePhoto(data map[string]any) TelegramBotEntity {
 	return NewSetMyProfilePhotoEntityFunc(sdk, data)
 }
 
 
+// UnpinAllForumTopicMessage returns a UnpinAllForumTopicMessage entity bound to this client.
+// Idiomatic usage: client.UnpinAllForumTopicMessage(nil).List(nil, nil) or
+// client.UnpinAllForumTopicMessage(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *TelegramBotSDK) UnpinAllForumTopicMessage(data map[string]any) TelegramBotEntity {
 	return NewUnpinAllForumTopicMessageEntityFunc(sdk, data)
 }
 
 
+// Update returns a Update entity bound to this client.
+// Idiomatic usage: client.Update(nil).List(nil, nil) or
+// client.Update(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *TelegramBotSDK) Update(data map[string]any) TelegramBotEntity {
 	return NewUpdateEntityFunc(sdk, data)
 }

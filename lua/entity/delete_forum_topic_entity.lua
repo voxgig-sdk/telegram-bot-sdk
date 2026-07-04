@@ -83,6 +83,10 @@ end
 
 
 
+---@param reqdata DeleteForumTopicCreateData
+---@param ctrl? table
+---@return DeleteForumTopic
+---@return string? err
 function DeleteForumTopicEntity:create(reqdata, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

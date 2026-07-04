@@ -36,8 +36,7 @@ class GetUserProfileAudioEntityTest < Minitest::Test
     get_user_profile_audio_ref01_data = Helpers.to_map(Vs.getprop(
       Vs.getpath(setup[:data], "new.get_user_profile_audio"), "get_user_profile_audio_ref01"))
 
-    get_user_profile_audio_ref01_data_result, err = get_user_profile_audio_ref01_ent.create(get_user_profile_audio_ref01_data, nil)
-    assert_nil err
+    get_user_profile_audio_ref01_data_result = get_user_profile_audio_ref01_ent.create(get_user_profile_audio_ref01_data, nil)
     get_user_profile_audio_ref01_data = Helpers.to_map(get_user_profile_audio_ref01_data_result)
     assert !get_user_profile_audio_ref01_data.nil?
 

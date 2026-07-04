@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  GetUserProfileAudio,
+  GetUserProfileAudioCreateData,
+} from '../TelegramBotTypes'
 
 // TODO: needs Entity superclass
-class GetUserProfileAudioEntity extends TelegramBotEntityBase {
+class GetUserProfileAudioEntity extends TelegramBotEntityBase<GetUserProfileAudio> {
 
   constructor(client: TelegramBotSDK, entopts: any) {
     super(client, entopts)
@@ -34,7 +38,7 @@ class GetUserProfileAudioEntity extends TelegramBotEntityBase {
 
 
 
-  async create(this: any, reqdata?: any, ctrl?: Control) {
+  async create(this: any, reqdata?: GetUserProfileAudioCreateData, ctrl?: Control): Promise<GetUserProfileAudio> {
 
     const utility = this._utility
     const {
@@ -133,7 +137,9 @@ class GetUserProfileAudioEntity extends TelegramBotEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<GetUserProfileAudio> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

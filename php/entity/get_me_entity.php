@@ -55,6 +55,9 @@ class GetMeEntity
         return new GetMeEntity($this->_client, $opts);
     }
 
+    /**
+     * @param GetMe|array $args GetMe data (assoc-array) to store.
+     */
     public function data_set($args): void
     {
         if ($args) {
@@ -63,12 +66,18 @@ class GetMeEntity
         }
     }
 
+    /**
+     * @return GetMe|array The current GetMe data as an assoc-array.
+     */
     public function data_get()
     {
         ($this->_utility->feature_hook)($this->_entctx, "GetData");
         return Struct::clone($this->_data);
     }
 
+    /**
+     * @param array $args Match filter (any subset of GetMe fields).
+     */
     public function match_set($args): void
     {
         if ($args) {
@@ -77,6 +86,9 @@ class GetMeEntity
         }
     }
 
+    /**
+     * @return array The current match filter (any subset of GetMe fields).
+     */
     public function match_get()
     {
         ($this->_utility->feature_hook)($this->_entctx, "GetMatch");
@@ -84,7 +96,16 @@ class GetMeEntity
     }
 
     
-    public function load($reqmatch, $ctrl = null): array
+    /**
+     * Load a single GetMe.
+     *
+     * @param GetMeLoadMatch|array|null $reqmatch Match criteria (id/query
+     *   fields) as an assoc-array; a typed GetMeLoadMatch names the shape.
+     * @param mixed $ctrl Optional per-call control overrides.
+     * @return GetMe|array The loaded GetMe as an assoc-array at the
+     *   SDK boundary; throws TelegramBotError on failure (item-5 convention).
+     */
+    public function load(?array $reqmatch = null, $ctrl = null): mixed
     {
         $utility = $this->_utility;
         $ctx = ($utility->make_context)([
@@ -112,7 +133,16 @@ class GetMeEntity
     
 
     
-    public function create($reqdata, $ctrl = null): array
+    /**
+     * Create a new GetMe.
+     *
+     * @param GetMeCreateData|array|null $reqdata Body data as an assoc-array;
+     *   a typed GetMeCreateData names the shape.
+     * @param mixed $ctrl Optional per-call control overrides.
+     * @return GetMe|array The created GetMe as an assoc-array at the
+     *   SDK boundary; throws TelegramBotError on failure (item-5 convention).
+     */
+    public function create(?array $reqdata = null, $ctrl = null): mixed
     {
         $utility = $this->_utility;
         $ctx = ($utility->make_context)([
@@ -138,7 +168,7 @@ class GetMeEntity
 
     
 
-    private function _run_op($ctx, callable $post_done): array
+    private function _run_op($ctx, callable $post_done): mixed
     {
         $utility = $this->_utility;
 

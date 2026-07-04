@@ -83,6 +83,10 @@ end
 
 
 
+---@param reqdata DeclineSuggestedPostCreateData
+---@param ctrl? table
+---@return DeclineSuggestedPost
+---@return string? err
 function DeclineSuggestedPostEntity:create(reqdata, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

@@ -45,6 +45,7 @@ class DeclineSuggestedPostEntity
     end
   end
 
+  # @return [DeclineSuggestedPost, Hash] the current DeclineSuggestedPost data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class DeclineSuggestedPostEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of DeclineSuggestedPost fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -67,6 +69,11 @@ class DeclineSuggestedPostEntity
   
 
   
+  # Create a new DeclineSuggestedPost.
+  #
+  # @param reqdata [DeclineSuggestedPostCreateData, Hash, nil] body data
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [DeclineSuggestedPost, Hash] the created DeclineSuggestedPost; raises TelegramBotError on failure
   def create(reqdata, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

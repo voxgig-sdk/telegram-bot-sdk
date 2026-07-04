@@ -83,6 +83,10 @@ end
 
 
 
+---@param reqdata RepostStoryCreateData
+---@param ctrl? table
+---@return RepostStory
+---@return string? err
 function RepostStoryEntity:create(reqdata, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

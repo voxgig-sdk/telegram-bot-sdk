@@ -45,6 +45,7 @@ class ForumTopicEntity
     end
   end
 
+  # @return [ForumTopic, Hash] the current ForumTopic data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class ForumTopicEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of ForumTopic fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -67,6 +69,11 @@ class ForumTopicEntity
   
 
   
+  # Create a new ForumTopic.
+  #
+  # @param reqdata [ForumTopicCreateData, Hash, nil] body data
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [ForumTopic, Hash] the created ForumTopic; raises TelegramBotError on failure
   def create(reqdata, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

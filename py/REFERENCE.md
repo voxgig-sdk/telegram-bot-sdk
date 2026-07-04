@@ -134,9 +134,9 @@ Return a deep copy of the current SDK options.
 
 Return a copy of the SDK utility object.
 
-#### `direct(fetchargs=None) -> tuple`
+#### `direct(fetchargs=None) -> dict`
 
-Make a direct HTTP request to any API endpoint. Returns `(result, err)`.
+Make a direct HTTP request to any API endpoint. Returns a result `dict` with `ok`, `status`, `headers`, and `data` (or `err` on failure). This escape hatch never raises — branch on `result["ok"]`.
 
 **Parameters:**
 
@@ -149,11 +149,11 @@ Make a direct HTTP request to any API endpoint. Returns `(result, err)`.
 | `fetchargs["headers"]` | `dict` | Request headers (merged with defaults). |
 | `fetchargs["body"]` | `any` | Request body (dicts are JSON-serialized). |
 
-**Returns:** `(result_dict, err)`
+**Returns:** `result_dict`
 
-#### `prepare(fetchargs=None) -> tuple`
+#### `prepare(fetchargs=None) -> dict`
 
-Prepare a fetch definition without sending. Returns `(fetchdef, err)`.
+Prepare a fetch definition without sending. Returns the `fetchdef` and raises on error.
 
 
 ---
@@ -161,7 +161,7 @@ Prepare a fetch definition without sending. Returns `(fetchdef, err)`.
 ## ApproveSuggestedPostEntity
 
 ```python
-approve_suggested_post = client.ApproveSuggestedPost()
+approve_suggested_post = client.approve_suggested_post
 ```
 
 ### Fields
@@ -178,12 +178,12 @@ approve_suggested_post = client.ApproveSuggestedPost()
 
 ### Operations
 
-#### `create(reqdata, ctrl=None) -> tuple`
+#### `create(reqdata, ctrl=None) -> dict`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result, err = client.ApproveSuggestedPost().create({
+result = client.approve_suggested_post.create({
     "chat_id": # `$STRING`,
     "message_id": # `$INTEGER`,
     "ok": # `$BOOLEAN`,
@@ -222,7 +222,7 @@ Return the entity name.
 ## DeclineSuggestedPostEntity
 
 ```python
-decline_suggested_post = client.DeclineSuggestedPost()
+decline_suggested_post = client.decline_suggested_post
 ```
 
 ### Fields
@@ -239,12 +239,12 @@ decline_suggested_post = client.DeclineSuggestedPost()
 
 ### Operations
 
-#### `create(reqdata, ctrl=None) -> tuple`
+#### `create(reqdata, ctrl=None) -> dict`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result, err = client.DeclineSuggestedPost().create({
+result = client.decline_suggested_post.create({
     "chat_id": # `$STRING`,
     "message_id": # `$INTEGER`,
     "ok": # `$BOOLEAN`,
@@ -283,7 +283,7 @@ Return the entity name.
 ## DeleteForumTopicEntity
 
 ```python
-delete_forum_topic = client.DeleteForumTopic()
+delete_forum_topic = client.delete_forum_topic
 ```
 
 ### Fields
@@ -300,12 +300,12 @@ delete_forum_topic = client.DeleteForumTopic()
 
 ### Operations
 
-#### `create(reqdata, ctrl=None) -> tuple`
+#### `create(reqdata, ctrl=None) -> dict`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result, err = client.DeleteForumTopic().create({
+result = client.delete_forum_topic.create({
     "chat_id": # `$STRING`,
     "message_thread_id": # `$INTEGER`,
     "ok": # `$BOOLEAN`,
@@ -344,7 +344,7 @@ Return the entity name.
 ## EditForumTopicEntity
 
 ```python
-edit_forum_topic = client.EditForumTopic()
+edit_forum_topic = client.edit_forum_topic
 ```
 
 ### Fields
@@ -363,12 +363,12 @@ edit_forum_topic = client.EditForumTopic()
 
 ### Operations
 
-#### `create(reqdata, ctrl=None) -> tuple`
+#### `create(reqdata, ctrl=None) -> dict`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result, err = client.EditForumTopic().create({
+result = client.edit_forum_topic.create({
     "chat_id": # `$STRING`,
     "message_thread_id": # `$INTEGER`,
     "ok": # `$BOOLEAN`,
@@ -407,7 +407,7 @@ Return the entity name.
 ## FileEntity
 
 ```python
-file = client.File()
+file = client.file
 ```
 
 ### Fields
@@ -418,12 +418,12 @@ file = client.File()
 
 ### Operations
 
-#### `create(reqdata, ctrl=None) -> tuple`
+#### `create(reqdata, ctrl=None) -> dict`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result, err = client.File().create({
+result = client.file.create({
     "file_id": # `$STRING`,
 })
 ```
@@ -460,7 +460,7 @@ Return the entity name.
 ## ForumTopicEntity
 
 ```python
-forum_topic = client.ForumTopic()
+forum_topic = client.forum_topic
 ```
 
 ### Fields
@@ -474,12 +474,12 @@ forum_topic = client.ForumTopic()
 
 ### Operations
 
-#### `create(reqdata, ctrl=None) -> tuple`
+#### `create(reqdata, ctrl=None) -> dict`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result, err = client.ForumTopic().create({
+result = client.forum_topic.create({
     "chat_id": # `$STRING`,
     "name": # `$STRING`,
 })
@@ -517,7 +517,7 @@ Return the entity name.
 ## GetBusinessAccountGiftEntity
 
 ```python
-get_business_account_gift = client.GetBusinessAccountGift()
+get_business_account_gift = client.get_business_account_gift
 ```
 
 ### Fields
@@ -535,12 +535,12 @@ get_business_account_gift = client.GetBusinessAccountGift()
 
 ### Operations
 
-#### `create(reqdata, ctrl=None) -> tuple`
+#### `create(reqdata, ctrl=None) -> dict`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result, err = client.GetBusinessAccountGift().create({
+result = client.get_business_account_gift.create({
     "ok": # `$BOOLEAN`,
 })
 ```
@@ -577,7 +577,7 @@ Return the entity name.
 ## GetChatGiftEntity
 
 ```python
-get_chat_gift = client.GetChatGift()
+get_chat_gift = client.get_chat_gift
 ```
 
 ### Fields
@@ -593,12 +593,12 @@ get_chat_gift = client.GetChatGift()
 
 ### Operations
 
-#### `create(reqdata, ctrl=None) -> tuple`
+#### `create(reqdata, ctrl=None) -> dict`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result, err = client.GetChatGift().create({
+result = client.get_chat_gift.create({
     "chat_id": # `$STRING`,
     "ok": # `$BOOLEAN`,
 })
@@ -636,7 +636,7 @@ Return the entity name.
 ## GetMeEntity
 
 ```python
-get_me = client.GetMe()
+get_me = client.get_me
 ```
 
 ### Fields
@@ -651,22 +651,22 @@ get_me = client.GetMe()
 
 ### Operations
 
-#### `create(reqdata, ctrl=None) -> tuple`
+#### `create(reqdata, ctrl=None) -> dict`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result, err = client.GetMe().create({
+result = client.get_me.create({
     "ok": # `$BOOLEAN`,
 })
 ```
 
-#### `load(reqmatch, ctrl=None) -> tuple`
+#### `load(reqmatch, ctrl=None) -> dict`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result, err = client.GetMe().load({"id": "get_me_id"})
+result = client.get_me.load({"id": "get_me_id"})
 ```
 
 ### Common Methods
@@ -701,7 +701,7 @@ Return the entity name.
 ## GetUserGiftEntity
 
 ```python
-get_user_gift = client.GetUserGift()
+get_user_gift = client.get_user_gift
 ```
 
 ### Fields
@@ -717,12 +717,12 @@ get_user_gift = client.GetUserGift()
 
 ### Operations
 
-#### `create(reqdata, ctrl=None) -> tuple`
+#### `create(reqdata, ctrl=None) -> dict`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result, err = client.GetUserGift().create({
+result = client.get_user_gift.create({
     "ok": # `$BOOLEAN`,
     "user_id": # `$INTEGER`,
 })
@@ -760,7 +760,7 @@ Return the entity name.
 ## GetUserProfileAudioEntity
 
 ```python
-get_user_profile_audio = client.GetUserProfileAudio()
+get_user_profile_audio = client.get_user_profile_audio
 ```
 
 ### Fields
@@ -776,12 +776,12 @@ get_user_profile_audio = client.GetUserProfileAudio()
 
 ### Operations
 
-#### `create(reqdata, ctrl=None) -> tuple`
+#### `create(reqdata, ctrl=None) -> dict`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result, err = client.GetUserProfileAudio().create({
+result = client.get_user_profile_audio.create({
     "ok": # `$BOOLEAN`,
     "user_id": # `$INTEGER`,
 })
@@ -819,7 +819,7 @@ Return the entity name.
 ## MessageEntity
 
 ```python
-message = client.Message()
+message = client.message
 ```
 
 ### Fields
@@ -845,12 +845,12 @@ message = client.Message()
 
 ### Operations
 
-#### `create(reqdata, ctrl=None) -> tuple`
+#### `create(reqdata, ctrl=None) -> dict`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result, err = client.Message().create({
+result = client.message.create({
     "chat_id": # `$STRING`,
     "from_chat_id": # `$STRING`,
     "latitude": # `$NUMBER`,
@@ -894,7 +894,7 @@ Return the entity name.
 ## MessageIdEntity
 
 ```python
-message_id = client.MessageId()
+message_id = client.message_id
 ```
 
 ### Fields
@@ -910,12 +910,12 @@ message_id = client.MessageId()
 
 ### Operations
 
-#### `create(reqdata, ctrl=None) -> tuple`
+#### `create(reqdata, ctrl=None) -> dict`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result, err = client.MessageId().create({
+result = client.message_id.create({
     "chat_id": # `$STRING`,
     "from_chat_id": # `$STRING`,
     "message_id": # `$INTEGER`,
@@ -954,7 +954,7 @@ Return the entity name.
 ## PromoteChatMemberEntity
 
 ```python
-promote_chat_member = client.PromoteChatMember()
+promote_chat_member = client.promote_chat_member
 ```
 
 ### Fields
@@ -976,12 +976,12 @@ promote_chat_member = client.PromoteChatMember()
 
 ### Operations
 
-#### `create(reqdata, ctrl=None) -> tuple`
+#### `create(reqdata, ctrl=None) -> dict`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result, err = client.PromoteChatMember().create({
+result = client.promote_chat_member.create({
     "chat_id": # `$STRING`,
     "ok": # `$BOOLEAN`,
     "user_id": # `$INTEGER`,
@@ -1020,7 +1020,7 @@ Return the entity name.
 ## RemoveMyProfilePhotoEntity
 
 ```python
-remove_my_profile_photo = client.RemoveMyProfilePhoto()
+remove_my_profile_photo = client.remove_my_profile_photo
 ```
 
 ### Fields
@@ -1035,12 +1035,12 @@ remove_my_profile_photo = client.RemoveMyProfilePhoto()
 
 ### Operations
 
-#### `create(reqdata, ctrl=None) -> tuple`
+#### `create(reqdata, ctrl=None) -> dict`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result, err = client.RemoveMyProfilePhoto().create({
+result = client.remove_my_profile_photo.create({
     "ok": # `$BOOLEAN`,
 })
 ```
@@ -1077,7 +1077,7 @@ Return the entity name.
 ## RepostStoryEntity
 
 ```python
-repost_story = client.RepostStory()
+repost_story = client.repost_story
 ```
 
 ### Fields
@@ -1094,12 +1094,12 @@ repost_story = client.RepostStory()
 
 ### Operations
 
-#### `create(reqdata, ctrl=None) -> tuple`
+#### `create(reqdata, ctrl=None) -> dict`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result, err = client.RepostStory().create({
+result = client.repost_story.create({
     "chat_id": # `$STRING`,
     "ok": # `$BOOLEAN`,
     "story_id": # `$INTEGER`,
@@ -1138,7 +1138,7 @@ Return the entity name.
 ## SendChatActionEntity
 
 ```python
-send_chat_action = client.SendChatAction()
+send_chat_action = client.send_chat_action
 ```
 
 ### Fields
@@ -1156,12 +1156,12 @@ send_chat_action = client.SendChatAction()
 
 ### Operations
 
-#### `create(reqdata, ctrl=None) -> tuple`
+#### `create(reqdata, ctrl=None) -> dict`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result, err = client.SendChatAction().create({
+result = client.send_chat_action.create({
     "action": # `$STRING`,
     "chat_id": # `$STRING`,
     "ok": # `$BOOLEAN`,
@@ -1200,7 +1200,7 @@ Return the entity name.
 ## SendMessageDraftEntity
 
 ```python
-send_message_draft = client.SendMessageDraft()
+send_message_draft = client.send_message_draft
 ```
 
 ### Fields
@@ -1218,12 +1218,12 @@ send_message_draft = client.SendMessageDraft()
 
 ### Operations
 
-#### `create(reqdata, ctrl=None) -> tuple`
+#### `create(reqdata, ctrl=None) -> dict`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result, err = client.SendMessageDraft().create({
+result = client.send_message_draft.create({
     "chat_id": # `$STRING`,
     "ok": # `$BOOLEAN`,
     "text": # `$STRING`,
@@ -1262,7 +1262,7 @@ Return the entity name.
 ## SetMyProfilePhotoEntity
 
 ```python
-set_my_profile_photo = client.SetMyProfilePhoto()
+set_my_profile_photo = client.set_my_profile_photo
 ```
 
 ### Fields
@@ -1277,12 +1277,12 @@ set_my_profile_photo = client.SetMyProfilePhoto()
 
 ### Operations
 
-#### `create(reqdata, ctrl=None) -> tuple`
+#### `create(reqdata, ctrl=None) -> dict`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result, err = client.SetMyProfilePhoto().create({
+result = client.set_my_profile_photo.create({
     "ok": # `$BOOLEAN`,
 })
 ```
@@ -1319,7 +1319,7 @@ Return the entity name.
 ## UnpinAllForumTopicMessageEntity
 
 ```python
-unpin_all_forum_topic_message = client.UnpinAllForumTopicMessage()
+unpin_all_forum_topic_message = client.unpin_all_forum_topic_message
 ```
 
 ### Fields
@@ -1336,12 +1336,12 @@ unpin_all_forum_topic_message = client.UnpinAllForumTopicMessage()
 
 ### Operations
 
-#### `create(reqdata, ctrl=None) -> tuple`
+#### `create(reqdata, ctrl=None) -> dict`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result, err = client.UnpinAllForumTopicMessage().create({
+result = client.unpin_all_forum_topic_message.create({
     "chat_id": # `$STRING`,
     "message_thread_id": # `$INTEGER`,
     "ok": # `$BOOLEAN`,
@@ -1380,7 +1380,7 @@ Return the entity name.
 ## UpdateEntity
 
 ```python
-update = client.Update()
+update = client.update
 ```
 
 ### Fields
@@ -1399,22 +1399,22 @@ update = client.Update()
 
 ### Operations
 
-#### `create(reqdata, ctrl=None) -> tuple`
+#### `create(reqdata, ctrl=None) -> dict`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result, err = client.Update().create({
+result = client.update.create({
     "ok": # `$BOOLEAN`,
 })
 ```
 
-#### `list(reqmatch, ctrl=None) -> tuple`
+#### `list(reqmatch, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns an array.
+List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results, err = client.Update().list({})
+results = client.update.list({})
 ```
 
 ### Common Methods

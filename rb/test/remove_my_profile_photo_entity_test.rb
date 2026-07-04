@@ -36,8 +36,7 @@ class RemoveMyProfilePhotoEntityTest < Minitest::Test
     remove_my_profile_photo_ref01_data = Helpers.to_map(Vs.getprop(
       Vs.getpath(setup[:data], "new.remove_my_profile_photo"), "remove_my_profile_photo_ref01"))
 
-    remove_my_profile_photo_ref01_data_result, err = remove_my_profile_photo_ref01_ent.create(remove_my_profile_photo_ref01_data, nil)
-    assert_nil err
+    remove_my_profile_photo_ref01_data_result = remove_my_profile_photo_ref01_ent.create(remove_my_profile_photo_ref01_data, nil)
     remove_my_profile_photo_ref01_data = Helpers.to_map(remove_my_profile_photo_ref01_data_result)
     assert !remove_my_profile_photo_ref01_data.nil?
 

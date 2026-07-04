@@ -164,7 +164,7 @@ same parameters as `direct()`.
 ## ApproveSuggestedPostEntity
 
 ```lua
-local approve_suggested_post = client:ApproveSuggestedPost(nil)
+local approve_suggested_post = client:approve_suggested_post(nil)
 ```
 
 ### Fields
@@ -186,7 +186,7 @@ local approve_suggested_post = client:ApproveSuggestedPost(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:ApproveSuggestedPost():create({
+local result, err = client:approve_suggested_post():create({
   chat_id = --[[ `$STRING` ]],
   message_id = --[[ `$INTEGER` ]],
   ok = --[[ `$BOOLEAN` ]],
@@ -226,7 +226,7 @@ Return the entity name.
 ## DeclineSuggestedPostEntity
 
 ```lua
-local decline_suggested_post = client:DeclineSuggestedPost(nil)
+local decline_suggested_post = client:decline_suggested_post(nil)
 ```
 
 ### Fields
@@ -248,7 +248,7 @@ local decline_suggested_post = client:DeclineSuggestedPost(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:DeclineSuggestedPost():create({
+local result, err = client:decline_suggested_post():create({
   chat_id = --[[ `$STRING` ]],
   message_id = --[[ `$INTEGER` ]],
   ok = --[[ `$BOOLEAN` ]],
@@ -288,7 +288,7 @@ Return the entity name.
 ## DeleteForumTopicEntity
 
 ```lua
-local delete_forum_topic = client:DeleteForumTopic(nil)
+local delete_forum_topic = client:delete_forum_topic(nil)
 ```
 
 ### Fields
@@ -310,7 +310,7 @@ local delete_forum_topic = client:DeleteForumTopic(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:DeleteForumTopic():create({
+local result, err = client:delete_forum_topic():create({
   chat_id = --[[ `$STRING` ]],
   message_thread_id = --[[ `$INTEGER` ]],
   ok = --[[ `$BOOLEAN` ]],
@@ -350,7 +350,7 @@ Return the entity name.
 ## EditForumTopicEntity
 
 ```lua
-local edit_forum_topic = client:EditForumTopic(nil)
+local edit_forum_topic = client:edit_forum_topic(nil)
 ```
 
 ### Fields
@@ -374,7 +374,7 @@ local edit_forum_topic = client:EditForumTopic(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:EditForumTopic():create({
+local result, err = client:edit_forum_topic():create({
   chat_id = --[[ `$STRING` ]],
   message_thread_id = --[[ `$INTEGER` ]],
   ok = --[[ `$BOOLEAN` ]],
@@ -414,7 +414,7 @@ Return the entity name.
 ## FileEntity
 
 ```lua
-local file = client:File(nil)
+local file = client:file(nil)
 ```
 
 ### Fields
@@ -430,7 +430,7 @@ local file = client:File(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:File():create({
+local result, err = client:file():create({
   file_id = --[[ `$STRING` ]],
 })
 ```
@@ -468,7 +468,7 @@ Return the entity name.
 ## ForumTopicEntity
 
 ```lua
-local forum_topic = client:ForumTopic(nil)
+local forum_topic = client:forum_topic(nil)
 ```
 
 ### Fields
@@ -487,7 +487,7 @@ local forum_topic = client:ForumTopic(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:ForumTopic():create({
+local result, err = client:forum_topic():create({
   chat_id = --[[ `$STRING` ]],
   name = --[[ `$STRING` ]],
 })
@@ -526,7 +526,7 @@ Return the entity name.
 ## GetBusinessAccountGiftEntity
 
 ```lua
-local get_business_account_gift = client:GetBusinessAccountGift(nil)
+local get_business_account_gift = client:get_business_account_gift(nil)
 ```
 
 ### Fields
@@ -549,7 +549,7 @@ local get_business_account_gift = client:GetBusinessAccountGift(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:GetBusinessAccountGift():create({
+local result, err = client:get_business_account_gift():create({
   ok = --[[ `$BOOLEAN` ]],
 })
 ```
@@ -587,7 +587,7 @@ Return the entity name.
 ## GetChatGiftEntity
 
 ```lua
-local get_chat_gift = client:GetChatGift(nil)
+local get_chat_gift = client:get_chat_gift(nil)
 ```
 
 ### Fields
@@ -608,7 +608,7 @@ local get_chat_gift = client:GetChatGift(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:GetChatGift():create({
+local result, err = client:get_chat_gift():create({
   chat_id = --[[ `$STRING` ]],
   ok = --[[ `$BOOLEAN` ]],
 })
@@ -647,7 +647,7 @@ Return the entity name.
 ## GetMeEntity
 
 ```lua
-local get_me = client:GetMe(nil)
+local get_me = client:get_me(nil)
 ```
 
 ### Fields
@@ -667,7 +667,7 @@ local get_me = client:GetMe(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:GetMe():create({
+local result, err = client:get_me():create({
   ok = --[[ `$BOOLEAN` ]],
 })
 ```
@@ -677,7 +677,7 @@ local result, err = client:GetMe():create({
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:GetMe():load({ id = "get_me_id" })
+local result, err = client:get_me():load({ id = "get_me_id" })
 ```
 
 ### Common Methods
@@ -713,7 +713,7 @@ Return the entity name.
 ## GetUserGiftEntity
 
 ```lua
-local get_user_gift = client:GetUserGift(nil)
+local get_user_gift = client:get_user_gift(nil)
 ```
 
 ### Fields
@@ -734,7 +734,7 @@ local get_user_gift = client:GetUserGift(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:GetUserGift():create({
+local result, err = client:get_user_gift():create({
   ok = --[[ `$BOOLEAN` ]],
   user_id = --[[ `$INTEGER` ]],
 })
@@ -773,7 +773,7 @@ Return the entity name.
 ## GetUserProfileAudioEntity
 
 ```lua
-local get_user_profile_audio = client:GetUserProfileAudio(nil)
+local get_user_profile_audio = client:get_user_profile_audio(nil)
 ```
 
 ### Fields
@@ -794,7 +794,7 @@ local get_user_profile_audio = client:GetUserProfileAudio(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:GetUserProfileAudio():create({
+local result, err = client:get_user_profile_audio():create({
   ok = --[[ `$BOOLEAN` ]],
   user_id = --[[ `$INTEGER` ]],
 })
@@ -833,7 +833,7 @@ Return the entity name.
 ## MessageEntity
 
 ```lua
-local message = client:Message(nil)
+local message = client:message(nil)
 ```
 
 ### Fields
@@ -864,7 +864,7 @@ local message = client:Message(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:Message():create({
+local result, err = client:message():create({
   chat_id = --[[ `$STRING` ]],
   from_chat_id = --[[ `$STRING` ]],
   latitude = --[[ `$NUMBER` ]],
@@ -909,7 +909,7 @@ Return the entity name.
 ## MessageIdEntity
 
 ```lua
-local message_id = client:MessageId(nil)
+local message_id = client:message_id(nil)
 ```
 
 ### Fields
@@ -930,7 +930,7 @@ local message_id = client:MessageId(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:MessageId():create({
+local result, err = client:message_id():create({
   chat_id = --[[ `$STRING` ]],
   from_chat_id = --[[ `$STRING` ]],
   message_id = --[[ `$INTEGER` ]],
@@ -970,7 +970,7 @@ Return the entity name.
 ## PromoteChatMemberEntity
 
 ```lua
-local promote_chat_member = client:PromoteChatMember(nil)
+local promote_chat_member = client:promote_chat_member(nil)
 ```
 
 ### Fields
@@ -997,7 +997,7 @@ local promote_chat_member = client:PromoteChatMember(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:PromoteChatMember():create({
+local result, err = client:promote_chat_member():create({
   chat_id = --[[ `$STRING` ]],
   ok = --[[ `$BOOLEAN` ]],
   user_id = --[[ `$INTEGER` ]],
@@ -1037,7 +1037,7 @@ Return the entity name.
 ## RemoveMyProfilePhotoEntity
 
 ```lua
-local remove_my_profile_photo = client:RemoveMyProfilePhoto(nil)
+local remove_my_profile_photo = client:remove_my_profile_photo(nil)
 ```
 
 ### Fields
@@ -1057,7 +1057,7 @@ local remove_my_profile_photo = client:RemoveMyProfilePhoto(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:RemoveMyProfilePhoto():create({
+local result, err = client:remove_my_profile_photo():create({
   ok = --[[ `$BOOLEAN` ]],
 })
 ```
@@ -1095,7 +1095,7 @@ Return the entity name.
 ## RepostStoryEntity
 
 ```lua
-local repost_story = client:RepostStory(nil)
+local repost_story = client:repost_story(nil)
 ```
 
 ### Fields
@@ -1117,7 +1117,7 @@ local repost_story = client:RepostStory(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:RepostStory():create({
+local result, err = client:repost_story():create({
   chat_id = --[[ `$STRING` ]],
   ok = --[[ `$BOOLEAN` ]],
   story_id = --[[ `$INTEGER` ]],
@@ -1157,7 +1157,7 @@ Return the entity name.
 ## SendChatActionEntity
 
 ```lua
-local send_chat_action = client:SendChatAction(nil)
+local send_chat_action = client:send_chat_action(nil)
 ```
 
 ### Fields
@@ -1180,7 +1180,7 @@ local send_chat_action = client:SendChatAction(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:SendChatAction():create({
+local result, err = client:send_chat_action():create({
   action = --[[ `$STRING` ]],
   chat_id = --[[ `$STRING` ]],
   ok = --[[ `$BOOLEAN` ]],
@@ -1220,7 +1220,7 @@ Return the entity name.
 ## SendMessageDraftEntity
 
 ```lua
-local send_message_draft = client:SendMessageDraft(nil)
+local send_message_draft = client:send_message_draft(nil)
 ```
 
 ### Fields
@@ -1243,7 +1243,7 @@ local send_message_draft = client:SendMessageDraft(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:SendMessageDraft():create({
+local result, err = client:send_message_draft():create({
   chat_id = --[[ `$STRING` ]],
   ok = --[[ `$BOOLEAN` ]],
   text = --[[ `$STRING` ]],
@@ -1283,7 +1283,7 @@ Return the entity name.
 ## SetMyProfilePhotoEntity
 
 ```lua
-local set_my_profile_photo = client:SetMyProfilePhoto(nil)
+local set_my_profile_photo = client:set_my_profile_photo(nil)
 ```
 
 ### Fields
@@ -1303,7 +1303,7 @@ local set_my_profile_photo = client:SetMyProfilePhoto(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:SetMyProfilePhoto():create({
+local result, err = client:set_my_profile_photo():create({
   ok = --[[ `$BOOLEAN` ]],
 })
 ```
@@ -1341,7 +1341,7 @@ Return the entity name.
 ## UnpinAllForumTopicMessageEntity
 
 ```lua
-local unpin_all_forum_topic_message = client:UnpinAllForumTopicMessage(nil)
+local unpin_all_forum_topic_message = client:unpin_all_forum_topic_message(nil)
 ```
 
 ### Fields
@@ -1363,7 +1363,7 @@ local unpin_all_forum_topic_message = client:UnpinAllForumTopicMessage(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:UnpinAllForumTopicMessage():create({
+local result, err = client:unpin_all_forum_topic_message():create({
   chat_id = --[[ `$STRING` ]],
   message_thread_id = --[[ `$INTEGER` ]],
   ok = --[[ `$BOOLEAN` ]],
@@ -1403,7 +1403,7 @@ Return the entity name.
 ## UpdateEntity
 
 ```lua
-local update = client:Update(nil)
+local update = client:update(nil)
 ```
 
 ### Fields
@@ -1427,7 +1427,7 @@ local update = client:Update(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:Update():create({
+local result, err = client:update():create({
   ok = --[[ `$BOOLEAN` ]],
 })
 ```
@@ -1437,7 +1437,7 @@ local result, err = client:Update():create({
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Update():list()
+local results, err = client:update():list()
 ```
 
 ### Common Methods

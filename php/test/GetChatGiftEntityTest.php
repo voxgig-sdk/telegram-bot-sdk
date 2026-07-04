@@ -43,8 +43,7 @@ class GetChatGiftEntityTest extends TestCase
         $get_chat_gift_ref01_data = Helpers::to_map(Vs::getprop(
             Vs::getpath($setup["data"], "new.get_chat_gift"), "get_chat_gift_ref01"));
 
-        [$get_chat_gift_ref01_data_result, $err] = $get_chat_gift_ref01_ent->create($get_chat_gift_ref01_data, null);
-        $this->assertNull($err);
+        $get_chat_gift_ref01_data_result = $get_chat_gift_ref01_ent->create($get_chat_gift_ref01_data, null);
         $get_chat_gift_ref01_data = Helpers::to_map($get_chat_gift_ref01_data_result);
         $this->assertNotNull($get_chat_gift_ref01_data);
 

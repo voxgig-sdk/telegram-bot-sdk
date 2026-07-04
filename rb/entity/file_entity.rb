@@ -45,6 +45,7 @@ class FileEntity
     end
   end
 
+  # @return [File, Hash] the current File data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class FileEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of File fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -67,6 +69,11 @@ class FileEntity
   
 
   
+  # Create a new File.
+  #
+  # @param reqdata [FileCreateData, Hash, nil] body data
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [File, Hash] the created File; raises TelegramBotError on failure
   def create(reqdata, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

@@ -36,8 +36,7 @@ class ApproveSuggestedPostEntityTest < Minitest::Test
     approve_suggested_post_ref01_data = Helpers.to_map(Vs.getprop(
       Vs.getpath(setup[:data], "new.approve_suggested_post"), "approve_suggested_post_ref01"))
 
-    approve_suggested_post_ref01_data_result, err = approve_suggested_post_ref01_ent.create(approve_suggested_post_ref01_data, nil)
-    assert_nil err
+    approve_suggested_post_ref01_data_result = approve_suggested_post_ref01_ent.create(approve_suggested_post_ref01_data, nil)
     approve_suggested_post_ref01_data = Helpers.to_map(approve_suggested_post_ref01_data_result)
     assert !approve_suggested_post_ref01_data.nil?
 

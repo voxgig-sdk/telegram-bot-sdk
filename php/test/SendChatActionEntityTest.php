@@ -43,8 +43,7 @@ class SendChatActionEntityTest extends TestCase
         $send_chat_action_ref01_data = Helpers::to_map(Vs::getprop(
             Vs::getpath($setup["data"], "new.send_chat_action"), "send_chat_action_ref01"));
 
-        [$send_chat_action_ref01_data_result, $err] = $send_chat_action_ref01_ent->create($send_chat_action_ref01_data, null);
-        $this->assertNull($err);
+        $send_chat_action_ref01_data_result = $send_chat_action_ref01_ent->create($send_chat_action_ref01_data, null);
         $send_chat_action_ref01_data = Helpers::to_map($send_chat_action_ref01_data_result);
         $this->assertNotNull($send_chat_action_ref01_data);
 

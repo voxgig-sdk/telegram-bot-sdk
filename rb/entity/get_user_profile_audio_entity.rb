@@ -45,6 +45,7 @@ class GetUserProfileAudioEntity
     end
   end
 
+  # @return [GetUserProfileAudio, Hash] the current GetUserProfileAudio data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class GetUserProfileAudioEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of GetUserProfileAudio fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -67,6 +69,11 @@ class GetUserProfileAudioEntity
   
 
   
+  # Create a new GetUserProfileAudio.
+  #
+  # @param reqdata [GetUserProfileAudioCreateData, Hash, nil] body data
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [GetUserProfileAudio, Hash] the created GetUserProfileAudio; raises TelegramBotError on failure
   def create(reqdata, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

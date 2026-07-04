@@ -83,6 +83,10 @@ end
 
 
 
+---@param reqdata UnpinAllForumTopicMessageCreateData
+---@param ctrl? table
+---@return UnpinAllForumTopicMessage
+---@return string? err
 function UnpinAllForumTopicMessageEntity:create(reqdata, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

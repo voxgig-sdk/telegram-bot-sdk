@@ -83,6 +83,10 @@ end
 
 
 
+---@param reqdata SendMessageDraftCreateData
+---@param ctrl? table
+---@return SendMessageDraft
+---@return string? err
 function SendMessageDraftEntity:create(reqdata, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

@@ -83,6 +83,10 @@ end
 
 
 
+---@param reqdata ForumTopicCreateData
+---@param ctrl? table
+---@return ForumTopic
+---@return string? err
 function ForumTopicEntity:create(reqdata, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

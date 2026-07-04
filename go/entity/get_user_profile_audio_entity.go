@@ -85,6 +85,27 @@ func (e *GetUserProfileAudioEntity) Match(args ...any) any {
 	return out
 }
 
+// DataTyped is the statically-typed accessor for this entity's data. With no
+// argument it returns the current data as an GetUserProfileAudio; with an argument it
+// sets the data and returns the stored value. It delegates to the untyped Data
+// (identical runtime) and converts at the typed boundary.
+func (e *GetUserProfileAudioEntity) DataTyped(data ...GetUserProfileAudio) GetUserProfileAudio {
+	if len(data) > 0 {
+		return typedFrom[GetUserProfileAudio](e.Data(asMap(data[0])))
+	}
+	return typedFrom[GetUserProfileAudio](e.Data())
+}
+
+// MatchTyped mirrors DataTyped for the entity's match filter. The match is a
+// partial of the entity, so it round-trips through GetUserProfileAudio (all fields
+// optional at the wire level).
+func (e *GetUserProfileAudioEntity) MatchTyped(match ...GetUserProfileAudio) GetUserProfileAudio {
+	if len(match) > 0 {
+		return typedFrom[GetUserProfileAudio](e.Match(asMap(match[0])))
+	}
+	return typedFrom[GetUserProfileAudio](e.Match())
+}
+
 func (e *GetUserProfileAudioEntity) Load(_ map[string]any, _ map[string]any) (any, error) {
 	return core.UnsupportedOp("load", e.name)
 }
@@ -116,6 +137,17 @@ func (e *GetUserProfileAudioEntity) Create(reqdata map[string]any, ctrl map[stri
 			}
 		}
 	})
+}
+
+// CreateTyped is the statically-typed variant of Create: it takes an
+// GetUserProfileAudioCreateData and returns an GetUserProfileAudio. It delegates to the untyped
+// Create (identical runtime) and converts at the typed boundary.
+func (e *GetUserProfileAudioEntity) CreateTyped(reqdata GetUserProfileAudioCreateData, ctrl map[string]any) (GetUserProfileAudio, error) {
+	res, err := e.Create(asMap(reqdata), ctrl)
+	if err != nil {
+		return GetUserProfileAudio{}, err
+	}
+	return typedFrom[GetUserProfileAudio](res), nil
 }
 
 

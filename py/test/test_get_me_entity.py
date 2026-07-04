@@ -44,15 +44,12 @@ class TestGetMeEntity:
         get_me_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.get_me"), "get_me_ref01"))
 
-        get_me_ref01_data_result, err = get_me_ref01_ent.create(get_me_ref01_data, None)
-        assert err is None
-        get_me_ref01_data = helpers.to_map(get_me_ref01_data_result)
+        get_me_ref01_data = helpers.to_map(get_me_ref01_ent.create(get_me_ref01_data, None))
         assert get_me_ref01_data is not None
 
         # LOAD
         get_me_ref01_match_dt0 = {}
-        get_me_ref01_data_dt0_loaded, err = get_me_ref01_ent.load(get_me_ref01_match_dt0, None)
-        assert err is None
+        get_me_ref01_data_dt0_loaded = get_me_ref01_ent.load(get_me_ref01_match_dt0, None)
         assert get_me_ref01_data_dt0_loaded is not None
 
 

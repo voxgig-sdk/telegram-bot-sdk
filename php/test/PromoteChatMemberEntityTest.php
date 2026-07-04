@@ -43,8 +43,7 @@ class PromoteChatMemberEntityTest extends TestCase
         $promote_chat_member_ref01_data = Helpers::to_map(Vs::getprop(
             Vs::getpath($setup["data"], "new.promote_chat_member"), "promote_chat_member_ref01"));
 
-        [$promote_chat_member_ref01_data_result, $err] = $promote_chat_member_ref01_ent->create($promote_chat_member_ref01_data, null);
-        $this->assertNull($err);
+        $promote_chat_member_ref01_data_result = $promote_chat_member_ref01_ent->create($promote_chat_member_ref01_data, null);
         $promote_chat_member_ref01_data = Helpers::to_map($promote_chat_member_ref01_data_result);
         $this->assertNotNull($promote_chat_member_ref01_data);
 

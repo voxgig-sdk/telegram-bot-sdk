@@ -36,8 +36,7 @@ class FileEntityTest < Minitest::Test
     file_ref01_data = Helpers.to_map(Vs.getprop(
       Vs.getpath(setup[:data], "new.file"), "file_ref01"))
 
-    file_ref01_data_result, err = file_ref01_ent.create(file_ref01_data, nil)
-    assert_nil err
+    file_ref01_data_result = file_ref01_ent.create(file_ref01_data, nil)
     file_ref01_data = Helpers.to_map(file_ref01_data_result)
     assert !file_ref01_data.nil?
 

@@ -83,6 +83,10 @@ end
 
 
 
+---@param reqdata SetMyProfilePhotoCreateData
+---@param ctrl? table
+---@return SetMyProfilePhoto
+---@return string? err
 function SetMyProfilePhotoEntity:create(reqdata, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

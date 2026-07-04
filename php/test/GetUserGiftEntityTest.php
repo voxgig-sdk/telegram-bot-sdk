@@ -43,8 +43,7 @@ class GetUserGiftEntityTest extends TestCase
         $get_user_gift_ref01_data = Helpers::to_map(Vs::getprop(
             Vs::getpath($setup["data"], "new.get_user_gift"), "get_user_gift_ref01"));
 
-        [$get_user_gift_ref01_data_result, $err] = $get_user_gift_ref01_ent->create($get_user_gift_ref01_data, null);
-        $this->assertNull($err);
+        $get_user_gift_ref01_data_result = $get_user_gift_ref01_ent->create($get_user_gift_ref01_data, null);
         $get_user_gift_ref01_data = Helpers::to_map($get_user_gift_ref01_data_result);
         $this->assertNotNull($get_user_gift_ref01_data);
 

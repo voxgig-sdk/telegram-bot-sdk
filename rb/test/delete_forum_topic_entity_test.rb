@@ -36,8 +36,7 @@ class DeleteForumTopicEntityTest < Minitest::Test
     delete_forum_topic_ref01_data = Helpers.to_map(Vs.getprop(
       Vs.getpath(setup[:data], "new.delete_forum_topic"), "delete_forum_topic_ref01"))
 
-    delete_forum_topic_ref01_data_result, err = delete_forum_topic_ref01_ent.create(delete_forum_topic_ref01_data, nil)
-    assert_nil err
+    delete_forum_topic_ref01_data_result = delete_forum_topic_ref01_ent.create(delete_forum_topic_ref01_data, nil)
     delete_forum_topic_ref01_data = Helpers.to_map(delete_forum_topic_ref01_data_result)
     assert !delete_forum_topic_ref01_data.nil?
 

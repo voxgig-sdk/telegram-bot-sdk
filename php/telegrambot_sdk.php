@@ -103,7 +103,7 @@ class TelegramBotSDK
         return $this->_rootctx;
     }
 
-    public function prepare(array $fetchargs = []): array
+    public function prepare(array $fetchargs = []): mixed
     {
         $utility = $this->_utility;
         $fetchargs = $fetchargs ?? [];
@@ -149,19 +149,27 @@ class TelegramBotSDK
 
         [$_, $err] = ($utility->prepare_auth)($ctx);
         if ($err) {
-            return [null, $err];
+            return ($utility->make_error)($ctx, $err);
         }
 
-        return ($utility->make_fetch_def)($ctx);
+        [$fetchdef, $fd_err] = ($utility->make_fetch_def)($ctx);
+        if ($fd_err) {
+            return ($utility->make_error)($ctx, $fd_err);
+        }
+        return $fetchdef;
     }
 
-    public function direct(array $fetchargs = []): array
+    public function direct(array $fetchargs = []): mixed
     {
         $utility = $this->_utility;
 
-        [$fetchdef, $err] = $this->prepare($fetchargs);
-        if ($err) {
-            return [["ok" => false, "err" => $err], null];
+        // direct() is the raw-HTTP escape hatch: it never throws, it returns
+        // an {ok, err, ...} dict. prepare() now raises on error, so catch it
+        // and surface the failure through the dict instead.
+        try {
+            $fetchdef = $this->prepare($fetchargs);
+        } catch (\Throwable $err) {
+            return ["ok" => false, "err" => $err];
         }
 
         $fetchargs = $fetchargs ?? [];
@@ -176,14 +184,14 @@ class TelegramBotSDK
         [$fetched, $fetch_err] = ($utility->fetcher)($ctx, $url, $fetchdef);
 
         if ($fetch_err) {
-            return [["ok" => false, "err" => $fetch_err], null];
+            return ["ok" => false, "err" => $fetch_err];
         }
 
         if ($fetched === null) {
-            return [[
+            return [
                 "ok" => false,
                 "err" => $ctx->make_error("direct_no_response", "response: undefined"),
-            ], null];
+            ];
         }
 
         if (is_array($fetched)) {
@@ -208,164 +216,395 @@ class TelegramBotSDK
                 }
             }
 
-            return [[
+            return [
                 "ok" => $status >= 200 && $status < 300,
                 "status" => $status,
                 "headers" => Struct::getprop($fetched, "headers"),
                 "data" => $json_data,
-            ], null];
+            ];
         }
 
-        return [[
+        return [
             "ok" => false,
             "err" => $ctx->make_error("direct_invalid", "invalid response type"),
-        ], null];
+        ];
     }
 
 
-    public function ApproveSuggestedPost($data = null)
+    private $_approve_suggested_post = null;
+
+    // Idiomatic facade: $client->approve_suggested_post()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias ApproveSuggestedPost() (PHP method
+    // names are case-insensitive).
+    public function approve_suggested_post($data = null)
     {
         require_once __DIR__ . '/entity/approve_suggested_post_entity.php';
+        if ($data === null) {
+            if ($this->_approve_suggested_post === null) {
+                $this->_approve_suggested_post = new ApproveSuggestedPostEntity($this, null);
+            }
+            return $this->_approve_suggested_post;
+        }
         return new ApproveSuggestedPostEntity($this, $data);
     }
 
 
-    public function DeclineSuggestedPost($data = null)
+    private $_decline_suggested_post = null;
+
+    // Idiomatic facade: $client->decline_suggested_post()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias DeclineSuggestedPost() (PHP method
+    // names are case-insensitive).
+    public function decline_suggested_post($data = null)
     {
         require_once __DIR__ . '/entity/decline_suggested_post_entity.php';
+        if ($data === null) {
+            if ($this->_decline_suggested_post === null) {
+                $this->_decline_suggested_post = new DeclineSuggestedPostEntity($this, null);
+            }
+            return $this->_decline_suggested_post;
+        }
         return new DeclineSuggestedPostEntity($this, $data);
     }
 
 
-    public function DeleteForumTopic($data = null)
+    private $_delete_forum_topic = null;
+
+    // Idiomatic facade: $client->delete_forum_topic()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias DeleteForumTopic() (PHP method
+    // names are case-insensitive).
+    public function delete_forum_topic($data = null)
     {
         require_once __DIR__ . '/entity/delete_forum_topic_entity.php';
+        if ($data === null) {
+            if ($this->_delete_forum_topic === null) {
+                $this->_delete_forum_topic = new DeleteForumTopicEntity($this, null);
+            }
+            return $this->_delete_forum_topic;
+        }
         return new DeleteForumTopicEntity($this, $data);
     }
 
 
-    public function EditForumTopic($data = null)
+    private $_edit_forum_topic = null;
+
+    // Idiomatic facade: $client->edit_forum_topic()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias EditForumTopic() (PHP method
+    // names are case-insensitive).
+    public function edit_forum_topic($data = null)
     {
         require_once __DIR__ . '/entity/edit_forum_topic_entity.php';
+        if ($data === null) {
+            if ($this->_edit_forum_topic === null) {
+                $this->_edit_forum_topic = new EditForumTopicEntity($this, null);
+            }
+            return $this->_edit_forum_topic;
+        }
         return new EditForumTopicEntity($this, $data);
     }
 
 
-    public function File($data = null)
+    private $_file = null;
+
+    // Idiomatic facade: $client->file()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias File() (PHP method
+    // names are case-insensitive).
+    public function file($data = null)
     {
         require_once __DIR__ . '/entity/file_entity.php';
+        if ($data === null) {
+            if ($this->_file === null) {
+                $this->_file = new FileEntity($this, null);
+            }
+            return $this->_file;
+        }
         return new FileEntity($this, $data);
     }
 
 
-    public function ForumTopic($data = null)
+    private $_forum_topic = null;
+
+    // Idiomatic facade: $client->forum_topic()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias ForumTopic() (PHP method
+    // names are case-insensitive).
+    public function forum_topic($data = null)
     {
         require_once __DIR__ . '/entity/forum_topic_entity.php';
+        if ($data === null) {
+            if ($this->_forum_topic === null) {
+                $this->_forum_topic = new ForumTopicEntity($this, null);
+            }
+            return $this->_forum_topic;
+        }
         return new ForumTopicEntity($this, $data);
     }
 
 
-    public function GetBusinessAccountGift($data = null)
+    private $_get_business_account_gift = null;
+
+    // Idiomatic facade: $client->get_business_account_gift()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias GetBusinessAccountGift() (PHP method
+    // names are case-insensitive).
+    public function get_business_account_gift($data = null)
     {
         require_once __DIR__ . '/entity/get_business_account_gift_entity.php';
+        if ($data === null) {
+            if ($this->_get_business_account_gift === null) {
+                $this->_get_business_account_gift = new GetBusinessAccountGiftEntity($this, null);
+            }
+            return $this->_get_business_account_gift;
+        }
         return new GetBusinessAccountGiftEntity($this, $data);
     }
 
 
-    public function GetChatGift($data = null)
+    private $_get_chat_gift = null;
+
+    // Idiomatic facade: $client->get_chat_gift()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias GetChatGift() (PHP method
+    // names are case-insensitive).
+    public function get_chat_gift($data = null)
     {
         require_once __DIR__ . '/entity/get_chat_gift_entity.php';
+        if ($data === null) {
+            if ($this->_get_chat_gift === null) {
+                $this->_get_chat_gift = new GetChatGiftEntity($this, null);
+            }
+            return $this->_get_chat_gift;
+        }
         return new GetChatGiftEntity($this, $data);
     }
 
 
-    public function GetMe($data = null)
+    private $_get_me = null;
+
+    // Idiomatic facade: $client->get_me()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias GetMe() (PHP method
+    // names are case-insensitive).
+    public function get_me($data = null)
     {
         require_once __DIR__ . '/entity/get_me_entity.php';
+        if ($data === null) {
+            if ($this->_get_me === null) {
+                $this->_get_me = new GetMeEntity($this, null);
+            }
+            return $this->_get_me;
+        }
         return new GetMeEntity($this, $data);
     }
 
 
-    public function GetUserGift($data = null)
+    private $_get_user_gift = null;
+
+    // Idiomatic facade: $client->get_user_gift()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias GetUserGift() (PHP method
+    // names are case-insensitive).
+    public function get_user_gift($data = null)
     {
         require_once __DIR__ . '/entity/get_user_gift_entity.php';
+        if ($data === null) {
+            if ($this->_get_user_gift === null) {
+                $this->_get_user_gift = new GetUserGiftEntity($this, null);
+            }
+            return $this->_get_user_gift;
+        }
         return new GetUserGiftEntity($this, $data);
     }
 
 
-    public function GetUserProfileAudio($data = null)
+    private $_get_user_profile_audio = null;
+
+    // Idiomatic facade: $client->get_user_profile_audio()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias GetUserProfileAudio() (PHP method
+    // names are case-insensitive).
+    public function get_user_profile_audio($data = null)
     {
         require_once __DIR__ . '/entity/get_user_profile_audio_entity.php';
+        if ($data === null) {
+            if ($this->_get_user_profile_audio === null) {
+                $this->_get_user_profile_audio = new GetUserProfileAudioEntity($this, null);
+            }
+            return $this->_get_user_profile_audio;
+        }
         return new GetUserProfileAudioEntity($this, $data);
     }
 
 
-    public function Message($data = null)
+    private $_message = null;
+
+    // Idiomatic facade: $client->message()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias Message() (PHP method
+    // names are case-insensitive).
+    public function message($data = null)
     {
         require_once __DIR__ . '/entity/message_entity.php';
+        if ($data === null) {
+            if ($this->_message === null) {
+                $this->_message = new MessageEntity($this, null);
+            }
+            return $this->_message;
+        }
         return new MessageEntity($this, $data);
     }
 
 
-    public function MessageId($data = null)
+    private $_message_id = null;
+
+    // Idiomatic facade: $client->message_id()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias MessageId() (PHP method
+    // names are case-insensitive).
+    public function message_id($data = null)
     {
         require_once __DIR__ . '/entity/message_id_entity.php';
+        if ($data === null) {
+            if ($this->_message_id === null) {
+                $this->_message_id = new MessageIdEntity($this, null);
+            }
+            return $this->_message_id;
+        }
         return new MessageIdEntity($this, $data);
     }
 
 
-    public function PromoteChatMember($data = null)
+    private $_promote_chat_member = null;
+
+    // Idiomatic facade: $client->promote_chat_member()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias PromoteChatMember() (PHP method
+    // names are case-insensitive).
+    public function promote_chat_member($data = null)
     {
         require_once __DIR__ . '/entity/promote_chat_member_entity.php';
+        if ($data === null) {
+            if ($this->_promote_chat_member === null) {
+                $this->_promote_chat_member = new PromoteChatMemberEntity($this, null);
+            }
+            return $this->_promote_chat_member;
+        }
         return new PromoteChatMemberEntity($this, $data);
     }
 
 
-    public function RemoveMyProfilePhoto($data = null)
+    private $_remove_my_profile_photo = null;
+
+    // Idiomatic facade: $client->remove_my_profile_photo()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias RemoveMyProfilePhoto() (PHP method
+    // names are case-insensitive).
+    public function remove_my_profile_photo($data = null)
     {
         require_once __DIR__ . '/entity/remove_my_profile_photo_entity.php';
+        if ($data === null) {
+            if ($this->_remove_my_profile_photo === null) {
+                $this->_remove_my_profile_photo = new RemoveMyProfilePhotoEntity($this, null);
+            }
+            return $this->_remove_my_profile_photo;
+        }
         return new RemoveMyProfilePhotoEntity($this, $data);
     }
 
 
-    public function RepostStory($data = null)
+    private $_repost_story = null;
+
+    // Idiomatic facade: $client->repost_story()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias RepostStory() (PHP method
+    // names are case-insensitive).
+    public function repost_story($data = null)
     {
         require_once __DIR__ . '/entity/repost_story_entity.php';
+        if ($data === null) {
+            if ($this->_repost_story === null) {
+                $this->_repost_story = new RepostStoryEntity($this, null);
+            }
+            return $this->_repost_story;
+        }
         return new RepostStoryEntity($this, $data);
     }
 
 
-    public function SendChatAction($data = null)
+    private $_send_chat_action = null;
+
+    // Idiomatic facade: $client->send_chat_action()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias SendChatAction() (PHP method
+    // names are case-insensitive).
+    public function send_chat_action($data = null)
     {
         require_once __DIR__ . '/entity/send_chat_action_entity.php';
+        if ($data === null) {
+            if ($this->_send_chat_action === null) {
+                $this->_send_chat_action = new SendChatActionEntity($this, null);
+            }
+            return $this->_send_chat_action;
+        }
         return new SendChatActionEntity($this, $data);
     }
 
 
-    public function SendMessageDraft($data = null)
+    private $_send_message_draft = null;
+
+    // Idiomatic facade: $client->send_message_draft()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias SendMessageDraft() (PHP method
+    // names are case-insensitive).
+    public function send_message_draft($data = null)
     {
         require_once __DIR__ . '/entity/send_message_draft_entity.php';
+        if ($data === null) {
+            if ($this->_send_message_draft === null) {
+                $this->_send_message_draft = new SendMessageDraftEntity($this, null);
+            }
+            return $this->_send_message_draft;
+        }
         return new SendMessageDraftEntity($this, $data);
     }
 
 
-    public function SetMyProfilePhoto($data = null)
+    private $_set_my_profile_photo = null;
+
+    // Idiomatic facade: $client->set_my_profile_photo()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias SetMyProfilePhoto() (PHP method
+    // names are case-insensitive).
+    public function set_my_profile_photo($data = null)
     {
         require_once __DIR__ . '/entity/set_my_profile_photo_entity.php';
+        if ($data === null) {
+            if ($this->_set_my_profile_photo === null) {
+                $this->_set_my_profile_photo = new SetMyProfilePhotoEntity($this, null);
+            }
+            return $this->_set_my_profile_photo;
+        }
         return new SetMyProfilePhotoEntity($this, $data);
     }
 
 
-    public function UnpinAllForumTopicMessage($data = null)
+    private $_unpin_all_forum_topic_message = null;
+
+    // Idiomatic facade: $client->unpin_all_forum_topic_message()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias UnpinAllForumTopicMessage() (PHP method
+    // names are case-insensitive).
+    public function unpin_all_forum_topic_message($data = null)
     {
         require_once __DIR__ . '/entity/unpin_all_forum_topic_message_entity.php';
+        if ($data === null) {
+            if ($this->_unpin_all_forum_topic_message === null) {
+                $this->_unpin_all_forum_topic_message = new UnpinAllForumTopicMessageEntity($this, null);
+            }
+            return $this->_unpin_all_forum_topic_message;
+        }
         return new UnpinAllForumTopicMessageEntity($this, $data);
     }
 
 
-    public function Update($data = null)
+    private $_update = null;
+
+    // Idiomatic facade: $client->update()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias Update() (PHP method
+    // names are case-insensitive).
+    public function update($data = null)
     {
         require_once __DIR__ . '/entity/update_entity.php';
+        if ($data === null) {
+            if ($this->_update === null) {
+                $this->_update = new UpdateEntity($this, null);
+            }
+            return $this->_update;
+        }
         return new UpdateEntity($this, $data);
     }
 

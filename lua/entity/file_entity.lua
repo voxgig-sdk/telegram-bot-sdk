@@ -83,6 +83,10 @@ end
 
 
 
+---@param reqdata FileCreateData
+---@param ctrl? table
+---@return File
+---@return string? err
 function FileEntity:create(reqdata, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

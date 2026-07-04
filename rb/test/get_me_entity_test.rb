@@ -36,15 +36,13 @@ class GetMeEntityTest < Minitest::Test
     get_me_ref01_data = Helpers.to_map(Vs.getprop(
       Vs.getpath(setup[:data], "new.get_me"), "get_me_ref01"))
 
-    get_me_ref01_data_result, err = get_me_ref01_ent.create(get_me_ref01_data, nil)
-    assert_nil err
+    get_me_ref01_data_result = get_me_ref01_ent.create(get_me_ref01_data, nil)
     get_me_ref01_data = Helpers.to_map(get_me_ref01_data_result)
     assert !get_me_ref01_data.nil?
 
     # LOAD
     get_me_ref01_match_dt0 = {}
-    get_me_ref01_data_dt0_loaded, err = get_me_ref01_ent.load(get_me_ref01_match_dt0, nil)
-    assert_nil err
+    get_me_ref01_data_dt0_loaded = get_me_ref01_ent.load(get_me_ref01_match_dt0, nil)
     assert !get_me_ref01_data_dt0_loaded.nil?
 
   end

@@ -83,6 +83,10 @@ end
 
 
 
+---@param reqdata RemoveMyProfilePhotoCreateData
+---@param ctrl? table
+---@return RemoveMyProfilePhoto
+---@return string? err
 function RemoveMyProfilePhotoEntity:create(reqdata, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

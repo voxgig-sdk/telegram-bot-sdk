@@ -83,6 +83,10 @@ end
 
 
 
+---@param reqdata SendChatActionCreateData
+---@param ctrl? table
+---@return SendChatAction
+---@return string? err
 function SendChatActionEntity:create(reqdata, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

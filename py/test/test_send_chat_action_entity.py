@@ -44,9 +44,7 @@ class TestSendChatActionEntity:
         send_chat_action_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.send_chat_action"), "send_chat_action_ref01"))
 
-        send_chat_action_ref01_data_result, err = send_chat_action_ref01_ent.create(send_chat_action_ref01_data, None)
-        assert err is None
-        send_chat_action_ref01_data = helpers.to_map(send_chat_action_ref01_data_result)
+        send_chat_action_ref01_data = helpers.to_map(send_chat_action_ref01_ent.create(send_chat_action_ref01_data, None))
         assert send_chat_action_ref01_data is not None
 
 

@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  SendChatAction,
+  SendChatActionCreateData,
+} from '../TelegramBotTypes'
 
 // TODO: needs Entity superclass
-class SendChatActionEntity extends TelegramBotEntityBase {
+class SendChatActionEntity extends TelegramBotEntityBase<SendChatAction> {
 
   constructor(client: TelegramBotSDK, entopts: any) {
     super(client, entopts)
@@ -34,7 +38,7 @@ class SendChatActionEntity extends TelegramBotEntityBase {
 
 
 
-  async create(this: any, reqdata?: any, ctrl?: Control) {
+  async create(this: any, reqdata?: SendChatActionCreateData, ctrl?: Control): Promise<SendChatAction> {
 
     const utility = this._utility
     const {
@@ -133,7 +137,9 @@ class SendChatActionEntity extends TelegramBotEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<SendChatAction> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

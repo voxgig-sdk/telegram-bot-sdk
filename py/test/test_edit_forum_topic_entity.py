@@ -44,9 +44,7 @@ class TestEditForumTopicEntity:
         edit_forum_topic_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.edit_forum_topic"), "edit_forum_topic_ref01"))
 
-        edit_forum_topic_ref01_data_result, err = edit_forum_topic_ref01_ent.create(edit_forum_topic_ref01_data, None)
-        assert err is None
-        edit_forum_topic_ref01_data = helpers.to_map(edit_forum_topic_ref01_data_result)
+        edit_forum_topic_ref01_data = helpers.to_map(edit_forum_topic_ref01_ent.create(edit_forum_topic_ref01_data, None))
         assert edit_forum_topic_ref01_data is not None
 
 

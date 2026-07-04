@@ -136,7 +136,10 @@ Return a copy of the SDK utility object.
 
 #### `direct(array $fetchargs = []): array`
 
-Make a direct HTTP request to any API endpoint. Returns `[$result, $err]`.
+Make a direct HTTP request to any API endpoint. This is the raw-HTTP escape
+hatch: it does **not** throw. It returns a result array
+`["ok" => bool, "status" => int, "headers" => array, "data" => mixed]`, or
+`["ok" => false, "err" => \Exception]` on failure. Branch on `$result["ok"]`.
 
 **Parameters:**
 
@@ -150,11 +153,12 @@ Make a direct HTTP request to any API endpoint. Returns `[$result, $err]`.
 | `$fetchargs["body"]` | `mixed` | Request body (arrays are JSON-serialized). |
 | `$fetchargs["ctrl"]` | `array` | Control options. |
 
-**Returns:** `array [$result, $err]`
+**Returns:** `array` — the result dict (see above); never throws.
 
-#### `prepare(array $fetchargs = []): array`
+#### `prepare(array $fetchargs = []): mixed`
 
-Prepare a fetch definition without sending the request. Returns `[$fetchdef, $err]`.
+Prepare a fetch definition without sending the request. Returns the
+`$fetchdef` array. Throws on error.
 
 
 ---
@@ -162,7 +166,7 @@ Prepare a fetch definition without sending the request. Returns `[$fetchdef, $er
 ## ApproveSuggestedPostEntity
 
 ```php
-$approve_suggested_post = $client->ApproveSuggestedPost();
+$approve_suggested_post = $client->approve_suggested_post();
 ```
 
 ### Fields
@@ -179,12 +183,12 @@ $approve_suggested_post = $client->ApproveSuggestedPost();
 
 ### Operations
 
-#### `create(array $reqdata, ?array $ctrl = null): array`
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Throws on error.
 
 ```php
-[$result, $err] = $client->ApproveSuggestedPost()->create([
+$result = $client->approve_suggested_post()->create([
   "chat_id" => /* `$STRING` */,
   "message_id" => /* `$INTEGER` */,
   "ok" => /* `$BOOLEAN` */,
@@ -224,7 +228,7 @@ Return the entity name.
 ## DeclineSuggestedPostEntity
 
 ```php
-$decline_suggested_post = $client->DeclineSuggestedPost();
+$decline_suggested_post = $client->decline_suggested_post();
 ```
 
 ### Fields
@@ -241,12 +245,12 @@ $decline_suggested_post = $client->DeclineSuggestedPost();
 
 ### Operations
 
-#### `create(array $reqdata, ?array $ctrl = null): array`
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Throws on error.
 
 ```php
-[$result, $err] = $client->DeclineSuggestedPost()->create([
+$result = $client->decline_suggested_post()->create([
   "chat_id" => /* `$STRING` */,
   "message_id" => /* `$INTEGER` */,
   "ok" => /* `$BOOLEAN` */,
@@ -286,7 +290,7 @@ Return the entity name.
 ## DeleteForumTopicEntity
 
 ```php
-$delete_forum_topic = $client->DeleteForumTopic();
+$delete_forum_topic = $client->delete_forum_topic();
 ```
 
 ### Fields
@@ -303,12 +307,12 @@ $delete_forum_topic = $client->DeleteForumTopic();
 
 ### Operations
 
-#### `create(array $reqdata, ?array $ctrl = null): array`
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Throws on error.
 
 ```php
-[$result, $err] = $client->DeleteForumTopic()->create([
+$result = $client->delete_forum_topic()->create([
   "chat_id" => /* `$STRING` */,
   "message_thread_id" => /* `$INTEGER` */,
   "ok" => /* `$BOOLEAN` */,
@@ -348,7 +352,7 @@ Return the entity name.
 ## EditForumTopicEntity
 
 ```php
-$edit_forum_topic = $client->EditForumTopic();
+$edit_forum_topic = $client->edit_forum_topic();
 ```
 
 ### Fields
@@ -367,12 +371,12 @@ $edit_forum_topic = $client->EditForumTopic();
 
 ### Operations
 
-#### `create(array $reqdata, ?array $ctrl = null): array`
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Throws on error.
 
 ```php
-[$result, $err] = $client->EditForumTopic()->create([
+$result = $client->edit_forum_topic()->create([
   "chat_id" => /* `$STRING` */,
   "message_thread_id" => /* `$INTEGER` */,
   "ok" => /* `$BOOLEAN` */,
@@ -412,7 +416,7 @@ Return the entity name.
 ## FileEntity
 
 ```php
-$file = $client->File();
+$file = $client->file();
 ```
 
 ### Fields
@@ -423,12 +427,12 @@ $file = $client->File();
 
 ### Operations
 
-#### `create(array $reqdata, ?array $ctrl = null): array`
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Throws on error.
 
 ```php
-[$result, $err] = $client->File()->create([
+$result = $client->file()->create([
   "file_id" => /* `$STRING` */,
 ]);
 ```
@@ -466,7 +470,7 @@ Return the entity name.
 ## ForumTopicEntity
 
 ```php
-$forum_topic = $client->ForumTopic();
+$forum_topic = $client->forum_topic();
 ```
 
 ### Fields
@@ -480,12 +484,12 @@ $forum_topic = $client->ForumTopic();
 
 ### Operations
 
-#### `create(array $reqdata, ?array $ctrl = null): array`
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Throws on error.
 
 ```php
-[$result, $err] = $client->ForumTopic()->create([
+$result = $client->forum_topic()->create([
   "chat_id" => /* `$STRING` */,
   "name" => /* `$STRING` */,
 ]);
@@ -524,7 +528,7 @@ Return the entity name.
 ## GetBusinessAccountGiftEntity
 
 ```php
-$get_business_account_gift = $client->GetBusinessAccountGift();
+$get_business_account_gift = $client->get_business_account_gift();
 ```
 
 ### Fields
@@ -542,12 +546,12 @@ $get_business_account_gift = $client->GetBusinessAccountGift();
 
 ### Operations
 
-#### `create(array $reqdata, ?array $ctrl = null): array`
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Throws on error.
 
 ```php
-[$result, $err] = $client->GetBusinessAccountGift()->create([
+$result = $client->get_business_account_gift()->create([
   "ok" => /* `$BOOLEAN` */,
 ]);
 ```
@@ -585,7 +589,7 @@ Return the entity name.
 ## GetChatGiftEntity
 
 ```php
-$get_chat_gift = $client->GetChatGift();
+$get_chat_gift = $client->get_chat_gift();
 ```
 
 ### Fields
@@ -601,12 +605,12 @@ $get_chat_gift = $client->GetChatGift();
 
 ### Operations
 
-#### `create(array $reqdata, ?array $ctrl = null): array`
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Throws on error.
 
 ```php
-[$result, $err] = $client->GetChatGift()->create([
+$result = $client->get_chat_gift()->create([
   "chat_id" => /* `$STRING` */,
   "ok" => /* `$BOOLEAN` */,
 ]);
@@ -645,7 +649,7 @@ Return the entity name.
 ## GetMeEntity
 
 ```php
-$get_me = $client->GetMe();
+$get_me = $client->get_me();
 ```
 
 ### Fields
@@ -660,22 +664,22 @@ $get_me = $client->GetMe();
 
 ### Operations
 
-#### `create(array $reqdata, ?array $ctrl = null): array`
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Throws on error.
 
 ```php
-[$result, $err] = $client->GetMe()->create([
+$result = $client->get_me()->create([
   "ok" => /* `$BOOLEAN` */,
 ]);
 ```
 
-#### `load(array $reqmatch, ?array $ctrl = null): array`
+#### `load(array $reqmatch, ?array $ctrl = null): mixed`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Throws on error.
 
 ```php
-[$result, $err] = $client->GetMe()->load(["id" => "get_me_id"]);
+$result = $client->get_me()->load(["id" => "get_me_id"]);
 ```
 
 ### Common Methods
@@ -711,7 +715,7 @@ Return the entity name.
 ## GetUserGiftEntity
 
 ```php
-$get_user_gift = $client->GetUserGift();
+$get_user_gift = $client->get_user_gift();
 ```
 
 ### Fields
@@ -727,12 +731,12 @@ $get_user_gift = $client->GetUserGift();
 
 ### Operations
 
-#### `create(array $reqdata, ?array $ctrl = null): array`
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Throws on error.
 
 ```php
-[$result, $err] = $client->GetUserGift()->create([
+$result = $client->get_user_gift()->create([
   "ok" => /* `$BOOLEAN` */,
   "user_id" => /* `$INTEGER` */,
 ]);
@@ -771,7 +775,7 @@ Return the entity name.
 ## GetUserProfileAudioEntity
 
 ```php
-$get_user_profile_audio = $client->GetUserProfileAudio();
+$get_user_profile_audio = $client->get_user_profile_audio();
 ```
 
 ### Fields
@@ -787,12 +791,12 @@ $get_user_profile_audio = $client->GetUserProfileAudio();
 
 ### Operations
 
-#### `create(array $reqdata, ?array $ctrl = null): array`
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Throws on error.
 
 ```php
-[$result, $err] = $client->GetUserProfileAudio()->create([
+$result = $client->get_user_profile_audio()->create([
   "ok" => /* `$BOOLEAN` */,
   "user_id" => /* `$INTEGER` */,
 ]);
@@ -831,7 +835,7 @@ Return the entity name.
 ## MessageEntity
 
 ```php
-$message = $client->Message();
+$message = $client->message();
 ```
 
 ### Fields
@@ -857,12 +861,12 @@ $message = $client->Message();
 
 ### Operations
 
-#### `create(array $reqdata, ?array $ctrl = null): array`
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Throws on error.
 
 ```php
-[$result, $err] = $client->Message()->create([
+$result = $client->message()->create([
   "chat_id" => /* `$STRING` */,
   "from_chat_id" => /* `$STRING` */,
   "latitude" => /* `$NUMBER` */,
@@ -907,7 +911,7 @@ Return the entity name.
 ## MessageIdEntity
 
 ```php
-$message_id = $client->MessageId();
+$message_id = $client->message_id();
 ```
 
 ### Fields
@@ -923,12 +927,12 @@ $message_id = $client->MessageId();
 
 ### Operations
 
-#### `create(array $reqdata, ?array $ctrl = null): array`
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Throws on error.
 
 ```php
-[$result, $err] = $client->MessageId()->create([
+$result = $client->message_id()->create([
   "chat_id" => /* `$STRING` */,
   "from_chat_id" => /* `$STRING` */,
   "message_id" => /* `$INTEGER` */,
@@ -968,7 +972,7 @@ Return the entity name.
 ## PromoteChatMemberEntity
 
 ```php
-$promote_chat_member = $client->PromoteChatMember();
+$promote_chat_member = $client->promote_chat_member();
 ```
 
 ### Fields
@@ -990,12 +994,12 @@ $promote_chat_member = $client->PromoteChatMember();
 
 ### Operations
 
-#### `create(array $reqdata, ?array $ctrl = null): array`
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Throws on error.
 
 ```php
-[$result, $err] = $client->PromoteChatMember()->create([
+$result = $client->promote_chat_member()->create([
   "chat_id" => /* `$STRING` */,
   "ok" => /* `$BOOLEAN` */,
   "user_id" => /* `$INTEGER` */,
@@ -1035,7 +1039,7 @@ Return the entity name.
 ## RemoveMyProfilePhotoEntity
 
 ```php
-$remove_my_profile_photo = $client->RemoveMyProfilePhoto();
+$remove_my_profile_photo = $client->remove_my_profile_photo();
 ```
 
 ### Fields
@@ -1050,12 +1054,12 @@ $remove_my_profile_photo = $client->RemoveMyProfilePhoto();
 
 ### Operations
 
-#### `create(array $reqdata, ?array $ctrl = null): array`
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Throws on error.
 
 ```php
-[$result, $err] = $client->RemoveMyProfilePhoto()->create([
+$result = $client->remove_my_profile_photo()->create([
   "ok" => /* `$BOOLEAN` */,
 ]);
 ```
@@ -1093,7 +1097,7 @@ Return the entity name.
 ## RepostStoryEntity
 
 ```php
-$repost_story = $client->RepostStory();
+$repost_story = $client->repost_story();
 ```
 
 ### Fields
@@ -1110,12 +1114,12 @@ $repost_story = $client->RepostStory();
 
 ### Operations
 
-#### `create(array $reqdata, ?array $ctrl = null): array`
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Throws on error.
 
 ```php
-[$result, $err] = $client->RepostStory()->create([
+$result = $client->repost_story()->create([
   "chat_id" => /* `$STRING` */,
   "ok" => /* `$BOOLEAN` */,
   "story_id" => /* `$INTEGER` */,
@@ -1155,7 +1159,7 @@ Return the entity name.
 ## SendChatActionEntity
 
 ```php
-$send_chat_action = $client->SendChatAction();
+$send_chat_action = $client->send_chat_action();
 ```
 
 ### Fields
@@ -1173,12 +1177,12 @@ $send_chat_action = $client->SendChatAction();
 
 ### Operations
 
-#### `create(array $reqdata, ?array $ctrl = null): array`
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Throws on error.
 
 ```php
-[$result, $err] = $client->SendChatAction()->create([
+$result = $client->send_chat_action()->create([
   "action" => /* `$STRING` */,
   "chat_id" => /* `$STRING` */,
   "ok" => /* `$BOOLEAN` */,
@@ -1218,7 +1222,7 @@ Return the entity name.
 ## SendMessageDraftEntity
 
 ```php
-$send_message_draft = $client->SendMessageDraft();
+$send_message_draft = $client->send_message_draft();
 ```
 
 ### Fields
@@ -1236,12 +1240,12 @@ $send_message_draft = $client->SendMessageDraft();
 
 ### Operations
 
-#### `create(array $reqdata, ?array $ctrl = null): array`
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Throws on error.
 
 ```php
-[$result, $err] = $client->SendMessageDraft()->create([
+$result = $client->send_message_draft()->create([
   "chat_id" => /* `$STRING` */,
   "ok" => /* `$BOOLEAN` */,
   "text" => /* `$STRING` */,
@@ -1281,7 +1285,7 @@ Return the entity name.
 ## SetMyProfilePhotoEntity
 
 ```php
-$set_my_profile_photo = $client->SetMyProfilePhoto();
+$set_my_profile_photo = $client->set_my_profile_photo();
 ```
 
 ### Fields
@@ -1296,12 +1300,12 @@ $set_my_profile_photo = $client->SetMyProfilePhoto();
 
 ### Operations
 
-#### `create(array $reqdata, ?array $ctrl = null): array`
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Throws on error.
 
 ```php
-[$result, $err] = $client->SetMyProfilePhoto()->create([
+$result = $client->set_my_profile_photo()->create([
   "ok" => /* `$BOOLEAN` */,
 ]);
 ```
@@ -1339,7 +1343,7 @@ Return the entity name.
 ## UnpinAllForumTopicMessageEntity
 
 ```php
-$unpin_all_forum_topic_message = $client->UnpinAllForumTopicMessage();
+$unpin_all_forum_topic_message = $client->unpin_all_forum_topic_message();
 ```
 
 ### Fields
@@ -1356,12 +1360,12 @@ $unpin_all_forum_topic_message = $client->UnpinAllForumTopicMessage();
 
 ### Operations
 
-#### `create(array $reqdata, ?array $ctrl = null): array`
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Throws on error.
 
 ```php
-[$result, $err] = $client->UnpinAllForumTopicMessage()->create([
+$result = $client->unpin_all_forum_topic_message()->create([
   "chat_id" => /* `$STRING` */,
   "message_thread_id" => /* `$INTEGER` */,
   "ok" => /* `$BOOLEAN` */,
@@ -1401,7 +1405,7 @@ Return the entity name.
 ## UpdateEntity
 
 ```php
-$update = $client->Update();
+$update = $client->update();
 ```
 
 ### Fields
@@ -1420,22 +1424,22 @@ $update = $client->Update();
 
 ### Operations
 
-#### `create(array $reqdata, ?array $ctrl = null): array`
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Throws on error.
 
 ```php
-[$result, $err] = $client->Update()->create([
+$result = $client->update()->create([
   "ok" => /* `$BOOLEAN` */,
 ]);
 ```
 
-#### `list(array $reqmatch, ?array $ctrl = null): array`
+#### `list(array $reqmatch, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array.
+List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-[$results, $err] = $client->Update()->list([]);
+$results = $client->update()->list([]);
 ```
 
 ### Common Methods

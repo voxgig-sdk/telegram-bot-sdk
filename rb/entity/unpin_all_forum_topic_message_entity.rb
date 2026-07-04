@@ -45,6 +45,7 @@ class UnpinAllForumTopicMessageEntity
     end
   end
 
+  # @return [UnpinAllForumTopicMessage, Hash] the current UnpinAllForumTopicMessage data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class UnpinAllForumTopicMessageEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of UnpinAllForumTopicMessage fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -67,6 +69,11 @@ class UnpinAllForumTopicMessageEntity
   
 
   
+  # Create a new UnpinAllForumTopicMessage.
+  #
+  # @param reqdata [UnpinAllForumTopicMessageCreateData, Hash, nil] body data
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [UnpinAllForumTopicMessage, Hash] the created UnpinAllForumTopicMessage; raises TelegramBotError on failure
   def create(reqdata, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

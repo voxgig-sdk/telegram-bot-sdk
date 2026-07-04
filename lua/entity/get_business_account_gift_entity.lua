@@ -83,6 +83,10 @@ end
 
 
 
+---@param reqdata GetBusinessAccountGiftCreateData
+---@param ctrl? table
+---@return GetBusinessAccountGift
+---@return string? err
 function GetBusinessAccountGiftEntity:create(reqdata, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

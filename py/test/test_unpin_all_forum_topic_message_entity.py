@@ -44,9 +44,7 @@ class TestUnpinAllForumTopicMessageEntity:
         unpin_all_forum_topic_message_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.unpin_all_forum_topic_message"), "unpin_all_forum_topic_message_ref01"))
 
-        unpin_all_forum_topic_message_ref01_data_result, err = unpin_all_forum_topic_message_ref01_ent.create(unpin_all_forum_topic_message_ref01_data, None)
-        assert err is None
-        unpin_all_forum_topic_message_ref01_data = helpers.to_map(unpin_all_forum_topic_message_ref01_data_result)
+        unpin_all_forum_topic_message_ref01_data = helpers.to_map(unpin_all_forum_topic_message_ref01_ent.create(unpin_all_forum_topic_message_ref01_data, None))
         assert unpin_all_forum_topic_message_ref01_data is not None
 
 

@@ -44,9 +44,7 @@ class TestPromoteChatMemberEntity:
         promote_chat_member_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.promote_chat_member"), "promote_chat_member_ref01"))
 
-        promote_chat_member_ref01_data_result, err = promote_chat_member_ref01_ent.create(promote_chat_member_ref01_data, None)
-        assert err is None
-        promote_chat_member_ref01_data = helpers.to_map(promote_chat_member_ref01_data_result)
+        promote_chat_member_ref01_data = helpers.to_map(promote_chat_member_ref01_ent.create(promote_chat_member_ref01_data, None))
         assert promote_chat_member_ref01_data is not None
 
 

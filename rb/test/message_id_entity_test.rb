@@ -36,8 +36,7 @@ class MessageIdEntityTest < Minitest::Test
     message_id_ref01_data = Helpers.to_map(Vs.getprop(
       Vs.getpath(setup[:data], "new.message_id"), "message_id_ref01"))
 
-    message_id_ref01_data_result, err = message_id_ref01_ent.create(message_id_ref01_data, nil)
-    assert_nil err
+    message_id_ref01_data_result = message_id_ref01_ent.create(message_id_ref01_data, nil)
     message_id_ref01_data = Helpers.to_map(message_id_ref01_data_result)
     assert !message_id_ref01_data.nil?
 

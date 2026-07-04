@@ -43,8 +43,7 @@ class SetMyProfilePhotoEntityTest extends TestCase
         $set_my_profile_photo_ref01_data = Helpers::to_map(Vs::getprop(
             Vs::getpath($setup["data"], "new.set_my_profile_photo"), "set_my_profile_photo_ref01"));
 
-        [$set_my_profile_photo_ref01_data_result, $err] = $set_my_profile_photo_ref01_ent->create($set_my_profile_photo_ref01_data, null);
-        $this->assertNull($err);
+        $set_my_profile_photo_ref01_data_result = $set_my_profile_photo_ref01_ent->create($set_my_profile_photo_ref01_data, null);
         $set_my_profile_photo_ref01_data = Helpers::to_map($set_my_profile_photo_ref01_data_result);
         $this->assertNotNull($set_my_profile_photo_ref01_data);
 

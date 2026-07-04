@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch GetMeLoadMatch
+---@param ctrl? table
+---@return GetMe
+---@return string? err
 function GetMeEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({
@@ -106,6 +110,10 @@ end
 
 
 
+---@param reqdata GetMeCreateData
+---@param ctrl? table
+---@return GetMe
+---@return string? err
 function GetMeEntity:create(reqdata, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

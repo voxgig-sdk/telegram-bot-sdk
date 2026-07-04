@@ -43,8 +43,7 @@ class GetBusinessAccountGiftEntityTest extends TestCase
         $get_business_account_gift_ref01_data = Helpers::to_map(Vs::getprop(
             Vs::getpath($setup["data"], "new.get_business_account_gift"), "get_business_account_gift_ref01"));
 
-        [$get_business_account_gift_ref01_data_result, $err] = $get_business_account_gift_ref01_ent->create($get_business_account_gift_ref01_data, null);
-        $this->assertNull($err);
+        $get_business_account_gift_ref01_data_result = $get_business_account_gift_ref01_ent->create($get_business_account_gift_ref01_data, null);
         $get_business_account_gift_ref01_data = Helpers::to_map($get_business_account_gift_ref01_data_result);
         $this->assertNotNull($get_business_account_gift_ref01_data);
 

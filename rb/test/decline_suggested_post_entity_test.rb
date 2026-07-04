@@ -36,8 +36,7 @@ class DeclineSuggestedPostEntityTest < Minitest::Test
     decline_suggested_post_ref01_data = Helpers.to_map(Vs.getprop(
       Vs.getpath(setup[:data], "new.decline_suggested_post"), "decline_suggested_post_ref01"))
 
-    decline_suggested_post_ref01_data_result, err = decline_suggested_post_ref01_ent.create(decline_suggested_post_ref01_data, nil)
-    assert_nil err
+    decline_suggested_post_ref01_data_result = decline_suggested_post_ref01_ent.create(decline_suggested_post_ref01_data, nil)
     decline_suggested_post_ref01_data = Helpers.to_map(decline_suggested_post_ref01_data_result)
     assert !decline_suggested_post_ref01_data.nil?
 

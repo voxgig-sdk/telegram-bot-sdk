@@ -43,8 +43,7 @@ class FileEntityTest extends TestCase
         $file_ref01_data = Helpers::to_map(Vs::getprop(
             Vs::getpath($setup["data"], "new.file"), "file_ref01"));
 
-        [$file_ref01_data_result, $err] = $file_ref01_ent->create($file_ref01_data, null);
-        $this->assertNull($err);
+        $file_ref01_data_result = $file_ref01_ent->create($file_ref01_data, null);
         $file_ref01_data = Helpers::to_map($file_ref01_data_result);
         $this->assertNotNull($file_ref01_data);
 

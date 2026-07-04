@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch UpdateListMatch
+---@param ctrl? table
+---@return Update[]
+---@return string? err
 function UpdateEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({
@@ -103,6 +107,10 @@ end
 
 
 
+---@param reqdata UpdateCreateData
+---@param ctrl? table
+---@return Update
+---@return string? err
 function UpdateEntity:create(reqdata, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

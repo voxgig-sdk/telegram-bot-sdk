@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  UnpinAllForumTopicMessage,
+  UnpinAllForumTopicMessageCreateData,
+} from '../TelegramBotTypes'
 
 // TODO: needs Entity superclass
-class UnpinAllForumTopicMessageEntity extends TelegramBotEntityBase {
+class UnpinAllForumTopicMessageEntity extends TelegramBotEntityBase<UnpinAllForumTopicMessage> {
 
   constructor(client: TelegramBotSDK, entopts: any) {
     super(client, entopts)
@@ -34,7 +38,7 @@ class UnpinAllForumTopicMessageEntity extends TelegramBotEntityBase {
 
 
 
-  async create(this: any, reqdata?: any, ctrl?: Control) {
+  async create(this: any, reqdata?: UnpinAllForumTopicMessageCreateData, ctrl?: Control): Promise<UnpinAllForumTopicMessage> {
 
     const utility = this._utility
     const {
@@ -133,7 +137,9 @@ class UnpinAllForumTopicMessageEntity extends TelegramBotEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<UnpinAllForumTopicMessage> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }
