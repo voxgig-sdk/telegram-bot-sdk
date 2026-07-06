@@ -8,7 +8,7 @@ Complete API reference for the TelegramBot Python SDK.
 ### Constructor
 
 ```python
-from telegram-bot_sdk import TelegramBotSDK
+from telegrambot_sdk import TelegramBotSDK
 
 client = TelegramBotSDK(options)
 ```
@@ -168,13 +168,13 @@ approve_suggested_post = client.ApproveSuggestedPost()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `message_id` | ``$INTEGER`` | Yes |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `chat_id` | `str` | Yes |  |
+| `description` | `str` | No |  |
+| `error_code` | `int` | No |  |
+| `message_id` | `int` | Yes |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `dict` | No |  |
+| `result` | `Any` | No |  |
 
 ### Operations
 
@@ -184,9 +184,9 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.ApproveSuggestedPost().create({
-    "chat_id": ...,  # `$STRING`
-    "message_id": ...,  # `$INTEGER`
-    "ok": ...,  # `$BOOLEAN`
+    "chat_id": "example",  # str
+    "message_id": 1,  # int
+    "ok": True,  # bool
 })
 ```
 
@@ -229,13 +229,13 @@ decline_suggested_post = client.DeclineSuggestedPost()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `message_id` | ``$INTEGER`` | Yes |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `chat_id` | `str` | Yes |  |
+| `description` | `str` | No |  |
+| `error_code` | `int` | No |  |
+| `message_id` | `int` | Yes |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `dict` | No |  |
+| `result` | `Any` | No |  |
 
 ### Operations
 
@@ -245,9 +245,9 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.DeclineSuggestedPost().create({
-    "chat_id": ...,  # `$STRING`
-    "message_id": ...,  # `$INTEGER`
-    "ok": ...,  # `$BOOLEAN`
+    "chat_id": "example",  # str
+    "message_id": 1,  # int
+    "ok": True,  # bool
 })
 ```
 
@@ -290,13 +290,13 @@ delete_forum_topic = client.DeleteForumTopic()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `message_thread_id` | ``$INTEGER`` | Yes |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `chat_id` | `str` | Yes |  |
+| `description` | `str` | No |  |
+| `error_code` | `int` | No |  |
+| `message_thread_id` | `int` | Yes |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `dict` | No |  |
+| `result` | `Any` | No |  |
 
 ### Operations
 
@@ -306,9 +306,9 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.DeleteForumTopic().create({
-    "chat_id": ...,  # `$STRING`
-    "message_thread_id": ...,  # `$INTEGER`
-    "ok": ...,  # `$BOOLEAN`
+    "chat_id": "example",  # str
+    "message_thread_id": 1,  # int
+    "ok": True,  # bool
 })
 ```
 
@@ -351,15 +351,15 @@ edit_forum_topic = client.EditForumTopic()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `icon_custom_emoji_id` | ``$STRING`` | No |  |
-| `message_thread_id` | ``$INTEGER`` | Yes |  |
-| `name` | ``$STRING`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `chat_id` | `str` | Yes |  |
+| `description` | `str` | No |  |
+| `error_code` | `int` | No |  |
+| `icon_custom_emoji_id` | `str` | No |  |
+| `message_thread_id` | `int` | Yes |  |
+| `name` | `str` | No |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `dict` | No |  |
+| `result` | `Any` | No |  |
 
 ### Operations
 
@@ -369,9 +369,9 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.EditForumTopic().create({
-    "chat_id": ...,  # `$STRING`
-    "message_thread_id": ...,  # `$INTEGER`
-    "ok": ...,  # `$BOOLEAN`
+    "chat_id": "example",  # str
+    "message_thread_id": 1,  # int
+    "ok": True,  # bool
 })
 ```
 
@@ -414,7 +414,7 @@ file = client.File()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `file_id` | ``$STRING`` | Yes |  |
+| `file_id` | `str` | Yes |  |
 
 ### Operations
 
@@ -424,7 +424,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.File().create({
-    "file_id": ...,  # `$STRING`
+    "file_id": "example",  # str
 })
 ```
 
@@ -467,10 +467,10 @@ forum_topic = client.ForumTopic()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `icon_color` | ``$INTEGER`` | No |  |
-| `icon_custom_emoji_id` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | Yes |  |
+| `chat_id` | `str` | Yes |  |
+| `icon_color` | `int` | No |  |
+| `icon_custom_emoji_id` | `str` | No |  |
+| `name` | `str` | Yes |  |
 
 ### Operations
 
@@ -480,8 +480,8 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.ForumTopic().create({
-    "chat_id": ...,  # `$STRING`
-    "name": ...,  # `$STRING`
+    "chat_id": "example",  # str
+    "name": "example",  # str
 })
 ```
 
@@ -524,14 +524,14 @@ get_business_account_gift = client.GetBusinessAccountGift()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `exclude_from_blockchain` | ``$BOOLEAN`` | No |  |
-| `exclude_limited_non_upgradable` | ``$BOOLEAN`` | No |  |
-| `exclude_limited_upgradable` | ``$BOOLEAN`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `description` | `str` | No |  |
+| `error_code` | `int` | No |  |
+| `exclude_from_blockchain` | `bool` | No |  |
+| `exclude_limited_non_upgradable` | `bool` | No |  |
+| `exclude_limited_upgradable` | `bool` | No |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `dict` | No |  |
+| `result` | `Any` | No |  |
 
 ### Operations
 
@@ -541,7 +541,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.GetBusinessAccountGift().create({
-    "ok": ...,  # `$BOOLEAN`
+    "ok": True,  # bool
 })
 ```
 
@@ -584,12 +584,12 @@ get_chat_gift = client.GetChatGift()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `chat_id` | `str` | Yes |  |
+| `description` | `str` | No |  |
+| `error_code` | `int` | No |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `dict` | No |  |
+| `result` | `Any` | No |  |
 
 ### Operations
 
@@ -599,8 +599,8 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.GetChatGift().create({
-    "chat_id": ...,  # `$STRING`
-    "ok": ...,  # `$BOOLEAN`
+    "chat_id": "example",  # str
+    "ok": True,  # bool
 })
 ```
 
@@ -643,11 +643,11 @@ get_me = client.GetMe()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `description` | `str` | No |  |
+| `error_code` | `int` | No |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `dict` | No |  |
+| `result` | `Any` | No |  |
 
 ### Operations
 
@@ -657,7 +657,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.GetMe().create({
-    "ok": ...,  # `$BOOLEAN`
+    "ok": True,  # bool
 })
 ```
 
@@ -666,7 +666,7 @@ result = client.GetMe().create({
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.GetMe().load({"id": "get_me_id"})
+result = client.GetMe().load()
 ```
 
 ### Common Methods
@@ -708,12 +708,12 @@ get_user_gift = client.GetUserGift()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
-| `user_id` | ``$INTEGER`` | Yes |  |
+| `description` | `str` | No |  |
+| `error_code` | `int` | No |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `dict` | No |  |
+| `result` | `Any` | No |  |
+| `user_id` | `int` | Yes |  |
 
 ### Operations
 
@@ -723,8 +723,8 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.GetUserGift().create({
-    "ok": ...,  # `$BOOLEAN`
-    "user_id": ...,  # `$INTEGER`
+    "ok": True,  # bool
+    "user_id": 1,  # int
 })
 ```
 
@@ -767,12 +767,12 @@ get_user_profile_audio = client.GetUserProfileAudio()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
-| `user_id` | ``$INTEGER`` | Yes |  |
+| `description` | `str` | No |  |
+| `error_code` | `int` | No |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `dict` | No |  |
+| `result` | `Any` | No |  |
+| `user_id` | `int` | Yes |  |
 
 ### Operations
 
@@ -782,8 +782,8 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.GetUserProfileAudio().create({
-    "ok": ...,  # `$BOOLEAN`
-    "user_id": ...,  # `$INTEGER`
+    "ok": True,  # bool
+    "user_id": 1,  # int
 })
 ```
 
@@ -826,22 +826,22 @@ message = client.Message()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `direct_messages_topic_id` | ``$INTEGER`` | No |  |
-| `disable_notification` | ``$BOOLEAN`` | No |  |
-| `disable_web_page_preview` | ``$BOOLEAN`` | No |  |
-| `from_chat_id` | ``$STRING`` | Yes |  |
-| `latitude` | ``$NUMBER`` | Yes |  |
-| `longitude` | ``$NUMBER`` | Yes |  |
-| `message_effect_id` | ``$STRING`` | No |  |
-| `message_id` | ``$INTEGER`` | Yes |  |
-| `message_thread_id` | ``$INTEGER`` | No |  |
-| `option` | ``$ARRAY`` | Yes |  |
-| `parse_mode` | ``$STRING`` | No |  |
-| `protect_content` | ``$BOOLEAN`` | No |  |
-| `question` | ``$STRING`` | Yes |  |
-| `reply_to_message_id` | ``$INTEGER`` | No |  |
-| `text` | ``$STRING`` | Yes |  |
+| `chat_id` | `str` | Yes |  |
+| `direct_messages_topic_id` | `int` | No |  |
+| `disable_notification` | `bool` | No |  |
+| `disable_web_page_preview` | `bool` | No |  |
+| `from_chat_id` | `str` | Yes |  |
+| `latitude` | `float` | Yes |  |
+| `longitude` | `float` | Yes |  |
+| `message_effect_id` | `str` | No |  |
+| `message_id` | `int` | Yes |  |
+| `message_thread_id` | `int` | No |  |
+| `option` | `list` | Yes |  |
+| `parse_mode` | `str` | No |  |
+| `protect_content` | `bool` | No |  |
+| `question` | `str` | Yes |  |
+| `reply_to_message_id` | `int` | No |  |
+| `text` | `str` | Yes |  |
 
 ### Operations
 
@@ -851,14 +851,14 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.Message().create({
-    "chat_id": ...,  # `$STRING`
-    "from_chat_id": ...,  # `$STRING`
-    "latitude": ...,  # `$NUMBER`
-    "longitude": ...,  # `$NUMBER`
-    "message_id": ...,  # `$INTEGER`
-    "option": ...,  # `$ARRAY`
-    "question": ...,  # `$STRING`
-    "text": ...,  # `$STRING`
+    "chat_id": "example",  # str
+    "from_chat_id": "example",  # str
+    "latitude": 1,  # float
+    "longitude": 1,  # float
+    "message_id": 1,  # int
+    "option": [],  # list
+    "question": "example",  # str
+    "text": "example",  # str
 })
 ```
 
@@ -901,12 +901,12 @@ message_id = client.MessageId()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `direct_messages_topic_id` | ``$INTEGER`` | No |  |
-| `from_chat_id` | ``$STRING`` | Yes |  |
-| `message_effect_id` | ``$STRING`` | No |  |
-| `message_id` | ``$INTEGER`` | Yes |  |
-| `message_thread_id` | ``$INTEGER`` | No |  |
+| `chat_id` | `str` | Yes |  |
+| `direct_messages_topic_id` | `int` | No |  |
+| `from_chat_id` | `str` | Yes |  |
+| `message_effect_id` | `str` | No |  |
+| `message_id` | `int` | Yes |  |
+| `message_thread_id` | `int` | No |  |
 
 ### Operations
 
@@ -916,9 +916,9 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.MessageId().create({
-    "chat_id": ...,  # `$STRING`
-    "from_chat_id": ...,  # `$STRING`
-    "message_id": ...,  # `$INTEGER`
+    "chat_id": "example",  # str
+    "from_chat_id": "example",  # str
+    "message_id": 1,  # int
 })
 ```
 
@@ -961,18 +961,18 @@ promote_chat_member = client.PromoteChatMember()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `can_delete_message` | ``$BOOLEAN`` | No |  |
-| `can_edit_message` | ``$BOOLEAN`` | No |  |
-| `can_manage_chat` | ``$BOOLEAN`` | No |  |
-| `can_manage_direct_message` | ``$BOOLEAN`` | No |  |
-| `can_post_message` | ``$BOOLEAN`` | No |  |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
-| `user_id` | ``$INTEGER`` | Yes |  |
+| `can_delete_message` | `bool` | No |  |
+| `can_edit_message` | `bool` | No |  |
+| `can_manage_chat` | `bool` | No |  |
+| `can_manage_direct_message` | `bool` | No |  |
+| `can_post_message` | `bool` | No |  |
+| `chat_id` | `str` | Yes |  |
+| `description` | `str` | No |  |
+| `error_code` | `int` | No |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `dict` | No |  |
+| `result` | `Any` | No |  |
+| `user_id` | `int` | Yes |  |
 
 ### Operations
 
@@ -982,9 +982,9 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.PromoteChatMember().create({
-    "chat_id": ...,  # `$STRING`
-    "ok": ...,  # `$BOOLEAN`
-    "user_id": ...,  # `$INTEGER`
+    "chat_id": "example",  # str
+    "ok": True,  # bool
+    "user_id": 1,  # int
 })
 ```
 
@@ -1027,11 +1027,11 @@ remove_my_profile_photo = client.RemoveMyProfilePhoto()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `description` | `str` | No |  |
+| `error_code` | `int` | No |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `dict` | No |  |
+| `result` | `Any` | No |  |
 
 ### Operations
 
@@ -1041,7 +1041,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.RemoveMyProfilePhoto().create({
-    "ok": ...,  # `$BOOLEAN`
+    "ok": True,  # bool
 })
 ```
 
@@ -1084,13 +1084,13 @@ repost_story = client.RepostStory()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
-| `story_id` | ``$INTEGER`` | Yes |  |
+| `chat_id` | `str` | Yes |  |
+| `description` | `str` | No |  |
+| `error_code` | `int` | No |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `dict` | No |  |
+| `result` | `Any` | No |  |
+| `story_id` | `int` | Yes |  |
 
 ### Operations
 
@@ -1100,9 +1100,9 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.RepostStory().create({
-    "chat_id": ...,  # `$STRING`
-    "ok": ...,  # `$BOOLEAN`
-    "story_id": ...,  # `$INTEGER`
+    "chat_id": "example",  # str
+    "ok": True,  # bool
+    "story_id": 1,  # int
 })
 ```
 
@@ -1145,14 +1145,14 @@ send_chat_action = client.SendChatAction()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `action` | ``$STRING`` | Yes |  |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `message_thread_id` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `action` | `str` | Yes |  |
+| `chat_id` | `str` | Yes |  |
+| `description` | `str` | No |  |
+| `error_code` | `int` | No |  |
+| `message_thread_id` | `int` | No |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `dict` | No |  |
+| `result` | `Any` | No |  |
 
 ### Operations
 
@@ -1162,9 +1162,9 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.SendChatAction().create({
-    "action": ...,  # `$STRING`
-    "chat_id": ...,  # `$STRING`
-    "ok": ...,  # `$BOOLEAN`
+    "action": "example",  # str
+    "chat_id": "example",  # str
+    "ok": True,  # bool
 })
 ```
 
@@ -1207,14 +1207,14 @@ send_message_draft = client.SendMessageDraft()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `message_thread_id` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
-| `text` | ``$STRING`` | Yes |  |
+| `chat_id` | `str` | Yes |  |
+| `description` | `str` | No |  |
+| `error_code` | `int` | No |  |
+| `message_thread_id` | `int` | No |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `dict` | No |  |
+| `result` | `Any` | No |  |
+| `text` | `str` | Yes |  |
 
 ### Operations
 
@@ -1224,9 +1224,9 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.SendMessageDraft().create({
-    "chat_id": ...,  # `$STRING`
-    "ok": ...,  # `$BOOLEAN`
-    "text": ...,  # `$STRING`
+    "chat_id": "example",  # str
+    "ok": True,  # bool
+    "text": "example",  # str
 })
 ```
 
@@ -1269,11 +1269,11 @@ set_my_profile_photo = client.SetMyProfilePhoto()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `description` | `str` | No |  |
+| `error_code` | `int` | No |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `dict` | No |  |
+| `result` | `Any` | No |  |
 
 ### Operations
 
@@ -1283,7 +1283,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.SetMyProfilePhoto().create({
-    "ok": ...,  # `$BOOLEAN`
+    "ok": True,  # bool
 })
 ```
 
@@ -1326,13 +1326,13 @@ unpin_all_forum_topic_message = client.UnpinAllForumTopicMessage()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `message_thread_id` | ``$INTEGER`` | Yes |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `chat_id` | `str` | Yes |  |
+| `description` | `str` | No |  |
+| `error_code` | `int` | No |  |
+| `message_thread_id` | `int` | Yes |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `dict` | No |  |
+| `result` | `Any` | No |  |
 
 ### Operations
 
@@ -1342,9 +1342,9 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.UnpinAllForumTopicMessage().create({
-    "chat_id": ...,  # `$STRING`
-    "message_thread_id": ...,  # `$INTEGER`
-    "ok": ...,  # `$BOOLEAN`
+    "chat_id": "example",  # str
+    "message_thread_id": 1,  # int
+    "ok": True,  # bool
 })
 ```
 
@@ -1387,15 +1387,15 @@ update = client.Update()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `allowed_update` | ``$ARRAY`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `limit` | ``$INTEGER`` | No |  |
-| `offset` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ARRAY`` | No |  |
-| `timeout` | ``$INTEGER`` | No |  |
+| `allowed_update` | `list` | No |  |
+| `description` | `str` | No |  |
+| `error_code` | `int` | No |  |
+| `limit` | `int` | No |  |
+| `offset` | `int` | No |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `dict` | No |  |
+| `result` | `list` | No |  |
+| `timeout` | `int` | No |  |
 
 ### Operations
 
@@ -1405,16 +1405,16 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.Update().create({
-    "ok": ...,  # `$BOOLEAN`
+    "ok": True,  # bool
 })
 ```
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Update().list({})
+results = client.Update().list()
 for update in results:
     print(update)
 ```

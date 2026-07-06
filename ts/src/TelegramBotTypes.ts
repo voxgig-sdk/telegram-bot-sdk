@@ -15,7 +15,15 @@ export interface ApproveSuggestedPost {
   result?: any
 }
 
-export type ApproveSuggestedPostCreateData = Partial<ApproveSuggestedPost>
+export interface ApproveSuggestedPostCreateData {
+  chat_id: string
+  description?: string
+  error_code?: number
+  message_id: number
+  ok: boolean
+  parameter?: Record<string, any>
+  result?: any
+}
 
 export interface DeclineSuggestedPost {
   chat_id: string
@@ -27,7 +35,15 @@ export interface DeclineSuggestedPost {
   result?: any
 }
 
-export type DeclineSuggestedPostCreateData = Partial<DeclineSuggestedPost>
+export interface DeclineSuggestedPostCreateData {
+  chat_id: string
+  description?: string
+  error_code?: number
+  message_id: number
+  ok: boolean
+  parameter?: Record<string, any>
+  result?: any
+}
 
 export interface DeleteForumTopic {
   chat_id: string
@@ -39,7 +55,15 @@ export interface DeleteForumTopic {
   result?: any
 }
 
-export type DeleteForumTopicCreateData = Partial<DeleteForumTopic>
+export interface DeleteForumTopicCreateData {
+  chat_id: string
+  description?: string
+  error_code?: number
+  message_thread_id: number
+  ok: boolean
+  parameter?: Record<string, any>
+  result?: any
+}
 
 export interface EditForumTopic {
   chat_id: string
@@ -53,13 +77,25 @@ export interface EditForumTopic {
   result?: any
 }
 
-export type EditForumTopicCreateData = Partial<EditForumTopic>
+export interface EditForumTopicCreateData {
+  chat_id: string
+  description?: string
+  error_code?: number
+  icon_custom_emoji_id?: string
+  message_thread_id: number
+  name?: string
+  ok: boolean
+  parameter?: Record<string, any>
+  result?: any
+}
 
 export interface File {
   file_id: string
 }
 
-export type FileCreateData = Partial<File>
+export interface FileCreateData {
+  file_id: string
+}
 
 export interface ForumTopic {
   chat_id: string
@@ -68,7 +104,12 @@ export interface ForumTopic {
   name: string
 }
 
-export type ForumTopicCreateData = Partial<ForumTopic>
+export interface ForumTopicCreateData {
+  chat_id: string
+  icon_color?: number
+  icon_custom_emoji_id?: string
+  name: string
+}
 
 export interface GetBusinessAccountGift {
   description?: string
@@ -81,7 +122,16 @@ export interface GetBusinessAccountGift {
   result?: any
 }
 
-export type GetBusinessAccountGiftCreateData = Partial<GetBusinessAccountGift>
+export interface GetBusinessAccountGiftCreateData {
+  description?: string
+  error_code?: number
+  exclude_from_blockchain?: boolean
+  exclude_limited_non_upgradable?: boolean
+  exclude_limited_upgradable?: boolean
+  ok: boolean
+  parameter?: Record<string, any>
+  result?: any
+}
 
 export interface GetChatGift {
   chat_id: string
@@ -92,7 +142,14 @@ export interface GetChatGift {
   result?: any
 }
 
-export type GetChatGiftCreateData = Partial<GetChatGift>
+export interface GetChatGiftCreateData {
+  chat_id: string
+  description?: string
+  error_code?: number
+  ok: boolean
+  parameter?: Record<string, any>
+  result?: any
+}
 
 export interface GetMe {
   description?: string
@@ -102,9 +159,21 @@ export interface GetMe {
   result?: any
 }
 
-export type GetMeLoadMatch = Partial<GetMe>
+export interface GetMeLoadMatch {
+  description?: string
+  error_code?: number
+  ok?: boolean
+  parameter?: Record<string, any>
+  result?: any
+}
 
-export type GetMeCreateData = Partial<GetMe>
+export interface GetMeCreateData {
+  description?: string
+  error_code?: number
+  ok: boolean
+  parameter?: Record<string, any>
+  result?: any
+}
 
 export interface GetUserGift {
   description?: string
@@ -115,7 +184,14 @@ export interface GetUserGift {
   user_id: number
 }
 
-export type GetUserGiftCreateData = Partial<GetUserGift>
+export interface GetUserGiftCreateData {
+  description?: string
+  error_code?: number
+  ok: boolean
+  parameter?: Record<string, any>
+  result?: any
+  user_id: number
+}
 
 export interface GetUserProfileAudio {
   description?: string
@@ -126,7 +202,14 @@ export interface GetUserProfileAudio {
   user_id: number
 }
 
-export type GetUserProfileAudioCreateData = Partial<GetUserProfileAudio>
+export interface GetUserProfileAudioCreateData {
+  description?: string
+  error_code?: number
+  ok: boolean
+  parameter?: Record<string, any>
+  result?: any
+  user_id: number
+}
 
 export interface Message {
   chat_id: string
@@ -147,7 +230,24 @@ export interface Message {
   text: string
 }
 
-export type MessageCreateData = Partial<Message>
+export interface MessageCreateData {
+  chat_id: string
+  direct_messages_topic_id?: number
+  disable_notification?: boolean
+  disable_web_page_preview?: boolean
+  from_chat_id: string
+  latitude: number
+  longitude: number
+  message_effect_id?: string
+  message_id: number
+  message_thread_id?: number
+  option: any[]
+  parse_mode?: string
+  protect_content?: boolean
+  question: string
+  reply_to_message_id?: number
+  text: string
+}
 
 export interface MessageId {
   chat_id: string
@@ -158,7 +258,14 @@ export interface MessageId {
   message_thread_id?: number
 }
 
-export type MessageIdCreateData = Partial<MessageId>
+export interface MessageIdCreateData {
+  chat_id: string
+  direct_messages_topic_id?: number
+  from_chat_id: string
+  message_effect_id?: string
+  message_id: number
+  message_thread_id?: number
+}
 
 export interface PromoteChatMember {
   can_delete_message?: boolean
@@ -175,7 +282,20 @@ export interface PromoteChatMember {
   user_id: number
 }
 
-export type PromoteChatMemberCreateData = Partial<PromoteChatMember>
+export interface PromoteChatMemberCreateData {
+  can_delete_message?: boolean
+  can_edit_message?: boolean
+  can_manage_chat?: boolean
+  can_manage_direct_message?: boolean
+  can_post_message?: boolean
+  chat_id: string
+  description?: string
+  error_code?: number
+  ok: boolean
+  parameter?: Record<string, any>
+  result?: any
+  user_id: number
+}
 
 export interface RemoveMyProfilePhoto {
   description?: string
@@ -185,7 +305,13 @@ export interface RemoveMyProfilePhoto {
   result?: any
 }
 
-export type RemoveMyProfilePhotoCreateData = Partial<RemoveMyProfilePhoto>
+export interface RemoveMyProfilePhotoCreateData {
+  description?: string
+  error_code?: number
+  ok: boolean
+  parameter?: Record<string, any>
+  result?: any
+}
 
 export interface RepostStory {
   chat_id: string
@@ -197,7 +323,15 @@ export interface RepostStory {
   story_id: number
 }
 
-export type RepostStoryCreateData = Partial<RepostStory>
+export interface RepostStoryCreateData {
+  chat_id: string
+  description?: string
+  error_code?: number
+  ok: boolean
+  parameter?: Record<string, any>
+  result?: any
+  story_id: number
+}
 
 export interface SendChatAction {
   action: string
@@ -210,7 +344,16 @@ export interface SendChatAction {
   result?: any
 }
 
-export type SendChatActionCreateData = Partial<SendChatAction>
+export interface SendChatActionCreateData {
+  action: string
+  chat_id: string
+  description?: string
+  error_code?: number
+  message_thread_id?: number
+  ok: boolean
+  parameter?: Record<string, any>
+  result?: any
+}
 
 export interface SendMessageDraft {
   chat_id: string
@@ -223,7 +366,16 @@ export interface SendMessageDraft {
   text: string
 }
 
-export type SendMessageDraftCreateData = Partial<SendMessageDraft>
+export interface SendMessageDraftCreateData {
+  chat_id: string
+  description?: string
+  error_code?: number
+  message_thread_id?: number
+  ok: boolean
+  parameter?: Record<string, any>
+  result?: any
+  text: string
+}
 
 export interface SetMyProfilePhoto {
   description?: string
@@ -233,7 +385,13 @@ export interface SetMyProfilePhoto {
   result?: any
 }
 
-export type SetMyProfilePhotoCreateData = Partial<SetMyProfilePhoto>
+export interface SetMyProfilePhotoCreateData {
+  description?: string
+  error_code?: number
+  ok: boolean
+  parameter?: Record<string, any>
+  result?: any
+}
 
 export interface UnpinAllForumTopicMessage {
   chat_id: string
@@ -245,7 +403,15 @@ export interface UnpinAllForumTopicMessage {
   result?: any
 }
 
-export type UnpinAllForumTopicMessageCreateData = Partial<UnpinAllForumTopicMessage>
+export interface UnpinAllForumTopicMessageCreateData {
+  chat_id: string
+  description?: string
+  error_code?: number
+  message_thread_id: number
+  ok: boolean
+  parameter?: Record<string, any>
+  result?: any
+}
 
 export interface Update {
   allowed_update?: any[]
@@ -259,7 +425,27 @@ export interface Update {
   timeout?: number
 }
 
-export type UpdateListMatch = Partial<Update>
+export interface UpdateListMatch {
+  allowed_update?: any[]
+  description?: string
+  error_code?: number
+  limit?: number
+  offset?: number
+  ok?: boolean
+  parameter?: Record<string, any>
+  result?: any[]
+  timeout?: number
+}
 
-export type UpdateCreateData = Partial<Update>
+export interface UpdateCreateData {
+  allowed_update?: any[]
+  description?: string
+  error_code?: number
+  limit?: number
+  offset?: number
+  ok: boolean
+  parameter?: Record<string, any>
+  result?: any[]
+  timeout?: number
+}
 

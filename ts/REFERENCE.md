@@ -357,13 +357,13 @@ const approve_suggested_post = client.ApproveSuggestedPost()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `message_id` | ``$INTEGER`` | Yes |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `chat_id` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `message_id` | `number` | Yes |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `Record<string, any>` | No |  |
+| `result` | `any` | No |  |
 
 ### Operations
 
@@ -373,9 +373,9 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.ApproveSuggestedPost().create({
-  chat_id: /* `$STRING` */,
-  message_id: /* `$INTEGER` */,
-  ok: /* `$BOOLEAN` */,
+  chat_id: /* string */,
+  message_id: /* number */,
+  ok: /* boolean */,
 })
 ```
 
@@ -417,13 +417,13 @@ const decline_suggested_post = client.DeclineSuggestedPost()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `message_id` | ``$INTEGER`` | Yes |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `chat_id` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `message_id` | `number` | Yes |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `Record<string, any>` | No |  |
+| `result` | `any` | No |  |
 
 ### Operations
 
@@ -433,9 +433,9 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.DeclineSuggestedPost().create({
-  chat_id: /* `$STRING` */,
-  message_id: /* `$INTEGER` */,
-  ok: /* `$BOOLEAN` */,
+  chat_id: /* string */,
+  message_id: /* number */,
+  ok: /* boolean */,
 })
 ```
 
@@ -477,13 +477,13 @@ const delete_forum_topic = client.DeleteForumTopic()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `message_thread_id` | ``$INTEGER`` | Yes |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `chat_id` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `message_thread_id` | `number` | Yes |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `Record<string, any>` | No |  |
+| `result` | `any` | No |  |
 
 ### Operations
 
@@ -493,9 +493,9 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.DeleteForumTopic().create({
-  chat_id: /* `$STRING` */,
-  message_thread_id: /* `$INTEGER` */,
-  ok: /* `$BOOLEAN` */,
+  chat_id: /* string */,
+  message_thread_id: /* number */,
+  ok: /* boolean */,
 })
 ```
 
@@ -537,15 +537,15 @@ const edit_forum_topic = client.EditForumTopic()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `icon_custom_emoji_id` | ``$STRING`` | No |  |
-| `message_thread_id` | ``$INTEGER`` | Yes |  |
-| `name` | ``$STRING`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `chat_id` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `icon_custom_emoji_id` | `string` | No |  |
+| `message_thread_id` | `number` | Yes |  |
+| `name` | `string` | No |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `Record<string, any>` | No |  |
+| `result` | `any` | No |  |
 
 ### Operations
 
@@ -555,9 +555,9 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.EditForumTopic().create({
-  chat_id: /* `$STRING` */,
-  message_thread_id: /* `$INTEGER` */,
-  ok: /* `$BOOLEAN` */,
+  chat_id: /* string */,
+  message_thread_id: /* number */,
+  ok: /* boolean */,
 })
 ```
 
@@ -599,7 +599,7 @@ const file = client.File()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `file_id` | ``$STRING`` | Yes |  |
+| `file_id` | `string` | Yes |  |
 
 ### Operations
 
@@ -609,7 +609,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.File().create({
-  file_id: /* `$STRING` */,
+  file_id: /* string */,
 })
 ```
 
@@ -651,10 +651,10 @@ const forum_topic = client.ForumTopic()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `icon_color` | ``$INTEGER`` | No |  |
-| `icon_custom_emoji_id` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | Yes |  |
+| `chat_id` | `string` | Yes |  |
+| `icon_color` | `number` | No |  |
+| `icon_custom_emoji_id` | `string` | No |  |
+| `name` | `string` | Yes |  |
 
 ### Operations
 
@@ -664,8 +664,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.ForumTopic().create({
-  chat_id: /* `$STRING` */,
-  name: /* `$STRING` */,
+  chat_id: /* string */,
+  name: /* string */,
 })
 ```
 
@@ -707,14 +707,14 @@ const get_business_account_gift = client.GetBusinessAccountGift()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `exclude_from_blockchain` | ``$BOOLEAN`` | No |  |
-| `exclude_limited_non_upgradable` | ``$BOOLEAN`` | No |  |
-| `exclude_limited_upgradable` | ``$BOOLEAN`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `exclude_from_blockchain` | `boolean` | No |  |
+| `exclude_limited_non_upgradable` | `boolean` | No |  |
+| `exclude_limited_upgradable` | `boolean` | No |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `Record<string, any>` | No |  |
+| `result` | `any` | No |  |
 
 ### Operations
 
@@ -724,7 +724,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.GetBusinessAccountGift().create({
-  ok: /* `$BOOLEAN` */,
+  ok: /* boolean */,
 })
 ```
 
@@ -766,12 +766,12 @@ const get_chat_gift = client.GetChatGift()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `chat_id` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `Record<string, any>` | No |  |
+| `result` | `any` | No |  |
 
 ### Operations
 
@@ -781,8 +781,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.GetChatGift().create({
-  chat_id: /* `$STRING` */,
-  ok: /* `$BOOLEAN` */,
+  chat_id: /* string */,
+  ok: /* boolean */,
 })
 ```
 
@@ -824,11 +824,11 @@ const get_me = client.GetMe()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `Record<string, any>` | No |  |
+| `result` | `any` | No |  |
 
 ### Operations
 
@@ -838,7 +838,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.GetMe().create({
-  ok: /* `$BOOLEAN` */,
+  ok: /* boolean */,
 })
 ```
 
@@ -847,7 +847,7 @@ const result = await client.GetMe().create({
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.GetMe().load({ id: 'get_me_id' })
+const result = await client.GetMe().load()
 ```
 
 ### Common Methods
@@ -888,12 +888,12 @@ const get_user_gift = client.GetUserGift()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
-| `user_id` | ``$INTEGER`` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `Record<string, any>` | No |  |
+| `result` | `any` | No |  |
+| `user_id` | `number` | Yes |  |
 
 ### Operations
 
@@ -903,8 +903,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.GetUserGift().create({
-  ok: /* `$BOOLEAN` */,
-  user_id: /* `$INTEGER` */,
+  ok: /* boolean */,
+  user_id: /* number */,
 })
 ```
 
@@ -946,12 +946,12 @@ const get_user_profile_audio = client.GetUserProfileAudio()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
-| `user_id` | ``$INTEGER`` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `Record<string, any>` | No |  |
+| `result` | `any` | No |  |
+| `user_id` | `number` | Yes |  |
 
 ### Operations
 
@@ -961,8 +961,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.GetUserProfileAudio().create({
-  ok: /* `$BOOLEAN` */,
-  user_id: /* `$INTEGER` */,
+  ok: /* boolean */,
+  user_id: /* number */,
 })
 ```
 
@@ -1004,22 +1004,22 @@ const message = client.Message()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `direct_messages_topic_id` | ``$INTEGER`` | No |  |
-| `disable_notification` | ``$BOOLEAN`` | No |  |
-| `disable_web_page_preview` | ``$BOOLEAN`` | No |  |
-| `from_chat_id` | ``$STRING`` | Yes |  |
-| `latitude` | ``$NUMBER`` | Yes |  |
-| `longitude` | ``$NUMBER`` | Yes |  |
-| `message_effect_id` | ``$STRING`` | No |  |
-| `message_id` | ``$INTEGER`` | Yes |  |
-| `message_thread_id` | ``$INTEGER`` | No |  |
-| `option` | ``$ARRAY`` | Yes |  |
-| `parse_mode` | ``$STRING`` | No |  |
-| `protect_content` | ``$BOOLEAN`` | No |  |
-| `question` | ``$STRING`` | Yes |  |
-| `reply_to_message_id` | ``$INTEGER`` | No |  |
-| `text` | ``$STRING`` | Yes |  |
+| `chat_id` | `string` | Yes |  |
+| `direct_messages_topic_id` | `number` | No |  |
+| `disable_notification` | `boolean` | No |  |
+| `disable_web_page_preview` | `boolean` | No |  |
+| `from_chat_id` | `string` | Yes |  |
+| `latitude` | `number` | Yes |  |
+| `longitude` | `number` | Yes |  |
+| `message_effect_id` | `string` | No |  |
+| `message_id` | `number` | Yes |  |
+| `message_thread_id` | `number` | No |  |
+| `option` | `any[]` | Yes |  |
+| `parse_mode` | `string` | No |  |
+| `protect_content` | `boolean` | No |  |
+| `question` | `string` | Yes |  |
+| `reply_to_message_id` | `number` | No |  |
+| `text` | `string` | Yes |  |
 
 ### Operations
 
@@ -1029,14 +1029,14 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Message().create({
-  chat_id: /* `$STRING` */,
-  from_chat_id: /* `$STRING` */,
-  latitude: /* `$NUMBER` */,
-  longitude: /* `$NUMBER` */,
-  message_id: /* `$INTEGER` */,
-  option: /* `$ARRAY` */,
-  question: /* `$STRING` */,
-  text: /* `$STRING` */,
+  chat_id: /* string */,
+  from_chat_id: /* string */,
+  latitude: /* number */,
+  longitude: /* number */,
+  message_id: /* number */,
+  option: /* any[] */,
+  question: /* string */,
+  text: /* string */,
 })
 ```
 
@@ -1078,12 +1078,12 @@ const message_id = client.MessageId()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `direct_messages_topic_id` | ``$INTEGER`` | No |  |
-| `from_chat_id` | ``$STRING`` | Yes |  |
-| `message_effect_id` | ``$STRING`` | No |  |
-| `message_id` | ``$INTEGER`` | Yes |  |
-| `message_thread_id` | ``$INTEGER`` | No |  |
+| `chat_id` | `string` | Yes |  |
+| `direct_messages_topic_id` | `number` | No |  |
+| `from_chat_id` | `string` | Yes |  |
+| `message_effect_id` | `string` | No |  |
+| `message_id` | `number` | Yes |  |
+| `message_thread_id` | `number` | No |  |
 
 ### Operations
 
@@ -1093,9 +1093,9 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.MessageId().create({
-  chat_id: /* `$STRING` */,
-  from_chat_id: /* `$STRING` */,
-  message_id: /* `$INTEGER` */,
+  chat_id: /* string */,
+  from_chat_id: /* string */,
+  message_id: /* number */,
 })
 ```
 
@@ -1137,18 +1137,18 @@ const promote_chat_member = client.PromoteChatMember()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `can_delete_message` | ``$BOOLEAN`` | No |  |
-| `can_edit_message` | ``$BOOLEAN`` | No |  |
-| `can_manage_chat` | ``$BOOLEAN`` | No |  |
-| `can_manage_direct_message` | ``$BOOLEAN`` | No |  |
-| `can_post_message` | ``$BOOLEAN`` | No |  |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
-| `user_id` | ``$INTEGER`` | Yes |  |
+| `can_delete_message` | `boolean` | No |  |
+| `can_edit_message` | `boolean` | No |  |
+| `can_manage_chat` | `boolean` | No |  |
+| `can_manage_direct_message` | `boolean` | No |  |
+| `can_post_message` | `boolean` | No |  |
+| `chat_id` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `Record<string, any>` | No |  |
+| `result` | `any` | No |  |
+| `user_id` | `number` | Yes |  |
 
 ### Operations
 
@@ -1158,9 +1158,9 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.PromoteChatMember().create({
-  chat_id: /* `$STRING` */,
-  ok: /* `$BOOLEAN` */,
-  user_id: /* `$INTEGER` */,
+  chat_id: /* string */,
+  ok: /* boolean */,
+  user_id: /* number */,
 })
 ```
 
@@ -1202,11 +1202,11 @@ const remove_my_profile_photo = client.RemoveMyProfilePhoto()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `Record<string, any>` | No |  |
+| `result` | `any` | No |  |
 
 ### Operations
 
@@ -1216,7 +1216,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.RemoveMyProfilePhoto().create({
-  ok: /* `$BOOLEAN` */,
+  ok: /* boolean */,
 })
 ```
 
@@ -1258,13 +1258,13 @@ const repost_story = client.RepostStory()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
-| `story_id` | ``$INTEGER`` | Yes |  |
+| `chat_id` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `Record<string, any>` | No |  |
+| `result` | `any` | No |  |
+| `story_id` | `number` | Yes |  |
 
 ### Operations
 
@@ -1274,9 +1274,9 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.RepostStory().create({
-  chat_id: /* `$STRING` */,
-  ok: /* `$BOOLEAN` */,
-  story_id: /* `$INTEGER` */,
+  chat_id: /* string */,
+  ok: /* boolean */,
+  story_id: /* number */,
 })
 ```
 
@@ -1318,14 +1318,14 @@ const send_chat_action = client.SendChatAction()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `action` | ``$STRING`` | Yes |  |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `message_thread_id` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `action` | `string` | Yes |  |
+| `chat_id` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `message_thread_id` | `number` | No |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `Record<string, any>` | No |  |
+| `result` | `any` | No |  |
 
 ### Operations
 
@@ -1335,9 +1335,9 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.SendChatAction().create({
-  action: /* `$STRING` */,
-  chat_id: /* `$STRING` */,
-  ok: /* `$BOOLEAN` */,
+  action: /* string */,
+  chat_id: /* string */,
+  ok: /* boolean */,
 })
 ```
 
@@ -1379,14 +1379,14 @@ const send_message_draft = client.SendMessageDraft()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `message_thread_id` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
-| `text` | ``$STRING`` | Yes |  |
+| `chat_id` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `message_thread_id` | `number` | No |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `Record<string, any>` | No |  |
+| `result` | `any` | No |  |
+| `text` | `string` | Yes |  |
 
 ### Operations
 
@@ -1396,9 +1396,9 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.SendMessageDraft().create({
-  chat_id: /* `$STRING` */,
-  ok: /* `$BOOLEAN` */,
-  text: /* `$STRING` */,
+  chat_id: /* string */,
+  ok: /* boolean */,
+  text: /* string */,
 })
 ```
 
@@ -1440,11 +1440,11 @@ const set_my_profile_photo = client.SetMyProfilePhoto()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `Record<string, any>` | No |  |
+| `result` | `any` | No |  |
 
 ### Operations
 
@@ -1454,7 +1454,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.SetMyProfilePhoto().create({
-  ok: /* `$BOOLEAN` */,
+  ok: /* boolean */,
 })
 ```
 
@@ -1496,13 +1496,13 @@ const unpin_all_forum_topic_message = client.UnpinAllForumTopicMessage()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `message_thread_id` | ``$INTEGER`` | Yes |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `chat_id` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `message_thread_id` | `number` | Yes |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `Record<string, any>` | No |  |
+| `result` | `any` | No |  |
 
 ### Operations
 
@@ -1512,9 +1512,9 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.UnpinAllForumTopicMessage().create({
-  chat_id: /* `$STRING` */,
-  message_thread_id: /* `$INTEGER` */,
-  ok: /* `$BOOLEAN` */,
+  chat_id: /* string */,
+  message_thread_id: /* number */,
+  ok: /* boolean */,
 })
 ```
 
@@ -1556,15 +1556,15 @@ const update = client.Update()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `allowed_update` | ``$ARRAY`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `limit` | ``$INTEGER`` | No |  |
-| `offset` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ARRAY`` | No |  |
-| `timeout` | ``$INTEGER`` | No |  |
+| `allowed_update` | `any[]` | No |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `limit` | `number` | No |  |
+| `offset` | `number` | No |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `Record<string, any>` | No |  |
+| `result` | `any[]` | No |  |
+| `timeout` | `number` | No |  |
 
 ### Operations
 
@@ -1574,7 +1574,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Update().create({
-  ok: /* `$BOOLEAN` */,
+  ok: /* boolean */,
 })
 ```
 

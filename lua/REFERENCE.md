@@ -171,13 +171,13 @@ local approve_suggested_post = client:ApproveSuggestedPost(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `message_id` | ``$INTEGER`` | Yes |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `chat_id` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `message_id` | `number` | Yes |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `table` | No |  |
+| `result` | `any` | No |  |
 
 ### Operations
 
@@ -187,9 +187,9 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:ApproveSuggestedPost():create({
-  chat_id = --[[ `$STRING` ]],
-  message_id = --[[ `$INTEGER` ]],
-  ok = --[[ `$BOOLEAN` ]],
+  chat_id = --[[ string ]],
+  message_id = --[[ number ]],
+  ok = --[[ boolean ]],
 })
 ```
 
@@ -233,13 +233,13 @@ local decline_suggested_post = client:DeclineSuggestedPost(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `message_id` | ``$INTEGER`` | Yes |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `chat_id` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `message_id` | `number` | Yes |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `table` | No |  |
+| `result` | `any` | No |  |
 
 ### Operations
 
@@ -249,9 +249,9 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:DeclineSuggestedPost():create({
-  chat_id = --[[ `$STRING` ]],
-  message_id = --[[ `$INTEGER` ]],
-  ok = --[[ `$BOOLEAN` ]],
+  chat_id = --[[ string ]],
+  message_id = --[[ number ]],
+  ok = --[[ boolean ]],
 })
 ```
 
@@ -295,13 +295,13 @@ local delete_forum_topic = client:DeleteForumTopic(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `message_thread_id` | ``$INTEGER`` | Yes |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `chat_id` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `message_thread_id` | `number` | Yes |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `table` | No |  |
+| `result` | `any` | No |  |
 
 ### Operations
 
@@ -311,9 +311,9 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:DeleteForumTopic():create({
-  chat_id = --[[ `$STRING` ]],
-  message_thread_id = --[[ `$INTEGER` ]],
-  ok = --[[ `$BOOLEAN` ]],
+  chat_id = --[[ string ]],
+  message_thread_id = --[[ number ]],
+  ok = --[[ boolean ]],
 })
 ```
 
@@ -357,15 +357,15 @@ local edit_forum_topic = client:EditForumTopic(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `icon_custom_emoji_id` | ``$STRING`` | No |  |
-| `message_thread_id` | ``$INTEGER`` | Yes |  |
-| `name` | ``$STRING`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `chat_id` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `icon_custom_emoji_id` | `string` | No |  |
+| `message_thread_id` | `number` | Yes |  |
+| `name` | `string` | No |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `table` | No |  |
+| `result` | `any` | No |  |
 
 ### Operations
 
@@ -375,9 +375,9 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:EditForumTopic():create({
-  chat_id = --[[ `$STRING` ]],
-  message_thread_id = --[[ `$INTEGER` ]],
-  ok = --[[ `$BOOLEAN` ]],
+  chat_id = --[[ string ]],
+  message_thread_id = --[[ number ]],
+  ok = --[[ boolean ]],
 })
 ```
 
@@ -421,7 +421,7 @@ local file = client:File(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `file_id` | ``$STRING`` | Yes |  |
+| `file_id` | `string` | Yes |  |
 
 ### Operations
 
@@ -431,7 +431,7 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:File():create({
-  file_id = --[[ `$STRING` ]],
+  file_id = --[[ string ]],
 })
 ```
 
@@ -475,10 +475,10 @@ local forum_topic = client:ForumTopic(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `icon_color` | ``$INTEGER`` | No |  |
-| `icon_custom_emoji_id` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | Yes |  |
+| `chat_id` | `string` | Yes |  |
+| `icon_color` | `number` | No |  |
+| `icon_custom_emoji_id` | `string` | No |  |
+| `name` | `string` | Yes |  |
 
 ### Operations
 
@@ -488,8 +488,8 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:ForumTopic():create({
-  chat_id = --[[ `$STRING` ]],
-  name = --[[ `$STRING` ]],
+  chat_id = --[[ string ]],
+  name = --[[ string ]],
 })
 ```
 
@@ -533,14 +533,14 @@ local get_business_account_gift = client:GetBusinessAccountGift(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `exclude_from_blockchain` | ``$BOOLEAN`` | No |  |
-| `exclude_limited_non_upgradable` | ``$BOOLEAN`` | No |  |
-| `exclude_limited_upgradable` | ``$BOOLEAN`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `exclude_from_blockchain` | `boolean` | No |  |
+| `exclude_limited_non_upgradable` | `boolean` | No |  |
+| `exclude_limited_upgradable` | `boolean` | No |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `table` | No |  |
+| `result` | `any` | No |  |
 
 ### Operations
 
@@ -550,7 +550,7 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:GetBusinessAccountGift():create({
-  ok = --[[ `$BOOLEAN` ]],
+  ok = --[[ boolean ]],
 })
 ```
 
@@ -594,12 +594,12 @@ local get_chat_gift = client:GetChatGift(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `chat_id` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `table` | No |  |
+| `result` | `any` | No |  |
 
 ### Operations
 
@@ -609,8 +609,8 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:GetChatGift():create({
-  chat_id = --[[ `$STRING` ]],
-  ok = --[[ `$BOOLEAN` ]],
+  chat_id = --[[ string ]],
+  ok = --[[ boolean ]],
 })
 ```
 
@@ -654,11 +654,11 @@ local get_me = client:GetMe(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `table` | No |  |
+| `result` | `any` | No |  |
 
 ### Operations
 
@@ -668,7 +668,7 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:GetMe():create({
-  ok = --[[ `$BOOLEAN` ]],
+  ok = --[[ boolean ]],
 })
 ```
 
@@ -677,7 +677,7 @@ local result, err = client:GetMe():create({
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:GetMe():load({ id = "get_me_id" })
+local result, err = client:GetMe():load()
 ```
 
 ### Common Methods
@@ -720,12 +720,12 @@ local get_user_gift = client:GetUserGift(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
-| `user_id` | ``$INTEGER`` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `table` | No |  |
+| `result` | `any` | No |  |
+| `user_id` | `number` | Yes |  |
 
 ### Operations
 
@@ -735,8 +735,8 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:GetUserGift():create({
-  ok = --[[ `$BOOLEAN` ]],
-  user_id = --[[ `$INTEGER` ]],
+  ok = --[[ boolean ]],
+  user_id = --[[ number ]],
 })
 ```
 
@@ -780,12 +780,12 @@ local get_user_profile_audio = client:GetUserProfileAudio(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
-| `user_id` | ``$INTEGER`` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `table` | No |  |
+| `result` | `any` | No |  |
+| `user_id` | `number` | Yes |  |
 
 ### Operations
 
@@ -795,8 +795,8 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:GetUserProfileAudio():create({
-  ok = --[[ `$BOOLEAN` ]],
-  user_id = --[[ `$INTEGER` ]],
+  ok = --[[ boolean ]],
+  user_id = --[[ number ]],
 })
 ```
 
@@ -840,22 +840,22 @@ local message = client:Message(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `direct_messages_topic_id` | ``$INTEGER`` | No |  |
-| `disable_notification` | ``$BOOLEAN`` | No |  |
-| `disable_web_page_preview` | ``$BOOLEAN`` | No |  |
-| `from_chat_id` | ``$STRING`` | Yes |  |
-| `latitude` | ``$NUMBER`` | Yes |  |
-| `longitude` | ``$NUMBER`` | Yes |  |
-| `message_effect_id` | ``$STRING`` | No |  |
-| `message_id` | ``$INTEGER`` | Yes |  |
-| `message_thread_id` | ``$INTEGER`` | No |  |
-| `option` | ``$ARRAY`` | Yes |  |
-| `parse_mode` | ``$STRING`` | No |  |
-| `protect_content` | ``$BOOLEAN`` | No |  |
-| `question` | ``$STRING`` | Yes |  |
-| `reply_to_message_id` | ``$INTEGER`` | No |  |
-| `text` | ``$STRING`` | Yes |  |
+| `chat_id` | `string` | Yes |  |
+| `direct_messages_topic_id` | `number` | No |  |
+| `disable_notification` | `boolean` | No |  |
+| `disable_web_page_preview` | `boolean` | No |  |
+| `from_chat_id` | `string` | Yes |  |
+| `latitude` | `number` | Yes |  |
+| `longitude` | `number` | Yes |  |
+| `message_effect_id` | `string` | No |  |
+| `message_id` | `number` | Yes |  |
+| `message_thread_id` | `number` | No |  |
+| `option` | `table` | Yes |  |
+| `parse_mode` | `string` | No |  |
+| `protect_content` | `boolean` | No |  |
+| `question` | `string` | Yes |  |
+| `reply_to_message_id` | `number` | No |  |
+| `text` | `string` | Yes |  |
 
 ### Operations
 
@@ -865,14 +865,14 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:Message():create({
-  chat_id = --[[ `$STRING` ]],
-  from_chat_id = --[[ `$STRING` ]],
-  latitude = --[[ `$NUMBER` ]],
-  longitude = --[[ `$NUMBER` ]],
-  message_id = --[[ `$INTEGER` ]],
-  option = --[[ `$ARRAY` ]],
-  question = --[[ `$STRING` ]],
-  text = --[[ `$STRING` ]],
+  chat_id = --[[ string ]],
+  from_chat_id = --[[ string ]],
+  latitude = --[[ number ]],
+  longitude = --[[ number ]],
+  message_id = --[[ number ]],
+  option = --[[ table ]],
+  question = --[[ string ]],
+  text = --[[ string ]],
 })
 ```
 
@@ -916,12 +916,12 @@ local message_id = client:MessageId(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `direct_messages_topic_id` | ``$INTEGER`` | No |  |
-| `from_chat_id` | ``$STRING`` | Yes |  |
-| `message_effect_id` | ``$STRING`` | No |  |
-| `message_id` | ``$INTEGER`` | Yes |  |
-| `message_thread_id` | ``$INTEGER`` | No |  |
+| `chat_id` | `string` | Yes |  |
+| `direct_messages_topic_id` | `number` | No |  |
+| `from_chat_id` | `string` | Yes |  |
+| `message_effect_id` | `string` | No |  |
+| `message_id` | `number` | Yes |  |
+| `message_thread_id` | `number` | No |  |
 
 ### Operations
 
@@ -931,9 +931,9 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:MessageId():create({
-  chat_id = --[[ `$STRING` ]],
-  from_chat_id = --[[ `$STRING` ]],
-  message_id = --[[ `$INTEGER` ]],
+  chat_id = --[[ string ]],
+  from_chat_id = --[[ string ]],
+  message_id = --[[ number ]],
 })
 ```
 
@@ -977,18 +977,18 @@ local promote_chat_member = client:PromoteChatMember(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `can_delete_message` | ``$BOOLEAN`` | No |  |
-| `can_edit_message` | ``$BOOLEAN`` | No |  |
-| `can_manage_chat` | ``$BOOLEAN`` | No |  |
-| `can_manage_direct_message` | ``$BOOLEAN`` | No |  |
-| `can_post_message` | ``$BOOLEAN`` | No |  |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
-| `user_id` | ``$INTEGER`` | Yes |  |
+| `can_delete_message` | `boolean` | No |  |
+| `can_edit_message` | `boolean` | No |  |
+| `can_manage_chat` | `boolean` | No |  |
+| `can_manage_direct_message` | `boolean` | No |  |
+| `can_post_message` | `boolean` | No |  |
+| `chat_id` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `table` | No |  |
+| `result` | `any` | No |  |
+| `user_id` | `number` | Yes |  |
 
 ### Operations
 
@@ -998,9 +998,9 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:PromoteChatMember():create({
-  chat_id = --[[ `$STRING` ]],
-  ok = --[[ `$BOOLEAN` ]],
-  user_id = --[[ `$INTEGER` ]],
+  chat_id = --[[ string ]],
+  ok = --[[ boolean ]],
+  user_id = --[[ number ]],
 })
 ```
 
@@ -1044,11 +1044,11 @@ local remove_my_profile_photo = client:RemoveMyProfilePhoto(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `table` | No |  |
+| `result` | `any` | No |  |
 
 ### Operations
 
@@ -1058,7 +1058,7 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:RemoveMyProfilePhoto():create({
-  ok = --[[ `$BOOLEAN` ]],
+  ok = --[[ boolean ]],
 })
 ```
 
@@ -1102,13 +1102,13 @@ local repost_story = client:RepostStory(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
-| `story_id` | ``$INTEGER`` | Yes |  |
+| `chat_id` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `table` | No |  |
+| `result` | `any` | No |  |
+| `story_id` | `number` | Yes |  |
 
 ### Operations
 
@@ -1118,9 +1118,9 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:RepostStory():create({
-  chat_id = --[[ `$STRING` ]],
-  ok = --[[ `$BOOLEAN` ]],
-  story_id = --[[ `$INTEGER` ]],
+  chat_id = --[[ string ]],
+  ok = --[[ boolean ]],
+  story_id = --[[ number ]],
 })
 ```
 
@@ -1164,14 +1164,14 @@ local send_chat_action = client:SendChatAction(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `action` | ``$STRING`` | Yes |  |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `message_thread_id` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `action` | `string` | Yes |  |
+| `chat_id` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `message_thread_id` | `number` | No |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `table` | No |  |
+| `result` | `any` | No |  |
 
 ### Operations
 
@@ -1181,9 +1181,9 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:SendChatAction():create({
-  action = --[[ `$STRING` ]],
-  chat_id = --[[ `$STRING` ]],
-  ok = --[[ `$BOOLEAN` ]],
+  action = --[[ string ]],
+  chat_id = --[[ string ]],
+  ok = --[[ boolean ]],
 })
 ```
 
@@ -1227,14 +1227,14 @@ local send_message_draft = client:SendMessageDraft(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `message_thread_id` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
-| `text` | ``$STRING`` | Yes |  |
+| `chat_id` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `message_thread_id` | `number` | No |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `table` | No |  |
+| `result` | `any` | No |  |
+| `text` | `string` | Yes |  |
 
 ### Operations
 
@@ -1244,9 +1244,9 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:SendMessageDraft():create({
-  chat_id = --[[ `$STRING` ]],
-  ok = --[[ `$BOOLEAN` ]],
-  text = --[[ `$STRING` ]],
+  chat_id = --[[ string ]],
+  ok = --[[ boolean ]],
+  text = --[[ string ]],
 })
 ```
 
@@ -1290,11 +1290,11 @@ local set_my_profile_photo = client:SetMyProfilePhoto(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `table` | No |  |
+| `result` | `any` | No |  |
 
 ### Operations
 
@@ -1304,7 +1304,7 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:SetMyProfilePhoto():create({
-  ok = --[[ `$BOOLEAN` ]],
+  ok = --[[ boolean ]],
 })
 ```
 
@@ -1348,13 +1348,13 @@ local unpin_all_forum_topic_message = client:UnpinAllForumTopicMessage(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `message_thread_id` | ``$INTEGER`` | Yes |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `chat_id` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `message_thread_id` | `number` | Yes |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `table` | No |  |
+| `result` | `any` | No |  |
 
 ### Operations
 
@@ -1364,9 +1364,9 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:UnpinAllForumTopicMessage():create({
-  chat_id = --[[ `$STRING` ]],
-  message_thread_id = --[[ `$INTEGER` ]],
-  ok = --[[ `$BOOLEAN` ]],
+  chat_id = --[[ string ]],
+  message_thread_id = --[[ number ]],
+  ok = --[[ boolean ]],
 })
 ```
 
@@ -1410,15 +1410,15 @@ local update = client:Update(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `allowed_update` | ``$ARRAY`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `limit` | ``$INTEGER`` | No |  |
-| `offset` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ARRAY`` | No |  |
-| `timeout` | ``$INTEGER`` | No |  |
+| `allowed_update` | `table` | No |  |
+| `description` | `string` | No |  |
+| `error_code` | `number` | No |  |
+| `limit` | `number` | No |  |
+| `offset` | `number` | No |  |
+| `ok` | `boolean` | Yes |  |
+| `parameter` | `table` | No |  |
+| `result` | `table` | No |  |
+| `timeout` | `number` | No |  |
 
 ### Operations
 
@@ -1428,7 +1428,7 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:Update():create({
-  ok = --[[ `$BOOLEAN` ]],
+  ok = --[[ boolean ]],
 })
 ```
 

@@ -41,10 +41,10 @@ ApproveSuggestedPost = Struct.new(
   keyword_init: true
 )
 
-# Match filter for ApproveSuggestedPost#create (any subset of ApproveSuggestedPost fields).
+# Request payload for ApproveSuggestedPost#create.
 #
 # @!attribute [rw] chat_id
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] description
 #   @return [String, nil]
@@ -53,10 +53,10 @@ ApproveSuggestedPost = Struct.new(
 #   @return [Integer, nil]
 #
 # @!attribute [rw] message_id
-#   @return [Integer, nil]
+#   @return [Integer]
 #
 # @!attribute [rw] ok
-#   @return [Boolean, nil]
+#   @return [Boolean]
 #
 # @!attribute [rw] parameter
 #   @return [Hash, nil]
@@ -107,10 +107,10 @@ DeclineSuggestedPost = Struct.new(
   keyword_init: true
 )
 
-# Match filter for DeclineSuggestedPost#create (any subset of DeclineSuggestedPost fields).
+# Request payload for DeclineSuggestedPost#create.
 #
 # @!attribute [rw] chat_id
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] description
 #   @return [String, nil]
@@ -119,10 +119,10 @@ DeclineSuggestedPost = Struct.new(
 #   @return [Integer, nil]
 #
 # @!attribute [rw] message_id
-#   @return [Integer, nil]
+#   @return [Integer]
 #
 # @!attribute [rw] ok
-#   @return [Boolean, nil]
+#   @return [Boolean]
 #
 # @!attribute [rw] parameter
 #   @return [Hash, nil]
@@ -173,10 +173,10 @@ DeleteForumTopic = Struct.new(
   keyword_init: true
 )
 
-# Match filter for DeleteForumTopic#create (any subset of DeleteForumTopic fields).
+# Request payload for DeleteForumTopic#create.
 #
 # @!attribute [rw] chat_id
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] description
 #   @return [String, nil]
@@ -185,10 +185,10 @@ DeleteForumTopic = Struct.new(
 #   @return [Integer, nil]
 #
 # @!attribute [rw] message_thread_id
-#   @return [Integer, nil]
+#   @return [Integer]
 #
 # @!attribute [rw] ok
-#   @return [Boolean, nil]
+#   @return [Boolean]
 #
 # @!attribute [rw] parameter
 #   @return [Hash, nil]
@@ -247,10 +247,10 @@ EditForumTopic = Struct.new(
   keyword_init: true
 )
 
-# Match filter for EditForumTopic#create (any subset of EditForumTopic fields).
+# Request payload for EditForumTopic#create.
 #
 # @!attribute [rw] chat_id
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] description
 #   @return [String, nil]
@@ -262,13 +262,13 @@ EditForumTopic = Struct.new(
 #   @return [String, nil]
 #
 # @!attribute [rw] message_thread_id
-#   @return [Integer, nil]
+#   @return [Integer]
 #
 # @!attribute [rw] name
 #   @return [String, nil]
 #
 # @!attribute [rw] ok
-#   @return [Boolean, nil]
+#   @return [Boolean]
 #
 # @!attribute [rw] parameter
 #   @return [Hash, nil]
@@ -297,10 +297,10 @@ File = Struct.new(
   keyword_init: true
 )
 
-# Match filter for File#create (any subset of File fields).
+# Request payload for File#create.
 #
 # @!attribute [rw] file_id
-#   @return [String, nil]
+#   @return [String]
 FileCreateData = Struct.new(
   :file_id,
   keyword_init: true
@@ -327,10 +327,10 @@ ForumTopic = Struct.new(
   keyword_init: true
 )
 
-# Match filter for ForumTopic#create (any subset of ForumTopic fields).
+# Request payload for ForumTopic#create.
 #
 # @!attribute [rw] chat_id
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] icon_color
 #   @return [Integer, nil]
@@ -339,7 +339,7 @@ ForumTopic = Struct.new(
 #   @return [String, nil]
 #
 # @!attribute [rw] name
-#   @return [String, nil]
+#   @return [String]
 ForumTopicCreateData = Struct.new(
   :chat_id,
   :icon_color,
@@ -385,7 +385,7 @@ GetBusinessAccountGift = Struct.new(
   keyword_init: true
 )
 
-# Match filter for GetBusinessAccountGift#create (any subset of GetBusinessAccountGift fields).
+# Request payload for GetBusinessAccountGift#create.
 #
 # @!attribute [rw] description
 #   @return [String, nil]
@@ -403,7 +403,7 @@ GetBusinessAccountGift = Struct.new(
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] ok
-#   @return [Boolean, nil]
+#   @return [Boolean]
 #
 # @!attribute [rw] parameter
 #   @return [Hash, nil]
@@ -451,10 +451,10 @@ GetChatGift = Struct.new(
   keyword_init: true
 )
 
-# Match filter for GetChatGift#create (any subset of GetChatGift fields).
+# Request payload for GetChatGift#create.
 #
 # @!attribute [rw] chat_id
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] description
 #   @return [String, nil]
@@ -463,7 +463,7 @@ GetChatGift = Struct.new(
 #   @return [Integer, nil]
 #
 # @!attribute [rw] ok
-#   @return [Boolean, nil]
+#   @return [Boolean]
 #
 # @!attribute [rw] parameter
 #   @return [Hash, nil]
@@ -505,7 +505,7 @@ GetMe = Struct.new(
   keyword_init: true
 )
 
-# Match filter for GetMe#load (any subset of GetMe fields).
+# Request payload for GetMe#load.
 #
 # @!attribute [rw] description
 #   @return [String, nil]
@@ -530,7 +530,7 @@ GetMeLoadMatch = Struct.new(
   keyword_init: true
 )
 
-# Match filter for GetMe#create (any subset of GetMe fields).
+# Request payload for GetMe#create.
 #
 # @!attribute [rw] description
 #   @return [String, nil]
@@ -539,7 +539,7 @@ GetMeLoadMatch = Struct.new(
 #   @return [Integer, nil]
 #
 # @!attribute [rw] ok
-#   @return [Boolean, nil]
+#   @return [Boolean]
 #
 # @!attribute [rw] parameter
 #   @return [Hash, nil]
@@ -584,7 +584,7 @@ GetUserGift = Struct.new(
   keyword_init: true
 )
 
-# Match filter for GetUserGift#create (any subset of GetUserGift fields).
+# Request payload for GetUserGift#create.
 #
 # @!attribute [rw] description
 #   @return [String, nil]
@@ -593,7 +593,7 @@ GetUserGift = Struct.new(
 #   @return [Integer, nil]
 #
 # @!attribute [rw] ok
-#   @return [Boolean, nil]
+#   @return [Boolean]
 #
 # @!attribute [rw] parameter
 #   @return [Hash, nil]
@@ -602,7 +602,7 @@ GetUserGift = Struct.new(
 #   @return [Object, nil]
 #
 # @!attribute [rw] user_id
-#   @return [Integer, nil]
+#   @return [Integer]
 GetUserGiftCreateData = Struct.new(
   :description,
   :error_code,
@@ -642,7 +642,7 @@ GetUserProfileAudio = Struct.new(
   keyword_init: true
 )
 
-# Match filter for GetUserProfileAudio#create (any subset of GetUserProfileAudio fields).
+# Request payload for GetUserProfileAudio#create.
 #
 # @!attribute [rw] description
 #   @return [String, nil]
@@ -651,7 +651,7 @@ GetUserProfileAudio = Struct.new(
 #   @return [Integer, nil]
 #
 # @!attribute [rw] ok
-#   @return [Boolean, nil]
+#   @return [Boolean]
 #
 # @!attribute [rw] parameter
 #   @return [Hash, nil]
@@ -660,7 +660,7 @@ GetUserProfileAudio = Struct.new(
 #   @return [Object, nil]
 #
 # @!attribute [rw] user_id
-#   @return [Integer, nil]
+#   @return [Integer]
 GetUserProfileAudioCreateData = Struct.new(
   :description,
   :error_code,
@@ -740,10 +740,10 @@ Message = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Message#create (any subset of Message fields).
+# Request payload for Message#create.
 #
 # @!attribute [rw] chat_id
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] direct_messages_topic_id
 #   @return [Integer, nil]
@@ -755,25 +755,25 @@ Message = Struct.new(
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] from_chat_id
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] latitude
-#   @return [Float, nil]
+#   @return [Float]
 #
 # @!attribute [rw] longitude
-#   @return [Float, nil]
+#   @return [Float]
 #
 # @!attribute [rw] message_effect_id
 #   @return [String, nil]
 #
 # @!attribute [rw] message_id
-#   @return [Integer, nil]
+#   @return [Integer]
 #
 # @!attribute [rw] message_thread_id
 #   @return [Integer, nil]
 #
 # @!attribute [rw] option
-#   @return [Array, nil]
+#   @return [Array]
 #
 # @!attribute [rw] parse_mode
 #   @return [String, nil]
@@ -782,13 +782,13 @@ Message = Struct.new(
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] question
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] reply_to_message_id
 #   @return [Integer, nil]
 #
 # @!attribute [rw] text
-#   @return [String, nil]
+#   @return [String]
 MessageCreateData = Struct.new(
   :chat_id,
   :direct_messages_topic_id,
@@ -838,22 +838,22 @@ MessageId = Struct.new(
   keyword_init: true
 )
 
-# Match filter for MessageId#create (any subset of MessageId fields).
+# Request payload for MessageId#create.
 #
 # @!attribute [rw] chat_id
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] direct_messages_topic_id
 #   @return [Integer, nil]
 #
 # @!attribute [rw] from_chat_id
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] message_effect_id
 #   @return [String, nil]
 #
 # @!attribute [rw] message_id
-#   @return [Integer, nil]
+#   @return [Integer]
 #
 # @!attribute [rw] message_thread_id
 #   @return [Integer, nil]
@@ -920,7 +920,7 @@ PromoteChatMember = Struct.new(
   keyword_init: true
 )
 
-# Match filter for PromoteChatMember#create (any subset of PromoteChatMember fields).
+# Request payload for PromoteChatMember#create.
 #
 # @!attribute [rw] can_delete_message
 #   @return [Boolean, nil]
@@ -938,7 +938,7 @@ PromoteChatMember = Struct.new(
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] chat_id
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] description
 #   @return [String, nil]
@@ -947,7 +947,7 @@ PromoteChatMember = Struct.new(
 #   @return [Integer, nil]
 #
 # @!attribute [rw] ok
-#   @return [Boolean, nil]
+#   @return [Boolean]
 #
 # @!attribute [rw] parameter
 #   @return [Hash, nil]
@@ -956,7 +956,7 @@ PromoteChatMember = Struct.new(
 #   @return [Object, nil]
 #
 # @!attribute [rw] user_id
-#   @return [Integer, nil]
+#   @return [Integer]
 PromoteChatMemberCreateData = Struct.new(
   :can_delete_message,
   :can_edit_message,
@@ -998,7 +998,7 @@ RemoveMyProfilePhoto = Struct.new(
   keyword_init: true
 )
 
-# Match filter for RemoveMyProfilePhoto#create (any subset of RemoveMyProfilePhoto fields).
+# Request payload for RemoveMyProfilePhoto#create.
 #
 # @!attribute [rw] description
 #   @return [String, nil]
@@ -1007,7 +1007,7 @@ RemoveMyProfilePhoto = Struct.new(
 #   @return [Integer, nil]
 #
 # @!attribute [rw] ok
-#   @return [Boolean, nil]
+#   @return [Boolean]
 #
 # @!attribute [rw] parameter
 #   @return [Hash, nil]
@@ -1056,10 +1056,10 @@ RepostStory = Struct.new(
   keyword_init: true
 )
 
-# Match filter for RepostStory#create (any subset of RepostStory fields).
+# Request payload for RepostStory#create.
 #
 # @!attribute [rw] chat_id
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] description
 #   @return [String, nil]
@@ -1068,7 +1068,7 @@ RepostStory = Struct.new(
 #   @return [Integer, nil]
 #
 # @!attribute [rw] ok
-#   @return [Boolean, nil]
+#   @return [Boolean]
 #
 # @!attribute [rw] parameter
 #   @return [Hash, nil]
@@ -1077,7 +1077,7 @@ RepostStory = Struct.new(
 #   @return [Object, nil]
 #
 # @!attribute [rw] story_id
-#   @return [Integer, nil]
+#   @return [Integer]
 RepostStoryCreateData = Struct.new(
   :chat_id,
   :description,
@@ -1126,13 +1126,13 @@ SendChatAction = Struct.new(
   keyword_init: true
 )
 
-# Match filter for SendChatAction#create (any subset of SendChatAction fields).
+# Request payload for SendChatAction#create.
 #
 # @!attribute [rw] action
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] chat_id
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] description
 #   @return [String, nil]
@@ -1144,7 +1144,7 @@ SendChatAction = Struct.new(
 #   @return [Integer, nil]
 #
 # @!attribute [rw] ok
-#   @return [Boolean, nil]
+#   @return [Boolean]
 #
 # @!attribute [rw] parameter
 #   @return [Hash, nil]
@@ -1200,10 +1200,10 @@ SendMessageDraft = Struct.new(
   keyword_init: true
 )
 
-# Match filter for SendMessageDraft#create (any subset of SendMessageDraft fields).
+# Request payload for SendMessageDraft#create.
 #
 # @!attribute [rw] chat_id
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] description
 #   @return [String, nil]
@@ -1215,7 +1215,7 @@ SendMessageDraft = Struct.new(
 #   @return [Integer, nil]
 #
 # @!attribute [rw] ok
-#   @return [Boolean, nil]
+#   @return [Boolean]
 #
 # @!attribute [rw] parameter
 #   @return [Hash, nil]
@@ -1224,7 +1224,7 @@ SendMessageDraft = Struct.new(
 #   @return [Object, nil]
 #
 # @!attribute [rw] text
-#   @return [String, nil]
+#   @return [String]
 SendMessageDraftCreateData = Struct.new(
   :chat_id,
   :description,
@@ -1262,7 +1262,7 @@ SetMyProfilePhoto = Struct.new(
   keyword_init: true
 )
 
-# Match filter for SetMyProfilePhoto#create (any subset of SetMyProfilePhoto fields).
+# Request payload for SetMyProfilePhoto#create.
 #
 # @!attribute [rw] description
 #   @return [String, nil]
@@ -1271,7 +1271,7 @@ SetMyProfilePhoto = Struct.new(
 #   @return [Integer, nil]
 #
 # @!attribute [rw] ok
-#   @return [Boolean, nil]
+#   @return [Boolean]
 #
 # @!attribute [rw] parameter
 #   @return [Hash, nil]
@@ -1320,10 +1320,10 @@ UnpinAllForumTopicMessage = Struct.new(
   keyword_init: true
 )
 
-# Match filter for UnpinAllForumTopicMessage#create (any subset of UnpinAllForumTopicMessage fields).
+# Request payload for UnpinAllForumTopicMessage#create.
 #
 # @!attribute [rw] chat_id
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] description
 #   @return [String, nil]
@@ -1332,10 +1332,10 @@ UnpinAllForumTopicMessage = Struct.new(
 #   @return [Integer, nil]
 #
 # @!attribute [rw] message_thread_id
-#   @return [Integer, nil]
+#   @return [Integer]
 #
 # @!attribute [rw] ok
-#   @return [Boolean, nil]
+#   @return [Boolean]
 #
 # @!attribute [rw] parameter
 #   @return [Hash, nil]
@@ -1394,7 +1394,7 @@ Update = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Update#list (any subset of Update fields).
+# Request payload for Update#list.
 #
 # @!attribute [rw] allowed_update
 #   @return [Array, nil]
@@ -1435,7 +1435,7 @@ UpdateListMatch = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Update#create (any subset of Update fields).
+# Request payload for Update#create.
 #
 # @!attribute [rw] allowed_update
 #   @return [Array, nil]
@@ -1453,7 +1453,7 @@ UpdateListMatch = Struct.new(
 #   @return [Integer, nil]
 #
 # @!attribute [rw] ok
-#   @return [Boolean, nil]
+#   @return [Boolean]
 #
 # @!attribute [rw] parameter
 #   @return [Hash, nil]

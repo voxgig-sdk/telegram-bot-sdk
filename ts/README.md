@@ -4,6 +4,11 @@
 
 The TypeScript SDK for the TelegramBot API — a type-safe, entity-oriented client with full async/await support.
 
+The API is exposed as capitalised, semantic **Entities** — e.g.
+`client.ApproveSuggestedPost()` — each with a small set of operations (`list`, `load`, `create`)
+instead of raw URL paths and query parameters. This keeps the surface
+predictable and low-friction for both humans and AI agents.
+
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
 
@@ -35,9 +40,40 @@ const client = new TelegramBotSDK({
 ```ts
 // Create — returns the created ApproveSuggestedPost
 const created = await client.ApproveSuggestedPost().create({
-  name: 'Example',
+  chat_id: 'example_chat_id',
+  message_id: 1,
+  ok: true,
 })
 
+```
+
+
+## Error handling
+
+Entity operations reject on failure, so wrap them in `try` / `catch`:
+
+```ts
+try {
+  const approvesuggestedpost = await client.ApproveSuggestedPost().create({ chat_id: "example", message_id: 1, ok: true })
+  console.log(approvesuggestedpost)
+} catch (err) {
+  console.error('create failed:', err)
+}
+```
+
+The low-level `direct()` method does **not** throw — it returns the
+value or an `Error`, so check the result before using it:
+
+```ts
+const result = await client.direct({
+  path: '/api/resource/{id}',
+  method: 'GET',
+  params: { id: 'example_id' },
+})
+
+if (result instanceof Error) {
+  throw result
+}
 ```
 
 
@@ -85,7 +121,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = TelegramBotSDK.test()
 
-const approvesuggestedpost = await client.ApproveSuggestedPost().load({ id: 'test01' })
+const approvesuggestedpost = await client.ApproveSuggestedPost().create({ chat_id: 'example_chat_id', message_id: 1, ok: true })
 // approvesuggestedpost is a bare entity populated with mock response data
 console.log(approvesuggestedpost)
 ```
@@ -104,12 +140,12 @@ Entity instances remember their last match and data:
 ```ts
 const entity = client.ApproveSuggestedPost()
 
-// First call sets internal match
-await entity.load({ id: 'example' })
+// First call runs the operation and stores its result
+await entity.create({ chat_id: 'example_chat_id', message_id: 1, ok: true })
 
-// Subsequent calls reuse the stored match
+// Subsequent calls reuse the stored state
 const data = entity.data()
-console.log(data.id) // 'example'
+console.log(data)
 ```
 
 ### Add custom middleware
@@ -224,10 +260,8 @@ All entities share the same interface.
 | `load` | `load(reqmatch?, ctrl?): Promise<Entity>` | Load a single entity by match criteria. |
 | `list` | `list(reqmatch?, ctrl?): Promise<Entity[]>` | List entities matching the criteria. |
 | `create` | `create(reqdata?, ctrl?): Promise<Entity>` | Create a new entity. |
-| `update` | `update(reqdata?, ctrl?): Promise<Entity>` | Update an existing entity. |
-| `remove` | `remove(reqmatch?, ctrl?): Promise<void>` | Remove an entity. |
-| `data` | `data(data?): any` | Get or set entity data. |
-| `match` | `match(match?): any` | Get or set entity match criteria. |
+| `data` | `data(data?: Partial<Entity>): Entity` | Get or set entity data. |
+| `match` | `match(match?: Partial<Entity>): Partial<Entity>` | Get or set entity match criteria. |
 | `make` | `make(): Entity` | Create a new instance with the same options. |
 | `client` | `client(): TelegramBotSDK` | Return the parent SDK client. |
 | `entopts` | `entopts(): object` | Return a copy of the entity options. |
@@ -237,10 +271,9 @@ All entities share the same interface.
 Entity operations resolve to the entity data directly — there is no
 result envelope:
 
-- `load`, `create` and `update` resolve to a single entity object.
+- `load` and `create` resolve to a single entity object.
 - `list` resolves to an **array** of entity objects (iterate it directly;
   there is no `.data` and no `.ok`).
-- `remove` resolves to `void`.
 
 On a failed request these methods **throw**, so wrap calls in
 `try`/`catch` to handle errors. Only `direct()` returns the result
@@ -633,21 +666,21 @@ Create an instance: `const approve_suggested_post = client.ApproveSuggestedPost(
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `message_id` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `chat_id` | `string` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `message_id` | `number` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `Record<string, any>` |  |
+| `result` | `any` |  |
 
 #### Example: Create
 
 ```ts
 const approve_suggested_post = await client.ApproveSuggestedPost().create({
-  chat_id: /* `$STRING` */,
-  message_id: /* `$INTEGER` */,
-  ok: /* `$BOOLEAN` */,
+  chat_id: /* string */,
+  message_id: /* number */,
+  ok: /* boolean */,
 })
 ```
 
@@ -666,21 +699,21 @@ Create an instance: `const decline_suggested_post = client.DeclineSuggestedPost(
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `message_id` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `chat_id` | `string` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `message_id` | `number` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `Record<string, any>` |  |
+| `result` | `any` |  |
 
 #### Example: Create
 
 ```ts
 const decline_suggested_post = await client.DeclineSuggestedPost().create({
-  chat_id: /* `$STRING` */,
-  message_id: /* `$INTEGER` */,
-  ok: /* `$BOOLEAN` */,
+  chat_id: /* string */,
+  message_id: /* number */,
+  ok: /* boolean */,
 })
 ```
 
@@ -699,21 +732,21 @@ Create an instance: `const delete_forum_topic = client.DeleteForumTopic()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `message_thread_id` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `chat_id` | `string` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `message_thread_id` | `number` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `Record<string, any>` |  |
+| `result` | `any` |  |
 
 #### Example: Create
 
 ```ts
 const delete_forum_topic = await client.DeleteForumTopic().create({
-  chat_id: /* `$STRING` */,
-  message_thread_id: /* `$INTEGER` */,
-  ok: /* `$BOOLEAN` */,
+  chat_id: /* string */,
+  message_thread_id: /* number */,
+  ok: /* boolean */,
 })
 ```
 
@@ -732,23 +765,23 @@ Create an instance: `const edit_forum_topic = client.EditForumTopic()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `icon_custom_emoji_id` | ``$STRING`` |  |
-| `message_thread_id` | ``$INTEGER`` |  |
-| `name` | ``$STRING`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `chat_id` | `string` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `icon_custom_emoji_id` | `string` |  |
+| `message_thread_id` | `number` |  |
+| `name` | `string` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `Record<string, any>` |  |
+| `result` | `any` |  |
 
 #### Example: Create
 
 ```ts
 const edit_forum_topic = await client.EditForumTopic().create({
-  chat_id: /* `$STRING` */,
-  message_thread_id: /* `$INTEGER` */,
-  ok: /* `$BOOLEAN` */,
+  chat_id: /* string */,
+  message_thread_id: /* number */,
+  ok: /* boolean */,
 })
 ```
 
@@ -767,13 +800,13 @@ Create an instance: `const file = client.File()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `file_id` | ``$STRING`` |  |
+| `file_id` | `string` |  |
 
 #### Example: Create
 
 ```ts
 const file = await client.File().create({
-  file_id: /* `$STRING` */,
+  file_id: /* string */,
 })
 ```
 
@@ -792,17 +825,17 @@ Create an instance: `const forum_topic = client.ForumTopic()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `icon_color` | ``$INTEGER`` |  |
-| `icon_custom_emoji_id` | ``$STRING`` |  |
-| `name` | ``$STRING`` |  |
+| `chat_id` | `string` |  |
+| `icon_color` | `number` |  |
+| `icon_custom_emoji_id` | `string` |  |
+| `name` | `string` |  |
 
 #### Example: Create
 
 ```ts
 const forum_topic = await client.ForumTopic().create({
-  chat_id: /* `$STRING` */,
-  name: /* `$STRING` */,
+  chat_id: /* string */,
+  name: /* string */,
 })
 ```
 
@@ -821,20 +854,20 @@ Create an instance: `const get_business_account_gift = client.GetBusinessAccount
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `exclude_from_blockchain` | ``$BOOLEAN`` |  |
-| `exclude_limited_non_upgradable` | ``$BOOLEAN`` |  |
-| `exclude_limited_upgradable` | ``$BOOLEAN`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `exclude_from_blockchain` | `boolean` |  |
+| `exclude_limited_non_upgradable` | `boolean` |  |
+| `exclude_limited_upgradable` | `boolean` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `Record<string, any>` |  |
+| `result` | `any` |  |
 
 #### Example: Create
 
 ```ts
 const get_business_account_gift = await client.GetBusinessAccountGift().create({
-  ok: /* `$BOOLEAN` */,
+  ok: /* boolean */,
 })
 ```
 
@@ -853,19 +886,19 @@ Create an instance: `const get_chat_gift = client.GetChatGift()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `chat_id` | `string` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `Record<string, any>` |  |
+| `result` | `any` |  |
 
 #### Example: Create
 
 ```ts
 const get_chat_gift = await client.GetChatGift().create({
-  chat_id: /* `$STRING` */,
-  ok: /* `$BOOLEAN` */,
+  chat_id: /* string */,
+  ok: /* boolean */,
 })
 ```
 
@@ -885,23 +918,23 @@ Create an instance: `const get_me = client.GetMe()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `Record<string, any>` |  |
+| `result` | `any` |  |
 
 #### Example: Load
 
 ```ts
-const get_me = await client.GetMe().load({ id: 'get_me_id' })
+const get_me = await client.GetMe().load()
 ```
 
 #### Example: Create
 
 ```ts
 const get_me = await client.GetMe().create({
-  ok: /* `$BOOLEAN` */,
+  ok: /* boolean */,
 })
 ```
 
@@ -920,19 +953,19 @@ Create an instance: `const get_user_gift = client.GetUserGift()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
-| `user_id` | ``$INTEGER`` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `Record<string, any>` |  |
+| `result` | `any` |  |
+| `user_id` | `number` |  |
 
 #### Example: Create
 
 ```ts
 const get_user_gift = await client.GetUserGift().create({
-  ok: /* `$BOOLEAN` */,
-  user_id: /* `$INTEGER` */,
+  ok: /* boolean */,
+  user_id: /* number */,
 })
 ```
 
@@ -951,19 +984,19 @@ Create an instance: `const get_user_profile_audio = client.GetUserProfileAudio()
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
-| `user_id` | ``$INTEGER`` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `Record<string, any>` |  |
+| `result` | `any` |  |
+| `user_id` | `number` |  |
 
 #### Example: Create
 
 ```ts
 const get_user_profile_audio = await client.GetUserProfileAudio().create({
-  ok: /* `$BOOLEAN` */,
-  user_id: /* `$INTEGER` */,
+  ok: /* boolean */,
+  user_id: /* number */,
 })
 ```
 
@@ -982,35 +1015,35 @@ Create an instance: `const message = client.Message()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `direct_messages_topic_id` | ``$INTEGER`` |  |
-| `disable_notification` | ``$BOOLEAN`` |  |
-| `disable_web_page_preview` | ``$BOOLEAN`` |  |
-| `from_chat_id` | ``$STRING`` |  |
-| `latitude` | ``$NUMBER`` |  |
-| `longitude` | ``$NUMBER`` |  |
-| `message_effect_id` | ``$STRING`` |  |
-| `message_id` | ``$INTEGER`` |  |
-| `message_thread_id` | ``$INTEGER`` |  |
-| `option` | ``$ARRAY`` |  |
-| `parse_mode` | ``$STRING`` |  |
-| `protect_content` | ``$BOOLEAN`` |  |
-| `question` | ``$STRING`` |  |
-| `reply_to_message_id` | ``$INTEGER`` |  |
-| `text` | ``$STRING`` |  |
+| `chat_id` | `string` |  |
+| `direct_messages_topic_id` | `number` |  |
+| `disable_notification` | `boolean` |  |
+| `disable_web_page_preview` | `boolean` |  |
+| `from_chat_id` | `string` |  |
+| `latitude` | `number` |  |
+| `longitude` | `number` |  |
+| `message_effect_id` | `string` |  |
+| `message_id` | `number` |  |
+| `message_thread_id` | `number` |  |
+| `option` | `any[]` |  |
+| `parse_mode` | `string` |  |
+| `protect_content` | `boolean` |  |
+| `question` | `string` |  |
+| `reply_to_message_id` | `number` |  |
+| `text` | `string` |  |
 
 #### Example: Create
 
 ```ts
 const message = await client.Message().create({
-  chat_id: /* `$STRING` */,
-  from_chat_id: /* `$STRING` */,
-  latitude: /* `$NUMBER` */,
-  longitude: /* `$NUMBER` */,
-  message_id: /* `$INTEGER` */,
-  option: /* `$ARRAY` */,
-  question: /* `$STRING` */,
-  text: /* `$STRING` */,
+  chat_id: /* string */,
+  from_chat_id: /* string */,
+  latitude: /* number */,
+  longitude: /* number */,
+  message_id: /* number */,
+  option: /* any[] */,
+  question: /* string */,
+  text: /* string */,
 })
 ```
 
@@ -1029,20 +1062,20 @@ Create an instance: `const message_id = client.MessageId()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `direct_messages_topic_id` | ``$INTEGER`` |  |
-| `from_chat_id` | ``$STRING`` |  |
-| `message_effect_id` | ``$STRING`` |  |
-| `message_id` | ``$INTEGER`` |  |
-| `message_thread_id` | ``$INTEGER`` |  |
+| `chat_id` | `string` |  |
+| `direct_messages_topic_id` | `number` |  |
+| `from_chat_id` | `string` |  |
+| `message_effect_id` | `string` |  |
+| `message_id` | `number` |  |
+| `message_thread_id` | `number` |  |
 
 #### Example: Create
 
 ```ts
 const message_id = await client.MessageId().create({
-  chat_id: /* `$STRING` */,
-  from_chat_id: /* `$STRING` */,
-  message_id: /* `$INTEGER` */,
+  chat_id: /* string */,
+  from_chat_id: /* string */,
+  message_id: /* number */,
 })
 ```
 
@@ -1061,26 +1094,26 @@ Create an instance: `const promote_chat_member = client.PromoteChatMember()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `can_delete_message` | ``$BOOLEAN`` |  |
-| `can_edit_message` | ``$BOOLEAN`` |  |
-| `can_manage_chat` | ``$BOOLEAN`` |  |
-| `can_manage_direct_message` | ``$BOOLEAN`` |  |
-| `can_post_message` | ``$BOOLEAN`` |  |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
-| `user_id` | ``$INTEGER`` |  |
+| `can_delete_message` | `boolean` |  |
+| `can_edit_message` | `boolean` |  |
+| `can_manage_chat` | `boolean` |  |
+| `can_manage_direct_message` | `boolean` |  |
+| `can_post_message` | `boolean` |  |
+| `chat_id` | `string` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `Record<string, any>` |  |
+| `result` | `any` |  |
+| `user_id` | `number` |  |
 
 #### Example: Create
 
 ```ts
 const promote_chat_member = await client.PromoteChatMember().create({
-  chat_id: /* `$STRING` */,
-  ok: /* `$BOOLEAN` */,
-  user_id: /* `$INTEGER` */,
+  chat_id: /* string */,
+  ok: /* boolean */,
+  user_id: /* number */,
 })
 ```
 
@@ -1099,17 +1132,17 @@ Create an instance: `const remove_my_profile_photo = client.RemoveMyProfilePhoto
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `Record<string, any>` |  |
+| `result` | `any` |  |
 
 #### Example: Create
 
 ```ts
 const remove_my_profile_photo = await client.RemoveMyProfilePhoto().create({
-  ok: /* `$BOOLEAN` */,
+  ok: /* boolean */,
 })
 ```
 
@@ -1128,21 +1161,21 @@ Create an instance: `const repost_story = client.RepostStory()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
-| `story_id` | ``$INTEGER`` |  |
+| `chat_id` | `string` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `Record<string, any>` |  |
+| `result` | `any` |  |
+| `story_id` | `number` |  |
 
 #### Example: Create
 
 ```ts
 const repost_story = await client.RepostStory().create({
-  chat_id: /* `$STRING` */,
-  ok: /* `$BOOLEAN` */,
-  story_id: /* `$INTEGER` */,
+  chat_id: /* string */,
+  ok: /* boolean */,
+  story_id: /* number */,
 })
 ```
 
@@ -1161,22 +1194,22 @@ Create an instance: `const send_chat_action = client.SendChatAction()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `action` | ``$STRING`` |  |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `message_thread_id` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `action` | `string` |  |
+| `chat_id` | `string` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `message_thread_id` | `number` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `Record<string, any>` |  |
+| `result` | `any` |  |
 
 #### Example: Create
 
 ```ts
 const send_chat_action = await client.SendChatAction().create({
-  action: /* `$STRING` */,
-  chat_id: /* `$STRING` */,
-  ok: /* `$BOOLEAN` */,
+  action: /* string */,
+  chat_id: /* string */,
+  ok: /* boolean */,
 })
 ```
 
@@ -1195,22 +1228,22 @@ Create an instance: `const send_message_draft = client.SendMessageDraft()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `message_thread_id` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
-| `text` | ``$STRING`` |  |
+| `chat_id` | `string` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `message_thread_id` | `number` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `Record<string, any>` |  |
+| `result` | `any` |  |
+| `text` | `string` |  |
 
 #### Example: Create
 
 ```ts
 const send_message_draft = await client.SendMessageDraft().create({
-  chat_id: /* `$STRING` */,
-  ok: /* `$BOOLEAN` */,
-  text: /* `$STRING` */,
+  chat_id: /* string */,
+  ok: /* boolean */,
+  text: /* string */,
 })
 ```
 
@@ -1229,17 +1262,17 @@ Create an instance: `const set_my_profile_photo = client.SetMyProfilePhoto()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `Record<string, any>` |  |
+| `result` | `any` |  |
 
 #### Example: Create
 
 ```ts
 const set_my_profile_photo = await client.SetMyProfilePhoto().create({
-  ok: /* `$BOOLEAN` */,
+  ok: /* boolean */,
 })
 ```
 
@@ -1258,21 +1291,21 @@ Create an instance: `const unpin_all_forum_topic_message = client.UnpinAllForumT
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `message_thread_id` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `chat_id` | `string` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `message_thread_id` | `number` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `Record<string, any>` |  |
+| `result` | `any` |  |
 
 #### Example: Create
 
 ```ts
 const unpin_all_forum_topic_message = await client.UnpinAllForumTopicMessage().create({
-  chat_id: /* `$STRING` */,
-  message_thread_id: /* `$INTEGER` */,
-  ok: /* `$BOOLEAN` */,
+  chat_id: /* string */,
+  message_thread_id: /* number */,
+  ok: /* boolean */,
 })
 ```
 
@@ -1292,15 +1325,15 @@ Create an instance: `const update = client.Update()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `allowed_update` | ``$ARRAY`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `limit` | ``$INTEGER`` |  |
-| `offset` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ARRAY`` |  |
-| `timeout` | ``$INTEGER`` |  |
+| `allowed_update` | `any[]` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `limit` | `number` |  |
+| `offset` | `number` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `Record<string, any>` |  |
+| `result` | `any[]` |  |
+| `timeout` | `number` |  |
 
 #### Example: List
 
@@ -1312,17 +1345,21 @@ const updates = await client.Update().list()
 
 ```ts
 const update = await client.Update().create({
-  ok: /* `$BOOLEAN` */,
+  ok: /* boolean */,
 })
 ```
 
 
-## Explanation
+## Advanced
+
+> The sections above cover everyday use. The material below explains the
+> SDK's internals — useful when extending it with custom features, but not
+> needed for normal use.
 
 ### The operation pipeline
 
-Every entity operation (load, list, create, update, remove) follows a
-six-stage pipeline. Each stage fires a feature hook before executing:
+Every entity operation follows a six-stage pipeline. Each stage fires a
+feature hook before executing:
 
 ```
 PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
@@ -1339,11 +1376,9 @@ PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
 - **PreDone**: Final stage before returning to the caller. Entity
   state (match, data) is updated here.
 
-If any stage returns an error, the pipeline short-circuits and the
-error is returned to the caller.
-
-An unexpected exception triggers the `PreUnexpected` hook before
-propagating.
+If any stage errors, the pipeline short-circuits and the error surfaces
+to the caller — see [Error handling](#error-handling) for how that looks
+in this language.
 
 ### Features and hooks
 
@@ -1379,16 +1414,16 @@ import { TelegramBotSDK } from '@voxgig-sdk/telegram-bot'
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `create`, the entity
 stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
 const approvesuggestedpost = client.ApproveSuggestedPost()
-await approvesuggestedpost.load({ id: "example_id" })
+await approvesuggestedpost.create({ chat_id: "example", message_id: 1, ok: true })
 
-// approvesuggestedpost.data() now returns the loaded approvesuggestedpost data
-// approvesuggestedpost.match() returns { id: "example_id" }
+// approvesuggestedpost.data() now returns the approvesuggestedpost data from the last `create`
+// approvesuggestedpost.match() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

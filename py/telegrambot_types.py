@@ -29,12 +29,15 @@ class ApproveSuggestedPost(ApproveSuggestedPostRequired, total=False):
     result: Any
 
 
-class ApproveSuggestedPostCreateData(TypedDict, total=False):
+class ApproveSuggestedPostCreateDataRequired(TypedDict):
     chat_id: str
-    description: str
-    error_code: int
     message_id: int
     ok: bool
+
+
+class ApproveSuggestedPostCreateData(ApproveSuggestedPostCreateDataRequired, total=False):
+    description: str
+    error_code: int
     parameter: dict
     result: Any
 
@@ -52,12 +55,15 @@ class DeclineSuggestedPost(DeclineSuggestedPostRequired, total=False):
     result: Any
 
 
-class DeclineSuggestedPostCreateData(TypedDict, total=False):
+class DeclineSuggestedPostCreateDataRequired(TypedDict):
     chat_id: str
-    description: str
-    error_code: int
     message_id: int
     ok: bool
+
+
+class DeclineSuggestedPostCreateData(DeclineSuggestedPostCreateDataRequired, total=False):
+    description: str
+    error_code: int
     parameter: dict
     result: Any
 
@@ -75,12 +81,15 @@ class DeleteForumTopic(DeleteForumTopicRequired, total=False):
     result: Any
 
 
-class DeleteForumTopicCreateData(TypedDict, total=False):
+class DeleteForumTopicCreateDataRequired(TypedDict):
     chat_id: str
-    description: str
-    error_code: int
     message_thread_id: int
     ok: bool
+
+
+class DeleteForumTopicCreateData(DeleteForumTopicCreateDataRequired, total=False):
+    description: str
+    error_code: int
     parameter: dict
     result: Any
 
@@ -100,14 +109,17 @@ class EditForumTopic(EditForumTopicRequired, total=False):
     result: Any
 
 
-class EditForumTopicCreateData(TypedDict, total=False):
+class EditForumTopicCreateDataRequired(TypedDict):
     chat_id: str
+    message_thread_id: int
+    ok: bool
+
+
+class EditForumTopicCreateData(EditForumTopicCreateDataRequired, total=False):
     description: str
     error_code: int
     icon_custom_emoji_id: str
-    message_thread_id: int
     name: str
-    ok: bool
     parameter: dict
     result: Any
 
@@ -116,7 +128,7 @@ class File(TypedDict):
     file_id: str
 
 
-class FileCreateData(TypedDict, total=False):
+class FileCreateData(TypedDict):
     file_id: str
 
 
@@ -130,11 +142,14 @@ class ForumTopic(ForumTopicRequired, total=False):
     icon_custom_emoji_id: str
 
 
-class ForumTopicCreateData(TypedDict, total=False):
+class ForumTopicCreateDataRequired(TypedDict):
     chat_id: str
+    name: str
+
+
+class ForumTopicCreateData(ForumTopicCreateDataRequired, total=False):
     icon_color: int
     icon_custom_emoji_id: str
-    name: str
 
 
 class GetBusinessAccountGiftRequired(TypedDict):
@@ -151,13 +166,16 @@ class GetBusinessAccountGift(GetBusinessAccountGiftRequired, total=False):
     result: Any
 
 
-class GetBusinessAccountGiftCreateData(TypedDict, total=False):
+class GetBusinessAccountGiftCreateDataRequired(TypedDict):
+    ok: bool
+
+
+class GetBusinessAccountGiftCreateData(GetBusinessAccountGiftCreateDataRequired, total=False):
     description: str
     error_code: int
     exclude_from_blockchain: bool
     exclude_limited_non_upgradable: bool
     exclude_limited_upgradable: bool
-    ok: bool
     parameter: dict
     result: Any
 
@@ -174,11 +192,14 @@ class GetChatGift(GetChatGiftRequired, total=False):
     result: Any
 
 
-class GetChatGiftCreateData(TypedDict, total=False):
+class GetChatGiftCreateDataRequired(TypedDict):
     chat_id: str
+    ok: bool
+
+
+class GetChatGiftCreateData(GetChatGiftCreateDataRequired, total=False):
     description: str
     error_code: int
-    ok: bool
     parameter: dict
     result: Any
 
@@ -202,10 +223,13 @@ class GetMeLoadMatch(TypedDict, total=False):
     result: Any
 
 
-class GetMeCreateData(TypedDict, total=False):
+class GetMeCreateDataRequired(TypedDict):
+    ok: bool
+
+
+class GetMeCreateData(GetMeCreateDataRequired, total=False):
     description: str
     error_code: int
-    ok: bool
     parameter: dict
     result: Any
 
@@ -222,13 +246,16 @@ class GetUserGift(GetUserGiftRequired, total=False):
     result: Any
 
 
-class GetUserGiftCreateData(TypedDict, total=False):
+class GetUserGiftCreateDataRequired(TypedDict):
+    ok: bool
+    user_id: int
+
+
+class GetUserGiftCreateData(GetUserGiftCreateDataRequired, total=False):
     description: str
     error_code: int
-    ok: bool
     parameter: dict
     result: Any
-    user_id: int
 
 
 class GetUserProfileAudioRequired(TypedDict):
@@ -243,13 +270,16 @@ class GetUserProfileAudio(GetUserProfileAudioRequired, total=False):
     result: Any
 
 
-class GetUserProfileAudioCreateData(TypedDict, total=False):
+class GetUserProfileAudioCreateDataRequired(TypedDict):
+    ok: bool
+    user_id: int
+
+
+class GetUserProfileAudioCreateData(GetUserProfileAudioCreateDataRequired, total=False):
     description: str
     error_code: int
-    ok: bool
     parameter: dict
     result: Any
-    user_id: int
 
 
 class MessageRequired(TypedDict):
@@ -274,23 +304,26 @@ class Message(MessageRequired, total=False):
     reply_to_message_id: int
 
 
-class MessageCreateData(TypedDict, total=False):
+class MessageCreateDataRequired(TypedDict):
     chat_id: str
-    direct_messages_topic_id: int
-    disable_notification: bool
-    disable_web_page_preview: bool
     from_chat_id: str
     latitude: float
     longitude: float
-    message_effect_id: str
     message_id: int
-    message_thread_id: int
     option: list
+    question: str
+    text: str
+
+
+class MessageCreateData(MessageCreateDataRequired, total=False):
+    direct_messages_topic_id: int
+    disable_notification: bool
+    disable_web_page_preview: bool
+    message_effect_id: str
+    message_thread_id: int
     parse_mode: str
     protect_content: bool
-    question: str
     reply_to_message_id: int
-    text: str
 
 
 class MessageIdRequired(TypedDict):
@@ -305,12 +338,15 @@ class MessageId(MessageIdRequired, total=False):
     message_thread_id: int
 
 
-class MessageIdCreateData(TypedDict, total=False):
+class MessageIdCreateDataRequired(TypedDict):
     chat_id: str
-    direct_messages_topic_id: int
     from_chat_id: str
-    message_effect_id: str
     message_id: int
+
+
+class MessageIdCreateData(MessageIdCreateDataRequired, total=False):
+    direct_messages_topic_id: int
+    message_effect_id: str
     message_thread_id: int
 
 
@@ -332,19 +368,22 @@ class PromoteChatMember(PromoteChatMemberRequired, total=False):
     result: Any
 
 
-class PromoteChatMemberCreateData(TypedDict, total=False):
+class PromoteChatMemberCreateDataRequired(TypedDict):
+    chat_id: str
+    ok: bool
+    user_id: int
+
+
+class PromoteChatMemberCreateData(PromoteChatMemberCreateDataRequired, total=False):
     can_delete_message: bool
     can_edit_message: bool
     can_manage_chat: bool
     can_manage_direct_message: bool
     can_post_message: bool
-    chat_id: str
     description: str
     error_code: int
-    ok: bool
     parameter: dict
     result: Any
-    user_id: int
 
 
 class RemoveMyProfilePhotoRequired(TypedDict):
@@ -358,10 +397,13 @@ class RemoveMyProfilePhoto(RemoveMyProfilePhotoRequired, total=False):
     result: Any
 
 
-class RemoveMyProfilePhotoCreateData(TypedDict, total=False):
+class RemoveMyProfilePhotoCreateDataRequired(TypedDict):
+    ok: bool
+
+
+class RemoveMyProfilePhotoCreateData(RemoveMyProfilePhotoCreateDataRequired, total=False):
     description: str
     error_code: int
-    ok: bool
     parameter: dict
     result: Any
 
@@ -379,14 +421,17 @@ class RepostStory(RepostStoryRequired, total=False):
     result: Any
 
 
-class RepostStoryCreateData(TypedDict, total=False):
+class RepostStoryCreateDataRequired(TypedDict):
     chat_id: str
+    ok: bool
+    story_id: int
+
+
+class RepostStoryCreateData(RepostStoryCreateDataRequired, total=False):
     description: str
     error_code: int
-    ok: bool
     parameter: dict
     result: Any
-    story_id: int
 
 
 class SendChatActionRequired(TypedDict):
@@ -403,13 +448,16 @@ class SendChatAction(SendChatActionRequired, total=False):
     result: Any
 
 
-class SendChatActionCreateData(TypedDict, total=False):
+class SendChatActionCreateDataRequired(TypedDict):
     action: str
     chat_id: str
+    ok: bool
+
+
+class SendChatActionCreateData(SendChatActionCreateDataRequired, total=False):
     description: str
     error_code: int
     message_thread_id: int
-    ok: bool
     parameter: dict
     result: Any
 
@@ -428,15 +476,18 @@ class SendMessageDraft(SendMessageDraftRequired, total=False):
     result: Any
 
 
-class SendMessageDraftCreateData(TypedDict, total=False):
+class SendMessageDraftCreateDataRequired(TypedDict):
     chat_id: str
+    ok: bool
+    text: str
+
+
+class SendMessageDraftCreateData(SendMessageDraftCreateDataRequired, total=False):
     description: str
     error_code: int
     message_thread_id: int
-    ok: bool
     parameter: dict
     result: Any
-    text: str
 
 
 class SetMyProfilePhotoRequired(TypedDict):
@@ -450,10 +501,13 @@ class SetMyProfilePhoto(SetMyProfilePhotoRequired, total=False):
     result: Any
 
 
-class SetMyProfilePhotoCreateData(TypedDict, total=False):
+class SetMyProfilePhotoCreateDataRequired(TypedDict):
+    ok: bool
+
+
+class SetMyProfilePhotoCreateData(SetMyProfilePhotoCreateDataRequired, total=False):
     description: str
     error_code: int
-    ok: bool
     parameter: dict
     result: Any
 
@@ -471,12 +525,15 @@ class UnpinAllForumTopicMessage(UnpinAllForumTopicMessageRequired, total=False):
     result: Any
 
 
-class UnpinAllForumTopicMessageCreateData(TypedDict, total=False):
+class UnpinAllForumTopicMessageCreateDataRequired(TypedDict):
     chat_id: str
-    description: str
-    error_code: int
     message_thread_id: int
     ok: bool
+
+
+class UnpinAllForumTopicMessageCreateData(UnpinAllForumTopicMessageCreateDataRequired, total=False):
+    description: str
+    error_code: int
     parameter: dict
     result: Any
 
@@ -508,13 +565,16 @@ class UpdateListMatch(TypedDict, total=False):
     timeout: int
 
 
-class UpdateCreateData(TypedDict, total=False):
+class UpdateCreateDataRequired(TypedDict):
+    ok: bool
+
+
+class UpdateCreateData(UpdateCreateDataRequired, total=False):
     allowed_update: list
     description: str
     error_code: int
     limit: int
     offset: int
-    ok: bool
     parameter: dict
     result: list
     timeout: int

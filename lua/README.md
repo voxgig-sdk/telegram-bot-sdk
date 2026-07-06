@@ -4,6 +4,8 @@
 
 The Lua SDK for the TelegramBot API — an entity-oriented client using Lua conventions.
 
+It exposes the API as capitalised, semantic **Entities** — e.g. `client:ApproveSuggestedPost()` — each with the same small set of operations (`list`, `load`, `create`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
+
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
 
@@ -37,9 +39,31 @@ local client = sdk.new({
 
 ```lua
 -- Create
-local created, err = client:ApproveSuggestedPost():create({ name = "Example" })
+local created, err = client:ApproveSuggestedPost():create({ chat_id = "example", message_id = 1, ok = true })
 if err then error(err) end
 
+```
+
+
+## Error handling
+
+Entity operations return `(value, err)`. Check `err` before using
+the value:
+
+```lua
+local approvesuggestedpost, err = client:ApproveSuggestedPost():create({ chat_id = "example", message_id = 1, ok = true })
+if err then error(err) end
+```
+
+`direct` follows the same `(value, err)` convention:
+
+```lua
+local result, err = client:direct({
+  path = "/api/resource/{id}",
+  method = "GET",
+  params = { id = "example_id" },
+})
+if err then error(err) end
 ```
 
 
@@ -85,8 +109,8 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:ApproveSuggestedPost():load({ id = "test01" })
--- result is the loaded data; err is set on failure
+local result, err = client:ApproveSuggestedPost():create({ chat_id = "example", message_id = 1, ok = true })
+-- result is the returned data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -197,8 +221,6 @@ All entities share the same interface.
 | `load` | `(reqmatch, ctrl) -> any, err` | Load a single entity by match criteria. |
 | `list` | `(reqmatch, ctrl) -> any, err` | List entities matching the criteria. |
 | `create` | `(reqdata, ctrl) -> any, err` | Create a new entity. |
-| `update` | `(reqdata, ctrl) -> any, err` | Update an existing entity. |
-| `remove` | `(reqmatch, ctrl) -> any, err` | Remove an entity. |
 | `data_get` | `() -> table` | Get entity data. |
 | `data_set` | `(data)` | Set entity data. |
 | `match_get` | `() -> table` | Get entity match criteria. |
@@ -213,12 +235,12 @@ data **directly** — there is no wrapper:
 
 | Operation | `value` |
 | --- | --- |
-| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
+| `load` / `create` | the entity record (a `table`) |
 | `list` | an array (`table`) of entity records |
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local approve_suggested_post, err = client:ApproveSuggestedPost():load({ id = "example_id" })
+    local approve_suggested_post, err = client:ApproveSuggestedPost():load()
     if err then error(err) end
     -- approve_suggested_post is the loaded record
 
@@ -584,21 +606,21 @@ Create an instance: `local approve_suggested_post = client:ApproveSuggestedPost(
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `message_id` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `chat_id` | `string` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `message_id` | `number` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `table` |  |
+| `result` | `any` |  |
 
 #### Example: Create
 
 ```lua
 local approve_suggested_post, err = client:ApproveSuggestedPost():create({
-  chat_id = nil, -- `$STRING`
-  message_id = nil, -- `$INTEGER`
-  ok = nil, -- `$BOOLEAN`
+  chat_id = nil, -- string
+  message_id = nil, -- number
+  ok = nil, -- boolean
 })
 ```
 
@@ -617,21 +639,21 @@ Create an instance: `local decline_suggested_post = client:DeclineSuggestedPost(
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `message_id` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `chat_id` | `string` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `message_id` | `number` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `table` |  |
+| `result` | `any` |  |
 
 #### Example: Create
 
 ```lua
 local decline_suggested_post, err = client:DeclineSuggestedPost():create({
-  chat_id = nil, -- `$STRING`
-  message_id = nil, -- `$INTEGER`
-  ok = nil, -- `$BOOLEAN`
+  chat_id = nil, -- string
+  message_id = nil, -- number
+  ok = nil, -- boolean
 })
 ```
 
@@ -650,21 +672,21 @@ Create an instance: `local delete_forum_topic = client:DeleteForumTopic(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `message_thread_id` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `chat_id` | `string` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `message_thread_id` | `number` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `table` |  |
+| `result` | `any` |  |
 
 #### Example: Create
 
 ```lua
 local delete_forum_topic, err = client:DeleteForumTopic():create({
-  chat_id = nil, -- `$STRING`
-  message_thread_id = nil, -- `$INTEGER`
-  ok = nil, -- `$BOOLEAN`
+  chat_id = nil, -- string
+  message_thread_id = nil, -- number
+  ok = nil, -- boolean
 })
 ```
 
@@ -683,23 +705,23 @@ Create an instance: `local edit_forum_topic = client:EditForumTopic(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `icon_custom_emoji_id` | ``$STRING`` |  |
-| `message_thread_id` | ``$INTEGER`` |  |
-| `name` | ``$STRING`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `chat_id` | `string` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `icon_custom_emoji_id` | `string` |  |
+| `message_thread_id` | `number` |  |
+| `name` | `string` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `table` |  |
+| `result` | `any` |  |
 
 #### Example: Create
 
 ```lua
 local edit_forum_topic, err = client:EditForumTopic():create({
-  chat_id = nil, -- `$STRING`
-  message_thread_id = nil, -- `$INTEGER`
-  ok = nil, -- `$BOOLEAN`
+  chat_id = nil, -- string
+  message_thread_id = nil, -- number
+  ok = nil, -- boolean
 })
 ```
 
@@ -718,13 +740,13 @@ Create an instance: `local file = client:File(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `file_id` | ``$STRING`` |  |
+| `file_id` | `string` |  |
 
 #### Example: Create
 
 ```lua
 local file, err = client:File():create({
-  file_id = nil, -- `$STRING`
+  file_id = nil, -- string
 })
 ```
 
@@ -743,17 +765,17 @@ Create an instance: `local forum_topic = client:ForumTopic(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `icon_color` | ``$INTEGER`` |  |
-| `icon_custom_emoji_id` | ``$STRING`` |  |
-| `name` | ``$STRING`` |  |
+| `chat_id` | `string` |  |
+| `icon_color` | `number` |  |
+| `icon_custom_emoji_id` | `string` |  |
+| `name` | `string` |  |
 
 #### Example: Create
 
 ```lua
 local forum_topic, err = client:ForumTopic():create({
-  chat_id = nil, -- `$STRING`
-  name = nil, -- `$STRING`
+  chat_id = nil, -- string
+  name = nil, -- string
 })
 ```
 
@@ -772,20 +794,20 @@ Create an instance: `local get_business_account_gift = client:GetBusinessAccount
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `exclude_from_blockchain` | ``$BOOLEAN`` |  |
-| `exclude_limited_non_upgradable` | ``$BOOLEAN`` |  |
-| `exclude_limited_upgradable` | ``$BOOLEAN`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `exclude_from_blockchain` | `boolean` |  |
+| `exclude_limited_non_upgradable` | `boolean` |  |
+| `exclude_limited_upgradable` | `boolean` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `table` |  |
+| `result` | `any` |  |
 
 #### Example: Create
 
 ```lua
 local get_business_account_gift, err = client:GetBusinessAccountGift():create({
-  ok = nil, -- `$BOOLEAN`
+  ok = nil, -- boolean
 })
 ```
 
@@ -804,19 +826,19 @@ Create an instance: `local get_chat_gift = client:GetChatGift(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `chat_id` | `string` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `table` |  |
+| `result` | `any` |  |
 
 #### Example: Create
 
 ```lua
 local get_chat_gift, err = client:GetChatGift():create({
-  chat_id = nil, -- `$STRING`
-  ok = nil, -- `$BOOLEAN`
+  chat_id = nil, -- string
+  ok = nil, -- boolean
 })
 ```
 
@@ -836,23 +858,23 @@ Create an instance: `local get_me = client:GetMe(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `table` |  |
+| `result` | `any` |  |
 
 #### Example: Load
 
 ```lua
-local get_me, err = client:GetMe():load({ id = "get_me_id" })
+local get_me, err = client:GetMe():load()
 ```
 
 #### Example: Create
 
 ```lua
 local get_me, err = client:GetMe():create({
-  ok = nil, -- `$BOOLEAN`
+  ok = nil, -- boolean
 })
 ```
 
@@ -871,19 +893,19 @@ Create an instance: `local get_user_gift = client:GetUserGift(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
-| `user_id` | ``$INTEGER`` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `table` |  |
+| `result` | `any` |  |
+| `user_id` | `number` |  |
 
 #### Example: Create
 
 ```lua
 local get_user_gift, err = client:GetUserGift():create({
-  ok = nil, -- `$BOOLEAN`
-  user_id = nil, -- `$INTEGER`
+  ok = nil, -- boolean
+  user_id = nil, -- number
 })
 ```
 
@@ -902,19 +924,19 @@ Create an instance: `local get_user_profile_audio = client:GetUserProfileAudio(n
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
-| `user_id` | ``$INTEGER`` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `table` |  |
+| `result` | `any` |  |
+| `user_id` | `number` |  |
 
 #### Example: Create
 
 ```lua
 local get_user_profile_audio, err = client:GetUserProfileAudio():create({
-  ok = nil, -- `$BOOLEAN`
-  user_id = nil, -- `$INTEGER`
+  ok = nil, -- boolean
+  user_id = nil, -- number
 })
 ```
 
@@ -933,35 +955,35 @@ Create an instance: `local message = client:Message(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `direct_messages_topic_id` | ``$INTEGER`` |  |
-| `disable_notification` | ``$BOOLEAN`` |  |
-| `disable_web_page_preview` | ``$BOOLEAN`` |  |
-| `from_chat_id` | ``$STRING`` |  |
-| `latitude` | ``$NUMBER`` |  |
-| `longitude` | ``$NUMBER`` |  |
-| `message_effect_id` | ``$STRING`` |  |
-| `message_id` | ``$INTEGER`` |  |
-| `message_thread_id` | ``$INTEGER`` |  |
-| `option` | ``$ARRAY`` |  |
-| `parse_mode` | ``$STRING`` |  |
-| `protect_content` | ``$BOOLEAN`` |  |
-| `question` | ``$STRING`` |  |
-| `reply_to_message_id` | ``$INTEGER`` |  |
-| `text` | ``$STRING`` |  |
+| `chat_id` | `string` |  |
+| `direct_messages_topic_id` | `number` |  |
+| `disable_notification` | `boolean` |  |
+| `disable_web_page_preview` | `boolean` |  |
+| `from_chat_id` | `string` |  |
+| `latitude` | `number` |  |
+| `longitude` | `number` |  |
+| `message_effect_id` | `string` |  |
+| `message_id` | `number` |  |
+| `message_thread_id` | `number` |  |
+| `option` | `table` |  |
+| `parse_mode` | `string` |  |
+| `protect_content` | `boolean` |  |
+| `question` | `string` |  |
+| `reply_to_message_id` | `number` |  |
+| `text` | `string` |  |
 
 #### Example: Create
 
 ```lua
 local message, err = client:Message():create({
-  chat_id = nil, -- `$STRING`
-  from_chat_id = nil, -- `$STRING`
-  latitude = nil, -- `$NUMBER`
-  longitude = nil, -- `$NUMBER`
-  message_id = nil, -- `$INTEGER`
-  option = nil, -- `$ARRAY`
-  question = nil, -- `$STRING`
-  text = nil, -- `$STRING`
+  chat_id = nil, -- string
+  from_chat_id = nil, -- string
+  latitude = nil, -- number
+  longitude = nil, -- number
+  message_id = nil, -- number
+  option = nil, -- table
+  question = nil, -- string
+  text = nil, -- string
 })
 ```
 
@@ -980,20 +1002,20 @@ Create an instance: `local message_id = client:MessageId(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `direct_messages_topic_id` | ``$INTEGER`` |  |
-| `from_chat_id` | ``$STRING`` |  |
-| `message_effect_id` | ``$STRING`` |  |
-| `message_id` | ``$INTEGER`` |  |
-| `message_thread_id` | ``$INTEGER`` |  |
+| `chat_id` | `string` |  |
+| `direct_messages_topic_id` | `number` |  |
+| `from_chat_id` | `string` |  |
+| `message_effect_id` | `string` |  |
+| `message_id` | `number` |  |
+| `message_thread_id` | `number` |  |
 
 #### Example: Create
 
 ```lua
 local message_id, err = client:MessageId():create({
-  chat_id = nil, -- `$STRING`
-  from_chat_id = nil, -- `$STRING`
-  message_id = nil, -- `$INTEGER`
+  chat_id = nil, -- string
+  from_chat_id = nil, -- string
+  message_id = nil, -- number
 })
 ```
 
@@ -1012,26 +1034,26 @@ Create an instance: `local promote_chat_member = client:PromoteChatMember(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `can_delete_message` | ``$BOOLEAN`` |  |
-| `can_edit_message` | ``$BOOLEAN`` |  |
-| `can_manage_chat` | ``$BOOLEAN`` |  |
-| `can_manage_direct_message` | ``$BOOLEAN`` |  |
-| `can_post_message` | ``$BOOLEAN`` |  |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
-| `user_id` | ``$INTEGER`` |  |
+| `can_delete_message` | `boolean` |  |
+| `can_edit_message` | `boolean` |  |
+| `can_manage_chat` | `boolean` |  |
+| `can_manage_direct_message` | `boolean` |  |
+| `can_post_message` | `boolean` |  |
+| `chat_id` | `string` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `table` |  |
+| `result` | `any` |  |
+| `user_id` | `number` |  |
 
 #### Example: Create
 
 ```lua
 local promote_chat_member, err = client:PromoteChatMember():create({
-  chat_id = nil, -- `$STRING`
-  ok = nil, -- `$BOOLEAN`
-  user_id = nil, -- `$INTEGER`
+  chat_id = nil, -- string
+  ok = nil, -- boolean
+  user_id = nil, -- number
 })
 ```
 
@@ -1050,17 +1072,17 @@ Create an instance: `local remove_my_profile_photo = client:RemoveMyProfilePhoto
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `table` |  |
+| `result` | `any` |  |
 
 #### Example: Create
 
 ```lua
 local remove_my_profile_photo, err = client:RemoveMyProfilePhoto():create({
-  ok = nil, -- `$BOOLEAN`
+  ok = nil, -- boolean
 })
 ```
 
@@ -1079,21 +1101,21 @@ Create an instance: `local repost_story = client:RepostStory(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
-| `story_id` | ``$INTEGER`` |  |
+| `chat_id` | `string` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `table` |  |
+| `result` | `any` |  |
+| `story_id` | `number` |  |
 
 #### Example: Create
 
 ```lua
 local repost_story, err = client:RepostStory():create({
-  chat_id = nil, -- `$STRING`
-  ok = nil, -- `$BOOLEAN`
-  story_id = nil, -- `$INTEGER`
+  chat_id = nil, -- string
+  ok = nil, -- boolean
+  story_id = nil, -- number
 })
 ```
 
@@ -1112,22 +1134,22 @@ Create an instance: `local send_chat_action = client:SendChatAction(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `action` | ``$STRING`` |  |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `message_thread_id` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `action` | `string` |  |
+| `chat_id` | `string` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `message_thread_id` | `number` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `table` |  |
+| `result` | `any` |  |
 
 #### Example: Create
 
 ```lua
 local send_chat_action, err = client:SendChatAction():create({
-  action = nil, -- `$STRING`
-  chat_id = nil, -- `$STRING`
-  ok = nil, -- `$BOOLEAN`
+  action = nil, -- string
+  chat_id = nil, -- string
+  ok = nil, -- boolean
 })
 ```
 
@@ -1146,22 +1168,22 @@ Create an instance: `local send_message_draft = client:SendMessageDraft(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `message_thread_id` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
-| `text` | ``$STRING`` |  |
+| `chat_id` | `string` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `message_thread_id` | `number` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `table` |  |
+| `result` | `any` |  |
+| `text` | `string` |  |
 
 #### Example: Create
 
 ```lua
 local send_message_draft, err = client:SendMessageDraft():create({
-  chat_id = nil, -- `$STRING`
-  ok = nil, -- `$BOOLEAN`
-  text = nil, -- `$STRING`
+  chat_id = nil, -- string
+  ok = nil, -- boolean
+  text = nil, -- string
 })
 ```
 
@@ -1180,17 +1202,17 @@ Create an instance: `local set_my_profile_photo = client:SetMyProfilePhoto(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `table` |  |
+| `result` | `any` |  |
 
 #### Example: Create
 
 ```lua
 local set_my_profile_photo, err = client:SetMyProfilePhoto():create({
-  ok = nil, -- `$BOOLEAN`
+  ok = nil, -- boolean
 })
 ```
 
@@ -1209,21 +1231,21 @@ Create an instance: `local unpin_all_forum_topic_message = client:UnpinAllForumT
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `message_thread_id` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `chat_id` | `string` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `message_thread_id` | `number` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `table` |  |
+| `result` | `any` |  |
 
 #### Example: Create
 
 ```lua
 local unpin_all_forum_topic_message, err = client:UnpinAllForumTopicMessage():create({
-  chat_id = nil, -- `$STRING`
-  message_thread_id = nil, -- `$INTEGER`
-  ok = nil, -- `$BOOLEAN`
+  chat_id = nil, -- string
+  message_thread_id = nil, -- number
+  ok = nil, -- boolean
 })
 ```
 
@@ -1243,15 +1265,15 @@ Create an instance: `local update = client:Update(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `allowed_update` | ``$ARRAY`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `limit` | ``$INTEGER`` |  |
-| `offset` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ARRAY`` |  |
-| `timeout` | ``$INTEGER`` |  |
+| `allowed_update` | `table` |  |
+| `description` | `string` |  |
+| `error_code` | `number` |  |
+| `limit` | `number` |  |
+| `offset` | `number` |  |
+| `ok` | `boolean` |  |
+| `parameter` | `table` |  |
+| `result` | `table` |  |
+| `timeout` | `number` |  |
 
 #### Example: List
 
@@ -1263,17 +1285,21 @@ local updates, err = client:Update():list()
 
 ```lua
 local update, err = client:Update():create({
-  ok = nil, -- `$BOOLEAN`
+  ok = nil, -- boolean
 })
 ```
 
 
-## Explanation
+## Advanced
+
+> The sections above cover everyday use. The material below explains the
+> SDK's internals — useful when extending it with custom features, but not
+> needed for normal use.
 
 ### The operation pipeline
 
-Every entity operation (load, list, create, update, remove) follows a
-six-stage pipeline. Each stage fires a feature hook before executing:
+Every entity operation follows a six-stage pipeline. Each stage fires a
+feature hook before executing:
 
 ```
 PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
@@ -1290,8 +1316,9 @@ PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
 - **PreDone**: Final stage before returning to the caller. Entity
   state (match, data) is updated here.
 
-If any stage returns an error, the pipeline short-circuits and the
-error is returned to the caller as a second return value.
+If any stage errors, the pipeline short-circuits and the error surfaces
+to the caller — see [Error handling](#error-handling) for how that looks
+in this language.
 
 ### Features and hooks
 
@@ -1335,14 +1362,14 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `create`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
 local approvesuggestedpost = client:ApproveSuggestedPost()
-approvesuggestedpost:load({ id = "example_id" })
+approvesuggestedpost:create({ chat_id = "example", message_id = 1, ok = true })
 
--- approvesuggestedpost:data_get() now returns the loaded approvesuggestedpost data
+-- approvesuggestedpost:data_get() now returns the approvesuggestedpost data from the last create
 -- approvesuggestedpost:match_get() returns the last match criteria
 ```
 

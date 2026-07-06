@@ -221,127 +221,127 @@ class TelegramBotSDK:
 
 
     def ApproveSuggestedPost(self, data=None) -> "ApproveSuggestedPostEntity":
-        """Entity factory: client.ApproveSuggestedPost().list({}) / client.ApproveSuggestedPost().load({"id": ...})."""
+        """Entity factory: client.ApproveSuggestedPost().list() / client.ApproveSuggestedPost().load({"id": ...})."""
         from entity.approve_suggested_post_entity import ApproveSuggestedPostEntity
         return ApproveSuggestedPostEntity(self, data)
 
 
     def DeclineSuggestedPost(self, data=None) -> "DeclineSuggestedPostEntity":
-        """Entity factory: client.DeclineSuggestedPost().list({}) / client.DeclineSuggestedPost().load({"id": ...})."""
+        """Entity factory: client.DeclineSuggestedPost().list() / client.DeclineSuggestedPost().load({"id": ...})."""
         from entity.decline_suggested_post_entity import DeclineSuggestedPostEntity
         return DeclineSuggestedPostEntity(self, data)
 
 
     def DeleteForumTopic(self, data=None) -> "DeleteForumTopicEntity":
-        """Entity factory: client.DeleteForumTopic().list({}) / client.DeleteForumTopic().load({"id": ...})."""
+        """Entity factory: client.DeleteForumTopic().list() / client.DeleteForumTopic().load({"id": ...})."""
         from entity.delete_forum_topic_entity import DeleteForumTopicEntity
         return DeleteForumTopicEntity(self, data)
 
 
     def EditForumTopic(self, data=None) -> "EditForumTopicEntity":
-        """Entity factory: client.EditForumTopic().list({}) / client.EditForumTopic().load({"id": ...})."""
+        """Entity factory: client.EditForumTopic().list() / client.EditForumTopic().load({"id": ...})."""
         from entity.edit_forum_topic_entity import EditForumTopicEntity
         return EditForumTopicEntity(self, data)
 
 
     def File(self, data=None) -> "FileEntity":
-        """Entity factory: client.File().list({}) / client.File().load({"id": ...})."""
+        """Entity factory: client.File().list() / client.File().load({"id": ...})."""
         from entity.file_entity import FileEntity
         return FileEntity(self, data)
 
 
     def ForumTopic(self, data=None) -> "ForumTopicEntity":
-        """Entity factory: client.ForumTopic().list({}) / client.ForumTopic().load({"id": ...})."""
+        """Entity factory: client.ForumTopic().list() / client.ForumTopic().load({"id": ...})."""
         from entity.forum_topic_entity import ForumTopicEntity
         return ForumTopicEntity(self, data)
 
 
     def GetBusinessAccountGift(self, data=None) -> "GetBusinessAccountGiftEntity":
-        """Entity factory: client.GetBusinessAccountGift().list({}) / client.GetBusinessAccountGift().load({"id": ...})."""
+        """Entity factory: client.GetBusinessAccountGift().list() / client.GetBusinessAccountGift().load({"id": ...})."""
         from entity.get_business_account_gift_entity import GetBusinessAccountGiftEntity
         return GetBusinessAccountGiftEntity(self, data)
 
 
     def GetChatGift(self, data=None) -> "GetChatGiftEntity":
-        """Entity factory: client.GetChatGift().list({}) / client.GetChatGift().load({"id": ...})."""
+        """Entity factory: client.GetChatGift().list() / client.GetChatGift().load({"id": ...})."""
         from entity.get_chat_gift_entity import GetChatGiftEntity
         return GetChatGiftEntity(self, data)
 
 
     def GetMe(self, data=None) -> "GetMeEntity":
-        """Entity factory: client.GetMe().list({}) / client.GetMe().load({"id": ...})."""
+        """Entity factory: client.GetMe().list() / client.GetMe().load({"id": ...})."""
         from entity.get_me_entity import GetMeEntity
         return GetMeEntity(self, data)
 
 
     def GetUserGift(self, data=None) -> "GetUserGiftEntity":
-        """Entity factory: client.GetUserGift().list({}) / client.GetUserGift().load({"id": ...})."""
+        """Entity factory: client.GetUserGift().list() / client.GetUserGift().load({"id": ...})."""
         from entity.get_user_gift_entity import GetUserGiftEntity
         return GetUserGiftEntity(self, data)
 
 
     def GetUserProfileAudio(self, data=None) -> "GetUserProfileAudioEntity":
-        """Entity factory: client.GetUserProfileAudio().list({}) / client.GetUserProfileAudio().load({"id": ...})."""
+        """Entity factory: client.GetUserProfileAudio().list() / client.GetUserProfileAudio().load({"id": ...})."""
         from entity.get_user_profile_audio_entity import GetUserProfileAudioEntity
         return GetUserProfileAudioEntity(self, data)
 
 
     def Message(self, data=None) -> "MessageEntity":
-        """Entity factory: client.Message().list({}) / client.Message().load({"id": ...})."""
+        """Entity factory: client.Message().list() / client.Message().load({"id": ...})."""
         from entity.message_entity import MessageEntity
         return MessageEntity(self, data)
 
 
     def MessageId(self, data=None) -> "MessageIdEntity":
-        """Entity factory: client.MessageId().list({}) / client.MessageId().load({"id": ...})."""
+        """Entity factory: client.MessageId().list() / client.MessageId().load({"id": ...})."""
         from entity.message_id_entity import MessageIdEntity
         return MessageIdEntity(self, data)
 
 
     def PromoteChatMember(self, data=None) -> "PromoteChatMemberEntity":
-        """Entity factory: client.PromoteChatMember().list({}) / client.PromoteChatMember().load({"id": ...})."""
+        """Entity factory: client.PromoteChatMember().list() / client.PromoteChatMember().load({"id": ...})."""
         from entity.promote_chat_member_entity import PromoteChatMemberEntity
         return PromoteChatMemberEntity(self, data)
 
 
     def RemoveMyProfilePhoto(self, data=None) -> "RemoveMyProfilePhotoEntity":
-        """Entity factory: client.RemoveMyProfilePhoto().list({}) / client.RemoveMyProfilePhoto().load({"id": ...})."""
+        """Entity factory: client.RemoveMyProfilePhoto().list() / client.RemoveMyProfilePhoto().load({"id": ...})."""
         from entity.remove_my_profile_photo_entity import RemoveMyProfilePhotoEntity
         return RemoveMyProfilePhotoEntity(self, data)
 
 
     def RepostStory(self, data=None) -> "RepostStoryEntity":
-        """Entity factory: client.RepostStory().list({}) / client.RepostStory().load({"id": ...})."""
+        """Entity factory: client.RepostStory().list() / client.RepostStory().load({"id": ...})."""
         from entity.repost_story_entity import RepostStoryEntity
         return RepostStoryEntity(self, data)
 
 
     def SendChatAction(self, data=None) -> "SendChatActionEntity":
-        """Entity factory: client.SendChatAction().list({}) / client.SendChatAction().load({"id": ...})."""
+        """Entity factory: client.SendChatAction().list() / client.SendChatAction().load({"id": ...})."""
         from entity.send_chat_action_entity import SendChatActionEntity
         return SendChatActionEntity(self, data)
 
 
     def SendMessageDraft(self, data=None) -> "SendMessageDraftEntity":
-        """Entity factory: client.SendMessageDraft().list({}) / client.SendMessageDraft().load({"id": ...})."""
+        """Entity factory: client.SendMessageDraft().list() / client.SendMessageDraft().load({"id": ...})."""
         from entity.send_message_draft_entity import SendMessageDraftEntity
         return SendMessageDraftEntity(self, data)
 
 
     def SetMyProfilePhoto(self, data=None) -> "SetMyProfilePhotoEntity":
-        """Entity factory: client.SetMyProfilePhoto().list({}) / client.SetMyProfilePhoto().load({"id": ...})."""
+        """Entity factory: client.SetMyProfilePhoto().list() / client.SetMyProfilePhoto().load({"id": ...})."""
         from entity.set_my_profile_photo_entity import SetMyProfilePhotoEntity
         return SetMyProfilePhotoEntity(self, data)
 
 
     def UnpinAllForumTopicMessage(self, data=None) -> "UnpinAllForumTopicMessageEntity":
-        """Entity factory: client.UnpinAllForumTopicMessage().list({}) / client.UnpinAllForumTopicMessage().load({"id": ...})."""
+        """Entity factory: client.UnpinAllForumTopicMessage().list() / client.UnpinAllForumTopicMessage().load({"id": ...})."""
         from entity.unpin_all_forum_topic_message_entity import UnpinAllForumTopicMessageEntity
         return UnpinAllForumTopicMessageEntity(self, data)
 
 
     def Update(self, data=None) -> "UpdateEntity":
-        """Entity factory: client.Update().list({}) / client.Update().load({"id": ...})."""
+        """Entity factory: client.Update().list() / client.Update().load({"id": ...})."""
         from entity.update_entity import UpdateEntity
         return UpdateEntity(self, data)
 

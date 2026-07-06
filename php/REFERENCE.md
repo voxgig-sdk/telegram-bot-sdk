@@ -8,7 +8,7 @@ Complete API reference for the TelegramBot PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/telegram-bot_sdk.php';
+require_once __DIR__ . '/telegrambot_sdk.php';
 
 $client = new TelegramBotSDK($options);
 ```
@@ -126,11 +126,11 @@ Create a new `UnpinAllForumTopicMessageEntity` instance. Pass `null` for no init
 
 Create a new `UpdateEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): TelegramBotUtility`
 
 Return a copy of the SDK utility object.
 
@@ -173,13 +173,13 @@ $approve_suggested_post = $client->ApproveSuggestedPost();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `message_id` | ``$INTEGER`` | Yes |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `chat_id` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `int` | No |  |
+| `message_id` | `int` | Yes |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `array` | No |  |
+| `result` | `mixed` | No |  |
 
 ### Operations
 
@@ -189,27 +189,27 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->ApproveSuggestedPost()->create([
-  "chat_id" => /* `$STRING` */,
-  "message_id" => /* `$INTEGER` */,
-  "ok" => /* `$BOOLEAN` */,
+  "chat_id" => null, // string
+  "message_id" => null, // int
+  "ok" => null, // bool
 ]);
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -218,7 +218,7 @@ Set the entity match criteria.
 Create a new `ApproveSuggestedPostEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -235,13 +235,13 @@ $decline_suggested_post = $client->DeclineSuggestedPost();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `message_id` | ``$INTEGER`` | Yes |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `chat_id` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `int` | No |  |
+| `message_id` | `int` | Yes |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `array` | No |  |
+| `result` | `mixed` | No |  |
 
 ### Operations
 
@@ -251,27 +251,27 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->DeclineSuggestedPost()->create([
-  "chat_id" => /* `$STRING` */,
-  "message_id" => /* `$INTEGER` */,
-  "ok" => /* `$BOOLEAN` */,
+  "chat_id" => null, // string
+  "message_id" => null, // int
+  "ok" => null, // bool
 ]);
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -280,7 +280,7 @@ Set the entity match criteria.
 Create a new `DeclineSuggestedPostEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -297,13 +297,13 @@ $delete_forum_topic = $client->DeleteForumTopic();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `message_thread_id` | ``$INTEGER`` | Yes |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `chat_id` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `int` | No |  |
+| `message_thread_id` | `int` | Yes |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `array` | No |  |
+| `result` | `mixed` | No |  |
 
 ### Operations
 
@@ -313,27 +313,27 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->DeleteForumTopic()->create([
-  "chat_id" => /* `$STRING` */,
-  "message_thread_id" => /* `$INTEGER` */,
-  "ok" => /* `$BOOLEAN` */,
+  "chat_id" => null, // string
+  "message_thread_id" => null, // int
+  "ok" => null, // bool
 ]);
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -342,7 +342,7 @@ Set the entity match criteria.
 Create a new `DeleteForumTopicEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -359,15 +359,15 @@ $edit_forum_topic = $client->EditForumTopic();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `icon_custom_emoji_id` | ``$STRING`` | No |  |
-| `message_thread_id` | ``$INTEGER`` | Yes |  |
-| `name` | ``$STRING`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `chat_id` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `int` | No |  |
+| `icon_custom_emoji_id` | `string` | No |  |
+| `message_thread_id` | `int` | Yes |  |
+| `name` | `string` | No |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `array` | No |  |
+| `result` | `mixed` | No |  |
 
 ### Operations
 
@@ -377,27 +377,27 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->EditForumTopic()->create([
-  "chat_id" => /* `$STRING` */,
-  "message_thread_id" => /* `$INTEGER` */,
-  "ok" => /* `$BOOLEAN` */,
+  "chat_id" => null, // string
+  "message_thread_id" => null, // int
+  "ok" => null, // bool
 ]);
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -406,7 +406,7 @@ Set the entity match criteria.
 Create a new `EditForumTopicEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -423,7 +423,7 @@ $file = $client->File();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `file_id` | ``$STRING`` | Yes |  |
+| `file_id` | `string` | Yes |  |
 
 ### Operations
 
@@ -433,25 +433,25 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->File()->create([
-  "file_id" => /* `$STRING` */,
+  "file_id" => null, // string
 ]);
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -460,7 +460,7 @@ Set the entity match criteria.
 Create a new `FileEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -477,10 +477,10 @@ $forum_topic = $client->ForumTopic();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `icon_color` | ``$INTEGER`` | No |  |
-| `icon_custom_emoji_id` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | Yes |  |
+| `chat_id` | `string` | Yes |  |
+| `icon_color` | `int` | No |  |
+| `icon_custom_emoji_id` | `string` | No |  |
+| `name` | `string` | Yes |  |
 
 ### Operations
 
@@ -490,26 +490,26 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->ForumTopic()->create([
-  "chat_id" => /* `$STRING` */,
-  "name" => /* `$STRING` */,
+  "chat_id" => null, // string
+  "name" => null, // string
 ]);
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -518,7 +518,7 @@ Set the entity match criteria.
 Create a new `ForumTopicEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -535,14 +535,14 @@ $get_business_account_gift = $client->GetBusinessAccountGift();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `exclude_from_blockchain` | ``$BOOLEAN`` | No |  |
-| `exclude_limited_non_upgradable` | ``$BOOLEAN`` | No |  |
-| `exclude_limited_upgradable` | ``$BOOLEAN`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `description` | `string` | No |  |
+| `error_code` | `int` | No |  |
+| `exclude_from_blockchain` | `bool` | No |  |
+| `exclude_limited_non_upgradable` | `bool` | No |  |
+| `exclude_limited_upgradable` | `bool` | No |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `array` | No |  |
+| `result` | `mixed` | No |  |
 
 ### Operations
 
@@ -552,25 +552,25 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->GetBusinessAccountGift()->create([
-  "ok" => /* `$BOOLEAN` */,
+  "ok" => null, // bool
 ]);
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -579,7 +579,7 @@ Set the entity match criteria.
 Create a new `GetBusinessAccountGiftEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -596,12 +596,12 @@ $get_chat_gift = $client->GetChatGift();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `chat_id` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `int` | No |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `array` | No |  |
+| `result` | `mixed` | No |  |
 
 ### Operations
 
@@ -611,26 +611,26 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->GetChatGift()->create([
-  "chat_id" => /* `$STRING` */,
-  "ok" => /* `$BOOLEAN` */,
+  "chat_id" => null, // string
+  "ok" => null, // bool
 ]);
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -639,7 +639,7 @@ Set the entity match criteria.
 Create a new `GetChatGiftEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -656,11 +656,11 @@ $get_me = $client->GetMe();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `description` | `string` | No |  |
+| `error_code` | `int` | No |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `array` | No |  |
+| `result` | `mixed` | No |  |
 
 ### Operations
 
@@ -670,7 +670,7 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->GetMe()->create([
-  "ok" => /* `$BOOLEAN` */,
+  "ok" => null, // bool
 ]);
 ```
 
@@ -679,24 +679,24 @@ $result = $client->GetMe()->create([
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->GetMe()->load(["id" => "get_me_id"]);
+$result = $client->GetMe()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -705,7 +705,7 @@ Set the entity match criteria.
 Create a new `GetMeEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -722,12 +722,12 @@ $get_user_gift = $client->GetUserGift();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
-| `user_id` | ``$INTEGER`` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `int` | No |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `array` | No |  |
+| `result` | `mixed` | No |  |
+| `user_id` | `int` | Yes |  |
 
 ### Operations
 
@@ -737,26 +737,26 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->GetUserGift()->create([
-  "ok" => /* `$BOOLEAN` */,
-  "user_id" => /* `$INTEGER` */,
+  "ok" => null, // bool
+  "user_id" => null, // int
 ]);
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -765,7 +765,7 @@ Set the entity match criteria.
 Create a new `GetUserGiftEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -782,12 +782,12 @@ $get_user_profile_audio = $client->GetUserProfileAudio();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
-| `user_id` | ``$INTEGER`` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `int` | No |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `array` | No |  |
+| `result` | `mixed` | No |  |
+| `user_id` | `int` | Yes |  |
 
 ### Operations
 
@@ -797,26 +797,26 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->GetUserProfileAudio()->create([
-  "ok" => /* `$BOOLEAN` */,
-  "user_id" => /* `$INTEGER` */,
+  "ok" => null, // bool
+  "user_id" => null, // int
 ]);
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -825,7 +825,7 @@ Set the entity match criteria.
 Create a new `GetUserProfileAudioEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -842,22 +842,22 @@ $message = $client->Message();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `direct_messages_topic_id` | ``$INTEGER`` | No |  |
-| `disable_notification` | ``$BOOLEAN`` | No |  |
-| `disable_web_page_preview` | ``$BOOLEAN`` | No |  |
-| `from_chat_id` | ``$STRING`` | Yes |  |
-| `latitude` | ``$NUMBER`` | Yes |  |
-| `longitude` | ``$NUMBER`` | Yes |  |
-| `message_effect_id` | ``$STRING`` | No |  |
-| `message_id` | ``$INTEGER`` | Yes |  |
-| `message_thread_id` | ``$INTEGER`` | No |  |
-| `option` | ``$ARRAY`` | Yes |  |
-| `parse_mode` | ``$STRING`` | No |  |
-| `protect_content` | ``$BOOLEAN`` | No |  |
-| `question` | ``$STRING`` | Yes |  |
-| `reply_to_message_id` | ``$INTEGER`` | No |  |
-| `text` | ``$STRING`` | Yes |  |
+| `chat_id` | `string` | Yes |  |
+| `direct_messages_topic_id` | `int` | No |  |
+| `disable_notification` | `bool` | No |  |
+| `disable_web_page_preview` | `bool` | No |  |
+| `from_chat_id` | `string` | Yes |  |
+| `latitude` | `float` | Yes |  |
+| `longitude` | `float` | Yes |  |
+| `message_effect_id` | `string` | No |  |
+| `message_id` | `int` | Yes |  |
+| `message_thread_id` | `int` | No |  |
+| `option` | `array` | Yes |  |
+| `parse_mode` | `string` | No |  |
+| `protect_content` | `bool` | No |  |
+| `question` | `string` | Yes |  |
+| `reply_to_message_id` | `int` | No |  |
+| `text` | `string` | Yes |  |
 
 ### Operations
 
@@ -867,32 +867,32 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->Message()->create([
-  "chat_id" => /* `$STRING` */,
-  "from_chat_id" => /* `$STRING` */,
-  "latitude" => /* `$NUMBER` */,
-  "longitude" => /* `$NUMBER` */,
-  "message_id" => /* `$INTEGER` */,
-  "option" => /* `$ARRAY` */,
-  "question" => /* `$STRING` */,
-  "text" => /* `$STRING` */,
+  "chat_id" => null, // string
+  "from_chat_id" => null, // string
+  "latitude" => null, // float
+  "longitude" => null, // float
+  "message_id" => null, // int
+  "option" => null, // array
+  "question" => null, // string
+  "text" => null, // string
 ]);
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -901,7 +901,7 @@ Set the entity match criteria.
 Create a new `MessageEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -918,12 +918,12 @@ $message_id = $client->MessageId();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `direct_messages_topic_id` | ``$INTEGER`` | No |  |
-| `from_chat_id` | ``$STRING`` | Yes |  |
-| `message_effect_id` | ``$STRING`` | No |  |
-| `message_id` | ``$INTEGER`` | Yes |  |
-| `message_thread_id` | ``$INTEGER`` | No |  |
+| `chat_id` | `string` | Yes |  |
+| `direct_messages_topic_id` | `int` | No |  |
+| `from_chat_id` | `string` | Yes |  |
+| `message_effect_id` | `string` | No |  |
+| `message_id` | `int` | Yes |  |
+| `message_thread_id` | `int` | No |  |
 
 ### Operations
 
@@ -933,27 +933,27 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->MessageId()->create([
-  "chat_id" => /* `$STRING` */,
-  "from_chat_id" => /* `$STRING` */,
-  "message_id" => /* `$INTEGER` */,
+  "chat_id" => null, // string
+  "from_chat_id" => null, // string
+  "message_id" => null, // int
 ]);
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -962,7 +962,7 @@ Set the entity match criteria.
 Create a new `MessageIdEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -979,18 +979,18 @@ $promote_chat_member = $client->PromoteChatMember();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `can_delete_message` | ``$BOOLEAN`` | No |  |
-| `can_edit_message` | ``$BOOLEAN`` | No |  |
-| `can_manage_chat` | ``$BOOLEAN`` | No |  |
-| `can_manage_direct_message` | ``$BOOLEAN`` | No |  |
-| `can_post_message` | ``$BOOLEAN`` | No |  |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
-| `user_id` | ``$INTEGER`` | Yes |  |
+| `can_delete_message` | `bool` | No |  |
+| `can_edit_message` | `bool` | No |  |
+| `can_manage_chat` | `bool` | No |  |
+| `can_manage_direct_message` | `bool` | No |  |
+| `can_post_message` | `bool` | No |  |
+| `chat_id` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `int` | No |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `array` | No |  |
+| `result` | `mixed` | No |  |
+| `user_id` | `int` | Yes |  |
 
 ### Operations
 
@@ -1000,27 +1000,27 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->PromoteChatMember()->create([
-  "chat_id" => /* `$STRING` */,
-  "ok" => /* `$BOOLEAN` */,
-  "user_id" => /* `$INTEGER` */,
+  "chat_id" => null, // string
+  "ok" => null, // bool
+  "user_id" => null, // int
 ]);
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -1029,7 +1029,7 @@ Set the entity match criteria.
 Create a new `PromoteChatMemberEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -1046,11 +1046,11 @@ $remove_my_profile_photo = $client->RemoveMyProfilePhoto();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `description` | `string` | No |  |
+| `error_code` | `int` | No |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `array` | No |  |
+| `result` | `mixed` | No |  |
 
 ### Operations
 
@@ -1060,25 +1060,25 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->RemoveMyProfilePhoto()->create([
-  "ok" => /* `$BOOLEAN` */,
+  "ok" => null, // bool
 ]);
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -1087,7 +1087,7 @@ Set the entity match criteria.
 Create a new `RemoveMyProfilePhotoEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -1104,13 +1104,13 @@ $repost_story = $client->RepostStory();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
-| `story_id` | ``$INTEGER`` | Yes |  |
+| `chat_id` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `int` | No |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `array` | No |  |
+| `result` | `mixed` | No |  |
+| `story_id` | `int` | Yes |  |
 
 ### Operations
 
@@ -1120,27 +1120,27 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->RepostStory()->create([
-  "chat_id" => /* `$STRING` */,
-  "ok" => /* `$BOOLEAN` */,
-  "story_id" => /* `$INTEGER` */,
+  "chat_id" => null, // string
+  "ok" => null, // bool
+  "story_id" => null, // int
 ]);
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -1149,7 +1149,7 @@ Set the entity match criteria.
 Create a new `RepostStoryEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -1166,14 +1166,14 @@ $send_chat_action = $client->SendChatAction();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `action` | ``$STRING`` | Yes |  |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `message_thread_id` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `action` | `string` | Yes |  |
+| `chat_id` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `int` | No |  |
+| `message_thread_id` | `int` | No |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `array` | No |  |
+| `result` | `mixed` | No |  |
 
 ### Operations
 
@@ -1183,27 +1183,27 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->SendChatAction()->create([
-  "action" => /* `$STRING` */,
-  "chat_id" => /* `$STRING` */,
-  "ok" => /* `$BOOLEAN` */,
+  "action" => null, // string
+  "chat_id" => null, // string
+  "ok" => null, // bool
 ]);
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -1212,7 +1212,7 @@ Set the entity match criteria.
 Create a new `SendChatActionEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -1229,14 +1229,14 @@ $send_message_draft = $client->SendMessageDraft();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `message_thread_id` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
-| `text` | ``$STRING`` | Yes |  |
+| `chat_id` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `int` | No |  |
+| `message_thread_id` | `int` | No |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `array` | No |  |
+| `result` | `mixed` | No |  |
+| `text` | `string` | Yes |  |
 
 ### Operations
 
@@ -1246,27 +1246,27 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->SendMessageDraft()->create([
-  "chat_id" => /* `$STRING` */,
-  "ok" => /* `$BOOLEAN` */,
-  "text" => /* `$STRING` */,
+  "chat_id" => null, // string
+  "ok" => null, // bool
+  "text" => null, // string
 ]);
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -1275,7 +1275,7 @@ Set the entity match criteria.
 Create a new `SendMessageDraftEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -1292,11 +1292,11 @@ $set_my_profile_photo = $client->SetMyProfilePhoto();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `description` | `string` | No |  |
+| `error_code` | `int` | No |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `array` | No |  |
+| `result` | `mixed` | No |  |
 
 ### Operations
 
@@ -1306,25 +1306,25 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->SetMyProfilePhoto()->create([
-  "ok" => /* `$BOOLEAN` */,
+  "ok" => null, // bool
 ]);
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -1333,7 +1333,7 @@ Set the entity match criteria.
 Create a new `SetMyProfilePhotoEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -1350,13 +1350,13 @@ $unpin_all_forum_topic_message = $client->UnpinAllForumTopicMessage();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `message_thread_id` | ``$INTEGER`` | Yes |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `chat_id` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `error_code` | `int` | No |  |
+| `message_thread_id` | `int` | Yes |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `array` | No |  |
+| `result` | `mixed` | No |  |
 
 ### Operations
 
@@ -1366,27 +1366,27 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->UnpinAllForumTopicMessage()->create([
-  "chat_id" => /* `$STRING` */,
-  "message_thread_id" => /* `$INTEGER` */,
-  "ok" => /* `$BOOLEAN` */,
+  "chat_id" => null, // string
+  "message_thread_id" => null, // int
+  "ok" => null, // bool
 ]);
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -1395,7 +1395,7 @@ Set the entity match criteria.
 Create a new `UnpinAllForumTopicMessageEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -1412,15 +1412,15 @@ $update = $client->Update();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `allowed_update` | ``$ARRAY`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `limit` | ``$INTEGER`` | No |  |
-| `offset` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ARRAY`` | No |  |
-| `timeout` | ``$INTEGER`` | No |  |
+| `allowed_update` | `array` | No |  |
+| `description` | `string` | No |  |
+| `error_code` | `int` | No |  |
+| `limit` | `int` | No |  |
+| `offset` | `int` | No |  |
+| `ok` | `bool` | Yes |  |
+| `parameter` | `array` | No |  |
+| `result` | `array` | No |  |
+| `timeout` | `int` | No |  |
 
 ### Operations
 
@@ -1430,33 +1430,33 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->Update()->create([
-  "ok" => /* `$BOOLEAN` */,
+  "ok" => null, // bool
 ]);
 ```
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Update()->list([]);
+$results = $client->Update()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -1465,7 +1465,7 @@ Set the entity match criteria.
 Create a new `UpdateEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

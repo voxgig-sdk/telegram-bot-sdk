@@ -4,6 +4,11 @@
 
 The Python SDK for the TelegramBot API — an entity-oriented client following Pythonic conventions.
 
+The SDK exposes the API as capitalised, semantic **Entities** — for example `client.ApproveSuggestedPost()` — each
+carrying a small, uniform set of operations (`list`, `load`, `create`) instead of raw URL
+paths and query strings. You work with named resources and verbs, which
+keeps the cognitive load low.
+
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
 
@@ -38,8 +43,36 @@ client = TelegramBotSDK({
 
 ```python
 # Create — returns the bare created record (a dict)
-created = client.ApproveSuggestedPost().create({"name": "Example"})
+created = client.ApproveSuggestedPost().create({"chat_id": "example", "message_id": 1, "ok": True})
 
+```
+
+
+## Error handling
+
+Entity operations raise on failure, so wrap them in `try` / `except`:
+
+```python
+try:
+    approvesuggestedpost = client.ApproveSuggestedPost().create({ "chat_id": "example", "message_id": 1, "ok": True })
+    print(approvesuggestedpost)
+except Exception as err:
+    print(f"create failed: {err}")
+```
+
+`direct()` does **not** raise — it returns the result envelope. Branch
+on `ok`; on failure `status` holds the HTTP status (for error responses)
+and `err` holds a transport error, so read both defensively:
+
+```python
+result = client.direct({
+    "path": "/api/resource/{id}",
+    "method": "GET",
+    "params": {"id": "example_id"},
+})
+
+if not result["ok"]:
+    print("request failed:", result.get("status"), result.get("err"))
 ```
 
 
@@ -60,7 +93,10 @@ if result["ok"]:
     print(result["status"])  # 200
     print(result["data"])    # response body
 else:
-    print(result["err"])     # error value
+    # A non-2xx response carries status + data (the error body); a
+    # transport-level failure carries err instead. Only one is present, so
+    # read both with .get() rather than indexing a key that may be absent.
+    print(result.get("status"), result.get("err"))
 ```
 
 ### Prepare a request without sending it
@@ -86,7 +122,7 @@ Create a mock client for unit testing — no server required:
 client = TelegramBotSDK.test()
 
 # Entity ops return the bare record and raise on error.
-approvesuggestedpost = client.ApproveSuggestedPost().load({"id": "test01"})
+approvesuggestedpost = client.ApproveSuggestedPost().create({"chat_id": "example", "message_id": 1, "ok": True})
 # approvesuggestedpost contains the mock response record
 ```
 
@@ -196,8 +232,6 @@ All entities share the same interface.
 | `load` | `(reqmatch, ctrl) -> any` | Load a single entity by match criteria. Raises on error. |
 | `list` | `(reqmatch, ctrl) -> list` | List entities matching the criteria. Raises on error. |
 | `create` | `(reqdata, ctrl) -> any` | Create a new entity. Raises on error. |
-| `update` | `(reqdata, ctrl) -> any` | Update an existing entity. Raises on error. |
-| `remove` | `(reqmatch, ctrl) -> any` | Remove an entity. Raises on error. |
 | `data_get` | `() -> dict` | Get entity data. |
 | `data_set` | `(data)` | Set entity data. |
 | `match_get` | `() -> dict` | Get entity match criteria. |
@@ -582,21 +616,21 @@ Create an instance: `approve_suggested_post = client.ApproveSuggestedPost()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `message_id` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `chat_id` | `str` |  |
+| `description` | `str` |  |
+| `error_code` | `int` |  |
+| `message_id` | `int` |  |
+| `ok` | `bool` |  |
+| `parameter` | `dict` |  |
+| `result` | `Any` |  |
 
 #### Example: Create
 
 ```python
 approve_suggested_post = client.ApproveSuggestedPost().create({
-    "chat_id": ...,  # `$STRING`
-    "message_id": ...,  # `$INTEGER`
-    "ok": ...,  # `$BOOLEAN`
+    "chat_id": "example",  # str
+    "message_id": 1,  # int
+    "ok": True,  # bool
 })
 ```
 
@@ -615,21 +649,21 @@ Create an instance: `decline_suggested_post = client.DeclineSuggestedPost()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `message_id` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `chat_id` | `str` |  |
+| `description` | `str` |  |
+| `error_code` | `int` |  |
+| `message_id` | `int` |  |
+| `ok` | `bool` |  |
+| `parameter` | `dict` |  |
+| `result` | `Any` |  |
 
 #### Example: Create
 
 ```python
 decline_suggested_post = client.DeclineSuggestedPost().create({
-    "chat_id": ...,  # `$STRING`
-    "message_id": ...,  # `$INTEGER`
-    "ok": ...,  # `$BOOLEAN`
+    "chat_id": "example",  # str
+    "message_id": 1,  # int
+    "ok": True,  # bool
 })
 ```
 
@@ -648,21 +682,21 @@ Create an instance: `delete_forum_topic = client.DeleteForumTopic()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `message_thread_id` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `chat_id` | `str` |  |
+| `description` | `str` |  |
+| `error_code` | `int` |  |
+| `message_thread_id` | `int` |  |
+| `ok` | `bool` |  |
+| `parameter` | `dict` |  |
+| `result` | `Any` |  |
 
 #### Example: Create
 
 ```python
 delete_forum_topic = client.DeleteForumTopic().create({
-    "chat_id": ...,  # `$STRING`
-    "message_thread_id": ...,  # `$INTEGER`
-    "ok": ...,  # `$BOOLEAN`
+    "chat_id": "example",  # str
+    "message_thread_id": 1,  # int
+    "ok": True,  # bool
 })
 ```
 
@@ -681,23 +715,23 @@ Create an instance: `edit_forum_topic = client.EditForumTopic()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `icon_custom_emoji_id` | ``$STRING`` |  |
-| `message_thread_id` | ``$INTEGER`` |  |
-| `name` | ``$STRING`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `chat_id` | `str` |  |
+| `description` | `str` |  |
+| `error_code` | `int` |  |
+| `icon_custom_emoji_id` | `str` |  |
+| `message_thread_id` | `int` |  |
+| `name` | `str` |  |
+| `ok` | `bool` |  |
+| `parameter` | `dict` |  |
+| `result` | `Any` |  |
 
 #### Example: Create
 
 ```python
 edit_forum_topic = client.EditForumTopic().create({
-    "chat_id": ...,  # `$STRING`
-    "message_thread_id": ...,  # `$INTEGER`
-    "ok": ...,  # `$BOOLEAN`
+    "chat_id": "example",  # str
+    "message_thread_id": 1,  # int
+    "ok": True,  # bool
 })
 ```
 
@@ -716,13 +750,13 @@ Create an instance: `file = client.File()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `file_id` | ``$STRING`` |  |
+| `file_id` | `str` |  |
 
 #### Example: Create
 
 ```python
 file = client.File().create({
-    "file_id": ...,  # `$STRING`
+    "file_id": "example",  # str
 })
 ```
 
@@ -741,17 +775,17 @@ Create an instance: `forum_topic = client.ForumTopic()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `icon_color` | ``$INTEGER`` |  |
-| `icon_custom_emoji_id` | ``$STRING`` |  |
-| `name` | ``$STRING`` |  |
+| `chat_id` | `str` |  |
+| `icon_color` | `int` |  |
+| `icon_custom_emoji_id` | `str` |  |
+| `name` | `str` |  |
 
 #### Example: Create
 
 ```python
 forum_topic = client.ForumTopic().create({
-    "chat_id": ...,  # `$STRING`
-    "name": ...,  # `$STRING`
+    "chat_id": "example",  # str
+    "name": "example",  # str
 })
 ```
 
@@ -770,20 +804,20 @@ Create an instance: `get_business_account_gift = client.GetBusinessAccountGift()
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `exclude_from_blockchain` | ``$BOOLEAN`` |  |
-| `exclude_limited_non_upgradable` | ``$BOOLEAN`` |  |
-| `exclude_limited_upgradable` | ``$BOOLEAN`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `description` | `str` |  |
+| `error_code` | `int` |  |
+| `exclude_from_blockchain` | `bool` |  |
+| `exclude_limited_non_upgradable` | `bool` |  |
+| `exclude_limited_upgradable` | `bool` |  |
+| `ok` | `bool` |  |
+| `parameter` | `dict` |  |
+| `result` | `Any` |  |
 
 #### Example: Create
 
 ```python
 get_business_account_gift = client.GetBusinessAccountGift().create({
-    "ok": ...,  # `$BOOLEAN`
+    "ok": True,  # bool
 })
 ```
 
@@ -802,19 +836,19 @@ Create an instance: `get_chat_gift = client.GetChatGift()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `chat_id` | `str` |  |
+| `description` | `str` |  |
+| `error_code` | `int` |  |
+| `ok` | `bool` |  |
+| `parameter` | `dict` |  |
+| `result` | `Any` |  |
 
 #### Example: Create
 
 ```python
 get_chat_gift = client.GetChatGift().create({
-    "chat_id": ...,  # `$STRING`
-    "ok": ...,  # `$BOOLEAN`
+    "chat_id": "example",  # str
+    "ok": True,  # bool
 })
 ```
 
@@ -834,23 +868,23 @@ Create an instance: `get_me = client.GetMe()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `description` | `str` |  |
+| `error_code` | `int` |  |
+| `ok` | `bool` |  |
+| `parameter` | `dict` |  |
+| `result` | `Any` |  |
 
 #### Example: Load
 
 ```python
-get_me = client.GetMe().load({"id": "get_me_id"})
+get_me = client.GetMe().load()
 ```
 
 #### Example: Create
 
 ```python
 get_me = client.GetMe().create({
-    "ok": ...,  # `$BOOLEAN`
+    "ok": True,  # bool
 })
 ```
 
@@ -869,19 +903,19 @@ Create an instance: `get_user_gift = client.GetUserGift()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
-| `user_id` | ``$INTEGER`` |  |
+| `description` | `str` |  |
+| `error_code` | `int` |  |
+| `ok` | `bool` |  |
+| `parameter` | `dict` |  |
+| `result` | `Any` |  |
+| `user_id` | `int` |  |
 
 #### Example: Create
 
 ```python
 get_user_gift = client.GetUserGift().create({
-    "ok": ...,  # `$BOOLEAN`
-    "user_id": ...,  # `$INTEGER`
+    "ok": True,  # bool
+    "user_id": 1,  # int
 })
 ```
 
@@ -900,19 +934,19 @@ Create an instance: `get_user_profile_audio = client.GetUserProfileAudio()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
-| `user_id` | ``$INTEGER`` |  |
+| `description` | `str` |  |
+| `error_code` | `int` |  |
+| `ok` | `bool` |  |
+| `parameter` | `dict` |  |
+| `result` | `Any` |  |
+| `user_id` | `int` |  |
 
 #### Example: Create
 
 ```python
 get_user_profile_audio = client.GetUserProfileAudio().create({
-    "ok": ...,  # `$BOOLEAN`
-    "user_id": ...,  # `$INTEGER`
+    "ok": True,  # bool
+    "user_id": 1,  # int
 })
 ```
 
@@ -931,35 +965,35 @@ Create an instance: `message = client.Message()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `direct_messages_topic_id` | ``$INTEGER`` |  |
-| `disable_notification` | ``$BOOLEAN`` |  |
-| `disable_web_page_preview` | ``$BOOLEAN`` |  |
-| `from_chat_id` | ``$STRING`` |  |
-| `latitude` | ``$NUMBER`` |  |
-| `longitude` | ``$NUMBER`` |  |
-| `message_effect_id` | ``$STRING`` |  |
-| `message_id` | ``$INTEGER`` |  |
-| `message_thread_id` | ``$INTEGER`` |  |
-| `option` | ``$ARRAY`` |  |
-| `parse_mode` | ``$STRING`` |  |
-| `protect_content` | ``$BOOLEAN`` |  |
-| `question` | ``$STRING`` |  |
-| `reply_to_message_id` | ``$INTEGER`` |  |
-| `text` | ``$STRING`` |  |
+| `chat_id` | `str` |  |
+| `direct_messages_topic_id` | `int` |  |
+| `disable_notification` | `bool` |  |
+| `disable_web_page_preview` | `bool` |  |
+| `from_chat_id` | `str` |  |
+| `latitude` | `float` |  |
+| `longitude` | `float` |  |
+| `message_effect_id` | `str` |  |
+| `message_id` | `int` |  |
+| `message_thread_id` | `int` |  |
+| `option` | `list` |  |
+| `parse_mode` | `str` |  |
+| `protect_content` | `bool` |  |
+| `question` | `str` |  |
+| `reply_to_message_id` | `int` |  |
+| `text` | `str` |  |
 
 #### Example: Create
 
 ```python
 message = client.Message().create({
-    "chat_id": ...,  # `$STRING`
-    "from_chat_id": ...,  # `$STRING`
-    "latitude": ...,  # `$NUMBER`
-    "longitude": ...,  # `$NUMBER`
-    "message_id": ...,  # `$INTEGER`
-    "option": ...,  # `$ARRAY`
-    "question": ...,  # `$STRING`
-    "text": ...,  # `$STRING`
+    "chat_id": "example",  # str
+    "from_chat_id": "example",  # str
+    "latitude": 1,  # float
+    "longitude": 1,  # float
+    "message_id": 1,  # int
+    "option": [],  # list
+    "question": "example",  # str
+    "text": "example",  # str
 })
 ```
 
@@ -978,20 +1012,20 @@ Create an instance: `message_id = client.MessageId()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `direct_messages_topic_id` | ``$INTEGER`` |  |
-| `from_chat_id` | ``$STRING`` |  |
-| `message_effect_id` | ``$STRING`` |  |
-| `message_id` | ``$INTEGER`` |  |
-| `message_thread_id` | ``$INTEGER`` |  |
+| `chat_id` | `str` |  |
+| `direct_messages_topic_id` | `int` |  |
+| `from_chat_id` | `str` |  |
+| `message_effect_id` | `str` |  |
+| `message_id` | `int` |  |
+| `message_thread_id` | `int` |  |
 
 #### Example: Create
 
 ```python
 message_id = client.MessageId().create({
-    "chat_id": ...,  # `$STRING`
-    "from_chat_id": ...,  # `$STRING`
-    "message_id": ...,  # `$INTEGER`
+    "chat_id": "example",  # str
+    "from_chat_id": "example",  # str
+    "message_id": 1,  # int
 })
 ```
 
@@ -1010,26 +1044,26 @@ Create an instance: `promote_chat_member = client.PromoteChatMember()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `can_delete_message` | ``$BOOLEAN`` |  |
-| `can_edit_message` | ``$BOOLEAN`` |  |
-| `can_manage_chat` | ``$BOOLEAN`` |  |
-| `can_manage_direct_message` | ``$BOOLEAN`` |  |
-| `can_post_message` | ``$BOOLEAN`` |  |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
-| `user_id` | ``$INTEGER`` |  |
+| `can_delete_message` | `bool` |  |
+| `can_edit_message` | `bool` |  |
+| `can_manage_chat` | `bool` |  |
+| `can_manage_direct_message` | `bool` |  |
+| `can_post_message` | `bool` |  |
+| `chat_id` | `str` |  |
+| `description` | `str` |  |
+| `error_code` | `int` |  |
+| `ok` | `bool` |  |
+| `parameter` | `dict` |  |
+| `result` | `Any` |  |
+| `user_id` | `int` |  |
 
 #### Example: Create
 
 ```python
 promote_chat_member = client.PromoteChatMember().create({
-    "chat_id": ...,  # `$STRING`
-    "ok": ...,  # `$BOOLEAN`
-    "user_id": ...,  # `$INTEGER`
+    "chat_id": "example",  # str
+    "ok": True,  # bool
+    "user_id": 1,  # int
 })
 ```
 
@@ -1048,17 +1082,17 @@ Create an instance: `remove_my_profile_photo = client.RemoveMyProfilePhoto()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `description` | `str` |  |
+| `error_code` | `int` |  |
+| `ok` | `bool` |  |
+| `parameter` | `dict` |  |
+| `result` | `Any` |  |
 
 #### Example: Create
 
 ```python
 remove_my_profile_photo = client.RemoveMyProfilePhoto().create({
-    "ok": ...,  # `$BOOLEAN`
+    "ok": True,  # bool
 })
 ```
 
@@ -1077,21 +1111,21 @@ Create an instance: `repost_story = client.RepostStory()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
-| `story_id` | ``$INTEGER`` |  |
+| `chat_id` | `str` |  |
+| `description` | `str` |  |
+| `error_code` | `int` |  |
+| `ok` | `bool` |  |
+| `parameter` | `dict` |  |
+| `result` | `Any` |  |
+| `story_id` | `int` |  |
 
 #### Example: Create
 
 ```python
 repost_story = client.RepostStory().create({
-    "chat_id": ...,  # `$STRING`
-    "ok": ...,  # `$BOOLEAN`
-    "story_id": ...,  # `$INTEGER`
+    "chat_id": "example",  # str
+    "ok": True,  # bool
+    "story_id": 1,  # int
 })
 ```
 
@@ -1110,22 +1144,22 @@ Create an instance: `send_chat_action = client.SendChatAction()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `action` | ``$STRING`` |  |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `message_thread_id` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `action` | `str` |  |
+| `chat_id` | `str` |  |
+| `description` | `str` |  |
+| `error_code` | `int` |  |
+| `message_thread_id` | `int` |  |
+| `ok` | `bool` |  |
+| `parameter` | `dict` |  |
+| `result` | `Any` |  |
 
 #### Example: Create
 
 ```python
 send_chat_action = client.SendChatAction().create({
-    "action": ...,  # `$STRING`
-    "chat_id": ...,  # `$STRING`
-    "ok": ...,  # `$BOOLEAN`
+    "action": "example",  # str
+    "chat_id": "example",  # str
+    "ok": True,  # bool
 })
 ```
 
@@ -1144,22 +1178,22 @@ Create an instance: `send_message_draft = client.SendMessageDraft()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `message_thread_id` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
-| `text` | ``$STRING`` |  |
+| `chat_id` | `str` |  |
+| `description` | `str` |  |
+| `error_code` | `int` |  |
+| `message_thread_id` | `int` |  |
+| `ok` | `bool` |  |
+| `parameter` | `dict` |  |
+| `result` | `Any` |  |
+| `text` | `str` |  |
 
 #### Example: Create
 
 ```python
 send_message_draft = client.SendMessageDraft().create({
-    "chat_id": ...,  # `$STRING`
-    "ok": ...,  # `$BOOLEAN`
-    "text": ...,  # `$STRING`
+    "chat_id": "example",  # str
+    "ok": True,  # bool
+    "text": "example",  # str
 })
 ```
 
@@ -1178,17 +1212,17 @@ Create an instance: `set_my_profile_photo = client.SetMyProfilePhoto()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `description` | `str` |  |
+| `error_code` | `int` |  |
+| `ok` | `bool` |  |
+| `parameter` | `dict` |  |
+| `result` | `Any` |  |
 
 #### Example: Create
 
 ```python
 set_my_profile_photo = client.SetMyProfilePhoto().create({
-    "ok": ...,  # `$BOOLEAN`
+    "ok": True,  # bool
 })
 ```
 
@@ -1207,21 +1241,21 @@ Create an instance: `unpin_all_forum_topic_message = client.UnpinAllForumTopicMe
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `message_thread_id` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `chat_id` | `str` |  |
+| `description` | `str` |  |
+| `error_code` | `int` |  |
+| `message_thread_id` | `int` |  |
+| `ok` | `bool` |  |
+| `parameter` | `dict` |  |
+| `result` | `Any` |  |
 
 #### Example: Create
 
 ```python
 unpin_all_forum_topic_message = client.UnpinAllForumTopicMessage().create({
-    "chat_id": ...,  # `$STRING`
-    "message_thread_id": ...,  # `$INTEGER`
-    "ok": ...,  # `$BOOLEAN`
+    "chat_id": "example",  # str
+    "message_thread_id": 1,  # int
+    "ok": True,  # bool
 })
 ```
 
@@ -1235,43 +1269,47 @@ Create an instance: `update = client.Update()`
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
-| `list(match)` | List entities matching the criteria. |
+| `list()` | List entities, optionally matching the given criteria. |
 
 #### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `allowed_update` | ``$ARRAY`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `limit` | ``$INTEGER`` |  |
-| `offset` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ARRAY`` |  |
-| `timeout` | ``$INTEGER`` |  |
+| `allowed_update` | `list` |  |
+| `description` | `str` |  |
+| `error_code` | `int` |  |
+| `limit` | `int` |  |
+| `offset` | `int` |  |
+| `ok` | `bool` |  |
+| `parameter` | `dict` |  |
+| `result` | `list` |  |
+| `timeout` | `int` |  |
 
 #### Example: List
 
 ```python
-updates = client.Update().list({})
+updates = client.Update().list()
 ```
 
 #### Example: Create
 
 ```python
 update = client.Update().create({
-    "ok": ...,  # `$BOOLEAN`
+    "ok": True,  # bool
 })
 ```
 
 
-## Explanation
+## Advanced
+
+> The sections above cover everyday use. The material below explains the
+> SDK's internals — useful when extending it with custom features, but not
+> needed for normal use.
 
 ### The operation pipeline
 
-Every entity operation (load, list, create, update, remove) follows a
-six-stage pipeline. Each stage fires a feature hook before executing:
+Every entity operation follows a six-stage pipeline. Each stage fires a
+feature hook before executing:
 
 ```
 PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
@@ -1288,8 +1326,9 @@ PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
 - **PreDone**: Final stage before returning to the caller. Entity
   state (match, data) is updated here.
 
-If any stage returns an error, the pipeline short-circuits and the
-error is returned to the caller as the second element in the return tuple.
+If any stage errors, the pipeline short-circuits and the error surfaces
+to the caller — see [Error handling](#error-handling) for how that looks
+in this language.
 
 ### Features and hooks
 
@@ -1332,14 +1371,14 @@ Import entity or utility modules directly only when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `create`, the entity
 stores the returned data and match criteria internally.
 
 ```python
 approvesuggestedpost = client.ApproveSuggestedPost()
-approvesuggestedpost.load({"id": "example_id"})
+approvesuggestedpost.create({ "chat_id": "example", "message_id": 1, "ok": True })
 
-# approvesuggestedpost.data_get() now returns the loaded approvesuggestedpost data
+# approvesuggestedpost.data_get() now returns the approvesuggestedpost data from the last create
 # approvesuggestedpost.match_get() returns the last match criteria
 ```
 

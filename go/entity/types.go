@@ -19,14 +19,13 @@ type ApproveSuggestedPost struct {
 	Result *any `json:"result,omitempty"`
 }
 
-// ApproveSuggestedPostCreateData mirrors the approve_suggested_post fields as an all-optional match
-// filter (Go analog of Partial<ApproveSuggestedPost>).
+// ApproveSuggestedPostCreateData is the typed request payload for ApproveSuggestedPost.CreateTyped.
 type ApproveSuggestedPostCreateData struct {
-	ChatId *string `json:"chat_id,omitempty"`
+	ChatId string `json:"chat_id"`
 	Description *string `json:"description,omitempty"`
 	ErrorCode *int `json:"error_code,omitempty"`
-	MessageId *int `json:"message_id,omitempty"`
-	Ok *bool `json:"ok,omitempty"`
+	MessageId int `json:"message_id"`
+	Ok bool `json:"ok"`
 	Parameter *map[string]any `json:"parameter,omitempty"`
 	Result *any `json:"result,omitempty"`
 }
@@ -42,14 +41,13 @@ type DeclineSuggestedPost struct {
 	Result *any `json:"result,omitempty"`
 }
 
-// DeclineSuggestedPostCreateData mirrors the decline_suggested_post fields as an all-optional match
-// filter (Go analog of Partial<DeclineSuggestedPost>).
+// DeclineSuggestedPostCreateData is the typed request payload for DeclineSuggestedPost.CreateTyped.
 type DeclineSuggestedPostCreateData struct {
-	ChatId *string `json:"chat_id,omitempty"`
+	ChatId string `json:"chat_id"`
 	Description *string `json:"description,omitempty"`
 	ErrorCode *int `json:"error_code,omitempty"`
-	MessageId *int `json:"message_id,omitempty"`
-	Ok *bool `json:"ok,omitempty"`
+	MessageId int `json:"message_id"`
+	Ok bool `json:"ok"`
 	Parameter *map[string]any `json:"parameter,omitempty"`
 	Result *any `json:"result,omitempty"`
 }
@@ -65,14 +63,13 @@ type DeleteForumTopic struct {
 	Result *any `json:"result,omitempty"`
 }
 
-// DeleteForumTopicCreateData mirrors the delete_forum_topic fields as an all-optional match
-// filter (Go analog of Partial<DeleteForumTopic>).
+// DeleteForumTopicCreateData is the typed request payload for DeleteForumTopic.CreateTyped.
 type DeleteForumTopicCreateData struct {
-	ChatId *string `json:"chat_id,omitempty"`
+	ChatId string `json:"chat_id"`
 	Description *string `json:"description,omitempty"`
 	ErrorCode *int `json:"error_code,omitempty"`
-	MessageThreadId *int `json:"message_thread_id,omitempty"`
-	Ok *bool `json:"ok,omitempty"`
+	MessageThreadId int `json:"message_thread_id"`
+	Ok bool `json:"ok"`
 	Parameter *map[string]any `json:"parameter,omitempty"`
 	Result *any `json:"result,omitempty"`
 }
@@ -90,16 +87,15 @@ type EditForumTopic struct {
 	Result *any `json:"result,omitempty"`
 }
 
-// EditForumTopicCreateData mirrors the edit_forum_topic fields as an all-optional match
-// filter (Go analog of Partial<EditForumTopic>).
+// EditForumTopicCreateData is the typed request payload for EditForumTopic.CreateTyped.
 type EditForumTopicCreateData struct {
-	ChatId *string `json:"chat_id,omitempty"`
+	ChatId string `json:"chat_id"`
 	Description *string `json:"description,omitempty"`
 	ErrorCode *int `json:"error_code,omitempty"`
 	IconCustomEmojiId *string `json:"icon_custom_emoji_id,omitempty"`
-	MessageThreadId *int `json:"message_thread_id,omitempty"`
+	MessageThreadId int `json:"message_thread_id"`
 	Name *string `json:"name,omitempty"`
-	Ok *bool `json:"ok,omitempty"`
+	Ok bool `json:"ok"`
 	Parameter *map[string]any `json:"parameter,omitempty"`
 	Result *any `json:"result,omitempty"`
 }
@@ -109,10 +105,9 @@ type File struct {
 	FileId string `json:"file_id"`
 }
 
-// FileCreateData mirrors the file fields as an all-optional match
-// filter (Go analog of Partial<File>).
+// FileCreateData is the typed request payload for File.CreateTyped.
 type FileCreateData struct {
-	FileId *string `json:"file_id,omitempty"`
+	FileId string `json:"file_id"`
 }
 
 // ForumTopic is the typed data model for the forum_topic entity.
@@ -123,13 +118,12 @@ type ForumTopic struct {
 	Name string `json:"name"`
 }
 
-// ForumTopicCreateData mirrors the forum_topic fields as an all-optional match
-// filter (Go analog of Partial<ForumTopic>).
+// ForumTopicCreateData is the typed request payload for ForumTopic.CreateTyped.
 type ForumTopicCreateData struct {
-	ChatId *string `json:"chat_id,omitempty"`
+	ChatId string `json:"chat_id"`
 	IconColor *int `json:"icon_color,omitempty"`
 	IconCustomEmojiId *string `json:"icon_custom_emoji_id,omitempty"`
-	Name *string `json:"name,omitempty"`
+	Name string `json:"name"`
 }
 
 // GetBusinessAccountGift is the typed data model for the get_business_account_gift entity.
@@ -144,15 +138,14 @@ type GetBusinessAccountGift struct {
 	Result *any `json:"result,omitempty"`
 }
 
-// GetBusinessAccountGiftCreateData mirrors the get_business_account_gift fields as an all-optional match
-// filter (Go analog of Partial<GetBusinessAccountGift>).
+// GetBusinessAccountGiftCreateData is the typed request payload for GetBusinessAccountGift.CreateTyped.
 type GetBusinessAccountGiftCreateData struct {
 	Description *string `json:"description,omitempty"`
 	ErrorCode *int `json:"error_code,omitempty"`
 	ExcludeFromBlockchain *bool `json:"exclude_from_blockchain,omitempty"`
 	ExcludeLimitedNonUpgradable *bool `json:"exclude_limited_non_upgradable,omitempty"`
 	ExcludeLimitedUpgradable *bool `json:"exclude_limited_upgradable,omitempty"`
-	Ok *bool `json:"ok,omitempty"`
+	Ok bool `json:"ok"`
 	Parameter *map[string]any `json:"parameter,omitempty"`
 	Result *any `json:"result,omitempty"`
 }
@@ -167,13 +160,12 @@ type GetChatGift struct {
 	Result *any `json:"result,omitempty"`
 }
 
-// GetChatGiftCreateData mirrors the get_chat_gift fields as an all-optional match
-// filter (Go analog of Partial<GetChatGift>).
+// GetChatGiftCreateData is the typed request payload for GetChatGift.CreateTyped.
 type GetChatGiftCreateData struct {
-	ChatId *string `json:"chat_id,omitempty"`
+	ChatId string `json:"chat_id"`
 	Description *string `json:"description,omitempty"`
 	ErrorCode *int `json:"error_code,omitempty"`
-	Ok *bool `json:"ok,omitempty"`
+	Ok bool `json:"ok"`
 	Parameter *map[string]any `json:"parameter,omitempty"`
 	Result *any `json:"result,omitempty"`
 }
@@ -187,8 +179,7 @@ type GetMe struct {
 	Result *any `json:"result,omitempty"`
 }
 
-// GetMeLoadMatch mirrors the get_me fields as an all-optional match
-// filter (Go analog of Partial<GetMe>).
+// GetMeLoadMatch is the typed request payload for GetMe.LoadTyped.
 type GetMeLoadMatch struct {
 	Description *string `json:"description,omitempty"`
 	ErrorCode *int `json:"error_code,omitempty"`
@@ -197,12 +188,11 @@ type GetMeLoadMatch struct {
 	Result *any `json:"result,omitempty"`
 }
 
-// GetMeCreateData mirrors the get_me fields as an all-optional match
-// filter (Go analog of Partial<GetMe>).
+// GetMeCreateData is the typed request payload for GetMe.CreateTyped.
 type GetMeCreateData struct {
 	Description *string `json:"description,omitempty"`
 	ErrorCode *int `json:"error_code,omitempty"`
-	Ok *bool `json:"ok,omitempty"`
+	Ok bool `json:"ok"`
 	Parameter *map[string]any `json:"parameter,omitempty"`
 	Result *any `json:"result,omitempty"`
 }
@@ -217,15 +207,14 @@ type GetUserGift struct {
 	UserId int `json:"user_id"`
 }
 
-// GetUserGiftCreateData mirrors the get_user_gift fields as an all-optional match
-// filter (Go analog of Partial<GetUserGift>).
+// GetUserGiftCreateData is the typed request payload for GetUserGift.CreateTyped.
 type GetUserGiftCreateData struct {
 	Description *string `json:"description,omitempty"`
 	ErrorCode *int `json:"error_code,omitempty"`
-	Ok *bool `json:"ok,omitempty"`
+	Ok bool `json:"ok"`
 	Parameter *map[string]any `json:"parameter,omitempty"`
 	Result *any `json:"result,omitempty"`
-	UserId *int `json:"user_id,omitempty"`
+	UserId int `json:"user_id"`
 }
 
 // GetUserProfileAudio is the typed data model for the get_user_profile_audio entity.
@@ -238,15 +227,14 @@ type GetUserProfileAudio struct {
 	UserId int `json:"user_id"`
 }
 
-// GetUserProfileAudioCreateData mirrors the get_user_profile_audio fields as an all-optional match
-// filter (Go analog of Partial<GetUserProfileAudio>).
+// GetUserProfileAudioCreateData is the typed request payload for GetUserProfileAudio.CreateTyped.
 type GetUserProfileAudioCreateData struct {
 	Description *string `json:"description,omitempty"`
 	ErrorCode *int `json:"error_code,omitempty"`
-	Ok *bool `json:"ok,omitempty"`
+	Ok bool `json:"ok"`
 	Parameter *map[string]any `json:"parameter,omitempty"`
 	Result *any `json:"result,omitempty"`
-	UserId *int `json:"user_id,omitempty"`
+	UserId int `json:"user_id"`
 }
 
 // Message is the typed data model for the message entity.
@@ -269,25 +257,24 @@ type Message struct {
 	Text string `json:"text"`
 }
 
-// MessageCreateData mirrors the message fields as an all-optional match
-// filter (Go analog of Partial<Message>).
+// MessageCreateData is the typed request payload for Message.CreateTyped.
 type MessageCreateData struct {
-	ChatId *string `json:"chat_id,omitempty"`
+	ChatId string `json:"chat_id"`
 	DirectMessagesTopicId *int `json:"direct_messages_topic_id,omitempty"`
 	DisableNotification *bool `json:"disable_notification,omitempty"`
 	DisableWebPagePreview *bool `json:"disable_web_page_preview,omitempty"`
-	FromChatId *string `json:"from_chat_id,omitempty"`
-	Latitude *float64 `json:"latitude,omitempty"`
-	Longitude *float64 `json:"longitude,omitempty"`
+	FromChatId string `json:"from_chat_id"`
+	Latitude float64 `json:"latitude"`
+	Longitude float64 `json:"longitude"`
 	MessageEffectId *string `json:"message_effect_id,omitempty"`
-	MessageId *int `json:"message_id,omitempty"`
+	MessageId int `json:"message_id"`
 	MessageThreadId *int `json:"message_thread_id,omitempty"`
-	Option *[]any `json:"option,omitempty"`
+	Option []any `json:"option"`
 	ParseMode *string `json:"parse_mode,omitempty"`
 	ProtectContent *bool `json:"protect_content,omitempty"`
-	Question *string `json:"question,omitempty"`
+	Question string `json:"question"`
 	ReplyToMessageId *int `json:"reply_to_message_id,omitempty"`
-	Text *string `json:"text,omitempty"`
+	Text string `json:"text"`
 }
 
 // MessageId is the typed data model for the message_id entity.
@@ -300,14 +287,13 @@ type MessageId struct {
 	MessageThreadId *int `json:"message_thread_id,omitempty"`
 }
 
-// MessageIdCreateData mirrors the message_id fields as an all-optional match
-// filter (Go analog of Partial<MessageId>).
+// MessageIdCreateData is the typed request payload for MessageId.CreateTyped.
 type MessageIdCreateData struct {
-	ChatId *string `json:"chat_id,omitempty"`
+	ChatId string `json:"chat_id"`
 	DirectMessagesTopicId *int `json:"direct_messages_topic_id,omitempty"`
-	FromChatId *string `json:"from_chat_id,omitempty"`
+	FromChatId string `json:"from_chat_id"`
 	MessageEffectId *string `json:"message_effect_id,omitempty"`
-	MessageId *int `json:"message_id,omitempty"`
+	MessageId int `json:"message_id"`
 	MessageThreadId *int `json:"message_thread_id,omitempty"`
 }
 
@@ -327,21 +313,20 @@ type PromoteChatMember struct {
 	UserId int `json:"user_id"`
 }
 
-// PromoteChatMemberCreateData mirrors the promote_chat_member fields as an all-optional match
-// filter (Go analog of Partial<PromoteChatMember>).
+// PromoteChatMemberCreateData is the typed request payload for PromoteChatMember.CreateTyped.
 type PromoteChatMemberCreateData struct {
 	CanDeleteMessage *bool `json:"can_delete_message,omitempty"`
 	CanEditMessage *bool `json:"can_edit_message,omitempty"`
 	CanManageChat *bool `json:"can_manage_chat,omitempty"`
 	CanManageDirectMessage *bool `json:"can_manage_direct_message,omitempty"`
 	CanPostMessage *bool `json:"can_post_message,omitempty"`
-	ChatId *string `json:"chat_id,omitempty"`
+	ChatId string `json:"chat_id"`
 	Description *string `json:"description,omitempty"`
 	ErrorCode *int `json:"error_code,omitempty"`
-	Ok *bool `json:"ok,omitempty"`
+	Ok bool `json:"ok"`
 	Parameter *map[string]any `json:"parameter,omitempty"`
 	Result *any `json:"result,omitempty"`
-	UserId *int `json:"user_id,omitempty"`
+	UserId int `json:"user_id"`
 }
 
 // RemoveMyProfilePhoto is the typed data model for the remove_my_profile_photo entity.
@@ -353,12 +338,11 @@ type RemoveMyProfilePhoto struct {
 	Result *any `json:"result,omitempty"`
 }
 
-// RemoveMyProfilePhotoCreateData mirrors the remove_my_profile_photo fields as an all-optional match
-// filter (Go analog of Partial<RemoveMyProfilePhoto>).
+// RemoveMyProfilePhotoCreateData is the typed request payload for RemoveMyProfilePhoto.CreateTyped.
 type RemoveMyProfilePhotoCreateData struct {
 	Description *string `json:"description,omitempty"`
 	ErrorCode *int `json:"error_code,omitempty"`
-	Ok *bool `json:"ok,omitempty"`
+	Ok bool `json:"ok"`
 	Parameter *map[string]any `json:"parameter,omitempty"`
 	Result *any `json:"result,omitempty"`
 }
@@ -374,16 +358,15 @@ type RepostStory struct {
 	StoryId int `json:"story_id"`
 }
 
-// RepostStoryCreateData mirrors the repost_story fields as an all-optional match
-// filter (Go analog of Partial<RepostStory>).
+// RepostStoryCreateData is the typed request payload for RepostStory.CreateTyped.
 type RepostStoryCreateData struct {
-	ChatId *string `json:"chat_id,omitempty"`
+	ChatId string `json:"chat_id"`
 	Description *string `json:"description,omitempty"`
 	ErrorCode *int `json:"error_code,omitempty"`
-	Ok *bool `json:"ok,omitempty"`
+	Ok bool `json:"ok"`
 	Parameter *map[string]any `json:"parameter,omitempty"`
 	Result *any `json:"result,omitempty"`
-	StoryId *int `json:"story_id,omitempty"`
+	StoryId int `json:"story_id"`
 }
 
 // SendChatAction is the typed data model for the send_chat_action entity.
@@ -398,15 +381,14 @@ type SendChatAction struct {
 	Result *any `json:"result,omitempty"`
 }
 
-// SendChatActionCreateData mirrors the send_chat_action fields as an all-optional match
-// filter (Go analog of Partial<SendChatAction>).
+// SendChatActionCreateData is the typed request payload for SendChatAction.CreateTyped.
 type SendChatActionCreateData struct {
-	Action *string `json:"action,omitempty"`
-	ChatId *string `json:"chat_id,omitempty"`
+	Action string `json:"action"`
+	ChatId string `json:"chat_id"`
 	Description *string `json:"description,omitempty"`
 	ErrorCode *int `json:"error_code,omitempty"`
 	MessageThreadId *int `json:"message_thread_id,omitempty"`
-	Ok *bool `json:"ok,omitempty"`
+	Ok bool `json:"ok"`
 	Parameter *map[string]any `json:"parameter,omitempty"`
 	Result *any `json:"result,omitempty"`
 }
@@ -423,17 +405,16 @@ type SendMessageDraft struct {
 	Text string `json:"text"`
 }
 
-// SendMessageDraftCreateData mirrors the send_message_draft fields as an all-optional match
-// filter (Go analog of Partial<SendMessageDraft>).
+// SendMessageDraftCreateData is the typed request payload for SendMessageDraft.CreateTyped.
 type SendMessageDraftCreateData struct {
-	ChatId *string `json:"chat_id,omitempty"`
+	ChatId string `json:"chat_id"`
 	Description *string `json:"description,omitempty"`
 	ErrorCode *int `json:"error_code,omitempty"`
 	MessageThreadId *int `json:"message_thread_id,omitempty"`
-	Ok *bool `json:"ok,omitempty"`
+	Ok bool `json:"ok"`
 	Parameter *map[string]any `json:"parameter,omitempty"`
 	Result *any `json:"result,omitempty"`
-	Text *string `json:"text,omitempty"`
+	Text string `json:"text"`
 }
 
 // SetMyProfilePhoto is the typed data model for the set_my_profile_photo entity.
@@ -445,12 +426,11 @@ type SetMyProfilePhoto struct {
 	Result *any `json:"result,omitempty"`
 }
 
-// SetMyProfilePhotoCreateData mirrors the set_my_profile_photo fields as an all-optional match
-// filter (Go analog of Partial<SetMyProfilePhoto>).
+// SetMyProfilePhotoCreateData is the typed request payload for SetMyProfilePhoto.CreateTyped.
 type SetMyProfilePhotoCreateData struct {
 	Description *string `json:"description,omitempty"`
 	ErrorCode *int `json:"error_code,omitempty"`
-	Ok *bool `json:"ok,omitempty"`
+	Ok bool `json:"ok"`
 	Parameter *map[string]any `json:"parameter,omitempty"`
 	Result *any `json:"result,omitempty"`
 }
@@ -466,14 +446,13 @@ type UnpinAllForumTopicMessage struct {
 	Result *any `json:"result,omitempty"`
 }
 
-// UnpinAllForumTopicMessageCreateData mirrors the unpin_all_forum_topic_message fields as an all-optional match
-// filter (Go analog of Partial<UnpinAllForumTopicMessage>).
+// UnpinAllForumTopicMessageCreateData is the typed request payload for UnpinAllForumTopicMessage.CreateTyped.
 type UnpinAllForumTopicMessageCreateData struct {
-	ChatId *string `json:"chat_id,omitempty"`
+	ChatId string `json:"chat_id"`
 	Description *string `json:"description,omitempty"`
 	ErrorCode *int `json:"error_code,omitempty"`
-	MessageThreadId *int `json:"message_thread_id,omitempty"`
-	Ok *bool `json:"ok,omitempty"`
+	MessageThreadId int `json:"message_thread_id"`
+	Ok bool `json:"ok"`
 	Parameter *map[string]any `json:"parameter,omitempty"`
 	Result *any `json:"result,omitempty"`
 }
@@ -491,8 +470,7 @@ type Update struct {
 	Timeout *int `json:"timeout,omitempty"`
 }
 
-// UpdateListMatch mirrors the update fields as an all-optional match
-// filter (Go analog of Partial<Update>).
+// UpdateListMatch is the typed request payload for Update.ListTyped.
 type UpdateListMatch struct {
 	AllowedUpdate *[]any `json:"allowed_update,omitempty"`
 	Description *string `json:"description,omitempty"`
@@ -505,15 +483,14 @@ type UpdateListMatch struct {
 	Timeout *int `json:"timeout,omitempty"`
 }
 
-// UpdateCreateData mirrors the update fields as an all-optional match
-// filter (Go analog of Partial<Update>).
+// UpdateCreateData is the typed request payload for Update.CreateTyped.
 type UpdateCreateData struct {
 	AllowedUpdate *[]any `json:"allowed_update,omitempty"`
 	Description *string `json:"description,omitempty"`
 	ErrorCode *int `json:"error_code,omitempty"`
 	Limit *int `json:"limit,omitempty"`
 	Offset *int `json:"offset,omitempty"`
-	Ok *bool `json:"ok,omitempty"`
+	Ok bool `json:"ok"`
 	Parameter *map[string]any `json:"parameter,omitempty"`
 	Result *[]any `json:"result,omitempty"`
 	Timeout *int `json:"timeout,omitempty"`

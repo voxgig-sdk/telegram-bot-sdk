@@ -4,6 +4,8 @@
 
 The PHP SDK for the TelegramBot API — an entity-oriented client using PHP conventions.
 
+The SDK exposes the API as capitalised, semantic **Entities** — for example `$client->ApproveSuggestedPost()` — with named operations (`list`/`load`/`create`) instead of raw URL paths and query strings. Working with resources and verbs keeps call sites self-describing and reduces cognitive load.
+
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
 
@@ -35,8 +37,39 @@ $client = new TelegramBotSDK([
 
 ```php
 // create() returns the bare created ApproveSuggestedPost record.
-$created = $client->ApproveSuggestedPost()->create(["name" => "Example"]);
+$created = $client->ApproveSuggestedPost()->create(["chat_id" => "example", "message_id" => 1, "ok" => true]);
 
+```
+
+
+## Error handling
+
+Entity operations throw a `\Throwable` on failure, so wrap them in
+`try` / `catch`:
+
+```php
+try {
+    $approvesuggestedpost = $client->ApproveSuggestedPost()->create(["chat_id" => "example", "message_id" => 1, "ok" => true]);
+} catch (\Throwable $err) {
+    echo "Error: " . $err->getMessage();
+}
+```
+
+`direct()` does **not** throw — it returns the result array. Branch on
+`ok`; on failure `status` holds the HTTP status (for error responses) and
+`err` holds a transport error, so read both defensively:
+
+```php
+$result = $client->direct([
+    "path" => "/api/resource/{id}",
+    "method" => "GET",
+    "params" => ["id" => "example_id"],
+]);
+
+if (! $result["ok"]) {
+    $err = $result["err"] ?? null;
+    echo "request failed: " . ($err ? $err->getMessage() : "HTTP " . $result["status"]);
+}
 ```
 
 
@@ -59,7 +92,10 @@ if ($result["ok"]) {
     echo $result["status"];  // 200
     print_r($result["data"]);  // response body
 } else {
-    echo "Error: " . $result["err"]->getMessage();
+    // On an HTTP error status there is no err (only a transport failure sets
+    // it), so fall back to the status code.
+    $err = $result["err"] ?? null;
+    echo "Error: " . ($err ? $err->getMessage() : "HTTP " . $result["status"]);
 }
 ```
 
@@ -80,16 +116,13 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required. Seed fixture
-data via the `entity` option so offline calls resolve without a live server:
+Create a mock client for unit testing — no server required:
 
 ```php
-$client = TelegramBotSDK::test([
-    "entity" => ["approvesuggestedpost" => ["test01" => ["id" => "test01"]]],
-]);
+$client = TelegramBotSDK::test();
 
-// load() returns the bare mock record (throws on error).
-$approvesuggestedpost = $client->ApproveSuggestedPost()->load(["id" => "test01"]);
+// Entity ops return the bare mock record (throws on error).
+$approvesuggestedpost = $client->ApproveSuggestedPost()->create(["chat_id" => "example", "message_id" => 1, "ok" => true]);
 print_r($approvesuggestedpost);
 ```
 
@@ -200,10 +233,8 @@ All entities share the same interface.
 | Method | Signature | Description |
 | --- | --- | --- |
 | `load` | `($reqmatch, $ctrl): array` | Load a single entity by match criteria. |
-| `list` | `($reqmatch, $ctrl): array` | List entities matching the criteria. |
+| `list` | `(?array $reqmatch = null, $ctrl): array` | List entities matching the criteria (call with no argument to list all). |
 | `create` | `($reqdata, $ctrl): array` | Create a new entity. |
-| `update` | `($reqdata, $ctrl): array` | Update an existing entity. |
-| `remove` | `($reqmatch, $ctrl): array` | Remove an entity. |
 | `data_get` | `(): array` | Get entity data. |
 | `data_set` | `($data): void` | Set entity data. |
 | `match_get` | `(): array` | Get entity match criteria. |
@@ -588,21 +619,21 @@ Create an instance: `$approve_suggested_post = $client->ApproveSuggestedPost();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `message_id` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `chat_id` | `string` |  |
+| `description` | `string` |  |
+| `error_code` | `int` |  |
+| `message_id` | `int` |  |
+| `ok` | `bool` |  |
+| `parameter` | `array` |  |
+| `result` | `mixed` |  |
 
 #### Example: Create
 
 ```php
 $approve_suggested_post = $client->ApproveSuggestedPost()->create([
-    "chat_id" => null, // `$STRING`
-    "message_id" => null, // `$INTEGER`
-    "ok" => null, // `$BOOLEAN`
+    "chat_id" => null, // string
+    "message_id" => null, // int
+    "ok" => null, // bool
 ]);
 ```
 
@@ -621,21 +652,21 @@ Create an instance: `$decline_suggested_post = $client->DeclineSuggestedPost();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `message_id` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `chat_id` | `string` |  |
+| `description` | `string` |  |
+| `error_code` | `int` |  |
+| `message_id` | `int` |  |
+| `ok` | `bool` |  |
+| `parameter` | `array` |  |
+| `result` | `mixed` |  |
 
 #### Example: Create
 
 ```php
 $decline_suggested_post = $client->DeclineSuggestedPost()->create([
-    "chat_id" => null, // `$STRING`
-    "message_id" => null, // `$INTEGER`
-    "ok" => null, // `$BOOLEAN`
+    "chat_id" => null, // string
+    "message_id" => null, // int
+    "ok" => null, // bool
 ]);
 ```
 
@@ -654,21 +685,21 @@ Create an instance: `$delete_forum_topic = $client->DeleteForumTopic();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `message_thread_id` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `chat_id` | `string` |  |
+| `description` | `string` |  |
+| `error_code` | `int` |  |
+| `message_thread_id` | `int` |  |
+| `ok` | `bool` |  |
+| `parameter` | `array` |  |
+| `result` | `mixed` |  |
 
 #### Example: Create
 
 ```php
 $delete_forum_topic = $client->DeleteForumTopic()->create([
-    "chat_id" => null, // `$STRING`
-    "message_thread_id" => null, // `$INTEGER`
-    "ok" => null, // `$BOOLEAN`
+    "chat_id" => null, // string
+    "message_thread_id" => null, // int
+    "ok" => null, // bool
 ]);
 ```
 
@@ -687,23 +718,23 @@ Create an instance: `$edit_forum_topic = $client->EditForumTopic();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `icon_custom_emoji_id` | ``$STRING`` |  |
-| `message_thread_id` | ``$INTEGER`` |  |
-| `name` | ``$STRING`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `chat_id` | `string` |  |
+| `description` | `string` |  |
+| `error_code` | `int` |  |
+| `icon_custom_emoji_id` | `string` |  |
+| `message_thread_id` | `int` |  |
+| `name` | `string` |  |
+| `ok` | `bool` |  |
+| `parameter` | `array` |  |
+| `result` | `mixed` |  |
 
 #### Example: Create
 
 ```php
 $edit_forum_topic = $client->EditForumTopic()->create([
-    "chat_id" => null, // `$STRING`
-    "message_thread_id" => null, // `$INTEGER`
-    "ok" => null, // `$BOOLEAN`
+    "chat_id" => null, // string
+    "message_thread_id" => null, // int
+    "ok" => null, // bool
 ]);
 ```
 
@@ -722,13 +753,13 @@ Create an instance: `$file = $client->File();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `file_id` | ``$STRING`` |  |
+| `file_id` | `string` |  |
 
 #### Example: Create
 
 ```php
 $file = $client->File()->create([
-    "file_id" => null, // `$STRING`
+    "file_id" => null, // string
 ]);
 ```
 
@@ -747,17 +778,17 @@ Create an instance: `$forum_topic = $client->ForumTopic();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `icon_color` | ``$INTEGER`` |  |
-| `icon_custom_emoji_id` | ``$STRING`` |  |
-| `name` | ``$STRING`` |  |
+| `chat_id` | `string` |  |
+| `icon_color` | `int` |  |
+| `icon_custom_emoji_id` | `string` |  |
+| `name` | `string` |  |
 
 #### Example: Create
 
 ```php
 $forum_topic = $client->ForumTopic()->create([
-    "chat_id" => null, // `$STRING`
-    "name" => null, // `$STRING`
+    "chat_id" => null, // string
+    "name" => null, // string
 ]);
 ```
 
@@ -776,20 +807,20 @@ Create an instance: `$get_business_account_gift = $client->GetBusinessAccountGif
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `exclude_from_blockchain` | ``$BOOLEAN`` |  |
-| `exclude_limited_non_upgradable` | ``$BOOLEAN`` |  |
-| `exclude_limited_upgradable` | ``$BOOLEAN`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `description` | `string` |  |
+| `error_code` | `int` |  |
+| `exclude_from_blockchain` | `bool` |  |
+| `exclude_limited_non_upgradable` | `bool` |  |
+| `exclude_limited_upgradable` | `bool` |  |
+| `ok` | `bool` |  |
+| `parameter` | `array` |  |
+| `result` | `mixed` |  |
 
 #### Example: Create
 
 ```php
 $get_business_account_gift = $client->GetBusinessAccountGift()->create([
-    "ok" => null, // `$BOOLEAN`
+    "ok" => null, // bool
 ]);
 ```
 
@@ -808,19 +839,19 @@ Create an instance: `$get_chat_gift = $client->GetChatGift();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `chat_id` | `string` |  |
+| `description` | `string` |  |
+| `error_code` | `int` |  |
+| `ok` | `bool` |  |
+| `parameter` | `array` |  |
+| `result` | `mixed` |  |
 
 #### Example: Create
 
 ```php
 $get_chat_gift = $client->GetChatGift()->create([
-    "chat_id" => null, // `$STRING`
-    "ok" => null, // `$BOOLEAN`
+    "chat_id" => null, // string
+    "ok" => null, // bool
 ]);
 ```
 
@@ -840,24 +871,24 @@ Create an instance: `$get_me = $client->GetMe();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `description` | `string` |  |
+| `error_code` | `int` |  |
+| `ok` | `bool` |  |
+| `parameter` | `array` |  |
+| `result` | `mixed` |  |
 
 #### Example: Load
 
 ```php
 // load() returns the bare GetMe record (throws on error).
-$get_me = $client->GetMe()->load(["id" => "get_me_id"]);
+$get_me = $client->GetMe()->load();
 ```
 
 #### Example: Create
 
 ```php
 $get_me = $client->GetMe()->create([
-    "ok" => null, // `$BOOLEAN`
+    "ok" => null, // bool
 ]);
 ```
 
@@ -876,19 +907,19 @@ Create an instance: `$get_user_gift = $client->GetUserGift();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
-| `user_id` | ``$INTEGER`` |  |
+| `description` | `string` |  |
+| `error_code` | `int` |  |
+| `ok` | `bool` |  |
+| `parameter` | `array` |  |
+| `result` | `mixed` |  |
+| `user_id` | `int` |  |
 
 #### Example: Create
 
 ```php
 $get_user_gift = $client->GetUserGift()->create([
-    "ok" => null, // `$BOOLEAN`
-    "user_id" => null, // `$INTEGER`
+    "ok" => null, // bool
+    "user_id" => null, // int
 ]);
 ```
 
@@ -907,19 +938,19 @@ Create an instance: `$get_user_profile_audio = $client->GetUserProfileAudio();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
-| `user_id` | ``$INTEGER`` |  |
+| `description` | `string` |  |
+| `error_code` | `int` |  |
+| `ok` | `bool` |  |
+| `parameter` | `array` |  |
+| `result` | `mixed` |  |
+| `user_id` | `int` |  |
 
 #### Example: Create
 
 ```php
 $get_user_profile_audio = $client->GetUserProfileAudio()->create([
-    "ok" => null, // `$BOOLEAN`
-    "user_id" => null, // `$INTEGER`
+    "ok" => null, // bool
+    "user_id" => null, // int
 ]);
 ```
 
@@ -938,35 +969,35 @@ Create an instance: `$message = $client->Message();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `direct_messages_topic_id` | ``$INTEGER`` |  |
-| `disable_notification` | ``$BOOLEAN`` |  |
-| `disable_web_page_preview` | ``$BOOLEAN`` |  |
-| `from_chat_id` | ``$STRING`` |  |
-| `latitude` | ``$NUMBER`` |  |
-| `longitude` | ``$NUMBER`` |  |
-| `message_effect_id` | ``$STRING`` |  |
-| `message_id` | ``$INTEGER`` |  |
-| `message_thread_id` | ``$INTEGER`` |  |
-| `option` | ``$ARRAY`` |  |
-| `parse_mode` | ``$STRING`` |  |
-| `protect_content` | ``$BOOLEAN`` |  |
-| `question` | ``$STRING`` |  |
-| `reply_to_message_id` | ``$INTEGER`` |  |
-| `text` | ``$STRING`` |  |
+| `chat_id` | `string` |  |
+| `direct_messages_topic_id` | `int` |  |
+| `disable_notification` | `bool` |  |
+| `disable_web_page_preview` | `bool` |  |
+| `from_chat_id` | `string` |  |
+| `latitude` | `float` |  |
+| `longitude` | `float` |  |
+| `message_effect_id` | `string` |  |
+| `message_id` | `int` |  |
+| `message_thread_id` | `int` |  |
+| `option` | `array` |  |
+| `parse_mode` | `string` |  |
+| `protect_content` | `bool` |  |
+| `question` | `string` |  |
+| `reply_to_message_id` | `int` |  |
+| `text` | `string` |  |
 
 #### Example: Create
 
 ```php
 $message = $client->Message()->create([
-    "chat_id" => null, // `$STRING`
-    "from_chat_id" => null, // `$STRING`
-    "latitude" => null, // `$NUMBER`
-    "longitude" => null, // `$NUMBER`
-    "message_id" => null, // `$INTEGER`
-    "option" => null, // `$ARRAY`
-    "question" => null, // `$STRING`
-    "text" => null, // `$STRING`
+    "chat_id" => null, // string
+    "from_chat_id" => null, // string
+    "latitude" => null, // float
+    "longitude" => null, // float
+    "message_id" => null, // int
+    "option" => null, // array
+    "question" => null, // string
+    "text" => null, // string
 ]);
 ```
 
@@ -985,20 +1016,20 @@ Create an instance: `$message_id = $client->MessageId();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `direct_messages_topic_id` | ``$INTEGER`` |  |
-| `from_chat_id` | ``$STRING`` |  |
-| `message_effect_id` | ``$STRING`` |  |
-| `message_id` | ``$INTEGER`` |  |
-| `message_thread_id` | ``$INTEGER`` |  |
+| `chat_id` | `string` |  |
+| `direct_messages_topic_id` | `int` |  |
+| `from_chat_id` | `string` |  |
+| `message_effect_id` | `string` |  |
+| `message_id` | `int` |  |
+| `message_thread_id` | `int` |  |
 
 #### Example: Create
 
 ```php
 $message_id = $client->MessageId()->create([
-    "chat_id" => null, // `$STRING`
-    "from_chat_id" => null, // `$STRING`
-    "message_id" => null, // `$INTEGER`
+    "chat_id" => null, // string
+    "from_chat_id" => null, // string
+    "message_id" => null, // int
 ]);
 ```
 
@@ -1017,26 +1048,26 @@ Create an instance: `$promote_chat_member = $client->PromoteChatMember();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `can_delete_message` | ``$BOOLEAN`` |  |
-| `can_edit_message` | ``$BOOLEAN`` |  |
-| `can_manage_chat` | ``$BOOLEAN`` |  |
-| `can_manage_direct_message` | ``$BOOLEAN`` |  |
-| `can_post_message` | ``$BOOLEAN`` |  |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
-| `user_id` | ``$INTEGER`` |  |
+| `can_delete_message` | `bool` |  |
+| `can_edit_message` | `bool` |  |
+| `can_manage_chat` | `bool` |  |
+| `can_manage_direct_message` | `bool` |  |
+| `can_post_message` | `bool` |  |
+| `chat_id` | `string` |  |
+| `description` | `string` |  |
+| `error_code` | `int` |  |
+| `ok` | `bool` |  |
+| `parameter` | `array` |  |
+| `result` | `mixed` |  |
+| `user_id` | `int` |  |
 
 #### Example: Create
 
 ```php
 $promote_chat_member = $client->PromoteChatMember()->create([
-    "chat_id" => null, // `$STRING`
-    "ok" => null, // `$BOOLEAN`
-    "user_id" => null, // `$INTEGER`
+    "chat_id" => null, // string
+    "ok" => null, // bool
+    "user_id" => null, // int
 ]);
 ```
 
@@ -1055,17 +1086,17 @@ Create an instance: `$remove_my_profile_photo = $client->RemoveMyProfilePhoto();
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `description` | `string` |  |
+| `error_code` | `int` |  |
+| `ok` | `bool` |  |
+| `parameter` | `array` |  |
+| `result` | `mixed` |  |
 
 #### Example: Create
 
 ```php
 $remove_my_profile_photo = $client->RemoveMyProfilePhoto()->create([
-    "ok" => null, // `$BOOLEAN`
+    "ok" => null, // bool
 ]);
 ```
 
@@ -1084,21 +1115,21 @@ Create an instance: `$repost_story = $client->RepostStory();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
-| `story_id` | ``$INTEGER`` |  |
+| `chat_id` | `string` |  |
+| `description` | `string` |  |
+| `error_code` | `int` |  |
+| `ok` | `bool` |  |
+| `parameter` | `array` |  |
+| `result` | `mixed` |  |
+| `story_id` | `int` |  |
 
 #### Example: Create
 
 ```php
 $repost_story = $client->RepostStory()->create([
-    "chat_id" => null, // `$STRING`
-    "ok" => null, // `$BOOLEAN`
-    "story_id" => null, // `$INTEGER`
+    "chat_id" => null, // string
+    "ok" => null, // bool
+    "story_id" => null, // int
 ]);
 ```
 
@@ -1117,22 +1148,22 @@ Create an instance: `$send_chat_action = $client->SendChatAction();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `action` | ``$STRING`` |  |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `message_thread_id` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `action` | `string` |  |
+| `chat_id` | `string` |  |
+| `description` | `string` |  |
+| `error_code` | `int` |  |
+| `message_thread_id` | `int` |  |
+| `ok` | `bool` |  |
+| `parameter` | `array` |  |
+| `result` | `mixed` |  |
 
 #### Example: Create
 
 ```php
 $send_chat_action = $client->SendChatAction()->create([
-    "action" => null, // `$STRING`
-    "chat_id" => null, // `$STRING`
-    "ok" => null, // `$BOOLEAN`
+    "action" => null, // string
+    "chat_id" => null, // string
+    "ok" => null, // bool
 ]);
 ```
 
@@ -1151,22 +1182,22 @@ Create an instance: `$send_message_draft = $client->SendMessageDraft();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `message_thread_id` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
-| `text` | ``$STRING`` |  |
+| `chat_id` | `string` |  |
+| `description` | `string` |  |
+| `error_code` | `int` |  |
+| `message_thread_id` | `int` |  |
+| `ok` | `bool` |  |
+| `parameter` | `array` |  |
+| `result` | `mixed` |  |
+| `text` | `string` |  |
 
 #### Example: Create
 
 ```php
 $send_message_draft = $client->SendMessageDraft()->create([
-    "chat_id" => null, // `$STRING`
-    "ok" => null, // `$BOOLEAN`
-    "text" => null, // `$STRING`
+    "chat_id" => null, // string
+    "ok" => null, // bool
+    "text" => null, // string
 ]);
 ```
 
@@ -1185,17 +1216,17 @@ Create an instance: `$set_my_profile_photo = $client->SetMyProfilePhoto();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `description` | `string` |  |
+| `error_code` | `int` |  |
+| `ok` | `bool` |  |
+| `parameter` | `array` |  |
+| `result` | `mixed` |  |
 
 #### Example: Create
 
 ```php
 $set_my_profile_photo = $client->SetMyProfilePhoto()->create([
-    "ok" => null, // `$BOOLEAN`
+    "ok" => null, // bool
 ]);
 ```
 
@@ -1214,21 +1245,21 @@ Create an instance: `$unpin_all_forum_topic_message = $client->UnpinAllForumTopi
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `message_thread_id` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ANY`` |  |
+| `chat_id` | `string` |  |
+| `description` | `string` |  |
+| `error_code` | `int` |  |
+| `message_thread_id` | `int` |  |
+| `ok` | `bool` |  |
+| `parameter` | `array` |  |
+| `result` | `mixed` |  |
 
 #### Example: Create
 
 ```php
 $unpin_all_forum_topic_message = $client->UnpinAllForumTopicMessage()->create([
-    "chat_id" => null, // `$STRING`
-    "message_thread_id" => null, // `$INTEGER`
-    "ok" => null, // `$BOOLEAN`
+    "chat_id" => null, // string
+    "message_thread_id" => null, // int
+    "ok" => null, // bool
 ]);
 ```
 
@@ -1248,15 +1279,15 @@ Create an instance: `$update = $client->Update();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `allowed_update` | ``$ARRAY`` |  |
-| `description` | ``$STRING`` |  |
-| `error_code` | ``$INTEGER`` |  |
-| `limit` | ``$INTEGER`` |  |
-| `offset` | ``$INTEGER`` |  |
-| `ok` | ``$BOOLEAN`` |  |
-| `parameter` | ``$OBJECT`` |  |
-| `result` | ``$ARRAY`` |  |
-| `timeout` | ``$INTEGER`` |  |
+| `allowed_update` | `array` |  |
+| `description` | `string` |  |
+| `error_code` | `int` |  |
+| `limit` | `int` |  |
+| `offset` | `int` |  |
+| `ok` | `bool` |  |
+| `parameter` | `array` |  |
+| `result` | `array` |  |
+| `timeout` | `int` |  |
 
 #### Example: List
 
@@ -1269,17 +1300,21 @@ $updates = $client->Update()->list();
 
 ```php
 $update = $client->Update()->create([
-    "ok" => null, // `$BOOLEAN`
+    "ok" => null, // bool
 ]);
 ```
 
 
-## Explanation
+## Advanced
+
+> The sections above cover everyday use. The material below explains the
+> SDK's internals — useful when extending it with custom features, but not
+> needed for normal use.
 
 ### The operation pipeline
 
-Every entity operation (load, list, create, update, remove) follows a
-six-stage pipeline. Each stage fires a feature hook before executing:
+Every entity operation follows a six-stage pipeline. Each stage fires a
+feature hook before executing:
 
 ```
 PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
@@ -1296,8 +1331,9 @@ PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
 - **PreDone**: Final stage before returning to the caller. Entity
   state (match, data) is updated here.
 
-If any stage returns an error, the pipeline short-circuits and the
-error is returned to the caller as the second element in the return array.
+If any stage errors, the pipeline short-circuits and the error surfaces
+to the caller — see [Error handling](#error-handling) for how that looks
+in this language.
 
 ### Features and hooks
 
@@ -1341,15 +1377,15 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `create`, the entity
 stores the returned data and match criteria internally.
 
 ```php
 $approvesuggestedpost = $client->ApproveSuggestedPost();
-$approvesuggestedpost->load(["id" => "example_id"]);
+$approvesuggestedpost->create(["chat_id" => "example", "message_id" => 1, "ok" => true]);
 
-// $approvesuggestedpost->dataGet() now returns the loaded approvesuggestedpost data
-// $approvesuggestedpost->matchGet() returns the last match criteria
+// $approvesuggestedpost->data_get() now returns the approvesuggestedpost data from the last create
+// $approvesuggestedpost->match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

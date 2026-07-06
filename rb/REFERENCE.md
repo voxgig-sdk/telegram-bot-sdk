@@ -8,7 +8,7 @@ Complete API reference for the TelegramBot Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'telegram-bot_sdk'
+require_relative 'TelegramBot_sdk'
 
 client = TelegramBotSDK.new(options)
 ```
@@ -174,13 +174,13 @@ approve_suggested_post = client.ApproveSuggestedPost
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `message_id` | ``$INTEGER`` | Yes |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `chat_id` | `String` | Yes |  |
+| `description` | `String` | No |  |
+| `error_code` | `Integer` | No |  |
+| `message_id` | `Integer` | Yes |  |
+| `ok` | `Boolean` | Yes |  |
+| `parameter` | `Hash` | No |  |
+| `result` | `Object` | No |  |
 
 ### Operations
 
@@ -190,9 +190,9 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.ApproveSuggestedPost.create({
-  "chat_id" => # `$STRING`,
-  "message_id" => # `$INTEGER`,
-  "ok" => # `$BOOLEAN`,
+  "chat_id" => "example", # String
+  "message_id" => 1, # Integer
+  "ok" => true, # Boolean
 })
 ```
 
@@ -236,13 +236,13 @@ decline_suggested_post = client.DeclineSuggestedPost
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `message_id` | ``$INTEGER`` | Yes |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `chat_id` | `String` | Yes |  |
+| `description` | `String` | No |  |
+| `error_code` | `Integer` | No |  |
+| `message_id` | `Integer` | Yes |  |
+| `ok` | `Boolean` | Yes |  |
+| `parameter` | `Hash` | No |  |
+| `result` | `Object` | No |  |
 
 ### Operations
 
@@ -252,9 +252,9 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.DeclineSuggestedPost.create({
-  "chat_id" => # `$STRING`,
-  "message_id" => # `$INTEGER`,
-  "ok" => # `$BOOLEAN`,
+  "chat_id" => "example", # String
+  "message_id" => 1, # Integer
+  "ok" => true, # Boolean
 })
 ```
 
@@ -298,13 +298,13 @@ delete_forum_topic = client.DeleteForumTopic
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `message_thread_id` | ``$INTEGER`` | Yes |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `chat_id` | `String` | Yes |  |
+| `description` | `String` | No |  |
+| `error_code` | `Integer` | No |  |
+| `message_thread_id` | `Integer` | Yes |  |
+| `ok` | `Boolean` | Yes |  |
+| `parameter` | `Hash` | No |  |
+| `result` | `Object` | No |  |
 
 ### Operations
 
@@ -314,9 +314,9 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.DeleteForumTopic.create({
-  "chat_id" => # `$STRING`,
-  "message_thread_id" => # `$INTEGER`,
-  "ok" => # `$BOOLEAN`,
+  "chat_id" => "example", # String
+  "message_thread_id" => 1, # Integer
+  "ok" => true, # Boolean
 })
 ```
 
@@ -360,15 +360,15 @@ edit_forum_topic = client.EditForumTopic
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `icon_custom_emoji_id` | ``$STRING`` | No |  |
-| `message_thread_id` | ``$INTEGER`` | Yes |  |
-| `name` | ``$STRING`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `chat_id` | `String` | Yes |  |
+| `description` | `String` | No |  |
+| `error_code` | `Integer` | No |  |
+| `icon_custom_emoji_id` | `String` | No |  |
+| `message_thread_id` | `Integer` | Yes |  |
+| `name` | `String` | No |  |
+| `ok` | `Boolean` | Yes |  |
+| `parameter` | `Hash` | No |  |
+| `result` | `Object` | No |  |
 
 ### Operations
 
@@ -378,9 +378,9 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.EditForumTopic.create({
-  "chat_id" => # `$STRING`,
-  "message_thread_id" => # `$INTEGER`,
-  "ok" => # `$BOOLEAN`,
+  "chat_id" => "example", # String
+  "message_thread_id" => 1, # Integer
+  "ok" => true, # Boolean
 })
 ```
 
@@ -424,7 +424,7 @@ file = client.File
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `file_id` | ``$STRING`` | Yes |  |
+| `file_id` | `String` | Yes |  |
 
 ### Operations
 
@@ -434,7 +434,7 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.File.create({
-  "file_id" => # `$STRING`,
+  "file_id" => "example", # String
 })
 ```
 
@@ -478,10 +478,10 @@ forum_topic = client.ForumTopic
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `icon_color` | ``$INTEGER`` | No |  |
-| `icon_custom_emoji_id` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | Yes |  |
+| `chat_id` | `String` | Yes |  |
+| `icon_color` | `Integer` | No |  |
+| `icon_custom_emoji_id` | `String` | No |  |
+| `name` | `String` | Yes |  |
 
 ### Operations
 
@@ -491,8 +491,8 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.ForumTopic.create({
-  "chat_id" => # `$STRING`,
-  "name" => # `$STRING`,
+  "chat_id" => "example", # String
+  "name" => "example", # String
 })
 ```
 
@@ -536,14 +536,14 @@ get_business_account_gift = client.GetBusinessAccountGift
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `exclude_from_blockchain` | ``$BOOLEAN`` | No |  |
-| `exclude_limited_non_upgradable` | ``$BOOLEAN`` | No |  |
-| `exclude_limited_upgradable` | ``$BOOLEAN`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `description` | `String` | No |  |
+| `error_code` | `Integer` | No |  |
+| `exclude_from_blockchain` | `Boolean` | No |  |
+| `exclude_limited_non_upgradable` | `Boolean` | No |  |
+| `exclude_limited_upgradable` | `Boolean` | No |  |
+| `ok` | `Boolean` | Yes |  |
+| `parameter` | `Hash` | No |  |
+| `result` | `Object` | No |  |
 
 ### Operations
 
@@ -553,7 +553,7 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.GetBusinessAccountGift.create({
-  "ok" => # `$BOOLEAN`,
+  "ok" => true, # Boolean
 })
 ```
 
@@ -597,12 +597,12 @@ get_chat_gift = client.GetChatGift
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `chat_id` | `String` | Yes |  |
+| `description` | `String` | No |  |
+| `error_code` | `Integer` | No |  |
+| `ok` | `Boolean` | Yes |  |
+| `parameter` | `Hash` | No |  |
+| `result` | `Object` | No |  |
 
 ### Operations
 
@@ -612,8 +612,8 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.GetChatGift.create({
-  "chat_id" => # `$STRING`,
-  "ok" => # `$BOOLEAN`,
+  "chat_id" => "example", # String
+  "ok" => true, # Boolean
 })
 ```
 
@@ -657,11 +657,11 @@ get_me = client.GetMe
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `description` | `String` | No |  |
+| `error_code` | `Integer` | No |  |
+| `ok` | `Boolean` | Yes |  |
+| `parameter` | `Hash` | No |  |
+| `result` | `Object` | No |  |
 
 ### Operations
 
@@ -671,7 +671,7 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.GetMe.create({
-  "ok" => # `$BOOLEAN`,
+  "ok" => true, # Boolean
 })
 ```
 
@@ -680,7 +680,7 @@ result = client.GetMe.create({
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.GetMe.load({ "id" => "get_me_id" })
+result = client.GetMe.load()
 ```
 
 ### Common Methods
@@ -723,12 +723,12 @@ get_user_gift = client.GetUserGift
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
-| `user_id` | ``$INTEGER`` | Yes |  |
+| `description` | `String` | No |  |
+| `error_code` | `Integer` | No |  |
+| `ok` | `Boolean` | Yes |  |
+| `parameter` | `Hash` | No |  |
+| `result` | `Object` | No |  |
+| `user_id` | `Integer` | Yes |  |
 
 ### Operations
 
@@ -738,8 +738,8 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.GetUserGift.create({
-  "ok" => # `$BOOLEAN`,
-  "user_id" => # `$INTEGER`,
+  "ok" => true, # Boolean
+  "user_id" => 1, # Integer
 })
 ```
 
@@ -783,12 +783,12 @@ get_user_profile_audio = client.GetUserProfileAudio
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
-| `user_id` | ``$INTEGER`` | Yes |  |
+| `description` | `String` | No |  |
+| `error_code` | `Integer` | No |  |
+| `ok` | `Boolean` | Yes |  |
+| `parameter` | `Hash` | No |  |
+| `result` | `Object` | No |  |
+| `user_id` | `Integer` | Yes |  |
 
 ### Operations
 
@@ -798,8 +798,8 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.GetUserProfileAudio.create({
-  "ok" => # `$BOOLEAN`,
-  "user_id" => # `$INTEGER`,
+  "ok" => true, # Boolean
+  "user_id" => 1, # Integer
 })
 ```
 
@@ -843,22 +843,22 @@ message = client.Message
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `direct_messages_topic_id` | ``$INTEGER`` | No |  |
-| `disable_notification` | ``$BOOLEAN`` | No |  |
-| `disable_web_page_preview` | ``$BOOLEAN`` | No |  |
-| `from_chat_id` | ``$STRING`` | Yes |  |
-| `latitude` | ``$NUMBER`` | Yes |  |
-| `longitude` | ``$NUMBER`` | Yes |  |
-| `message_effect_id` | ``$STRING`` | No |  |
-| `message_id` | ``$INTEGER`` | Yes |  |
-| `message_thread_id` | ``$INTEGER`` | No |  |
-| `option` | ``$ARRAY`` | Yes |  |
-| `parse_mode` | ``$STRING`` | No |  |
-| `protect_content` | ``$BOOLEAN`` | No |  |
-| `question` | ``$STRING`` | Yes |  |
-| `reply_to_message_id` | ``$INTEGER`` | No |  |
-| `text` | ``$STRING`` | Yes |  |
+| `chat_id` | `String` | Yes |  |
+| `direct_messages_topic_id` | `Integer` | No |  |
+| `disable_notification` | `Boolean` | No |  |
+| `disable_web_page_preview` | `Boolean` | No |  |
+| `from_chat_id` | `String` | Yes |  |
+| `latitude` | `Float` | Yes |  |
+| `longitude` | `Float` | Yes |  |
+| `message_effect_id` | `String` | No |  |
+| `message_id` | `Integer` | Yes |  |
+| `message_thread_id` | `Integer` | No |  |
+| `option` | `Array` | Yes |  |
+| `parse_mode` | `String` | No |  |
+| `protect_content` | `Boolean` | No |  |
+| `question` | `String` | Yes |  |
+| `reply_to_message_id` | `Integer` | No |  |
+| `text` | `String` | Yes |  |
 
 ### Operations
 
@@ -868,14 +868,14 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.Message.create({
-  "chat_id" => # `$STRING`,
-  "from_chat_id" => # `$STRING`,
-  "latitude" => # `$NUMBER`,
-  "longitude" => # `$NUMBER`,
-  "message_id" => # `$INTEGER`,
-  "option" => # `$ARRAY`,
-  "question" => # `$STRING`,
-  "text" => # `$STRING`,
+  "chat_id" => "example", # String
+  "from_chat_id" => "example", # String
+  "latitude" => 1, # Float
+  "longitude" => 1, # Float
+  "message_id" => 1, # Integer
+  "option" => [], # Array
+  "question" => "example", # String
+  "text" => "example", # String
 })
 ```
 
@@ -919,12 +919,12 @@ message_id = client.MessageId
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `direct_messages_topic_id` | ``$INTEGER`` | No |  |
-| `from_chat_id` | ``$STRING`` | Yes |  |
-| `message_effect_id` | ``$STRING`` | No |  |
-| `message_id` | ``$INTEGER`` | Yes |  |
-| `message_thread_id` | ``$INTEGER`` | No |  |
+| `chat_id` | `String` | Yes |  |
+| `direct_messages_topic_id` | `Integer` | No |  |
+| `from_chat_id` | `String` | Yes |  |
+| `message_effect_id` | `String` | No |  |
+| `message_id` | `Integer` | Yes |  |
+| `message_thread_id` | `Integer` | No |  |
 
 ### Operations
 
@@ -934,9 +934,9 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.MessageId.create({
-  "chat_id" => # `$STRING`,
-  "from_chat_id" => # `$STRING`,
-  "message_id" => # `$INTEGER`,
+  "chat_id" => "example", # String
+  "from_chat_id" => "example", # String
+  "message_id" => 1, # Integer
 })
 ```
 
@@ -980,18 +980,18 @@ promote_chat_member = client.PromoteChatMember
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `can_delete_message` | ``$BOOLEAN`` | No |  |
-| `can_edit_message` | ``$BOOLEAN`` | No |  |
-| `can_manage_chat` | ``$BOOLEAN`` | No |  |
-| `can_manage_direct_message` | ``$BOOLEAN`` | No |  |
-| `can_post_message` | ``$BOOLEAN`` | No |  |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
-| `user_id` | ``$INTEGER`` | Yes |  |
+| `can_delete_message` | `Boolean` | No |  |
+| `can_edit_message` | `Boolean` | No |  |
+| `can_manage_chat` | `Boolean` | No |  |
+| `can_manage_direct_message` | `Boolean` | No |  |
+| `can_post_message` | `Boolean` | No |  |
+| `chat_id` | `String` | Yes |  |
+| `description` | `String` | No |  |
+| `error_code` | `Integer` | No |  |
+| `ok` | `Boolean` | Yes |  |
+| `parameter` | `Hash` | No |  |
+| `result` | `Object` | No |  |
+| `user_id` | `Integer` | Yes |  |
 
 ### Operations
 
@@ -1001,9 +1001,9 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.PromoteChatMember.create({
-  "chat_id" => # `$STRING`,
-  "ok" => # `$BOOLEAN`,
-  "user_id" => # `$INTEGER`,
+  "chat_id" => "example", # String
+  "ok" => true, # Boolean
+  "user_id" => 1, # Integer
 })
 ```
 
@@ -1047,11 +1047,11 @@ remove_my_profile_photo = client.RemoveMyProfilePhoto
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `description` | `String` | No |  |
+| `error_code` | `Integer` | No |  |
+| `ok` | `Boolean` | Yes |  |
+| `parameter` | `Hash` | No |  |
+| `result` | `Object` | No |  |
 
 ### Operations
 
@@ -1061,7 +1061,7 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.RemoveMyProfilePhoto.create({
-  "ok" => # `$BOOLEAN`,
+  "ok" => true, # Boolean
 })
 ```
 
@@ -1105,13 +1105,13 @@ repost_story = client.RepostStory
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
-| `story_id` | ``$INTEGER`` | Yes |  |
+| `chat_id` | `String` | Yes |  |
+| `description` | `String` | No |  |
+| `error_code` | `Integer` | No |  |
+| `ok` | `Boolean` | Yes |  |
+| `parameter` | `Hash` | No |  |
+| `result` | `Object` | No |  |
+| `story_id` | `Integer` | Yes |  |
 
 ### Operations
 
@@ -1121,9 +1121,9 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.RepostStory.create({
-  "chat_id" => # `$STRING`,
-  "ok" => # `$BOOLEAN`,
-  "story_id" => # `$INTEGER`,
+  "chat_id" => "example", # String
+  "ok" => true, # Boolean
+  "story_id" => 1, # Integer
 })
 ```
 
@@ -1167,14 +1167,14 @@ send_chat_action = client.SendChatAction
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `action` | ``$STRING`` | Yes |  |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `message_thread_id` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `action` | `String` | Yes |  |
+| `chat_id` | `String` | Yes |  |
+| `description` | `String` | No |  |
+| `error_code` | `Integer` | No |  |
+| `message_thread_id` | `Integer` | No |  |
+| `ok` | `Boolean` | Yes |  |
+| `parameter` | `Hash` | No |  |
+| `result` | `Object` | No |  |
 
 ### Operations
 
@@ -1184,9 +1184,9 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.SendChatAction.create({
-  "action" => # `$STRING`,
-  "chat_id" => # `$STRING`,
-  "ok" => # `$BOOLEAN`,
+  "action" => "example", # String
+  "chat_id" => "example", # String
+  "ok" => true, # Boolean
 })
 ```
 
@@ -1230,14 +1230,14 @@ send_message_draft = client.SendMessageDraft
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `message_thread_id` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
-| `text` | ``$STRING`` | Yes |  |
+| `chat_id` | `String` | Yes |  |
+| `description` | `String` | No |  |
+| `error_code` | `Integer` | No |  |
+| `message_thread_id` | `Integer` | No |  |
+| `ok` | `Boolean` | Yes |  |
+| `parameter` | `Hash` | No |  |
+| `result` | `Object` | No |  |
+| `text` | `String` | Yes |  |
 
 ### Operations
 
@@ -1247,9 +1247,9 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.SendMessageDraft.create({
-  "chat_id" => # `$STRING`,
-  "ok" => # `$BOOLEAN`,
-  "text" => # `$STRING`,
+  "chat_id" => "example", # String
+  "ok" => true, # Boolean
+  "text" => "example", # String
 })
 ```
 
@@ -1293,11 +1293,11 @@ set_my_profile_photo = client.SetMyProfilePhoto
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `description` | `String` | No |  |
+| `error_code` | `Integer` | No |  |
+| `ok` | `Boolean` | Yes |  |
+| `parameter` | `Hash` | No |  |
+| `result` | `Object` | No |  |
 
 ### Operations
 
@@ -1307,7 +1307,7 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.SetMyProfilePhoto.create({
-  "ok" => # `$BOOLEAN`,
+  "ok" => true, # Boolean
 })
 ```
 
@@ -1351,13 +1351,13 @@ unpin_all_forum_topic_message = client.UnpinAllForumTopicMessage
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `message_thread_id` | ``$INTEGER`` | Yes |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ANY`` | No |  |
+| `chat_id` | `String` | Yes |  |
+| `description` | `String` | No |  |
+| `error_code` | `Integer` | No |  |
+| `message_thread_id` | `Integer` | Yes |  |
+| `ok` | `Boolean` | Yes |  |
+| `parameter` | `Hash` | No |  |
+| `result` | `Object` | No |  |
 
 ### Operations
 
@@ -1367,9 +1367,9 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.UnpinAllForumTopicMessage.create({
-  "chat_id" => # `$STRING`,
-  "message_thread_id" => # `$INTEGER`,
-  "ok" => # `$BOOLEAN`,
+  "chat_id" => "example", # String
+  "message_thread_id" => 1, # Integer
+  "ok" => true, # Boolean
 })
 ```
 
@@ -1413,15 +1413,15 @@ update = client.Update
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `allowed_update` | ``$ARRAY`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `error_code` | ``$INTEGER`` | No |  |
-| `limit` | ``$INTEGER`` | No |  |
-| `offset` | ``$INTEGER`` | No |  |
-| `ok` | ``$BOOLEAN`` | Yes |  |
-| `parameter` | ``$OBJECT`` | No |  |
-| `result` | ``$ARRAY`` | No |  |
-| `timeout` | ``$INTEGER`` | No |  |
+| `allowed_update` | `Array` | No |  |
+| `description` | `String` | No |  |
+| `error_code` | `Integer` | No |  |
+| `limit` | `Integer` | No |  |
+| `offset` | `Integer` | No |  |
+| `ok` | `Boolean` | Yes |  |
+| `parameter` | `Hash` | No |  |
+| `result` | `Array` | No |  |
+| `timeout` | `Integer` | No |  |
 
 ### Operations
 
@@ -1431,16 +1431,16 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.Update.create({
-  "ok" => # `$BOOLEAN`,
+  "ok" => true, # Boolean
 })
 ```
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Update.list(nil)
+results = client.Update.list
 ```
 
 ### Common Methods
