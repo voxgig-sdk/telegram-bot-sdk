@@ -171,7 +171,8 @@ same parameters as `Direct()`.
 ## ApproveSuggestedPostEntity
 
 ```go
-approve_suggested_post := client.ApproveSuggestedPost(nil)
+approveSuggestedPost := client.ApproveSuggestedPost(nil)
+fmt.Println(approveSuggestedPost.GetName()) // "approve_suggested_post"
 ```
 
 ### Fields
@@ -194,10 +195,14 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.ApproveSuggestedPost(nil).Create(map[string]any{
-    "chat_id": /* string */,
-    "message_id": /* int */,
-    "ok": /* bool */,
+    "chat_id": "example_chat_id",
+    "message_id": 1,
+    "ok": true,
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -227,7 +232,8 @@ Return the entity name.
 ## DeclineSuggestedPostEntity
 
 ```go
-decline_suggested_post := client.DeclineSuggestedPost(nil)
+declineSuggestedPost := client.DeclineSuggestedPost(nil)
+fmt.Println(declineSuggestedPost.GetName()) // "decline_suggested_post"
 ```
 
 ### Fields
@@ -250,10 +256,14 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.DeclineSuggestedPost(nil).Create(map[string]any{
-    "chat_id": /* string */,
-    "message_id": /* int */,
-    "ok": /* bool */,
+    "chat_id": "example_chat_id",
+    "message_id": 1,
+    "ok": true,
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -283,7 +293,8 @@ Return the entity name.
 ## DeleteForumTopicEntity
 
 ```go
-delete_forum_topic := client.DeleteForumTopic(nil)
+deleteForumTopic := client.DeleteForumTopic(nil)
+fmt.Println(deleteForumTopic.GetName()) // "delete_forum_topic"
 ```
 
 ### Fields
@@ -306,10 +317,14 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.DeleteForumTopic(nil).Create(map[string]any{
-    "chat_id": /* string */,
-    "message_thread_id": /* int */,
-    "ok": /* bool */,
+    "chat_id": "example_chat_id",
+    "message_thread_id": 1,
+    "ok": true,
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -339,7 +354,8 @@ Return the entity name.
 ## EditForumTopicEntity
 
 ```go
-edit_forum_topic := client.EditForumTopic(nil)
+editForumTopic := client.EditForumTopic(nil)
+fmt.Println(editForumTopic.GetName()) // "edit_forum_topic"
 ```
 
 ### Fields
@@ -364,10 +380,14 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.EditForumTopic(nil).Create(map[string]any{
-    "chat_id": /* string */,
-    "message_thread_id": /* int */,
-    "ok": /* bool */,
+    "chat_id": "example_chat_id",
+    "message_thread_id": 1,
+    "ok": true,
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -398,6 +418,7 @@ Return the entity name.
 
 ```go
 file := client.File(nil)
+fmt.Println(file.GetName()) // "file"
 ```
 
 ### Fields
@@ -414,8 +435,12 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.File(nil).Create(map[string]any{
-    "file_id": /* string */,
+    "file_id": "example_file_id",
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -445,7 +470,8 @@ Return the entity name.
 ## ForumTopicEntity
 
 ```go
-forum_topic := client.ForumTopic(nil)
+forumTopic := client.ForumTopic(nil)
+fmt.Println(forumTopic.GetName()) // "forum_topic"
 ```
 
 ### Fields
@@ -465,9 +491,13 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.ForumTopic(nil).Create(map[string]any{
-    "chat_id": /* string */,
-    "name": /* string */,
+    "chat_id": "example_chat_id",
+    "name": "example_name",
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -497,7 +527,8 @@ Return the entity name.
 ## GetBusinessAccountGiftEntity
 
 ```go
-get_business_account_gift := client.GetBusinessAccountGift(nil)
+getBusinessAccountGift := client.GetBusinessAccountGift(nil)
+fmt.Println(getBusinessAccountGift.GetName()) // "get_business_account_gift"
 ```
 
 ### Fields
@@ -521,8 +552,12 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.GetBusinessAccountGift(nil).Create(map[string]any{
-    "ok": /* bool */,
+    "ok": true,
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -552,7 +587,8 @@ Return the entity name.
 ## GetChatGiftEntity
 
 ```go
-get_chat_gift := client.GetChatGift(nil)
+getChatGift := client.GetChatGift(nil)
+fmt.Println(getChatGift.GetName()) // "get_chat_gift"
 ```
 
 ### Fields
@@ -574,9 +610,13 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.GetChatGift(nil).Create(map[string]any{
-    "chat_id": /* string */,
-    "ok": /* bool */,
+    "chat_id": "example_chat_id",
+    "ok": true,
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -606,7 +646,8 @@ Return the entity name.
 ## GetMeEntity
 
 ```go
-get_me := client.GetMe(nil)
+getMe := client.GetMe(nil)
+fmt.Println(getMe.GetName()) // "get_me"
 ```
 
 ### Fields
@@ -621,22 +662,30 @@ get_me := client.GetMe(nil)
 
 ### Operations
 
-#### `Create(reqdata, ctrl map[string]any) (any, error)`
-
-Create a new entity with the given data.
-
-```go
-result, err := client.GetMe(nil).Create(map[string]any{
-    "ok": /* bool */,
-}, nil)
-```
-
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`
 
 Load a single entity matching the given criteria.
 
 ```go
 result, err := client.GetMe(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+#### `Create(reqdata, ctrl map[string]any) (any, error)`
+
+Create a new entity with the given data.
+
+```go
+result, err := client.GetMe(nil).Create(map[string]any{
+    "ok": true,
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -666,7 +715,8 @@ Return the entity name.
 ## GetUserGiftEntity
 
 ```go
-get_user_gift := client.GetUserGift(nil)
+getUserGift := client.GetUserGift(nil)
+fmt.Println(getUserGift.GetName()) // "get_user_gift"
 ```
 
 ### Fields
@@ -688,9 +738,13 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.GetUserGift(nil).Create(map[string]any{
-    "ok": /* bool */,
-    "user_id": /* int */,
+    "ok": true,
+    "user_id": 1,
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -720,7 +774,8 @@ Return the entity name.
 ## GetUserProfileAudioEntity
 
 ```go
-get_user_profile_audio := client.GetUserProfileAudio(nil)
+getUserProfileAudio := client.GetUserProfileAudio(nil)
+fmt.Println(getUserProfileAudio.GetName()) // "get_user_profile_audio"
 ```
 
 ### Fields
@@ -742,9 +797,13 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.GetUserProfileAudio(nil).Create(map[string]any{
-    "ok": /* bool */,
-    "user_id": /* int */,
+    "ok": true,
+    "user_id": 1,
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -775,6 +834,7 @@ Return the entity name.
 
 ```go
 message := client.Message(nil)
+fmt.Println(message.GetName()) // "message"
 ```
 
 ### Fields
@@ -806,15 +866,19 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Message(nil).Create(map[string]any{
-    "chat_id": /* string */,
-    "from_chat_id": /* string */,
-    "latitude": /* float64 */,
-    "longitude": /* float64 */,
-    "message_id": /* int */,
-    "option": /* []any */,
-    "question": /* string */,
-    "text": /* string */,
+    "chat_id": "example_chat_id",
+    "from_chat_id": "example_from_chat_id",
+    "latitude": 1,
+    "longitude": 1,
+    "message_id": 1,
+    "option": []any{},
+    "question": "example_question",
+    "text": "example_text",
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -844,7 +908,8 @@ Return the entity name.
 ## MessageIdEntity
 
 ```go
-message_id := client.MessageId(nil)
+messageId := client.MessageId(nil)
+fmt.Println(messageId.GetName()) // "message_id"
 ```
 
 ### Fields
@@ -866,10 +931,14 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.MessageId(nil).Create(map[string]any{
-    "chat_id": /* string */,
-    "from_chat_id": /* string */,
-    "message_id": /* int */,
+    "chat_id": "example_chat_id",
+    "from_chat_id": "example_from_chat_id",
+    "message_id": 1,
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -899,7 +968,8 @@ Return the entity name.
 ## PromoteChatMemberEntity
 
 ```go
-promote_chat_member := client.PromoteChatMember(nil)
+promoteChatMember := client.PromoteChatMember(nil)
+fmt.Println(promoteChatMember.GetName()) // "promote_chat_member"
 ```
 
 ### Fields
@@ -927,10 +997,14 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.PromoteChatMember(nil).Create(map[string]any{
-    "chat_id": /* string */,
-    "ok": /* bool */,
-    "user_id": /* int */,
+    "chat_id": "example_chat_id",
+    "ok": true,
+    "user_id": 1,
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -960,7 +1034,8 @@ Return the entity name.
 ## RemoveMyProfilePhotoEntity
 
 ```go
-remove_my_profile_photo := client.RemoveMyProfilePhoto(nil)
+removeMyProfilePhoto := client.RemoveMyProfilePhoto(nil)
+fmt.Println(removeMyProfilePhoto.GetName()) // "remove_my_profile_photo"
 ```
 
 ### Fields
@@ -981,8 +1056,12 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.RemoveMyProfilePhoto(nil).Create(map[string]any{
-    "ok": /* bool */,
+    "ok": true,
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -1012,7 +1091,8 @@ Return the entity name.
 ## RepostStoryEntity
 
 ```go
-repost_story := client.RepostStory(nil)
+repostStory := client.RepostStory(nil)
+fmt.Println(repostStory.GetName()) // "repost_story"
 ```
 
 ### Fields
@@ -1035,10 +1115,14 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.RepostStory(nil).Create(map[string]any{
-    "chat_id": /* string */,
-    "ok": /* bool */,
-    "story_id": /* int */,
+    "chat_id": "example_chat_id",
+    "ok": true,
+    "story_id": 1,
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -1068,7 +1152,8 @@ Return the entity name.
 ## SendChatActionEntity
 
 ```go
-send_chat_action := client.SendChatAction(nil)
+sendChatAction := client.SendChatAction(nil)
+fmt.Println(sendChatAction.GetName()) // "send_chat_action"
 ```
 
 ### Fields
@@ -1092,10 +1177,14 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.SendChatAction(nil).Create(map[string]any{
-    "action": /* string */,
-    "chat_id": /* string */,
-    "ok": /* bool */,
+    "action": "example_action",
+    "chat_id": "example_chat_id",
+    "ok": true,
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -1125,7 +1214,8 @@ Return the entity name.
 ## SendMessageDraftEntity
 
 ```go
-send_message_draft := client.SendMessageDraft(nil)
+sendMessageDraft := client.SendMessageDraft(nil)
+fmt.Println(sendMessageDraft.GetName()) // "send_message_draft"
 ```
 
 ### Fields
@@ -1149,10 +1239,14 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.SendMessageDraft(nil).Create(map[string]any{
-    "chat_id": /* string */,
-    "ok": /* bool */,
-    "text": /* string */,
+    "chat_id": "example_chat_id",
+    "ok": true,
+    "text": "example_text",
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -1182,7 +1276,8 @@ Return the entity name.
 ## SetMyProfilePhotoEntity
 
 ```go
-set_my_profile_photo := client.SetMyProfilePhoto(nil)
+setMyProfilePhoto := client.SetMyProfilePhoto(nil)
+fmt.Println(setMyProfilePhoto.GetName()) // "set_my_profile_photo"
 ```
 
 ### Fields
@@ -1203,8 +1298,12 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.SetMyProfilePhoto(nil).Create(map[string]any{
-    "ok": /* bool */,
+    "ok": true,
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -1234,7 +1333,8 @@ Return the entity name.
 ## UnpinAllForumTopicMessageEntity
 
 ```go
-unpin_all_forum_topic_message := client.UnpinAllForumTopicMessage(nil)
+unpinAllForumTopicMessage := client.UnpinAllForumTopicMessage(nil)
+fmt.Println(unpinAllForumTopicMessage.GetName()) // "unpin_all_forum_topic_message"
 ```
 
 ### Fields
@@ -1257,10 +1357,14 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.UnpinAllForumTopicMessage(nil).Create(map[string]any{
-    "chat_id": /* string */,
-    "message_thread_id": /* int */,
-    "ok": /* bool */,
+    "chat_id": "example_chat_id",
+    "message_thread_id": 1,
+    "ok": true,
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -1291,6 +1395,7 @@ Return the entity name.
 
 ```go
 update := client.Update(nil)
+fmt.Println(update.GetName()) // "update"
 ```
 
 ### Fields
@@ -1309,22 +1414,30 @@ update := client.Update(nil)
 
 ### Operations
 
-#### `Create(reqdata, ctrl map[string]any) (any, error)`
-
-Create a new entity with the given data.
-
-```go
-result, err := client.Update(nil).Create(map[string]any{
-    "ok": /* bool */,
-}, nil)
-```
-
 #### `List(reqmatch, ctrl map[string]any) (any, error)`
 
 List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Update(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
+```
+
+#### `Create(reqdata, ctrl map[string]any) (any, error)`
+
+Create a new entity with the given data.
+
+```go
+result, err := client.Update(nil).Create(map[string]any{
+    "ok": true,
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods

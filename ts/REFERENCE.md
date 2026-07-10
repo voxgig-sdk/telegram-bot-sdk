@@ -373,9 +373,9 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.ApproveSuggestedPost().create({
-  chat_id: /* string */,
-  message_id: /* number */,
-  ok: /* boolean */,
+  chat_id: 'example_chat_id',
+  message_id: 1,
+  ok: true,
 })
 ```
 
@@ -433,9 +433,9 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.DeclineSuggestedPost().create({
-  chat_id: /* string */,
-  message_id: /* number */,
-  ok: /* boolean */,
+  chat_id: 'example_chat_id',
+  message_id: 1,
+  ok: true,
 })
 ```
 
@@ -493,9 +493,9 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.DeleteForumTopic().create({
-  chat_id: /* string */,
-  message_thread_id: /* number */,
-  ok: /* boolean */,
+  chat_id: 'example_chat_id',
+  message_thread_id: 1,
+  ok: true,
 })
 ```
 
@@ -555,9 +555,9 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.EditForumTopic().create({
-  chat_id: /* string */,
-  message_thread_id: /* number */,
-  ok: /* boolean */,
+  chat_id: 'example_chat_id',
+  message_thread_id: 1,
+  ok: true,
 })
 ```
 
@@ -609,7 +609,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.File().create({
-  file_id: /* string */,
+  file_id: 'example_file_id',
 })
 ```
 
@@ -664,8 +664,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.ForumTopic().create({
-  chat_id: /* string */,
-  name: /* string */,
+  chat_id: 'example_chat_id',
+  name: 'example_name',
 })
 ```
 
@@ -724,7 +724,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.GetBusinessAccountGift().create({
-  ok: /* boolean */,
+  ok: true,
 })
 ```
 
@@ -781,8 +781,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.GetChatGift().create({
-  chat_id: /* string */,
-  ok: /* boolean */,
+  chat_id: 'example_chat_id',
+  ok: true,
 })
 ```
 
@@ -838,7 +838,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.GetMe().create({
-  ok: /* boolean */,
+  ok: true,
 })
 ```
 
@@ -903,8 +903,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.GetUserGift().create({
-  ok: /* boolean */,
-  user_id: /* number */,
+  ok: true,
+  user_id: 1,
 })
 ```
 
@@ -961,8 +961,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.GetUserProfileAudio().create({
-  ok: /* boolean */,
-  user_id: /* number */,
+  ok: true,
+  user_id: 1,
 })
 ```
 
@@ -1029,14 +1029,14 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Message().create({
-  chat_id: /* string */,
-  from_chat_id: /* string */,
-  latitude: /* number */,
-  longitude: /* number */,
-  message_id: /* number */,
-  option: /* any[] */,
-  question: /* string */,
-  text: /* string */,
+  chat_id: 'example_chat_id',
+  from_chat_id: 'example_from_chat_id',
+  latitude: 1,
+  longitude: 1,
+  message_id: 1,
+  option: [],
+  question: 'example_question',
+  text: 'example_text',
 })
 ```
 
@@ -1093,9 +1093,9 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.MessageId().create({
-  chat_id: /* string */,
-  from_chat_id: /* string */,
-  message_id: /* number */,
+  chat_id: 'example_chat_id',
+  from_chat_id: 'example_from_chat_id',
+  message_id: 1,
 })
 ```
 
@@ -1158,9 +1158,9 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.PromoteChatMember().create({
-  chat_id: /* string */,
-  ok: /* boolean */,
-  user_id: /* number */,
+  chat_id: 'example_chat_id',
+  ok: true,
+  user_id: 1,
 })
 ```
 
@@ -1216,7 +1216,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.RemoveMyProfilePhoto().create({
-  ok: /* boolean */,
+  ok: true,
 })
 ```
 
@@ -1274,9 +1274,9 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.RepostStory().create({
-  chat_id: /* string */,
-  ok: /* boolean */,
-  story_id: /* number */,
+  chat_id: 'example_chat_id',
+  ok: true,
+  story_id: 1,
 })
 ```
 
@@ -1335,9 +1335,9 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.SendChatAction().create({
-  action: /* string */,
-  chat_id: /* string */,
-  ok: /* boolean */,
+  action: 'example_action',
+  chat_id: 'example_chat_id',
+  ok: true,
 })
 ```
 
@@ -1396,9 +1396,9 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.SendMessageDraft().create({
-  chat_id: /* string */,
-  ok: /* boolean */,
-  text: /* string */,
+  chat_id: 'example_chat_id',
+  ok: true,
+  text: 'example_text',
 })
 ```
 
@@ -1454,7 +1454,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.SetMyProfilePhoto().create({
-  ok: /* boolean */,
+  ok: true,
 })
 ```
 
@@ -1512,9 +1512,9 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.UnpinAllForumTopicMessage().create({
-  chat_id: /* string */,
-  message_thread_id: /* number */,
-  ok: /* boolean */,
+  chat_id: 'example_chat_id',
+  message_thread_id: 1,
+  ok: true,
 })
 ```
 
@@ -1574,7 +1574,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Update().create({
-  ok: /* boolean */,
+  ok: true,
 })
 ```
 

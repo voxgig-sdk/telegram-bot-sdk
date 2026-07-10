@@ -54,10 +54,10 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const approvesuggestedpost = await client.ApproveSuggestedPost().create({ chat_id: "example", message_id: 1, ok: true })
-  console.log(approvesuggestedpost)
+  const getme = await client.GetMe().load()
+  console.log(getme)
 } catch (err) {
-  console.error('create failed:', err)
+  console.error('load failed:', err)
 }
 ```
 
@@ -121,9 +121,9 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = TelegramBotSDK.test()
 
-const approvesuggestedpost = await client.ApproveSuggestedPost().create({ chat_id: 'example_chat_id', message_id: 1, ok: true })
-// approvesuggestedpost is a bare entity populated with mock response data
-console.log(approvesuggestedpost)
+const getme = await client.GetMe().load()
+// getme is a bare entity populated with mock response data
+console.log(getme)
 ```
 
 You can also use the instance method:
@@ -138,10 +138,10 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.ApproveSuggestedPost()
+const entity = client.GetMe()
 
 // First call runs the operation and stores its result
-await entity.create({ chat_id: 'example_chat_id', message_id: 1, ok: true })
+await entity.load()
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
@@ -678,9 +678,9 @@ Create an instance: `const approve_suggested_post = client.ApproveSuggestedPost(
 
 ```ts
 const approve_suggested_post = await client.ApproveSuggestedPost().create({
-  chat_id: /* string */,
-  message_id: /* number */,
-  ok: /* boolean */,
+  chat_id: 'example_chat_id',
+  message_id: 1,
+  ok: true,
 })
 ```
 
@@ -711,9 +711,9 @@ Create an instance: `const decline_suggested_post = client.DeclineSuggestedPost(
 
 ```ts
 const decline_suggested_post = await client.DeclineSuggestedPost().create({
-  chat_id: /* string */,
-  message_id: /* number */,
-  ok: /* boolean */,
+  chat_id: 'example_chat_id',
+  message_id: 1,
+  ok: true,
 })
 ```
 
@@ -744,9 +744,9 @@ Create an instance: `const delete_forum_topic = client.DeleteForumTopic()`
 
 ```ts
 const delete_forum_topic = await client.DeleteForumTopic().create({
-  chat_id: /* string */,
-  message_thread_id: /* number */,
-  ok: /* boolean */,
+  chat_id: 'example_chat_id',
+  message_thread_id: 1,
+  ok: true,
 })
 ```
 
@@ -779,9 +779,9 @@ Create an instance: `const edit_forum_topic = client.EditForumTopic()`
 
 ```ts
 const edit_forum_topic = await client.EditForumTopic().create({
-  chat_id: /* string */,
-  message_thread_id: /* number */,
-  ok: /* boolean */,
+  chat_id: 'example_chat_id',
+  message_thread_id: 1,
+  ok: true,
 })
 ```
 
@@ -806,7 +806,7 @@ Create an instance: `const file = client.File()`
 
 ```ts
 const file = await client.File().create({
-  file_id: /* string */,
+  file_id: 'example_file_id',
 })
 ```
 
@@ -834,8 +834,8 @@ Create an instance: `const forum_topic = client.ForumTopic()`
 
 ```ts
 const forum_topic = await client.ForumTopic().create({
-  chat_id: /* string */,
-  name: /* string */,
+  chat_id: 'example_chat_id',
+  name: 'example_name',
 })
 ```
 
@@ -867,7 +867,7 @@ Create an instance: `const get_business_account_gift = client.GetBusinessAccount
 
 ```ts
 const get_business_account_gift = await client.GetBusinessAccountGift().create({
-  ok: /* boolean */,
+  ok: true,
 })
 ```
 
@@ -897,8 +897,8 @@ Create an instance: `const get_chat_gift = client.GetChatGift()`
 
 ```ts
 const get_chat_gift = await client.GetChatGift().create({
-  chat_id: /* string */,
-  ok: /* boolean */,
+  chat_id: 'example_chat_id',
+  ok: true,
 })
 ```
 
@@ -934,7 +934,7 @@ const get_me = await client.GetMe().load()
 
 ```ts
 const get_me = await client.GetMe().create({
-  ok: /* boolean */,
+  ok: true,
 })
 ```
 
@@ -964,8 +964,8 @@ Create an instance: `const get_user_gift = client.GetUserGift()`
 
 ```ts
 const get_user_gift = await client.GetUserGift().create({
-  ok: /* boolean */,
-  user_id: /* number */,
+  ok: true,
+  user_id: 1,
 })
 ```
 
@@ -995,8 +995,8 @@ Create an instance: `const get_user_profile_audio = client.GetUserProfileAudio()
 
 ```ts
 const get_user_profile_audio = await client.GetUserProfileAudio().create({
-  ok: /* boolean */,
-  user_id: /* number */,
+  ok: true,
+  user_id: 1,
 })
 ```
 
@@ -1036,14 +1036,14 @@ Create an instance: `const message = client.Message()`
 
 ```ts
 const message = await client.Message().create({
-  chat_id: /* string */,
-  from_chat_id: /* string */,
-  latitude: /* number */,
-  longitude: /* number */,
-  message_id: /* number */,
-  option: /* any[] */,
-  question: /* string */,
-  text: /* string */,
+  chat_id: 'example_chat_id',
+  from_chat_id: 'example_from_chat_id',
+  latitude: 1,
+  longitude: 1,
+  message_id: 1,
+  option: [],
+  question: 'example_question',
+  text: 'example_text',
 })
 ```
 
@@ -1073,9 +1073,9 @@ Create an instance: `const message_id = client.MessageId()`
 
 ```ts
 const message_id = await client.MessageId().create({
-  chat_id: /* string */,
-  from_chat_id: /* string */,
-  message_id: /* number */,
+  chat_id: 'example_chat_id',
+  from_chat_id: 'example_from_chat_id',
+  message_id: 1,
 })
 ```
 
@@ -1111,9 +1111,9 @@ Create an instance: `const promote_chat_member = client.PromoteChatMember()`
 
 ```ts
 const promote_chat_member = await client.PromoteChatMember().create({
-  chat_id: /* string */,
-  ok: /* boolean */,
-  user_id: /* number */,
+  chat_id: 'example_chat_id',
+  ok: true,
+  user_id: 1,
 })
 ```
 
@@ -1142,7 +1142,7 @@ Create an instance: `const remove_my_profile_photo = client.RemoveMyProfilePhoto
 
 ```ts
 const remove_my_profile_photo = await client.RemoveMyProfilePhoto().create({
-  ok: /* boolean */,
+  ok: true,
 })
 ```
 
@@ -1173,9 +1173,9 @@ Create an instance: `const repost_story = client.RepostStory()`
 
 ```ts
 const repost_story = await client.RepostStory().create({
-  chat_id: /* string */,
-  ok: /* boolean */,
-  story_id: /* number */,
+  chat_id: 'example_chat_id',
+  ok: true,
+  story_id: 1,
 })
 ```
 
@@ -1207,9 +1207,9 @@ Create an instance: `const send_chat_action = client.SendChatAction()`
 
 ```ts
 const send_chat_action = await client.SendChatAction().create({
-  action: /* string */,
-  chat_id: /* string */,
-  ok: /* boolean */,
+  action: 'example_action',
+  chat_id: 'example_chat_id',
+  ok: true,
 })
 ```
 
@@ -1241,9 +1241,9 @@ Create an instance: `const send_message_draft = client.SendMessageDraft()`
 
 ```ts
 const send_message_draft = await client.SendMessageDraft().create({
-  chat_id: /* string */,
-  ok: /* boolean */,
-  text: /* string */,
+  chat_id: 'example_chat_id',
+  ok: true,
+  text: 'example_text',
 })
 ```
 
@@ -1272,7 +1272,7 @@ Create an instance: `const set_my_profile_photo = client.SetMyProfilePhoto()`
 
 ```ts
 const set_my_profile_photo = await client.SetMyProfilePhoto().create({
-  ok: /* boolean */,
+  ok: true,
 })
 ```
 
@@ -1303,9 +1303,9 @@ Create an instance: `const unpin_all_forum_topic_message = client.UnpinAllForumT
 
 ```ts
 const unpin_all_forum_topic_message = await client.UnpinAllForumTopicMessage().create({
-  chat_id: /* string */,
-  message_thread_id: /* number */,
-  ok: /* boolean */,
+  chat_id: 'example_chat_id',
+  message_thread_id: 1,
+  ok: true,
 })
 ```
 
@@ -1345,7 +1345,7 @@ const updates = await client.Update().list()
 
 ```ts
 const update = await client.Update().create({
-  ok: /* boolean */,
+  ok: true,
 })
 ```
 
@@ -1414,16 +1414,16 @@ import { TelegramBotSDK } from '@voxgig-sdk/telegram-bot'
 
 ### Entity state
 
-Entity instances are stateful. After a successful `create`, the entity
+Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const approvesuggestedpost = client.ApproveSuggestedPost()
-await approvesuggestedpost.create({ chat_id: "example", message_id: 1, ok: true })
+const getme = client.GetMe()
+await getme.load()
 
-// approvesuggestedpost.data() now returns the approvesuggestedpost data from the last `create`
-// approvesuggestedpost.match() returns the last match criteria
+// getme.data() now returns the getme data from the last `load`
+// getme.match() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

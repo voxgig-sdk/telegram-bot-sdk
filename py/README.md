@@ -43,7 +43,7 @@ client = TelegramBotSDK({
 
 ```python
 # Create — returns the bare created record (a dict)
-created = client.ApproveSuggestedPost().create({"chat_id": "example", "message_id": 1, "ok": True})
+created = client.ApproveSuggestedPost().create({"chat_id": "example_chat_id", "message_id": 1, "ok": True})
 
 ```
 
@@ -54,10 +54,10 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    approvesuggestedpost = client.ApproveSuggestedPost().create({ "chat_id": "example", "message_id": 1, "ok": True })
-    print(approvesuggestedpost)
+    getme = client.GetMe().load()
+    print(getme)
 except Exception as err:
-    print(f"create failed: {err}")
+    print(f"load failed: {err}")
 ```
 
 `direct()` does **not** raise — it returns the result envelope. Branch
@@ -122,8 +122,8 @@ Create a mock client for unit testing — no server required:
 client = TelegramBotSDK.test()
 
 # Entity ops return the bare record and raise on error.
-approvesuggestedpost = client.ApproveSuggestedPost().create({"chat_id": "example", "message_id": 1, "ok": True})
-# approvesuggestedpost contains the mock response record
+getme = client.GetMe().load()
+# getme contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -628,7 +628,7 @@ Create an instance: `approve_suggested_post = client.ApproveSuggestedPost()`
 
 ```python
 approve_suggested_post = client.ApproveSuggestedPost().create({
-    "chat_id": "example",  # str
+    "chat_id": "example_chat_id",  # str
     "message_id": 1,  # int
     "ok": True,  # bool
 })
@@ -661,7 +661,7 @@ Create an instance: `decline_suggested_post = client.DeclineSuggestedPost()`
 
 ```python
 decline_suggested_post = client.DeclineSuggestedPost().create({
-    "chat_id": "example",  # str
+    "chat_id": "example_chat_id",  # str
     "message_id": 1,  # int
     "ok": True,  # bool
 })
@@ -694,7 +694,7 @@ Create an instance: `delete_forum_topic = client.DeleteForumTopic()`
 
 ```python
 delete_forum_topic = client.DeleteForumTopic().create({
-    "chat_id": "example",  # str
+    "chat_id": "example_chat_id",  # str
     "message_thread_id": 1,  # int
     "ok": True,  # bool
 })
@@ -729,7 +729,7 @@ Create an instance: `edit_forum_topic = client.EditForumTopic()`
 
 ```python
 edit_forum_topic = client.EditForumTopic().create({
-    "chat_id": "example",  # str
+    "chat_id": "example_chat_id",  # str
     "message_thread_id": 1,  # int
     "ok": True,  # bool
 })
@@ -756,7 +756,7 @@ Create an instance: `file = client.File()`
 
 ```python
 file = client.File().create({
-    "file_id": "example",  # str
+    "file_id": "example_file_id",  # str
 })
 ```
 
@@ -784,8 +784,8 @@ Create an instance: `forum_topic = client.ForumTopic()`
 
 ```python
 forum_topic = client.ForumTopic().create({
-    "chat_id": "example",  # str
-    "name": "example",  # str
+    "chat_id": "example_chat_id",  # str
+    "name": "example_name",  # str
 })
 ```
 
@@ -847,7 +847,7 @@ Create an instance: `get_chat_gift = client.GetChatGift()`
 
 ```python
 get_chat_gift = client.GetChatGift().create({
-    "chat_id": "example",  # str
+    "chat_id": "example_chat_id",  # str
     "ok": True,  # bool
 })
 ```
@@ -986,14 +986,14 @@ Create an instance: `message = client.Message()`
 
 ```python
 message = client.Message().create({
-    "chat_id": "example",  # str
-    "from_chat_id": "example",  # str
+    "chat_id": "example_chat_id",  # str
+    "from_chat_id": "example_from_chat_id",  # str
     "latitude": 1,  # float
     "longitude": 1,  # float
     "message_id": 1,  # int
     "option": [],  # list
-    "question": "example",  # str
-    "text": "example",  # str
+    "question": "example_question",  # str
+    "text": "example_text",  # str
 })
 ```
 
@@ -1023,8 +1023,8 @@ Create an instance: `message_id = client.MessageId()`
 
 ```python
 message_id = client.MessageId().create({
-    "chat_id": "example",  # str
-    "from_chat_id": "example",  # str
+    "chat_id": "example_chat_id",  # str
+    "from_chat_id": "example_from_chat_id",  # str
     "message_id": 1,  # int
 })
 ```
@@ -1061,7 +1061,7 @@ Create an instance: `promote_chat_member = client.PromoteChatMember()`
 
 ```python
 promote_chat_member = client.PromoteChatMember().create({
-    "chat_id": "example",  # str
+    "chat_id": "example_chat_id",  # str
     "ok": True,  # bool
     "user_id": 1,  # int
 })
@@ -1123,7 +1123,7 @@ Create an instance: `repost_story = client.RepostStory()`
 
 ```python
 repost_story = client.RepostStory().create({
-    "chat_id": "example",  # str
+    "chat_id": "example_chat_id",  # str
     "ok": True,  # bool
     "story_id": 1,  # int
 })
@@ -1157,8 +1157,8 @@ Create an instance: `send_chat_action = client.SendChatAction()`
 
 ```python
 send_chat_action = client.SendChatAction().create({
-    "action": "example",  # str
-    "chat_id": "example",  # str
+    "action": "example_action",  # str
+    "chat_id": "example_chat_id",  # str
     "ok": True,  # bool
 })
 ```
@@ -1191,9 +1191,9 @@ Create an instance: `send_message_draft = client.SendMessageDraft()`
 
 ```python
 send_message_draft = client.SendMessageDraft().create({
-    "chat_id": "example",  # str
+    "chat_id": "example_chat_id",  # str
     "ok": True,  # bool
-    "text": "example",  # str
+    "text": "example_text",  # str
 })
 ```
 
@@ -1253,7 +1253,7 @@ Create an instance: `unpin_all_forum_topic_message = client.UnpinAllForumTopicMe
 
 ```python
 unpin_all_forum_topic_message = client.UnpinAllForumTopicMessage().create({
-    "chat_id": "example",  # str
+    "chat_id": "example_chat_id",  # str
     "message_thread_id": 1,  # int
     "ok": True,  # bool
 })
@@ -1371,15 +1371,15 @@ Import entity or utility modules directly only when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `create`, the entity
+Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-approvesuggestedpost = client.ApproveSuggestedPost()
-approvesuggestedpost.create({ "chat_id": "example", "message_id": 1, "ok": True })
+getme = client.GetMe()
+getme.load()
 
-# approvesuggestedpost.data_get() now returns the approvesuggestedpost data from the last create
-# approvesuggestedpost.match_get() returns the last match criteria
+# getme.data_get() now returns the getme data from the last load
+# getme.match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

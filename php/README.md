@@ -37,7 +37,7 @@ $client = new TelegramBotSDK([
 
 ```php
 // create() returns the bare created ApproveSuggestedPost record.
-$created = $client->ApproveSuggestedPost()->create(["chat_id" => "example", "message_id" => 1, "ok" => true]);
+$created = $client->ApproveSuggestedPost()->create(["chat_id" => "example_chat_id", "message_id" => 1, "ok" => true]);
 
 ```
 
@@ -49,7 +49,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $approvesuggestedpost = $client->ApproveSuggestedPost()->create(["chat_id" => "example", "message_id" => 1, "ok" => true]);
+    $getme = $client->GetMe()->load();
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -122,8 +122,8 @@ Create a mock client for unit testing — no server required:
 $client = TelegramBotSDK::test();
 
 // Entity ops return the bare mock record (throws on error).
-$approvesuggestedpost = $client->ApproveSuggestedPost()->create(["chat_id" => "example", "message_id" => 1, "ok" => true]);
-print_r($approvesuggestedpost);
+$getme = $client->GetMe()->load();
+print_r($getme);
 ```
 
 ### Use a custom fetch function
@@ -1377,15 +1377,15 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `create`, the entity
+Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$approvesuggestedpost = $client->ApproveSuggestedPost();
-$approvesuggestedpost->create(["chat_id" => "example", "message_id" => 1, "ok" => true]);
+$getme = $client->GetMe();
+$getme->load();
 
-// $approvesuggestedpost->data_get() now returns the approvesuggestedpost data from the last create
-// $approvesuggestedpost->match_get() returns the last match criteria
+// $getme->data_get() now returns the getme data from the last load
+// $getme->match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

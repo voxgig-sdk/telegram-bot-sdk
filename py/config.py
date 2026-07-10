@@ -16,7 +16,7 @@ def make_config():
         "options": {
             "base": "https://api.telegram.org/bot{token}",
             "auth": {
-                "prefix": "Bearer",
+                "prefix": "",
             },
             "headers": {
         "content-type": "application/json",

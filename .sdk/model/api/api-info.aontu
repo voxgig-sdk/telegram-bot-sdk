@@ -13,6 +13,13 @@ main: {
         name: "Telegram Bot API License"
         url: "https://core.telegram.org/bots/api"
       }
+      security: {
+        in: "path"
+        name: "token"
+        prefix: ""
+        scheme: "BotToken"
+        type: "apiKey"
+      }
       servers: [
         {
           description: "Telegram Bot API Server"
@@ -25,9 +32,9 @@ main: {
           }
         }
       ]
+      summary: "The Bot API is an HTTP-based interface created for developers keen on building bots for Telegram."
       title: "Telegram Bot API"
       version: "9.4"
+      website: "https://telegram.org"
     }
   }
-}
-

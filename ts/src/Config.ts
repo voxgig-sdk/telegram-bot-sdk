@@ -39,7 +39,7 @@ class Config {
     base: 'https://api.telegram.org/bot{token}',
 
     auth: {
-      prefix: 'Bearer',
+      prefix: '',
     },
 
     headers: {

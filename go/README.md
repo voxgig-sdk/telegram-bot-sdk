@@ -53,8 +53,8 @@ func main() {
         "apikey": os.Getenv("TELEGRAM_BOT_APIKEY"),
     })
 
-    // Create a approvesuggestedpost.
-    created, err := client.ApproveSuggestedPost(nil).Create(map[string]any{"chat_id": "example", "message_id": 1, "ok": true}, nil)
+    // Create a approveSuggestedPost.
+    created, err := client.ApproveSuggestedPost(nil).Create(map[string]any{"chat_id": "example_chat_id", "message_id": 1, "ok": true}, nil)
     if err != nil {
         panic(err)
     }
@@ -69,12 +69,12 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-approvesuggestedpost, err := client.ApproveSuggestedPost(nil).Create(map[string]any{"chat_id": "example", "message_id": 1, "ok": true}, nil)
+getme, err := client.GetMe(nil).Load(nil, nil)
 if err != nil {
     // handle err
     return
 }
-_ = approvesuggestedpost
+_ = getme
 ```
 
 `Direct` follows the same `(value, error)` convention:
@@ -138,13 +138,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-approvesuggestedpost, err := client.ApproveSuggestedPost(nil).Create(
-    map[string]any{"chat_id": "example", "message_id": 1, "ok": true}, nil,
+getMe, err := client.GetMe(nil).Load(
+    nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(approvesuggestedpost) // the returned mock data
+fmt.Println(getMe) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -273,9 +273,9 @@ Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    approvesuggestedpost, err := client.ApproveSuggestedPost(nil).Create(map[string]any{/* fields */}, nil)
+    approveSuggestedPost, err := client.ApproveSuggestedPost(nil).Create(map[string]any{/* fields */}, nil)
     if err != nil { /* handle */ }
-    // approvesuggestedpost is the returned record
+    // approveSuggestedPost is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -627,7 +627,7 @@ API path: `/getUpdates`
 
 ### ApproveSuggestedPost
 
-Create an instance: `approve_suggested_post := client.ApproveSuggestedPost(nil)`
+Create an instance: `approveSuggestedPost := client.ApproveSuggestedPost(nil)`
 
 #### Operations
 
@@ -651,16 +651,20 @@ Create an instance: `approve_suggested_post := client.ApproveSuggestedPost(nil)`
 
 ```go
 result, err := client.ApproveSuggestedPost(nil).Create(map[string]any{
-    "chat_id": /* string */,
-    "message_id": /* int */,
-    "ok": /* bool */,
+    "chat_id": "example_chat_id",
+    "message_id": 1,
+    "ok": true,
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 
 ### DeclineSuggestedPost
 
-Create an instance: `decline_suggested_post := client.DeclineSuggestedPost(nil)`
+Create an instance: `declineSuggestedPost := client.DeclineSuggestedPost(nil)`
 
 #### Operations
 
@@ -684,16 +688,20 @@ Create an instance: `decline_suggested_post := client.DeclineSuggestedPost(nil)`
 
 ```go
 result, err := client.DeclineSuggestedPost(nil).Create(map[string]any{
-    "chat_id": /* string */,
-    "message_id": /* int */,
-    "ok": /* bool */,
+    "chat_id": "example_chat_id",
+    "message_id": 1,
+    "ok": true,
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 
 ### DeleteForumTopic
 
-Create an instance: `delete_forum_topic := client.DeleteForumTopic(nil)`
+Create an instance: `deleteForumTopic := client.DeleteForumTopic(nil)`
 
 #### Operations
 
@@ -717,16 +725,20 @@ Create an instance: `delete_forum_topic := client.DeleteForumTopic(nil)`
 
 ```go
 result, err := client.DeleteForumTopic(nil).Create(map[string]any{
-    "chat_id": /* string */,
-    "message_thread_id": /* int */,
-    "ok": /* bool */,
+    "chat_id": "example_chat_id",
+    "message_thread_id": 1,
+    "ok": true,
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 
 ### EditForumTopic
 
-Create an instance: `edit_forum_topic := client.EditForumTopic(nil)`
+Create an instance: `editForumTopic := client.EditForumTopic(nil)`
 
 #### Operations
 
@@ -752,10 +764,14 @@ Create an instance: `edit_forum_topic := client.EditForumTopic(nil)`
 
 ```go
 result, err := client.EditForumTopic(nil).Create(map[string]any{
-    "chat_id": /* string */,
-    "message_thread_id": /* int */,
-    "ok": /* bool */,
+    "chat_id": "example_chat_id",
+    "message_thread_id": 1,
+    "ok": true,
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 
@@ -779,14 +795,18 @@ Create an instance: `file := client.File(nil)`
 
 ```go
 result, err := client.File(nil).Create(map[string]any{
-    "file_id": /* string */,
+    "file_id": "example_file_id",
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 
 ### ForumTopic
 
-Create an instance: `forum_topic := client.ForumTopic(nil)`
+Create an instance: `forumTopic := client.ForumTopic(nil)`
 
 #### Operations
 
@@ -807,15 +827,19 @@ Create an instance: `forum_topic := client.ForumTopic(nil)`
 
 ```go
 result, err := client.ForumTopic(nil).Create(map[string]any{
-    "chat_id": /* string */,
-    "name": /* string */,
+    "chat_id": "example_chat_id",
+    "name": "example_name",
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 
 ### GetBusinessAccountGift
 
-Create an instance: `get_business_account_gift := client.GetBusinessAccountGift(nil)`
+Create an instance: `getBusinessAccountGift := client.GetBusinessAccountGift(nil)`
 
 #### Operations
 
@@ -840,14 +864,18 @@ Create an instance: `get_business_account_gift := client.GetBusinessAccountGift(
 
 ```go
 result, err := client.GetBusinessAccountGift(nil).Create(map[string]any{
-    "ok": /* bool */,
+    "ok": true,
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 
 ### GetChatGift
 
-Create an instance: `get_chat_gift := client.GetChatGift(nil)`
+Create an instance: `getChatGift := client.GetChatGift(nil)`
 
 #### Operations
 
@@ -870,22 +898,26 @@ Create an instance: `get_chat_gift := client.GetChatGift(nil)`
 
 ```go
 result, err := client.GetChatGift(nil).Create(map[string]any{
-    "chat_id": /* string */,
-    "ok": /* bool */,
+    "chat_id": "example_chat_id",
+    "ok": true,
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 
 ### GetMe
 
-Create an instance: `get_me := client.GetMe(nil)`
+Create an instance: `getMe := client.GetMe(nil)`
 
 #### Operations
 
 | Method | Description |
 | --- | --- |
-| `Create(data, ctrl)` | Create a new entity with the given data. |
 | `Load(match, ctrl)` | Load a single entity by match criteria. |
+| `Create(data, ctrl)` | Create a new entity with the given data. |
 
 #### Fields
 
@@ -900,25 +932,29 @@ Create an instance: `get_me := client.GetMe(nil)`
 #### Example: Load
 
 ```go
-get_me, err := client.GetMe(nil).Load(nil, nil)
+getMe, err := client.GetMe(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(get_me) // the loaded record
+fmt.Println(getMe) // the loaded record
 ```
 
 #### Example: Create
 
 ```go
 result, err := client.GetMe(nil).Create(map[string]any{
-    "ok": /* bool */,
+    "ok": true,
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 
 ### GetUserGift
 
-Create an instance: `get_user_gift := client.GetUserGift(nil)`
+Create an instance: `getUserGift := client.GetUserGift(nil)`
 
 #### Operations
 
@@ -941,15 +977,19 @@ Create an instance: `get_user_gift := client.GetUserGift(nil)`
 
 ```go
 result, err := client.GetUserGift(nil).Create(map[string]any{
-    "ok": /* bool */,
-    "user_id": /* int */,
+    "ok": true,
+    "user_id": 1,
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 
 ### GetUserProfileAudio
 
-Create an instance: `get_user_profile_audio := client.GetUserProfileAudio(nil)`
+Create an instance: `getUserProfileAudio := client.GetUserProfileAudio(nil)`
 
 #### Operations
 
@@ -972,9 +1012,13 @@ Create an instance: `get_user_profile_audio := client.GetUserProfileAudio(nil)`
 
 ```go
 result, err := client.GetUserProfileAudio(nil).Create(map[string]any{
-    "ok": /* bool */,
-    "user_id": /* int */,
+    "ok": true,
+    "user_id": 1,
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 
@@ -1013,21 +1057,25 @@ Create an instance: `message := client.Message(nil)`
 
 ```go
 result, err := client.Message(nil).Create(map[string]any{
-    "chat_id": /* string */,
-    "from_chat_id": /* string */,
-    "latitude": /* float64 */,
-    "longitude": /* float64 */,
-    "message_id": /* int */,
-    "option": /* []any */,
-    "question": /* string */,
-    "text": /* string */,
+    "chat_id": "example_chat_id",
+    "from_chat_id": "example_from_chat_id",
+    "latitude": 1,
+    "longitude": 1,
+    "message_id": 1,
+    "option": []any{},
+    "question": "example_question",
+    "text": "example_text",
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 
 ### MessageId
 
-Create an instance: `message_id := client.MessageId(nil)`
+Create an instance: `messageId := client.MessageId(nil)`
 
 #### Operations
 
@@ -1050,16 +1098,20 @@ Create an instance: `message_id := client.MessageId(nil)`
 
 ```go
 result, err := client.MessageId(nil).Create(map[string]any{
-    "chat_id": /* string */,
-    "from_chat_id": /* string */,
-    "message_id": /* int */,
+    "chat_id": "example_chat_id",
+    "from_chat_id": "example_from_chat_id",
+    "message_id": 1,
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 
 ### PromoteChatMember
 
-Create an instance: `promote_chat_member := client.PromoteChatMember(nil)`
+Create an instance: `promoteChatMember := client.PromoteChatMember(nil)`
 
 #### Operations
 
@@ -1088,16 +1140,20 @@ Create an instance: `promote_chat_member := client.PromoteChatMember(nil)`
 
 ```go
 result, err := client.PromoteChatMember(nil).Create(map[string]any{
-    "chat_id": /* string */,
-    "ok": /* bool */,
-    "user_id": /* int */,
+    "chat_id": "example_chat_id",
+    "ok": true,
+    "user_id": 1,
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 
 ### RemoveMyProfilePhoto
 
-Create an instance: `remove_my_profile_photo := client.RemoveMyProfilePhoto(nil)`
+Create an instance: `removeMyProfilePhoto := client.RemoveMyProfilePhoto(nil)`
 
 #### Operations
 
@@ -1119,14 +1175,18 @@ Create an instance: `remove_my_profile_photo := client.RemoveMyProfilePhoto(nil)
 
 ```go
 result, err := client.RemoveMyProfilePhoto(nil).Create(map[string]any{
-    "ok": /* bool */,
+    "ok": true,
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 
 ### RepostStory
 
-Create an instance: `repost_story := client.RepostStory(nil)`
+Create an instance: `repostStory := client.RepostStory(nil)`
 
 #### Operations
 
@@ -1150,16 +1210,20 @@ Create an instance: `repost_story := client.RepostStory(nil)`
 
 ```go
 result, err := client.RepostStory(nil).Create(map[string]any{
-    "chat_id": /* string */,
-    "ok": /* bool */,
-    "story_id": /* int */,
+    "chat_id": "example_chat_id",
+    "ok": true,
+    "story_id": 1,
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 
 ### SendChatAction
 
-Create an instance: `send_chat_action := client.SendChatAction(nil)`
+Create an instance: `sendChatAction := client.SendChatAction(nil)`
 
 #### Operations
 
@@ -1184,16 +1248,20 @@ Create an instance: `send_chat_action := client.SendChatAction(nil)`
 
 ```go
 result, err := client.SendChatAction(nil).Create(map[string]any{
-    "action": /* string */,
-    "chat_id": /* string */,
-    "ok": /* bool */,
+    "action": "example_action",
+    "chat_id": "example_chat_id",
+    "ok": true,
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 
 ### SendMessageDraft
 
-Create an instance: `send_message_draft := client.SendMessageDraft(nil)`
+Create an instance: `sendMessageDraft := client.SendMessageDraft(nil)`
 
 #### Operations
 
@@ -1218,16 +1286,20 @@ Create an instance: `send_message_draft := client.SendMessageDraft(nil)`
 
 ```go
 result, err := client.SendMessageDraft(nil).Create(map[string]any{
-    "chat_id": /* string */,
-    "ok": /* bool */,
-    "text": /* string */,
+    "chat_id": "example_chat_id",
+    "ok": true,
+    "text": "example_text",
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 
 ### SetMyProfilePhoto
 
-Create an instance: `set_my_profile_photo := client.SetMyProfilePhoto(nil)`
+Create an instance: `setMyProfilePhoto := client.SetMyProfilePhoto(nil)`
 
 #### Operations
 
@@ -1249,14 +1321,18 @@ Create an instance: `set_my_profile_photo := client.SetMyProfilePhoto(nil)`
 
 ```go
 result, err := client.SetMyProfilePhoto(nil).Create(map[string]any{
-    "ok": /* bool */,
+    "ok": true,
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 
 ### UnpinAllForumTopicMessage
 
-Create an instance: `unpin_all_forum_topic_message := client.UnpinAllForumTopicMessage(nil)`
+Create an instance: `unpinAllForumTopicMessage := client.UnpinAllForumTopicMessage(nil)`
 
 #### Operations
 
@@ -1280,10 +1356,14 @@ Create an instance: `unpin_all_forum_topic_message := client.UnpinAllForumTopicM
 
 ```go
 result, err := client.UnpinAllForumTopicMessage(nil).Create(map[string]any{
-    "chat_id": /* string */,
-    "message_thread_id": /* int */,
-    "ok": /* bool */,
+    "chat_id": "example_chat_id",
+    "message_thread_id": 1,
+    "ok": true,
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 
@@ -1295,8 +1375,8 @@ Create an instance: `update := client.Update(nil)`
 
 | Method | Description |
 | --- | --- |
-| `Create(data, ctrl)` | Create a new entity with the given data. |
 | `List(match, ctrl)` | List entities matching the criteria. |
+| `Create(data, ctrl)` | Create a new entity with the given data. |
 
 #### Fields
 
@@ -1326,8 +1406,12 @@ fmt.Println(updates) // the array of records
 
 ```go
 result, err := client.Update(nil).Create(map[string]any{
-    "ok": /* bool */,
+    "ok": true,
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 
@@ -1400,15 +1484,15 @@ like `core.ToMapAny`.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `Create`, the entity
+Entity instances are stateful. After a successful `Load`, the entity
 stores the returned data and match criteria internally.
 
 ```go
-approvesuggestedpost := client.ApproveSuggestedPost(nil)
-approvesuggestedpost.Create(map[string]any{"chat_id": "example", "message_id": 1, "ok": true}, nil)
+getme := client.GetMe(nil)
+getme.Load(nil, nil)
 
-// approvesuggestedpost.Data() now returns the approvesuggestedpost data from the last create
-// approvesuggestedpost.Match() returns the last match criteria
+// getme.Data() now returns the getme data from the last load
+// getme.Match() returns the last match criteria
 ```
 
 Call `Make()` to create a fresh instance with the same configuration

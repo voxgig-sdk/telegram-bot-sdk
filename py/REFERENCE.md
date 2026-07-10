@@ -184,7 +184,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.ApproveSuggestedPost().create({
-    "chat_id": "example",  # str
+    "chat_id": "example_chat_id",  # str
     "message_id": 1,  # int
     "ok": True,  # bool
 })
@@ -245,7 +245,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.DeclineSuggestedPost().create({
-    "chat_id": "example",  # str
+    "chat_id": "example_chat_id",  # str
     "message_id": 1,  # int
     "ok": True,  # bool
 })
@@ -306,7 +306,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.DeleteForumTopic().create({
-    "chat_id": "example",  # str
+    "chat_id": "example_chat_id",  # str
     "message_thread_id": 1,  # int
     "ok": True,  # bool
 })
@@ -369,7 +369,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.EditForumTopic().create({
-    "chat_id": "example",  # str
+    "chat_id": "example_chat_id",  # str
     "message_thread_id": 1,  # int
     "ok": True,  # bool
 })
@@ -424,7 +424,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.File().create({
-    "file_id": "example",  # str
+    "file_id": "example_file_id",  # str
 })
 ```
 
@@ -480,8 +480,8 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.ForumTopic().create({
-    "chat_id": "example",  # str
-    "name": "example",  # str
+    "chat_id": "example_chat_id",  # str
+    "name": "example_name",  # str
 })
 ```
 
@@ -599,7 +599,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.GetChatGift().create({
-    "chat_id": "example",  # str
+    "chat_id": "example_chat_id",  # str
     "ok": True,  # bool
 })
 ```
@@ -851,14 +851,14 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.Message().create({
-    "chat_id": "example",  # str
-    "from_chat_id": "example",  # str
+    "chat_id": "example_chat_id",  # str
+    "from_chat_id": "example_from_chat_id",  # str
     "latitude": 1,  # float
     "longitude": 1,  # float
     "message_id": 1,  # int
     "option": [],  # list
-    "question": "example",  # str
-    "text": "example",  # str
+    "question": "example_question",  # str
+    "text": "example_text",  # str
 })
 ```
 
@@ -916,8 +916,8 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.MessageId().create({
-    "chat_id": "example",  # str
-    "from_chat_id": "example",  # str
+    "chat_id": "example_chat_id",  # str
+    "from_chat_id": "example_from_chat_id",  # str
     "message_id": 1,  # int
 })
 ```
@@ -982,7 +982,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.PromoteChatMember().create({
-    "chat_id": "example",  # str
+    "chat_id": "example_chat_id",  # str
     "ok": True,  # bool
     "user_id": 1,  # int
 })
@@ -1100,7 +1100,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.RepostStory().create({
-    "chat_id": "example",  # str
+    "chat_id": "example_chat_id",  # str
     "ok": True,  # bool
     "story_id": 1,  # int
 })
@@ -1162,8 +1162,8 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.SendChatAction().create({
-    "action": "example",  # str
-    "chat_id": "example",  # str
+    "action": "example_action",  # str
+    "chat_id": "example_chat_id",  # str
     "ok": True,  # bool
 })
 ```
@@ -1224,9 +1224,9 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.SendMessageDraft().create({
-    "chat_id": "example",  # str
+    "chat_id": "example_chat_id",  # str
     "ok": True,  # bool
-    "text": "example",  # str
+    "text": "example_text",  # str
 })
 ```
 
@@ -1342,7 +1342,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.UnpinAllForumTopicMessage().create({
-    "chat_id": "example",  # str
+    "chat_id": "example_chat_id",  # str
     "message_thread_id": 1,  # int
     "ok": True,  # bool
 })

@@ -190,7 +190,7 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.ApproveSuggestedPost.create({
-  "chat_id" => "example", # String
+  "chat_id" => "example_chat_id", # String
   "message_id" => 1, # Integer
   "ok" => true, # Boolean
 })
@@ -252,7 +252,7 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.DeclineSuggestedPost.create({
-  "chat_id" => "example", # String
+  "chat_id" => "example_chat_id", # String
   "message_id" => 1, # Integer
   "ok" => true, # Boolean
 })
@@ -314,7 +314,7 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.DeleteForumTopic.create({
-  "chat_id" => "example", # String
+  "chat_id" => "example_chat_id", # String
   "message_thread_id" => 1, # Integer
   "ok" => true, # Boolean
 })
@@ -378,7 +378,7 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.EditForumTopic.create({
-  "chat_id" => "example", # String
+  "chat_id" => "example_chat_id", # String
   "message_thread_id" => 1, # Integer
   "ok" => true, # Boolean
 })
@@ -434,7 +434,7 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.File.create({
-  "file_id" => "example", # String
+  "file_id" => "example_file_id", # String
 })
 ```
 
@@ -491,8 +491,8 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.ForumTopic.create({
-  "chat_id" => "example", # String
-  "name" => "example", # String
+  "chat_id" => "example_chat_id", # String
+  "name" => "example_name", # String
 })
 ```
 
@@ -612,7 +612,7 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.GetChatGift.create({
-  "chat_id" => "example", # String
+  "chat_id" => "example_chat_id", # String
   "ok" => true, # Boolean
 })
 ```
@@ -868,14 +868,14 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.Message.create({
-  "chat_id" => "example", # String
-  "from_chat_id" => "example", # String
+  "chat_id" => "example_chat_id", # String
+  "from_chat_id" => "example_from_chat_id", # String
   "latitude" => 1, # Float
   "longitude" => 1, # Float
   "message_id" => 1, # Integer
   "option" => [], # Array
-  "question" => "example", # String
-  "text" => "example", # String
+  "question" => "example_question", # String
+  "text" => "example_text", # String
 })
 ```
 
@@ -934,8 +934,8 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.MessageId.create({
-  "chat_id" => "example", # String
-  "from_chat_id" => "example", # String
+  "chat_id" => "example_chat_id", # String
+  "from_chat_id" => "example_from_chat_id", # String
   "message_id" => 1, # Integer
 })
 ```
@@ -1001,7 +1001,7 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.PromoteChatMember.create({
-  "chat_id" => "example", # String
+  "chat_id" => "example_chat_id", # String
   "ok" => true, # Boolean
   "user_id" => 1, # Integer
 })
@@ -1121,7 +1121,7 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.RepostStory.create({
-  "chat_id" => "example", # String
+  "chat_id" => "example_chat_id", # String
   "ok" => true, # Boolean
   "story_id" => 1, # Integer
 })
@@ -1184,8 +1184,8 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.SendChatAction.create({
-  "action" => "example", # String
-  "chat_id" => "example", # String
+  "action" => "example_action", # String
+  "chat_id" => "example_chat_id", # String
   "ok" => true, # Boolean
 })
 ```
@@ -1247,9 +1247,9 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.SendMessageDraft.create({
-  "chat_id" => "example", # String
+  "chat_id" => "example_chat_id", # String
   "ok" => true, # Boolean
-  "text" => "example", # String
+  "text" => "example_text", # String
 })
 ```
 
@@ -1367,7 +1367,7 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.UnpinAllForumTopicMessage.create({
-  "chat_id" => "example", # String
+  "chat_id" => "example_chat_id", # String
   "message_thread_id" => 1, # Integer
   "ok" => true, # Boolean
 })

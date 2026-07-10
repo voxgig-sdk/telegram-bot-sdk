@@ -39,7 +39,7 @@ local client = sdk.new({
 
 ```lua
 -- Create
-local created, err = client:ApproveSuggestedPost():create({ chat_id = "example", message_id = 1, ok = true })
+local created, err = client:ApproveSuggestedPost():create({ chat_id = "example_chat_id", message_id = 1, ok = true })
 if err then error(err) end
 
 ```
@@ -51,7 +51,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local approvesuggestedpost, err = client:ApproveSuggestedPost():create({ chat_id = "example", message_id = 1, ok = true })
+local getme, err = client:GetMe():load()
 if err then error(err) end
 ```
 
@@ -109,7 +109,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:ApproveSuggestedPost():create({ chat_id = "example", message_id = 1, ok = true })
+local result, err = client:GetMe():load()
 -- result is the returned data; err is set on failure
 ```
 
@@ -618,9 +618,9 @@ Create an instance: `local approve_suggested_post = client:ApproveSuggestedPost(
 
 ```lua
 local approve_suggested_post, err = client:ApproveSuggestedPost():create({
-  chat_id = nil, -- string
-  message_id = nil, -- number
-  ok = nil, -- boolean
+  chat_id = "example_chat_id", -- string
+  message_id = 1, -- number
+  ok = true, -- boolean
 })
 ```
 
@@ -651,9 +651,9 @@ Create an instance: `local decline_suggested_post = client:DeclineSuggestedPost(
 
 ```lua
 local decline_suggested_post, err = client:DeclineSuggestedPost():create({
-  chat_id = nil, -- string
-  message_id = nil, -- number
-  ok = nil, -- boolean
+  chat_id = "example_chat_id", -- string
+  message_id = 1, -- number
+  ok = true, -- boolean
 })
 ```
 
@@ -684,9 +684,9 @@ Create an instance: `local delete_forum_topic = client:DeleteForumTopic(nil)`
 
 ```lua
 local delete_forum_topic, err = client:DeleteForumTopic():create({
-  chat_id = nil, -- string
-  message_thread_id = nil, -- number
-  ok = nil, -- boolean
+  chat_id = "example_chat_id", -- string
+  message_thread_id = 1, -- number
+  ok = true, -- boolean
 })
 ```
 
@@ -719,9 +719,9 @@ Create an instance: `local edit_forum_topic = client:EditForumTopic(nil)`
 
 ```lua
 local edit_forum_topic, err = client:EditForumTopic():create({
-  chat_id = nil, -- string
-  message_thread_id = nil, -- number
-  ok = nil, -- boolean
+  chat_id = "example_chat_id", -- string
+  message_thread_id = 1, -- number
+  ok = true, -- boolean
 })
 ```
 
@@ -746,7 +746,7 @@ Create an instance: `local file = client:File(nil)`
 
 ```lua
 local file, err = client:File():create({
-  file_id = nil, -- string
+  file_id = "example_file_id", -- string
 })
 ```
 
@@ -774,8 +774,8 @@ Create an instance: `local forum_topic = client:ForumTopic(nil)`
 
 ```lua
 local forum_topic, err = client:ForumTopic():create({
-  chat_id = nil, -- string
-  name = nil, -- string
+  chat_id = "example_chat_id", -- string
+  name = "example_name", -- string
 })
 ```
 
@@ -807,7 +807,7 @@ Create an instance: `local get_business_account_gift = client:GetBusinessAccount
 
 ```lua
 local get_business_account_gift, err = client:GetBusinessAccountGift():create({
-  ok = nil, -- boolean
+  ok = true, -- boolean
 })
 ```
 
@@ -837,8 +837,8 @@ Create an instance: `local get_chat_gift = client:GetChatGift(nil)`
 
 ```lua
 local get_chat_gift, err = client:GetChatGift():create({
-  chat_id = nil, -- string
-  ok = nil, -- boolean
+  chat_id = "example_chat_id", -- string
+  ok = true, -- boolean
 })
 ```
 
@@ -874,7 +874,7 @@ local get_me, err = client:GetMe():load()
 
 ```lua
 local get_me, err = client:GetMe():create({
-  ok = nil, -- boolean
+  ok = true, -- boolean
 })
 ```
 
@@ -904,8 +904,8 @@ Create an instance: `local get_user_gift = client:GetUserGift(nil)`
 
 ```lua
 local get_user_gift, err = client:GetUserGift():create({
-  ok = nil, -- boolean
-  user_id = nil, -- number
+  ok = true, -- boolean
+  user_id = 1, -- number
 })
 ```
 
@@ -935,8 +935,8 @@ Create an instance: `local get_user_profile_audio = client:GetUserProfileAudio(n
 
 ```lua
 local get_user_profile_audio, err = client:GetUserProfileAudio():create({
-  ok = nil, -- boolean
-  user_id = nil, -- number
+  ok = true, -- boolean
+  user_id = 1, -- number
 })
 ```
 
@@ -976,14 +976,14 @@ Create an instance: `local message = client:Message(nil)`
 
 ```lua
 local message, err = client:Message():create({
-  chat_id = nil, -- string
-  from_chat_id = nil, -- string
-  latitude = nil, -- number
-  longitude = nil, -- number
-  message_id = nil, -- number
-  option = nil, -- table
-  question = nil, -- string
-  text = nil, -- string
+  chat_id = "example_chat_id", -- string
+  from_chat_id = "example_from_chat_id", -- string
+  latitude = 1, -- number
+  longitude = 1, -- number
+  message_id = 1, -- number
+  option = {}, -- table
+  question = "example_question", -- string
+  text = "example_text", -- string
 })
 ```
 
@@ -1013,9 +1013,9 @@ Create an instance: `local message_id = client:MessageId(nil)`
 
 ```lua
 local message_id, err = client:MessageId():create({
-  chat_id = nil, -- string
-  from_chat_id = nil, -- string
-  message_id = nil, -- number
+  chat_id = "example_chat_id", -- string
+  from_chat_id = "example_from_chat_id", -- string
+  message_id = 1, -- number
 })
 ```
 
@@ -1051,9 +1051,9 @@ Create an instance: `local promote_chat_member = client:PromoteChatMember(nil)`
 
 ```lua
 local promote_chat_member, err = client:PromoteChatMember():create({
-  chat_id = nil, -- string
-  ok = nil, -- boolean
-  user_id = nil, -- number
+  chat_id = "example_chat_id", -- string
+  ok = true, -- boolean
+  user_id = 1, -- number
 })
 ```
 
@@ -1082,7 +1082,7 @@ Create an instance: `local remove_my_profile_photo = client:RemoveMyProfilePhoto
 
 ```lua
 local remove_my_profile_photo, err = client:RemoveMyProfilePhoto():create({
-  ok = nil, -- boolean
+  ok = true, -- boolean
 })
 ```
 
@@ -1113,9 +1113,9 @@ Create an instance: `local repost_story = client:RepostStory(nil)`
 
 ```lua
 local repost_story, err = client:RepostStory():create({
-  chat_id = nil, -- string
-  ok = nil, -- boolean
-  story_id = nil, -- number
+  chat_id = "example_chat_id", -- string
+  ok = true, -- boolean
+  story_id = 1, -- number
 })
 ```
 
@@ -1147,9 +1147,9 @@ Create an instance: `local send_chat_action = client:SendChatAction(nil)`
 
 ```lua
 local send_chat_action, err = client:SendChatAction():create({
-  action = nil, -- string
-  chat_id = nil, -- string
-  ok = nil, -- boolean
+  action = "example_action", -- string
+  chat_id = "example_chat_id", -- string
+  ok = true, -- boolean
 })
 ```
 
@@ -1181,9 +1181,9 @@ Create an instance: `local send_message_draft = client:SendMessageDraft(nil)`
 
 ```lua
 local send_message_draft, err = client:SendMessageDraft():create({
-  chat_id = nil, -- string
-  ok = nil, -- boolean
-  text = nil, -- string
+  chat_id = "example_chat_id", -- string
+  ok = true, -- boolean
+  text = "example_text", -- string
 })
 ```
 
@@ -1212,7 +1212,7 @@ Create an instance: `local set_my_profile_photo = client:SetMyProfilePhoto(nil)`
 
 ```lua
 local set_my_profile_photo, err = client:SetMyProfilePhoto():create({
-  ok = nil, -- boolean
+  ok = true, -- boolean
 })
 ```
 
@@ -1243,9 +1243,9 @@ Create an instance: `local unpin_all_forum_topic_message = client:UnpinAllForumT
 
 ```lua
 local unpin_all_forum_topic_message, err = client:UnpinAllForumTopicMessage():create({
-  chat_id = nil, -- string
-  message_thread_id = nil, -- number
-  ok = nil, -- boolean
+  chat_id = "example_chat_id", -- string
+  message_thread_id = 1, -- number
+  ok = true, -- boolean
 })
 ```
 
@@ -1285,7 +1285,7 @@ local updates, err = client:Update():list()
 
 ```lua
 local update, err = client:Update():create({
-  ok = nil, -- boolean
+  ok = true, -- boolean
 })
 ```
 
@@ -1362,15 +1362,15 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `create`, the entity
+Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local approvesuggestedpost = client:ApproveSuggestedPost()
-approvesuggestedpost:create({ chat_id = "example", message_id = 1, ok = true })
+local getme = client:GetMe()
+getme:load()
 
--- approvesuggestedpost:data_get() now returns the approvesuggestedpost data from the last create
--- approvesuggestedpost:match_get() returns the last match criteria
+-- getme:data_get() now returns the getme data from the last load
+-- getme:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

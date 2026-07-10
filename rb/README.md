@@ -36,7 +36,7 @@ client = TelegramBotSDK.new({
 
 ```ruby
 # create returns the bare created ApproveSuggestedPost record.
-created = client.ApproveSuggestedPost.create({ "chat_id" => "example", "message_id" => 1, "ok" => true })
+created = client.ApproveSuggestedPost.create({ "chat_id" => "example_chat_id", "message_id" => 1, "ok" => true })
 
 ```
 
@@ -47,9 +47,9 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  approvesuggestedpost = client.ApproveSuggestedPost.create({ "chat_id" => "example", "message_id" => 1, "ok" => true })
+  getme = client.GetMe.load()
 rescue => err
-  warn "create failed: #{err}"
+  warn "load failed: #{err}"
 end
 ```
 
@@ -116,8 +116,8 @@ Create a mock client for unit testing — no server required:
 client = TelegramBotSDK.test
 
 # Entity ops return the bare mock record (raises on error).
-approvesuggestedpost = client.ApproveSuggestedPost.create({ "chat_id" => "example", "message_id" => 1, "ok" => true })
-puts approvesuggestedpost
+getme = client.GetMe.load()
+puts getme
 ```
 
 ### Use a custom fetch function
@@ -621,7 +621,7 @@ Create an instance: `approve_suggested_post = client.ApproveSuggestedPost`
 
 ```ruby
 approve_suggested_post = client.ApproveSuggestedPost.create({
-  "chat_id" => "example", # String
+  "chat_id" => "example_chat_id", # String
   "message_id" => 1, # Integer
   "ok" => true, # Boolean
 })
@@ -654,7 +654,7 @@ Create an instance: `decline_suggested_post = client.DeclineSuggestedPost`
 
 ```ruby
 decline_suggested_post = client.DeclineSuggestedPost.create({
-  "chat_id" => "example", # String
+  "chat_id" => "example_chat_id", # String
   "message_id" => 1, # Integer
   "ok" => true, # Boolean
 })
@@ -687,7 +687,7 @@ Create an instance: `delete_forum_topic = client.DeleteForumTopic`
 
 ```ruby
 delete_forum_topic = client.DeleteForumTopic.create({
-  "chat_id" => "example", # String
+  "chat_id" => "example_chat_id", # String
   "message_thread_id" => 1, # Integer
   "ok" => true, # Boolean
 })
@@ -722,7 +722,7 @@ Create an instance: `edit_forum_topic = client.EditForumTopic`
 
 ```ruby
 edit_forum_topic = client.EditForumTopic.create({
-  "chat_id" => "example", # String
+  "chat_id" => "example_chat_id", # String
   "message_thread_id" => 1, # Integer
   "ok" => true, # Boolean
 })
@@ -749,7 +749,7 @@ Create an instance: `file = client.File`
 
 ```ruby
 file = client.File.create({
-  "file_id" => "example", # String
+  "file_id" => "example_file_id", # String
 })
 ```
 
@@ -777,8 +777,8 @@ Create an instance: `forum_topic = client.ForumTopic`
 
 ```ruby
 forum_topic = client.ForumTopic.create({
-  "chat_id" => "example", # String
-  "name" => "example", # String
+  "chat_id" => "example_chat_id", # String
+  "name" => "example_name", # String
 })
 ```
 
@@ -840,7 +840,7 @@ Create an instance: `get_chat_gift = client.GetChatGift`
 
 ```ruby
 get_chat_gift = client.GetChatGift.create({
-  "chat_id" => "example", # String
+  "chat_id" => "example_chat_id", # String
   "ok" => true, # Boolean
 })
 ```
@@ -980,14 +980,14 @@ Create an instance: `message = client.Message`
 
 ```ruby
 message = client.Message.create({
-  "chat_id" => "example", # String
-  "from_chat_id" => "example", # String
+  "chat_id" => "example_chat_id", # String
+  "from_chat_id" => "example_from_chat_id", # String
   "latitude" => 1, # Float
   "longitude" => 1, # Float
   "message_id" => 1, # Integer
   "option" => [], # Array
-  "question" => "example", # String
-  "text" => "example", # String
+  "question" => "example_question", # String
+  "text" => "example_text", # String
 })
 ```
 
@@ -1017,8 +1017,8 @@ Create an instance: `message_id = client.MessageId`
 
 ```ruby
 message_id = client.MessageId.create({
-  "chat_id" => "example", # String
-  "from_chat_id" => "example", # String
+  "chat_id" => "example_chat_id", # String
+  "from_chat_id" => "example_from_chat_id", # String
   "message_id" => 1, # Integer
 })
 ```
@@ -1055,7 +1055,7 @@ Create an instance: `promote_chat_member = client.PromoteChatMember`
 
 ```ruby
 promote_chat_member = client.PromoteChatMember.create({
-  "chat_id" => "example", # String
+  "chat_id" => "example_chat_id", # String
   "ok" => true, # Boolean
   "user_id" => 1, # Integer
 })
@@ -1117,7 +1117,7 @@ Create an instance: `repost_story = client.RepostStory`
 
 ```ruby
 repost_story = client.RepostStory.create({
-  "chat_id" => "example", # String
+  "chat_id" => "example_chat_id", # String
   "ok" => true, # Boolean
   "story_id" => 1, # Integer
 })
@@ -1151,8 +1151,8 @@ Create an instance: `send_chat_action = client.SendChatAction`
 
 ```ruby
 send_chat_action = client.SendChatAction.create({
-  "action" => "example", # String
-  "chat_id" => "example", # String
+  "action" => "example_action", # String
+  "chat_id" => "example_chat_id", # String
   "ok" => true, # Boolean
 })
 ```
@@ -1185,9 +1185,9 @@ Create an instance: `send_message_draft = client.SendMessageDraft`
 
 ```ruby
 send_message_draft = client.SendMessageDraft.create({
-  "chat_id" => "example", # String
+  "chat_id" => "example_chat_id", # String
   "ok" => true, # Boolean
-  "text" => "example", # String
+  "text" => "example_text", # String
 })
 ```
 
@@ -1247,7 +1247,7 @@ Create an instance: `unpin_all_forum_topic_message = client.UnpinAllForumTopicMe
 
 ```ruby
 unpin_all_forum_topic_message = client.UnpinAllForumTopicMessage.create({
-  "chat_id" => "example", # String
+  "chat_id" => "example_chat_id", # String
   "message_thread_id" => 1, # Integer
   "ok" => true, # Boolean
 })
@@ -1367,15 +1367,15 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `create`, the entity
+Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-approvesuggestedpost = client.ApproveSuggestedPost
-approvesuggestedpost.create({ "chat_id" => "example", "message_id" => 1, "ok" => true })
+getme = client.GetMe
+getme.load()
 
-# approvesuggestedpost.data_get now returns the approvesuggestedpost data from the last create
-# approvesuggestedpost.match_get returns the last match criteria
+# getme.data_get now returns the getme data from the last load
+# getme.match_get returns the last match criteria
 ```
 
 Call `make` to create a fresh instance with the same configuration
