@@ -16,8 +16,8 @@ Metadata kindly supplied by [www.freepublicapis.com](https://www.freepublicapis.
 
 ## Entities, not endpoints
 
-This SDK exposes the API as a small set of **semantic entities** — ApproveSuggestedPost, DeclineSuggestedPost, DeleteForumTopic, EditForumTopic, File, ForumTopic, GetBusinessAccountGift, GetChatGift, GetMe, GetUserGift, GetUserProfileAudio, Message, MessageId, PromoteChatMember, RemoveMyProfilePhoto, RepostStory, SendChatAction, SendMessageDraft, SetMyProfilePhoto, UnpinAllForumTopicMessage and Update — that you
-call directly, instead of assembling URL paths and query strings. Entities are
+This SDK exposes the API as **21 semantic entities** that you
+call directly, instead of assembling URL paths and query strings. See the [Entities](#entities) table below for the full list. Entities are
 **Capitalised** to mark them as the primary surface, each with the operations they
 support (`list`, `load`, `create`):
 
