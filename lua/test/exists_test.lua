@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- TelegramBot SDK exists test
 
 local sdk = require("telegram-bot_sdk")
 
