@@ -36,14 +36,14 @@ main: kit: entity: send_chat_action: {
       type: "`$BOOLEAN`"
     }
     {
-      name: "parameter"
+      name: "parameters"
       req: false
       type: "`$OBJECT`"
     }
     {
       name: "result"
       req: false
-      type: "`$ANY`"
+      type: "`$ARRAY`"
     }
   ]
 

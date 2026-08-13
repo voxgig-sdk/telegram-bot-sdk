@@ -5,6 +5,10 @@
       "desc": ""
     },
     "kit": {
+      "author": {
+        "name": "",
+        "url": ""
+      },
       "config": {
         "docs_order": [
           "ts",
@@ -18,6 +22,7 @@
           "content-type": "application/json"
         }
       },
+      "contributor": {},
       "entity": {
         "approve_suggested_post": {
           "active": true,
@@ -57,7 +62,7 @@
             },
             {
               "active": true,
-              "name": "parameter",
+              "name": "parameters",
               "req": false,
               "type": "`$OBJECT`"
             },
@@ -65,7 +70,7 @@
               "active": true,
               "name": "result",
               "req": false,
-              "type": "`$ANY`"
+              "type": "`$ARRAY`"
             }
           ],
           "name": "approve_suggested_post",
@@ -77,6 +82,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/approveSuggestedPost",
                   "parts": [
@@ -85,7 +91,7 @@
                   "select": {},
                   "transform": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.parameters`"
                   }
                 }
               ]
@@ -133,7 +139,7 @@
             },
             {
               "active": true,
-              "name": "parameter",
+              "name": "parameters",
               "req": false,
               "type": "`$OBJECT`"
             },
@@ -141,7 +147,7 @@
               "active": true,
               "name": "result",
               "req": false,
-              "type": "`$ANY`"
+              "type": "`$ARRAY`"
             }
           ],
           "name": "decline_suggested_post",
@@ -153,6 +159,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/declineSuggestedPost",
                   "parts": [
@@ -161,7 +168,7 @@
                   "select": {},
                   "transform": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.parameters`"
                   }
                 }
               ]
@@ -209,7 +216,7 @@
             },
             {
               "active": true,
-              "name": "parameter",
+              "name": "parameters",
               "req": false,
               "type": "`$OBJECT`"
             },
@@ -217,7 +224,7 @@
               "active": true,
               "name": "result",
               "req": false,
-              "type": "`$ANY`"
+              "type": "`$ARRAY`"
             }
           ],
           "name": "delete_forum_topic",
@@ -229,6 +236,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/deleteForumTopic",
                   "parts": [
@@ -237,7 +245,7 @@
                   "select": {},
                   "transform": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.parameters`"
                   }
                 }
               ]
@@ -297,7 +305,7 @@
             },
             {
               "active": true,
-              "name": "parameter",
+              "name": "parameters",
               "req": false,
               "type": "`$OBJECT`"
             },
@@ -305,7 +313,7 @@
               "active": true,
               "name": "result",
               "req": false,
-              "type": "`$ANY`"
+              "type": "`$ARRAY`"
             }
           ],
           "name": "edit_forum_topic",
@@ -317,6 +325,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/editForumTopic",
                   "parts": [
@@ -325,7 +334,7 @@
                   "select": {},
                   "transform": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.parameters`"
                   }
                 }
               ]
@@ -357,6 +366,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/getFile",
                   "parts": [
@@ -415,6 +425,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/createForumTopic",
                   "parts": [
@@ -477,7 +488,7 @@
             },
             {
               "active": true,
-              "name": "parameter",
+              "name": "parameters",
               "req": false,
               "type": "`$OBJECT`"
             },
@@ -485,7 +496,7 @@
               "active": true,
               "name": "result",
               "req": false,
-              "type": "`$ANY`"
+              "type": "`$ARRAY`"
             }
           ],
           "name": "get_business_account_gift",
@@ -497,6 +508,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/getBusinessAccountGifts",
                   "parts": [
@@ -505,7 +517,7 @@
                   "select": {},
                   "transform": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.parameters`"
                   }
                 }
               ]
@@ -547,7 +559,7 @@
             },
             {
               "active": true,
-              "name": "parameter",
+              "name": "parameters",
               "req": false,
               "type": "`$OBJECT`"
             },
@@ -555,7 +567,7 @@
               "active": true,
               "name": "result",
               "req": false,
-              "type": "`$ANY`"
+              "type": "`$ARRAY`"
             }
           ],
           "name": "get_chat_gift",
@@ -567,6 +579,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/getChatGifts",
                   "parts": [
@@ -575,7 +588,7 @@
                   "select": {},
                   "transform": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.parameters`"
                   }
                 }
               ]
@@ -611,7 +624,7 @@
             },
             {
               "active": true,
-              "name": "parameter",
+              "name": "parameters",
               "req": false,
               "type": "`$OBJECT`"
             },
@@ -619,7 +632,7 @@
               "active": true,
               "name": "result",
               "req": false,
-              "type": "`$ANY`"
+              "type": "`$ARRAY`"
             }
           ],
           "name": "get_me",
@@ -631,6 +644,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/getMe",
                   "parts": [
@@ -639,7 +653,7 @@
                   "select": {},
                   "transform": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.parameters`"
                   }
                 }
               ]
@@ -651,6 +665,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/getMe",
                   "parts": [
@@ -659,7 +674,7 @@
                   "select": {},
                   "transform": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.parameters`"
                   }
                 }
               ]
@@ -695,7 +710,7 @@
             },
             {
               "active": true,
-              "name": "parameter",
+              "name": "parameters",
               "req": false,
               "type": "`$OBJECT`"
             },
@@ -703,7 +718,7 @@
               "active": true,
               "name": "result",
               "req": false,
-              "type": "`$ANY`"
+              "type": "`$ARRAY`"
             },
             {
               "active": true,
@@ -721,6 +736,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/getUserGifts",
                   "parts": [
@@ -765,7 +781,7 @@
             },
             {
               "active": true,
-              "name": "parameter",
+              "name": "parameters",
               "req": false,
               "type": "`$OBJECT`"
             },
@@ -773,7 +789,7 @@
               "active": true,
               "name": "result",
               "req": false,
-              "type": "`$ANY`"
+              "type": "`$ARRAY`"
             },
             {
               "active": true,
@@ -791,6 +807,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/getUserProfileAudios",
                   "parts": [
@@ -877,7 +894,7 @@
             },
             {
               "active": true,
-              "name": "option",
+              "name": "options",
               "req": true,
               "type": "`$ARRAY`"
             },
@@ -921,6 +938,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/forwardMessage",
                   "parts": [
@@ -935,6 +953,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/sendAnimation",
                   "parts": [
@@ -949,6 +968,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/sendAudio",
                   "parts": [
@@ -963,6 +983,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/sendDocument",
                   "parts": [
@@ -977,6 +998,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/sendLocation",
                   "parts": [
@@ -991,6 +1013,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/sendMessage",
                   "parts": [
@@ -1005,6 +1028,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/sendPhoto",
                   "parts": [
@@ -1019,6 +1043,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/sendPoll",
                   "parts": [
@@ -1033,6 +1058,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/sendSticker",
                   "parts": [
@@ -1047,6 +1073,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/sendVideo",
                   "parts": [
@@ -1117,6 +1144,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/copyMessage",
                   "parts": [
@@ -1124,7 +1152,9 @@
                   ],
                   "select": {},
                   "transform": {
-                    "req": "`reqdata`",
+                    "req": {
+                      "message_id": "`reqdata`"
+                    },
                     "res": "`body`"
                   }
                 }
@@ -1143,13 +1173,13 @@
           "fields": [
             {
               "active": true,
-              "name": "can_delete_message",
+              "name": "can_delete_messages",
               "req": false,
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
-              "name": "can_edit_message",
+              "name": "can_edit_messages",
               "req": false,
               "type": "`$BOOLEAN`"
             },
@@ -1161,13 +1191,13 @@
             },
             {
               "active": true,
-              "name": "can_manage_direct_message",
+              "name": "can_manage_direct_messages",
               "req": false,
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
-              "name": "can_post_message",
+              "name": "can_post_messages",
               "req": false,
               "type": "`$BOOLEAN`"
             },
@@ -1197,7 +1227,7 @@
             },
             {
               "active": true,
-              "name": "parameter",
+              "name": "parameters",
               "req": false,
               "type": "`$OBJECT`"
             },
@@ -1205,7 +1235,7 @@
               "active": true,
               "name": "result",
               "req": false,
-              "type": "`$ANY`"
+              "type": "`$ARRAY`"
             },
             {
               "active": true,
@@ -1223,6 +1253,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/promoteChatMember",
                   "parts": [
@@ -1267,7 +1298,7 @@
             },
             {
               "active": true,
-              "name": "parameter",
+              "name": "parameters",
               "req": false,
               "type": "`$OBJECT`"
             },
@@ -1275,7 +1306,7 @@
               "active": true,
               "name": "result",
               "req": false,
-              "type": "`$ANY`"
+              "type": "`$ARRAY`"
             }
           ],
           "name": "remove_my_profile_photo",
@@ -1287,6 +1318,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/removeMyProfilePhoto",
                   "parts": [
@@ -1337,7 +1369,7 @@
             },
             {
               "active": true,
-              "name": "parameter",
+              "name": "parameters",
               "req": false,
               "type": "`$OBJECT`"
             },
@@ -1345,7 +1377,7 @@
               "active": true,
               "name": "result",
               "req": false,
-              "type": "`$ANY`"
+              "type": "`$ARRAY`"
             },
             {
               "active": true,
@@ -1363,6 +1395,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/repostStory",
                   "parts": [
@@ -1425,7 +1458,7 @@
             },
             {
               "active": true,
-              "name": "parameter",
+              "name": "parameters",
               "req": false,
               "type": "`$OBJECT`"
             },
@@ -1433,7 +1466,7 @@
               "active": true,
               "name": "result",
               "req": false,
-              "type": "`$ANY`"
+              "type": "`$ARRAY`"
             }
           ],
           "name": "send_chat_action",
@@ -1445,6 +1478,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/sendChatAction",
                   "parts": [
@@ -1501,7 +1535,7 @@
             },
             {
               "active": true,
-              "name": "parameter",
+              "name": "parameters",
               "req": false,
               "type": "`$OBJECT`"
             },
@@ -1509,7 +1543,7 @@
               "active": true,
               "name": "result",
               "req": false,
-              "type": "`$ANY`"
+              "type": "`$ARRAY`"
             },
             {
               "active": true,
@@ -1527,6 +1561,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/sendMessageDraft",
                   "parts": [
@@ -1571,7 +1606,7 @@
             },
             {
               "active": true,
-              "name": "parameter",
+              "name": "parameters",
               "req": false,
               "type": "`$OBJECT`"
             },
@@ -1579,7 +1614,7 @@
               "active": true,
               "name": "result",
               "req": false,
-              "type": "`$ANY`"
+              "type": "`$ARRAY`"
             }
           ],
           "name": "set_my_profile_photo",
@@ -1591,6 +1626,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/setMyProfilePhoto",
                   "parts": [
@@ -1647,7 +1683,7 @@
             },
             {
               "active": true,
-              "name": "parameter",
+              "name": "parameters",
               "req": false,
               "type": "`$OBJECT`"
             },
@@ -1655,7 +1691,7 @@
               "active": true,
               "name": "result",
               "req": false,
-              "type": "`$ANY`"
+              "type": "`$ARRAY`"
             }
           ],
           "name": "unpin_all_forum_topic_message",
@@ -1667,6 +1703,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/unpinAllForumTopicMessages",
                   "parts": [
@@ -1693,7 +1730,7 @@
           "fields": [
             {
               "active": true,
-              "name": "allowed_update",
+              "name": "allowed_updates",
               "req": false,
               "type": "`$ARRAY`"
             },
@@ -1729,7 +1766,7 @@
             },
             {
               "active": true,
-              "name": "parameter",
+              "name": "parameters",
               "req": false,
               "type": "`$OBJECT`"
             },
@@ -1755,6 +1792,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/getUpdates",
                   "parts": [
@@ -1812,6 +1850,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/getUpdates",
                   "parts": [
@@ -2446,18 +2485,41 @@
         "website": "https://telegram.org"
       },
       "option": {},
+      "repo": {
+        "host": "github.com",
+        "path": ""
+      },
       "target": {
         "go": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "//"
           },
           "deps": {},
           "ext": "go",
+          "feature": {
+            "fullset": [
+              "test/feature_test.go"
+            ],
+            "trim": true
+          },
           "module": {
-            "name": "telegram-bot"
+            "goversion": "",
+            "name": "telegram-bot",
+            "package": "",
+            "path": ""
           },
           "name": "go",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -2479,22 +2541,40 @@
                 "recipe": "github"
               },
               "via": "port"
-            }
+            },
+            "version": "0.0.1"
           },
           "srcfeature": false,
           "title": "Golang"
         },
         "go-cli": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "//"
           },
           "deps": {},
           "ext": "go",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "telegram-bot"
+            "goversion": "",
+            "name": "telegram-bot",
+            "package": "",
+            "path": ""
           },
           "name": "go-cli",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "phase": {
             "agentguide": {
               "active": false
@@ -2533,21 +2613,39 @@
                 "recipe": "github"
               },
               "via": "root"
-            }
+            },
+            "version": "0.0.1"
           },
           "title": "Go CLI"
         },
         "go-mcp": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "//"
           },
           "deps": {},
           "ext": "go",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "telegram-bot"
+            "goversion": "",
+            "name": "telegram-bot",
+            "package": "",
+            "path": ""
           },
           "name": "go-mcp",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "phase": {
             "agentguide": {
               "active": false
@@ -2586,12 +2684,17 @@
                 "recipe": "github"
               },
               "via": "root"
-            }
+            },
+            "version": "0.0.1"
           },
           "title": "Go MCP server"
         },
         "lua": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "--"
           },
@@ -2603,10 +2706,23 @@
             }
           },
           "ext": "lua",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "telegram-bot"
+            "goversion": "",
+            "name": "telegram-bot",
+            "package": "",
+            "path": ""
           },
           "name": "lua",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -2628,22 +2744,40 @@
                 "recipe": "github"
               },
               "via": "port"
-            }
+            },
+            "version": "0.0.1"
           },
           "srcfeature": false,
           "title": "Lua"
         },
         "php": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "//"
           },
           "deps": {},
           "ext": "php",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "telegram-bot"
+            "goversion": "",
+            "name": "telegram-bot",
+            "package": "",
+            "path": ""
           },
           "name": "php",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -2665,13 +2799,18 @@
                 "recipe": "github"
               },
               "via": "port"
-            }
+            },
+            "version": "0.0.1"
           },
           "srcfeature": false,
           "title": "PHP"
         },
         "py": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "#"
           },
@@ -2683,10 +2822,23 @@
             }
           },
           "ext": "py",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "telegram-bot"
+            "goversion": "",
+            "name": "telegram-bot",
+            "package": "",
+            "path": ""
           },
           "name": "py",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -2708,13 +2860,18 @@
                 "recipe": "github"
               },
               "via": "port"
-            }
+            },
+            "version": "0.0.1"
           },
           "srcfeature": false,
           "title": "Python"
         },
         "rb": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "#"
           },
@@ -2731,10 +2888,23 @@
             }
           },
           "ext": "rb",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "telegram-bot"
+            "goversion": "",
+            "name": "telegram-bot",
+            "package": "",
+            "path": ""
           },
           "name": "rb",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -2756,13 +2926,18 @@
                 "recipe": "github"
               },
               "via": "port"
-            }
+            },
+            "version": "0.0.1"
           },
           "srcfeature": false,
           "title": "Ruby"
         },
         "ts": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "comment": {
             "line": "//"
@@ -2785,10 +2960,23 @@
             }
           },
           "ext": "ts",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "telegram-bot"
+            "goversion": "",
+            "name": "telegram-bot",
+            "package": "",
+            "path": ""
           },
           "name": "ts",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -2810,9 +2998,17 @@
                 "recipe": "github"
               },
               "via": "port"
-            }
+            },
+            "version": "0.0.1"
           },
           "title": "TypeScript"
+        }
+      },
+      "test": {
+        "live": {
+          "app": false,
+          "base": "",
+          "strict": false
         }
       }
     }

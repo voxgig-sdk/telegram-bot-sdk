@@ -8,24 +8,28 @@ guide: {
   entity: approve_suggested_post: {
     path: "/approveSuggestedPost": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.parameters`")|top
     }
   }
 
   entity: decline_suggested_post: {
     path: "/declineSuggestedPost": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.parameters`")|top
     }
   }
 
   entity: delete_forum_topic: {
     path: "/deleteForumTopic": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.parameters`")|top
     }
   }
 
   entity: edit_forum_topic: {
     path: "/editForumTopic": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.parameters`")|top
     }
   }
 
@@ -44,19 +48,23 @@ guide: {
   entity: get_business_account_gift: {
     path: "/getBusinessAccountGifts": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.parameters`")|top
     }
   }
 
   entity: get_chat_gift: {
     path: "/getChatGifts": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.parameters`")|top
     }
   }
 
   entity: get_me: {
     path: "/getMe": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.parameters`")|top
       op: load: method: *GET
+      op: load: transform: res: *("`body.parameters`")|top
     }
   }
 
@@ -108,6 +116,7 @@ guide: {
   entity: message_id: {
     path: "/copyMessage": {
       op: create: method: *POST
+      op: create: transform: req: "message_id": *("`reqdata`")|top
     }
   }
 

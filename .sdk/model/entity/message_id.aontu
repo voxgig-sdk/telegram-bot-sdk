@@ -49,7 +49,9 @@ main: kit: entity: message_id: {
             "copyMessage"
           ]
           transform: {
-            req: "`reqdata`"
+            req: {
+              message_id: "`reqdata`"
+            }
             res: "`body`"
           }
         }

@@ -8,8 +8,8 @@
         "exclude_limited_non_upgradable": false,
         "exclude_limited_upgradable": true,
         "ok": false,
-        "parameter": {},
-        "result": "s57",
+        "parameters": {},
+        "result": [],
         "id": "GET_BUSINESS_ACCOUNT_GIFT00"
       },
       "GET_BUSINESS_ACCOUNT_GIFT01": {
@@ -19,8 +19,8 @@
         "exclude_limited_non_upgradable": false,
         "exclude_limited_upgradable": true,
         "ok": false,
-        "parameter": {},
-        "result": "sa7",
+        "parameters": {},
+        "result": [],
         "id": "GET_BUSINESS_ACCOUNT_GIFT01"
       },
       "GET_BUSINESS_ACCOUNT_GIFT02": {
@@ -30,8 +30,8 @@
         "exclude_limited_non_upgradable": false,
         "exclude_limited_upgradable": true,
         "ok": false,
-        "parameter": {},
-        "result": "sf7",
+        "parameters": {},
+        "result": [],
         "id": "GET_BUSINESS_ACCOUNT_GIFT02"
       }
     }
@@ -45,8 +45,8 @@
         "exclude_limited_non_upgradable": false,
         "exclude_limited_upgradable": true,
         "ok": false,
-        "parameter": {},
-        "result": "s147"
+        "parameters": {},
+        "result": []
       }
     }
   }

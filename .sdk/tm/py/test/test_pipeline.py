@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import TelegramBotSDK
-from core.error import TelegramBotError
-from core.result import TelegramBotResult
-from core.response import TelegramBotResponse
-from core.spec import TelegramBotSpec
-from feature.base_feature import TelegramBotBaseFeature
+from projectname_sdk.core.error import TelegramBotError
+from projectname_sdk.core.result import TelegramBotResult
+from projectname_sdk.core.response import TelegramBotResponse
+from projectname_sdk.core.spec import TelegramBotSpec
+from projectname_sdk.feature.base_feature import TelegramBotBaseFeature
 
 
 def _client():

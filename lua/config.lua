@@ -14,6 +14,9 @@ local function make_config()
     },
     options = {
       base = "https://api.telegram.org/bot{token}",
+      server = {
+        ["token"] = "",
+      },
       auth = {
         prefix = "",
       },
@@ -84,7 +87,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "parameter",
+            ["name"] = "parameters",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 5,
@@ -93,7 +96,7 @@ local function make_config()
             ["active"] = true,
             ["name"] = "result",
             ["req"] = false,
-            ["type"] = "`$ANY`",
+            ["type"] = "`$ARRAY`",
             ["index$"] = 6,
           },
         },
@@ -106,6 +109,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/approveSuggestedPost",
                 ["parts"] = {
@@ -114,7 +118,7 @@ local function make_config()
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.parameters`",
                 },
                 ["index$"] = 0,
               },
@@ -165,7 +169,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "parameter",
+            ["name"] = "parameters",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 5,
@@ -174,7 +178,7 @@ local function make_config()
             ["active"] = true,
             ["name"] = "result",
             ["req"] = false,
-            ["type"] = "`$ANY`",
+            ["type"] = "`$ARRAY`",
             ["index$"] = 6,
           },
         },
@@ -187,6 +191,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/declineSuggestedPost",
                 ["parts"] = {
@@ -195,7 +200,7 @@ local function make_config()
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.parameters`",
                 },
                 ["index$"] = 0,
               },
@@ -246,7 +251,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "parameter",
+            ["name"] = "parameters",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 5,
@@ -255,7 +260,7 @@ local function make_config()
             ["active"] = true,
             ["name"] = "result",
             ["req"] = false,
-            ["type"] = "`$ANY`",
+            ["type"] = "`$ARRAY`",
             ["index$"] = 6,
           },
         },
@@ -268,6 +273,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/deleteForumTopic",
                 ["parts"] = {
@@ -276,7 +282,7 @@ local function make_config()
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.parameters`",
                 },
                 ["index$"] = 0,
               },
@@ -341,7 +347,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "parameter",
+            ["name"] = "parameters",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 7,
@@ -350,7 +356,7 @@ local function make_config()
             ["active"] = true,
             ["name"] = "result",
             ["req"] = false,
-            ["type"] = "`$ANY`",
+            ["type"] = "`$ARRAY`",
             ["index$"] = 8,
           },
         },
@@ -363,6 +369,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/editForumTopic",
                 ["parts"] = {
@@ -371,7 +378,7 @@ local function make_config()
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.parameters`",
                 },
                 ["index$"] = 0,
               },
@@ -402,6 +409,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/getFile",
                 ["parts"] = {
@@ -462,6 +470,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/createForumTopic",
                 ["parts"] = {
@@ -528,7 +537,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "parameter",
+            ["name"] = "parameters",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 6,
@@ -537,7 +546,7 @@ local function make_config()
             ["active"] = true,
             ["name"] = "result",
             ["req"] = false,
-            ["type"] = "`$ANY`",
+            ["type"] = "`$ARRAY`",
             ["index$"] = 7,
           },
         },
@@ -550,6 +559,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/getBusinessAccountGifts",
                 ["parts"] = {
@@ -558,7 +568,7 @@ local function make_config()
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.parameters`",
                 },
                 ["index$"] = 0,
               },
@@ -602,7 +612,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "parameter",
+            ["name"] = "parameters",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 4,
@@ -611,7 +621,7 @@ local function make_config()
             ["active"] = true,
             ["name"] = "result",
             ["req"] = false,
-            ["type"] = "`$ANY`",
+            ["type"] = "`$ARRAY`",
             ["index$"] = 5,
           },
         },
@@ -624,6 +634,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/getChatGifts",
                 ["parts"] = {
@@ -632,7 +643,7 @@ local function make_config()
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.parameters`",
                 },
                 ["index$"] = 0,
               },
@@ -669,7 +680,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "parameter",
+            ["name"] = "parameters",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 3,
@@ -678,7 +689,7 @@ local function make_config()
             ["active"] = true,
             ["name"] = "result",
             ["req"] = false,
-            ["type"] = "`$ANY`",
+            ["type"] = "`$ARRAY`",
             ["index$"] = 4,
           },
         },
@@ -691,6 +702,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/getMe",
                 ["parts"] = {
@@ -699,7 +711,7 @@ local function make_config()
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.parameters`",
                 },
                 ["index$"] = 0,
               },
@@ -713,6 +725,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/getMe",
                 ["parts"] = {
@@ -721,7 +734,7 @@ local function make_config()
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.parameters`",
                 },
                 ["index$"] = 0,
               },
@@ -758,7 +771,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "parameter",
+            ["name"] = "parameters",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 3,
@@ -767,7 +780,7 @@ local function make_config()
             ["active"] = true,
             ["name"] = "result",
             ["req"] = false,
-            ["type"] = "`$ANY`",
+            ["type"] = "`$ARRAY`",
             ["index$"] = 4,
           },
           {
@@ -787,6 +800,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/getUserGifts",
                 ["parts"] = {
@@ -832,7 +846,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "parameter",
+            ["name"] = "parameters",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 3,
@@ -841,7 +855,7 @@ local function make_config()
             ["active"] = true,
             ["name"] = "result",
             ["req"] = false,
-            ["type"] = "`$ANY`",
+            ["type"] = "`$ARRAY`",
             ["index$"] = 4,
           },
           {
@@ -861,6 +875,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/getUserProfileAudios",
                 ["parts"] = {
@@ -955,7 +970,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "option",
+            ["name"] = "options",
             ["req"] = true,
             ["type"] = "`$ARRAY`",
             ["index$"] = 10,
@@ -1005,6 +1020,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/forwardMessage",
                 ["parts"] = {
@@ -1020,6 +1036,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/sendAnimation",
                 ["parts"] = {
@@ -1035,6 +1052,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/sendAudio",
                 ["parts"] = {
@@ -1050,6 +1068,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/sendDocument",
                 ["parts"] = {
@@ -1065,6 +1084,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/sendLocation",
                 ["parts"] = {
@@ -1080,6 +1100,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/sendMessage",
                 ["parts"] = {
@@ -1095,6 +1116,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/sendPhoto",
                 ["parts"] = {
@@ -1110,6 +1132,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/sendPoll",
                 ["parts"] = {
@@ -1125,6 +1148,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/sendSticker",
                 ["parts"] = {
@@ -1140,6 +1164,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/sendVideo",
                 ["parts"] = {
@@ -1214,6 +1239,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/copyMessage",
                 ["parts"] = {
@@ -1221,7 +1247,9 @@ local function make_config()
                 },
                 ["select"] = {},
                 ["transform"] = {
-                  ["req"] = "`reqdata`",
+                  ["req"] = {
+                    ["message_id"] = "`reqdata`",
+                  },
                   ["res"] = "`body`",
                 },
                 ["index$"] = 0,
@@ -1238,14 +1266,14 @@ local function make_config()
         ["fields"] = {
           {
             ["active"] = true,
-            ["name"] = "can_delete_message",
+            ["name"] = "can_delete_messages",
             ["req"] = false,
             ["type"] = "`$BOOLEAN`",
             ["index$"] = 0,
           },
           {
             ["active"] = true,
-            ["name"] = "can_edit_message",
+            ["name"] = "can_edit_messages",
             ["req"] = false,
             ["type"] = "`$BOOLEAN`",
             ["index$"] = 1,
@@ -1259,14 +1287,14 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "can_manage_direct_message",
+            ["name"] = "can_manage_direct_messages",
             ["req"] = false,
             ["type"] = "`$BOOLEAN`",
             ["index$"] = 3,
           },
           {
             ["active"] = true,
-            ["name"] = "can_post_message",
+            ["name"] = "can_post_messages",
             ["req"] = false,
             ["type"] = "`$BOOLEAN`",
             ["index$"] = 4,
@@ -1301,7 +1329,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "parameter",
+            ["name"] = "parameters",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 9,
@@ -1310,7 +1338,7 @@ local function make_config()
             ["active"] = true,
             ["name"] = "result",
             ["req"] = false,
-            ["type"] = "`$ANY`",
+            ["type"] = "`$ARRAY`",
             ["index$"] = 10,
           },
           {
@@ -1330,6 +1358,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/promoteChatMember",
                 ["parts"] = {
@@ -1375,7 +1404,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "parameter",
+            ["name"] = "parameters",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 3,
@@ -1384,7 +1413,7 @@ local function make_config()
             ["active"] = true,
             ["name"] = "result",
             ["req"] = false,
-            ["type"] = "`$ANY`",
+            ["type"] = "`$ARRAY`",
             ["index$"] = 4,
           },
         },
@@ -1397,6 +1426,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/removeMyProfilePhoto",
                 ["parts"] = {
@@ -1449,7 +1479,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "parameter",
+            ["name"] = "parameters",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 4,
@@ -1458,7 +1488,7 @@ local function make_config()
             ["active"] = true,
             ["name"] = "result",
             ["req"] = false,
-            ["type"] = "`$ANY`",
+            ["type"] = "`$ARRAY`",
             ["index$"] = 5,
           },
           {
@@ -1478,6 +1508,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/repostStory",
                 ["parts"] = {
@@ -1544,7 +1575,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "parameter",
+            ["name"] = "parameters",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 6,
@@ -1553,7 +1584,7 @@ local function make_config()
             ["active"] = true,
             ["name"] = "result",
             ["req"] = false,
-            ["type"] = "`$ANY`",
+            ["type"] = "`$ARRAY`",
             ["index$"] = 7,
           },
         },
@@ -1566,6 +1597,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/sendChatAction",
                 ["parts"] = {
@@ -1625,7 +1657,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "parameter",
+            ["name"] = "parameters",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 5,
@@ -1634,7 +1666,7 @@ local function make_config()
             ["active"] = true,
             ["name"] = "result",
             ["req"] = false,
-            ["type"] = "`$ANY`",
+            ["type"] = "`$ARRAY`",
             ["index$"] = 6,
           },
           {
@@ -1654,6 +1686,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/sendMessageDraft",
                 ["parts"] = {
@@ -1699,7 +1732,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "parameter",
+            ["name"] = "parameters",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 3,
@@ -1708,7 +1741,7 @@ local function make_config()
             ["active"] = true,
             ["name"] = "result",
             ["req"] = false,
-            ["type"] = "`$ANY`",
+            ["type"] = "`$ARRAY`",
             ["index$"] = 4,
           },
         },
@@ -1721,6 +1754,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/setMyProfilePhoto",
                 ["parts"] = {
@@ -1780,7 +1814,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "parameter",
+            ["name"] = "parameters",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 5,
@@ -1789,7 +1823,7 @@ local function make_config()
             ["active"] = true,
             ["name"] = "result",
             ["req"] = false,
-            ["type"] = "`$ANY`",
+            ["type"] = "`$ARRAY`",
             ["index$"] = 6,
           },
         },
@@ -1802,6 +1836,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/unpinAllForumTopicMessages",
                 ["parts"] = {
@@ -1826,7 +1861,7 @@ local function make_config()
         ["fields"] = {
           {
             ["active"] = true,
-            ["name"] = "allowed_update",
+            ["name"] = "allowed_updates",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
             ["index$"] = 0,
@@ -1868,7 +1903,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "parameter",
+            ["name"] = "parameters",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 6,
@@ -1897,6 +1932,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/getUpdates",
                 ["parts"] = {
@@ -1956,6 +1992,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/getUpdates",
                 ["parts"] = {

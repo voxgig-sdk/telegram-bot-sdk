@@ -15,6 +15,9 @@ module TelegramBotConfig
       },
       "options" => {
         "base" => "https://api.telegram.org/bot{token}",
+        "server" => {
+          "token" => "",
+        },
         "auth" => {
           "prefix" => "",
         },
@@ -85,7 +88,7 @@ module TelegramBotConfig
             },
             {
               "active" => true,
-              "name" => "parameter",
+              "name" => "parameters",
               "req" => false,
               "type" => "`$OBJECT`",
               "index$" => 5,
@@ -94,7 +97,7 @@ module TelegramBotConfig
               "active" => true,
               "name" => "result",
               "req" => false,
-              "type" => "`$ANY`",
+              "type" => "`$ARRAY`",
               "index$" => 6,
             },
           ],
@@ -107,6 +110,7 @@ module TelegramBotConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/approveSuggestedPost",
                   "parts" => [
@@ -115,7 +119,7 @@ module TelegramBotConfig
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.parameters`",
                   },
                   "index$" => 0,
                 },
@@ -166,7 +170,7 @@ module TelegramBotConfig
             },
             {
               "active" => true,
-              "name" => "parameter",
+              "name" => "parameters",
               "req" => false,
               "type" => "`$OBJECT`",
               "index$" => 5,
@@ -175,7 +179,7 @@ module TelegramBotConfig
               "active" => true,
               "name" => "result",
               "req" => false,
-              "type" => "`$ANY`",
+              "type" => "`$ARRAY`",
               "index$" => 6,
             },
           ],
@@ -188,6 +192,7 @@ module TelegramBotConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/declineSuggestedPost",
                   "parts" => [
@@ -196,7 +201,7 @@ module TelegramBotConfig
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.parameters`",
                   },
                   "index$" => 0,
                 },
@@ -247,7 +252,7 @@ module TelegramBotConfig
             },
             {
               "active" => true,
-              "name" => "parameter",
+              "name" => "parameters",
               "req" => false,
               "type" => "`$OBJECT`",
               "index$" => 5,
@@ -256,7 +261,7 @@ module TelegramBotConfig
               "active" => true,
               "name" => "result",
               "req" => false,
-              "type" => "`$ANY`",
+              "type" => "`$ARRAY`",
               "index$" => 6,
             },
           ],
@@ -269,6 +274,7 @@ module TelegramBotConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/deleteForumTopic",
                   "parts" => [
@@ -277,7 +283,7 @@ module TelegramBotConfig
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.parameters`",
                   },
                   "index$" => 0,
                 },
@@ -342,7 +348,7 @@ module TelegramBotConfig
             },
             {
               "active" => true,
-              "name" => "parameter",
+              "name" => "parameters",
               "req" => false,
               "type" => "`$OBJECT`",
               "index$" => 7,
@@ -351,7 +357,7 @@ module TelegramBotConfig
               "active" => true,
               "name" => "result",
               "req" => false,
-              "type" => "`$ANY`",
+              "type" => "`$ARRAY`",
               "index$" => 8,
             },
           ],
@@ -364,6 +370,7 @@ module TelegramBotConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/editForumTopic",
                   "parts" => [
@@ -372,7 +379,7 @@ module TelegramBotConfig
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.parameters`",
                   },
                   "index$" => 0,
                 },
@@ -403,6 +410,7 @@ module TelegramBotConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/getFile",
                   "parts" => [
@@ -463,6 +471,7 @@ module TelegramBotConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/createForumTopic",
                   "parts" => [
@@ -529,7 +538,7 @@ module TelegramBotConfig
             },
             {
               "active" => true,
-              "name" => "parameter",
+              "name" => "parameters",
               "req" => false,
               "type" => "`$OBJECT`",
               "index$" => 6,
@@ -538,7 +547,7 @@ module TelegramBotConfig
               "active" => true,
               "name" => "result",
               "req" => false,
-              "type" => "`$ANY`",
+              "type" => "`$ARRAY`",
               "index$" => 7,
             },
           ],
@@ -551,6 +560,7 @@ module TelegramBotConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/getBusinessAccountGifts",
                   "parts" => [
@@ -559,7 +569,7 @@ module TelegramBotConfig
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.parameters`",
                   },
                   "index$" => 0,
                 },
@@ -603,7 +613,7 @@ module TelegramBotConfig
             },
             {
               "active" => true,
-              "name" => "parameter",
+              "name" => "parameters",
               "req" => false,
               "type" => "`$OBJECT`",
               "index$" => 4,
@@ -612,7 +622,7 @@ module TelegramBotConfig
               "active" => true,
               "name" => "result",
               "req" => false,
-              "type" => "`$ANY`",
+              "type" => "`$ARRAY`",
               "index$" => 5,
             },
           ],
@@ -625,6 +635,7 @@ module TelegramBotConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/getChatGifts",
                   "parts" => [
@@ -633,7 +644,7 @@ module TelegramBotConfig
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.parameters`",
                   },
                   "index$" => 0,
                 },
@@ -670,7 +681,7 @@ module TelegramBotConfig
             },
             {
               "active" => true,
-              "name" => "parameter",
+              "name" => "parameters",
               "req" => false,
               "type" => "`$OBJECT`",
               "index$" => 3,
@@ -679,7 +690,7 @@ module TelegramBotConfig
               "active" => true,
               "name" => "result",
               "req" => false,
-              "type" => "`$ANY`",
+              "type" => "`$ARRAY`",
               "index$" => 4,
             },
           ],
@@ -692,6 +703,7 @@ module TelegramBotConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/getMe",
                   "parts" => [
@@ -700,7 +712,7 @@ module TelegramBotConfig
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.parameters`",
                   },
                   "index$" => 0,
                 },
@@ -714,6 +726,7 @@ module TelegramBotConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/getMe",
                   "parts" => [
@@ -722,7 +735,7 @@ module TelegramBotConfig
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.parameters`",
                   },
                   "index$" => 0,
                 },
@@ -759,7 +772,7 @@ module TelegramBotConfig
             },
             {
               "active" => true,
-              "name" => "parameter",
+              "name" => "parameters",
               "req" => false,
               "type" => "`$OBJECT`",
               "index$" => 3,
@@ -768,7 +781,7 @@ module TelegramBotConfig
               "active" => true,
               "name" => "result",
               "req" => false,
-              "type" => "`$ANY`",
+              "type" => "`$ARRAY`",
               "index$" => 4,
             },
             {
@@ -788,6 +801,7 @@ module TelegramBotConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/getUserGifts",
                   "parts" => [
@@ -833,7 +847,7 @@ module TelegramBotConfig
             },
             {
               "active" => true,
-              "name" => "parameter",
+              "name" => "parameters",
               "req" => false,
               "type" => "`$OBJECT`",
               "index$" => 3,
@@ -842,7 +856,7 @@ module TelegramBotConfig
               "active" => true,
               "name" => "result",
               "req" => false,
-              "type" => "`$ANY`",
+              "type" => "`$ARRAY`",
               "index$" => 4,
             },
             {
@@ -862,6 +876,7 @@ module TelegramBotConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/getUserProfileAudios",
                   "parts" => [
@@ -956,7 +971,7 @@ module TelegramBotConfig
             },
             {
               "active" => true,
-              "name" => "option",
+              "name" => "options",
               "req" => true,
               "type" => "`$ARRAY`",
               "index$" => 10,
@@ -1006,6 +1021,7 @@ module TelegramBotConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/forwardMessage",
                   "parts" => [
@@ -1021,6 +1037,7 @@ module TelegramBotConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/sendAnimation",
                   "parts" => [
@@ -1036,6 +1053,7 @@ module TelegramBotConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/sendAudio",
                   "parts" => [
@@ -1051,6 +1069,7 @@ module TelegramBotConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/sendDocument",
                   "parts" => [
@@ -1066,6 +1085,7 @@ module TelegramBotConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/sendLocation",
                   "parts" => [
@@ -1081,6 +1101,7 @@ module TelegramBotConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/sendMessage",
                   "parts" => [
@@ -1096,6 +1117,7 @@ module TelegramBotConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/sendPhoto",
                   "parts" => [
@@ -1111,6 +1133,7 @@ module TelegramBotConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/sendPoll",
                   "parts" => [
@@ -1126,6 +1149,7 @@ module TelegramBotConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/sendSticker",
                   "parts" => [
@@ -1141,6 +1165,7 @@ module TelegramBotConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/sendVideo",
                   "parts" => [
@@ -1215,6 +1240,7 @@ module TelegramBotConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/copyMessage",
                   "parts" => [
@@ -1222,7 +1248,9 @@ module TelegramBotConfig
                   ],
                   "select" => {},
                   "transform" => {
-                    "req" => "`reqdata`",
+                    "req" => {
+                      "message_id" => "`reqdata`",
+                    },
                     "res" => "`body`",
                   },
                   "index$" => 0,
@@ -1239,14 +1267,14 @@ module TelegramBotConfig
           "fields" => [
             {
               "active" => true,
-              "name" => "can_delete_message",
+              "name" => "can_delete_messages",
               "req" => false,
               "type" => "`$BOOLEAN`",
               "index$" => 0,
             },
             {
               "active" => true,
-              "name" => "can_edit_message",
+              "name" => "can_edit_messages",
               "req" => false,
               "type" => "`$BOOLEAN`",
               "index$" => 1,
@@ -1260,14 +1288,14 @@ module TelegramBotConfig
             },
             {
               "active" => true,
-              "name" => "can_manage_direct_message",
+              "name" => "can_manage_direct_messages",
               "req" => false,
               "type" => "`$BOOLEAN`",
               "index$" => 3,
             },
             {
               "active" => true,
-              "name" => "can_post_message",
+              "name" => "can_post_messages",
               "req" => false,
               "type" => "`$BOOLEAN`",
               "index$" => 4,
@@ -1302,7 +1330,7 @@ module TelegramBotConfig
             },
             {
               "active" => true,
-              "name" => "parameter",
+              "name" => "parameters",
               "req" => false,
               "type" => "`$OBJECT`",
               "index$" => 9,
@@ -1311,7 +1339,7 @@ module TelegramBotConfig
               "active" => true,
               "name" => "result",
               "req" => false,
-              "type" => "`$ANY`",
+              "type" => "`$ARRAY`",
               "index$" => 10,
             },
             {
@@ -1331,6 +1359,7 @@ module TelegramBotConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/promoteChatMember",
                   "parts" => [
@@ -1376,7 +1405,7 @@ module TelegramBotConfig
             },
             {
               "active" => true,
-              "name" => "parameter",
+              "name" => "parameters",
               "req" => false,
               "type" => "`$OBJECT`",
               "index$" => 3,
@@ -1385,7 +1414,7 @@ module TelegramBotConfig
               "active" => true,
               "name" => "result",
               "req" => false,
-              "type" => "`$ANY`",
+              "type" => "`$ARRAY`",
               "index$" => 4,
             },
           ],
@@ -1398,6 +1427,7 @@ module TelegramBotConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/removeMyProfilePhoto",
                   "parts" => [
@@ -1450,7 +1480,7 @@ module TelegramBotConfig
             },
             {
               "active" => true,
-              "name" => "parameter",
+              "name" => "parameters",
               "req" => false,
               "type" => "`$OBJECT`",
               "index$" => 4,
@@ -1459,7 +1489,7 @@ module TelegramBotConfig
               "active" => true,
               "name" => "result",
               "req" => false,
-              "type" => "`$ANY`",
+              "type" => "`$ARRAY`",
               "index$" => 5,
             },
             {
@@ -1479,6 +1509,7 @@ module TelegramBotConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/repostStory",
                   "parts" => [
@@ -1545,7 +1576,7 @@ module TelegramBotConfig
             },
             {
               "active" => true,
-              "name" => "parameter",
+              "name" => "parameters",
               "req" => false,
               "type" => "`$OBJECT`",
               "index$" => 6,
@@ -1554,7 +1585,7 @@ module TelegramBotConfig
               "active" => true,
               "name" => "result",
               "req" => false,
-              "type" => "`$ANY`",
+              "type" => "`$ARRAY`",
               "index$" => 7,
             },
           ],
@@ -1567,6 +1598,7 @@ module TelegramBotConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/sendChatAction",
                   "parts" => [
@@ -1626,7 +1658,7 @@ module TelegramBotConfig
             },
             {
               "active" => true,
-              "name" => "parameter",
+              "name" => "parameters",
               "req" => false,
               "type" => "`$OBJECT`",
               "index$" => 5,
@@ -1635,7 +1667,7 @@ module TelegramBotConfig
               "active" => true,
               "name" => "result",
               "req" => false,
-              "type" => "`$ANY`",
+              "type" => "`$ARRAY`",
               "index$" => 6,
             },
             {
@@ -1655,6 +1687,7 @@ module TelegramBotConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/sendMessageDraft",
                   "parts" => [
@@ -1700,7 +1733,7 @@ module TelegramBotConfig
             },
             {
               "active" => true,
-              "name" => "parameter",
+              "name" => "parameters",
               "req" => false,
               "type" => "`$OBJECT`",
               "index$" => 3,
@@ -1709,7 +1742,7 @@ module TelegramBotConfig
               "active" => true,
               "name" => "result",
               "req" => false,
-              "type" => "`$ANY`",
+              "type" => "`$ARRAY`",
               "index$" => 4,
             },
           ],
@@ -1722,6 +1755,7 @@ module TelegramBotConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/setMyProfilePhoto",
                   "parts" => [
@@ -1781,7 +1815,7 @@ module TelegramBotConfig
             },
             {
               "active" => true,
-              "name" => "parameter",
+              "name" => "parameters",
               "req" => false,
               "type" => "`$OBJECT`",
               "index$" => 5,
@@ -1790,7 +1824,7 @@ module TelegramBotConfig
               "active" => true,
               "name" => "result",
               "req" => false,
-              "type" => "`$ANY`",
+              "type" => "`$ARRAY`",
               "index$" => 6,
             },
           ],
@@ -1803,6 +1837,7 @@ module TelegramBotConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/unpinAllForumTopicMessages",
                   "parts" => [
@@ -1827,7 +1862,7 @@ module TelegramBotConfig
           "fields" => [
             {
               "active" => true,
-              "name" => "allowed_update",
+              "name" => "allowed_updates",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 0,
@@ -1869,7 +1904,7 @@ module TelegramBotConfig
             },
             {
               "active" => true,
-              "name" => "parameter",
+              "name" => "parameters",
               "req" => false,
               "type" => "`$OBJECT`",
               "index$" => 6,
@@ -1898,6 +1933,7 @@ module TelegramBotConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/getUpdates",
                   "parts" => [
@@ -1957,6 +1993,7 @@ module TelegramBotConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/getUpdates",
                   "parts" => [

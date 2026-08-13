@@ -9,8 +9,8 @@
         "message_thread_id": "MESSAGE_THREAD01",
         "name": "s5f",
         "ok": true,
-        "parameter": {},
-        "result": "s62",
+        "parameters": {},
+        "result": [],
         "id": "EDIT_FORUM_TOPIC00"
       },
       "EDIT_FORUM_TOPIC01": {
@@ -21,8 +21,8 @@
         "message_thread_id": "MESSAGE_THREAD01",
         "name": "sb9",
         "ok": true,
-        "parameter": {},
-        "result": "sbc",
+        "parameters": {},
+        "result": [],
         "id": "EDIT_FORUM_TOPIC01"
       },
       "EDIT_FORUM_TOPIC02": {
@@ -33,8 +33,8 @@
         "message_thread_id": "MESSAGE_THREAD01",
         "name": "s113",
         "ok": true,
-        "parameter": {},
-        "result": "s116",
+        "parameters": {},
+        "result": [],
         "id": "EDIT_FORUM_TOPIC02"
       }
     }
@@ -49,8 +49,8 @@
         "message_thread_id": "MESSAGE_THREAD01",
         "name": "s16d",
         "ok": true,
-        "parameter": {},
-        "result": "s170"
+        "parameters": {},
+        "result": []
       }
     }
   }

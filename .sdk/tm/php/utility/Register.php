@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ TelegramBotUtility::setRegistrar(function (TelegramBotUtility $u): void {
     $u->prepare_params = [TelegramBotPrepareParams::class, 'call'];
     $u->prepare_path = [TelegramBotPreparePath::class, 'call'];
     $u->prepare_query = [TelegramBotPrepareQuery::class, 'call'];
+    $u->graphql_body = [TelegramBotGraphql::class, 'body'];
+    $u->graphql_errors = [TelegramBotGraphql::class, 'errors'];
     $u->result_basic = [TelegramBotResultBasic::class, 'call'];
     $u->result_body = [TelegramBotResultBody::class, 'call'];
     $u->result_headers = [TelegramBotResultHeaders::class, 'call'];

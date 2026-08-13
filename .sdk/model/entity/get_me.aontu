@@ -21,14 +21,14 @@ main: kit: entity: get_me: {
       type: "`$BOOLEAN`"
     }
     {
-      name: "parameter"
+      name: "parameters"
       req: false
       type: "`$OBJECT`"
     }
     {
       name: "result"
       req: false
-      type: "`$ANY`"
+      type: "`$ARRAY`"
     }
   ]
 
@@ -45,7 +45,7 @@ main: kit: entity: get_me: {
           ]
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.parameters`"
           }
         }
       ]
@@ -61,7 +61,7 @@ main: kit: entity: get_me: {
           ]
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.parameters`"
           }
         }
       ]

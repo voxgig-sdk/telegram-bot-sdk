@@ -35,7 +35,7 @@ client = TelegramBotSDK.new({
 ### 4. Create, update, and remove
 
 ```ruby
-# create returns the bare created ApproveSuggestedPost record.
+# create returns the ENTITY — call data_get for the created ApproveSuggestedPost record.
 created = client.ApproveSuggestedPost.create({ "chat_id" => "example_chat_id", "message_id" => 1, "ok" => true })
 
 ```
@@ -115,7 +115,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = TelegramBotSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 getme = client.GetMe.load()
 puts getme
 ```
@@ -261,7 +262,7 @@ returns a result `Hash` with these keys:
 | `error_code` |  |
 | `message_id` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create.
@@ -277,7 +278,7 @@ API path: `/approveSuggestedPost`
 | `error_code` |  |
 | `message_id` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create.
@@ -293,7 +294,7 @@ API path: `/declineSuggestedPost`
 | `error_code` |  |
 | `message_thread_id` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create.
@@ -311,7 +312,7 @@ API path: `/deleteForumTopic`
 | `message_thread_id` |  |
 | `name` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create.
@@ -351,7 +352,7 @@ API path: `/createForumTopic`
 | `exclude_limited_non_upgradable` |  |
 | `exclude_limited_upgradable` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create.
@@ -366,7 +367,7 @@ API path: `/getBusinessAccountGifts`
 | `description` |  |
 | `error_code` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create.
@@ -380,7 +381,7 @@ API path: `/getChatGifts`
 | `description` |  |
 | `error_code` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create, Load.
@@ -394,7 +395,7 @@ API path: `/getMe`
 | `description` |  |
 | `error_code` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 | `user_id` |  |
 
@@ -409,7 +410,7 @@ API path: `/getUserGifts`
 | `description` |  |
 | `error_code` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 | `user_id` |  |
 
@@ -431,7 +432,7 @@ API path: `/getUserProfileAudios`
 | `message_effect_id` |  |
 | `message_id` |  |
 | `message_thread_id` |  |
-| `option` |  |
+| `options` |  |
 | `parse_mode` |  |
 | `protect_content` |  |
 | `question` |  |
@@ -461,16 +462,16 @@ API path: `/copyMessage`
 
 | Field | Description |
 | --- | --- |
-| `can_delete_message` |  |
-| `can_edit_message` |  |
+| `can_delete_messages` |  |
+| `can_edit_messages` |  |
 | `can_manage_chat` |  |
-| `can_manage_direct_message` |  |
-| `can_post_message` |  |
+| `can_manage_direct_messages` |  |
+| `can_post_messages` |  |
 | `chat_id` |  |
 | `description` |  |
 | `error_code` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 | `user_id` |  |
 
@@ -485,7 +486,7 @@ API path: `/promoteChatMember`
 | `description` |  |
 | `error_code` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create.
@@ -500,7 +501,7 @@ API path: `/removeMyProfilePhoto`
 | `description` |  |
 | `error_code` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 | `story_id` |  |
 
@@ -518,7 +519,7 @@ API path: `/repostStory`
 | `error_code` |  |
 | `message_thread_id` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create.
@@ -534,7 +535,7 @@ API path: `/sendChatAction`
 | `error_code` |  |
 | `message_thread_id` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 | `text` |  |
 
@@ -549,7 +550,7 @@ API path: `/sendMessageDraft`
 | `description` |  |
 | `error_code` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create.
@@ -565,7 +566,7 @@ API path: `/setMyProfilePhoto`
 | `error_code` |  |
 | `message_thread_id` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create.
@@ -576,13 +577,13 @@ API path: `/unpinAllForumTopicMessages`
 
 | Field | Description |
 | --- | --- |
-| `allowed_update` |  |
+| `allowed_updates` |  |
 | `description` |  |
 | `error_code` |  |
 | `limit` |  |
 | `offset` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 | `timeout` |  |
 
@@ -614,8 +615,8 @@ Create an instance: `approve_suggested_post = client.ApproveSuggestedPost`
 | `error_code` | `Integer` |  |
 | `message_id` | `Integer` |  |
 | `ok` | `Boolean` |  |
-| `parameter` | `Hash` |  |
-| `result` | `Object` |  |
+| `parameters` | `Hash` |  |
+| `result` | `Array` |  |
 
 #### Example: Create
 
@@ -647,8 +648,8 @@ Create an instance: `decline_suggested_post = client.DeclineSuggestedPost`
 | `error_code` | `Integer` |  |
 | `message_id` | `Integer` |  |
 | `ok` | `Boolean` |  |
-| `parameter` | `Hash` |  |
-| `result` | `Object` |  |
+| `parameters` | `Hash` |  |
+| `result` | `Array` |  |
 
 #### Example: Create
 
@@ -680,8 +681,8 @@ Create an instance: `delete_forum_topic = client.DeleteForumTopic`
 | `error_code` | `Integer` |  |
 | `message_thread_id` | `Integer` |  |
 | `ok` | `Boolean` |  |
-| `parameter` | `Hash` |  |
-| `result` | `Object` |  |
+| `parameters` | `Hash` |  |
+| `result` | `Array` |  |
 
 #### Example: Create
 
@@ -715,8 +716,8 @@ Create an instance: `edit_forum_topic = client.EditForumTopic`
 | `message_thread_id` | `Integer` |  |
 | `name` | `String` |  |
 | `ok` | `Boolean` |  |
-| `parameter` | `Hash` |  |
-| `result` | `Object` |  |
+| `parameters` | `Hash` |  |
+| `result` | `Array` |  |
 
 #### Example: Create
 
@@ -803,8 +804,8 @@ Create an instance: `get_business_account_gift = client.GetBusinessAccountGift`
 | `exclude_limited_non_upgradable` | `Boolean` |  |
 | `exclude_limited_upgradable` | `Boolean` |  |
 | `ok` | `Boolean` |  |
-| `parameter` | `Hash` |  |
-| `result` | `Object` |  |
+| `parameters` | `Hash` |  |
+| `result` | `Array` |  |
 
 #### Example: Create
 
@@ -833,8 +834,8 @@ Create an instance: `get_chat_gift = client.GetChatGift`
 | `description` | `String` |  |
 | `error_code` | `Integer` |  |
 | `ok` | `Boolean` |  |
-| `parameter` | `Hash` |  |
-| `result` | `Object` |  |
+| `parameters` | `Hash` |  |
+| `result` | `Array` |  |
 
 #### Example: Create
 
@@ -864,13 +865,13 @@ Create an instance: `get_me = client.GetMe`
 | `description` | `String` |  |
 | `error_code` | `Integer` |  |
 | `ok` | `Boolean` |  |
-| `parameter` | `Hash` |  |
-| `result` | `Object` |  |
+| `parameters` | `Hash` |  |
+| `result` | `Array` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare GetMe record (raises on error).
+# load returns the ENTITY — call data_get for the GetMe record (raises on error).
 get_me = client.GetMe.load()
 ```
 
@@ -900,8 +901,8 @@ Create an instance: `get_user_gift = client.GetUserGift`
 | `description` | `String` |  |
 | `error_code` | `Integer` |  |
 | `ok` | `Boolean` |  |
-| `parameter` | `Hash` |  |
-| `result` | `Object` |  |
+| `parameters` | `Hash` |  |
+| `result` | `Array` |  |
 | `user_id` | `Integer` |  |
 
 #### Example: Create
@@ -931,8 +932,8 @@ Create an instance: `get_user_profile_audio = client.GetUserProfileAudio`
 | `description` | `String` |  |
 | `error_code` | `Integer` |  |
 | `ok` | `Boolean` |  |
-| `parameter` | `Hash` |  |
-| `result` | `Object` |  |
+| `parameters` | `Hash` |  |
+| `result` | `Array` |  |
 | `user_id` | `Integer` |  |
 
 #### Example: Create
@@ -969,7 +970,7 @@ Create an instance: `message = client.Message`
 | `message_effect_id` | `String` |  |
 | `message_id` | `Integer` |  |
 | `message_thread_id` | `Integer` |  |
-| `option` | `Array` |  |
+| `options` | `Array` |  |
 | `parse_mode` | `String` |  |
 | `protect_content` | `Boolean` |  |
 | `question` | `String` |  |
@@ -985,7 +986,7 @@ message = client.Message.create({
   "latitude" => 1, # Float
   "longitude" => 1, # Float
   "message_id" => 1, # Integer
-  "option" => [], # Array
+  "options" => [], # Array
   "question" => "example_question", # String
   "text" => "example_text", # String
 })
@@ -1038,17 +1039,17 @@ Create an instance: `promote_chat_member = client.PromoteChatMember`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `can_delete_message` | `Boolean` |  |
-| `can_edit_message` | `Boolean` |  |
+| `can_delete_messages` | `Boolean` |  |
+| `can_edit_messages` | `Boolean` |  |
 | `can_manage_chat` | `Boolean` |  |
-| `can_manage_direct_message` | `Boolean` |  |
-| `can_post_message` | `Boolean` |  |
+| `can_manage_direct_messages` | `Boolean` |  |
+| `can_post_messages` | `Boolean` |  |
 | `chat_id` | `String` |  |
 | `description` | `String` |  |
 | `error_code` | `Integer` |  |
 | `ok` | `Boolean` |  |
-| `parameter` | `Hash` |  |
-| `result` | `Object` |  |
+| `parameters` | `Hash` |  |
+| `result` | `Array` |  |
 | `user_id` | `Integer` |  |
 
 #### Example: Create
@@ -1079,8 +1080,8 @@ Create an instance: `remove_my_profile_photo = client.RemoveMyProfilePhoto`
 | `description` | `String` |  |
 | `error_code` | `Integer` |  |
 | `ok` | `Boolean` |  |
-| `parameter` | `Hash` |  |
-| `result` | `Object` |  |
+| `parameters` | `Hash` |  |
+| `result` | `Array` |  |
 
 #### Example: Create
 
@@ -1109,8 +1110,8 @@ Create an instance: `repost_story = client.RepostStory`
 | `description` | `String` |  |
 | `error_code` | `Integer` |  |
 | `ok` | `Boolean` |  |
-| `parameter` | `Hash` |  |
-| `result` | `Object` |  |
+| `parameters` | `Hash` |  |
+| `result` | `Array` |  |
 | `story_id` | `Integer` |  |
 
 #### Example: Create
@@ -1144,8 +1145,8 @@ Create an instance: `send_chat_action = client.SendChatAction`
 | `error_code` | `Integer` |  |
 | `message_thread_id` | `Integer` |  |
 | `ok` | `Boolean` |  |
-| `parameter` | `Hash` |  |
-| `result` | `Object` |  |
+| `parameters` | `Hash` |  |
+| `result` | `Array` |  |
 
 #### Example: Create
 
@@ -1177,8 +1178,8 @@ Create an instance: `send_message_draft = client.SendMessageDraft`
 | `error_code` | `Integer` |  |
 | `message_thread_id` | `Integer` |  |
 | `ok` | `Boolean` |  |
-| `parameter` | `Hash` |  |
-| `result` | `Object` |  |
+| `parameters` | `Hash` |  |
+| `result` | `Array` |  |
 | `text` | `String` |  |
 
 #### Example: Create
@@ -1209,8 +1210,8 @@ Create an instance: `set_my_profile_photo = client.SetMyProfilePhoto`
 | `description` | `String` |  |
 | `error_code` | `Integer` |  |
 | `ok` | `Boolean` |  |
-| `parameter` | `Hash` |  |
-| `result` | `Object` |  |
+| `parameters` | `Hash` |  |
+| `result` | `Array` |  |
 
 #### Example: Create
 
@@ -1240,8 +1241,8 @@ Create an instance: `unpin_all_forum_topic_message = client.UnpinAllForumTopicMe
 | `error_code` | `Integer` |  |
 | `message_thread_id` | `Integer` |  |
 | `ok` | `Boolean` |  |
-| `parameter` | `Hash` |  |
-| `result` | `Object` |  |
+| `parameters` | `Hash` |  |
+| `result` | `Array` |  |
 
 #### Example: Create
 
@@ -1269,13 +1270,13 @@ Create an instance: `update = client.Update`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `allowed_update` | `Array` |  |
+| `allowed_updates` | `Array` |  |
 | `description` | `String` |  |
 | `error_code` | `Integer` |  |
 | `limit` | `Integer` |  |
 | `offset` | `Integer` |  |
 | `ok` | `Boolean` |  |
-| `parameter` | `Hash` |  |
+| `parameters` | `Hash` |  |
 | `result` | `Array` |  |
 | `timeout` | `Integer` |  |
 

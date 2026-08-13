@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'TelegramBot',
   }
 
 
@@ -37,6 +37,10 @@ class Config {
 
   options = {
     base: 'https://api.telegram.org/bot{token}',
+
+    server: {
+      "token": "",
+    },
 
     auth: {
       prefix: '',
@@ -155,7 +159,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "parameter",
+          "name": "parameters",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 5
@@ -164,7 +168,7 @@ class Config {
           "active": true,
           "name": "result",
           "req": false,
-          "type": "`$ANY`",
+          "type": "`$ARRAY`",
           "index$": 6
         }
       ],
@@ -177,6 +181,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/approveSuggestedPost",
               "parts": [
@@ -185,7 +190,7 @@ class Config {
               "select": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.parameters`"
               },
               "index$": 0
             }
@@ -236,7 +241,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "parameter",
+          "name": "parameters",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 5
@@ -245,7 +250,7 @@ class Config {
           "active": true,
           "name": "result",
           "req": false,
-          "type": "`$ANY`",
+          "type": "`$ARRAY`",
           "index$": 6
         }
       ],
@@ -258,6 +263,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/declineSuggestedPost",
               "parts": [
@@ -266,7 +272,7 @@ class Config {
               "select": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.parameters`"
               },
               "index$": 0
             }
@@ -317,7 +323,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "parameter",
+          "name": "parameters",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 5
@@ -326,7 +332,7 @@ class Config {
           "active": true,
           "name": "result",
           "req": false,
-          "type": "`$ANY`",
+          "type": "`$ARRAY`",
           "index$": 6
         }
       ],
@@ -339,6 +345,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/deleteForumTopic",
               "parts": [
@@ -347,7 +354,7 @@ class Config {
               "select": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.parameters`"
               },
               "index$": 0
             }
@@ -412,7 +419,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "parameter",
+          "name": "parameters",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 7
@@ -421,7 +428,7 @@ class Config {
           "active": true,
           "name": "result",
           "req": false,
-          "type": "`$ANY`",
+          "type": "`$ARRAY`",
           "index$": 8
         }
       ],
@@ -434,6 +441,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/editForumTopic",
               "parts": [
@@ -442,7 +450,7 @@ class Config {
               "select": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.parameters`"
               },
               "index$": 0
             }
@@ -473,6 +481,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/getFile",
               "parts": [
@@ -533,6 +542,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/createForumTopic",
               "parts": [
@@ -599,7 +609,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "parameter",
+          "name": "parameters",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 6
@@ -608,7 +618,7 @@ class Config {
           "active": true,
           "name": "result",
           "req": false,
-          "type": "`$ANY`",
+          "type": "`$ARRAY`",
           "index$": 7
         }
       ],
@@ -621,6 +631,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/getBusinessAccountGifts",
               "parts": [
@@ -629,7 +640,7 @@ class Config {
               "select": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.parameters`"
               },
               "index$": 0
             }
@@ -673,7 +684,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "parameter",
+          "name": "parameters",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 4
@@ -682,7 +693,7 @@ class Config {
           "active": true,
           "name": "result",
           "req": false,
-          "type": "`$ANY`",
+          "type": "`$ARRAY`",
           "index$": 5
         }
       ],
@@ -695,6 +706,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/getChatGifts",
               "parts": [
@@ -703,7 +715,7 @@ class Config {
               "select": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.parameters`"
               },
               "index$": 0
             }
@@ -740,7 +752,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "parameter",
+          "name": "parameters",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 3
@@ -749,7 +761,7 @@ class Config {
           "active": true,
           "name": "result",
           "req": false,
-          "type": "`$ANY`",
+          "type": "`$ARRAY`",
           "index$": 4
         }
       ],
@@ -762,6 +774,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/getMe",
               "parts": [
@@ -770,7 +783,7 @@ class Config {
               "select": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.parameters`"
               },
               "index$": 0
             }
@@ -784,6 +797,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/getMe",
               "parts": [
@@ -792,7 +806,7 @@ class Config {
               "select": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.parameters`"
               },
               "index$": 0
             }
@@ -829,7 +843,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "parameter",
+          "name": "parameters",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 3
@@ -838,7 +852,7 @@ class Config {
           "active": true,
           "name": "result",
           "req": false,
-          "type": "`$ANY`",
+          "type": "`$ARRAY`",
           "index$": 4
         },
         {
@@ -858,6 +872,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/getUserGifts",
               "parts": [
@@ -903,7 +918,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "parameter",
+          "name": "parameters",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 3
@@ -912,7 +927,7 @@ class Config {
           "active": true,
           "name": "result",
           "req": false,
-          "type": "`$ANY`",
+          "type": "`$ARRAY`",
           "index$": 4
         },
         {
@@ -932,6 +947,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/getUserProfileAudios",
               "parts": [
@@ -1026,7 +1042,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "option",
+          "name": "options",
           "req": true,
           "type": "`$ARRAY`",
           "index$": 10
@@ -1076,6 +1092,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/forwardMessage",
               "parts": [
@@ -1091,6 +1108,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/sendAnimation",
               "parts": [
@@ -1106,6 +1124,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/sendAudio",
               "parts": [
@@ -1121,6 +1140,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/sendDocument",
               "parts": [
@@ -1136,6 +1156,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/sendLocation",
               "parts": [
@@ -1151,6 +1172,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/sendMessage",
               "parts": [
@@ -1166,6 +1188,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/sendPhoto",
               "parts": [
@@ -1181,6 +1204,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/sendPoll",
               "parts": [
@@ -1196,6 +1220,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/sendSticker",
               "parts": [
@@ -1211,6 +1236,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/sendVideo",
               "parts": [
@@ -1285,6 +1311,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/copyMessage",
               "parts": [
@@ -1292,7 +1319,9 @@ class Config {
               ],
               "select": {},
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "message_id": "`reqdata`"
+                },
                 "res": "`body`"
               },
               "index$": 0
@@ -1309,14 +1338,14 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "can_delete_message",
+          "name": "can_delete_messages",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "can_edit_message",
+          "name": "can_edit_messages",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 1
@@ -1330,14 +1359,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "can_manage_direct_message",
+          "name": "can_manage_direct_messages",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "can_post_message",
+          "name": "can_post_messages",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 4
@@ -1372,7 +1401,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "parameter",
+          "name": "parameters",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 9
@@ -1381,7 +1410,7 @@ class Config {
           "active": true,
           "name": "result",
           "req": false,
-          "type": "`$ANY`",
+          "type": "`$ARRAY`",
           "index$": 10
         },
         {
@@ -1401,6 +1430,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/promoteChatMember",
               "parts": [
@@ -1446,7 +1476,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "parameter",
+          "name": "parameters",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 3
@@ -1455,7 +1485,7 @@ class Config {
           "active": true,
           "name": "result",
           "req": false,
-          "type": "`$ANY`",
+          "type": "`$ARRAY`",
           "index$": 4
         }
       ],
@@ -1468,6 +1498,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/removeMyProfilePhoto",
               "parts": [
@@ -1520,7 +1551,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "parameter",
+          "name": "parameters",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 4
@@ -1529,7 +1560,7 @@ class Config {
           "active": true,
           "name": "result",
           "req": false,
-          "type": "`$ANY`",
+          "type": "`$ARRAY`",
           "index$": 5
         },
         {
@@ -1549,6 +1580,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/repostStory",
               "parts": [
@@ -1615,7 +1647,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "parameter",
+          "name": "parameters",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 6
@@ -1624,7 +1656,7 @@ class Config {
           "active": true,
           "name": "result",
           "req": false,
-          "type": "`$ANY`",
+          "type": "`$ARRAY`",
           "index$": 7
         }
       ],
@@ -1637,6 +1669,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/sendChatAction",
               "parts": [
@@ -1696,7 +1729,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "parameter",
+          "name": "parameters",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 5
@@ -1705,7 +1738,7 @@ class Config {
           "active": true,
           "name": "result",
           "req": false,
-          "type": "`$ANY`",
+          "type": "`$ARRAY`",
           "index$": 6
         },
         {
@@ -1725,6 +1758,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/sendMessageDraft",
               "parts": [
@@ -1770,7 +1804,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "parameter",
+          "name": "parameters",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 3
@@ -1779,7 +1813,7 @@ class Config {
           "active": true,
           "name": "result",
           "req": false,
-          "type": "`$ANY`",
+          "type": "`$ARRAY`",
           "index$": 4
         }
       ],
@@ -1792,6 +1826,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/setMyProfilePhoto",
               "parts": [
@@ -1851,7 +1886,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "parameter",
+          "name": "parameters",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 5
@@ -1860,7 +1895,7 @@ class Config {
           "active": true,
           "name": "result",
           "req": false,
-          "type": "`$ANY`",
+          "type": "`$ARRAY`",
           "index$": 6
         }
       ],
@@ -1873,6 +1908,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/unpinAllForumTopicMessages",
               "parts": [
@@ -1897,7 +1933,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "allowed_update",
+          "name": "allowed_updates",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 0
@@ -1939,7 +1975,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "parameter",
+          "name": "parameters",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 6
@@ -1968,6 +2004,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/getUpdates",
               "parts": [
@@ -2027,6 +2064,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/getUpdates",
               "parts": [

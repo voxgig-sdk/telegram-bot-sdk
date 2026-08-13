@@ -26,8 +26,8 @@ import {
 describe('MessageIdEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when TELEGRAMBOT_TEST_LIVE=TRUE.
-  afterEach(liveDelay('TELEGRAMBOT_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when TELEGRAM_BOT_TEST_LIVE=TRUE.
+  afterEach(liveDelay('TELEGRAM_BOT_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = TelegramBotSDK.test()
@@ -62,7 +62,7 @@ describe('MessageIdEntity', async () => {
     const message_id_ref01_ent = client.MessageId()
     let message_id_ref01_data = setup.data.new.message_id['message_id_ref01']
 
-    message_id_ref01_data = await message_id_ref01_ent.create(message_id_ref01_data)
+    message_id_ref01_data = (await message_id_ref01_ent.create(message_id_ref01_data)).data()
     assert(null != message_id_ref01_data)
 
 

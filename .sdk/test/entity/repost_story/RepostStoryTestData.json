@@ -6,8 +6,8 @@
         "description": "s47",
         "error_code": "s48",
         "ok": false,
-        "parameter": {},
-        "result": "s4b",
+        "parameters": {},
+        "result": [],
         "story_id": "STORY01",
         "id": "REPOST_STORY00"
       },
@@ -16,8 +16,8 @@
         "description": "s8d",
         "error_code": "s8e",
         "ok": false,
-        "parameter": {},
-        "result": "s91",
+        "parameters": {},
+        "result": [],
         "story_id": "STORY01",
         "id": "REPOST_STORY01"
       },
@@ -26,8 +26,8 @@
         "description": "sd3",
         "error_code": "sd4",
         "ok": false,
-        "parameter": {},
-        "result": "sd7",
+        "parameters": {},
+        "result": [],
         "story_id": "STORY01",
         "id": "REPOST_STORY02"
       }
@@ -40,8 +40,8 @@
         "description": "s119",
         "error_code": "s11a",
         "ok": false,
-        "parameter": {},
-        "result": "s11d",
+        "parameters": {},
+        "result": [],
         "story_id": "STORY01"
       }
     }

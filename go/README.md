@@ -291,7 +291,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"error_code"` |  |
 | `"message_id"` |  |
 | `"ok"` |  |
-| `"parameter"` |  |
+| `"parameters"` |  |
 | `"result"` |  |
 
 Operations: Create.
@@ -307,7 +307,7 @@ API path: `/approveSuggestedPost`
 | `"error_code"` |  |
 | `"message_id"` |  |
 | `"ok"` |  |
-| `"parameter"` |  |
+| `"parameters"` |  |
 | `"result"` |  |
 
 Operations: Create.
@@ -323,7 +323,7 @@ API path: `/declineSuggestedPost`
 | `"error_code"` |  |
 | `"message_thread_id"` |  |
 | `"ok"` |  |
-| `"parameter"` |  |
+| `"parameters"` |  |
 | `"result"` |  |
 
 Operations: Create.
@@ -341,7 +341,7 @@ API path: `/deleteForumTopic`
 | `"message_thread_id"` |  |
 | `"name"` |  |
 | `"ok"` |  |
-| `"parameter"` |  |
+| `"parameters"` |  |
 | `"result"` |  |
 
 Operations: Create.
@@ -381,7 +381,7 @@ API path: `/createForumTopic`
 | `"exclude_limited_non_upgradable"` |  |
 | `"exclude_limited_upgradable"` |  |
 | `"ok"` |  |
-| `"parameter"` |  |
+| `"parameters"` |  |
 | `"result"` |  |
 
 Operations: Create.
@@ -396,7 +396,7 @@ API path: `/getBusinessAccountGifts`
 | `"description"` |  |
 | `"error_code"` |  |
 | `"ok"` |  |
-| `"parameter"` |  |
+| `"parameters"` |  |
 | `"result"` |  |
 
 Operations: Create.
@@ -410,7 +410,7 @@ API path: `/getChatGifts`
 | `"description"` |  |
 | `"error_code"` |  |
 | `"ok"` |  |
-| `"parameter"` |  |
+| `"parameters"` |  |
 | `"result"` |  |
 
 Operations: Create, Load.
@@ -424,7 +424,7 @@ API path: `/getMe`
 | `"description"` |  |
 | `"error_code"` |  |
 | `"ok"` |  |
-| `"parameter"` |  |
+| `"parameters"` |  |
 | `"result"` |  |
 | `"user_id"` |  |
 
@@ -439,7 +439,7 @@ API path: `/getUserGifts`
 | `"description"` |  |
 | `"error_code"` |  |
 | `"ok"` |  |
-| `"parameter"` |  |
+| `"parameters"` |  |
 | `"result"` |  |
 | `"user_id"` |  |
 
@@ -461,7 +461,7 @@ API path: `/getUserProfileAudios`
 | `"message_effect_id"` |  |
 | `"message_id"` |  |
 | `"message_thread_id"` |  |
-| `"option"` |  |
+| `"options"` |  |
 | `"parse_mode"` |  |
 | `"protect_content"` |  |
 | `"question"` |  |
@@ -491,16 +491,16 @@ API path: `/copyMessage`
 
 | Field | Description |
 | --- | --- |
-| `"can_delete_message"` |  |
-| `"can_edit_message"` |  |
+| `"can_delete_messages"` |  |
+| `"can_edit_messages"` |  |
 | `"can_manage_chat"` |  |
-| `"can_manage_direct_message"` |  |
-| `"can_post_message"` |  |
+| `"can_manage_direct_messages"` |  |
+| `"can_post_messages"` |  |
 | `"chat_id"` |  |
 | `"description"` |  |
 | `"error_code"` |  |
 | `"ok"` |  |
-| `"parameter"` |  |
+| `"parameters"` |  |
 | `"result"` |  |
 | `"user_id"` |  |
 
@@ -515,7 +515,7 @@ API path: `/promoteChatMember`
 | `"description"` |  |
 | `"error_code"` |  |
 | `"ok"` |  |
-| `"parameter"` |  |
+| `"parameters"` |  |
 | `"result"` |  |
 
 Operations: Create.
@@ -530,7 +530,7 @@ API path: `/removeMyProfilePhoto`
 | `"description"` |  |
 | `"error_code"` |  |
 | `"ok"` |  |
-| `"parameter"` |  |
+| `"parameters"` |  |
 | `"result"` |  |
 | `"story_id"` |  |
 
@@ -548,7 +548,7 @@ API path: `/repostStory`
 | `"error_code"` |  |
 | `"message_thread_id"` |  |
 | `"ok"` |  |
-| `"parameter"` |  |
+| `"parameters"` |  |
 | `"result"` |  |
 
 Operations: Create.
@@ -564,7 +564,7 @@ API path: `/sendChatAction`
 | `"error_code"` |  |
 | `"message_thread_id"` |  |
 | `"ok"` |  |
-| `"parameter"` |  |
+| `"parameters"` |  |
 | `"result"` |  |
 | `"text"` |  |
 
@@ -579,7 +579,7 @@ API path: `/sendMessageDraft`
 | `"description"` |  |
 | `"error_code"` |  |
 | `"ok"` |  |
-| `"parameter"` |  |
+| `"parameters"` |  |
 | `"result"` |  |
 
 Operations: Create.
@@ -595,7 +595,7 @@ API path: `/setMyProfilePhoto`
 | `"error_code"` |  |
 | `"message_thread_id"` |  |
 | `"ok"` |  |
-| `"parameter"` |  |
+| `"parameters"` |  |
 | `"result"` |  |
 
 Operations: Create.
@@ -606,13 +606,13 @@ API path: `/unpinAllForumTopicMessages`
 
 | Field | Description |
 | --- | --- |
-| `"allowed_update"` |  |
+| `"allowed_updates"` |  |
 | `"description"` |  |
 | `"error_code"` |  |
 | `"limit"` |  |
 | `"offset"` |  |
 | `"ok"` |  |
-| `"parameter"` |  |
+| `"parameters"` |  |
 | `"result"` |  |
 | `"timeout"` |  |
 
@@ -644,8 +644,8 @@ Create an instance: `approveSuggestedPost := client.ApproveSuggestedPost(nil)`
 | `error_code` | `int` |  |
 | `message_id` | `int` |  |
 | `ok` | `bool` |  |
-| `parameter` | `map[string]any` |  |
-| `result` | `any` |  |
+| `parameters` | `map[string]any` |  |
+| `result` | `[]any` |  |
 
 #### Example: Create
 
@@ -681,8 +681,8 @@ Create an instance: `declineSuggestedPost := client.DeclineSuggestedPost(nil)`
 | `error_code` | `int` |  |
 | `message_id` | `int` |  |
 | `ok` | `bool` |  |
-| `parameter` | `map[string]any` |  |
-| `result` | `any` |  |
+| `parameters` | `map[string]any` |  |
+| `result` | `[]any` |  |
 
 #### Example: Create
 
@@ -718,8 +718,8 @@ Create an instance: `deleteForumTopic := client.DeleteForumTopic(nil)`
 | `error_code` | `int` |  |
 | `message_thread_id` | `int` |  |
 | `ok` | `bool` |  |
-| `parameter` | `map[string]any` |  |
-| `result` | `any` |  |
+| `parameters` | `map[string]any` |  |
+| `result` | `[]any` |  |
 
 #### Example: Create
 
@@ -757,8 +757,8 @@ Create an instance: `editForumTopic := client.EditForumTopic(nil)`
 | `message_thread_id` | `int` |  |
 | `name` | `string` |  |
 | `ok` | `bool` |  |
-| `parameter` | `map[string]any` |  |
-| `result` | `any` |  |
+| `parameters` | `map[string]any` |  |
+| `result` | `[]any` |  |
 
 #### Example: Create
 
@@ -857,8 +857,8 @@ Create an instance: `getBusinessAccountGift := client.GetBusinessAccountGift(nil
 | `exclude_limited_non_upgradable` | `bool` |  |
 | `exclude_limited_upgradable` | `bool` |  |
 | `ok` | `bool` |  |
-| `parameter` | `map[string]any` |  |
-| `result` | `any` |  |
+| `parameters` | `map[string]any` |  |
+| `result` | `[]any` |  |
 
 #### Example: Create
 
@@ -891,8 +891,8 @@ Create an instance: `getChatGift := client.GetChatGift(nil)`
 | `description` | `string` |  |
 | `error_code` | `int` |  |
 | `ok` | `bool` |  |
-| `parameter` | `map[string]any` |  |
-| `result` | `any` |  |
+| `parameters` | `map[string]any` |  |
+| `result` | `[]any` |  |
 
 #### Example: Create
 
@@ -926,8 +926,8 @@ Create an instance: `getMe := client.GetMe(nil)`
 | `description` | `string` |  |
 | `error_code` | `int` |  |
 | `ok` | `bool` |  |
-| `parameter` | `map[string]any` |  |
-| `result` | `any` |  |
+| `parameters` | `map[string]any` |  |
+| `result` | `[]any` |  |
 
 #### Example: Load
 
@@ -969,8 +969,8 @@ Create an instance: `getUserGift := client.GetUserGift(nil)`
 | `description` | `string` |  |
 | `error_code` | `int` |  |
 | `ok` | `bool` |  |
-| `parameter` | `map[string]any` |  |
-| `result` | `any` |  |
+| `parameters` | `map[string]any` |  |
+| `result` | `[]any` |  |
 | `user_id` | `int` |  |
 
 #### Example: Create
@@ -1004,8 +1004,8 @@ Create an instance: `getUserProfileAudio := client.GetUserProfileAudio(nil)`
 | `description` | `string` |  |
 | `error_code` | `int` |  |
 | `ok` | `bool` |  |
-| `parameter` | `map[string]any` |  |
-| `result` | `any` |  |
+| `parameters` | `map[string]any` |  |
+| `result` | `[]any` |  |
 | `user_id` | `int` |  |
 
 #### Example: Create
@@ -1046,7 +1046,7 @@ Create an instance: `message := client.Message(nil)`
 | `message_effect_id` | `string` |  |
 | `message_id` | `int` |  |
 | `message_thread_id` | `int` |  |
-| `option` | `[]any` |  |
+| `options` | `[]any` |  |
 | `parse_mode` | `string` |  |
 | `protect_content` | `bool` |  |
 | `question` | `string` |  |
@@ -1062,7 +1062,7 @@ result, err := client.Message(nil).Create(map[string]any{
     "latitude": 1,
     "longitude": 1,
     "message_id": 1,
-    "option": []any{},
+    "options": []any{},
     "question": "example_question",
     "text": "example_text",
 }, nil)
@@ -1123,17 +1123,17 @@ Create an instance: `promoteChatMember := client.PromoteChatMember(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `can_delete_message` | `bool` |  |
-| `can_edit_message` | `bool` |  |
+| `can_delete_messages` | `bool` |  |
+| `can_edit_messages` | `bool` |  |
 | `can_manage_chat` | `bool` |  |
-| `can_manage_direct_message` | `bool` |  |
-| `can_post_message` | `bool` |  |
+| `can_manage_direct_messages` | `bool` |  |
+| `can_post_messages` | `bool` |  |
 | `chat_id` | `string` |  |
 | `description` | `string` |  |
 | `error_code` | `int` |  |
 | `ok` | `bool` |  |
-| `parameter` | `map[string]any` |  |
-| `result` | `any` |  |
+| `parameters` | `map[string]any` |  |
+| `result` | `[]any` |  |
 | `user_id` | `int` |  |
 
 #### Example: Create
@@ -1168,8 +1168,8 @@ Create an instance: `removeMyProfilePhoto := client.RemoveMyProfilePhoto(nil)`
 | `description` | `string` |  |
 | `error_code` | `int` |  |
 | `ok` | `bool` |  |
-| `parameter` | `map[string]any` |  |
-| `result` | `any` |  |
+| `parameters` | `map[string]any` |  |
+| `result` | `[]any` |  |
 
 #### Example: Create
 
@@ -1202,8 +1202,8 @@ Create an instance: `repostStory := client.RepostStory(nil)`
 | `description` | `string` |  |
 | `error_code` | `int` |  |
 | `ok` | `bool` |  |
-| `parameter` | `map[string]any` |  |
-| `result` | `any` |  |
+| `parameters` | `map[string]any` |  |
+| `result` | `[]any` |  |
 | `story_id` | `int` |  |
 
 #### Example: Create
@@ -1241,8 +1241,8 @@ Create an instance: `sendChatAction := client.SendChatAction(nil)`
 | `error_code` | `int` |  |
 | `message_thread_id` | `int` |  |
 | `ok` | `bool` |  |
-| `parameter` | `map[string]any` |  |
-| `result` | `any` |  |
+| `parameters` | `map[string]any` |  |
+| `result` | `[]any` |  |
 
 #### Example: Create
 
@@ -1278,8 +1278,8 @@ Create an instance: `sendMessageDraft := client.SendMessageDraft(nil)`
 | `error_code` | `int` |  |
 | `message_thread_id` | `int` |  |
 | `ok` | `bool` |  |
-| `parameter` | `map[string]any` |  |
-| `result` | `any` |  |
+| `parameters` | `map[string]any` |  |
+| `result` | `[]any` |  |
 | `text` | `string` |  |
 
 #### Example: Create
@@ -1314,8 +1314,8 @@ Create an instance: `setMyProfilePhoto := client.SetMyProfilePhoto(nil)`
 | `description` | `string` |  |
 | `error_code` | `int` |  |
 | `ok` | `bool` |  |
-| `parameter` | `map[string]any` |  |
-| `result` | `any` |  |
+| `parameters` | `map[string]any` |  |
+| `result` | `[]any` |  |
 
 #### Example: Create
 
@@ -1349,8 +1349,8 @@ Create an instance: `unpinAllForumTopicMessage := client.UnpinAllForumTopicMessa
 | `error_code` | `int` |  |
 | `message_thread_id` | `int` |  |
 | `ok` | `bool` |  |
-| `parameter` | `map[string]any` |  |
-| `result` | `any` |  |
+| `parameters` | `map[string]any` |  |
+| `result` | `[]any` |  |
 
 #### Example: Create
 
@@ -1382,13 +1382,13 @@ Create an instance: `update := client.Update(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `allowed_update` | `[]any` |  |
+| `allowed_updates` | `[]any` |  |
 | `description` | `string` |  |
 | `error_code` | `int` |  |
 | `limit` | `int` |  |
 | `offset` | `int` |  |
 | `ok` | `bool` |  |
-| `parameter` | `map[string]any` |  |
+| `parameters` | `map[string]any` |  |
 | `result` | `[]any` |  |
 | `timeout` | `int` |  |
 

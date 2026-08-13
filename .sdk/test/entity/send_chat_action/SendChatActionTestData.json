@@ -8,8 +8,8 @@
         "error_code": "s53",
         "message_thread_id": "MESSAGE_THREAD01",
         "ok": false,
-        "parameter": {},
-        "result": "s57",
+        "parameters": {},
+        "result": [],
         "id": "SEND_CHAT_ACTION00"
       },
       "SEND_CHAT_ACTION01": {
@@ -19,8 +19,8 @@
         "error_code": "sa3",
         "message_thread_id": "MESSAGE_THREAD01",
         "ok": false,
-        "parameter": {},
-        "result": "sa7",
+        "parameters": {},
+        "result": [],
         "id": "SEND_CHAT_ACTION01"
       },
       "SEND_CHAT_ACTION02": {
@@ -30,8 +30,8 @@
         "error_code": "sf3",
         "message_thread_id": "MESSAGE_THREAD01",
         "ok": false,
-        "parameter": {},
-        "result": "sf7",
+        "parameters": {},
+        "result": [],
         "id": "SEND_CHAT_ACTION02"
       }
     }
@@ -45,8 +45,8 @@
         "error_code": "s143",
         "message_thread_id": "MESSAGE_THREAD01",
         "ok": false,
-        "parameter": {},
-        "result": "s147"
+        "parameters": {},
+        "result": []
       }
     }
   }

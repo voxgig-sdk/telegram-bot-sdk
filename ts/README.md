@@ -38,7 +38,7 @@ const client = new TelegramBotSDK({
 ### 4. Create, update, and remove
 
 ```ts
-// Create — returns the created ApproveSuggestedPost
+// Create — returns the created ApproveSuggestedPost ENTITY (.data() for the record)
 const created = await client.ApproveSuggestedPost().create({
   chat_id: 'example_chat_id',
   message_id: 1,
@@ -122,7 +122,8 @@ Create a mock client for unit testing — no server required:
 const client = TelegramBotSDK.test()
 
 const getme = await client.GetMe().load()
-// getme is a bare entity populated with mock response data
+// getme is the entity, populated with mock response data
+// — call getme.data() for the record itself
 console.log(getme)
 ```
 
@@ -318,7 +319,7 @@ The `prepare()` method returns:
 | `error_code` |  |
 | `message_id` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: create.
@@ -334,7 +335,7 @@ API path: `/approveSuggestedPost`
 | `error_code` |  |
 | `message_id` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: create.
@@ -350,7 +351,7 @@ API path: `/declineSuggestedPost`
 | `error_code` |  |
 | `message_thread_id` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: create.
@@ -368,7 +369,7 @@ API path: `/deleteForumTopic`
 | `message_thread_id` |  |
 | `name` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: create.
@@ -408,7 +409,7 @@ API path: `/createForumTopic`
 | `exclude_limited_non_upgradable` |  |
 | `exclude_limited_upgradable` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: create.
@@ -423,7 +424,7 @@ API path: `/getBusinessAccountGifts`
 | `description` |  |
 | `error_code` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: create.
@@ -437,7 +438,7 @@ API path: `/getChatGifts`
 | `description` |  |
 | `error_code` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: create, load.
@@ -451,7 +452,7 @@ API path: `/getMe`
 | `description` |  |
 | `error_code` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 | `user_id` |  |
 
@@ -466,7 +467,7 @@ API path: `/getUserGifts`
 | `description` |  |
 | `error_code` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 | `user_id` |  |
 
@@ -488,7 +489,7 @@ API path: `/getUserProfileAudios`
 | `message_effect_id` |  |
 | `message_id` |  |
 | `message_thread_id` |  |
-| `option` |  |
+| `options` |  |
 | `parse_mode` |  |
 | `protect_content` |  |
 | `question` |  |
@@ -518,16 +519,16 @@ API path: `/copyMessage`
 
 | Field | Description |
 | --- | --- |
-| `can_delete_message` |  |
-| `can_edit_message` |  |
+| `can_delete_messages` |  |
+| `can_edit_messages` |  |
 | `can_manage_chat` |  |
-| `can_manage_direct_message` |  |
-| `can_post_message` |  |
+| `can_manage_direct_messages` |  |
+| `can_post_messages` |  |
 | `chat_id` |  |
 | `description` |  |
 | `error_code` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 | `user_id` |  |
 
@@ -542,7 +543,7 @@ API path: `/promoteChatMember`
 | `description` |  |
 | `error_code` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: create.
@@ -557,7 +558,7 @@ API path: `/removeMyProfilePhoto`
 | `description` |  |
 | `error_code` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 | `story_id` |  |
 
@@ -575,7 +576,7 @@ API path: `/repostStory`
 | `error_code` |  |
 | `message_thread_id` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: create.
@@ -591,7 +592,7 @@ API path: `/sendChatAction`
 | `error_code` |  |
 | `message_thread_id` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 | `text` |  |
 
@@ -606,7 +607,7 @@ API path: `/sendMessageDraft`
 | `description` |  |
 | `error_code` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: create.
@@ -622,7 +623,7 @@ API path: `/setMyProfilePhoto`
 | `error_code` |  |
 | `message_thread_id` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: create.
@@ -633,13 +634,13 @@ API path: `/unpinAllForumTopicMessages`
 
 | Field | Description |
 | --- | --- |
-| `allowed_update` |  |
+| `allowed_updates` |  |
 | `description` |  |
 | `error_code` |  |
 | `limit` |  |
 | `offset` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 | `timeout` |  |
 
@@ -671,8 +672,8 @@ Create an instance: `const approve_suggested_post = client.ApproveSuggestedPost(
 | `error_code` | `number` |  |
 | `message_id` | `number` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `Record<string, any>` |  |
-| `result` | `any` |  |
+| `parameters` | `Record<string, any>` |  |
+| `result` | `any[]` |  |
 
 #### Example: Create
 
@@ -704,8 +705,8 @@ Create an instance: `const decline_suggested_post = client.DeclineSuggestedPost(
 | `error_code` | `number` |  |
 | `message_id` | `number` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `Record<string, any>` |  |
-| `result` | `any` |  |
+| `parameters` | `Record<string, any>` |  |
+| `result` | `any[]` |  |
 
 #### Example: Create
 
@@ -737,8 +738,8 @@ Create an instance: `const delete_forum_topic = client.DeleteForumTopic()`
 | `error_code` | `number` |  |
 | `message_thread_id` | `number` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `Record<string, any>` |  |
-| `result` | `any` |  |
+| `parameters` | `Record<string, any>` |  |
+| `result` | `any[]` |  |
 
 #### Example: Create
 
@@ -772,8 +773,8 @@ Create an instance: `const edit_forum_topic = client.EditForumTopic()`
 | `message_thread_id` | `number` |  |
 | `name` | `string` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `Record<string, any>` |  |
-| `result` | `any` |  |
+| `parameters` | `Record<string, any>` |  |
+| `result` | `any[]` |  |
 
 #### Example: Create
 
@@ -860,8 +861,8 @@ Create an instance: `const get_business_account_gift = client.GetBusinessAccount
 | `exclude_limited_non_upgradable` | `boolean` |  |
 | `exclude_limited_upgradable` | `boolean` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `Record<string, any>` |  |
-| `result` | `any` |  |
+| `parameters` | `Record<string, any>` |  |
+| `result` | `any[]` |  |
 
 #### Example: Create
 
@@ -890,8 +891,8 @@ Create an instance: `const get_chat_gift = client.GetChatGift()`
 | `description` | `string` |  |
 | `error_code` | `number` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `Record<string, any>` |  |
-| `result` | `any` |  |
+| `parameters` | `Record<string, any>` |  |
+| `result` | `any[]` |  |
 
 #### Example: Create
 
@@ -921,8 +922,8 @@ Create an instance: `const get_me = client.GetMe()`
 | `description` | `string` |  |
 | `error_code` | `number` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `Record<string, any>` |  |
-| `result` | `any` |  |
+| `parameters` | `Record<string, any>` |  |
+| `result` | `any[]` |  |
 
 #### Example: Load
 
@@ -956,8 +957,8 @@ Create an instance: `const get_user_gift = client.GetUserGift()`
 | `description` | `string` |  |
 | `error_code` | `number` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `Record<string, any>` |  |
-| `result` | `any` |  |
+| `parameters` | `Record<string, any>` |  |
+| `result` | `any[]` |  |
 | `user_id` | `number` |  |
 
 #### Example: Create
@@ -987,8 +988,8 @@ Create an instance: `const get_user_profile_audio = client.GetUserProfileAudio()
 | `description` | `string` |  |
 | `error_code` | `number` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `Record<string, any>` |  |
-| `result` | `any` |  |
+| `parameters` | `Record<string, any>` |  |
+| `result` | `any[]` |  |
 | `user_id` | `number` |  |
 
 #### Example: Create
@@ -1025,7 +1026,7 @@ Create an instance: `const message = client.Message()`
 | `message_effect_id` | `string` |  |
 | `message_id` | `number` |  |
 | `message_thread_id` | `number` |  |
-| `option` | `any[]` |  |
+| `options` | `any[]` |  |
 | `parse_mode` | `string` |  |
 | `protect_content` | `boolean` |  |
 | `question` | `string` |  |
@@ -1041,7 +1042,7 @@ const message = await client.Message().create({
   latitude: 1,
   longitude: 1,
   message_id: 1,
-  option: [],
+  options: [],
   question: 'example_question',
   text: 'example_text',
 })
@@ -1094,17 +1095,17 @@ Create an instance: `const promote_chat_member = client.PromoteChatMember()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `can_delete_message` | `boolean` |  |
-| `can_edit_message` | `boolean` |  |
+| `can_delete_messages` | `boolean` |  |
+| `can_edit_messages` | `boolean` |  |
 | `can_manage_chat` | `boolean` |  |
-| `can_manage_direct_message` | `boolean` |  |
-| `can_post_message` | `boolean` |  |
+| `can_manage_direct_messages` | `boolean` |  |
+| `can_post_messages` | `boolean` |  |
 | `chat_id` | `string` |  |
 | `description` | `string` |  |
 | `error_code` | `number` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `Record<string, any>` |  |
-| `result` | `any` |  |
+| `parameters` | `Record<string, any>` |  |
+| `result` | `any[]` |  |
 | `user_id` | `number` |  |
 
 #### Example: Create
@@ -1135,8 +1136,8 @@ Create an instance: `const remove_my_profile_photo = client.RemoveMyProfilePhoto
 | `description` | `string` |  |
 | `error_code` | `number` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `Record<string, any>` |  |
-| `result` | `any` |  |
+| `parameters` | `Record<string, any>` |  |
+| `result` | `any[]` |  |
 
 #### Example: Create
 
@@ -1165,8 +1166,8 @@ Create an instance: `const repost_story = client.RepostStory()`
 | `description` | `string` |  |
 | `error_code` | `number` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `Record<string, any>` |  |
-| `result` | `any` |  |
+| `parameters` | `Record<string, any>` |  |
+| `result` | `any[]` |  |
 | `story_id` | `number` |  |
 
 #### Example: Create
@@ -1200,8 +1201,8 @@ Create an instance: `const send_chat_action = client.SendChatAction()`
 | `error_code` | `number` |  |
 | `message_thread_id` | `number` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `Record<string, any>` |  |
-| `result` | `any` |  |
+| `parameters` | `Record<string, any>` |  |
+| `result` | `any[]` |  |
 
 #### Example: Create
 
@@ -1233,8 +1234,8 @@ Create an instance: `const send_message_draft = client.SendMessageDraft()`
 | `error_code` | `number` |  |
 | `message_thread_id` | `number` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `Record<string, any>` |  |
-| `result` | `any` |  |
+| `parameters` | `Record<string, any>` |  |
+| `result` | `any[]` |  |
 | `text` | `string` |  |
 
 #### Example: Create
@@ -1265,8 +1266,8 @@ Create an instance: `const set_my_profile_photo = client.SetMyProfilePhoto()`
 | `description` | `string` |  |
 | `error_code` | `number` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `Record<string, any>` |  |
-| `result` | `any` |  |
+| `parameters` | `Record<string, any>` |  |
+| `result` | `any[]` |  |
 
 #### Example: Create
 
@@ -1296,8 +1297,8 @@ Create an instance: `const unpin_all_forum_topic_message = client.UnpinAllForumT
 | `error_code` | `number` |  |
 | `message_thread_id` | `number` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `Record<string, any>` |  |
-| `result` | `any` |  |
+| `parameters` | `Record<string, any>` |  |
+| `result` | `any[]` |  |
 
 #### Example: Create
 
@@ -1325,13 +1326,13 @@ Create an instance: `const update = client.Update()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `allowed_update` | `any[]` |  |
+| `allowed_updates` | `any[]` |  |
 | `description` | `string` |  |
 | `error_code` | `number` |  |
 | `limit` | `number` |  |
 | `offset` | `number` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `Record<string, any>` |  |
+| `parameters` | `Record<string, any>` |  |
 | `result` | `any[]` |  |
 | `timeout` | `number` |  |
 

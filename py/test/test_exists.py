@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# TelegramBot SDK exists test
 
 import pytest
 from telegrambot_sdk import TelegramBotSDK

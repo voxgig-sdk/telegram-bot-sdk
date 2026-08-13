@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from telegrambot_sdk.utility.voxgig_struct import voxgig_struct as vs
 from telegrambot_sdk import TelegramBotSDK
-from core import helpers
+from telegrambot_sdk.core import helpers
 from test import runner
 
 
@@ -56,16 +56,16 @@ def _get_me_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "TELEGRAMBOT_TEST_GET_ME_ENTID": {},
-        "TELEGRAMBOT_TEST_LIVE": "FALSE",
-        "TELEGRAMBOT_APIKEY": "NONE",
+        "TELEGRAM_BOT_TEST_GET_ME_ENTID": {},
+        "TELEGRAM_BOT_TEST_LIVE": "FALSE",
+        "TELEGRAM_BOT_APIKEY": "NONE",
     })
 
-    live = env.get("TELEGRAMBOT_TEST_LIVE") == "TRUE"
+    live = env.get("TELEGRAM_BOT_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("TELEGRAMBOT_APIKEY"),
+            "apikey": env.get("TELEGRAM_BOT_APIKEY"),
         }
         client = TelegramBotSDK(merged_opts)
         return {

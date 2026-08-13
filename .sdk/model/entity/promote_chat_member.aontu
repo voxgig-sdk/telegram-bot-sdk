@@ -6,12 +6,12 @@ main: kit: entity: promote_chat_member: {
 
   fields: [
     {
-      name: "can_delete_message"
+      name: "can_delete_messages"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "can_edit_message"
+      name: "can_edit_messages"
       req: false
       type: "`$BOOLEAN`"
     }
@@ -21,12 +21,12 @@ main: kit: entity: promote_chat_member: {
       type: "`$BOOLEAN`"
     }
     {
-      name: "can_manage_direct_message"
+      name: "can_manage_direct_messages"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "can_post_message"
+      name: "can_post_messages"
       req: false
       type: "`$BOOLEAN`"
     }
@@ -51,14 +51,14 @@ main: kit: entity: promote_chat_member: {
       type: "`$BOOLEAN`"
     }
     {
-      name: "parameter"
+      name: "parameters"
       req: false
       type: "`$OBJECT`"
     }
     {
       name: "result"
       req: false
-      type: "`$ANY`"
+      type: "`$ARRAY`"
     }
     {
       name: "user_id"

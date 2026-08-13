@@ -26,8 +26,8 @@ import {
 describe('SetMyProfilePhotoEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when TELEGRAMBOT_TEST_LIVE=TRUE.
-  afterEach(liveDelay('TELEGRAMBOT_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when TELEGRAM_BOT_TEST_LIVE=TRUE.
+  afterEach(liveDelay('TELEGRAM_BOT_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = TelegramBotSDK.test()
@@ -62,7 +62,7 @@ describe('SetMyProfilePhotoEntity', async () => {
     const set_my_profile_photo_ref01_ent = client.SetMyProfilePhoto()
     let set_my_profile_photo_ref01_data = setup.data.new.set_my_profile_photo['set_my_profile_photo_ref01']
 
-    set_my_profile_photo_ref01_data = await set_my_profile_photo_ref01_ent.create(set_my_profile_photo_ref01_data)
+    set_my_profile_photo_ref01_data = (await set_my_profile_photo_ref01_ent.create(set_my_profile_photo_ref01_data)).data()
     assert(null != set_my_profile_photo_ref01_data)
 
 

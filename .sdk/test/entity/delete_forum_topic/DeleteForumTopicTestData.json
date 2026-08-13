@@ -7,8 +7,8 @@
         "error_code": "s48",
         "message_thread_id": "MESSAGE_THREAD01",
         "ok": true,
-        "parameter": {},
-        "result": "s4c",
+        "parameters": {},
+        "result": [],
         "id": "DELETE_FORUM_TOPIC00"
       },
       "DELETE_FORUM_TOPIC01": {
@@ -17,8 +17,8 @@
         "error_code": "s8e",
         "message_thread_id": "MESSAGE_THREAD01",
         "ok": true,
-        "parameter": {},
-        "result": "s92",
+        "parameters": {},
+        "result": [],
         "id": "DELETE_FORUM_TOPIC01"
       },
       "DELETE_FORUM_TOPIC02": {
@@ -27,8 +27,8 @@
         "error_code": "sd4",
         "message_thread_id": "MESSAGE_THREAD01",
         "ok": true,
-        "parameter": {},
-        "result": "sd8",
+        "parameters": {},
+        "result": [],
         "id": "DELETE_FORUM_TOPIC02"
       }
     }
@@ -41,8 +41,8 @@
         "error_code": "s11a",
         "message_thread_id": "MESSAGE_THREAD01",
         "ok": true,
-        "parameter": {},
-        "result": "s11e"
+        "parameters": {},
+        "result": []
       }
     }
   }

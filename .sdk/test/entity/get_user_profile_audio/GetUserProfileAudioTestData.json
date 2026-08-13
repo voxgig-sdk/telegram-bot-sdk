@@ -5,8 +5,8 @@
         "description": "s3c",
         "error_code": "s3d",
         "ok": true,
-        "parameter": {},
-        "result": "s40",
+        "parameters": {},
+        "result": [],
         "user_id": "USER01",
         "id": "GET_USER_PROFILE_AUDIO00"
       },
@@ -14,8 +14,8 @@
         "description": "s78",
         "error_code": "s79",
         "ok": true,
-        "parameter": {},
-        "result": "s7c",
+        "parameters": {},
+        "result": [],
         "user_id": "USER01",
         "id": "GET_USER_PROFILE_AUDIO01"
       },
@@ -23,8 +23,8 @@
         "description": "sb4",
         "error_code": "sb5",
         "ok": true,
-        "parameter": {},
-        "result": "sb8",
+        "parameters": {},
+        "result": [],
         "user_id": "USER01",
         "id": "GET_USER_PROFILE_AUDIO02"
       }
@@ -36,8 +36,8 @@
         "description": "sf0",
         "error_code": "sf1",
         "ok": true,
-        "parameter": {},
-        "result": "sf4",
+        "parameters": {},
+        "result": [],
         "user_id": "USER01"
       }
     }

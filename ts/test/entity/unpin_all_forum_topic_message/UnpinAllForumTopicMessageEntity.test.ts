@@ -26,8 +26,8 @@ import {
 describe('UnpinAllForumTopicMessageEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when TELEGRAMBOT_TEST_LIVE=TRUE.
-  afterEach(liveDelay('TELEGRAMBOT_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when TELEGRAM_BOT_TEST_LIVE=TRUE.
+  afterEach(liveDelay('TELEGRAM_BOT_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = TelegramBotSDK.test()
@@ -62,7 +62,7 @@ describe('UnpinAllForumTopicMessageEntity', async () => {
     const unpin_all_forum_topic_message_ref01_ent = client.UnpinAllForumTopicMessage()
     let unpin_all_forum_topic_message_ref01_data = setup.data.new.unpin_all_forum_topic_message['unpin_all_forum_topic_message_ref01']
 
-    unpin_all_forum_topic_message_ref01_data = await unpin_all_forum_topic_message_ref01_ent.create(unpin_all_forum_topic_message_ref01_data)
+    unpin_all_forum_topic_message_ref01_data = (await unpin_all_forum_topic_message_ref01_ent.create(unpin_all_forum_topic_message_ref01_data)).data()
     assert(null != unpin_all_forum_topic_message_ref01_data)
 
 

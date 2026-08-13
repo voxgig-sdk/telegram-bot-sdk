@@ -21,14 +21,14 @@ main: kit: entity: get_user_gift: {
       type: "`$BOOLEAN`"
     }
     {
-      name: "parameter"
+      name: "parameters"
       req: false
       type: "`$OBJECT`"
     }
     {
       name: "result"
       req: false
-      type: "`$ANY`"
+      type: "`$ARRAY`"
     }
     {
       name: "user_id"

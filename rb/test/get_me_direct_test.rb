@@ -59,16 +59,16 @@ def get_me_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "TELEGRAMBOT_TEST_GET_ME_ENTID" => {},
-    "TELEGRAMBOT_TEST_LIVE" => "FALSE",
-    "TELEGRAMBOT_APIKEY" => "NONE",
+    "TELEGRAM_BOT_TEST_GET_ME_ENTID" => {},
+    "TELEGRAM_BOT_TEST_LIVE" => "FALSE",
+    "TELEGRAM_BOT_APIKEY" => "NONE",
   })
 
-  live = env["TELEGRAMBOT_TEST_LIVE"] == "TRUE"
+  live = env["TELEGRAM_BOT_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
-      "apikey" => env["TELEGRAMBOT_APIKEY"],
+      "apikey" => env["TELEGRAM_BOT_APIKEY"],
     }
     client = TelegramBotSDK.new(merged_opts)
     return {

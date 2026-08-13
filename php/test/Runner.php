@@ -43,8 +43,8 @@ class TelegramBotTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('TELEGRAMBOT_TEST_LIVE');
-        $override = self::getenv('TELEGRAMBOT_TEST_OVERRIDE');
+        $live = self::getenv('TELEGRAM_BOT_TEST_LIVE');
+        $override = self::getenv('TELEGRAM_BOT_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class TelegramBotTestRunner
             }
         }
 
-        $explain = self::getenv('TELEGRAMBOT_TEST_EXPLAIN');
+        $explain = self::getenv('TELEGRAM_BOT_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['TELEGRAMBOT_TEST_EXPLAIN'] = $explain;
+            $m['TELEGRAM_BOT_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

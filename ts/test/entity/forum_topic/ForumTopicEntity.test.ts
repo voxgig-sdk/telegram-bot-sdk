@@ -26,8 +26,8 @@ import {
 describe('ForumTopicEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when TELEGRAMBOT_TEST_LIVE=TRUE.
-  afterEach(liveDelay('TELEGRAMBOT_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when TELEGRAM_BOT_TEST_LIVE=TRUE.
+  afterEach(liveDelay('TELEGRAM_BOT_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = TelegramBotSDK.test()
@@ -62,7 +62,7 @@ describe('ForumTopicEntity', async () => {
     const forum_topic_ref01_ent = client.ForumTopic()
     let forum_topic_ref01_data = setup.data.new.forum_topic['forum_topic_ref01']
 
-    forum_topic_ref01_data = await forum_topic_ref01_ent.create(forum_topic_ref01_data)
+    forum_topic_ref01_data = (await forum_topic_ref01_ent.create(forum_topic_ref01_data)).data()
     assert(null != forum_topic_ref01_data)
 
 

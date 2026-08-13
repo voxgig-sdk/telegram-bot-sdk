@@ -184,8 +184,8 @@ fmt.Println(approveSuggestedPost.GetName()) // "approve_suggested_post"
 | `error_code` | `int` | No |  |
 | `message_id` | `int` | Yes |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `map[string]any` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `map[string]any` | No |  |
+| `result` | `[]any` | No |  |
 
 ### Operations
 
@@ -245,8 +245,8 @@ fmt.Println(declineSuggestedPost.GetName()) // "decline_suggested_post"
 | `error_code` | `int` | No |  |
 | `message_id` | `int` | Yes |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `map[string]any` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `map[string]any` | No |  |
+| `result` | `[]any` | No |  |
 
 ### Operations
 
@@ -306,8 +306,8 @@ fmt.Println(deleteForumTopic.GetName()) // "delete_forum_topic"
 | `error_code` | `int` | No |  |
 | `message_thread_id` | `int` | Yes |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `map[string]any` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `map[string]any` | No |  |
+| `result` | `[]any` | No |  |
 
 ### Operations
 
@@ -369,8 +369,8 @@ fmt.Println(editForumTopic.GetName()) // "edit_forum_topic"
 | `message_thread_id` | `int` | Yes |  |
 | `name` | `string` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `map[string]any` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `map[string]any` | No |  |
+| `result` | `[]any` | No |  |
 
 ### Operations
 
@@ -541,8 +541,8 @@ fmt.Println(getBusinessAccountGift.GetName()) // "get_business_account_gift"
 | `exclude_limited_non_upgradable` | `bool` | No |  |
 | `exclude_limited_upgradable` | `bool` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `map[string]any` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `map[string]any` | No |  |
+| `result` | `[]any` | No |  |
 
 ### Operations
 
@@ -599,8 +599,8 @@ fmt.Println(getChatGift.GetName()) // "get_chat_gift"
 | `description` | `string` | No |  |
 | `error_code` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `map[string]any` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `map[string]any` | No |  |
+| `result` | `[]any` | No |  |
 
 ### Operations
 
@@ -657,8 +657,8 @@ fmt.Println(getMe.GetName()) // "get_me"
 | `description` | `string` | No |  |
 | `error_code` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `map[string]any` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `map[string]any` | No |  |
+| `result` | `[]any` | No |  |
 
 ### Operations
 
@@ -726,8 +726,8 @@ fmt.Println(getUserGift.GetName()) // "get_user_gift"
 | `description` | `string` | No |  |
 | `error_code` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `map[string]any` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `map[string]any` | No |  |
+| `result` | `[]any` | No |  |
 | `user_id` | `int` | Yes |  |
 
 ### Operations
@@ -785,8 +785,8 @@ fmt.Println(getUserProfileAudio.GetName()) // "get_user_profile_audio"
 | `description` | `string` | No |  |
 | `error_code` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `map[string]any` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `map[string]any` | No |  |
+| `result` | `[]any` | No |  |
 | `user_id` | `int` | Yes |  |
 
 ### Operations
@@ -851,7 +851,7 @@ fmt.Println(message.GetName()) // "message"
 | `message_effect_id` | `string` | No |  |
 | `message_id` | `int` | Yes |  |
 | `message_thread_id` | `int` | No |  |
-| `option` | `[]any` | Yes |  |
+| `options` | `[]any` | Yes |  |
 | `parse_mode` | `string` | No |  |
 | `protect_content` | `bool` | No |  |
 | `question` | `string` | Yes |  |
@@ -871,7 +871,7 @@ result, err := client.Message(nil).Create(map[string]any{
     "latitude": 1,
     "longitude": 1,
     "message_id": 1,
-    "option": []any{},
+    "options": []any{},
     "question": "example_question",
     "text": "example_text",
 }, nil)
@@ -976,17 +976,17 @@ fmt.Println(promoteChatMember.GetName()) // "promote_chat_member"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `can_delete_message` | `bool` | No |  |
-| `can_edit_message` | `bool` | No |  |
+| `can_delete_messages` | `bool` | No |  |
+| `can_edit_messages` | `bool` | No |  |
 | `can_manage_chat` | `bool` | No |  |
-| `can_manage_direct_message` | `bool` | No |  |
-| `can_post_message` | `bool` | No |  |
+| `can_manage_direct_messages` | `bool` | No |  |
+| `can_post_messages` | `bool` | No |  |
 | `chat_id` | `string` | Yes |  |
 | `description` | `string` | No |  |
 | `error_code` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `map[string]any` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `map[string]any` | No |  |
+| `result` | `[]any` | No |  |
 | `user_id` | `int` | Yes |  |
 
 ### Operations
@@ -1045,8 +1045,8 @@ fmt.Println(removeMyProfilePhoto.GetName()) // "remove_my_profile_photo"
 | `description` | `string` | No |  |
 | `error_code` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `map[string]any` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `map[string]any` | No |  |
+| `result` | `[]any` | No |  |
 
 ### Operations
 
@@ -1103,8 +1103,8 @@ fmt.Println(repostStory.GetName()) // "repost_story"
 | `description` | `string` | No |  |
 | `error_code` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `map[string]any` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `map[string]any` | No |  |
+| `result` | `[]any` | No |  |
 | `story_id` | `int` | Yes |  |
 
 ### Operations
@@ -1166,8 +1166,8 @@ fmt.Println(sendChatAction.GetName()) // "send_chat_action"
 | `error_code` | `int` | No |  |
 | `message_thread_id` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `map[string]any` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `map[string]any` | No |  |
+| `result` | `[]any` | No |  |
 
 ### Operations
 
@@ -1227,8 +1227,8 @@ fmt.Println(sendMessageDraft.GetName()) // "send_message_draft"
 | `error_code` | `int` | No |  |
 | `message_thread_id` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `map[string]any` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `map[string]any` | No |  |
+| `result` | `[]any` | No |  |
 | `text` | `string` | Yes |  |
 
 ### Operations
@@ -1287,8 +1287,8 @@ fmt.Println(setMyProfilePhoto.GetName()) // "set_my_profile_photo"
 | `description` | `string` | No |  |
 | `error_code` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `map[string]any` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `map[string]any` | No |  |
+| `result` | `[]any` | No |  |
 
 ### Operations
 
@@ -1346,8 +1346,8 @@ fmt.Println(unpinAllForumTopicMessage.GetName()) // "unpin_all_forum_topic_messa
 | `error_code` | `int` | No |  |
 | `message_thread_id` | `int` | Yes |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `map[string]any` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `map[string]any` | No |  |
+| `result` | `[]any` | No |  |
 
 ### Operations
 
@@ -1402,13 +1402,13 @@ fmt.Println(update.GetName()) // "update"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `allowed_update` | `[]any` | No |  |
+| `allowed_updates` | `[]any` | No |  |
 | `description` | `string` | No |  |
 | `error_code` | `int` | No |  |
 | `limit` | `int` | No |  |
 | `offset` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `map[string]any` | No |  |
+| `parameters` | `map[string]any` | No |  |
 | `result` | `[]any` | No |  |
 | `timeout` | `int` | No |  |
 

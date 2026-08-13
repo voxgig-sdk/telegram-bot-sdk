@@ -26,8 +26,8 @@ import {
 describe('RepostStoryEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when TELEGRAMBOT_TEST_LIVE=TRUE.
-  afterEach(liveDelay('TELEGRAMBOT_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when TELEGRAM_BOT_TEST_LIVE=TRUE.
+  afterEach(liveDelay('TELEGRAM_BOT_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = TelegramBotSDK.test()
@@ -62,7 +62,7 @@ describe('RepostStoryEntity', async () => {
     const repost_story_ref01_ent = client.RepostStory()
     let repost_story_ref01_data = setup.data.new.repost_story['repost_story_ref01']
 
-    repost_story_ref01_data = await repost_story_ref01_ent.create(repost_story_ref01_data)
+    repost_story_ref01_data = (await repost_story_ref01_ent.create(repost_story_ref01_data)).data()
     assert(null != repost_story_ref01_data)
 
 

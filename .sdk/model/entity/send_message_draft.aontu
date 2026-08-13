@@ -31,14 +31,14 @@ main: kit: entity: send_message_draft: {
       type: "`$BOOLEAN`"
     }
     {
-      name: "parameter"
+      name: "parameters"
       req: false
       type: "`$OBJECT`"
     }
     {
       name: "result"
       req: false
-      type: "`$ANY`"
+      type: "`$ARRAY`"
     }
     {
       name: "text"

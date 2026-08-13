@@ -36,9 +36,10 @@ func TestUpdateDirect(t *testing.T) {
 			"params": map[string]any{},
 		})
 		if setup.live {
-			// Live mode is lenient: synthetic IDs frequently 4xx and the
-			// list-response shape varies wildly across public APIs. Skip
-			// rather than fail when the call doesn't return a usable list.
+			// Live-mode leniency is a model decision
+			// (main.kit.test.live.strict): synthetic IDs 4xx constantly
+			// against an arbitrary public API, so the default SKIPS here.
+			// A project that owns its test server sets strict and FAILS.
 			if err != nil {
 				t.Skipf("list call failed (likely synthetic IDs against live API): %v", err)
 			}
@@ -91,21 +92,21 @@ func updateDirectSetup(mockres any) *updateDirectSetupResult {
 	calls := &[]map[string]any{}
 
 	env := envOverride(map[string]any{
-		"TELEGRAMBOT_TEST_UPDATE_ENTID": map[string]any{},
-		"TELEGRAMBOT_TEST_LIVE":    "FALSE",
-		"TELEGRAMBOT_APIKEY":       "NONE",
+		"TELEGRAM_BOT_TEST_UPDATE_ENTID": map[string]any{},
+		"TELEGRAM_BOT_TEST_LIVE":    "FALSE",
+		"TELEGRAM_BOT_APIKEY":       "NONE",
 	})
 
-	live := env["TELEGRAMBOT_TEST_LIVE"] == "TRUE"
+	live := env["TELEGRAM_BOT_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["TELEGRAMBOT_APIKEY"],
+			"apikey": env["TELEGRAM_BOT_APIKEY"],
 		}
 		client := sdk.NewTelegramBotSDK(mergedOpts)
 
 		idmap := map[string]any{}
-		if entidRaw, ok := env["TELEGRAMBOT_TEST_UPDATE_ENTID"]; ok {
+		if entidRaw, ok := env["TELEGRAM_BOT_TEST_UPDATE_ENTID"]; ok {
 			if entidStr, ok := entidRaw.(string); ok && strings.HasPrefix(entidStr, "{") {
 				json.Unmarshal([]byte(entidStr), &idmap)
 			} else if entidMap, ok := entidRaw.(map[string]any); ok {

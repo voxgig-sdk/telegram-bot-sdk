@@ -6,8 +6,8 @@
         "description": "s3d",
         "error_code": "s3e",
         "ok": false,
-        "parameter": {},
-        "result": "s41",
+        "parameters": {},
+        "result": [],
         "id": "GET_CHAT_GIFT00"
       },
       "GET_CHAT_GIFT01": {
@@ -15,8 +15,8 @@
         "description": "s79",
         "error_code": "s7a",
         "ok": false,
-        "parameter": {},
-        "result": "s7d",
+        "parameters": {},
+        "result": [],
         "id": "GET_CHAT_GIFT01"
       },
       "GET_CHAT_GIFT02": {
@@ -24,8 +24,8 @@
         "description": "sb5",
         "error_code": "sb6",
         "ok": false,
-        "parameter": {},
-        "result": "sb9",
+        "parameters": {},
+        "result": [],
         "id": "GET_CHAT_GIFT02"
       }
     }
@@ -37,8 +37,8 @@
         "description": "sf1",
         "error_code": "sf2",
         "ok": false,
-        "parameter": {},
-        "result": "sf5"
+        "parameters": {},
+        "result": []
       }
     }
   }

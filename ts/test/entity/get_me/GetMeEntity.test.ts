@@ -26,8 +26,8 @@ import {
 describe('GetMeEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when TELEGRAMBOT_TEST_LIVE=TRUE.
-  afterEach(liveDelay('TELEGRAMBOT_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when TELEGRAM_BOT_TEST_LIVE=TRUE.
+  afterEach(liveDelay('TELEGRAM_BOT_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = TelegramBotSDK.test()
@@ -62,13 +62,13 @@ describe('GetMeEntity', async () => {
     const get_me_ref01_ent = client.GetMe()
     let get_me_ref01_data = setup.data.new.get_me['get_me_ref01']
 
-    get_me_ref01_data = await get_me_ref01_ent.create(get_me_ref01_data)
+    get_me_ref01_data = (await get_me_ref01_ent.create(get_me_ref01_data)).data()
     assert(null != get_me_ref01_data)
 
 
     // LOAD
     const get_me_ref01_match_dt0: any = {}
-    const get_me_ref01_data_dt0 = await get_me_ref01_ent.load(get_me_ref01_match_dt0)
+    const get_me_ref01_data_dt0 = (await get_me_ref01_ent.load(get_me_ref01_match_dt0)).data()
     assert(null != get_me_ref01_data_dt0)
 
 

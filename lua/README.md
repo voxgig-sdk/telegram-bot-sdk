@@ -240,9 +240,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local approve_suggested_post, err = client:ApproveSuggestedPost():load()
+    local get_me, err = client:GetMe():load()
     if err then error(err) end
-    -- approve_suggested_post is the loaded record
+    -- get_me is the loaded record
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -258,7 +258,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `error_code` |  |
 | `message_id` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create.
@@ -274,7 +274,7 @@ API path: `/approveSuggestedPost`
 | `error_code` |  |
 | `message_id` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create.
@@ -290,7 +290,7 @@ API path: `/declineSuggestedPost`
 | `error_code` |  |
 | `message_thread_id` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create.
@@ -308,7 +308,7 @@ API path: `/deleteForumTopic`
 | `message_thread_id` |  |
 | `name` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create.
@@ -348,7 +348,7 @@ API path: `/createForumTopic`
 | `exclude_limited_non_upgradable` |  |
 | `exclude_limited_upgradable` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create.
@@ -363,7 +363,7 @@ API path: `/getBusinessAccountGifts`
 | `description` |  |
 | `error_code` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create.
@@ -377,7 +377,7 @@ API path: `/getChatGifts`
 | `description` |  |
 | `error_code` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create, Load.
@@ -391,7 +391,7 @@ API path: `/getMe`
 | `description` |  |
 | `error_code` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 | `user_id` |  |
 
@@ -406,7 +406,7 @@ API path: `/getUserGifts`
 | `description` |  |
 | `error_code` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 | `user_id` |  |
 
@@ -428,7 +428,7 @@ API path: `/getUserProfileAudios`
 | `message_effect_id` |  |
 | `message_id` |  |
 | `message_thread_id` |  |
-| `option` |  |
+| `options` |  |
 | `parse_mode` |  |
 | `protect_content` |  |
 | `question` |  |
@@ -458,16 +458,16 @@ API path: `/copyMessage`
 
 | Field | Description |
 | --- | --- |
-| `can_delete_message` |  |
-| `can_edit_message` |  |
+| `can_delete_messages` |  |
+| `can_edit_messages` |  |
 | `can_manage_chat` |  |
-| `can_manage_direct_message` |  |
-| `can_post_message` |  |
+| `can_manage_direct_messages` |  |
+| `can_post_messages` |  |
 | `chat_id` |  |
 | `description` |  |
 | `error_code` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 | `user_id` |  |
 
@@ -482,7 +482,7 @@ API path: `/promoteChatMember`
 | `description` |  |
 | `error_code` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create.
@@ -497,7 +497,7 @@ API path: `/removeMyProfilePhoto`
 | `description` |  |
 | `error_code` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 | `story_id` |  |
 
@@ -515,7 +515,7 @@ API path: `/repostStory`
 | `error_code` |  |
 | `message_thread_id` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create.
@@ -531,7 +531,7 @@ API path: `/sendChatAction`
 | `error_code` |  |
 | `message_thread_id` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 | `text` |  |
 
@@ -546,7 +546,7 @@ API path: `/sendMessageDraft`
 | `description` |  |
 | `error_code` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create.
@@ -562,7 +562,7 @@ API path: `/setMyProfilePhoto`
 | `error_code` |  |
 | `message_thread_id` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create.
@@ -573,13 +573,13 @@ API path: `/unpinAllForumTopicMessages`
 
 | Field | Description |
 | --- | --- |
-| `allowed_update` |  |
+| `allowed_updates` |  |
 | `description` |  |
 | `error_code` |  |
 | `limit` |  |
 | `offset` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 | `timeout` |  |
 
@@ -611,8 +611,8 @@ Create an instance: `local approve_suggested_post = client:ApproveSuggestedPost(
 | `error_code` | `number` |  |
 | `message_id` | `number` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `table` |  |
-| `result` | `any` |  |
+| `parameters` | `table` |  |
+| `result` | `table` |  |
 
 #### Example: Create
 
@@ -644,8 +644,8 @@ Create an instance: `local decline_suggested_post = client:DeclineSuggestedPost(
 | `error_code` | `number` |  |
 | `message_id` | `number` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `table` |  |
-| `result` | `any` |  |
+| `parameters` | `table` |  |
+| `result` | `table` |  |
 
 #### Example: Create
 
@@ -677,8 +677,8 @@ Create an instance: `local delete_forum_topic = client:DeleteForumTopic(nil)`
 | `error_code` | `number` |  |
 | `message_thread_id` | `number` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `table` |  |
-| `result` | `any` |  |
+| `parameters` | `table` |  |
+| `result` | `table` |  |
 
 #### Example: Create
 
@@ -712,8 +712,8 @@ Create an instance: `local edit_forum_topic = client:EditForumTopic(nil)`
 | `message_thread_id` | `number` |  |
 | `name` | `string` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `table` |  |
-| `result` | `any` |  |
+| `parameters` | `table` |  |
+| `result` | `table` |  |
 
 #### Example: Create
 
@@ -800,8 +800,8 @@ Create an instance: `local get_business_account_gift = client:GetBusinessAccount
 | `exclude_limited_non_upgradable` | `boolean` |  |
 | `exclude_limited_upgradable` | `boolean` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `table` |  |
-| `result` | `any` |  |
+| `parameters` | `table` |  |
+| `result` | `table` |  |
 
 #### Example: Create
 
@@ -830,8 +830,8 @@ Create an instance: `local get_chat_gift = client:GetChatGift(nil)`
 | `description` | `string` |  |
 | `error_code` | `number` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `table` |  |
-| `result` | `any` |  |
+| `parameters` | `table` |  |
+| `result` | `table` |  |
 
 #### Example: Create
 
@@ -861,8 +861,8 @@ Create an instance: `local get_me = client:GetMe(nil)`
 | `description` | `string` |  |
 | `error_code` | `number` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `table` |  |
-| `result` | `any` |  |
+| `parameters` | `table` |  |
+| `result` | `table` |  |
 
 #### Example: Load
 
@@ -896,8 +896,8 @@ Create an instance: `local get_user_gift = client:GetUserGift(nil)`
 | `description` | `string` |  |
 | `error_code` | `number` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `table` |  |
-| `result` | `any` |  |
+| `parameters` | `table` |  |
+| `result` | `table` |  |
 | `user_id` | `number` |  |
 
 #### Example: Create
@@ -927,8 +927,8 @@ Create an instance: `local get_user_profile_audio = client:GetUserProfileAudio(n
 | `description` | `string` |  |
 | `error_code` | `number` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `table` |  |
-| `result` | `any` |  |
+| `parameters` | `table` |  |
+| `result` | `table` |  |
 | `user_id` | `number` |  |
 
 #### Example: Create
@@ -965,7 +965,7 @@ Create an instance: `local message = client:Message(nil)`
 | `message_effect_id` | `string` |  |
 | `message_id` | `number` |  |
 | `message_thread_id` | `number` |  |
-| `option` | `table` |  |
+| `options` | `table` |  |
 | `parse_mode` | `string` |  |
 | `protect_content` | `boolean` |  |
 | `question` | `string` |  |
@@ -981,7 +981,7 @@ local message, err = client:Message():create({
   latitude = 1, -- number
   longitude = 1, -- number
   message_id = 1, -- number
-  option = {}, -- table
+  options = {}, -- table
   question = "example_question", -- string
   text = "example_text", -- string
 })
@@ -1034,17 +1034,17 @@ Create an instance: `local promote_chat_member = client:PromoteChatMember(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `can_delete_message` | `boolean` |  |
-| `can_edit_message` | `boolean` |  |
+| `can_delete_messages` | `boolean` |  |
+| `can_edit_messages` | `boolean` |  |
 | `can_manage_chat` | `boolean` |  |
-| `can_manage_direct_message` | `boolean` |  |
-| `can_post_message` | `boolean` |  |
+| `can_manage_direct_messages` | `boolean` |  |
+| `can_post_messages` | `boolean` |  |
 | `chat_id` | `string` |  |
 | `description` | `string` |  |
 | `error_code` | `number` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `table` |  |
-| `result` | `any` |  |
+| `parameters` | `table` |  |
+| `result` | `table` |  |
 | `user_id` | `number` |  |
 
 #### Example: Create
@@ -1075,8 +1075,8 @@ Create an instance: `local remove_my_profile_photo = client:RemoveMyProfilePhoto
 | `description` | `string` |  |
 | `error_code` | `number` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `table` |  |
-| `result` | `any` |  |
+| `parameters` | `table` |  |
+| `result` | `table` |  |
 
 #### Example: Create
 
@@ -1105,8 +1105,8 @@ Create an instance: `local repost_story = client:RepostStory(nil)`
 | `description` | `string` |  |
 | `error_code` | `number` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `table` |  |
-| `result` | `any` |  |
+| `parameters` | `table` |  |
+| `result` | `table` |  |
 | `story_id` | `number` |  |
 
 #### Example: Create
@@ -1140,8 +1140,8 @@ Create an instance: `local send_chat_action = client:SendChatAction(nil)`
 | `error_code` | `number` |  |
 | `message_thread_id` | `number` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `table` |  |
-| `result` | `any` |  |
+| `parameters` | `table` |  |
+| `result` | `table` |  |
 
 #### Example: Create
 
@@ -1173,8 +1173,8 @@ Create an instance: `local send_message_draft = client:SendMessageDraft(nil)`
 | `error_code` | `number` |  |
 | `message_thread_id` | `number` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `table` |  |
-| `result` | `any` |  |
+| `parameters` | `table` |  |
+| `result` | `table` |  |
 | `text` | `string` |  |
 
 #### Example: Create
@@ -1205,8 +1205,8 @@ Create an instance: `local set_my_profile_photo = client:SetMyProfilePhoto(nil)`
 | `description` | `string` |  |
 | `error_code` | `number` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `table` |  |
-| `result` | `any` |  |
+| `parameters` | `table` |  |
+| `result` | `table` |  |
 
 #### Example: Create
 
@@ -1236,8 +1236,8 @@ Create an instance: `local unpin_all_forum_topic_message = client:UnpinAllForumT
 | `error_code` | `number` |  |
 | `message_thread_id` | `number` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `table` |  |
-| `result` | `any` |  |
+| `parameters` | `table` |  |
+| `result` | `table` |  |
 
 #### Example: Create
 
@@ -1265,13 +1265,13 @@ Create an instance: `local update = client:Update(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `allowed_update` | `table` |  |
+| `allowed_updates` | `table` |  |
 | `description` | `string` |  |
 | `error_code` | `number` |  |
 | `limit` | `number` |  |
 | `offset` | `number` |  |
 | `ok` | `boolean` |  |
-| `parameter` | `table` |  |
+| `parameters` | `table` |  |
 | `result` | `table` |  |
 | `timeout` | `number` |  |
 

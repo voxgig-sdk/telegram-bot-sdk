@@ -12,8 +12,8 @@
 ---@field error_code? number
 ---@field message_id number
 ---@field ok boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 
 ---@class ApproveSuggestedPostCreateData
 ---@field chat_id string
@@ -21,8 +21,8 @@
 ---@field error_code? number
 ---@field message_id number
 ---@field ok boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 
 ---@class DeclineSuggestedPost
 ---@field chat_id string
@@ -30,8 +30,8 @@
 ---@field error_code? number
 ---@field message_id number
 ---@field ok boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 
 ---@class DeclineSuggestedPostCreateData
 ---@field chat_id string
@@ -39,8 +39,8 @@
 ---@field error_code? number
 ---@field message_id number
 ---@field ok boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 
 ---@class DeleteForumTopic
 ---@field chat_id string
@@ -48,8 +48,8 @@
 ---@field error_code? number
 ---@field message_thread_id number
 ---@field ok boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 
 ---@class DeleteForumTopicCreateData
 ---@field chat_id string
@@ -57,8 +57,8 @@
 ---@field error_code? number
 ---@field message_thread_id number
 ---@field ok boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 
 ---@class EditForumTopic
 ---@field chat_id string
@@ -68,8 +68,8 @@
 ---@field message_thread_id number
 ---@field name? string
 ---@field ok boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 
 ---@class EditForumTopicCreateData
 ---@field chat_id string
@@ -79,8 +79,8 @@
 ---@field message_thread_id number
 ---@field name? string
 ---@field ok boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 
 ---@class File
 ---@field file_id string
@@ -107,8 +107,8 @@
 ---@field exclude_limited_non_upgradable? boolean
 ---@field exclude_limited_upgradable? boolean
 ---@field ok boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 
 ---@class GetBusinessAccountGiftCreateData
 ---@field description? string
@@ -117,76 +117,76 @@
 ---@field exclude_limited_non_upgradable? boolean
 ---@field exclude_limited_upgradable? boolean
 ---@field ok boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 
 ---@class GetChatGift
 ---@field chat_id string
 ---@field description? string
 ---@field error_code? number
 ---@field ok boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 
 ---@class GetChatGiftCreateData
 ---@field chat_id string
 ---@field description? string
 ---@field error_code? number
 ---@field ok boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 
 ---@class GetMe
 ---@field description? string
 ---@field error_code? number
 ---@field ok boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 
 ---@class GetMeLoadMatch
 ---@field description? string
 ---@field error_code? number
 ---@field ok? boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 
 ---@class GetMeCreateData
 ---@field description? string
 ---@field error_code? number
 ---@field ok boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 
 ---@class GetUserGift
 ---@field description? string
 ---@field error_code? number
 ---@field ok boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 ---@field user_id number
 
 ---@class GetUserGiftCreateData
 ---@field description? string
 ---@field error_code? number
 ---@field ok boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 ---@field user_id number
 
 ---@class GetUserProfileAudio
 ---@field description? string
 ---@field error_code? number
 ---@field ok boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 ---@field user_id number
 
 ---@class GetUserProfileAudioCreateData
 ---@field description? string
 ---@field error_code? number
 ---@field ok boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 ---@field user_id number
 
 ---@class Message
@@ -200,7 +200,7 @@
 ---@field message_effect_id? string
 ---@field message_id number
 ---@field message_thread_id? number
----@field option table
+---@field options table
 ---@field parse_mode? string
 ---@field protect_content? boolean
 ---@field question string
@@ -218,7 +218,7 @@
 ---@field message_effect_id? string
 ---@field message_id number
 ---@field message_thread_id? number
----@field option table
+---@field options table
 ---@field parse_mode? string
 ---@field protect_content? boolean
 ---@field question string
@@ -242,54 +242,54 @@
 ---@field message_thread_id? number
 
 ---@class PromoteChatMember
----@field can_delete_message? boolean
----@field can_edit_message? boolean
+---@field can_delete_messages? boolean
+---@field can_edit_messages? boolean
 ---@field can_manage_chat? boolean
----@field can_manage_direct_message? boolean
----@field can_post_message? boolean
+---@field can_manage_direct_messages? boolean
+---@field can_post_messages? boolean
 ---@field chat_id string
 ---@field description? string
 ---@field error_code? number
 ---@field ok boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 ---@field user_id number
 
 ---@class PromoteChatMemberCreateData
----@field can_delete_message? boolean
----@field can_edit_message? boolean
+---@field can_delete_messages? boolean
+---@field can_edit_messages? boolean
 ---@field can_manage_chat? boolean
----@field can_manage_direct_message? boolean
----@field can_post_message? boolean
+---@field can_manage_direct_messages? boolean
+---@field can_post_messages? boolean
 ---@field chat_id string
 ---@field description? string
 ---@field error_code? number
 ---@field ok boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 ---@field user_id number
 
 ---@class RemoveMyProfilePhoto
 ---@field description? string
 ---@field error_code? number
 ---@field ok boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 
 ---@class RemoveMyProfilePhotoCreateData
 ---@field description? string
 ---@field error_code? number
 ---@field ok boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 
 ---@class RepostStory
 ---@field chat_id string
 ---@field description? string
 ---@field error_code? number
 ---@field ok boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 ---@field story_id number
 
 ---@class RepostStoryCreateData
@@ -297,8 +297,8 @@
 ---@field description? string
 ---@field error_code? number
 ---@field ok boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 ---@field story_id number
 
 ---@class SendChatAction
@@ -308,8 +308,8 @@
 ---@field error_code? number
 ---@field message_thread_id? number
 ---@field ok boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 
 ---@class SendChatActionCreateData
 ---@field action string
@@ -318,8 +318,8 @@
 ---@field error_code? number
 ---@field message_thread_id? number
 ---@field ok boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 
 ---@class SendMessageDraft
 ---@field chat_id string
@@ -327,8 +327,8 @@
 ---@field error_code? number
 ---@field message_thread_id? number
 ---@field ok boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 ---@field text string
 
 ---@class SendMessageDraftCreateData
@@ -337,23 +337,23 @@
 ---@field error_code? number
 ---@field message_thread_id? number
 ---@field ok boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 ---@field text string
 
 ---@class SetMyProfilePhoto
 ---@field description? string
 ---@field error_code? number
 ---@field ok boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 
 ---@class SetMyProfilePhotoCreateData
 ---@field description? string
 ---@field error_code? number
 ---@field ok boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 
 ---@class UnpinAllForumTopicMessage
 ---@field chat_id string
@@ -361,8 +361,8 @@
 ---@field error_code? number
 ---@field message_thread_id number
 ---@field ok boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 
 ---@class UnpinAllForumTopicMessageCreateData
 ---@field chat_id string
@@ -370,39 +370,39 @@
 ---@field error_code? number
 ---@field message_thread_id number
 ---@field ok boolean
----@field parameter? table
----@field result? any
+---@field parameters? table
+---@field result? table
 
 ---@class Update
----@field allowed_update? table
+---@field allowed_updates? table
 ---@field description? string
 ---@field error_code? number
 ---@field limit? number
 ---@field offset? number
 ---@field ok boolean
----@field parameter? table
+---@field parameters? table
 ---@field result? table
 ---@field timeout? number
 
 ---@class UpdateListMatch
----@field allowed_update? table
+---@field allowed_updates? table
 ---@field description? string
 ---@field error_code? number
 ---@field limit? number
 ---@field offset? number
 ---@field ok? boolean
----@field parameter? table
+---@field parameters? table
 ---@field result? table
 ---@field timeout? number
 
 ---@class UpdateCreateData
----@field allowed_update? table
+---@field allowed_updates? table
 ---@field description? string
 ---@field error_code? number
 ---@field limit? number
 ---@field offset? number
 ---@field ok boolean
----@field parameter? table
+---@field parameters? table
 ---@field result? table
 ---@field timeout? number
 

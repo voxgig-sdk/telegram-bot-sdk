@@ -26,8 +26,8 @@ import {
 describe('RemoveMyProfilePhotoEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when TELEGRAMBOT_TEST_LIVE=TRUE.
-  afterEach(liveDelay('TELEGRAMBOT_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when TELEGRAM_BOT_TEST_LIVE=TRUE.
+  afterEach(liveDelay('TELEGRAM_BOT_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = TelegramBotSDK.test()
@@ -62,7 +62,7 @@ describe('RemoveMyProfilePhotoEntity', async () => {
     const remove_my_profile_photo_ref01_ent = client.RemoveMyProfilePhoto()
     let remove_my_profile_photo_ref01_data = setup.data.new.remove_my_profile_photo['remove_my_profile_photo_ref01']
 
-    remove_my_profile_photo_ref01_data = await remove_my_profile_photo_ref01_ent.create(remove_my_profile_photo_ref01_data)
+    remove_my_profile_photo_ref01_data = (await remove_my_profile_photo_ref01_ent.create(remove_my_profile_photo_ref01_data)).data()
     assert(null != remove_my_profile_photo_ref01_data)
 
 

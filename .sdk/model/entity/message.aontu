@@ -56,7 +56,7 @@ main: kit: entity: message: {
       type: "`$INTEGER`"
     }
     {
-      name: "option"
+      name: "options"
       req: true
       type: "`$ARRAY`"
     }

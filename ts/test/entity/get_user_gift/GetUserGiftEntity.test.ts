@@ -26,8 +26,8 @@ import {
 describe('GetUserGiftEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when TELEGRAMBOT_TEST_LIVE=TRUE.
-  afterEach(liveDelay('TELEGRAMBOT_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when TELEGRAM_BOT_TEST_LIVE=TRUE.
+  afterEach(liveDelay('TELEGRAM_BOT_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = TelegramBotSDK.test()
@@ -62,7 +62,7 @@ describe('GetUserGiftEntity', async () => {
     const get_user_gift_ref01_ent = client.GetUserGift()
     let get_user_gift_ref01_data = setup.data.new.get_user_gift['get_user_gift_ref01']
 
-    get_user_gift_ref01_data = await get_user_gift_ref01_ent.create(get_user_gift_ref01_data)
+    get_user_gift_ref01_data = (await get_user_gift_ref01_ent.create(get_user_gift_ref01_data)).data()
     assert(null != get_user_gift_ref01_data)
 
 

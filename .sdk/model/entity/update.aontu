@@ -6,7 +6,7 @@ main: kit: entity: update: {
 
   fields: [
     {
-      name: "allowed_update"
+      name: "allowed_updates"
       req: false
       type: "`$ARRAY`"
     }
@@ -36,7 +36,7 @@ main: kit: entity: update: {
       type: "`$BOOLEAN`"
     }
     {
-      name: "parameter"
+      name: "parameters"
       req: false
       type: "`$OBJECT`"
     }

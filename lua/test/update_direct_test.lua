@@ -61,16 +61,16 @@ function update_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["TELEGRAMBOT_TEST_UPDATE_ENTID"] = {},
-    ["TELEGRAMBOT_TEST_LIVE"] = "FALSE",
-    ["TELEGRAMBOT_APIKEY"] = "NONE",
+    ["TELEGRAM_BOT_TEST_UPDATE_ENTID"] = {},
+    ["TELEGRAM_BOT_TEST_LIVE"] = "FALSE",
+    ["TELEGRAM_BOT_APIKEY"] = "NONE",
   })
 
-  local live = env["TELEGRAMBOT_TEST_LIVE"] == "TRUE"
+  local live = env["TELEGRAM_BOT_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["TELEGRAMBOT_APIKEY"],
+      apikey = env["TELEGRAM_BOT_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

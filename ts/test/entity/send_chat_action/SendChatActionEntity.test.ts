@@ -26,8 +26,8 @@ import {
 describe('SendChatActionEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when TELEGRAMBOT_TEST_LIVE=TRUE.
-  afterEach(liveDelay('TELEGRAMBOT_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when TELEGRAM_BOT_TEST_LIVE=TRUE.
+  afterEach(liveDelay('TELEGRAM_BOT_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = TelegramBotSDK.test()
@@ -62,7 +62,7 @@ describe('SendChatActionEntity', async () => {
     const send_chat_action_ref01_ent = client.SendChatAction()
     let send_chat_action_ref01_data = setup.data.new.send_chat_action['send_chat_action_ref01']
 
-    send_chat_action_ref01_data = await send_chat_action_ref01_ent.create(send_chat_action_ref01_data)
+    send_chat_action_ref01_data = (await send_chat_action_ref01_ent.create(send_chat_action_ref01_data)).data()
     assert(null != send_chat_action_ref01_data)
 
 

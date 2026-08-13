@@ -19,11 +19,15 @@ import {
 describe('GetMeDirect', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when TELEGRAMBOT_TEST_LIVE=TRUE.
-  afterEach(liveDelay('TELEGRAMBOT_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when TELEGRAM_BOT_TEST_LIVE=TRUE.
+  afterEach(liveDelay('TELEGRAM_BOT_TEST_LIVE'))
 
   test('direct-exists', async () => {
     const sdk = new TelegramBotSDK({
+      // Concrete base: a live construction must satisfy any server
+      // variables a templated base URL declares; overriding base with a
+      // literal (as the direct flow tests do) sidesteps the requirement.
+      base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
     assert('function' === typeof sdk.direct)
@@ -72,19 +76,19 @@ function directSetup(mockres?: any) {
   const calls: any[] = []
 
   const env = envOverride({
-    'TELEGRAMBOT_TEST_GET_ME_ENTID': {},
-    'TELEGRAMBOT_TEST_LIVE': 'FALSE',
-    'TELEGRAMBOT_APIKEY': 'NONE',
+    'TELEGRAM_BOT_TEST_GET_ME_ENTID': {},
+    'TELEGRAM_BOT_TEST_LIVE': 'FALSE',
+    'TELEGRAM_BOT_APIKEY': 'NONE',
   })
 
-  const live = 'TRUE' === env.TELEGRAMBOT_TEST_LIVE
+  const live = 'TRUE' === env.TELEGRAM_BOT_TEST_LIVE
 
   if (live) {
     const client = new TelegramBotSDK({
-      apikey: env.TELEGRAMBOT_APIKEY,
+      apikey: env.TELEGRAM_BOT_APIKEY,
     })
 
-    let idmap: any = env['TELEGRAMBOT_TEST_GET_ME_ENTID']
+    let idmap: any = env['TELEGRAM_BOT_TEST_GET_ME_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {
       idmap = JSON.parse(idmap)
     }

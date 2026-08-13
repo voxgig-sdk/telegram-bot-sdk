@@ -26,7 +26,7 @@ class ApproveSuggestedPostEntityTest < Minitest::Test
     # The basic flow consumes synthetic IDs from the fixture. In live mode
     # without an *_ENTID env override, those IDs hit the live API and 4xx.
     if setup[:synthetic_only]
-      skip "live entity test uses synthetic IDs from fixture — set TELEGRAMBOT_TEST_APPROVE_SUGGESTED_POST_ENTID JSON to run live"
+      skip "live entity test uses synthetic IDs from fixture — set TELEGRAM_BOT_TEST_APPROVE_SUGGESTED_POST_ENTID JSON to run live"
       return
     end
     client = setup[:client]
@@ -37,7 +37,7 @@ class ApproveSuggestedPostEntityTest < Minitest::Test
       Vs.getpath(setup[:data], "new.approve_suggested_post"), "approve_suggested_post_ref01"))
 
     approve_suggested_post_ref01_data_result = approve_suggested_post_ref01_ent.create(approve_suggested_post_ref01_data, nil)
-    approve_suggested_post_ref01_data = Helpers.to_map(approve_suggested_post_ref01_data_result)
+    approve_suggested_post_ref01_data = Helpers.to_map(approve_suggested_post_ref01_data_result.respond_to?(:data_get) ? approve_suggested_post_ref01_data_result.data_get : approve_suggested_post_ref01_data_result)
     assert !approve_suggested_post_ref01_data.nil?
 
   end
@@ -69,39 +69,39 @@ def approve_suggested_post_basic_setup(extra)
   # Detect ENTID env override before envOverride consumes it. When live
   # mode is on without a real override, the basic test runs against synthetic
   # IDs from the fixture and 4xx's. Surface this so the test can skip.
-  entid_env_raw = ENV["TELEGRAMBOT_TEST_APPROVE_SUGGESTED_POST_ENTID"]
+  entid_env_raw = ENV["TELEGRAM_BOT_TEST_APPROVE_SUGGESTED_POST_ENTID"]
   idmap_overridden = !entid_env_raw.nil? && entid_env_raw.strip.start_with?("{")
 
   env = Runner.env_override({
-    "TELEGRAMBOT_TEST_APPROVE_SUGGESTED_POST_ENTID" => idmap,
-    "TELEGRAMBOT_TEST_LIVE" => "FALSE",
-    "TELEGRAMBOT_TEST_EXPLAIN" => "FALSE",
-    "TELEGRAMBOT_APIKEY" => "NONE",
+    "TELEGRAM_BOT_TEST_APPROVE_SUGGESTED_POST_ENTID" => idmap,
+    "TELEGRAM_BOT_TEST_LIVE" => "FALSE",
+    "TELEGRAM_BOT_TEST_EXPLAIN" => "FALSE",
+    "TELEGRAM_BOT_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
-    env["TELEGRAMBOT_TEST_APPROVE_SUGGESTED_POST_ENTID"])
+    env["TELEGRAM_BOT_TEST_APPROVE_SUGGESTED_POST_ENTID"])
   if idmap_resolved.nil?
     idmap_resolved = Helpers.to_map(idmap)
   end
 
-  if env["TELEGRAMBOT_TEST_LIVE"] == "TRUE"
+  if env["TELEGRAM_BOT_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["TELEGRAMBOT_APIKEY"],
+        "apikey" => env["TELEGRAM_BOT_APIKEY"],
       },
       extra || {},
     ])
     client = TelegramBotSDK.new(Helpers.to_map(merged_opts))
   end
 
-  live = env["TELEGRAMBOT_TEST_LIVE"] == "TRUE"
+  live = env["TELEGRAM_BOT_TEST_LIVE"] == "TRUE"
   {
     client: client,
     data: entity_data,
     idmap: idmap_resolved,
     env: env,
-    explain: env["TELEGRAMBOT_TEST_EXPLAIN"] == "TRUE",
+    explain: env["TELEGRAM_BOT_TEST_EXPLAIN"] == "TRUE",
     live: live,
     synthetic_only: live && !idmap_overridden,
     now: (Time.now.to_f * 1000).to_i,

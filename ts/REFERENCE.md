@@ -362,8 +362,8 @@ const approve_suggested_post = client.ApproveSuggestedPost()
 | `error_code` | `number` | No |  |
 | `message_id` | `number` | Yes |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `Record<string, any>` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `Record<string, any>` | No |  |
+| `result` | `any[]` | No |  |
 
 ### Operations
 
@@ -422,8 +422,8 @@ const decline_suggested_post = client.DeclineSuggestedPost()
 | `error_code` | `number` | No |  |
 | `message_id` | `number` | Yes |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `Record<string, any>` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `Record<string, any>` | No |  |
+| `result` | `any[]` | No |  |
 
 ### Operations
 
@@ -482,8 +482,8 @@ const delete_forum_topic = client.DeleteForumTopic()
 | `error_code` | `number` | No |  |
 | `message_thread_id` | `number` | Yes |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `Record<string, any>` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `Record<string, any>` | No |  |
+| `result` | `any[]` | No |  |
 
 ### Operations
 
@@ -544,8 +544,8 @@ const edit_forum_topic = client.EditForumTopic()
 | `message_thread_id` | `number` | Yes |  |
 | `name` | `string` | No |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `Record<string, any>` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `Record<string, any>` | No |  |
+| `result` | `any[]` | No |  |
 
 ### Operations
 
@@ -713,8 +713,8 @@ const get_business_account_gift = client.GetBusinessAccountGift()
 | `exclude_limited_non_upgradable` | `boolean` | No |  |
 | `exclude_limited_upgradable` | `boolean` | No |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `Record<string, any>` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `Record<string, any>` | No |  |
+| `result` | `any[]` | No |  |
 
 ### Operations
 
@@ -770,8 +770,8 @@ const get_chat_gift = client.GetChatGift()
 | `description` | `string` | No |  |
 | `error_code` | `number` | No |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `Record<string, any>` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `Record<string, any>` | No |  |
+| `result` | `any[]` | No |  |
 
 ### Operations
 
@@ -827,8 +827,8 @@ const get_me = client.GetMe()
 | `description` | `string` | No |  |
 | `error_code` | `number` | No |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `Record<string, any>` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `Record<string, any>` | No |  |
+| `result` | `any[]` | No |  |
 
 ### Operations
 
@@ -891,8 +891,8 @@ const get_user_gift = client.GetUserGift()
 | `description` | `string` | No |  |
 | `error_code` | `number` | No |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `Record<string, any>` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `Record<string, any>` | No |  |
+| `result` | `any[]` | No |  |
 | `user_id` | `number` | Yes |  |
 
 ### Operations
@@ -949,8 +949,8 @@ const get_user_profile_audio = client.GetUserProfileAudio()
 | `description` | `string` | No |  |
 | `error_code` | `number` | No |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `Record<string, any>` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `Record<string, any>` | No |  |
+| `result` | `any[]` | No |  |
 | `user_id` | `number` | Yes |  |
 
 ### Operations
@@ -1014,7 +1014,7 @@ const message = client.Message()
 | `message_effect_id` | `string` | No |  |
 | `message_id` | `number` | Yes |  |
 | `message_thread_id` | `number` | No |  |
-| `option` | `any[]` | Yes |  |
+| `options` | `any[]` | Yes |  |
 | `parse_mode` | `string` | No |  |
 | `protect_content` | `boolean` | No |  |
 | `question` | `string` | Yes |  |
@@ -1034,7 +1034,7 @@ const result = await client.Message().create({
   latitude: 1,
   longitude: 1,
   message_id: 1,
-  option: [],
+  options: [],
   question: 'example_question',
   text: 'example_text',
 })
@@ -1137,17 +1137,17 @@ const promote_chat_member = client.PromoteChatMember()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `can_delete_message` | `boolean` | No |  |
-| `can_edit_message` | `boolean` | No |  |
+| `can_delete_messages` | `boolean` | No |  |
+| `can_edit_messages` | `boolean` | No |  |
 | `can_manage_chat` | `boolean` | No |  |
-| `can_manage_direct_message` | `boolean` | No |  |
-| `can_post_message` | `boolean` | No |  |
+| `can_manage_direct_messages` | `boolean` | No |  |
+| `can_post_messages` | `boolean` | No |  |
 | `chat_id` | `string` | Yes |  |
 | `description` | `string` | No |  |
 | `error_code` | `number` | No |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `Record<string, any>` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `Record<string, any>` | No |  |
+| `result` | `any[]` | No |  |
 | `user_id` | `number` | Yes |  |
 
 ### Operations
@@ -1205,8 +1205,8 @@ const remove_my_profile_photo = client.RemoveMyProfilePhoto()
 | `description` | `string` | No |  |
 | `error_code` | `number` | No |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `Record<string, any>` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `Record<string, any>` | No |  |
+| `result` | `any[]` | No |  |
 
 ### Operations
 
@@ -1262,8 +1262,8 @@ const repost_story = client.RepostStory()
 | `description` | `string` | No |  |
 | `error_code` | `number` | No |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `Record<string, any>` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `Record<string, any>` | No |  |
+| `result` | `any[]` | No |  |
 | `story_id` | `number` | Yes |  |
 
 ### Operations
@@ -1324,8 +1324,8 @@ const send_chat_action = client.SendChatAction()
 | `error_code` | `number` | No |  |
 | `message_thread_id` | `number` | No |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `Record<string, any>` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `Record<string, any>` | No |  |
+| `result` | `any[]` | No |  |
 
 ### Operations
 
@@ -1384,8 +1384,8 @@ const send_message_draft = client.SendMessageDraft()
 | `error_code` | `number` | No |  |
 | `message_thread_id` | `number` | No |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `Record<string, any>` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `Record<string, any>` | No |  |
+| `result` | `any[]` | No |  |
 | `text` | `string` | Yes |  |
 
 ### Operations
@@ -1443,8 +1443,8 @@ const set_my_profile_photo = client.SetMyProfilePhoto()
 | `description` | `string` | No |  |
 | `error_code` | `number` | No |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `Record<string, any>` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `Record<string, any>` | No |  |
+| `result` | `any[]` | No |  |
 
 ### Operations
 
@@ -1501,8 +1501,8 @@ const unpin_all_forum_topic_message = client.UnpinAllForumTopicMessage()
 | `error_code` | `number` | No |  |
 | `message_thread_id` | `number` | Yes |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `Record<string, any>` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `Record<string, any>` | No |  |
+| `result` | `any[]` | No |  |
 
 ### Operations
 
@@ -1556,13 +1556,13 @@ const update = client.Update()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `allowed_update` | `any[]` | No |  |
+| `allowed_updates` | `any[]` | No |  |
 | `description` | `string` | No |  |
 | `error_code` | `number` | No |  |
 | `limit` | `number` | No |  |
 | `offset` | `number` | No |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `Record<string, any>` | No |  |
+| `parameters` | `Record<string, any>` | No |  |
 | `result` | `any[]` | No |  |
 | `timeout` | `number` | No |  |
 

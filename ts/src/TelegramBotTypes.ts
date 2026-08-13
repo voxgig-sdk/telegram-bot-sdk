@@ -11,8 +11,8 @@ export interface ApproveSuggestedPost {
   error_code?: number
   message_id: number
   ok: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
 }
 
 export interface ApproveSuggestedPostCreateData {
@@ -21,8 +21,8 @@ export interface ApproveSuggestedPostCreateData {
   error_code?: number
   message_id: number
   ok: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
 }
 
 export interface DeclineSuggestedPost {
@@ -31,8 +31,8 @@ export interface DeclineSuggestedPost {
   error_code?: number
   message_id: number
   ok: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
 }
 
 export interface DeclineSuggestedPostCreateData {
@@ -41,8 +41,8 @@ export interface DeclineSuggestedPostCreateData {
   error_code?: number
   message_id: number
   ok: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
 }
 
 export interface DeleteForumTopic {
@@ -51,8 +51,8 @@ export interface DeleteForumTopic {
   error_code?: number
   message_thread_id: number
   ok: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
 }
 
 export interface DeleteForumTopicCreateData {
@@ -61,8 +61,8 @@ export interface DeleteForumTopicCreateData {
   error_code?: number
   message_thread_id: number
   ok: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
 }
 
 export interface EditForumTopic {
@@ -73,8 +73,8 @@ export interface EditForumTopic {
   message_thread_id: number
   name?: string
   ok: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
 }
 
 export interface EditForumTopicCreateData {
@@ -85,8 +85,8 @@ export interface EditForumTopicCreateData {
   message_thread_id: number
   name?: string
   ok: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
 }
 
 export interface File {
@@ -118,8 +118,8 @@ export interface GetBusinessAccountGift {
   exclude_limited_non_upgradable?: boolean
   exclude_limited_upgradable?: boolean
   ok: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
 }
 
 export interface GetBusinessAccountGiftCreateData {
@@ -129,8 +129,8 @@ export interface GetBusinessAccountGiftCreateData {
   exclude_limited_non_upgradable?: boolean
   exclude_limited_upgradable?: boolean
   ok: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
 }
 
 export interface GetChatGift {
@@ -138,8 +138,8 @@ export interface GetChatGift {
   description?: string
   error_code?: number
   ok: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
 }
 
 export interface GetChatGiftCreateData {
@@ -147,40 +147,40 @@ export interface GetChatGiftCreateData {
   description?: string
   error_code?: number
   ok: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
 }
 
 export interface GetMe {
   description?: string
   error_code?: number
   ok: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
 }
 
 export interface GetMeLoadMatch {
   description?: string
   error_code?: number
   ok?: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
 }
 
 export interface GetMeCreateData {
   description?: string
   error_code?: number
   ok: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
 }
 
 export interface GetUserGift {
   description?: string
   error_code?: number
   ok: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
   user_id: number
 }
 
@@ -188,8 +188,8 @@ export interface GetUserGiftCreateData {
   description?: string
   error_code?: number
   ok: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
   user_id: number
 }
 
@@ -197,8 +197,8 @@ export interface GetUserProfileAudio {
   description?: string
   error_code?: number
   ok: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
   user_id: number
 }
 
@@ -206,8 +206,8 @@ export interface GetUserProfileAudioCreateData {
   description?: string
   error_code?: number
   ok: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
   user_id: number
 }
 
@@ -222,7 +222,7 @@ export interface Message {
   message_effect_id?: string
   message_id: number
   message_thread_id?: number
-  option: any[]
+  options: any[]
   parse_mode?: string
   protect_content?: boolean
   question: string
@@ -241,7 +241,7 @@ export interface MessageCreateData {
   message_effect_id?: string
   message_id: number
   message_thread_id?: number
-  option: any[]
+  options: any[]
   parse_mode?: string
   protect_content?: boolean
   question: string
@@ -268,32 +268,32 @@ export interface MessageIdCreateData {
 }
 
 export interface PromoteChatMember {
-  can_delete_message?: boolean
-  can_edit_message?: boolean
+  can_delete_messages?: boolean
+  can_edit_messages?: boolean
   can_manage_chat?: boolean
-  can_manage_direct_message?: boolean
-  can_post_message?: boolean
+  can_manage_direct_messages?: boolean
+  can_post_messages?: boolean
   chat_id: string
   description?: string
   error_code?: number
   ok: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
   user_id: number
 }
 
 export interface PromoteChatMemberCreateData {
-  can_delete_message?: boolean
-  can_edit_message?: boolean
+  can_delete_messages?: boolean
+  can_edit_messages?: boolean
   can_manage_chat?: boolean
-  can_manage_direct_message?: boolean
-  can_post_message?: boolean
+  can_manage_direct_messages?: boolean
+  can_post_messages?: boolean
   chat_id: string
   description?: string
   error_code?: number
   ok: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
   user_id: number
 }
 
@@ -301,16 +301,16 @@ export interface RemoveMyProfilePhoto {
   description?: string
   error_code?: number
   ok: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
 }
 
 export interface RemoveMyProfilePhotoCreateData {
   description?: string
   error_code?: number
   ok: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
 }
 
 export interface RepostStory {
@@ -318,8 +318,8 @@ export interface RepostStory {
   description?: string
   error_code?: number
   ok: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
   story_id: number
 }
 
@@ -328,8 +328,8 @@ export interface RepostStoryCreateData {
   description?: string
   error_code?: number
   ok: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
   story_id: number
 }
 
@@ -340,8 +340,8 @@ export interface SendChatAction {
   error_code?: number
   message_thread_id?: number
   ok: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
 }
 
 export interface SendChatActionCreateData {
@@ -351,8 +351,8 @@ export interface SendChatActionCreateData {
   error_code?: number
   message_thread_id?: number
   ok: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
 }
 
 export interface SendMessageDraft {
@@ -361,8 +361,8 @@ export interface SendMessageDraft {
   error_code?: number
   message_thread_id?: number
   ok: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
   text: string
 }
 
@@ -372,8 +372,8 @@ export interface SendMessageDraftCreateData {
   error_code?: number
   message_thread_id?: number
   ok: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
   text: string
 }
 
@@ -381,16 +381,16 @@ export interface SetMyProfilePhoto {
   description?: string
   error_code?: number
   ok: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
 }
 
 export interface SetMyProfilePhotoCreateData {
   description?: string
   error_code?: number
   ok: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
 }
 
 export interface UnpinAllForumTopicMessage {
@@ -399,8 +399,8 @@ export interface UnpinAllForumTopicMessage {
   error_code?: number
   message_thread_id: number
   ok: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
 }
 
 export interface UnpinAllForumTopicMessageCreateData {
@@ -409,42 +409,42 @@ export interface UnpinAllForumTopicMessageCreateData {
   error_code?: number
   message_thread_id: number
   ok: boolean
-  parameter?: Record<string, any>
-  result?: any
+  parameters?: Record<string, any>
+  result?: any[]
 }
 
 export interface Update {
-  allowed_update?: any[]
+  allowed_updates?: any[]
   description?: string
   error_code?: number
   limit?: number
   offset?: number
   ok: boolean
-  parameter?: Record<string, any>
+  parameters?: Record<string, any>
   result?: any[]
   timeout?: number
 }
 
 export interface UpdateListMatch {
-  allowed_update?: any[]
+  allowed_updates?: any[]
   description?: string
   error_code?: number
   limit?: number
   offset?: number
   ok?: boolean
-  parameter?: Record<string, any>
+  parameters?: Record<string, any>
   result?: any[]
   timeout?: number
 }
 
 export interface UpdateCreateData {
-  allowed_update?: any[]
+  allowed_updates?: any[]
   description?: string
   error_code?: number
   limit?: number
   offset?: number
   ok: boolean
-  parameter?: Record<string, any>
+  parameters?: Record<string, any>
   result?: any[]
   timeout?: number
 }

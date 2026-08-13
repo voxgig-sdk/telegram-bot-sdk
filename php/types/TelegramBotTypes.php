@@ -20,8 +20,8 @@ class ApproveSuggestedPost
     public ?int $error_code = null;
     public int $message_id;
     public bool $ok;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
 }
 
 /** Request payload for ApproveSuggestedPost#create. */
@@ -32,8 +32,8 @@ class ApproveSuggestedPostCreateData
     public ?int $error_code = null;
     public int $message_id;
     public bool $ok;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
 }
 
 /** DeclineSuggestedPost entity data model. */
@@ -44,8 +44,8 @@ class DeclineSuggestedPost
     public ?int $error_code = null;
     public int $message_id;
     public bool $ok;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
 }
 
 /** Request payload for DeclineSuggestedPost#create. */
@@ -56,8 +56,8 @@ class DeclineSuggestedPostCreateData
     public ?int $error_code = null;
     public int $message_id;
     public bool $ok;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
 }
 
 /** DeleteForumTopic entity data model. */
@@ -68,8 +68,8 @@ class DeleteForumTopic
     public ?int $error_code = null;
     public int $message_thread_id;
     public bool $ok;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
 }
 
 /** Request payload for DeleteForumTopic#create. */
@@ -80,8 +80,8 @@ class DeleteForumTopicCreateData
     public ?int $error_code = null;
     public int $message_thread_id;
     public bool $ok;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
 }
 
 /** EditForumTopic entity data model. */
@@ -94,8 +94,8 @@ class EditForumTopic
     public int $message_thread_id;
     public ?string $name = null;
     public bool $ok;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
 }
 
 /** Request payload for EditForumTopic#create. */
@@ -108,8 +108,8 @@ class EditForumTopicCreateData
     public int $message_thread_id;
     public ?string $name = null;
     public bool $ok;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
 }
 
 /** File entity data model. */
@@ -151,8 +151,8 @@ class GetBusinessAccountGift
     public ?bool $exclude_limited_non_upgradable = null;
     public ?bool $exclude_limited_upgradable = null;
     public bool $ok;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
 }
 
 /** Request payload for GetBusinessAccountGift#create. */
@@ -164,8 +164,8 @@ class GetBusinessAccountGiftCreateData
     public ?bool $exclude_limited_non_upgradable = null;
     public ?bool $exclude_limited_upgradable = null;
     public bool $ok;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
 }
 
 /** GetChatGift entity data model. */
@@ -175,8 +175,8 @@ class GetChatGift
     public ?string $description = null;
     public ?int $error_code = null;
     public bool $ok;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
 }
 
 /** Request payload for GetChatGift#create. */
@@ -186,8 +186,8 @@ class GetChatGiftCreateData
     public ?string $description = null;
     public ?int $error_code = null;
     public bool $ok;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
 }
 
 /** GetMe entity data model. */
@@ -196,8 +196,8 @@ class GetMe
     public ?string $description = null;
     public ?int $error_code = null;
     public bool $ok;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
 }
 
 /** Request payload for GetMe#load. */
@@ -206,8 +206,8 @@ class GetMeLoadMatch
     public ?string $description = null;
     public ?int $error_code = null;
     public ?bool $ok = null;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
 }
 
 /** Request payload for GetMe#create. */
@@ -216,8 +216,8 @@ class GetMeCreateData
     public ?string $description = null;
     public ?int $error_code = null;
     public bool $ok;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
 }
 
 /** GetUserGift entity data model. */
@@ -226,8 +226,8 @@ class GetUserGift
     public ?string $description = null;
     public ?int $error_code = null;
     public bool $ok;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
     public int $user_id;
 }
 
@@ -237,8 +237,8 @@ class GetUserGiftCreateData
     public ?string $description = null;
     public ?int $error_code = null;
     public bool $ok;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
     public int $user_id;
 }
 
@@ -248,8 +248,8 @@ class GetUserProfileAudio
     public ?string $description = null;
     public ?int $error_code = null;
     public bool $ok;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
     public int $user_id;
 }
 
@@ -259,8 +259,8 @@ class GetUserProfileAudioCreateData
     public ?string $description = null;
     public ?int $error_code = null;
     public bool $ok;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
     public int $user_id;
 }
 
@@ -277,7 +277,7 @@ class Message
     public ?string $message_effect_id = null;
     public int $message_id;
     public ?int $message_thread_id = null;
-    public array $option;
+    public array $options;
     public ?string $parse_mode = null;
     public ?bool $protect_content = null;
     public string $question;
@@ -298,7 +298,7 @@ class MessageCreateData
     public ?string $message_effect_id = null;
     public int $message_id;
     public ?int $message_thread_id = null;
-    public array $option;
+    public array $options;
     public ?string $parse_mode = null;
     public ?bool $protect_content = null;
     public string $question;
@@ -331,34 +331,34 @@ class MessageIdCreateData
 /** PromoteChatMember entity data model. */
 class PromoteChatMember
 {
-    public ?bool $can_delete_message = null;
-    public ?bool $can_edit_message = null;
+    public ?bool $can_delete_messages = null;
+    public ?bool $can_edit_messages = null;
     public ?bool $can_manage_chat = null;
-    public ?bool $can_manage_direct_message = null;
-    public ?bool $can_post_message = null;
+    public ?bool $can_manage_direct_messages = null;
+    public ?bool $can_post_messages = null;
     public string $chat_id;
     public ?string $description = null;
     public ?int $error_code = null;
     public bool $ok;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
     public int $user_id;
 }
 
 /** Request payload for PromoteChatMember#create. */
 class PromoteChatMemberCreateData
 {
-    public ?bool $can_delete_message = null;
-    public ?bool $can_edit_message = null;
+    public ?bool $can_delete_messages = null;
+    public ?bool $can_edit_messages = null;
     public ?bool $can_manage_chat = null;
-    public ?bool $can_manage_direct_message = null;
-    public ?bool $can_post_message = null;
+    public ?bool $can_manage_direct_messages = null;
+    public ?bool $can_post_messages = null;
     public string $chat_id;
     public ?string $description = null;
     public ?int $error_code = null;
     public bool $ok;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
     public int $user_id;
 }
 
@@ -368,8 +368,8 @@ class RemoveMyProfilePhoto
     public ?string $description = null;
     public ?int $error_code = null;
     public bool $ok;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
 }
 
 /** Request payload for RemoveMyProfilePhoto#create. */
@@ -378,8 +378,8 @@ class RemoveMyProfilePhotoCreateData
     public ?string $description = null;
     public ?int $error_code = null;
     public bool $ok;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
 }
 
 /** RepostStory entity data model. */
@@ -389,8 +389,8 @@ class RepostStory
     public ?string $description = null;
     public ?int $error_code = null;
     public bool $ok;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
     public int $story_id;
 }
 
@@ -401,8 +401,8 @@ class RepostStoryCreateData
     public ?string $description = null;
     public ?int $error_code = null;
     public bool $ok;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
     public int $story_id;
 }
 
@@ -415,8 +415,8 @@ class SendChatAction
     public ?int $error_code = null;
     public ?int $message_thread_id = null;
     public bool $ok;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
 }
 
 /** Request payload for SendChatAction#create. */
@@ -428,8 +428,8 @@ class SendChatActionCreateData
     public ?int $error_code = null;
     public ?int $message_thread_id = null;
     public bool $ok;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
 }
 
 /** SendMessageDraft entity data model. */
@@ -440,8 +440,8 @@ class SendMessageDraft
     public ?int $error_code = null;
     public ?int $message_thread_id = null;
     public bool $ok;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
     public string $text;
 }
 
@@ -453,8 +453,8 @@ class SendMessageDraftCreateData
     public ?int $error_code = null;
     public ?int $message_thread_id = null;
     public bool $ok;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
     public string $text;
 }
 
@@ -464,8 +464,8 @@ class SetMyProfilePhoto
     public ?string $description = null;
     public ?int $error_code = null;
     public bool $ok;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
 }
 
 /** Request payload for SetMyProfilePhoto#create. */
@@ -474,8 +474,8 @@ class SetMyProfilePhotoCreateData
     public ?string $description = null;
     public ?int $error_code = null;
     public bool $ok;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
 }
 
 /** UnpinAllForumTopicMessage entity data model. */
@@ -486,8 +486,8 @@ class UnpinAllForumTopicMessage
     public ?int $error_code = null;
     public int $message_thread_id;
     public bool $ok;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
 }
 
 /** Request payload for UnpinAllForumTopicMessage#create. */
@@ -498,20 +498,20 @@ class UnpinAllForumTopicMessageCreateData
     public ?int $error_code = null;
     public int $message_thread_id;
     public bool $ok;
-    public ?array $parameter = null;
-    public mixed $result = null;
+    public ?array $parameters = null;
+    public ?array $result = null;
 }
 
 /** Update entity data model. */
 class Update
 {
-    public ?array $allowed_update = null;
+    public ?array $allowed_updates = null;
     public ?string $description = null;
     public ?int $error_code = null;
     public ?int $limit = null;
     public ?int $offset = null;
     public bool $ok;
-    public ?array $parameter = null;
+    public ?array $parameters = null;
     public ?array $result = null;
     public ?int $timeout = null;
 }
@@ -519,13 +519,13 @@ class Update
 /** Request payload for Update#list. */
 class UpdateListMatch
 {
-    public ?array $allowed_update = null;
+    public ?array $allowed_updates = null;
     public ?string $description = null;
     public ?int $error_code = null;
     public ?int $limit = null;
     public ?int $offset = null;
     public ?bool $ok = null;
-    public ?array $parameter = null;
+    public ?array $parameters = null;
     public ?array $result = null;
     public ?int $timeout = null;
 }
@@ -533,13 +533,13 @@ class UpdateListMatch
 /** Request payload for Update#create. */
 class UpdateCreateData
 {
-    public ?array $allowed_update = null;
+    public ?array $allowed_updates = null;
     public ?string $description = null;
     public ?int $error_code = null;
     public ?int $limit = null;
     public ?int $offset = null;
     public bool $ok;
-    public ?array $parameter = null;
+    public ?array $parameters = null;
     public ?array $result = null;
     public ?int $timeout = null;
 }

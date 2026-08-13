@@ -36,7 +36,7 @@ $client = new TelegramBotSDK([
 ### 4. Create, update, and remove
 
 ```php
-// create() returns the bare created ApproveSuggestedPost record.
+// create() returns the ENTITY — call data_get() for the created ApproveSuggestedPost record.
 $created = $client->ApproveSuggestedPost()->create(["chat_id" => "example_chat_id", "message_id" => 1, "ok" => true]);
 
 ```
@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = TelegramBotSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $getme = $client->GetMe()->load();
 print_r($getme);
 ```
@@ -244,7 +245,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -271,7 +272,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `error_code` |  |
 | `message_id` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create.
@@ -287,7 +288,7 @@ API path: `/approveSuggestedPost`
 | `error_code` |  |
 | `message_id` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create.
@@ -303,7 +304,7 @@ API path: `/declineSuggestedPost`
 | `error_code` |  |
 | `message_thread_id` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create.
@@ -321,7 +322,7 @@ API path: `/deleteForumTopic`
 | `message_thread_id` |  |
 | `name` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create.
@@ -361,7 +362,7 @@ API path: `/createForumTopic`
 | `exclude_limited_non_upgradable` |  |
 | `exclude_limited_upgradable` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create.
@@ -376,7 +377,7 @@ API path: `/getBusinessAccountGifts`
 | `description` |  |
 | `error_code` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create.
@@ -390,7 +391,7 @@ API path: `/getChatGifts`
 | `description` |  |
 | `error_code` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create, Load.
@@ -404,7 +405,7 @@ API path: `/getMe`
 | `description` |  |
 | `error_code` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 | `user_id` |  |
 
@@ -419,7 +420,7 @@ API path: `/getUserGifts`
 | `description` |  |
 | `error_code` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 | `user_id` |  |
 
@@ -441,7 +442,7 @@ API path: `/getUserProfileAudios`
 | `message_effect_id` |  |
 | `message_id` |  |
 | `message_thread_id` |  |
-| `option` |  |
+| `options` |  |
 | `parse_mode` |  |
 | `protect_content` |  |
 | `question` |  |
@@ -471,16 +472,16 @@ API path: `/copyMessage`
 
 | Field | Description |
 | --- | --- |
-| `can_delete_message` |  |
-| `can_edit_message` |  |
+| `can_delete_messages` |  |
+| `can_edit_messages` |  |
 | `can_manage_chat` |  |
-| `can_manage_direct_message` |  |
-| `can_post_message` |  |
+| `can_manage_direct_messages` |  |
+| `can_post_messages` |  |
 | `chat_id` |  |
 | `description` |  |
 | `error_code` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 | `user_id` |  |
 
@@ -495,7 +496,7 @@ API path: `/promoteChatMember`
 | `description` |  |
 | `error_code` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create.
@@ -510,7 +511,7 @@ API path: `/removeMyProfilePhoto`
 | `description` |  |
 | `error_code` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 | `story_id` |  |
 
@@ -528,7 +529,7 @@ API path: `/repostStory`
 | `error_code` |  |
 | `message_thread_id` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create.
@@ -544,7 +545,7 @@ API path: `/sendChatAction`
 | `error_code` |  |
 | `message_thread_id` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 | `text` |  |
 
@@ -559,7 +560,7 @@ API path: `/sendMessageDraft`
 | `description` |  |
 | `error_code` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create.
@@ -575,7 +576,7 @@ API path: `/setMyProfilePhoto`
 | `error_code` |  |
 | `message_thread_id` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 
 Operations: Create.
@@ -586,13 +587,13 @@ API path: `/unpinAllForumTopicMessages`
 
 | Field | Description |
 | --- | --- |
-| `allowed_update` |  |
+| `allowed_updates` |  |
 | `description` |  |
 | `error_code` |  |
 | `limit` |  |
 | `offset` |  |
 | `ok` |  |
-| `parameter` |  |
+| `parameters` |  |
 | `result` |  |
 | `timeout` |  |
 
@@ -624,8 +625,8 @@ Create an instance: `$approve_suggested_post = $client->ApproveSuggestedPost();`
 | `error_code` | `int` |  |
 | `message_id` | `int` |  |
 | `ok` | `bool` |  |
-| `parameter` | `array` |  |
-| `result` | `mixed` |  |
+| `parameters` | `array` |  |
+| `result` | `array` |  |
 
 #### Example: Create
 
@@ -657,8 +658,8 @@ Create an instance: `$decline_suggested_post = $client->DeclineSuggestedPost();`
 | `error_code` | `int` |  |
 | `message_id` | `int` |  |
 | `ok` | `bool` |  |
-| `parameter` | `array` |  |
-| `result` | `mixed` |  |
+| `parameters` | `array` |  |
+| `result` | `array` |  |
 
 #### Example: Create
 
@@ -690,8 +691,8 @@ Create an instance: `$delete_forum_topic = $client->DeleteForumTopic();`
 | `error_code` | `int` |  |
 | `message_thread_id` | `int` |  |
 | `ok` | `bool` |  |
-| `parameter` | `array` |  |
-| `result` | `mixed` |  |
+| `parameters` | `array` |  |
+| `result` | `array` |  |
 
 #### Example: Create
 
@@ -725,8 +726,8 @@ Create an instance: `$edit_forum_topic = $client->EditForumTopic();`
 | `message_thread_id` | `int` |  |
 | `name` | `string` |  |
 | `ok` | `bool` |  |
-| `parameter` | `array` |  |
-| `result` | `mixed` |  |
+| `parameters` | `array` |  |
+| `result` | `array` |  |
 
 #### Example: Create
 
@@ -813,8 +814,8 @@ Create an instance: `$get_business_account_gift = $client->GetBusinessAccountGif
 | `exclude_limited_non_upgradable` | `bool` |  |
 | `exclude_limited_upgradable` | `bool` |  |
 | `ok` | `bool` |  |
-| `parameter` | `array` |  |
-| `result` | `mixed` |  |
+| `parameters` | `array` |  |
+| `result` | `array` |  |
 
 #### Example: Create
 
@@ -843,8 +844,8 @@ Create an instance: `$get_chat_gift = $client->GetChatGift();`
 | `description` | `string` |  |
 | `error_code` | `int` |  |
 | `ok` | `bool` |  |
-| `parameter` | `array` |  |
-| `result` | `mixed` |  |
+| `parameters` | `array` |  |
+| `result` | `array` |  |
 
 #### Example: Create
 
@@ -874,13 +875,13 @@ Create an instance: `$get_me = $client->GetMe();`
 | `description` | `string` |  |
 | `error_code` | `int` |  |
 | `ok` | `bool` |  |
-| `parameter` | `array` |  |
-| `result` | `mixed` |  |
+| `parameters` | `array` |  |
+| `result` | `array` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare GetMe record (throws on error).
+// load() returns the ENTITY — call data_get() for the GetMe record (throws on error).
 $get_me = $client->GetMe()->load();
 ```
 
@@ -910,8 +911,8 @@ Create an instance: `$get_user_gift = $client->GetUserGift();`
 | `description` | `string` |  |
 | `error_code` | `int` |  |
 | `ok` | `bool` |  |
-| `parameter` | `array` |  |
-| `result` | `mixed` |  |
+| `parameters` | `array` |  |
+| `result` | `array` |  |
 | `user_id` | `int` |  |
 
 #### Example: Create
@@ -941,8 +942,8 @@ Create an instance: `$get_user_profile_audio = $client->GetUserProfileAudio();`
 | `description` | `string` |  |
 | `error_code` | `int` |  |
 | `ok` | `bool` |  |
-| `parameter` | `array` |  |
-| `result` | `mixed` |  |
+| `parameters` | `array` |  |
+| `result` | `array` |  |
 | `user_id` | `int` |  |
 
 #### Example: Create
@@ -979,7 +980,7 @@ Create an instance: `$message = $client->Message();`
 | `message_effect_id` | `string` |  |
 | `message_id` | `int` |  |
 | `message_thread_id` | `int` |  |
-| `option` | `array` |  |
+| `options` | `array` |  |
 | `parse_mode` | `string` |  |
 | `protect_content` | `bool` |  |
 | `question` | `string` |  |
@@ -995,7 +996,7 @@ $message = $client->Message()->create([
     "latitude" => null, // float
     "longitude" => null, // float
     "message_id" => null, // int
-    "option" => null, // array
+    "options" => null, // array
     "question" => null, // string
     "text" => null, // string
 ]);
@@ -1048,17 +1049,17 @@ Create an instance: `$promote_chat_member = $client->PromoteChatMember();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `can_delete_message` | `bool` |  |
-| `can_edit_message` | `bool` |  |
+| `can_delete_messages` | `bool` |  |
+| `can_edit_messages` | `bool` |  |
 | `can_manage_chat` | `bool` |  |
-| `can_manage_direct_message` | `bool` |  |
-| `can_post_message` | `bool` |  |
+| `can_manage_direct_messages` | `bool` |  |
+| `can_post_messages` | `bool` |  |
 | `chat_id` | `string` |  |
 | `description` | `string` |  |
 | `error_code` | `int` |  |
 | `ok` | `bool` |  |
-| `parameter` | `array` |  |
-| `result` | `mixed` |  |
+| `parameters` | `array` |  |
+| `result` | `array` |  |
 | `user_id` | `int` |  |
 
 #### Example: Create
@@ -1089,8 +1090,8 @@ Create an instance: `$remove_my_profile_photo = $client->RemoveMyProfilePhoto();
 | `description` | `string` |  |
 | `error_code` | `int` |  |
 | `ok` | `bool` |  |
-| `parameter` | `array` |  |
-| `result` | `mixed` |  |
+| `parameters` | `array` |  |
+| `result` | `array` |  |
 
 #### Example: Create
 
@@ -1119,8 +1120,8 @@ Create an instance: `$repost_story = $client->RepostStory();`
 | `description` | `string` |  |
 | `error_code` | `int` |  |
 | `ok` | `bool` |  |
-| `parameter` | `array` |  |
-| `result` | `mixed` |  |
+| `parameters` | `array` |  |
+| `result` | `array` |  |
 | `story_id` | `int` |  |
 
 #### Example: Create
@@ -1154,8 +1155,8 @@ Create an instance: `$send_chat_action = $client->SendChatAction();`
 | `error_code` | `int` |  |
 | `message_thread_id` | `int` |  |
 | `ok` | `bool` |  |
-| `parameter` | `array` |  |
-| `result` | `mixed` |  |
+| `parameters` | `array` |  |
+| `result` | `array` |  |
 
 #### Example: Create
 
@@ -1187,8 +1188,8 @@ Create an instance: `$send_message_draft = $client->SendMessageDraft();`
 | `error_code` | `int` |  |
 | `message_thread_id` | `int` |  |
 | `ok` | `bool` |  |
-| `parameter` | `array` |  |
-| `result` | `mixed` |  |
+| `parameters` | `array` |  |
+| `result` | `array` |  |
 | `text` | `string` |  |
 
 #### Example: Create
@@ -1219,8 +1220,8 @@ Create an instance: `$set_my_profile_photo = $client->SetMyProfilePhoto();`
 | `description` | `string` |  |
 | `error_code` | `int` |  |
 | `ok` | `bool` |  |
-| `parameter` | `array` |  |
-| `result` | `mixed` |  |
+| `parameters` | `array` |  |
+| `result` | `array` |  |
 
 #### Example: Create
 
@@ -1250,8 +1251,8 @@ Create an instance: `$unpin_all_forum_topic_message = $client->UnpinAllForumTopi
 | `error_code` | `int` |  |
 | `message_thread_id` | `int` |  |
 | `ok` | `bool` |  |
-| `parameter` | `array` |  |
-| `result` | `mixed` |  |
+| `parameters` | `array` |  |
+| `result` | `array` |  |
 
 #### Example: Create
 
@@ -1279,13 +1280,13 @@ Create an instance: `$update = $client->Update();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `allowed_update` | `array` |  |
+| `allowed_updates` | `array` |  |
 | `description` | `string` |  |
 | `error_code` | `int` |  |
 | `limit` | `int` |  |
 | `offset` | `int` |  |
 | `ok` | `bool` |  |
-| `parameter` | `array` |  |
+| `parameters` | `array` |  |
 | `result` | `array` |  |
 | `timeout` | `int` |  |
 

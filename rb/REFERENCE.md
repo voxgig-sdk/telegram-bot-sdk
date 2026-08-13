@@ -179,8 +179,8 @@ approve_suggested_post = client.ApproveSuggestedPost
 | `error_code` | `Integer` | No |  |
 | `message_id` | `Integer` | Yes |  |
 | `ok` | `Boolean` | Yes |  |
-| `parameter` | `Hash` | No |  |
-| `result` | `Object` | No |  |
+| `parameters` | `Hash` | No |  |
+| `result` | `Array` | No |  |
 
 ### Operations
 
@@ -241,8 +241,8 @@ decline_suggested_post = client.DeclineSuggestedPost
 | `error_code` | `Integer` | No |  |
 | `message_id` | `Integer` | Yes |  |
 | `ok` | `Boolean` | Yes |  |
-| `parameter` | `Hash` | No |  |
-| `result` | `Object` | No |  |
+| `parameters` | `Hash` | No |  |
+| `result` | `Array` | No |  |
 
 ### Operations
 
@@ -303,8 +303,8 @@ delete_forum_topic = client.DeleteForumTopic
 | `error_code` | `Integer` | No |  |
 | `message_thread_id` | `Integer` | Yes |  |
 | `ok` | `Boolean` | Yes |  |
-| `parameter` | `Hash` | No |  |
-| `result` | `Object` | No |  |
+| `parameters` | `Hash` | No |  |
+| `result` | `Array` | No |  |
 
 ### Operations
 
@@ -367,8 +367,8 @@ edit_forum_topic = client.EditForumTopic
 | `message_thread_id` | `Integer` | Yes |  |
 | `name` | `String` | No |  |
 | `ok` | `Boolean` | Yes |  |
-| `parameter` | `Hash` | No |  |
-| `result` | `Object` | No |  |
+| `parameters` | `Hash` | No |  |
+| `result` | `Array` | No |  |
 
 ### Operations
 
@@ -542,8 +542,8 @@ get_business_account_gift = client.GetBusinessAccountGift
 | `exclude_limited_non_upgradable` | `Boolean` | No |  |
 | `exclude_limited_upgradable` | `Boolean` | No |  |
 | `ok` | `Boolean` | Yes |  |
-| `parameter` | `Hash` | No |  |
-| `result` | `Object` | No |  |
+| `parameters` | `Hash` | No |  |
+| `result` | `Array` | No |  |
 
 ### Operations
 
@@ -601,8 +601,8 @@ get_chat_gift = client.GetChatGift
 | `description` | `String` | No |  |
 | `error_code` | `Integer` | No |  |
 | `ok` | `Boolean` | Yes |  |
-| `parameter` | `Hash` | No |  |
-| `result` | `Object` | No |  |
+| `parameters` | `Hash` | No |  |
+| `result` | `Array` | No |  |
 
 ### Operations
 
@@ -660,8 +660,8 @@ get_me = client.GetMe
 | `description` | `String` | No |  |
 | `error_code` | `Integer` | No |  |
 | `ok` | `Boolean` | Yes |  |
-| `parameter` | `Hash` | No |  |
-| `result` | `Object` | No |  |
+| `parameters` | `Hash` | No |  |
+| `result` | `Array` | No |  |
 
 ### Operations
 
@@ -726,8 +726,8 @@ get_user_gift = client.GetUserGift
 | `description` | `String` | No |  |
 | `error_code` | `Integer` | No |  |
 | `ok` | `Boolean` | Yes |  |
-| `parameter` | `Hash` | No |  |
-| `result` | `Object` | No |  |
+| `parameters` | `Hash` | No |  |
+| `result` | `Array` | No |  |
 | `user_id` | `Integer` | Yes |  |
 
 ### Operations
@@ -786,8 +786,8 @@ get_user_profile_audio = client.GetUserProfileAudio
 | `description` | `String` | No |  |
 | `error_code` | `Integer` | No |  |
 | `ok` | `Boolean` | Yes |  |
-| `parameter` | `Hash` | No |  |
-| `result` | `Object` | No |  |
+| `parameters` | `Hash` | No |  |
+| `result` | `Array` | No |  |
 | `user_id` | `Integer` | Yes |  |
 
 ### Operations
@@ -853,7 +853,7 @@ message = client.Message
 | `message_effect_id` | `String` | No |  |
 | `message_id` | `Integer` | Yes |  |
 | `message_thread_id` | `Integer` | No |  |
-| `option` | `Array` | Yes |  |
+| `options` | `Array` | Yes |  |
 | `parse_mode` | `String` | No |  |
 | `protect_content` | `Boolean` | No |  |
 | `question` | `String` | Yes |  |
@@ -873,7 +873,7 @@ result = client.Message.create({
   "latitude" => 1, # Float
   "longitude" => 1, # Float
   "message_id" => 1, # Integer
-  "option" => [], # Array
+  "options" => [], # Array
   "question" => "example_question", # String
   "text" => "example_text", # String
 })
@@ -980,17 +980,17 @@ promote_chat_member = client.PromoteChatMember
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `can_delete_message` | `Boolean` | No |  |
-| `can_edit_message` | `Boolean` | No |  |
+| `can_delete_messages` | `Boolean` | No |  |
+| `can_edit_messages` | `Boolean` | No |  |
 | `can_manage_chat` | `Boolean` | No |  |
-| `can_manage_direct_message` | `Boolean` | No |  |
-| `can_post_message` | `Boolean` | No |  |
+| `can_manage_direct_messages` | `Boolean` | No |  |
+| `can_post_messages` | `Boolean` | No |  |
 | `chat_id` | `String` | Yes |  |
 | `description` | `String` | No |  |
 | `error_code` | `Integer` | No |  |
 | `ok` | `Boolean` | Yes |  |
-| `parameter` | `Hash` | No |  |
-| `result` | `Object` | No |  |
+| `parameters` | `Hash` | No |  |
+| `result` | `Array` | No |  |
 | `user_id` | `Integer` | Yes |  |
 
 ### Operations
@@ -1050,8 +1050,8 @@ remove_my_profile_photo = client.RemoveMyProfilePhoto
 | `description` | `String` | No |  |
 | `error_code` | `Integer` | No |  |
 | `ok` | `Boolean` | Yes |  |
-| `parameter` | `Hash` | No |  |
-| `result` | `Object` | No |  |
+| `parameters` | `Hash` | No |  |
+| `result` | `Array` | No |  |
 
 ### Operations
 
@@ -1109,8 +1109,8 @@ repost_story = client.RepostStory
 | `description` | `String` | No |  |
 | `error_code` | `Integer` | No |  |
 | `ok` | `Boolean` | Yes |  |
-| `parameter` | `Hash` | No |  |
-| `result` | `Object` | No |  |
+| `parameters` | `Hash` | No |  |
+| `result` | `Array` | No |  |
 | `story_id` | `Integer` | Yes |  |
 
 ### Operations
@@ -1173,8 +1173,8 @@ send_chat_action = client.SendChatAction
 | `error_code` | `Integer` | No |  |
 | `message_thread_id` | `Integer` | No |  |
 | `ok` | `Boolean` | Yes |  |
-| `parameter` | `Hash` | No |  |
-| `result` | `Object` | No |  |
+| `parameters` | `Hash` | No |  |
+| `result` | `Array` | No |  |
 
 ### Operations
 
@@ -1235,8 +1235,8 @@ send_message_draft = client.SendMessageDraft
 | `error_code` | `Integer` | No |  |
 | `message_thread_id` | `Integer` | No |  |
 | `ok` | `Boolean` | Yes |  |
-| `parameter` | `Hash` | No |  |
-| `result` | `Object` | No |  |
+| `parameters` | `Hash` | No |  |
+| `result` | `Array` | No |  |
 | `text` | `String` | Yes |  |
 
 ### Operations
@@ -1296,8 +1296,8 @@ set_my_profile_photo = client.SetMyProfilePhoto
 | `description` | `String` | No |  |
 | `error_code` | `Integer` | No |  |
 | `ok` | `Boolean` | Yes |  |
-| `parameter` | `Hash` | No |  |
-| `result` | `Object` | No |  |
+| `parameters` | `Hash` | No |  |
+| `result` | `Array` | No |  |
 
 ### Operations
 
@@ -1356,8 +1356,8 @@ unpin_all_forum_topic_message = client.UnpinAllForumTopicMessage
 | `error_code` | `Integer` | No |  |
 | `message_thread_id` | `Integer` | Yes |  |
 | `ok` | `Boolean` | Yes |  |
-| `parameter` | `Hash` | No |  |
-| `result` | `Object` | No |  |
+| `parameters` | `Hash` | No |  |
+| `result` | `Array` | No |  |
 
 ### Operations
 
@@ -1413,13 +1413,13 @@ update = client.Update
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `allowed_update` | `Array` | No |  |
+| `allowed_updates` | `Array` | No |  |
 | `description` | `String` | No |  |
 | `error_code` | `Integer` | No |  |
 | `limit` | `Integer` | No |  |
 | `offset` | `Integer` | No |  |
 | `ok` | `Boolean` | Yes |  |
-| `parameter` | `Hash` | No |  |
+| `parameters` | `Hash` | No |  |
 | `result` | `Array` | No |  |
 | `timeout` | `Integer` | No |  |
 

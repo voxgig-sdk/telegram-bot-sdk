@@ -26,8 +26,8 @@ import {
 describe('DeleteForumTopicEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when TELEGRAMBOT_TEST_LIVE=TRUE.
-  afterEach(liveDelay('TELEGRAMBOT_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when TELEGRAM_BOT_TEST_LIVE=TRUE.
+  afterEach(liveDelay('TELEGRAM_BOT_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = TelegramBotSDK.test()
@@ -62,7 +62,7 @@ describe('DeleteForumTopicEntity', async () => {
     const delete_forum_topic_ref01_ent = client.DeleteForumTopic()
     let delete_forum_topic_ref01_data = setup.data.new.delete_forum_topic['delete_forum_topic_ref01']
 
-    delete_forum_topic_ref01_data = await delete_forum_topic_ref01_ent.create(delete_forum_topic_ref01_data)
+    delete_forum_topic_ref01_data = (await delete_forum_topic_ref01_ent.create(delete_forum_topic_ref01_data)).data()
     assert(null != delete_forum_topic_ref01_data)
 
 

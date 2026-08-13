@@ -26,14 +26,14 @@ main: kit: entity: get_chat_gift: {
       type: "`$BOOLEAN`"
     }
     {
-      name: "parameter"
+      name: "parameters"
       req: false
       type: "`$OBJECT`"
     }
     {
       name: "result"
       req: false
-      type: "`$ANY`"
+      type: "`$ARRAY`"
     }
   ]
 
@@ -50,7 +50,7 @@ main: kit: entity: get_chat_gift: {
           ]
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.parameters`"
           }
         }
       ]

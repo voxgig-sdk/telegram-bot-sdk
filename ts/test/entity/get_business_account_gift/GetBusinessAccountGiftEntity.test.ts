@@ -26,8 +26,8 @@ import {
 describe('GetBusinessAccountGiftEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when TELEGRAMBOT_TEST_LIVE=TRUE.
-  afterEach(liveDelay('TELEGRAMBOT_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when TELEGRAM_BOT_TEST_LIVE=TRUE.
+  afterEach(liveDelay('TELEGRAM_BOT_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = TelegramBotSDK.test()
@@ -62,7 +62,7 @@ describe('GetBusinessAccountGiftEntity', async () => {
     const get_business_account_gift_ref01_ent = client.GetBusinessAccountGift()
     let get_business_account_gift_ref01_data = setup.data.new.get_business_account_gift['get_business_account_gift_ref01']
 
-    get_business_account_gift_ref01_data = await get_business_account_gift_ref01_ent.create(get_business_account_gift_ref01_data)
+    get_business_account_gift_ref01_data = (await get_business_account_gift_ref01_ent.create(get_business_account_gift_ref01_data)).data()
     assert(null != get_business_account_gift_ref01_data)
 
 

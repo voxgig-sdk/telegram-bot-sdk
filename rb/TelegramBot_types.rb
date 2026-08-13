@@ -25,18 +25,18 @@
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 ApproveSuggestedPost = Struct.new(
   :chat_id,
   :description,
   :error_code,
   :message_id,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   keyword_init: true
 )
@@ -58,18 +58,18 @@ ApproveSuggestedPost = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 ApproveSuggestedPostCreateData = Struct.new(
   :chat_id,
   :description,
   :error_code,
   :message_id,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   keyword_init: true
 )
@@ -91,18 +91,18 @@ ApproveSuggestedPostCreateData = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 DeclineSuggestedPost = Struct.new(
   :chat_id,
   :description,
   :error_code,
   :message_id,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   keyword_init: true
 )
@@ -124,18 +124,18 @@ DeclineSuggestedPost = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 DeclineSuggestedPostCreateData = Struct.new(
   :chat_id,
   :description,
   :error_code,
   :message_id,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   keyword_init: true
 )
@@ -157,18 +157,18 @@ DeclineSuggestedPostCreateData = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 DeleteForumTopic = Struct.new(
   :chat_id,
   :description,
   :error_code,
   :message_thread_id,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   keyword_init: true
 )
@@ -190,18 +190,18 @@ DeleteForumTopic = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 DeleteForumTopicCreateData = Struct.new(
   :chat_id,
   :description,
   :error_code,
   :message_thread_id,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   keyword_init: true
 )
@@ -229,11 +229,11 @@ DeleteForumTopicCreateData = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 EditForumTopic = Struct.new(
   :chat_id,
   :description,
@@ -242,7 +242,7 @@ EditForumTopic = Struct.new(
   :message_thread_id,
   :name,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   keyword_init: true
 )
@@ -270,11 +270,11 @@ EditForumTopic = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 EditForumTopicCreateData = Struct.new(
   :chat_id,
   :description,
@@ -283,7 +283,7 @@ EditForumTopicCreateData = Struct.new(
   :message_thread_id,
   :name,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   keyword_init: true
 )
@@ -292,7 +292,7 @@ EditForumTopicCreateData = Struct.new(
 #
 # @!attribute [rw] file_id
 #   @return [String]
-File = Struct.new(
+FileType = Struct.new(
   :file_id,
   keyword_init: true
 )
@@ -368,11 +368,11 @@ ForumTopicCreateData = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 GetBusinessAccountGift = Struct.new(
   :description,
   :error_code,
@@ -380,7 +380,7 @@ GetBusinessAccountGift = Struct.new(
   :exclude_limited_non_upgradable,
   :exclude_limited_upgradable,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   keyword_init: true
 )
@@ -405,11 +405,11 @@ GetBusinessAccountGift = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 GetBusinessAccountGiftCreateData = Struct.new(
   :description,
   :error_code,
@@ -417,7 +417,7 @@ GetBusinessAccountGiftCreateData = Struct.new(
   :exclude_limited_non_upgradable,
   :exclude_limited_upgradable,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   keyword_init: true
 )
@@ -436,17 +436,17 @@ GetBusinessAccountGiftCreateData = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 GetChatGift = Struct.new(
   :chat_id,
   :description,
   :error_code,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   keyword_init: true
 )
@@ -465,17 +465,17 @@ GetChatGift = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 GetChatGiftCreateData = Struct.new(
   :chat_id,
   :description,
   :error_code,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   keyword_init: true
 )
@@ -491,16 +491,16 @@ GetChatGiftCreateData = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 GetMe = Struct.new(
   :description,
   :error_code,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   keyword_init: true
 )
@@ -516,16 +516,16 @@ GetMe = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 GetMeLoadMatch = Struct.new(
   :description,
   :error_code,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   keyword_init: true
 )
@@ -541,16 +541,16 @@ GetMeLoadMatch = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 GetMeCreateData = Struct.new(
   :description,
   :error_code,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   keyword_init: true
 )
@@ -566,11 +566,11 @@ GetMeCreateData = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 #
 # @!attribute [rw] user_id
 #   @return [Integer]
@@ -578,7 +578,7 @@ GetUserGift = Struct.new(
   :description,
   :error_code,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   :user_id,
   keyword_init: true
@@ -595,11 +595,11 @@ GetUserGift = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 #
 # @!attribute [rw] user_id
 #   @return [Integer]
@@ -607,7 +607,7 @@ GetUserGiftCreateData = Struct.new(
   :description,
   :error_code,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   :user_id,
   keyword_init: true
@@ -624,11 +624,11 @@ GetUserGiftCreateData = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 #
 # @!attribute [rw] user_id
 #   @return [Integer]
@@ -636,7 +636,7 @@ GetUserProfileAudio = Struct.new(
   :description,
   :error_code,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   :user_id,
   keyword_init: true
@@ -653,11 +653,11 @@ GetUserProfileAudio = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 #
 # @!attribute [rw] user_id
 #   @return [Integer]
@@ -665,7 +665,7 @@ GetUserProfileAudioCreateData = Struct.new(
   :description,
   :error_code,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   :user_id,
   keyword_init: true
@@ -703,7 +703,7 @@ GetUserProfileAudioCreateData = Struct.new(
 # @!attribute [rw] message_thread_id
 #   @return [Integer, nil]
 #
-# @!attribute [rw] option
+# @!attribute [rw] options
 #   @return [Array]
 #
 # @!attribute [rw] parse_mode
@@ -731,7 +731,7 @@ Message = Struct.new(
   :message_effect_id,
   :message_id,
   :message_thread_id,
-  :option,
+  :options,
   :parse_mode,
   :protect_content,
   :question,
@@ -772,7 +772,7 @@ Message = Struct.new(
 # @!attribute [rw] message_thread_id
 #   @return [Integer, nil]
 #
-# @!attribute [rw] option
+# @!attribute [rw] options
 #   @return [Array]
 #
 # @!attribute [rw] parse_mode
@@ -800,7 +800,7 @@ MessageCreateData = Struct.new(
   :message_effect_id,
   :message_id,
   :message_thread_id,
-  :option,
+  :options,
   :parse_mode,
   :protect_content,
   :question,
@@ -869,19 +869,19 @@ MessageIdCreateData = Struct.new(
 
 # PromoteChatMember entity data model.
 #
-# @!attribute [rw] can_delete_message
+# @!attribute [rw] can_delete_messages
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] can_edit_message
+# @!attribute [rw] can_edit_messages
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] can_manage_chat
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] can_manage_direct_message
+# @!attribute [rw] can_manage_direct_messages
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] can_post_message
+# @!attribute [rw] can_post_messages
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] chat_id
@@ -896,25 +896,25 @@ MessageIdCreateData = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 #
 # @!attribute [rw] user_id
 #   @return [Integer]
 PromoteChatMember = Struct.new(
-  :can_delete_message,
-  :can_edit_message,
+  :can_delete_messages,
+  :can_edit_messages,
   :can_manage_chat,
-  :can_manage_direct_message,
-  :can_post_message,
+  :can_manage_direct_messages,
+  :can_post_messages,
   :chat_id,
   :description,
   :error_code,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   :user_id,
   keyword_init: true
@@ -922,19 +922,19 @@ PromoteChatMember = Struct.new(
 
 # Request payload for PromoteChatMember#create.
 #
-# @!attribute [rw] can_delete_message
+# @!attribute [rw] can_delete_messages
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] can_edit_message
+# @!attribute [rw] can_edit_messages
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] can_manage_chat
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] can_manage_direct_message
+# @!attribute [rw] can_manage_direct_messages
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] can_post_message
+# @!attribute [rw] can_post_messages
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] chat_id
@@ -949,25 +949,25 @@ PromoteChatMember = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 #
 # @!attribute [rw] user_id
 #   @return [Integer]
 PromoteChatMemberCreateData = Struct.new(
-  :can_delete_message,
-  :can_edit_message,
+  :can_delete_messages,
+  :can_edit_messages,
   :can_manage_chat,
-  :can_manage_direct_message,
-  :can_post_message,
+  :can_manage_direct_messages,
+  :can_post_messages,
   :chat_id,
   :description,
   :error_code,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   :user_id,
   keyword_init: true
@@ -984,16 +984,16 @@ PromoteChatMemberCreateData = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 RemoveMyProfilePhoto = Struct.new(
   :description,
   :error_code,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   keyword_init: true
 )
@@ -1009,16 +1009,16 @@ RemoveMyProfilePhoto = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 RemoveMyProfilePhotoCreateData = Struct.new(
   :description,
   :error_code,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   keyword_init: true
 )
@@ -1037,11 +1037,11 @@ RemoveMyProfilePhotoCreateData = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 #
 # @!attribute [rw] story_id
 #   @return [Integer]
@@ -1050,7 +1050,7 @@ RepostStory = Struct.new(
   :description,
   :error_code,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   :story_id,
   keyword_init: true
@@ -1070,11 +1070,11 @@ RepostStory = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 #
 # @!attribute [rw] story_id
 #   @return [Integer]
@@ -1083,7 +1083,7 @@ RepostStoryCreateData = Struct.new(
   :description,
   :error_code,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   :story_id,
   keyword_init: true
@@ -1109,11 +1109,11 @@ RepostStoryCreateData = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 SendChatAction = Struct.new(
   :action,
   :chat_id,
@@ -1121,7 +1121,7 @@ SendChatAction = Struct.new(
   :error_code,
   :message_thread_id,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   keyword_init: true
 )
@@ -1146,11 +1146,11 @@ SendChatAction = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 SendChatActionCreateData = Struct.new(
   :action,
   :chat_id,
@@ -1158,7 +1158,7 @@ SendChatActionCreateData = Struct.new(
   :error_code,
   :message_thread_id,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   keyword_init: true
 )
@@ -1180,11 +1180,11 @@ SendChatActionCreateData = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 #
 # @!attribute [rw] text
 #   @return [String]
@@ -1194,7 +1194,7 @@ SendMessageDraft = Struct.new(
   :error_code,
   :message_thread_id,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   :text,
   keyword_init: true
@@ -1217,11 +1217,11 @@ SendMessageDraft = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 #
 # @!attribute [rw] text
 #   @return [String]
@@ -1231,7 +1231,7 @@ SendMessageDraftCreateData = Struct.new(
   :error_code,
   :message_thread_id,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   :text,
   keyword_init: true
@@ -1248,16 +1248,16 @@ SendMessageDraftCreateData = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 SetMyProfilePhoto = Struct.new(
   :description,
   :error_code,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   keyword_init: true
 )
@@ -1273,16 +1273,16 @@ SetMyProfilePhoto = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 SetMyProfilePhotoCreateData = Struct.new(
   :description,
   :error_code,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   keyword_init: true
 )
@@ -1304,18 +1304,18 @@ SetMyProfilePhotoCreateData = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 UnpinAllForumTopicMessage = Struct.new(
   :chat_id,
   :description,
   :error_code,
   :message_thread_id,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   keyword_init: true
 )
@@ -1337,25 +1337,25 @@ UnpinAllForumTopicMessage = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
-#   @return [Object, nil]
+#   @return [Array, nil]
 UnpinAllForumTopicMessageCreateData = Struct.new(
   :chat_id,
   :description,
   :error_code,
   :message_thread_id,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   keyword_init: true
 )
 
 # Update entity data model.
 #
-# @!attribute [rw] allowed_update
+# @!attribute [rw] allowed_updates
 #   @return [Array, nil]
 #
 # @!attribute [rw] description
@@ -1373,7 +1373,7 @@ UnpinAllForumTopicMessageCreateData = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
@@ -1382,13 +1382,13 @@ UnpinAllForumTopicMessageCreateData = Struct.new(
 # @!attribute [rw] timeout
 #   @return [Integer, nil]
 Update = Struct.new(
-  :allowed_update,
+  :allowed_updates,
   :description,
   :error_code,
   :limit,
   :offset,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   :timeout,
   keyword_init: true
@@ -1396,7 +1396,7 @@ Update = Struct.new(
 
 # Request payload for Update#list.
 #
-# @!attribute [rw] allowed_update
+# @!attribute [rw] allowed_updates
 #   @return [Array, nil]
 #
 # @!attribute [rw] description
@@ -1414,7 +1414,7 @@ Update = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
@@ -1423,13 +1423,13 @@ Update = Struct.new(
 # @!attribute [rw] timeout
 #   @return [Integer, nil]
 UpdateListMatch = Struct.new(
-  :allowed_update,
+  :allowed_updates,
   :description,
   :error_code,
   :limit,
   :offset,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   :timeout,
   keyword_init: true
@@ -1437,7 +1437,7 @@ UpdateListMatch = Struct.new(
 
 # Request payload for Update#create.
 #
-# @!attribute [rw] allowed_update
+# @!attribute [rw] allowed_updates
 #   @return [Array, nil]
 #
 # @!attribute [rw] description
@@ -1455,7 +1455,7 @@ UpdateListMatch = Struct.new(
 # @!attribute [rw] ok
 #   @return [Boolean]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] result
@@ -1464,13 +1464,13 @@ UpdateListMatch = Struct.new(
 # @!attribute [rw] timeout
 #   @return [Integer, nil]
 UpdateCreateData = Struct.new(
-  :allowed_update,
+  :allowed_updates,
   :description,
   :error_code,
   :limit,
   :offset,
   :ok,
-  :parameter,
+  :parameters,
   :result,
   :timeout,
   keyword_init: true

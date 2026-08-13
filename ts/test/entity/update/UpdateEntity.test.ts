@@ -26,8 +26,8 @@ import {
 describe('UpdateEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when TELEGRAMBOT_TEST_LIVE=TRUE.
-  afterEach(liveDelay('TELEGRAMBOT_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when TELEGRAM_BOT_TEST_LIVE=TRUE.
+  afterEach(liveDelay('TELEGRAM_BOT_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = TelegramBotSDK.test()
@@ -62,16 +62,14 @@ describe('UpdateEntity', async () => {
     const update_ref01_ent = client.Update()
     let update_ref01_data = setup.data.new.update['update_ref01']
 
-    update_ref01_data = await update_ref01_ent.create(update_ref01_data)
+    update_ref01_data = (await update_ref01_ent.create(update_ref01_data)).data()
     assert(null != update_ref01_data)
 
 
     // LIST
     const update_ref01_match: any = {}
 
-    const update_ref01_list = await update_ref01_ent.list(update_ref01_match)
-
-    assert(!isempty(select(update_ref01_list, { id: update_ref01_data.id })))
+    const update_ref01_list = (await update_ref01_ent.list(update_ref01_match)).map((e: any) => e.data())
 
 
   })

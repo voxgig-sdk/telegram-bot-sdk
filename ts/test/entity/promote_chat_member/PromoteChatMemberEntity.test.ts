@@ -26,8 +26,8 @@ import {
 describe('PromoteChatMemberEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when TELEGRAMBOT_TEST_LIVE=TRUE.
-  afterEach(liveDelay('TELEGRAMBOT_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when TELEGRAM_BOT_TEST_LIVE=TRUE.
+  afterEach(liveDelay('TELEGRAM_BOT_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = TelegramBotSDK.test()
@@ -62,7 +62,7 @@ describe('PromoteChatMemberEntity', async () => {
     const promote_chat_member_ref01_ent = client.PromoteChatMember()
     let promote_chat_member_ref01_data = setup.data.new.promote_chat_member['promote_chat_member_ref01']
 
-    promote_chat_member_ref01_data = await promote_chat_member_ref01_ent.create(promote_chat_member_ref01_data)
+    promote_chat_member_ref01_data = (await promote_chat_member_ref01_ent.create(promote_chat_member_ref01_data)).data()
     assert(null != promote_chat_member_ref01_data)
 
 

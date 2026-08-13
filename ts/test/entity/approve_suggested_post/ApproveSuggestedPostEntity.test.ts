@@ -26,8 +26,8 @@ import {
 describe('ApproveSuggestedPostEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when TELEGRAMBOT_TEST_LIVE=TRUE.
-  afterEach(liveDelay('TELEGRAMBOT_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when TELEGRAM_BOT_TEST_LIVE=TRUE.
+  afterEach(liveDelay('TELEGRAM_BOT_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = TelegramBotSDK.test()
@@ -62,7 +62,7 @@ describe('ApproveSuggestedPostEntity', async () => {
     const approve_suggested_post_ref01_ent = client.ApproveSuggestedPost()
     let approve_suggested_post_ref01_data = setup.data.new.approve_suggested_post['approve_suggested_post_ref01']
 
-    approve_suggested_post_ref01_data = await approve_suggested_post_ref01_ent.create(approve_suggested_post_ref01_data)
+    approve_suggested_post_ref01_data = (await approve_suggested_post_ref01_ent.create(approve_suggested_post_ref01_data)).data()
     assert(null != approve_suggested_post_ref01_data)
 
 

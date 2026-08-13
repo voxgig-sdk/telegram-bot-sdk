@@ -173,8 +173,8 @@ approve_suggested_post = client.ApproveSuggestedPost()
 | `error_code` | `int` | No |  |
 | `message_id` | `int` | Yes |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `dict` | No |  |
-| `result` | `Any` | No |  |
+| `parameters` | `dict` | No |  |
+| `result` | `list` | No |  |
 
 ### Operations
 
@@ -234,8 +234,8 @@ decline_suggested_post = client.DeclineSuggestedPost()
 | `error_code` | `int` | No |  |
 | `message_id` | `int` | Yes |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `dict` | No |  |
-| `result` | `Any` | No |  |
+| `parameters` | `dict` | No |  |
+| `result` | `list` | No |  |
 
 ### Operations
 
@@ -295,8 +295,8 @@ delete_forum_topic = client.DeleteForumTopic()
 | `error_code` | `int` | No |  |
 | `message_thread_id` | `int` | Yes |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `dict` | No |  |
-| `result` | `Any` | No |  |
+| `parameters` | `dict` | No |  |
+| `result` | `list` | No |  |
 
 ### Operations
 
@@ -358,8 +358,8 @@ edit_forum_topic = client.EditForumTopic()
 | `message_thread_id` | `int` | Yes |  |
 | `name` | `str` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `dict` | No |  |
-| `result` | `Any` | No |  |
+| `parameters` | `dict` | No |  |
+| `result` | `list` | No |  |
 
 ### Operations
 
@@ -530,8 +530,8 @@ get_business_account_gift = client.GetBusinessAccountGift()
 | `exclude_limited_non_upgradable` | `bool` | No |  |
 | `exclude_limited_upgradable` | `bool` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `dict` | No |  |
-| `result` | `Any` | No |  |
+| `parameters` | `dict` | No |  |
+| `result` | `list` | No |  |
 
 ### Operations
 
@@ -588,8 +588,8 @@ get_chat_gift = client.GetChatGift()
 | `description` | `str` | No |  |
 | `error_code` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `dict` | No |  |
-| `result` | `Any` | No |  |
+| `parameters` | `dict` | No |  |
+| `result` | `list` | No |  |
 
 ### Operations
 
@@ -646,8 +646,8 @@ get_me = client.GetMe()
 | `description` | `str` | No |  |
 | `error_code` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `dict` | No |  |
-| `result` | `Any` | No |  |
+| `parameters` | `dict` | No |  |
+| `result` | `list` | No |  |
 
 ### Operations
 
@@ -711,8 +711,8 @@ get_user_gift = client.GetUserGift()
 | `description` | `str` | No |  |
 | `error_code` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `dict` | No |  |
-| `result` | `Any` | No |  |
+| `parameters` | `dict` | No |  |
+| `result` | `list` | No |  |
 | `user_id` | `int` | Yes |  |
 
 ### Operations
@@ -770,8 +770,8 @@ get_user_profile_audio = client.GetUserProfileAudio()
 | `description` | `str` | No |  |
 | `error_code` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `dict` | No |  |
-| `result` | `Any` | No |  |
+| `parameters` | `dict` | No |  |
+| `result` | `list` | No |  |
 | `user_id` | `int` | Yes |  |
 
 ### Operations
@@ -836,7 +836,7 @@ message = client.Message()
 | `message_effect_id` | `str` | No |  |
 | `message_id` | `int` | Yes |  |
 | `message_thread_id` | `int` | No |  |
-| `option` | `list` | Yes |  |
+| `options` | `list` | Yes |  |
 | `parse_mode` | `str` | No |  |
 | `protect_content` | `bool` | No |  |
 | `question` | `str` | Yes |  |
@@ -856,7 +856,7 @@ result = client.Message().create({
     "latitude": 1,  # float
     "longitude": 1,  # float
     "message_id": 1,  # int
-    "option": [],  # list
+    "options": [],  # list
     "question": "example_question",  # str
     "text": "example_text",  # str
 })
@@ -961,17 +961,17 @@ promote_chat_member = client.PromoteChatMember()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `can_delete_message` | `bool` | No |  |
-| `can_edit_message` | `bool` | No |  |
+| `can_delete_messages` | `bool` | No |  |
+| `can_edit_messages` | `bool` | No |  |
 | `can_manage_chat` | `bool` | No |  |
-| `can_manage_direct_message` | `bool` | No |  |
-| `can_post_message` | `bool` | No |  |
+| `can_manage_direct_messages` | `bool` | No |  |
+| `can_post_messages` | `bool` | No |  |
 | `chat_id` | `str` | Yes |  |
 | `description` | `str` | No |  |
 | `error_code` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `dict` | No |  |
-| `result` | `Any` | No |  |
+| `parameters` | `dict` | No |  |
+| `result` | `list` | No |  |
 | `user_id` | `int` | Yes |  |
 
 ### Operations
@@ -1030,8 +1030,8 @@ remove_my_profile_photo = client.RemoveMyProfilePhoto()
 | `description` | `str` | No |  |
 | `error_code` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `dict` | No |  |
-| `result` | `Any` | No |  |
+| `parameters` | `dict` | No |  |
+| `result` | `list` | No |  |
 
 ### Operations
 
@@ -1088,8 +1088,8 @@ repost_story = client.RepostStory()
 | `description` | `str` | No |  |
 | `error_code` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `dict` | No |  |
-| `result` | `Any` | No |  |
+| `parameters` | `dict` | No |  |
+| `result` | `list` | No |  |
 | `story_id` | `int` | Yes |  |
 
 ### Operations
@@ -1151,8 +1151,8 @@ send_chat_action = client.SendChatAction()
 | `error_code` | `int` | No |  |
 | `message_thread_id` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `dict` | No |  |
-| `result` | `Any` | No |  |
+| `parameters` | `dict` | No |  |
+| `result` | `list` | No |  |
 
 ### Operations
 
@@ -1212,8 +1212,8 @@ send_message_draft = client.SendMessageDraft()
 | `error_code` | `int` | No |  |
 | `message_thread_id` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `dict` | No |  |
-| `result` | `Any` | No |  |
+| `parameters` | `dict` | No |  |
+| `result` | `list` | No |  |
 | `text` | `str` | Yes |  |
 
 ### Operations
@@ -1272,8 +1272,8 @@ set_my_profile_photo = client.SetMyProfilePhoto()
 | `description` | `str` | No |  |
 | `error_code` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `dict` | No |  |
-| `result` | `Any` | No |  |
+| `parameters` | `dict` | No |  |
+| `result` | `list` | No |  |
 
 ### Operations
 
@@ -1331,8 +1331,8 @@ unpin_all_forum_topic_message = client.UnpinAllForumTopicMessage()
 | `error_code` | `int` | No |  |
 | `message_thread_id` | `int` | Yes |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `dict` | No |  |
-| `result` | `Any` | No |  |
+| `parameters` | `dict` | No |  |
+| `result` | `list` | No |  |
 
 ### Operations
 
@@ -1387,13 +1387,13 @@ update = client.Update()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `allowed_update` | `list` | No |  |
+| `allowed_updates` | `list` | No |  |
 | `description` | `str` | No |  |
 | `error_code` | `int` | No |  |
 | `limit` | `int` | No |  |
 | `offset` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `dict` | No |  |
+| `parameters` | `dict` | No |  |
 | `result` | `list` | No |  |
 | `timeout` | `int` | No |  |
 

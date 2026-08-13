@@ -176,8 +176,8 @@ local approve_suggested_post = client:ApproveSuggestedPost(nil)
 | `error_code` | `number` | No |  |
 | `message_id` | `number` | Yes |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `table` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `table` | No |  |
+| `result` | `table` | No |  |
 
 ### Operations
 
@@ -238,8 +238,8 @@ local decline_suggested_post = client:DeclineSuggestedPost(nil)
 | `error_code` | `number` | No |  |
 | `message_id` | `number` | Yes |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `table` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `table` | No |  |
+| `result` | `table` | No |  |
 
 ### Operations
 
@@ -300,8 +300,8 @@ local delete_forum_topic = client:DeleteForumTopic(nil)
 | `error_code` | `number` | No |  |
 | `message_thread_id` | `number` | Yes |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `table` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `table` | No |  |
+| `result` | `table` | No |  |
 
 ### Operations
 
@@ -364,8 +364,8 @@ local edit_forum_topic = client:EditForumTopic(nil)
 | `message_thread_id` | `number` | Yes |  |
 | `name` | `string` | No |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `table` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `table` | No |  |
+| `result` | `table` | No |  |
 
 ### Operations
 
@@ -539,8 +539,8 @@ local get_business_account_gift = client:GetBusinessAccountGift(nil)
 | `exclude_limited_non_upgradable` | `boolean` | No |  |
 | `exclude_limited_upgradable` | `boolean` | No |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `table` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `table` | No |  |
+| `result` | `table` | No |  |
 
 ### Operations
 
@@ -598,8 +598,8 @@ local get_chat_gift = client:GetChatGift(nil)
 | `description` | `string` | No |  |
 | `error_code` | `number` | No |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `table` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `table` | No |  |
+| `result` | `table` | No |  |
 
 ### Operations
 
@@ -657,8 +657,8 @@ local get_me = client:GetMe(nil)
 | `description` | `string` | No |  |
 | `error_code` | `number` | No |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `table` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `table` | No |  |
+| `result` | `table` | No |  |
 
 ### Operations
 
@@ -723,8 +723,8 @@ local get_user_gift = client:GetUserGift(nil)
 | `description` | `string` | No |  |
 | `error_code` | `number` | No |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `table` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `table` | No |  |
+| `result` | `table` | No |  |
 | `user_id` | `number` | Yes |  |
 
 ### Operations
@@ -783,8 +783,8 @@ local get_user_profile_audio = client:GetUserProfileAudio(nil)
 | `description` | `string` | No |  |
 | `error_code` | `number` | No |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `table` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `table` | No |  |
+| `result` | `table` | No |  |
 | `user_id` | `number` | Yes |  |
 
 ### Operations
@@ -850,7 +850,7 @@ local message = client:Message(nil)
 | `message_effect_id` | `string` | No |  |
 | `message_id` | `number` | Yes |  |
 | `message_thread_id` | `number` | No |  |
-| `option` | `table` | Yes |  |
+| `options` | `table` | Yes |  |
 | `parse_mode` | `string` | No |  |
 | `protect_content` | `boolean` | No |  |
 | `question` | `string` | Yes |  |
@@ -870,7 +870,7 @@ local result, err = client:Message():create({
   latitude = --[[ number ]],
   longitude = --[[ number ]],
   message_id = --[[ number ]],
-  option = --[[ table ]],
+  options = --[[ table ]],
   question = --[[ string ]],
   text = --[[ string ]],
 })
@@ -977,17 +977,17 @@ local promote_chat_member = client:PromoteChatMember(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `can_delete_message` | `boolean` | No |  |
-| `can_edit_message` | `boolean` | No |  |
+| `can_delete_messages` | `boolean` | No |  |
+| `can_edit_messages` | `boolean` | No |  |
 | `can_manage_chat` | `boolean` | No |  |
-| `can_manage_direct_message` | `boolean` | No |  |
-| `can_post_message` | `boolean` | No |  |
+| `can_manage_direct_messages` | `boolean` | No |  |
+| `can_post_messages` | `boolean` | No |  |
 | `chat_id` | `string` | Yes |  |
 | `description` | `string` | No |  |
 | `error_code` | `number` | No |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `table` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `table` | No |  |
+| `result` | `table` | No |  |
 | `user_id` | `number` | Yes |  |
 
 ### Operations
@@ -1047,8 +1047,8 @@ local remove_my_profile_photo = client:RemoveMyProfilePhoto(nil)
 | `description` | `string` | No |  |
 | `error_code` | `number` | No |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `table` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `table` | No |  |
+| `result` | `table` | No |  |
 
 ### Operations
 
@@ -1106,8 +1106,8 @@ local repost_story = client:RepostStory(nil)
 | `description` | `string` | No |  |
 | `error_code` | `number` | No |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `table` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `table` | No |  |
+| `result` | `table` | No |  |
 | `story_id` | `number` | Yes |  |
 
 ### Operations
@@ -1170,8 +1170,8 @@ local send_chat_action = client:SendChatAction(nil)
 | `error_code` | `number` | No |  |
 | `message_thread_id` | `number` | No |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `table` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `table` | No |  |
+| `result` | `table` | No |  |
 
 ### Operations
 
@@ -1232,8 +1232,8 @@ local send_message_draft = client:SendMessageDraft(nil)
 | `error_code` | `number` | No |  |
 | `message_thread_id` | `number` | No |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `table` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `table` | No |  |
+| `result` | `table` | No |  |
 | `text` | `string` | Yes |  |
 
 ### Operations
@@ -1293,8 +1293,8 @@ local set_my_profile_photo = client:SetMyProfilePhoto(nil)
 | `description` | `string` | No |  |
 | `error_code` | `number` | No |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `table` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `table` | No |  |
+| `result` | `table` | No |  |
 
 ### Operations
 
@@ -1353,8 +1353,8 @@ local unpin_all_forum_topic_message = client:UnpinAllForumTopicMessage(nil)
 | `error_code` | `number` | No |  |
 | `message_thread_id` | `number` | Yes |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `table` | No |  |
-| `result` | `any` | No |  |
+| `parameters` | `table` | No |  |
+| `result` | `table` | No |  |
 
 ### Operations
 
@@ -1410,13 +1410,13 @@ local update = client:Update(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `allowed_update` | `table` | No |  |
+| `allowed_updates` | `table` | No |  |
 | `description` | `string` | No |  |
 | `error_code` | `number` | No |  |
 | `limit` | `number` | No |  |
 | `offset` | `number` | No |  |
 | `ok` | `boolean` | Yes |  |
-| `parameter` | `table` | No |  |
+| `parameters` | `table` | No |  |
 | `result` | `table` | No |  |
 | `timeout` | `number` | No |  |
 

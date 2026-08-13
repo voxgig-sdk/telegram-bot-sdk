@@ -7,8 +7,8 @@
         "error_code": "s52",
         "message_thread_id": "MESSAGE_THREAD01",
         "ok": true,
-        "parameter": {},
-        "result": "s56",
+        "parameters": {},
+        "result": [],
         "text": "s57",
         "id": "SEND_MESSAGE_DRAFT00"
       },
@@ -18,8 +18,8 @@
         "error_code": "sa2",
         "message_thread_id": "MESSAGE_THREAD01",
         "ok": true,
-        "parameter": {},
-        "result": "sa6",
+        "parameters": {},
+        "result": [],
         "text": "sa7",
         "id": "SEND_MESSAGE_DRAFT01"
       },
@@ -29,8 +29,8 @@
         "error_code": "sf2",
         "message_thread_id": "MESSAGE_THREAD01",
         "ok": true,
-        "parameter": {},
-        "result": "sf6",
+        "parameters": {},
+        "result": [],
         "text": "sf7",
         "id": "SEND_MESSAGE_DRAFT02"
       }
@@ -44,8 +44,8 @@
         "error_code": "s142",
         "message_thread_id": "MESSAGE_THREAD01",
         "ok": true,
-        "parameter": {},
-        "result": "s146",
+        "parameters": {},
+        "result": [],
         "text": "s147"
       }
     }

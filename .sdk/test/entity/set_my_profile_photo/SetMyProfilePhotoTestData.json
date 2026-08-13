@@ -5,24 +5,24 @@
         "description": "s32",
         "error_code": "s33",
         "ok": true,
-        "parameter": {},
-        "result": "s36",
+        "parameters": {},
+        "result": [],
         "id": "SET_MY_PROFILE_PHOTO00"
       },
       "SET_MY_PROFILE_PHOTO01": {
         "description": "s64",
         "error_code": "s65",
         "ok": true,
-        "parameter": {},
-        "result": "s68",
+        "parameters": {},
+        "result": [],
         "id": "SET_MY_PROFILE_PHOTO01"
       },
       "SET_MY_PROFILE_PHOTO02": {
         "description": "s96",
         "error_code": "s97",
         "ok": true,
-        "parameter": {},
-        "result": "s9a",
+        "parameters": {},
+        "result": [],
         "id": "SET_MY_PROFILE_PHOTO02"
       }
     }
@@ -33,8 +33,8 @@
         "description": "sc8",
         "error_code": "sc9",
         "ok": true,
-        "parameter": {},
-        "result": "scc"
+        "parameters": {},
+        "result": []
       }
     }
   }

@@ -178,8 +178,8 @@ $approve_suggested_post = $client->ApproveSuggestedPost();
 | `error_code` | `int` | No |  |
 | `message_id` | `int` | Yes |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `array` | No |  |
-| `result` | `mixed` | No |  |
+| `parameters` | `array` | No |  |
+| `result` | `array` | No |  |
 
 ### Operations
 
@@ -240,8 +240,8 @@ $decline_suggested_post = $client->DeclineSuggestedPost();
 | `error_code` | `int` | No |  |
 | `message_id` | `int` | Yes |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `array` | No |  |
-| `result` | `mixed` | No |  |
+| `parameters` | `array` | No |  |
+| `result` | `array` | No |  |
 
 ### Operations
 
@@ -302,8 +302,8 @@ $delete_forum_topic = $client->DeleteForumTopic();
 | `error_code` | `int` | No |  |
 | `message_thread_id` | `int` | Yes |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `array` | No |  |
-| `result` | `mixed` | No |  |
+| `parameters` | `array` | No |  |
+| `result` | `array` | No |  |
 
 ### Operations
 
@@ -366,8 +366,8 @@ $edit_forum_topic = $client->EditForumTopic();
 | `message_thread_id` | `int` | Yes |  |
 | `name` | `string` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `array` | No |  |
-| `result` | `mixed` | No |  |
+| `parameters` | `array` | No |  |
+| `result` | `array` | No |  |
 
 ### Operations
 
@@ -541,8 +541,8 @@ $get_business_account_gift = $client->GetBusinessAccountGift();
 | `exclude_limited_non_upgradable` | `bool` | No |  |
 | `exclude_limited_upgradable` | `bool` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `array` | No |  |
-| `result` | `mixed` | No |  |
+| `parameters` | `array` | No |  |
+| `result` | `array` | No |  |
 
 ### Operations
 
@@ -600,8 +600,8 @@ $get_chat_gift = $client->GetChatGift();
 | `description` | `string` | No |  |
 | `error_code` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `array` | No |  |
-| `result` | `mixed` | No |  |
+| `parameters` | `array` | No |  |
+| `result` | `array` | No |  |
 
 ### Operations
 
@@ -659,8 +659,8 @@ $get_me = $client->GetMe();
 | `description` | `string` | No |  |
 | `error_code` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `array` | No |  |
-| `result` | `mixed` | No |  |
+| `parameters` | `array` | No |  |
+| `result` | `array` | No |  |
 
 ### Operations
 
@@ -725,8 +725,8 @@ $get_user_gift = $client->GetUserGift();
 | `description` | `string` | No |  |
 | `error_code` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `array` | No |  |
-| `result` | `mixed` | No |  |
+| `parameters` | `array` | No |  |
+| `result` | `array` | No |  |
 | `user_id` | `int` | Yes |  |
 
 ### Operations
@@ -785,8 +785,8 @@ $get_user_profile_audio = $client->GetUserProfileAudio();
 | `description` | `string` | No |  |
 | `error_code` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `array` | No |  |
-| `result` | `mixed` | No |  |
+| `parameters` | `array` | No |  |
+| `result` | `array` | No |  |
 | `user_id` | `int` | Yes |  |
 
 ### Operations
@@ -852,7 +852,7 @@ $message = $client->Message();
 | `message_effect_id` | `string` | No |  |
 | `message_id` | `int` | Yes |  |
 | `message_thread_id` | `int` | No |  |
-| `option` | `array` | Yes |  |
+| `options` | `array` | Yes |  |
 | `parse_mode` | `string` | No |  |
 | `protect_content` | `bool` | No |  |
 | `question` | `string` | Yes |  |
@@ -872,7 +872,7 @@ $result = $client->Message()->create([
   "latitude" => null, // float
   "longitude" => null, // float
   "message_id" => null, // int
-  "option" => null, // array
+  "options" => null, // array
   "question" => null, // string
   "text" => null, // string
 ]);
@@ -979,17 +979,17 @@ $promote_chat_member = $client->PromoteChatMember();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `can_delete_message` | `bool` | No |  |
-| `can_edit_message` | `bool` | No |  |
+| `can_delete_messages` | `bool` | No |  |
+| `can_edit_messages` | `bool` | No |  |
 | `can_manage_chat` | `bool` | No |  |
-| `can_manage_direct_message` | `bool` | No |  |
-| `can_post_message` | `bool` | No |  |
+| `can_manage_direct_messages` | `bool` | No |  |
+| `can_post_messages` | `bool` | No |  |
 | `chat_id` | `string` | Yes |  |
 | `description` | `string` | No |  |
 | `error_code` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `array` | No |  |
-| `result` | `mixed` | No |  |
+| `parameters` | `array` | No |  |
+| `result` | `array` | No |  |
 | `user_id` | `int` | Yes |  |
 
 ### Operations
@@ -1049,8 +1049,8 @@ $remove_my_profile_photo = $client->RemoveMyProfilePhoto();
 | `description` | `string` | No |  |
 | `error_code` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `array` | No |  |
-| `result` | `mixed` | No |  |
+| `parameters` | `array` | No |  |
+| `result` | `array` | No |  |
 
 ### Operations
 
@@ -1108,8 +1108,8 @@ $repost_story = $client->RepostStory();
 | `description` | `string` | No |  |
 | `error_code` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `array` | No |  |
-| `result` | `mixed` | No |  |
+| `parameters` | `array` | No |  |
+| `result` | `array` | No |  |
 | `story_id` | `int` | Yes |  |
 
 ### Operations
@@ -1172,8 +1172,8 @@ $send_chat_action = $client->SendChatAction();
 | `error_code` | `int` | No |  |
 | `message_thread_id` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `array` | No |  |
-| `result` | `mixed` | No |  |
+| `parameters` | `array` | No |  |
+| `result` | `array` | No |  |
 
 ### Operations
 
@@ -1234,8 +1234,8 @@ $send_message_draft = $client->SendMessageDraft();
 | `error_code` | `int` | No |  |
 | `message_thread_id` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `array` | No |  |
-| `result` | `mixed` | No |  |
+| `parameters` | `array` | No |  |
+| `result` | `array` | No |  |
 | `text` | `string` | Yes |  |
 
 ### Operations
@@ -1295,8 +1295,8 @@ $set_my_profile_photo = $client->SetMyProfilePhoto();
 | `description` | `string` | No |  |
 | `error_code` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `array` | No |  |
-| `result` | `mixed` | No |  |
+| `parameters` | `array` | No |  |
+| `result` | `array` | No |  |
 
 ### Operations
 
@@ -1355,8 +1355,8 @@ $unpin_all_forum_topic_message = $client->UnpinAllForumTopicMessage();
 | `error_code` | `int` | No |  |
 | `message_thread_id` | `int` | Yes |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `array` | No |  |
-| `result` | `mixed` | No |  |
+| `parameters` | `array` | No |  |
+| `result` | `array` | No |  |
 
 ### Operations
 
@@ -1412,13 +1412,13 @@ $update = $client->Update();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `allowed_update` | `array` | No |  |
+| `allowed_updates` | `array` | No |  |
 | `description` | `string` | No |  |
 | `error_code` | `int` | No |  |
 | `limit` | `int` | No |  |
 | `offset` | `int` | No |  |
 | `ok` | `bool` | Yes |  |
-| `parameter` | `array` | No |  |
+| `parameters` | `array` | No |  |
 | `result` | `array` | No |  |
 | `timeout` | `int` | No |  |
 

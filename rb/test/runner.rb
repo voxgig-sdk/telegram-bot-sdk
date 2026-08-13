@@ -23,8 +23,8 @@ module TelegramBotTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("TELEGRAMBOT_TEST_LIVE")
-    override = getenv("TELEGRAMBOT_TEST_OVERRIDE")
+    live = getenv("TELEGRAM_BOT_TEST_LIVE")
+    override = getenv("TELEGRAM_BOT_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module TelegramBotTestRunner
       end
     end
 
-    explain = getenv("TELEGRAMBOT_TEST_EXPLAIN")
-    m["TELEGRAMBOT_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("TELEGRAM_BOT_TEST_EXPLAIN")
+    m["TELEGRAM_BOT_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end
