@@ -28,7 +28,7 @@ class TelegramBotSDK
     utility = TelegramBotUtility.new
     @_utility = utility
 
-    config = TelegramBotConfig.make_config
+    config = TelegramBotConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

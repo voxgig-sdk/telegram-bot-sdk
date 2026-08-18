@@ -9,6 +9,11 @@ main: kit: entity: forum_topic: {
       name: "chat_id"
       req: true
       type: "`$STRING`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
     }
     {
       name: "icon_color"

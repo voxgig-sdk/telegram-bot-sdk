@@ -1,5 +1,12 @@
 package core
 
+import (
+	"sync"
+)
+
+// MakeConfig builds a fresh, fully materialised config map. Every call
+// rebuilds the whole structure, so prefer SharedConfig unless you need a
+// private copy you intend to mutate.
 func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
@@ -51,53 +58,40 @@ func MakeConfig() map[string]any {
 			"approve_suggested_post": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"active": true,
 						"name": "chat_id",
 						"req": true,
 						"type": "`$STRING`",
-						"index$": 0,
+						"union": map[string]any{
+							"branches": 2,
+							"count": 1,
+							"depth": 0,
+						},
 					},
 					map[string]any{
-						"active": true,
 						"name": "description",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 1,
 					},
 					map[string]any{
-						"active": true,
 						"name": "error_code",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 2,
 					},
 					map[string]any{
-						"active": true,
 						"name": "message_id",
 						"req": true,
 						"type": "`$INTEGER`",
-						"index$": 3,
 					},
 					map[string]any{
-						"active": true,
 						"name": "ok",
 						"req": true,
 						"type": "`$BOOLEAN`",
-						"index$": 4,
 					},
 					map[string]any{
-						"active": true,
 						"name": "parameters",
-						"req": false,
 						"type": "`$OBJECT`",
-						"index$": 5,
 					},
 					map[string]any{
-						"active": true,
 						"name": "result",
-						"req": false,
 						"type": "`$ARRAY`",
-						"index$": 6,
 					},
 				},
 				"name": "approve_suggested_post",
@@ -107,7 +101,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"active": true,
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
@@ -120,7 +113,6 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body.parameters`",
 								},
-								"index$": 0,
 							},
 						},
 					},
@@ -132,53 +124,40 @@ func MakeConfig() map[string]any {
 			"decline_suggested_post": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"active": true,
 						"name": "chat_id",
 						"req": true,
 						"type": "`$STRING`",
-						"index$": 0,
+						"union": map[string]any{
+							"branches": 2,
+							"count": 1,
+							"depth": 0,
+						},
 					},
 					map[string]any{
-						"active": true,
 						"name": "description",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 1,
 					},
 					map[string]any{
-						"active": true,
 						"name": "error_code",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 2,
 					},
 					map[string]any{
-						"active": true,
 						"name": "message_id",
 						"req": true,
 						"type": "`$INTEGER`",
-						"index$": 3,
 					},
 					map[string]any{
-						"active": true,
 						"name": "ok",
 						"req": true,
 						"type": "`$BOOLEAN`",
-						"index$": 4,
 					},
 					map[string]any{
-						"active": true,
 						"name": "parameters",
-						"req": false,
 						"type": "`$OBJECT`",
-						"index$": 5,
 					},
 					map[string]any{
-						"active": true,
 						"name": "result",
-						"req": false,
 						"type": "`$ARRAY`",
-						"index$": 6,
 					},
 				},
 				"name": "decline_suggested_post",
@@ -188,7 +167,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"active": true,
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
@@ -201,7 +179,6 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body.parameters`",
 								},
-								"index$": 0,
 							},
 						},
 					},
@@ -213,53 +190,40 @@ func MakeConfig() map[string]any {
 			"delete_forum_topic": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"active": true,
 						"name": "chat_id",
 						"req": true,
 						"type": "`$STRING`",
-						"index$": 0,
+						"union": map[string]any{
+							"branches": 2,
+							"count": 1,
+							"depth": 0,
+						},
 					},
 					map[string]any{
-						"active": true,
 						"name": "description",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 1,
 					},
 					map[string]any{
-						"active": true,
 						"name": "error_code",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 2,
 					},
 					map[string]any{
-						"active": true,
 						"name": "message_thread_id",
 						"req": true,
 						"type": "`$INTEGER`",
-						"index$": 3,
 					},
 					map[string]any{
-						"active": true,
 						"name": "ok",
 						"req": true,
 						"type": "`$BOOLEAN`",
-						"index$": 4,
 					},
 					map[string]any{
-						"active": true,
 						"name": "parameters",
-						"req": false,
 						"type": "`$OBJECT`",
-						"index$": 5,
 					},
 					map[string]any{
-						"active": true,
 						"name": "result",
-						"req": false,
 						"type": "`$ARRAY`",
-						"index$": 6,
 					},
 				},
 				"name": "delete_forum_topic",
@@ -269,7 +233,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"active": true,
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
@@ -282,7 +245,6 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body.parameters`",
 								},
-								"index$": 0,
 							},
 						},
 					},
@@ -294,67 +256,48 @@ func MakeConfig() map[string]any {
 			"edit_forum_topic": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"active": true,
 						"name": "chat_id",
 						"req": true,
 						"type": "`$STRING`",
-						"index$": 0,
+						"union": map[string]any{
+							"branches": 2,
+							"count": 1,
+							"depth": 0,
+						},
 					},
 					map[string]any{
-						"active": true,
 						"name": "description",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 1,
 					},
 					map[string]any{
-						"active": true,
 						"name": "error_code",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 2,
 					},
 					map[string]any{
-						"active": true,
 						"name": "icon_custom_emoji_id",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 3,
 					},
 					map[string]any{
-						"active": true,
 						"name": "message_thread_id",
 						"req": true,
 						"type": "`$INTEGER`",
-						"index$": 4,
 					},
 					map[string]any{
-						"active": true,
 						"name": "name",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 5,
 					},
 					map[string]any{
-						"active": true,
 						"name": "ok",
 						"req": true,
 						"type": "`$BOOLEAN`",
-						"index$": 6,
 					},
 					map[string]any{
-						"active": true,
 						"name": "parameters",
-						"req": false,
 						"type": "`$OBJECT`",
-						"index$": 7,
 					},
 					map[string]any{
-						"active": true,
 						"name": "result",
-						"req": false,
 						"type": "`$ARRAY`",
-						"index$": 8,
 					},
 				},
 				"name": "edit_forum_topic",
@@ -364,7 +307,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"active": true,
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
@@ -377,7 +319,6 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body.parameters`",
 								},
-								"index$": 0,
 							},
 						},
 					},
@@ -389,11 +330,9 @@ func MakeConfig() map[string]any {
 			"file": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"active": true,
 						"name": "file_id",
 						"req": true,
 						"type": "`$STRING`",
-						"index$": 0,
 					},
 				},
 				"name": "file",
@@ -403,7 +342,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"active": true,
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
@@ -416,7 +354,6 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
 					},
@@ -428,32 +365,27 @@ func MakeConfig() map[string]any {
 			"forum_topic": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"active": true,
 						"name": "chat_id",
 						"req": true,
 						"type": "`$STRING`",
-						"index$": 0,
+						"union": map[string]any{
+							"branches": 2,
+							"count": 1,
+							"depth": 0,
+						},
 					},
 					map[string]any{
-						"active": true,
 						"name": "icon_color",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 1,
 					},
 					map[string]any{
-						"active": true,
 						"name": "icon_custom_emoji_id",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 2,
 					},
 					map[string]any{
-						"active": true,
 						"name": "name",
 						"req": true,
 						"type": "`$STRING`",
-						"index$": 3,
 					},
 				},
 				"name": "forum_topic",
@@ -463,7 +395,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"active": true,
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
@@ -476,7 +407,6 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
 					},
@@ -488,60 +418,37 @@ func MakeConfig() map[string]any {
 			"get_business_account_gift": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"active": true,
 						"name": "description",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 0,
 					},
 					map[string]any{
-						"active": true,
 						"name": "error_code",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 1,
 					},
 					map[string]any{
-						"active": true,
 						"name": "exclude_from_blockchain",
-						"req": false,
 						"type": "`$BOOLEAN`",
-						"index$": 2,
 					},
 					map[string]any{
-						"active": true,
 						"name": "exclude_limited_non_upgradable",
-						"req": false,
 						"type": "`$BOOLEAN`",
-						"index$": 3,
 					},
 					map[string]any{
-						"active": true,
 						"name": "exclude_limited_upgradable",
-						"req": false,
 						"type": "`$BOOLEAN`",
-						"index$": 4,
 					},
 					map[string]any{
-						"active": true,
 						"name": "ok",
 						"req": true,
 						"type": "`$BOOLEAN`",
-						"index$": 5,
 					},
 					map[string]any{
-						"active": true,
 						"name": "parameters",
-						"req": false,
 						"type": "`$OBJECT`",
-						"index$": 6,
 					},
 					map[string]any{
-						"active": true,
 						"name": "result",
-						"req": false,
 						"type": "`$ARRAY`",
-						"index$": 7,
 					},
 				},
 				"name": "get_business_account_gift",
@@ -551,7 +458,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"active": true,
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
@@ -564,7 +470,6 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body.parameters`",
 								},
-								"index$": 0,
 							},
 						},
 					},
@@ -576,46 +481,35 @@ func MakeConfig() map[string]any {
 			"get_chat_gift": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"active": true,
 						"name": "chat_id",
 						"req": true,
 						"type": "`$STRING`",
-						"index$": 0,
+						"union": map[string]any{
+							"branches": 2,
+							"count": 1,
+							"depth": 0,
+						},
 					},
 					map[string]any{
-						"active": true,
 						"name": "description",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 1,
 					},
 					map[string]any{
-						"active": true,
 						"name": "error_code",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 2,
 					},
 					map[string]any{
-						"active": true,
 						"name": "ok",
 						"req": true,
 						"type": "`$BOOLEAN`",
-						"index$": 3,
 					},
 					map[string]any{
-						"active": true,
 						"name": "parameters",
-						"req": false,
 						"type": "`$OBJECT`",
-						"index$": 4,
 					},
 					map[string]any{
-						"active": true,
 						"name": "result",
-						"req": false,
 						"type": "`$ARRAY`",
-						"index$": 5,
 					},
 				},
 				"name": "get_chat_gift",
@@ -625,7 +519,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"active": true,
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
@@ -638,7 +531,6 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body.parameters`",
 								},
-								"index$": 0,
 							},
 						},
 					},
@@ -650,39 +542,25 @@ func MakeConfig() map[string]any {
 			"get_me": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"active": true,
 						"name": "description",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 0,
 					},
 					map[string]any{
-						"active": true,
 						"name": "error_code",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 1,
 					},
 					map[string]any{
-						"active": true,
 						"name": "ok",
 						"req": true,
 						"type": "`$BOOLEAN`",
-						"index$": 2,
 					},
 					map[string]any{
-						"active": true,
 						"name": "parameters",
-						"req": false,
 						"type": "`$OBJECT`",
-						"index$": 3,
 					},
 					map[string]any{
-						"active": true,
 						"name": "result",
-						"req": false,
 						"type": "`$ARRAY`",
-						"index$": 4,
 					},
 				},
 				"name": "get_me",
@@ -692,7 +570,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"active": true,
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
@@ -705,7 +582,6 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body.parameters`",
 								},
-								"index$": 0,
 							},
 						},
 					},
@@ -714,7 +590,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"active": true,
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
@@ -727,7 +602,6 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body.parameters`",
 								},
-								"index$": 0,
 							},
 						},
 					},
@@ -739,46 +613,30 @@ func MakeConfig() map[string]any {
 			"get_user_gift": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"active": true,
 						"name": "description",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 0,
 					},
 					map[string]any{
-						"active": true,
 						"name": "error_code",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 1,
 					},
 					map[string]any{
-						"active": true,
 						"name": "ok",
 						"req": true,
 						"type": "`$BOOLEAN`",
-						"index$": 2,
 					},
 					map[string]any{
-						"active": true,
 						"name": "parameters",
-						"req": false,
 						"type": "`$OBJECT`",
-						"index$": 3,
 					},
 					map[string]any{
-						"active": true,
 						"name": "result",
-						"req": false,
 						"type": "`$ARRAY`",
-						"index$": 4,
 					},
 					map[string]any{
-						"active": true,
 						"name": "user_id",
 						"req": true,
 						"type": "`$INTEGER`",
-						"index$": 5,
 					},
 				},
 				"name": "get_user_gift",
@@ -788,7 +646,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"active": true,
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
@@ -801,7 +658,6 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
 					},
@@ -813,46 +669,30 @@ func MakeConfig() map[string]any {
 			"get_user_profile_audio": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"active": true,
 						"name": "description",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 0,
 					},
 					map[string]any{
-						"active": true,
 						"name": "error_code",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 1,
 					},
 					map[string]any{
-						"active": true,
 						"name": "ok",
 						"req": true,
 						"type": "`$BOOLEAN`",
-						"index$": 2,
 					},
 					map[string]any{
-						"active": true,
 						"name": "parameters",
-						"req": false,
 						"type": "`$OBJECT`",
-						"index$": 3,
 					},
 					map[string]any{
-						"active": true,
 						"name": "result",
-						"req": false,
 						"type": "`$ARRAY`",
-						"index$": 4,
 					},
 					map[string]any{
-						"active": true,
 						"name": "user_id",
 						"req": true,
 						"type": "`$INTEGER`",
-						"index$": 5,
 					},
 				},
 				"name": "get_user_profile_audio",
@@ -862,7 +702,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"active": true,
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
@@ -875,7 +714,6 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
 					},
@@ -887,116 +725,86 @@ func MakeConfig() map[string]any {
 			"message": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"active": true,
 						"name": "chat_id",
 						"req": true,
 						"type": "`$STRING`",
-						"index$": 0,
+						"union": map[string]any{
+							"branches": 2,
+							"count": 1,
+							"depth": 0,
+						},
 					},
 					map[string]any{
-						"active": true,
 						"name": "direct_messages_topic_id",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 1,
 					},
 					map[string]any{
-						"active": true,
 						"name": "disable_notification",
-						"req": false,
 						"type": "`$BOOLEAN`",
-						"index$": 2,
 					},
 					map[string]any{
-						"active": true,
 						"name": "disable_web_page_preview",
-						"req": false,
 						"type": "`$BOOLEAN`",
-						"index$": 3,
 					},
 					map[string]any{
-						"active": true,
 						"name": "from_chat_id",
 						"req": true,
 						"type": "`$STRING`",
-						"index$": 4,
+						"union": map[string]any{
+							"branches": 2,
+							"count": 1,
+							"depth": 0,
+						},
 					},
 					map[string]any{
-						"active": true,
 						"name": "latitude",
 						"req": true,
 						"type": "`$NUMBER`",
-						"index$": 5,
 					},
 					map[string]any{
-						"active": true,
 						"name": "longitude",
 						"req": true,
 						"type": "`$NUMBER`",
-						"index$": 6,
 					},
 					map[string]any{
-						"active": true,
 						"name": "message_effect_id",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 7,
 					},
 					map[string]any{
-						"active": true,
 						"name": "message_id",
 						"req": true,
 						"type": "`$INTEGER`",
-						"index$": 8,
 					},
 					map[string]any{
-						"active": true,
 						"name": "message_thread_id",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 9,
 					},
 					map[string]any{
-						"active": true,
 						"name": "options",
 						"req": true,
 						"type": "`$ARRAY`",
-						"index$": 10,
 					},
 					map[string]any{
-						"active": true,
 						"name": "parse_mode",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 11,
 					},
 					map[string]any{
-						"active": true,
 						"name": "protect_content",
-						"req": false,
 						"type": "`$BOOLEAN`",
-						"index$": 12,
 					},
 					map[string]any{
-						"active": true,
 						"name": "question",
 						"req": true,
 						"type": "`$STRING`",
-						"index$": 13,
 					},
 					map[string]any{
-						"active": true,
 						"name": "reply_to_message_id",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 14,
 					},
 					map[string]any{
-						"active": true,
 						"name": "text",
 						"req": true,
 						"type": "`$STRING`",
-						"index$": 15,
 					},
 				},
 				"name": "message",
@@ -1006,7 +814,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"active": true,
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
@@ -1019,10 +826,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 							map[string]any{
-								"active": true,
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
@@ -1035,10 +840,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 1,
 							},
 							map[string]any{
-								"active": true,
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
@@ -1051,10 +854,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 2,
 							},
 							map[string]any{
-								"active": true,
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
@@ -1067,10 +868,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 3,
 							},
 							map[string]any{
-								"active": true,
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
@@ -1083,10 +882,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 4,
 							},
 							map[string]any{
-								"active": true,
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
@@ -1099,10 +896,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 5,
 							},
 							map[string]any{
-								"active": true,
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
@@ -1115,10 +910,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 6,
 							},
 							map[string]any{
-								"active": true,
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
@@ -1131,10 +924,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 7,
 							},
 							map[string]any{
-								"active": true,
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
@@ -1147,10 +938,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 8,
 							},
 							map[string]any{
-								"active": true,
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
@@ -1163,7 +952,6 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 9,
 							},
 						},
 					},
@@ -1175,46 +963,41 @@ func MakeConfig() map[string]any {
 			"message_id": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"active": true,
 						"name": "chat_id",
 						"req": true,
 						"type": "`$STRING`",
-						"index$": 0,
+						"union": map[string]any{
+							"branches": 2,
+							"count": 1,
+							"depth": 0,
+						},
 					},
 					map[string]any{
-						"active": true,
 						"name": "direct_messages_topic_id",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 1,
 					},
 					map[string]any{
-						"active": true,
 						"name": "from_chat_id",
 						"req": true,
 						"type": "`$STRING`",
-						"index$": 2,
+						"union": map[string]any{
+							"branches": 2,
+							"count": 1,
+							"depth": 0,
+						},
 					},
 					map[string]any{
-						"active": true,
 						"name": "message_effect_id",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 3,
 					},
 					map[string]any{
-						"active": true,
 						"name": "message_id",
 						"req": true,
 						"type": "`$INTEGER`",
-						"index$": 4,
 					},
 					map[string]any{
-						"active": true,
 						"name": "message_thread_id",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 5,
 					},
 				},
 				"name": "message_id",
@@ -1224,7 +1007,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"active": true,
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
@@ -1239,7 +1021,6 @@ func MakeConfig() map[string]any {
 									},
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
 					},
@@ -1251,88 +1032,60 @@ func MakeConfig() map[string]any {
 			"promote_chat_member": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"active": true,
 						"name": "can_delete_messages",
-						"req": false,
 						"type": "`$BOOLEAN`",
-						"index$": 0,
 					},
 					map[string]any{
-						"active": true,
 						"name": "can_edit_messages",
-						"req": false,
 						"type": "`$BOOLEAN`",
-						"index$": 1,
 					},
 					map[string]any{
-						"active": true,
 						"name": "can_manage_chat",
-						"req": false,
 						"type": "`$BOOLEAN`",
-						"index$": 2,
 					},
 					map[string]any{
-						"active": true,
 						"name": "can_manage_direct_messages",
-						"req": false,
 						"type": "`$BOOLEAN`",
-						"index$": 3,
 					},
 					map[string]any{
-						"active": true,
 						"name": "can_post_messages",
-						"req": false,
 						"type": "`$BOOLEAN`",
-						"index$": 4,
 					},
 					map[string]any{
-						"active": true,
 						"name": "chat_id",
 						"req": true,
 						"type": "`$STRING`",
-						"index$": 5,
+						"union": map[string]any{
+							"branches": 2,
+							"count": 1,
+							"depth": 0,
+						},
 					},
 					map[string]any{
-						"active": true,
 						"name": "description",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 6,
 					},
 					map[string]any{
-						"active": true,
 						"name": "error_code",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 7,
 					},
 					map[string]any{
-						"active": true,
 						"name": "ok",
 						"req": true,
 						"type": "`$BOOLEAN`",
-						"index$": 8,
 					},
 					map[string]any{
-						"active": true,
 						"name": "parameters",
-						"req": false,
 						"type": "`$OBJECT`",
-						"index$": 9,
 					},
 					map[string]any{
-						"active": true,
 						"name": "result",
-						"req": false,
 						"type": "`$ARRAY`",
-						"index$": 10,
 					},
 					map[string]any{
-						"active": true,
 						"name": "user_id",
 						"req": true,
 						"type": "`$INTEGER`",
-						"index$": 11,
 					},
 				},
 				"name": "promote_chat_member",
@@ -1342,7 +1095,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"active": true,
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
@@ -1355,7 +1107,6 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
 					},
@@ -1367,39 +1118,25 @@ func MakeConfig() map[string]any {
 			"remove_my_profile_photo": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"active": true,
 						"name": "description",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 0,
 					},
 					map[string]any{
-						"active": true,
 						"name": "error_code",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 1,
 					},
 					map[string]any{
-						"active": true,
 						"name": "ok",
 						"req": true,
 						"type": "`$BOOLEAN`",
-						"index$": 2,
 					},
 					map[string]any{
-						"active": true,
 						"name": "parameters",
-						"req": false,
 						"type": "`$OBJECT`",
-						"index$": 3,
 					},
 					map[string]any{
-						"active": true,
 						"name": "result",
-						"req": false,
 						"type": "`$ARRAY`",
-						"index$": 4,
 					},
 				},
 				"name": "remove_my_profile_photo",
@@ -1409,7 +1146,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"active": true,
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
@@ -1422,7 +1158,6 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
 					},
@@ -1434,53 +1169,40 @@ func MakeConfig() map[string]any {
 			"repost_story": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"active": true,
 						"name": "chat_id",
 						"req": true,
 						"type": "`$STRING`",
-						"index$": 0,
+						"union": map[string]any{
+							"branches": 2,
+							"count": 1,
+							"depth": 0,
+						},
 					},
 					map[string]any{
-						"active": true,
 						"name": "description",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 1,
 					},
 					map[string]any{
-						"active": true,
 						"name": "error_code",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 2,
 					},
 					map[string]any{
-						"active": true,
 						"name": "ok",
 						"req": true,
 						"type": "`$BOOLEAN`",
-						"index$": 3,
 					},
 					map[string]any{
-						"active": true,
 						"name": "parameters",
-						"req": false,
 						"type": "`$OBJECT`",
-						"index$": 4,
 					},
 					map[string]any{
-						"active": true,
 						"name": "result",
-						"req": false,
 						"type": "`$ARRAY`",
-						"index$": 5,
 					},
 					map[string]any{
-						"active": true,
 						"name": "story_id",
 						"req": true,
 						"type": "`$INTEGER`",
-						"index$": 6,
 					},
 				},
 				"name": "repost_story",
@@ -1490,7 +1212,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"active": true,
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
@@ -1503,7 +1224,6 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
 					},
@@ -1515,60 +1235,44 @@ func MakeConfig() map[string]any {
 			"send_chat_action": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"active": true,
 						"name": "action",
 						"req": true,
 						"type": "`$STRING`",
-						"index$": 0,
 					},
 					map[string]any{
-						"active": true,
 						"name": "chat_id",
 						"req": true,
 						"type": "`$STRING`",
-						"index$": 1,
+						"union": map[string]any{
+							"branches": 2,
+							"count": 1,
+							"depth": 0,
+						},
 					},
 					map[string]any{
-						"active": true,
 						"name": "description",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 2,
 					},
 					map[string]any{
-						"active": true,
 						"name": "error_code",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 3,
 					},
 					map[string]any{
-						"active": true,
 						"name": "message_thread_id",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 4,
 					},
 					map[string]any{
-						"active": true,
 						"name": "ok",
 						"req": true,
 						"type": "`$BOOLEAN`",
-						"index$": 5,
 					},
 					map[string]any{
-						"active": true,
 						"name": "parameters",
-						"req": false,
 						"type": "`$OBJECT`",
-						"index$": 6,
 					},
 					map[string]any{
-						"active": true,
 						"name": "result",
-						"req": false,
 						"type": "`$ARRAY`",
-						"index$": 7,
 					},
 				},
 				"name": "send_chat_action",
@@ -1578,7 +1282,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"active": true,
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
@@ -1591,7 +1294,6 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
 					},
@@ -1603,60 +1305,44 @@ func MakeConfig() map[string]any {
 			"send_message_draft": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"active": true,
 						"name": "chat_id",
 						"req": true,
 						"type": "`$STRING`",
-						"index$": 0,
+						"union": map[string]any{
+							"branches": 2,
+							"count": 1,
+							"depth": 0,
+						},
 					},
 					map[string]any{
-						"active": true,
 						"name": "description",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 1,
 					},
 					map[string]any{
-						"active": true,
 						"name": "error_code",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 2,
 					},
 					map[string]any{
-						"active": true,
 						"name": "message_thread_id",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 3,
 					},
 					map[string]any{
-						"active": true,
 						"name": "ok",
 						"req": true,
 						"type": "`$BOOLEAN`",
-						"index$": 4,
 					},
 					map[string]any{
-						"active": true,
 						"name": "parameters",
-						"req": false,
 						"type": "`$OBJECT`",
-						"index$": 5,
 					},
 					map[string]any{
-						"active": true,
 						"name": "result",
-						"req": false,
 						"type": "`$ARRAY`",
-						"index$": 6,
 					},
 					map[string]any{
-						"active": true,
 						"name": "text",
 						"req": true,
 						"type": "`$STRING`",
-						"index$": 7,
 					},
 				},
 				"name": "send_message_draft",
@@ -1666,7 +1352,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"active": true,
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
@@ -1679,7 +1364,6 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
 					},
@@ -1691,39 +1375,25 @@ func MakeConfig() map[string]any {
 			"set_my_profile_photo": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"active": true,
 						"name": "description",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 0,
 					},
 					map[string]any{
-						"active": true,
 						"name": "error_code",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 1,
 					},
 					map[string]any{
-						"active": true,
 						"name": "ok",
 						"req": true,
 						"type": "`$BOOLEAN`",
-						"index$": 2,
 					},
 					map[string]any{
-						"active": true,
 						"name": "parameters",
-						"req": false,
 						"type": "`$OBJECT`",
-						"index$": 3,
 					},
 					map[string]any{
-						"active": true,
 						"name": "result",
-						"req": false,
 						"type": "`$ARRAY`",
-						"index$": 4,
 					},
 				},
 				"name": "set_my_profile_photo",
@@ -1733,7 +1403,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"active": true,
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
@@ -1746,7 +1415,6 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
 					},
@@ -1758,53 +1426,40 @@ func MakeConfig() map[string]any {
 			"unpin_all_forum_topic_message": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"active": true,
 						"name": "chat_id",
 						"req": true,
 						"type": "`$STRING`",
-						"index$": 0,
+						"union": map[string]any{
+							"branches": 2,
+							"count": 1,
+							"depth": 0,
+						},
 					},
 					map[string]any{
-						"active": true,
 						"name": "description",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 1,
 					},
 					map[string]any{
-						"active": true,
 						"name": "error_code",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 2,
 					},
 					map[string]any{
-						"active": true,
 						"name": "message_thread_id",
 						"req": true,
 						"type": "`$INTEGER`",
-						"index$": 3,
 					},
 					map[string]any{
-						"active": true,
 						"name": "ok",
 						"req": true,
 						"type": "`$BOOLEAN`",
-						"index$": 4,
 					},
 					map[string]any{
-						"active": true,
 						"name": "parameters",
-						"req": false,
 						"type": "`$OBJECT`",
-						"index$": 5,
 					},
 					map[string]any{
-						"active": true,
 						"name": "result",
-						"req": false,
 						"type": "`$ARRAY`",
-						"index$": 6,
 					},
 				},
 				"name": "unpin_all_forum_topic_message",
@@ -1814,7 +1469,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"active": true,
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
@@ -1827,7 +1481,6 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
 					},
@@ -1839,67 +1492,41 @@ func MakeConfig() map[string]any {
 			"update": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"active": true,
 						"name": "allowed_updates",
-						"req": false,
 						"type": "`$ARRAY`",
-						"index$": 0,
 					},
 					map[string]any{
-						"active": true,
 						"name": "description",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 1,
 					},
 					map[string]any{
-						"active": true,
 						"name": "error_code",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 2,
 					},
 					map[string]any{
-						"active": true,
 						"name": "limit",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 3,
 					},
 					map[string]any{
-						"active": true,
 						"name": "offset",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 4,
 					},
 					map[string]any{
-						"active": true,
 						"name": "ok",
 						"req": true,
 						"type": "`$BOOLEAN`",
-						"index$": 5,
 					},
 					map[string]any{
-						"active": true,
 						"name": "parameters",
-						"req": false,
 						"type": "`$OBJECT`",
-						"index$": 6,
 					},
 					map[string]any{
-						"active": true,
 						"name": "result",
-						"req": false,
 						"type": "`$ARRAY`",
-						"index$": 7,
 					},
 					map[string]any{
-						"active": true,
 						"name": "timeout",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 8,
 					},
 				},
 				"name": "update",
@@ -1909,7 +1536,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"active": true,
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
@@ -1922,7 +1548,6 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
 					},
@@ -1931,41 +1556,32 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"active": true,
 								"args": map[string]any{
 									"query": []any{
 										map[string]any{
-											"active": true,
 											"kind": "query",
 											"name": "allowed_update",
 											"orig": "allowed_update",
-											"reqd": false,
 											"type": "`$ARRAY`",
 										},
 										map[string]any{
-											"active": true,
 											"example": 100,
 											"kind": "query",
 											"name": "limit",
 											"orig": "limit",
-											"reqd": false,
 											"type": "`$INTEGER`",
 										},
 										map[string]any{
-											"active": true,
 											"kind": "query",
 											"name": "offset",
 											"orig": "offset",
-											"reqd": false,
 											"type": "`$INTEGER`",
 										},
 										map[string]any{
-											"active": true,
 											"example": 0,
 											"kind": "query",
 											"name": "timeout",
 											"orig": "timeout",
-											"reqd": false,
 											"type": "`$INTEGER`",
 										},
 									},
@@ -1988,7 +1604,6 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
 					},
@@ -1999,6 +1614,24 @@ func MakeConfig() map[string]any {
 			},
 		},
 	}
+}
+
+var (
+	sharedConfigOnce sync.Once
+	sharedConfigVal  map[string]any
+)
+
+// SharedConfig returns the process-wide config, built once on first use.
+// The SDK reads the config on every request and never writes to it, so one
+// instance is shared by every client rather than rebuilt per client.
+//
+// The returned map is shared: treat it as read-only. Callers that need to
+// mutate should use MakeConfig, which always returns a fresh copy.
+func SharedConfig() map[string]any {
+	sharedConfigOnce.Do(func() {
+		sharedConfigVal = MakeConfig()
+	})
+	return sharedConfigVal
 }
 
 func makeFeature(name string) Feature {

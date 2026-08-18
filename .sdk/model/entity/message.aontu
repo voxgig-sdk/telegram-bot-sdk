@@ -9,6 +9,11 @@ main: kit: entity: message: {
       name: "chat_id"
       req: true
       type: "`$STRING`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
     }
     {
       name: "direct_messages_topic_id"
@@ -29,6 +34,11 @@ main: kit: entity: message: {
       name: "from_chat_id"
       req: true
       type: "`$STRING`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
     }
     {
       name: "latitude"

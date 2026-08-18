@@ -1,7 +1,30 @@
 # TelegramBot SDK configuration
 
 
+_shared_config = None
+
+
+def shared_config():
+    """Return the process-wide config, built once on first use.
+
+    The SDK reads the config on every request and never writes to it, so one
+    instance is shared by every client rather than rebuilt per client.
+
+    The returned dict is shared: treat it as read-only. Callers that need to
+    mutate should use make_config, which always returns a fresh copy.
+    """
+    global _shared_config
+    if _shared_config is None:
+        _shared_config = make_config()
+    return _shared_config
+
+
 def make_config():
+    """Build a fresh, fully materialised config dict.
+
+    Every call rebuilds the whole structure, so prefer shared_config unless
+    you need a private copy you intend to mutate.
+    """
     return {
         "main": {
             "name": "TelegramBot",
@@ -52,53 +75,40 @@ def make_config():
       "approve_suggested_post": {
         "fields": [
           {
-            "active": True,
             "name": "chat_id",
             "req": True,
             "type": "`$STRING`",
-            "index$": 0,
+            "union": {
+              "branches": 2,
+              "count": 1,
+              "depth": 0,
+            },
           },
           {
-            "active": True,
             "name": "description",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "error_code",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "message_id",
             "req": True,
             "type": "`$INTEGER`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "ok",
             "req": True,
             "type": "`$BOOLEAN`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "parameters",
-            "req": False,
             "type": "`$OBJECT`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "result",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 6,
           },
         ],
         "name": "approve_suggested_post",
@@ -108,7 +118,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "POST",
@@ -121,10 +130,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.parameters`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
         },
         "relations": {
@@ -134,53 +141,40 @@ def make_config():
       "decline_suggested_post": {
         "fields": [
           {
-            "active": True,
             "name": "chat_id",
             "req": True,
             "type": "`$STRING`",
-            "index$": 0,
+            "union": {
+              "branches": 2,
+              "count": 1,
+              "depth": 0,
+            },
           },
           {
-            "active": True,
             "name": "description",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "error_code",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "message_id",
             "req": True,
             "type": "`$INTEGER`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "ok",
             "req": True,
             "type": "`$BOOLEAN`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "parameters",
-            "req": False,
             "type": "`$OBJECT`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "result",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 6,
           },
         ],
         "name": "decline_suggested_post",
@@ -190,7 +184,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "POST",
@@ -203,10 +196,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.parameters`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
         },
         "relations": {
@@ -216,53 +207,40 @@ def make_config():
       "delete_forum_topic": {
         "fields": [
           {
-            "active": True,
             "name": "chat_id",
             "req": True,
             "type": "`$STRING`",
-            "index$": 0,
+            "union": {
+              "branches": 2,
+              "count": 1,
+              "depth": 0,
+            },
           },
           {
-            "active": True,
             "name": "description",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "error_code",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "message_thread_id",
             "req": True,
             "type": "`$INTEGER`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "ok",
             "req": True,
             "type": "`$BOOLEAN`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "parameters",
-            "req": False,
             "type": "`$OBJECT`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "result",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 6,
           },
         ],
         "name": "delete_forum_topic",
@@ -272,7 +250,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "POST",
@@ -285,10 +262,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.parameters`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
         },
         "relations": {
@@ -298,67 +273,48 @@ def make_config():
       "edit_forum_topic": {
         "fields": [
           {
-            "active": True,
             "name": "chat_id",
             "req": True,
             "type": "`$STRING`",
-            "index$": 0,
+            "union": {
+              "branches": 2,
+              "count": 1,
+              "depth": 0,
+            },
           },
           {
-            "active": True,
             "name": "description",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "error_code",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "icon_custom_emoji_id",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "message_thread_id",
             "req": True,
             "type": "`$INTEGER`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "name",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "ok",
             "req": True,
             "type": "`$BOOLEAN`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "parameters",
-            "req": False,
             "type": "`$OBJECT`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "result",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 8,
           },
         ],
         "name": "edit_forum_topic",
@@ -368,7 +324,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "POST",
@@ -381,10 +336,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.parameters`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
         },
         "relations": {
@@ -394,11 +347,9 @@ def make_config():
       "file": {
         "fields": [
           {
-            "active": True,
             "name": "file_id",
             "req": True,
             "type": "`$STRING`",
-            "index$": 0,
           },
         ],
         "name": "file",
@@ -408,7 +359,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "POST",
@@ -421,10 +371,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
         },
         "relations": {
@@ -434,32 +382,27 @@ def make_config():
       "forum_topic": {
         "fields": [
           {
-            "active": True,
             "name": "chat_id",
             "req": True,
             "type": "`$STRING`",
-            "index$": 0,
+            "union": {
+              "branches": 2,
+              "count": 1,
+              "depth": 0,
+            },
           },
           {
-            "active": True,
             "name": "icon_color",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "icon_custom_emoji_id",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "name",
             "req": True,
             "type": "`$STRING`",
-            "index$": 3,
           },
         ],
         "name": "forum_topic",
@@ -469,7 +412,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "POST",
@@ -482,10 +424,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
         },
         "relations": {
@@ -495,60 +435,37 @@ def make_config():
       "get_business_account_gift": {
         "fields": [
           {
-            "active": True,
             "name": "description",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "error_code",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "exclude_from_blockchain",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "exclude_limited_non_upgradable",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "exclude_limited_upgradable",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "ok",
             "req": True,
             "type": "`$BOOLEAN`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "parameters",
-            "req": False,
             "type": "`$OBJECT`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "result",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 7,
           },
         ],
         "name": "get_business_account_gift",
@@ -558,7 +475,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "POST",
@@ -571,10 +487,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.parameters`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
         },
         "relations": {
@@ -584,46 +498,35 @@ def make_config():
       "get_chat_gift": {
         "fields": [
           {
-            "active": True,
             "name": "chat_id",
             "req": True,
             "type": "`$STRING`",
-            "index$": 0,
+            "union": {
+              "branches": 2,
+              "count": 1,
+              "depth": 0,
+            },
           },
           {
-            "active": True,
             "name": "description",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "error_code",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "ok",
             "req": True,
             "type": "`$BOOLEAN`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "parameters",
-            "req": False,
             "type": "`$OBJECT`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "result",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 5,
           },
         ],
         "name": "get_chat_gift",
@@ -633,7 +536,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "POST",
@@ -646,10 +548,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.parameters`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
         },
         "relations": {
@@ -659,39 +559,25 @@ def make_config():
       "get_me": {
         "fields": [
           {
-            "active": True,
             "name": "description",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "error_code",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "ok",
             "req": True,
             "type": "`$BOOLEAN`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "parameters",
-            "req": False,
             "type": "`$OBJECT`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "result",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 4,
           },
         ],
         "name": "get_me",
@@ -701,7 +587,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "POST",
@@ -714,17 +599,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.parameters`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "GET",
@@ -737,10 +619,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.parameters`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
@@ -750,46 +630,30 @@ def make_config():
       "get_user_gift": {
         "fields": [
           {
-            "active": True,
             "name": "description",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "error_code",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "ok",
             "req": True,
             "type": "`$BOOLEAN`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "parameters",
-            "req": False,
             "type": "`$OBJECT`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "result",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "user_id",
             "req": True,
             "type": "`$INTEGER`",
-            "index$": 5,
           },
         ],
         "name": "get_user_gift",
@@ -799,7 +663,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "POST",
@@ -812,10 +675,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
         },
         "relations": {
@@ -825,46 +686,30 @@ def make_config():
       "get_user_profile_audio": {
         "fields": [
           {
-            "active": True,
             "name": "description",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "error_code",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "ok",
             "req": True,
             "type": "`$BOOLEAN`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "parameters",
-            "req": False,
             "type": "`$OBJECT`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "result",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "user_id",
             "req": True,
             "type": "`$INTEGER`",
-            "index$": 5,
           },
         ],
         "name": "get_user_profile_audio",
@@ -874,7 +719,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "POST",
@@ -887,10 +731,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
         },
         "relations": {
@@ -900,116 +742,86 @@ def make_config():
       "message": {
         "fields": [
           {
-            "active": True,
             "name": "chat_id",
             "req": True,
             "type": "`$STRING`",
-            "index$": 0,
+            "union": {
+              "branches": 2,
+              "count": 1,
+              "depth": 0,
+            },
           },
           {
-            "active": True,
             "name": "direct_messages_topic_id",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "disable_notification",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "disable_web_page_preview",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "from_chat_id",
             "req": True,
             "type": "`$STRING`",
-            "index$": 4,
+            "union": {
+              "branches": 2,
+              "count": 1,
+              "depth": 0,
+            },
           },
           {
-            "active": True,
             "name": "latitude",
             "req": True,
             "type": "`$NUMBER`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "longitude",
             "req": True,
             "type": "`$NUMBER`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "message_effect_id",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "message_id",
             "req": True,
             "type": "`$INTEGER`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "message_thread_id",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "options",
             "req": True,
             "type": "`$ARRAY`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "parse_mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 11,
           },
           {
-            "active": True,
             "name": "protect_content",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 12,
           },
           {
-            "active": True,
             "name": "question",
             "req": True,
             "type": "`$STRING`",
-            "index$": 13,
           },
           {
-            "active": True,
             "name": "reply_to_message_id",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 14,
           },
           {
-            "active": True,
             "name": "text",
             "req": True,
             "type": "`$STRING`",
-            "index$": 15,
           },
         ],
         "name": "message",
@@ -1019,7 +831,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "POST",
@@ -1032,10 +843,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "POST",
@@ -1048,10 +857,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 1,
               },
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "POST",
@@ -1064,10 +871,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 2,
               },
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "POST",
@@ -1080,10 +885,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 3,
               },
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "POST",
@@ -1096,10 +899,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 4,
               },
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "POST",
@@ -1112,10 +913,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 5,
               },
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "POST",
@@ -1128,10 +927,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 6,
               },
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "POST",
@@ -1144,10 +941,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 7,
               },
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "POST",
@@ -1160,10 +955,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 8,
               },
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "POST",
@@ -1176,10 +969,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 9,
               },
             ],
-            "key$": "create",
           },
         },
         "relations": {
@@ -1189,46 +980,41 @@ def make_config():
       "message_id": {
         "fields": [
           {
-            "active": True,
             "name": "chat_id",
             "req": True,
             "type": "`$STRING`",
-            "index$": 0,
+            "union": {
+              "branches": 2,
+              "count": 1,
+              "depth": 0,
+            },
           },
           {
-            "active": True,
             "name": "direct_messages_topic_id",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "from_chat_id",
             "req": True,
             "type": "`$STRING`",
-            "index$": 2,
+            "union": {
+              "branches": 2,
+              "count": 1,
+              "depth": 0,
+            },
           },
           {
-            "active": True,
             "name": "message_effect_id",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "message_id",
             "req": True,
             "type": "`$INTEGER`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "message_thread_id",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 5,
           },
         ],
         "name": "message_id",
@@ -1238,7 +1024,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "POST",
@@ -1253,10 +1038,8 @@ def make_config():
                   },
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
         },
         "relations": {
@@ -1266,88 +1049,60 @@ def make_config():
       "promote_chat_member": {
         "fields": [
           {
-            "active": True,
             "name": "can_delete_messages",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "can_edit_messages",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "can_manage_chat",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "can_manage_direct_messages",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "can_post_messages",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "chat_id",
             "req": True,
             "type": "`$STRING`",
-            "index$": 5,
+            "union": {
+              "branches": 2,
+              "count": 1,
+              "depth": 0,
+            },
           },
           {
-            "active": True,
             "name": "description",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "error_code",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "ok",
             "req": True,
             "type": "`$BOOLEAN`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "parameters",
-            "req": False,
             "type": "`$OBJECT`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "result",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "user_id",
             "req": True,
             "type": "`$INTEGER`",
-            "index$": 11,
           },
         ],
         "name": "promote_chat_member",
@@ -1357,7 +1112,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "POST",
@@ -1370,10 +1124,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
         },
         "relations": {
@@ -1383,39 +1135,25 @@ def make_config():
       "remove_my_profile_photo": {
         "fields": [
           {
-            "active": True,
             "name": "description",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "error_code",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "ok",
             "req": True,
             "type": "`$BOOLEAN`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "parameters",
-            "req": False,
             "type": "`$OBJECT`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "result",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 4,
           },
         ],
         "name": "remove_my_profile_photo",
@@ -1425,7 +1163,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "POST",
@@ -1438,10 +1175,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
         },
         "relations": {
@@ -1451,53 +1186,40 @@ def make_config():
       "repost_story": {
         "fields": [
           {
-            "active": True,
             "name": "chat_id",
             "req": True,
             "type": "`$STRING`",
-            "index$": 0,
+            "union": {
+              "branches": 2,
+              "count": 1,
+              "depth": 0,
+            },
           },
           {
-            "active": True,
             "name": "description",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "error_code",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "ok",
             "req": True,
             "type": "`$BOOLEAN`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "parameters",
-            "req": False,
             "type": "`$OBJECT`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "result",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "story_id",
             "req": True,
             "type": "`$INTEGER`",
-            "index$": 6,
           },
         ],
         "name": "repost_story",
@@ -1507,7 +1229,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "POST",
@@ -1520,10 +1241,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
         },
         "relations": {
@@ -1533,60 +1252,44 @@ def make_config():
       "send_chat_action": {
         "fields": [
           {
-            "active": True,
             "name": "action",
             "req": True,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "chat_id",
             "req": True,
             "type": "`$STRING`",
-            "index$": 1,
+            "union": {
+              "branches": 2,
+              "count": 1,
+              "depth": 0,
+            },
           },
           {
-            "active": True,
             "name": "description",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "error_code",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "message_thread_id",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "ok",
             "req": True,
             "type": "`$BOOLEAN`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "parameters",
-            "req": False,
             "type": "`$OBJECT`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "result",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 7,
           },
         ],
         "name": "send_chat_action",
@@ -1596,7 +1299,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "POST",
@@ -1609,10 +1311,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
         },
         "relations": {
@@ -1622,60 +1322,44 @@ def make_config():
       "send_message_draft": {
         "fields": [
           {
-            "active": True,
             "name": "chat_id",
             "req": True,
             "type": "`$STRING`",
-            "index$": 0,
+            "union": {
+              "branches": 2,
+              "count": 1,
+              "depth": 0,
+            },
           },
           {
-            "active": True,
             "name": "description",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "error_code",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "message_thread_id",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "ok",
             "req": True,
             "type": "`$BOOLEAN`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "parameters",
-            "req": False,
             "type": "`$OBJECT`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "result",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "text",
             "req": True,
             "type": "`$STRING`",
-            "index$": 7,
           },
         ],
         "name": "send_message_draft",
@@ -1685,7 +1369,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "POST",
@@ -1698,10 +1381,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
         },
         "relations": {
@@ -1711,39 +1392,25 @@ def make_config():
       "set_my_profile_photo": {
         "fields": [
           {
-            "active": True,
             "name": "description",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "error_code",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "ok",
             "req": True,
             "type": "`$BOOLEAN`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "parameters",
-            "req": False,
             "type": "`$OBJECT`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "result",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 4,
           },
         ],
         "name": "set_my_profile_photo",
@@ -1753,7 +1420,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "POST",
@@ -1766,10 +1432,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
         },
         "relations": {
@@ -1779,53 +1443,40 @@ def make_config():
       "unpin_all_forum_topic_message": {
         "fields": [
           {
-            "active": True,
             "name": "chat_id",
             "req": True,
             "type": "`$STRING`",
-            "index$": 0,
+            "union": {
+              "branches": 2,
+              "count": 1,
+              "depth": 0,
+            },
           },
           {
-            "active": True,
             "name": "description",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "error_code",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "message_thread_id",
             "req": True,
             "type": "`$INTEGER`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "ok",
             "req": True,
             "type": "`$BOOLEAN`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "parameters",
-            "req": False,
             "type": "`$OBJECT`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "result",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 6,
           },
         ],
         "name": "unpin_all_forum_topic_message",
@@ -1835,7 +1486,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "POST",
@@ -1848,10 +1498,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
         },
         "relations": {
@@ -1861,67 +1509,41 @@ def make_config():
       "update": {
         "fields": [
           {
-            "active": True,
             "name": "allowed_updates",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "description",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "error_code",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "limit",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "offset",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "ok",
             "req": True,
             "type": "`$BOOLEAN`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "parameters",
-            "req": False,
             "type": "`$OBJECT`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "result",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "timeout",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 8,
           },
         ],
         "name": "update",
@@ -1931,7 +1553,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "POST",
@@ -1944,51 +1565,40 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "allowed_update",
                       "orig": "allowed_update",
-                      "reqd": False,
                       "type": "`$ARRAY`",
                     },
                     {
-                      "active": True,
                       "example": 100,
                       "kind": "query",
                       "name": "limit",
                       "orig": "limit",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "offset",
                       "orig": "offset",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "example": 0,
                       "kind": "query",
                       "name": "timeout",
                       "orig": "timeout",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -2011,10 +1621,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
         },
         "relations": {

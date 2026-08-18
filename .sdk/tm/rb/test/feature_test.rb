@@ -15,7 +15,7 @@ require_relative "../TelegramBot_sdk"
 module TelegramBotFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = TelegramBotConfig.make_config["feature"]
+    f = TelegramBotConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

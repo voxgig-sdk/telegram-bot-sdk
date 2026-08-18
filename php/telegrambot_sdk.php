@@ -40,7 +40,7 @@ class TelegramBotSDK
         $utility = new TelegramBotUtility();
         $this->_utility = $utility;
 
-        $config = TelegramBotConfig::make_config();
+        $config = TelegramBotConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

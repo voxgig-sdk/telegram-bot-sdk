@@ -1,6 +1,20 @@
 # TelegramBot SDK configuration
 
 module TelegramBotConfig
+  # Return the process-wide config, built once on first use. The SDK reads
+  # the config on every request and never writes to it, so one instance is
+  # shared by every client rather than rebuilt per client.
+  #
+  # The returned hash is shared: treat it as read-only. Callers that need to
+  # mutate should use make_config, which always returns a fresh copy.
+  def self.shared_config
+    @shared_config ||= make_config
+  end
+
+
+  # Build a fresh, fully materialised config hash. Every call rebuilds the
+  # whole structure, so prefer shared_config unless you need a private copy
+  # you intend to mutate.
   def self.make_config
     {
       "main" => {
@@ -52,53 +66,40 @@ module TelegramBotConfig
         "approve_suggested_post" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "chat_id",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 0,
+              "union" => {
+                "branches" => 2,
+                "count" => 1,
+                "depth" => 0,
+              },
             },
             {
-              "active" => true,
               "name" => "description",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "error_code",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "message_id",
               "req" => true,
               "type" => "`$INTEGER`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "ok",
               "req" => true,
               "type" => "`$BOOLEAN`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "parameters",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "result",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 6,
             },
           ],
           "name" => "approve_suggested_post",
@@ -108,7 +109,6 @@ module TelegramBotConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "POST",
@@ -121,10 +121,8 @@ module TelegramBotConfig
                     "req" => "`reqdata`",
                     "res" => "`body.parameters`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
           },
           "relations" => {
@@ -134,53 +132,40 @@ module TelegramBotConfig
         "decline_suggested_post" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "chat_id",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 0,
+              "union" => {
+                "branches" => 2,
+                "count" => 1,
+                "depth" => 0,
+              },
             },
             {
-              "active" => true,
               "name" => "description",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "error_code",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "message_id",
               "req" => true,
               "type" => "`$INTEGER`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "ok",
               "req" => true,
               "type" => "`$BOOLEAN`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "parameters",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "result",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 6,
             },
           ],
           "name" => "decline_suggested_post",
@@ -190,7 +175,6 @@ module TelegramBotConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "POST",
@@ -203,10 +187,8 @@ module TelegramBotConfig
                     "req" => "`reqdata`",
                     "res" => "`body.parameters`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
           },
           "relations" => {
@@ -216,53 +198,40 @@ module TelegramBotConfig
         "delete_forum_topic" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "chat_id",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 0,
+              "union" => {
+                "branches" => 2,
+                "count" => 1,
+                "depth" => 0,
+              },
             },
             {
-              "active" => true,
               "name" => "description",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "error_code",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "message_thread_id",
               "req" => true,
               "type" => "`$INTEGER`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "ok",
               "req" => true,
               "type" => "`$BOOLEAN`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "parameters",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "result",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 6,
             },
           ],
           "name" => "delete_forum_topic",
@@ -272,7 +241,6 @@ module TelegramBotConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "POST",
@@ -285,10 +253,8 @@ module TelegramBotConfig
                     "req" => "`reqdata`",
                     "res" => "`body.parameters`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
           },
           "relations" => {
@@ -298,67 +264,48 @@ module TelegramBotConfig
         "edit_forum_topic" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "chat_id",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 0,
+              "union" => {
+                "branches" => 2,
+                "count" => 1,
+                "depth" => 0,
+              },
             },
             {
-              "active" => true,
               "name" => "description",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "error_code",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "icon_custom_emoji_id",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "message_thread_id",
               "req" => true,
               "type" => "`$INTEGER`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "name",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "ok",
               "req" => true,
               "type" => "`$BOOLEAN`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "parameters",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "result",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 8,
             },
           ],
           "name" => "edit_forum_topic",
@@ -368,7 +315,6 @@ module TelegramBotConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "POST",
@@ -381,10 +327,8 @@ module TelegramBotConfig
                     "req" => "`reqdata`",
                     "res" => "`body.parameters`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
           },
           "relations" => {
@@ -394,11 +338,9 @@ module TelegramBotConfig
         "file" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "file_id",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
           ],
           "name" => "file",
@@ -408,7 +350,6 @@ module TelegramBotConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "POST",
@@ -421,10 +362,8 @@ module TelegramBotConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
           },
           "relations" => {
@@ -434,32 +373,27 @@ module TelegramBotConfig
         "forum_topic" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "chat_id",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 0,
+              "union" => {
+                "branches" => 2,
+                "count" => 1,
+                "depth" => 0,
+              },
             },
             {
-              "active" => true,
               "name" => "icon_color",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "icon_custom_emoji_id",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
           ],
           "name" => "forum_topic",
@@ -469,7 +403,6 @@ module TelegramBotConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "POST",
@@ -482,10 +415,8 @@ module TelegramBotConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
           },
           "relations" => {
@@ -495,60 +426,37 @@ module TelegramBotConfig
         "get_business_account_gift" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "description",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "error_code",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "exclude_from_blockchain",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "exclude_limited_non_upgradable",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "exclude_limited_upgradable",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "ok",
               "req" => true,
               "type" => "`$BOOLEAN`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "parameters",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "result",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 7,
             },
           ],
           "name" => "get_business_account_gift",
@@ -558,7 +466,6 @@ module TelegramBotConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "POST",
@@ -571,10 +478,8 @@ module TelegramBotConfig
                     "req" => "`reqdata`",
                     "res" => "`body.parameters`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
           },
           "relations" => {
@@ -584,46 +489,35 @@ module TelegramBotConfig
         "get_chat_gift" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "chat_id",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 0,
+              "union" => {
+                "branches" => 2,
+                "count" => 1,
+                "depth" => 0,
+              },
             },
             {
-              "active" => true,
               "name" => "description",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "error_code",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "ok",
               "req" => true,
               "type" => "`$BOOLEAN`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "parameters",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "result",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 5,
             },
           ],
           "name" => "get_chat_gift",
@@ -633,7 +527,6 @@ module TelegramBotConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "POST",
@@ -646,10 +539,8 @@ module TelegramBotConfig
                     "req" => "`reqdata`",
                     "res" => "`body.parameters`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
           },
           "relations" => {
@@ -659,39 +550,25 @@ module TelegramBotConfig
         "get_me" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "description",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "error_code",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "ok",
               "req" => true,
               "type" => "`$BOOLEAN`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "parameters",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "result",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 4,
             },
           ],
           "name" => "get_me",
@@ -701,7 +578,6 @@ module TelegramBotConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "POST",
@@ -714,17 +590,14 @@ module TelegramBotConfig
                     "req" => "`reqdata`",
                     "res" => "`body.parameters`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
@@ -737,10 +610,8 @@ module TelegramBotConfig
                     "req" => "`reqdata`",
                     "res" => "`body.parameters`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -750,46 +621,30 @@ module TelegramBotConfig
         "get_user_gift" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "description",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "error_code",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "ok",
               "req" => true,
               "type" => "`$BOOLEAN`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "parameters",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "result",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "user_id",
               "req" => true,
               "type" => "`$INTEGER`",
-              "index$" => 5,
             },
           ],
           "name" => "get_user_gift",
@@ -799,7 +654,6 @@ module TelegramBotConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "POST",
@@ -812,10 +666,8 @@ module TelegramBotConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
           },
           "relations" => {
@@ -825,46 +677,30 @@ module TelegramBotConfig
         "get_user_profile_audio" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "description",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "error_code",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "ok",
               "req" => true,
               "type" => "`$BOOLEAN`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "parameters",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "result",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "user_id",
               "req" => true,
               "type" => "`$INTEGER`",
-              "index$" => 5,
             },
           ],
           "name" => "get_user_profile_audio",
@@ -874,7 +710,6 @@ module TelegramBotConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "POST",
@@ -887,10 +722,8 @@ module TelegramBotConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
           },
           "relations" => {
@@ -900,116 +733,86 @@ module TelegramBotConfig
         "message" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "chat_id",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 0,
+              "union" => {
+                "branches" => 2,
+                "count" => 1,
+                "depth" => 0,
+              },
             },
             {
-              "active" => true,
               "name" => "direct_messages_topic_id",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "disable_notification",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "disable_web_page_preview",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "from_chat_id",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 4,
+              "union" => {
+                "branches" => 2,
+                "count" => 1,
+                "depth" => 0,
+              },
             },
             {
-              "active" => true,
               "name" => "latitude",
               "req" => true,
               "type" => "`$NUMBER`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "longitude",
               "req" => true,
               "type" => "`$NUMBER`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "message_effect_id",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "message_id",
               "req" => true,
               "type" => "`$INTEGER`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "message_thread_id",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "options",
               "req" => true,
               "type" => "`$ARRAY`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "parse_mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "protect_content",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "question",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 13,
             },
             {
-              "active" => true,
               "name" => "reply_to_message_id",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 14,
             },
             {
-              "active" => true,
               "name" => "text",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 15,
             },
           ],
           "name" => "message",
@@ -1019,7 +822,6 @@ module TelegramBotConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "POST",
@@ -1032,10 +834,8 @@ module TelegramBotConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "POST",
@@ -1048,10 +848,8 @@ module TelegramBotConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 1,
                 },
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "POST",
@@ -1064,10 +862,8 @@ module TelegramBotConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 2,
                 },
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "POST",
@@ -1080,10 +876,8 @@ module TelegramBotConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 3,
                 },
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "POST",
@@ -1096,10 +890,8 @@ module TelegramBotConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 4,
                 },
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "POST",
@@ -1112,10 +904,8 @@ module TelegramBotConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 5,
                 },
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "POST",
@@ -1128,10 +918,8 @@ module TelegramBotConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 6,
                 },
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "POST",
@@ -1144,10 +932,8 @@ module TelegramBotConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 7,
                 },
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "POST",
@@ -1160,10 +946,8 @@ module TelegramBotConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 8,
                 },
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "POST",
@@ -1176,10 +960,8 @@ module TelegramBotConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 9,
                 },
               ],
-              "key$" => "create",
             },
           },
           "relations" => {
@@ -1189,46 +971,41 @@ module TelegramBotConfig
         "message_id" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "chat_id",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 0,
+              "union" => {
+                "branches" => 2,
+                "count" => 1,
+                "depth" => 0,
+              },
             },
             {
-              "active" => true,
               "name" => "direct_messages_topic_id",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "from_chat_id",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 2,
+              "union" => {
+                "branches" => 2,
+                "count" => 1,
+                "depth" => 0,
+              },
             },
             {
-              "active" => true,
               "name" => "message_effect_id",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "message_id",
               "req" => true,
               "type" => "`$INTEGER`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "message_thread_id",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 5,
             },
           ],
           "name" => "message_id",
@@ -1238,7 +1015,6 @@ module TelegramBotConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "POST",
@@ -1253,10 +1029,8 @@ module TelegramBotConfig
                     },
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
           },
           "relations" => {
@@ -1266,88 +1040,60 @@ module TelegramBotConfig
         "promote_chat_member" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "can_delete_messages",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "can_edit_messages",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "can_manage_chat",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "can_manage_direct_messages",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "can_post_messages",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "chat_id",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 5,
+              "union" => {
+                "branches" => 2,
+                "count" => 1,
+                "depth" => 0,
+              },
             },
             {
-              "active" => true,
               "name" => "description",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "error_code",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "ok",
               "req" => true,
               "type" => "`$BOOLEAN`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "parameters",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "result",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "user_id",
               "req" => true,
               "type" => "`$INTEGER`",
-              "index$" => 11,
             },
           ],
           "name" => "promote_chat_member",
@@ -1357,7 +1103,6 @@ module TelegramBotConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "POST",
@@ -1370,10 +1115,8 @@ module TelegramBotConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
           },
           "relations" => {
@@ -1383,39 +1126,25 @@ module TelegramBotConfig
         "remove_my_profile_photo" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "description",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "error_code",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "ok",
               "req" => true,
               "type" => "`$BOOLEAN`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "parameters",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "result",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 4,
             },
           ],
           "name" => "remove_my_profile_photo",
@@ -1425,7 +1154,6 @@ module TelegramBotConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "POST",
@@ -1438,10 +1166,8 @@ module TelegramBotConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
           },
           "relations" => {
@@ -1451,53 +1177,40 @@ module TelegramBotConfig
         "repost_story" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "chat_id",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 0,
+              "union" => {
+                "branches" => 2,
+                "count" => 1,
+                "depth" => 0,
+              },
             },
             {
-              "active" => true,
               "name" => "description",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "error_code",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "ok",
               "req" => true,
               "type" => "`$BOOLEAN`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "parameters",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "result",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "story_id",
               "req" => true,
               "type" => "`$INTEGER`",
-              "index$" => 6,
             },
           ],
           "name" => "repost_story",
@@ -1507,7 +1220,6 @@ module TelegramBotConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "POST",
@@ -1520,10 +1232,8 @@ module TelegramBotConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
           },
           "relations" => {
@@ -1533,60 +1243,44 @@ module TelegramBotConfig
         "send_chat_action" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "action",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "chat_id",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 1,
+              "union" => {
+                "branches" => 2,
+                "count" => 1,
+                "depth" => 0,
+              },
             },
             {
-              "active" => true,
               "name" => "description",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "error_code",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "message_thread_id",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "ok",
               "req" => true,
               "type" => "`$BOOLEAN`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "parameters",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "result",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 7,
             },
           ],
           "name" => "send_chat_action",
@@ -1596,7 +1290,6 @@ module TelegramBotConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "POST",
@@ -1609,10 +1302,8 @@ module TelegramBotConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
           },
           "relations" => {
@@ -1622,60 +1313,44 @@ module TelegramBotConfig
         "send_message_draft" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "chat_id",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 0,
+              "union" => {
+                "branches" => 2,
+                "count" => 1,
+                "depth" => 0,
+              },
             },
             {
-              "active" => true,
               "name" => "description",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "error_code",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "message_thread_id",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "ok",
               "req" => true,
               "type" => "`$BOOLEAN`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "parameters",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "result",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "text",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
           ],
           "name" => "send_message_draft",
@@ -1685,7 +1360,6 @@ module TelegramBotConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "POST",
@@ -1698,10 +1372,8 @@ module TelegramBotConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
           },
           "relations" => {
@@ -1711,39 +1383,25 @@ module TelegramBotConfig
         "set_my_profile_photo" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "description",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "error_code",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "ok",
               "req" => true,
               "type" => "`$BOOLEAN`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "parameters",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "result",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 4,
             },
           ],
           "name" => "set_my_profile_photo",
@@ -1753,7 +1411,6 @@ module TelegramBotConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "POST",
@@ -1766,10 +1423,8 @@ module TelegramBotConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
           },
           "relations" => {
@@ -1779,53 +1434,40 @@ module TelegramBotConfig
         "unpin_all_forum_topic_message" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "chat_id",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 0,
+              "union" => {
+                "branches" => 2,
+                "count" => 1,
+                "depth" => 0,
+              },
             },
             {
-              "active" => true,
               "name" => "description",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "error_code",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "message_thread_id",
               "req" => true,
               "type" => "`$INTEGER`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "ok",
               "req" => true,
               "type" => "`$BOOLEAN`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "parameters",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "result",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 6,
             },
           ],
           "name" => "unpin_all_forum_topic_message",
@@ -1835,7 +1477,6 @@ module TelegramBotConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "POST",
@@ -1848,10 +1489,8 @@ module TelegramBotConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
           },
           "relations" => {
@@ -1861,67 +1500,41 @@ module TelegramBotConfig
         "update" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "allowed_updates",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "description",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "error_code",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "limit",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "offset",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "ok",
               "req" => true,
               "type" => "`$BOOLEAN`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "parameters",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "result",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "timeout",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 8,
             },
           ],
           "name" => "update",
@@ -1931,7 +1544,6 @@ module TelegramBotConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "POST",
@@ -1944,51 +1556,40 @@ module TelegramBotConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "allowed_update",
                         "orig" => "allowed_update",
-                        "reqd" => false,
                         "type" => "`$ARRAY`",
                       },
                       {
-                        "active" => true,
                         "example" => 100,
                         "kind" => "query",
                         "name" => "limit",
                         "orig" => "limit",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "offset",
                         "orig" => "offset",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "example" => 0,
                         "kind" => "query",
                         "name" => "timeout",
                         "orig" => "timeout",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -2011,10 +1612,8 @@ module TelegramBotConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
           },
           "relations" => {

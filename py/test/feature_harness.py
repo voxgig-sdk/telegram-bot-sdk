@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from telegrambot_sdk.config import make_config
+from telegrambot_sdk.config import shared_config
 from telegrambot_sdk.features import _make_feature
 from telegrambot_sdk.core.control import TelegramBotControl
 from telegrambot_sdk.core.error import TelegramBotError
@@ -24,7 +24,7 @@ from telegrambot_sdk.core.spec import TelegramBotSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 
