@@ -175,12 +175,12 @@ approve_suggested_post = client.ApproveSuggestedPost
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `String` | Yes |  |
-| `description` | `String` | No |  |
-| `error_code` | `Integer` | No |  |
+| `description` | `String` | No | Human-readable description of the result |
+| `error_code` | `Integer` | No | Error code |
 | `message_id` | `Integer` | Yes |  |
-| `ok` | `Boolean` | Yes |  |
+| `ok` | `Boolean` | Yes | If true, the request was successful |
 | `parameters` | `Hash` | No |  |
-| `result` | `Array` | No |  |
+| `result` | `Array` | No | The result of the query |
 
 ### Operations
 
@@ -237,12 +237,12 @@ decline_suggested_post = client.DeclineSuggestedPost
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `String` | Yes |  |
-| `description` | `String` | No |  |
-| `error_code` | `Integer` | No |  |
+| `description` | `String` | No | Human-readable description of the result |
+| `error_code` | `Integer` | No | Error code |
 | `message_id` | `Integer` | Yes |  |
-| `ok` | `Boolean` | Yes |  |
+| `ok` | `Boolean` | Yes | If true, the request was successful |
 | `parameters` | `Hash` | No |  |
-| `result` | `Array` | No |  |
+| `result` | `Array` | No | The result of the query |
 
 ### Operations
 
@@ -299,12 +299,12 @@ delete_forum_topic = client.DeleteForumTopic
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `String` | Yes |  |
-| `description` | `String` | No |  |
-| `error_code` | `Integer` | No |  |
+| `description` | `String` | No | Human-readable description of the result |
+| `error_code` | `Integer` | No | Error code |
 | `message_thread_id` | `Integer` | Yes |  |
-| `ok` | `Boolean` | Yes |  |
+| `ok` | `Boolean` | Yes | If true, the request was successful |
 | `parameters` | `Hash` | No |  |
-| `result` | `Array` | No |  |
+| `result` | `Array` | No | The result of the query |
 
 ### Operations
 
@@ -361,14 +361,14 @@ edit_forum_topic = client.EditForumTopic
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `String` | Yes |  |
-| `description` | `String` | No |  |
-| `error_code` | `Integer` | No |  |
+| `description` | `String` | No | Human-readable description of the result |
+| `error_code` | `Integer` | No | Error code |
 | `icon_custom_emoji_id` | `String` | No |  |
 | `message_thread_id` | `Integer` | Yes |  |
 | `name` | `String` | No |  |
-| `ok` | `Boolean` | Yes |  |
+| `ok` | `Boolean` | Yes | If true, the request was successful |
 | `parameters` | `Hash` | No |  |
-| `result` | `Array` | No |  |
+| `result` | `Array` | No | The result of the query |
 
 ### Operations
 
@@ -536,14 +536,14 @@ get_business_account_gift = client.GetBusinessAccountGift
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `String` | No |  |
-| `error_code` | `Integer` | No |  |
+| `description` | `String` | No | Human-readable description of the result |
+| `error_code` | `Integer` | No | Error code |
 | `exclude_from_blockchain` | `Boolean` | No |  |
 | `exclude_limited_non_upgradable` | `Boolean` | No |  |
 | `exclude_limited_upgradable` | `Boolean` | No |  |
-| `ok` | `Boolean` | Yes |  |
+| `ok` | `Boolean` | Yes | If true, the request was successful |
 | `parameters` | `Hash` | No |  |
-| `result` | `Array` | No |  |
+| `result` | `Array` | No | The result of the query |
 
 ### Operations
 
@@ -598,11 +598,11 @@ get_chat_gift = client.GetChatGift
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `String` | Yes |  |
-| `description` | `String` | No |  |
-| `error_code` | `Integer` | No |  |
-| `ok` | `Boolean` | Yes |  |
+| `description` | `String` | No | Human-readable description of the result |
+| `error_code` | `Integer` | No | Error code |
+| `ok` | `Boolean` | Yes | If true, the request was successful |
 | `parameters` | `Hash` | No |  |
-| `result` | `Array` | No |  |
+| `result` | `Array` | No | The result of the query |
 
 ### Operations
 
@@ -657,11 +657,11 @@ get_me = client.GetMe
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `String` | No |  |
-| `error_code` | `Integer` | No |  |
-| `ok` | `Boolean` | Yes |  |
+| `description` | `String` | No | Human-readable description of the result |
+| `error_code` | `Integer` | No | Error code |
+| `ok` | `Boolean` | Yes | If true, the request was successful |
 | `parameters` | `Hash` | No |  |
-| `result` | `Array` | No |  |
+| `result` | `Array` | No | The result of the query |
 
 ### Operations
 
@@ -723,11 +723,11 @@ get_user_gift = client.GetUserGift
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `String` | No |  |
-| `error_code` | `Integer` | No |  |
-| `ok` | `Boolean` | Yes |  |
+| `description` | `String` | No | Human-readable description of the result |
+| `error_code` | `Integer` | No | Error code |
+| `ok` | `Boolean` | Yes | If true, the request was successful |
 | `parameters` | `Hash` | No |  |
-| `result` | `Array` | No |  |
+| `result` | `Array` | No | The result of the query |
 | `user_id` | `Integer` | Yes |  |
 
 ### Operations
@@ -783,11 +783,11 @@ get_user_profile_audio = client.GetUserProfileAudio
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `String` | No |  |
-| `error_code` | `Integer` | No |  |
-| `ok` | `Boolean` | Yes |  |
+| `description` | `String` | No | Human-readable description of the result |
+| `error_code` | `Integer` | No | Error code |
+| `ok` | `Boolean` | Yes | If true, the request was successful |
 | `parameters` | `Hash` | No |  |
-| `result` | `Array` | No |  |
+| `result` | `Array` | No | The result of the query |
 | `user_id` | `Integer` | Yes |  |
 
 ### Operations
@@ -843,22 +843,22 @@ message = client.Message
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | `String` | Yes |  |
-| `direct_messages_topic_id` | `Integer` | No |  |
-| `disable_notification` | `Boolean` | No |  |
-| `disable_web_page_preview` | `Boolean` | No |  |
+| `chat_id` | `String` | Yes | Unique identifier for the target chat or username |
+| `direct_messages_topic_id` | `Integer` | No | Unique identifier for the target direct messages topic |
+| `disable_notification` | `Boolean` | No | Sends the message silently |
+| `disable_web_page_preview` | `Boolean` | No | Disables link previews for links in this message |
 | `from_chat_id` | `String` | Yes |  |
 | `latitude` | `Float` | Yes |  |
 | `longitude` | `Float` | Yes |  |
-| `message_effect_id` | `String` | No |  |
+| `message_effect_id` | `String` | No | Unique identifier of the message effect to be added to the message |
 | `message_id` | `Integer` | Yes |  |
-| `message_thread_id` | `Integer` | No |  |
+| `message_thread_id` | `Integer` | No | Unique identifier for the target message thread (topic) of the forum |
 | `options` | `Array` | Yes |  |
-| `parse_mode` | `String` | No |  |
-| `protect_content` | `Boolean` | No |  |
+| `parse_mode` | `String` | No | Mode for parsing entities in the message text |
+| `protect_content` | `Boolean` | No | Protects the contents of the sent message from forwarding and saving |
 | `question` | `String` | Yes |  |
-| `reply_to_message_id` | `Integer` | No |  |
-| `text` | `String` | Yes |  |
+| `reply_to_message_id` | `Integer` | No | If the message is a reply, ID of the original message |
+| `text` | `String` | Yes | Text of the message to be sent |
 
 ### Operations
 
@@ -986,11 +986,11 @@ promote_chat_member = client.PromoteChatMember
 | `can_manage_direct_messages` | `Boolean` | No |  |
 | `can_post_messages` | `Boolean` | No |  |
 | `chat_id` | `String` | Yes |  |
-| `description` | `String` | No |  |
-| `error_code` | `Integer` | No |  |
-| `ok` | `Boolean` | Yes |  |
+| `description` | `String` | No | Human-readable description of the result |
+| `error_code` | `Integer` | No | Error code |
+| `ok` | `Boolean` | Yes | If true, the request was successful |
 | `parameters` | `Hash` | No |  |
-| `result` | `Array` | No |  |
+| `result` | `Array` | No | The result of the query |
 | `user_id` | `Integer` | Yes |  |
 
 ### Operations
@@ -1047,11 +1047,11 @@ remove_my_profile_photo = client.RemoveMyProfilePhoto
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `String` | No |  |
-| `error_code` | `Integer` | No |  |
-| `ok` | `Boolean` | Yes |  |
+| `description` | `String` | No | Human-readable description of the result |
+| `error_code` | `Integer` | No | Error code |
+| `ok` | `Boolean` | Yes | If true, the request was successful |
 | `parameters` | `Hash` | No |  |
-| `result` | `Array` | No |  |
+| `result` | `Array` | No | The result of the query |
 
 ### Operations
 
@@ -1106,11 +1106,11 @@ repost_story = client.RepostStory
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `String` | Yes |  |
-| `description` | `String` | No |  |
-| `error_code` | `Integer` | No |  |
-| `ok` | `Boolean` | Yes |  |
+| `description` | `String` | No | Human-readable description of the result |
+| `error_code` | `Integer` | No | Error code |
+| `ok` | `Boolean` | Yes | If true, the request was successful |
 | `parameters` | `Hash` | No |  |
-| `result` | `Array` | No |  |
+| `result` | `Array` | No | The result of the query |
 | `story_id` | `Integer` | Yes |  |
 
 ### Operations
@@ -1169,12 +1169,12 @@ send_chat_action = client.SendChatAction
 | --- | --- | --- | --- |
 | `action` | `String` | Yes |  |
 | `chat_id` | `String` | Yes |  |
-| `description` | `String` | No |  |
-| `error_code` | `Integer` | No |  |
+| `description` | `String` | No | Human-readable description of the result |
+| `error_code` | `Integer` | No | Error code |
 | `message_thread_id` | `Integer` | No |  |
-| `ok` | `Boolean` | Yes |  |
+| `ok` | `Boolean` | Yes | If true, the request was successful |
 | `parameters` | `Hash` | No |  |
-| `result` | `Array` | No |  |
+| `result` | `Array` | No | The result of the query |
 
 ### Operations
 
@@ -1231,12 +1231,12 @@ send_message_draft = client.SendMessageDraft
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `String` | Yes |  |
-| `description` | `String` | No |  |
-| `error_code` | `Integer` | No |  |
+| `description` | `String` | No | Human-readable description of the result |
+| `error_code` | `Integer` | No | Error code |
 | `message_thread_id` | `Integer` | No |  |
-| `ok` | `Boolean` | Yes |  |
+| `ok` | `Boolean` | Yes | If true, the request was successful |
 | `parameters` | `Hash` | No |  |
-| `result` | `Array` | No |  |
+| `result` | `Array` | No | The result of the query |
 | `text` | `String` | Yes |  |
 
 ### Operations
@@ -1293,11 +1293,11 @@ set_my_profile_photo = client.SetMyProfilePhoto
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `String` | No |  |
-| `error_code` | `Integer` | No |  |
-| `ok` | `Boolean` | Yes |  |
+| `description` | `String` | No | Human-readable description of the result |
+| `error_code` | `Integer` | No | Error code |
+| `ok` | `Boolean` | Yes | If true, the request was successful |
 | `parameters` | `Hash` | No |  |
-| `result` | `Array` | No |  |
+| `result` | `Array` | No | The result of the query |
 
 ### Operations
 
@@ -1352,12 +1352,12 @@ unpin_all_forum_topic_message = client.UnpinAllForumTopicMessage
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `String` | Yes |  |
-| `description` | `String` | No |  |
-| `error_code` | `Integer` | No |  |
+| `description` | `String` | No | Human-readable description of the result |
+| `error_code` | `Integer` | No | Error code |
 | `message_thread_id` | `Integer` | Yes |  |
-| `ok` | `Boolean` | Yes |  |
+| `ok` | `Boolean` | Yes | If true, the request was successful |
 | `parameters` | `Hash` | No |  |
-| `result` | `Array` | No |  |
+| `result` | `Array` | No | The result of the query |
 
 ### Operations
 
@@ -1414,13 +1414,13 @@ update = client.Update
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `allowed_updates` | `Array` | No |  |
-| `description` | `String` | No |  |
-| `error_code` | `Integer` | No |  |
+| `description` | `String` | No | Human-readable description of the result |
+| `error_code` | `Integer` | No | Error code |
 | `limit` | `Integer` | No |  |
 | `offset` | `Integer` | No |  |
-| `ok` | `Boolean` | Yes |  |
+| `ok` | `Boolean` | Yes | If true, the request was successful |
 | `parameters` | `Hash` | No |  |
-| `result` | `Array` | No |  |
+| `result` | `Array` | No | The result of the query |
 | `timeout` | `Integer` | No |  |
 
 ### Operations

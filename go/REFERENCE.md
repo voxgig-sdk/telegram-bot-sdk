@@ -180,12 +180,12 @@ fmt.Println(approveSuggestedPost.GetName()) // "approve_suggested_post"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `error_code` | `int` | No |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
 | `message_id` | `int` | Yes |  |
-| `ok` | `bool` | Yes |  |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `map[string]any` | No |  |
-| `result` | `[]any` | No |  |
+| `result` | `[]any` | No | The result of the query |
 
 ### Operations
 
@@ -241,12 +241,12 @@ fmt.Println(declineSuggestedPost.GetName()) // "decline_suggested_post"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `error_code` | `int` | No |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
 | `message_id` | `int` | Yes |  |
-| `ok` | `bool` | Yes |  |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `map[string]any` | No |  |
-| `result` | `[]any` | No |  |
+| `result` | `[]any` | No | The result of the query |
 
 ### Operations
 
@@ -302,12 +302,12 @@ fmt.Println(deleteForumTopic.GetName()) // "delete_forum_topic"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `error_code` | `int` | No |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
 | `message_thread_id` | `int` | Yes |  |
-| `ok` | `bool` | Yes |  |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `map[string]any` | No |  |
-| `result` | `[]any` | No |  |
+| `result` | `[]any` | No | The result of the query |
 
 ### Operations
 
@@ -363,14 +363,14 @@ fmt.Println(editForumTopic.GetName()) // "edit_forum_topic"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `error_code` | `int` | No |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
 | `icon_custom_emoji_id` | `string` | No |  |
 | `message_thread_id` | `int` | Yes |  |
 | `name` | `string` | No |  |
-| `ok` | `bool` | Yes |  |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `map[string]any` | No |  |
-| `result` | `[]any` | No |  |
+| `result` | `[]any` | No | The result of the query |
 
 ### Operations
 
@@ -535,14 +535,14 @@ fmt.Println(getBusinessAccountGift.GetName()) // "get_business_account_gift"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
-| `error_code` | `int` | No |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
 | `exclude_from_blockchain` | `bool` | No |  |
 | `exclude_limited_non_upgradable` | `bool` | No |  |
 | `exclude_limited_upgradable` | `bool` | No |  |
-| `ok` | `bool` | Yes |  |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `map[string]any` | No |  |
-| `result` | `[]any` | No |  |
+| `result` | `[]any` | No | The result of the query |
 
 ### Operations
 
@@ -596,11 +596,11 @@ fmt.Println(getChatGift.GetName()) // "get_chat_gift"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `error_code` | `int` | No |  |
-| `ok` | `bool` | Yes |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `map[string]any` | No |  |
-| `result` | `[]any` | No |  |
+| `result` | `[]any` | No | The result of the query |
 
 ### Operations
 
@@ -654,11 +654,11 @@ fmt.Println(getMe.GetName()) // "get_me"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
-| `error_code` | `int` | No |  |
-| `ok` | `bool` | Yes |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `map[string]any` | No |  |
-| `result` | `[]any` | No |  |
+| `result` | `[]any` | No | The result of the query |
 
 ### Operations
 
@@ -723,11 +723,11 @@ fmt.Println(getUserGift.GetName()) // "get_user_gift"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
-| `error_code` | `int` | No |  |
-| `ok` | `bool` | Yes |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `map[string]any` | No |  |
-| `result` | `[]any` | No |  |
+| `result` | `[]any` | No | The result of the query |
 | `user_id` | `int` | Yes |  |
 
 ### Operations
@@ -782,11 +782,11 @@ fmt.Println(getUserProfileAudio.GetName()) // "get_user_profile_audio"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
-| `error_code` | `int` | No |  |
-| `ok` | `bool` | Yes |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `map[string]any` | No |  |
-| `result` | `[]any` | No |  |
+| `result` | `[]any` | No | The result of the query |
 | `user_id` | `int` | Yes |  |
 
 ### Operations
@@ -841,22 +841,22 @@ fmt.Println(message.GetName()) // "message"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | `string` | Yes |  |
-| `direct_messages_topic_id` | `int` | No |  |
-| `disable_notification` | `bool` | No |  |
-| `disable_web_page_preview` | `bool` | No |  |
+| `chat_id` | `string` | Yes | Unique identifier for the target chat or username |
+| `direct_messages_topic_id` | `int` | No | Unique identifier for the target direct messages topic |
+| `disable_notification` | `bool` | No | Sends the message silently |
+| `disable_web_page_preview` | `bool` | No | Disables link previews for links in this message |
 | `from_chat_id` | `string` | Yes |  |
 | `latitude` | `float64` | Yes |  |
 | `longitude` | `float64` | Yes |  |
-| `message_effect_id` | `string` | No |  |
+| `message_effect_id` | `string` | No | Unique identifier of the message effect to be added to the message |
 | `message_id` | `int` | Yes |  |
-| `message_thread_id` | `int` | No |  |
+| `message_thread_id` | `int` | No | Unique identifier for the target message thread (topic) of the forum |
 | `options` | `[]any` | Yes |  |
-| `parse_mode` | `string` | No |  |
-| `protect_content` | `bool` | No |  |
+| `parse_mode` | `string` | No | Mode for parsing entities in the message text |
+| `protect_content` | `bool` | No | Protects the contents of the sent message from forwarding and saving |
 | `question` | `string` | Yes |  |
-| `reply_to_message_id` | `int` | No |  |
-| `text` | `string` | Yes |  |
+| `reply_to_message_id` | `int` | No | If the message is a reply, ID of the original message |
+| `text` | `string` | Yes | Text of the message to be sent |
 
 ### Operations
 
@@ -982,11 +982,11 @@ fmt.Println(promoteChatMember.GetName()) // "promote_chat_member"
 | `can_manage_direct_messages` | `bool` | No |  |
 | `can_post_messages` | `bool` | No |  |
 | `chat_id` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `error_code` | `int` | No |  |
-| `ok` | `bool` | Yes |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `map[string]any` | No |  |
-| `result` | `[]any` | No |  |
+| `result` | `[]any` | No | The result of the query |
 | `user_id` | `int` | Yes |  |
 
 ### Operations
@@ -1042,11 +1042,11 @@ fmt.Println(removeMyProfilePhoto.GetName()) // "remove_my_profile_photo"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
-| `error_code` | `int` | No |  |
-| `ok` | `bool` | Yes |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `map[string]any` | No |  |
-| `result` | `[]any` | No |  |
+| `result` | `[]any` | No | The result of the query |
 
 ### Operations
 
@@ -1100,11 +1100,11 @@ fmt.Println(repostStory.GetName()) // "repost_story"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `error_code` | `int` | No |  |
-| `ok` | `bool` | Yes |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `map[string]any` | No |  |
-| `result` | `[]any` | No |  |
+| `result` | `[]any` | No | The result of the query |
 | `story_id` | `int` | Yes |  |
 
 ### Operations
@@ -1162,12 +1162,12 @@ fmt.Println(sendChatAction.GetName()) // "send_chat_action"
 | --- | --- | --- | --- |
 | `action` | `string` | Yes |  |
 | `chat_id` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `error_code` | `int` | No |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
 | `message_thread_id` | `int` | No |  |
-| `ok` | `bool` | Yes |  |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `map[string]any` | No |  |
-| `result` | `[]any` | No |  |
+| `result` | `[]any` | No | The result of the query |
 
 ### Operations
 
@@ -1223,12 +1223,12 @@ fmt.Println(sendMessageDraft.GetName()) // "send_message_draft"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `error_code` | `int` | No |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
 | `message_thread_id` | `int` | No |  |
-| `ok` | `bool` | Yes |  |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `map[string]any` | No |  |
-| `result` | `[]any` | No |  |
+| `result` | `[]any` | No | The result of the query |
 | `text` | `string` | Yes |  |
 
 ### Operations
@@ -1284,11 +1284,11 @@ fmt.Println(setMyProfilePhoto.GetName()) // "set_my_profile_photo"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
-| `error_code` | `int` | No |  |
-| `ok` | `bool` | Yes |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `map[string]any` | No |  |
-| `result` | `[]any` | No |  |
+| `result` | `[]any` | No | The result of the query |
 
 ### Operations
 
@@ -1342,12 +1342,12 @@ fmt.Println(unpinAllForumTopicMessage.GetName()) // "unpin_all_forum_topic_messa
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `error_code` | `int` | No |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
 | `message_thread_id` | `int` | Yes |  |
-| `ok` | `bool` | Yes |  |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `map[string]any` | No |  |
-| `result` | `[]any` | No |  |
+| `result` | `[]any` | No | The result of the query |
 
 ### Operations
 
@@ -1403,13 +1403,13 @@ fmt.Println(update.GetName()) // "update"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `allowed_updates` | `[]any` | No |  |
-| `description` | `string` | No |  |
-| `error_code` | `int` | No |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
 | `limit` | `int` | No |  |
 | `offset` | `int` | No |  |
-| `ok` | `bool` | Yes |  |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `map[string]any` | No |  |
-| `result` | `[]any` | No |  |
+| `result` | `[]any` | No | The result of the query |
 | `timeout` | `int` | No |  |
 
 ### Operations

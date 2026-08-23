@@ -1,0 +1,101 @@
+# Entity: promote_chat_member
+
+main: kit: entity: promote_chat_member: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "can_delete_messages"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "can_edit_messages"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "can_manage_chat"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "can_manage_direct_messages"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "can_post_messages"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "chat_id"
+      req: true
+      type: "`$STRING`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
+    {
+      name: "description"
+      req: false
+      short: "Human-readable description of the result"
+      type: "`$STRING`"
+    }
+    {
+      name: "error_code"
+      req: false
+      short: "Error code"
+      type: "`$INTEGER`"
+    }
+    {
+      name: "ok"
+      req: true
+      short: "If true, the request was successful"
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "parameters"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "result"
+      req: false
+      short: "The result of the query"
+      type: "`$ARRAY`"
+    }
+    {
+      name: "user_id"
+      req: true
+      type: "`$INTEGER`"
+    }
+  ]
+
+  name: "promote_chat_member"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/promoteChatMember"
+          parts: [
+            "promoteChatMember"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

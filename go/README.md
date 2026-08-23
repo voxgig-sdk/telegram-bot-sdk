@@ -6,7 +6,7 @@ The Golang SDK for the TelegramBot API — an entity-oriented client using stand
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.ApproveSuggestedPost(nil)` — each with the same small set of operations (`List`, `Load`, `Create`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -287,12 +287,12 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | Field | Description |
 | --- | --- |
 | `"chat_id"` |  |
-| `"description"` |  |
-| `"error_code"` |  |
+| `"description"` | Human-readable description of the result |
+| `"error_code"` | Error code |
 | `"message_id"` |  |
-| `"ok"` |  |
+| `"ok"` | If true, the request was successful |
 | `"parameters"` |  |
-| `"result"` |  |
+| `"result"` | The result of the query |
 
 Operations: Create.
 
@@ -303,12 +303,12 @@ API path: `/approveSuggestedPost`
 | Field | Description |
 | --- | --- |
 | `"chat_id"` |  |
-| `"description"` |  |
-| `"error_code"` |  |
+| `"description"` | Human-readable description of the result |
+| `"error_code"` | Error code |
 | `"message_id"` |  |
-| `"ok"` |  |
+| `"ok"` | If true, the request was successful |
 | `"parameters"` |  |
-| `"result"` |  |
+| `"result"` | The result of the query |
 
 Operations: Create.
 
@@ -319,12 +319,12 @@ API path: `/declineSuggestedPost`
 | Field | Description |
 | --- | --- |
 | `"chat_id"` |  |
-| `"description"` |  |
-| `"error_code"` |  |
+| `"description"` | Human-readable description of the result |
+| `"error_code"` | Error code |
 | `"message_thread_id"` |  |
-| `"ok"` |  |
+| `"ok"` | If true, the request was successful |
 | `"parameters"` |  |
-| `"result"` |  |
+| `"result"` | The result of the query |
 
 Operations: Create.
 
@@ -335,14 +335,14 @@ API path: `/deleteForumTopic`
 | Field | Description |
 | --- | --- |
 | `"chat_id"` |  |
-| `"description"` |  |
-| `"error_code"` |  |
+| `"description"` | Human-readable description of the result |
+| `"error_code"` | Error code |
 | `"icon_custom_emoji_id"` |  |
 | `"message_thread_id"` |  |
 | `"name"` |  |
-| `"ok"` |  |
+| `"ok"` | If true, the request was successful |
 | `"parameters"` |  |
-| `"result"` |  |
+| `"result"` | The result of the query |
 
 Operations: Create.
 
@@ -375,14 +375,14 @@ API path: `/createForumTopic`
 
 | Field | Description |
 | --- | --- |
-| `"description"` |  |
-| `"error_code"` |  |
+| `"description"` | Human-readable description of the result |
+| `"error_code"` | Error code |
 | `"exclude_from_blockchain"` |  |
 | `"exclude_limited_non_upgradable"` |  |
 | `"exclude_limited_upgradable"` |  |
-| `"ok"` |  |
+| `"ok"` | If true, the request was successful |
 | `"parameters"` |  |
-| `"result"` |  |
+| `"result"` | The result of the query |
 
 Operations: Create.
 
@@ -393,11 +393,11 @@ API path: `/getBusinessAccountGifts`
 | Field | Description |
 | --- | --- |
 | `"chat_id"` |  |
-| `"description"` |  |
-| `"error_code"` |  |
-| `"ok"` |  |
+| `"description"` | Human-readable description of the result |
+| `"error_code"` | Error code |
+| `"ok"` | If true, the request was successful |
 | `"parameters"` |  |
-| `"result"` |  |
+| `"result"` | The result of the query |
 
 Operations: Create.
 
@@ -407,11 +407,11 @@ API path: `/getChatGifts`
 
 | Field | Description |
 | --- | --- |
-| `"description"` |  |
-| `"error_code"` |  |
-| `"ok"` |  |
+| `"description"` | Human-readable description of the result |
+| `"error_code"` | Error code |
+| `"ok"` | If true, the request was successful |
 | `"parameters"` |  |
-| `"result"` |  |
+| `"result"` | The result of the query |
 
 Operations: Create, Load.
 
@@ -421,11 +421,11 @@ API path: `/getMe`
 
 | Field | Description |
 | --- | --- |
-| `"description"` |  |
-| `"error_code"` |  |
-| `"ok"` |  |
+| `"description"` | Human-readable description of the result |
+| `"error_code"` | Error code |
+| `"ok"` | If true, the request was successful |
 | `"parameters"` |  |
-| `"result"` |  |
+| `"result"` | The result of the query |
 | `"user_id"` |  |
 
 Operations: Create.
@@ -436,11 +436,11 @@ API path: `/getUserGifts`
 
 | Field | Description |
 | --- | --- |
-| `"description"` |  |
-| `"error_code"` |  |
-| `"ok"` |  |
+| `"description"` | Human-readable description of the result |
+| `"error_code"` | Error code |
+| `"ok"` | If true, the request was successful |
 | `"parameters"` |  |
-| `"result"` |  |
+| `"result"` | The result of the query |
 | `"user_id"` |  |
 
 Operations: Create.
@@ -451,22 +451,22 @@ API path: `/getUserProfileAudios`
 
 | Field | Description |
 | --- | --- |
-| `"chat_id"` |  |
-| `"direct_messages_topic_id"` |  |
-| `"disable_notification"` |  |
-| `"disable_web_page_preview"` |  |
+| `"chat_id"` | Unique identifier for the target chat or username |
+| `"direct_messages_topic_id"` | Unique identifier for the target direct messages topic |
+| `"disable_notification"` | Sends the message silently |
+| `"disable_web_page_preview"` | Disables link previews for links in this message |
 | `"from_chat_id"` |  |
 | `"latitude"` |  |
 | `"longitude"` |  |
-| `"message_effect_id"` |  |
+| `"message_effect_id"` | Unique identifier of the message effect to be added to the message |
 | `"message_id"` |  |
-| `"message_thread_id"` |  |
+| `"message_thread_id"` | Unique identifier for the target message thread (topic) of the forum |
 | `"options"` |  |
-| `"parse_mode"` |  |
-| `"protect_content"` |  |
+| `"parse_mode"` | Mode for parsing entities in the message text |
+| `"protect_content"` | Protects the contents of the sent message from forwarding and saving |
 | `"question"` |  |
-| `"reply_to_message_id"` |  |
-| `"text"` |  |
+| `"reply_to_message_id"` | If the message is a reply, ID of the original message |
+| `"text"` | Text of the message to be sent |
 
 Operations: Create.
 
@@ -497,11 +497,11 @@ API path: `/copyMessage`
 | `"can_manage_direct_messages"` |  |
 | `"can_post_messages"` |  |
 | `"chat_id"` |  |
-| `"description"` |  |
-| `"error_code"` |  |
-| `"ok"` |  |
+| `"description"` | Human-readable description of the result |
+| `"error_code"` | Error code |
+| `"ok"` | If true, the request was successful |
 | `"parameters"` |  |
-| `"result"` |  |
+| `"result"` | The result of the query |
 | `"user_id"` |  |
 
 Operations: Create.
@@ -512,11 +512,11 @@ API path: `/promoteChatMember`
 
 | Field | Description |
 | --- | --- |
-| `"description"` |  |
-| `"error_code"` |  |
-| `"ok"` |  |
+| `"description"` | Human-readable description of the result |
+| `"error_code"` | Error code |
+| `"ok"` | If true, the request was successful |
 | `"parameters"` |  |
-| `"result"` |  |
+| `"result"` | The result of the query |
 
 Operations: Create.
 
@@ -527,11 +527,11 @@ API path: `/removeMyProfilePhoto`
 | Field | Description |
 | --- | --- |
 | `"chat_id"` |  |
-| `"description"` |  |
-| `"error_code"` |  |
-| `"ok"` |  |
+| `"description"` | Human-readable description of the result |
+| `"error_code"` | Error code |
+| `"ok"` | If true, the request was successful |
 | `"parameters"` |  |
-| `"result"` |  |
+| `"result"` | The result of the query |
 | `"story_id"` |  |
 
 Operations: Create.
@@ -544,12 +544,12 @@ API path: `/repostStory`
 | --- | --- |
 | `"action"` |  |
 | `"chat_id"` |  |
-| `"description"` |  |
-| `"error_code"` |  |
+| `"description"` | Human-readable description of the result |
+| `"error_code"` | Error code |
 | `"message_thread_id"` |  |
-| `"ok"` |  |
+| `"ok"` | If true, the request was successful |
 | `"parameters"` |  |
-| `"result"` |  |
+| `"result"` | The result of the query |
 
 Operations: Create.
 
@@ -560,12 +560,12 @@ API path: `/sendChatAction`
 | Field | Description |
 | --- | --- |
 | `"chat_id"` |  |
-| `"description"` |  |
-| `"error_code"` |  |
+| `"description"` | Human-readable description of the result |
+| `"error_code"` | Error code |
 | `"message_thread_id"` |  |
-| `"ok"` |  |
+| `"ok"` | If true, the request was successful |
 | `"parameters"` |  |
-| `"result"` |  |
+| `"result"` | The result of the query |
 | `"text"` |  |
 
 Operations: Create.
@@ -576,11 +576,11 @@ API path: `/sendMessageDraft`
 
 | Field | Description |
 | --- | --- |
-| `"description"` |  |
-| `"error_code"` |  |
-| `"ok"` |  |
+| `"description"` | Human-readable description of the result |
+| `"error_code"` | Error code |
+| `"ok"` | If true, the request was successful |
 | `"parameters"` |  |
-| `"result"` |  |
+| `"result"` | The result of the query |
 
 Operations: Create.
 
@@ -591,12 +591,12 @@ API path: `/setMyProfilePhoto`
 | Field | Description |
 | --- | --- |
 | `"chat_id"` |  |
-| `"description"` |  |
-| `"error_code"` |  |
+| `"description"` | Human-readable description of the result |
+| `"error_code"` | Error code |
 | `"message_thread_id"` |  |
-| `"ok"` |  |
+| `"ok"` | If true, the request was successful |
 | `"parameters"` |  |
-| `"result"` |  |
+| `"result"` | The result of the query |
 
 Operations: Create.
 
@@ -607,13 +607,13 @@ API path: `/unpinAllForumTopicMessages`
 | Field | Description |
 | --- | --- |
 | `"allowed_updates"` |  |
-| `"description"` |  |
-| `"error_code"` |  |
+| `"description"` | Human-readable description of the result |
+| `"error_code"` | Error code |
 | `"limit"` |  |
 | `"offset"` |  |
-| `"ok"` |  |
+| `"ok"` | If true, the request was successful |
 | `"parameters"` |  |
-| `"result"` |  |
+| `"result"` | The result of the query |
 | `"timeout"` |  |
 
 Operations: Create, List.
@@ -640,12 +640,12 @@ Create an instance: `approveSuggestedPost := client.ApproveSuggestedPost(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `chat_id` | `string` |  |
-| `description` | `string` |  |
-| `error_code` | `int` |  |
+| `description` | `string` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
 | `message_id` | `int` |  |
-| `ok` | `bool` |  |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `map[string]any` |  |
-| `result` | `[]any` |  |
+| `result` | `[]any` | The result of the query |
 
 #### Example: Create
 
@@ -677,12 +677,12 @@ Create an instance: `declineSuggestedPost := client.DeclineSuggestedPost(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `chat_id` | `string` |  |
-| `description` | `string` |  |
-| `error_code` | `int` |  |
+| `description` | `string` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
 | `message_id` | `int` |  |
-| `ok` | `bool` |  |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `map[string]any` |  |
-| `result` | `[]any` |  |
+| `result` | `[]any` | The result of the query |
 
 #### Example: Create
 
@@ -714,12 +714,12 @@ Create an instance: `deleteForumTopic := client.DeleteForumTopic(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `chat_id` | `string` |  |
-| `description` | `string` |  |
-| `error_code` | `int` |  |
+| `description` | `string` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
 | `message_thread_id` | `int` |  |
-| `ok` | `bool` |  |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `map[string]any` |  |
-| `result` | `[]any` |  |
+| `result` | `[]any` | The result of the query |
 
 #### Example: Create
 
@@ -751,14 +751,14 @@ Create an instance: `editForumTopic := client.EditForumTopic(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `chat_id` | `string` |  |
-| `description` | `string` |  |
-| `error_code` | `int` |  |
+| `description` | `string` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
 | `icon_custom_emoji_id` | `string` |  |
 | `message_thread_id` | `int` |  |
 | `name` | `string` |  |
-| `ok` | `bool` |  |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `map[string]any` |  |
-| `result` | `[]any` |  |
+| `result` | `[]any` | The result of the query |
 
 #### Example: Create
 
@@ -851,14 +851,14 @@ Create an instance: `getBusinessAccountGift := client.GetBusinessAccountGift(nil
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `string` |  |
-| `error_code` | `int` |  |
+| `description` | `string` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
 | `exclude_from_blockchain` | `bool` |  |
 | `exclude_limited_non_upgradable` | `bool` |  |
 | `exclude_limited_upgradable` | `bool` |  |
-| `ok` | `bool` |  |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `map[string]any` |  |
-| `result` | `[]any` |  |
+| `result` | `[]any` | The result of the query |
 
 #### Example: Create
 
@@ -888,11 +888,11 @@ Create an instance: `getChatGift := client.GetChatGift(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `chat_id` | `string` |  |
-| `description` | `string` |  |
-| `error_code` | `int` |  |
-| `ok` | `bool` |  |
+| `description` | `string` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `map[string]any` |  |
-| `result` | `[]any` |  |
+| `result` | `[]any` | The result of the query |
 
 #### Example: Create
 
@@ -923,11 +923,11 @@ Create an instance: `getMe := client.GetMe(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `string` |  |
-| `error_code` | `int` |  |
-| `ok` | `bool` |  |
+| `description` | `string` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `map[string]any` |  |
-| `result` | `[]any` |  |
+| `result` | `[]any` | The result of the query |
 
 #### Example: Load
 
@@ -966,11 +966,11 @@ Create an instance: `getUserGift := client.GetUserGift(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `string` |  |
-| `error_code` | `int` |  |
-| `ok` | `bool` |  |
+| `description` | `string` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `map[string]any` |  |
-| `result` | `[]any` |  |
+| `result` | `[]any` | The result of the query |
 | `user_id` | `int` |  |
 
 #### Example: Create
@@ -1001,11 +1001,11 @@ Create an instance: `getUserProfileAudio := client.GetUserProfileAudio(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `string` |  |
-| `error_code` | `int` |  |
-| `ok` | `bool` |  |
+| `description` | `string` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `map[string]any` |  |
-| `result` | `[]any` |  |
+| `result` | `[]any` | The result of the query |
 | `user_id` | `int` |  |
 
 #### Example: Create
@@ -1036,22 +1036,22 @@ Create an instance: `message := client.Message(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | `string` |  |
-| `direct_messages_topic_id` | `int` |  |
-| `disable_notification` | `bool` |  |
-| `disable_web_page_preview` | `bool` |  |
+| `chat_id` | `string` | Unique identifier for the target chat or username |
+| `direct_messages_topic_id` | `int` | Unique identifier for the target direct messages topic |
+| `disable_notification` | `bool` | Sends the message silently |
+| `disable_web_page_preview` | `bool` | Disables link previews for links in this message |
 | `from_chat_id` | `string` |  |
 | `latitude` | `float64` |  |
 | `longitude` | `float64` |  |
-| `message_effect_id` | `string` |  |
+| `message_effect_id` | `string` | Unique identifier of the message effect to be added to the message |
 | `message_id` | `int` |  |
-| `message_thread_id` | `int` |  |
+| `message_thread_id` | `int` | Unique identifier for the target message thread (topic) of the forum |
 | `options` | `[]any` |  |
-| `parse_mode` | `string` |  |
-| `protect_content` | `bool` |  |
+| `parse_mode` | `string` | Mode for parsing entities in the message text |
+| `protect_content` | `bool` | Protects the contents of the sent message from forwarding and saving |
 | `question` | `string` |  |
-| `reply_to_message_id` | `int` |  |
-| `text` | `string` |  |
+| `reply_to_message_id` | `int` | If the message is a reply, ID of the original message |
+| `text` | `string` | Text of the message to be sent |
 
 #### Example: Create
 
@@ -1129,11 +1129,11 @@ Create an instance: `promoteChatMember := client.PromoteChatMember(nil)`
 | `can_manage_direct_messages` | `bool` |  |
 | `can_post_messages` | `bool` |  |
 | `chat_id` | `string` |  |
-| `description` | `string` |  |
-| `error_code` | `int` |  |
-| `ok` | `bool` |  |
+| `description` | `string` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `map[string]any` |  |
-| `result` | `[]any` |  |
+| `result` | `[]any` | The result of the query |
 | `user_id` | `int` |  |
 
 #### Example: Create
@@ -1165,11 +1165,11 @@ Create an instance: `removeMyProfilePhoto := client.RemoveMyProfilePhoto(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `string` |  |
-| `error_code` | `int` |  |
-| `ok` | `bool` |  |
+| `description` | `string` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `map[string]any` |  |
-| `result` | `[]any` |  |
+| `result` | `[]any` | The result of the query |
 
 #### Example: Create
 
@@ -1199,11 +1199,11 @@ Create an instance: `repostStory := client.RepostStory(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `chat_id` | `string` |  |
-| `description` | `string` |  |
-| `error_code` | `int` |  |
-| `ok` | `bool` |  |
+| `description` | `string` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `map[string]any` |  |
-| `result` | `[]any` |  |
+| `result` | `[]any` | The result of the query |
 | `story_id` | `int` |  |
 
 #### Example: Create
@@ -1237,12 +1237,12 @@ Create an instance: `sendChatAction := client.SendChatAction(nil)`
 | --- | --- | --- |
 | `action` | `string` |  |
 | `chat_id` | `string` |  |
-| `description` | `string` |  |
-| `error_code` | `int` |  |
+| `description` | `string` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
 | `message_thread_id` | `int` |  |
-| `ok` | `bool` |  |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `map[string]any` |  |
-| `result` | `[]any` |  |
+| `result` | `[]any` | The result of the query |
 
 #### Example: Create
 
@@ -1274,12 +1274,12 @@ Create an instance: `sendMessageDraft := client.SendMessageDraft(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `chat_id` | `string` |  |
-| `description` | `string` |  |
-| `error_code` | `int` |  |
+| `description` | `string` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
 | `message_thread_id` | `int` |  |
-| `ok` | `bool` |  |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `map[string]any` |  |
-| `result` | `[]any` |  |
+| `result` | `[]any` | The result of the query |
 | `text` | `string` |  |
 
 #### Example: Create
@@ -1311,11 +1311,11 @@ Create an instance: `setMyProfilePhoto := client.SetMyProfilePhoto(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `string` |  |
-| `error_code` | `int` |  |
-| `ok` | `bool` |  |
+| `description` | `string` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `map[string]any` |  |
-| `result` | `[]any` |  |
+| `result` | `[]any` | The result of the query |
 
 #### Example: Create
 
@@ -1345,12 +1345,12 @@ Create an instance: `unpinAllForumTopicMessage := client.UnpinAllForumTopicMessa
 | Field | Type | Description |
 | --- | --- | --- |
 | `chat_id` | `string` |  |
-| `description` | `string` |  |
-| `error_code` | `int` |  |
+| `description` | `string` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
 | `message_thread_id` | `int` |  |
-| `ok` | `bool` |  |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `map[string]any` |  |
-| `result` | `[]any` |  |
+| `result` | `[]any` | The result of the query |
 
 #### Example: Create
 
@@ -1383,13 +1383,13 @@ Create an instance: `update := client.Update(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `allowed_updates` | `[]any` |  |
-| `description` | `string` |  |
-| `error_code` | `int` |  |
+| `description` | `string` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
 | `limit` | `int` |  |
 | `offset` | `int` |  |
-| `ok` | `bool` |  |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `map[string]any` |  |
-| `result` | `[]any` |  |
+| `result` | `[]any` | The result of the query |
 | `timeout` | `int` |  |
 
 #### Example: List

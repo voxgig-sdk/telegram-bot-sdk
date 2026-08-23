@@ -33,6 +33,9 @@ class TelegramBotConfig
         return [
             "main" => [
                 "name" => "TelegramBot",
+                "slug" => "telegram-bot",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -91,10 +94,12 @@ class TelegramBotConfig
             ],
             [
               'name' => 'description',
+              'short' => 'Human-readable description of the result',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'error_code',
+              'short' => 'Error code',
               'type' => '`$INTEGER`',
             ],
             [
@@ -105,6 +110,7 @@ class TelegramBotConfig
             [
               'name' => 'ok',
               'req' => true,
+              'short' => 'If true, the request was successful',
               'type' => '`$BOOLEAN`',
             ],
             [
@@ -113,6 +119,7 @@ class TelegramBotConfig
             ],
             [
               'name' => 'result',
+              'short' => 'The result of the query',
               'type' => '`$ARRAY`',
             ],
           ],
@@ -157,10 +164,12 @@ class TelegramBotConfig
             ],
             [
               'name' => 'description',
+              'short' => 'Human-readable description of the result',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'error_code',
+              'short' => 'Error code',
               'type' => '`$INTEGER`',
             ],
             [
@@ -171,6 +180,7 @@ class TelegramBotConfig
             [
               'name' => 'ok',
               'req' => true,
+              'short' => 'If true, the request was successful',
               'type' => '`$BOOLEAN`',
             ],
             [
@@ -179,6 +189,7 @@ class TelegramBotConfig
             ],
             [
               'name' => 'result',
+              'short' => 'The result of the query',
               'type' => '`$ARRAY`',
             ],
           ],
@@ -223,10 +234,12 @@ class TelegramBotConfig
             ],
             [
               'name' => 'description',
+              'short' => 'Human-readable description of the result',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'error_code',
+              'short' => 'Error code',
               'type' => '`$INTEGER`',
             ],
             [
@@ -237,6 +250,7 @@ class TelegramBotConfig
             [
               'name' => 'ok',
               'req' => true,
+              'short' => 'If true, the request was successful',
               'type' => '`$BOOLEAN`',
             ],
             [
@@ -245,6 +259,7 @@ class TelegramBotConfig
             ],
             [
               'name' => 'result',
+              'short' => 'The result of the query',
               'type' => '`$ARRAY`',
             ],
           ],
@@ -289,10 +304,12 @@ class TelegramBotConfig
             ],
             [
               'name' => 'description',
+              'short' => 'Human-readable description of the result',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'error_code',
+              'short' => 'Error code',
               'type' => '`$INTEGER`',
             ],
             [
@@ -311,6 +328,7 @@ class TelegramBotConfig
             [
               'name' => 'ok',
               'req' => true,
+              'short' => 'If true, the request was successful',
               'type' => '`$BOOLEAN`',
             ],
             [
@@ -319,6 +337,7 @@ class TelegramBotConfig
             ],
             [
               'name' => 'result',
+              'short' => 'The result of the query',
               'type' => '`$ARRAY`',
             ],
           ],
@@ -441,10 +460,12 @@ class TelegramBotConfig
           'fields' => [
             [
               'name' => 'description',
+              'short' => 'Human-readable description of the result',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'error_code',
+              'short' => 'Error code',
               'type' => '`$INTEGER`',
             ],
             [
@@ -462,6 +483,7 @@ class TelegramBotConfig
             [
               'name' => 'ok',
               'req' => true,
+              'short' => 'If true, the request was successful',
               'type' => '`$BOOLEAN`',
             ],
             [
@@ -470,6 +492,7 @@ class TelegramBotConfig
             ],
             [
               'name' => 'result',
+              'short' => 'The result of the query',
               'type' => '`$ARRAY`',
             ],
           ],
@@ -514,15 +537,18 @@ class TelegramBotConfig
             ],
             [
               'name' => 'description',
+              'short' => 'Human-readable description of the result',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'error_code',
+              'short' => 'Error code',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'ok',
               'req' => true,
+              'short' => 'If true, the request was successful',
               'type' => '`$BOOLEAN`',
             ],
             [
@@ -531,6 +557,7 @@ class TelegramBotConfig
             ],
             [
               'name' => 'result',
+              'short' => 'The result of the query',
               'type' => '`$ARRAY`',
             ],
           ],
@@ -565,15 +592,18 @@ class TelegramBotConfig
           'fields' => [
             [
               'name' => 'description',
+              'short' => 'Human-readable description of the result',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'error_code',
+              'short' => 'Error code',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'ok',
               'req' => true,
+              'short' => 'If true, the request was successful',
               'type' => '`$BOOLEAN`',
             ],
             [
@@ -582,6 +612,7 @@ class TelegramBotConfig
             ],
             [
               'name' => 'result',
+              'short' => 'The result of the query',
               'type' => '`$ARRAY`',
             ],
           ],
@@ -636,15 +667,18 @@ class TelegramBotConfig
           'fields' => [
             [
               'name' => 'description',
+              'short' => 'Human-readable description of the result',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'error_code',
+              'short' => 'Error code',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'ok',
               'req' => true,
+              'short' => 'If true, the request was successful',
               'type' => '`$BOOLEAN`',
             ],
             [
@@ -653,6 +687,7 @@ class TelegramBotConfig
             ],
             [
               'name' => 'result',
+              'short' => 'The result of the query',
               'type' => '`$ARRAY`',
             ],
             [
@@ -692,15 +727,18 @@ class TelegramBotConfig
           'fields' => [
             [
               'name' => 'description',
+              'short' => 'Human-readable description of the result',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'error_code',
+              'short' => 'Error code',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'ok',
               'req' => true,
+              'short' => 'If true, the request was successful',
               'type' => '`$BOOLEAN`',
             ],
             [
@@ -709,6 +747,7 @@ class TelegramBotConfig
             ],
             [
               'name' => 'result',
+              'short' => 'The result of the query',
               'type' => '`$ARRAY`',
             ],
             [
@@ -749,6 +788,7 @@ class TelegramBotConfig
             [
               'name' => 'chat_id',
               'req' => true,
+              'short' => 'Unique identifier for the target chat or username',
               'type' => '`$STRING`',
               'union' => [
                 'branches' => 2,
@@ -758,14 +798,17 @@ class TelegramBotConfig
             ],
             [
               'name' => 'direct_messages_topic_id',
+              'short' => 'Unique identifier for the target direct messages topic',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'disable_notification',
+              'short' => 'Sends the message silently',
               'type' => '`$BOOLEAN`',
             ],
             [
               'name' => 'disable_web_page_preview',
+              'short' => 'Disables link previews for links in this message',
               'type' => '`$BOOLEAN`',
             ],
             [
@@ -790,6 +833,7 @@ class TelegramBotConfig
             ],
             [
               'name' => 'message_effect_id',
+              'short' => 'Unique identifier of the message effect to be added to the message',
               'type' => '`$STRING`',
             ],
             [
@@ -799,6 +843,7 @@ class TelegramBotConfig
             ],
             [
               'name' => 'message_thread_id',
+              'short' => 'Unique identifier for the target message thread (topic) of the forum',
               'type' => '`$INTEGER`',
             ],
             [
@@ -808,10 +853,12 @@ class TelegramBotConfig
             ],
             [
               'name' => 'parse_mode',
+              'short' => 'Mode for parsing entities in the message text',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'protect_content',
+              'short' => 'Protects the contents of the sent message from forwarding and saving',
               'type' => '`$BOOLEAN`',
             ],
             [
@@ -821,11 +868,13 @@ class TelegramBotConfig
             ],
             [
               'name' => 'reply_to_message_id',
+              'short' => 'If the message is a reply, ID of the original message',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'text',
               'req' => true,
+              'short' => 'Text of the message to be sent',
               'type' => '`$STRING`',
             ],
           ],
@@ -1085,15 +1134,18 @@ class TelegramBotConfig
             ],
             [
               'name' => 'description',
+              'short' => 'Human-readable description of the result',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'error_code',
+              'short' => 'Error code',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'ok',
               'req' => true,
+              'short' => 'If true, the request was successful',
               'type' => '`$BOOLEAN`',
             ],
             [
@@ -1102,6 +1154,7 @@ class TelegramBotConfig
             ],
             [
               'name' => 'result',
+              'short' => 'The result of the query',
               'type' => '`$ARRAY`',
             ],
             [
@@ -1141,15 +1194,18 @@ class TelegramBotConfig
           'fields' => [
             [
               'name' => 'description',
+              'short' => 'Human-readable description of the result',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'error_code',
+              'short' => 'Error code',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'ok',
               'req' => true,
+              'short' => 'If true, the request was successful',
               'type' => '`$BOOLEAN`',
             ],
             [
@@ -1158,6 +1214,7 @@ class TelegramBotConfig
             ],
             [
               'name' => 'result',
+              'short' => 'The result of the query',
               'type' => '`$ARRAY`',
             ],
           ],
@@ -1202,15 +1259,18 @@ class TelegramBotConfig
             ],
             [
               'name' => 'description',
+              'short' => 'Human-readable description of the result',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'error_code',
+              'short' => 'Error code',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'ok',
               'req' => true,
+              'short' => 'If true, the request was successful',
               'type' => '`$BOOLEAN`',
             ],
             [
@@ -1219,6 +1279,7 @@ class TelegramBotConfig
             ],
             [
               'name' => 'result',
+              'short' => 'The result of the query',
               'type' => '`$ARRAY`',
             ],
             [
@@ -1273,10 +1334,12 @@ class TelegramBotConfig
             ],
             [
               'name' => 'description',
+              'short' => 'Human-readable description of the result',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'error_code',
+              'short' => 'Error code',
               'type' => '`$INTEGER`',
             ],
             [
@@ -1286,6 +1349,7 @@ class TelegramBotConfig
             [
               'name' => 'ok',
               'req' => true,
+              'short' => 'If true, the request was successful',
               'type' => '`$BOOLEAN`',
             ],
             [
@@ -1294,6 +1358,7 @@ class TelegramBotConfig
             ],
             [
               'name' => 'result',
+              'short' => 'The result of the query',
               'type' => '`$ARRAY`',
             ],
           ],
@@ -1338,10 +1403,12 @@ class TelegramBotConfig
             ],
             [
               'name' => 'description',
+              'short' => 'Human-readable description of the result',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'error_code',
+              'short' => 'Error code',
               'type' => '`$INTEGER`',
             ],
             [
@@ -1351,6 +1418,7 @@ class TelegramBotConfig
             [
               'name' => 'ok',
               'req' => true,
+              'short' => 'If true, the request was successful',
               'type' => '`$BOOLEAN`',
             ],
             [
@@ -1359,6 +1427,7 @@ class TelegramBotConfig
             ],
             [
               'name' => 'result',
+              'short' => 'The result of the query',
               'type' => '`$ARRAY`',
             ],
             [
@@ -1398,15 +1467,18 @@ class TelegramBotConfig
           'fields' => [
             [
               'name' => 'description',
+              'short' => 'Human-readable description of the result',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'error_code',
+              'short' => 'Error code',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'ok',
               'req' => true,
+              'short' => 'If true, the request was successful',
               'type' => '`$BOOLEAN`',
             ],
             [
@@ -1415,6 +1487,7 @@ class TelegramBotConfig
             ],
             [
               'name' => 'result',
+              'short' => 'The result of the query',
               'type' => '`$ARRAY`',
             ],
           ],
@@ -1459,10 +1532,12 @@ class TelegramBotConfig
             ],
             [
               'name' => 'description',
+              'short' => 'Human-readable description of the result',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'error_code',
+              'short' => 'Error code',
               'type' => '`$INTEGER`',
             ],
             [
@@ -1473,6 +1548,7 @@ class TelegramBotConfig
             [
               'name' => 'ok',
               'req' => true,
+              'short' => 'If true, the request was successful',
               'type' => '`$BOOLEAN`',
             ],
             [
@@ -1481,6 +1557,7 @@ class TelegramBotConfig
             ],
             [
               'name' => 'result',
+              'short' => 'The result of the query',
               'type' => '`$ARRAY`',
             ],
           ],
@@ -1519,10 +1596,12 @@ class TelegramBotConfig
             ],
             [
               'name' => 'description',
+              'short' => 'Human-readable description of the result',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'error_code',
+              'short' => 'Error code',
               'type' => '`$INTEGER`',
             ],
             [
@@ -1536,6 +1615,7 @@ class TelegramBotConfig
             [
               'name' => 'ok',
               'req' => true,
+              'short' => 'If true, the request was successful',
               'type' => '`$BOOLEAN`',
             ],
             [
@@ -1544,6 +1624,7 @@ class TelegramBotConfig
             ],
             [
               'name' => 'result',
+              'short' => 'The result of the query',
               'type' => '`$ARRAY`',
             ],
             [

@@ -1,0 +1,66 @@
+# Entity: get_user_gift
+
+main: kit: entity: get_user_gift: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "description"
+      req: false
+      short: "Human-readable description of the result"
+      type: "`$STRING`"
+    }
+    {
+      name: "error_code"
+      req: false
+      short: "Error code"
+      type: "`$INTEGER`"
+    }
+    {
+      name: "ok"
+      req: true
+      short: "If true, the request was successful"
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "parameters"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "result"
+      req: false
+      short: "The result of the query"
+      type: "`$ARRAY`"
+    }
+    {
+      name: "user_id"
+      req: true
+      type: "`$INTEGER`"
+    }
+  ]
+
+  name: "get_user_gift"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/getUserGifts"
+          parts: [
+            "getUserGifts"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,61 @@
+# Entity: set_my_profile_photo
+
+main: kit: entity: set_my_profile_photo: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "description"
+      req: false
+      short: "Human-readable description of the result"
+      type: "`$STRING`"
+    }
+    {
+      name: "error_code"
+      req: false
+      short: "Error code"
+      type: "`$INTEGER`"
+    }
+    {
+      name: "ok"
+      req: true
+      short: "If true, the request was successful"
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "parameters"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "result"
+      req: false
+      short: "The result of the query"
+      type: "`$ARRAY`"
+    }
+  ]
+
+  name: "set_my_profile_photo"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/setMyProfilePhoto"
+          parts: [
+            "setMyProfilePhoto"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

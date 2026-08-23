@@ -358,12 +358,12 @@ const approve_suggested_post = client.ApproveSuggestedPost()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
 | `message_id` | `number` | Yes |  |
-| `ok` | `boolean` | Yes |  |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `Record<string, any>` | No |  |
-| `result` | `any[]` | No |  |
+| `result` | `any[]` | No | The result of the query |
 
 ### Operations
 
@@ -418,12 +418,12 @@ const decline_suggested_post = client.DeclineSuggestedPost()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
 | `message_id` | `number` | Yes |  |
-| `ok` | `boolean` | Yes |  |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `Record<string, any>` | No |  |
-| `result` | `any[]` | No |  |
+| `result` | `any[]` | No | The result of the query |
 
 ### Operations
 
@@ -478,12 +478,12 @@ const delete_forum_topic = client.DeleteForumTopic()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
 | `message_thread_id` | `number` | Yes |  |
-| `ok` | `boolean` | Yes |  |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `Record<string, any>` | No |  |
-| `result` | `any[]` | No |  |
+| `result` | `any[]` | No | The result of the query |
 
 ### Operations
 
@@ -538,14 +538,14 @@ const edit_forum_topic = client.EditForumTopic()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
 | `icon_custom_emoji_id` | `string` | No |  |
 | `message_thread_id` | `number` | Yes |  |
 | `name` | `string` | No |  |
-| `ok` | `boolean` | Yes |  |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `Record<string, any>` | No |  |
-| `result` | `any[]` | No |  |
+| `result` | `any[]` | No | The result of the query |
 
 ### Operations
 
@@ -707,14 +707,14 @@ const get_business_account_gift = client.GetBusinessAccountGift()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
 | `exclude_from_blockchain` | `boolean` | No |  |
 | `exclude_limited_non_upgradable` | `boolean` | No |  |
 | `exclude_limited_upgradable` | `boolean` | No |  |
-| `ok` | `boolean` | Yes |  |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `Record<string, any>` | No |  |
-| `result` | `any[]` | No |  |
+| `result` | `any[]` | No | The result of the query |
 
 ### Operations
 
@@ -767,11 +767,11 @@ const get_chat_gift = client.GetChatGift()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
-| `ok` | `boolean` | Yes |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `Record<string, any>` | No |  |
-| `result` | `any[]` | No |  |
+| `result` | `any[]` | No | The result of the query |
 
 ### Operations
 
@@ -824,11 +824,11 @@ const get_me = client.GetMe()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
-| `ok` | `boolean` | Yes |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `Record<string, any>` | No |  |
-| `result` | `any[]` | No |  |
+| `result` | `any[]` | No | The result of the query |
 
 ### Operations
 
@@ -888,11 +888,11 @@ const get_user_gift = client.GetUserGift()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
-| `ok` | `boolean` | Yes |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `Record<string, any>` | No |  |
-| `result` | `any[]` | No |  |
+| `result` | `any[]` | No | The result of the query |
 | `user_id` | `number` | Yes |  |
 
 ### Operations
@@ -946,11 +946,11 @@ const get_user_profile_audio = client.GetUserProfileAudio()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
-| `ok` | `boolean` | Yes |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `Record<string, any>` | No |  |
-| `result` | `any[]` | No |  |
+| `result` | `any[]` | No | The result of the query |
 | `user_id` | `number` | Yes |  |
 
 ### Operations
@@ -1004,22 +1004,22 @@ const message = client.Message()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | `string` | Yes |  |
-| `direct_messages_topic_id` | `number` | No |  |
-| `disable_notification` | `boolean` | No |  |
-| `disable_web_page_preview` | `boolean` | No |  |
+| `chat_id` | `string` | Yes | Unique identifier for the target chat or username |
+| `direct_messages_topic_id` | `number` | No | Unique identifier for the target direct messages topic |
+| `disable_notification` | `boolean` | No | Sends the message silently |
+| `disable_web_page_preview` | `boolean` | No | Disables link previews for links in this message |
 | `from_chat_id` | `string` | Yes |  |
 | `latitude` | `number` | Yes |  |
 | `longitude` | `number` | Yes |  |
-| `message_effect_id` | `string` | No |  |
+| `message_effect_id` | `string` | No | Unique identifier of the message effect to be added to the message |
 | `message_id` | `number` | Yes |  |
-| `message_thread_id` | `number` | No |  |
+| `message_thread_id` | `number` | No | Unique identifier for the target message thread (topic) of the forum |
 | `options` | `any[]` | Yes |  |
-| `parse_mode` | `string` | No |  |
-| `protect_content` | `boolean` | No |  |
+| `parse_mode` | `string` | No | Mode for parsing entities in the message text |
+| `protect_content` | `boolean` | No | Protects the contents of the sent message from forwarding and saving |
 | `question` | `string` | Yes |  |
-| `reply_to_message_id` | `number` | No |  |
-| `text` | `string` | Yes |  |
+| `reply_to_message_id` | `number` | No | If the message is a reply, ID of the original message |
+| `text` | `string` | Yes | Text of the message to be sent |
 
 ### Operations
 
@@ -1143,11 +1143,11 @@ const promote_chat_member = client.PromoteChatMember()
 | `can_manage_direct_messages` | `boolean` | No |  |
 | `can_post_messages` | `boolean` | No |  |
 | `chat_id` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
-| `ok` | `boolean` | Yes |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `Record<string, any>` | No |  |
-| `result` | `any[]` | No |  |
+| `result` | `any[]` | No | The result of the query |
 | `user_id` | `number` | Yes |  |
 
 ### Operations
@@ -1202,11 +1202,11 @@ const remove_my_profile_photo = client.RemoveMyProfilePhoto()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
-| `ok` | `boolean` | Yes |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `Record<string, any>` | No |  |
-| `result` | `any[]` | No |  |
+| `result` | `any[]` | No | The result of the query |
 
 ### Operations
 
@@ -1259,11 +1259,11 @@ const repost_story = client.RepostStory()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
-| `ok` | `boolean` | Yes |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `Record<string, any>` | No |  |
-| `result` | `any[]` | No |  |
+| `result` | `any[]` | No | The result of the query |
 | `story_id` | `number` | Yes |  |
 
 ### Operations
@@ -1320,12 +1320,12 @@ const send_chat_action = client.SendChatAction()
 | --- | --- | --- | --- |
 | `action` | `string` | Yes |  |
 | `chat_id` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
 | `message_thread_id` | `number` | No |  |
-| `ok` | `boolean` | Yes |  |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `Record<string, any>` | No |  |
-| `result` | `any[]` | No |  |
+| `result` | `any[]` | No | The result of the query |
 
 ### Operations
 
@@ -1380,12 +1380,12 @@ const send_message_draft = client.SendMessageDraft()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
 | `message_thread_id` | `number` | No |  |
-| `ok` | `boolean` | Yes |  |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `Record<string, any>` | No |  |
-| `result` | `any[]` | No |  |
+| `result` | `any[]` | No | The result of the query |
 | `text` | `string` | Yes |  |
 
 ### Operations
@@ -1440,11 +1440,11 @@ const set_my_profile_photo = client.SetMyProfilePhoto()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
-| `ok` | `boolean` | Yes |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `Record<string, any>` | No |  |
-| `result` | `any[]` | No |  |
+| `result` | `any[]` | No | The result of the query |
 
 ### Operations
 
@@ -1497,12 +1497,12 @@ const unpin_all_forum_topic_message = client.UnpinAllForumTopicMessage()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
 | `message_thread_id` | `number` | Yes |  |
-| `ok` | `boolean` | Yes |  |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `Record<string, any>` | No |  |
-| `result` | `any[]` | No |  |
+| `result` | `any[]` | No | The result of the query |
 
 ### Operations
 
@@ -1557,13 +1557,13 @@ const update = client.Update()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `allowed_updates` | `any[]` | No |  |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
 | `limit` | `number` | No |  |
 | `offset` | `number` | No |  |
-| `ok` | `boolean` | Yes |  |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `Record<string, any>` | No |  |
-| `result` | `any[]` | No |  |
+| `result` | `any[]` | No | The result of the query |
 | `timeout` | `number` | No |  |
 
 ### Operations

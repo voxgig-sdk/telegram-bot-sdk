@@ -172,12 +172,12 @@ local approve_suggested_post = client:ApproveSuggestedPost(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
 | `message_id` | `number` | Yes |  |
-| `ok` | `boolean` | Yes |  |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `table` | No |  |
-| `result` | `table` | No |  |
+| `result` | `table` | No | The result of the query |
 
 ### Operations
 
@@ -234,12 +234,12 @@ local decline_suggested_post = client:DeclineSuggestedPost(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
 | `message_id` | `number` | Yes |  |
-| `ok` | `boolean` | Yes |  |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `table` | No |  |
-| `result` | `table` | No |  |
+| `result` | `table` | No | The result of the query |
 
 ### Operations
 
@@ -296,12 +296,12 @@ local delete_forum_topic = client:DeleteForumTopic(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
 | `message_thread_id` | `number` | Yes |  |
-| `ok` | `boolean` | Yes |  |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `table` | No |  |
-| `result` | `table` | No |  |
+| `result` | `table` | No | The result of the query |
 
 ### Operations
 
@@ -358,14 +358,14 @@ local edit_forum_topic = client:EditForumTopic(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
 | `icon_custom_emoji_id` | `string` | No |  |
 | `message_thread_id` | `number` | Yes |  |
 | `name` | `string` | No |  |
-| `ok` | `boolean` | Yes |  |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `table` | No |  |
-| `result` | `table` | No |  |
+| `result` | `table` | No | The result of the query |
 
 ### Operations
 
@@ -533,14 +533,14 @@ local get_business_account_gift = client:GetBusinessAccountGift(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
 | `exclude_from_blockchain` | `boolean` | No |  |
 | `exclude_limited_non_upgradable` | `boolean` | No |  |
 | `exclude_limited_upgradable` | `boolean` | No |  |
-| `ok` | `boolean` | Yes |  |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `table` | No |  |
-| `result` | `table` | No |  |
+| `result` | `table` | No | The result of the query |
 
 ### Operations
 
@@ -595,11 +595,11 @@ local get_chat_gift = client:GetChatGift(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
-| `ok` | `boolean` | Yes |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `table` | No |  |
-| `result` | `table` | No |  |
+| `result` | `table` | No | The result of the query |
 
 ### Operations
 
@@ -654,11 +654,11 @@ local get_me = client:GetMe(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
-| `ok` | `boolean` | Yes |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `table` | No |  |
-| `result` | `table` | No |  |
+| `result` | `table` | No | The result of the query |
 
 ### Operations
 
@@ -720,11 +720,11 @@ local get_user_gift = client:GetUserGift(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
-| `ok` | `boolean` | Yes |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `table` | No |  |
-| `result` | `table` | No |  |
+| `result` | `table` | No | The result of the query |
 | `user_id` | `number` | Yes |  |
 
 ### Operations
@@ -780,11 +780,11 @@ local get_user_profile_audio = client:GetUserProfileAudio(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
-| `ok` | `boolean` | Yes |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `table` | No |  |
-| `result` | `table` | No |  |
+| `result` | `table` | No | The result of the query |
 | `user_id` | `number` | Yes |  |
 
 ### Operations
@@ -840,22 +840,22 @@ local message = client:Message(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | `string` | Yes |  |
-| `direct_messages_topic_id` | `number` | No |  |
-| `disable_notification` | `boolean` | No |  |
-| `disable_web_page_preview` | `boolean` | No |  |
+| `chat_id` | `string` | Yes | Unique identifier for the target chat or username |
+| `direct_messages_topic_id` | `number` | No | Unique identifier for the target direct messages topic |
+| `disable_notification` | `boolean` | No | Sends the message silently |
+| `disable_web_page_preview` | `boolean` | No | Disables link previews for links in this message |
 | `from_chat_id` | `string` | Yes |  |
 | `latitude` | `number` | Yes |  |
 | `longitude` | `number` | Yes |  |
-| `message_effect_id` | `string` | No |  |
+| `message_effect_id` | `string` | No | Unique identifier of the message effect to be added to the message |
 | `message_id` | `number` | Yes |  |
-| `message_thread_id` | `number` | No |  |
+| `message_thread_id` | `number` | No | Unique identifier for the target message thread (topic) of the forum |
 | `options` | `table` | Yes |  |
-| `parse_mode` | `string` | No |  |
-| `protect_content` | `boolean` | No |  |
+| `parse_mode` | `string` | No | Mode for parsing entities in the message text |
+| `protect_content` | `boolean` | No | Protects the contents of the sent message from forwarding and saving |
 | `question` | `string` | Yes |  |
-| `reply_to_message_id` | `number` | No |  |
-| `text` | `string` | Yes |  |
+| `reply_to_message_id` | `number` | No | If the message is a reply, ID of the original message |
+| `text` | `string` | Yes | Text of the message to be sent |
 
 ### Operations
 
@@ -983,11 +983,11 @@ local promote_chat_member = client:PromoteChatMember(nil)
 | `can_manage_direct_messages` | `boolean` | No |  |
 | `can_post_messages` | `boolean` | No |  |
 | `chat_id` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
-| `ok` | `boolean` | Yes |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `table` | No |  |
-| `result` | `table` | No |  |
+| `result` | `table` | No | The result of the query |
 | `user_id` | `number` | Yes |  |
 
 ### Operations
@@ -1044,11 +1044,11 @@ local remove_my_profile_photo = client:RemoveMyProfilePhoto(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
-| `ok` | `boolean` | Yes |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `table` | No |  |
-| `result` | `table` | No |  |
+| `result` | `table` | No | The result of the query |
 
 ### Operations
 
@@ -1103,11 +1103,11 @@ local repost_story = client:RepostStory(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
-| `ok` | `boolean` | Yes |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `table` | No |  |
-| `result` | `table` | No |  |
+| `result` | `table` | No | The result of the query |
 | `story_id` | `number` | Yes |  |
 
 ### Operations
@@ -1166,12 +1166,12 @@ local send_chat_action = client:SendChatAction(nil)
 | --- | --- | --- | --- |
 | `action` | `string` | Yes |  |
 | `chat_id` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
 | `message_thread_id` | `number` | No |  |
-| `ok` | `boolean` | Yes |  |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `table` | No |  |
-| `result` | `table` | No |  |
+| `result` | `table` | No | The result of the query |
 
 ### Operations
 
@@ -1228,12 +1228,12 @@ local send_message_draft = client:SendMessageDraft(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
 | `message_thread_id` | `number` | No |  |
-| `ok` | `boolean` | Yes |  |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `table` | No |  |
-| `result` | `table` | No |  |
+| `result` | `table` | No | The result of the query |
 | `text` | `string` | Yes |  |
 
 ### Operations
@@ -1290,11 +1290,11 @@ local set_my_profile_photo = client:SetMyProfilePhoto(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
-| `ok` | `boolean` | Yes |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `table` | No |  |
-| `result` | `table` | No |  |
+| `result` | `table` | No | The result of the query |
 
 ### Operations
 
@@ -1349,12 +1349,12 @@ local unpin_all_forum_topic_message = client:UnpinAllForumTopicMessage(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
 | `message_thread_id` | `number` | Yes |  |
-| `ok` | `boolean` | Yes |  |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `table` | No |  |
-| `result` | `table` | No |  |
+| `result` | `table` | No | The result of the query |
 
 ### Operations
 
@@ -1411,13 +1411,13 @@ local update = client:Update(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `allowed_updates` | `table` | No |  |
-| `description` | `string` | No |  |
-| `error_code` | `number` | No |  |
+| `description` | `string` | No | Human-readable description of the result |
+| `error_code` | `number` | No | Error code |
 | `limit` | `number` | No |  |
 | `offset` | `number` | No |  |
-| `ok` | `boolean` | Yes |  |
+| `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `table` | No |  |
-| `result` | `table` | No |  |
+| `result` | `table` | No | The result of the query |
 | `timeout` | `number` | No |  |
 
 ### Operations

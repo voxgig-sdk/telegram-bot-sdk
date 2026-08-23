@@ -265,12 +265,12 @@ On error, `ok` is `False` and `err` contains the error value.
 | Field | Description |
 | --- | --- |
 | `chat_id` |  |
-| `description` |  |
-| `error_code` |  |
+| `description` | Human-readable description of the result |
+| `error_code` | Error code |
 | `message_id` |  |
-| `ok` |  |
+| `ok` | If true, the request was successful |
 | `parameters` |  |
-| `result` |  |
+| `result` | The result of the query |
 
 Operations: Create.
 
@@ -281,12 +281,12 @@ API path: `/approveSuggestedPost`
 | Field | Description |
 | --- | --- |
 | `chat_id` |  |
-| `description` |  |
-| `error_code` |  |
+| `description` | Human-readable description of the result |
+| `error_code` | Error code |
 | `message_id` |  |
-| `ok` |  |
+| `ok` | If true, the request was successful |
 | `parameters` |  |
-| `result` |  |
+| `result` | The result of the query |
 
 Operations: Create.
 
@@ -297,12 +297,12 @@ API path: `/declineSuggestedPost`
 | Field | Description |
 | --- | --- |
 | `chat_id` |  |
-| `description` |  |
-| `error_code` |  |
+| `description` | Human-readable description of the result |
+| `error_code` | Error code |
 | `message_thread_id` |  |
-| `ok` |  |
+| `ok` | If true, the request was successful |
 | `parameters` |  |
-| `result` |  |
+| `result` | The result of the query |
 
 Operations: Create.
 
@@ -313,14 +313,14 @@ API path: `/deleteForumTopic`
 | Field | Description |
 | --- | --- |
 | `chat_id` |  |
-| `description` |  |
-| `error_code` |  |
+| `description` | Human-readable description of the result |
+| `error_code` | Error code |
 | `icon_custom_emoji_id` |  |
 | `message_thread_id` |  |
 | `name` |  |
-| `ok` |  |
+| `ok` | If true, the request was successful |
 | `parameters` |  |
-| `result` |  |
+| `result` | The result of the query |
 
 Operations: Create.
 
@@ -353,14 +353,14 @@ API path: `/createForumTopic`
 
 | Field | Description |
 | --- | --- |
-| `description` |  |
-| `error_code` |  |
+| `description` | Human-readable description of the result |
+| `error_code` | Error code |
 | `exclude_from_blockchain` |  |
 | `exclude_limited_non_upgradable` |  |
 | `exclude_limited_upgradable` |  |
-| `ok` |  |
+| `ok` | If true, the request was successful |
 | `parameters` |  |
-| `result` |  |
+| `result` | The result of the query |
 
 Operations: Create.
 
@@ -371,11 +371,11 @@ API path: `/getBusinessAccountGifts`
 | Field | Description |
 | --- | --- |
 | `chat_id` |  |
-| `description` |  |
-| `error_code` |  |
-| `ok` |  |
+| `description` | Human-readable description of the result |
+| `error_code` | Error code |
+| `ok` | If true, the request was successful |
 | `parameters` |  |
-| `result` |  |
+| `result` | The result of the query |
 
 Operations: Create.
 
@@ -385,11 +385,11 @@ API path: `/getChatGifts`
 
 | Field | Description |
 | --- | --- |
-| `description` |  |
-| `error_code` |  |
-| `ok` |  |
+| `description` | Human-readable description of the result |
+| `error_code` | Error code |
+| `ok` | If true, the request was successful |
 | `parameters` |  |
-| `result` |  |
+| `result` | The result of the query |
 
 Operations: Create, Load.
 
@@ -399,11 +399,11 @@ API path: `/getMe`
 
 | Field | Description |
 | --- | --- |
-| `description` |  |
-| `error_code` |  |
-| `ok` |  |
+| `description` | Human-readable description of the result |
+| `error_code` | Error code |
+| `ok` | If true, the request was successful |
 | `parameters` |  |
-| `result` |  |
+| `result` | The result of the query |
 | `user_id` |  |
 
 Operations: Create.
@@ -414,11 +414,11 @@ API path: `/getUserGifts`
 
 | Field | Description |
 | --- | --- |
-| `description` |  |
-| `error_code` |  |
-| `ok` |  |
+| `description` | Human-readable description of the result |
+| `error_code` | Error code |
+| `ok` | If true, the request was successful |
 | `parameters` |  |
-| `result` |  |
+| `result` | The result of the query |
 | `user_id` |  |
 
 Operations: Create.
@@ -429,22 +429,22 @@ API path: `/getUserProfileAudios`
 
 | Field | Description |
 | --- | --- |
-| `chat_id` |  |
-| `direct_messages_topic_id` |  |
-| `disable_notification` |  |
-| `disable_web_page_preview` |  |
+| `chat_id` | Unique identifier for the target chat or username |
+| `direct_messages_topic_id` | Unique identifier for the target direct messages topic |
+| `disable_notification` | Sends the message silently |
+| `disable_web_page_preview` | Disables link previews for links in this message |
 | `from_chat_id` |  |
 | `latitude` |  |
 | `longitude` |  |
-| `message_effect_id` |  |
+| `message_effect_id` | Unique identifier of the message effect to be added to the message |
 | `message_id` |  |
-| `message_thread_id` |  |
+| `message_thread_id` | Unique identifier for the target message thread (topic) of the forum |
 | `options` |  |
-| `parse_mode` |  |
-| `protect_content` |  |
+| `parse_mode` | Mode for parsing entities in the message text |
+| `protect_content` | Protects the contents of the sent message from forwarding and saving |
 | `question` |  |
-| `reply_to_message_id` |  |
-| `text` |  |
+| `reply_to_message_id` | If the message is a reply, ID of the original message |
+| `text` | Text of the message to be sent |
 
 Operations: Create.
 
@@ -475,11 +475,11 @@ API path: `/copyMessage`
 | `can_manage_direct_messages` |  |
 | `can_post_messages` |  |
 | `chat_id` |  |
-| `description` |  |
-| `error_code` |  |
-| `ok` |  |
+| `description` | Human-readable description of the result |
+| `error_code` | Error code |
+| `ok` | If true, the request was successful |
 | `parameters` |  |
-| `result` |  |
+| `result` | The result of the query |
 | `user_id` |  |
 
 Operations: Create.
@@ -490,11 +490,11 @@ API path: `/promoteChatMember`
 
 | Field | Description |
 | --- | --- |
-| `description` |  |
-| `error_code` |  |
-| `ok` |  |
+| `description` | Human-readable description of the result |
+| `error_code` | Error code |
+| `ok` | If true, the request was successful |
 | `parameters` |  |
-| `result` |  |
+| `result` | The result of the query |
 
 Operations: Create.
 
@@ -505,11 +505,11 @@ API path: `/removeMyProfilePhoto`
 | Field | Description |
 | --- | --- |
 | `chat_id` |  |
-| `description` |  |
-| `error_code` |  |
-| `ok` |  |
+| `description` | Human-readable description of the result |
+| `error_code` | Error code |
+| `ok` | If true, the request was successful |
 | `parameters` |  |
-| `result` |  |
+| `result` | The result of the query |
 | `story_id` |  |
 
 Operations: Create.
@@ -522,12 +522,12 @@ API path: `/repostStory`
 | --- | --- |
 | `action` |  |
 | `chat_id` |  |
-| `description` |  |
-| `error_code` |  |
+| `description` | Human-readable description of the result |
+| `error_code` | Error code |
 | `message_thread_id` |  |
-| `ok` |  |
+| `ok` | If true, the request was successful |
 | `parameters` |  |
-| `result` |  |
+| `result` | The result of the query |
 
 Operations: Create.
 
@@ -538,12 +538,12 @@ API path: `/sendChatAction`
 | Field | Description |
 | --- | --- |
 | `chat_id` |  |
-| `description` |  |
-| `error_code` |  |
+| `description` | Human-readable description of the result |
+| `error_code` | Error code |
 | `message_thread_id` |  |
-| `ok` |  |
+| `ok` | If true, the request was successful |
 | `parameters` |  |
-| `result` |  |
+| `result` | The result of the query |
 | `text` |  |
 
 Operations: Create.
@@ -554,11 +554,11 @@ API path: `/sendMessageDraft`
 
 | Field | Description |
 | --- | --- |
-| `description` |  |
-| `error_code` |  |
-| `ok` |  |
+| `description` | Human-readable description of the result |
+| `error_code` | Error code |
+| `ok` | If true, the request was successful |
 | `parameters` |  |
-| `result` |  |
+| `result` | The result of the query |
 
 Operations: Create.
 
@@ -569,12 +569,12 @@ API path: `/setMyProfilePhoto`
 | Field | Description |
 | --- | --- |
 | `chat_id` |  |
-| `description` |  |
-| `error_code` |  |
+| `description` | Human-readable description of the result |
+| `error_code` | Error code |
 | `message_thread_id` |  |
-| `ok` |  |
+| `ok` | If true, the request was successful |
 | `parameters` |  |
-| `result` |  |
+| `result` | The result of the query |
 
 Operations: Create.
 
@@ -585,13 +585,13 @@ API path: `/unpinAllForumTopicMessages`
 | Field | Description |
 | --- | --- |
 | `allowed_updates` |  |
-| `description` |  |
-| `error_code` |  |
+| `description` | Human-readable description of the result |
+| `error_code` | Error code |
 | `limit` |  |
 | `offset` |  |
-| `ok` |  |
+| `ok` | If true, the request was successful |
 | `parameters` |  |
-| `result` |  |
+| `result` | The result of the query |
 | `timeout` |  |
 
 Operations: Create, List.
@@ -618,12 +618,12 @@ Create an instance: `approve_suggested_post = client.ApproveSuggestedPost()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `chat_id` | `str` |  |
-| `description` | `str` |  |
-| `error_code` | `int` |  |
+| `description` | `str` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
 | `message_id` | `int` |  |
-| `ok` | `bool` |  |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `dict` |  |
-| `result` | `list` |  |
+| `result` | `list` | The result of the query |
 
 #### Example: Create
 
@@ -651,12 +651,12 @@ Create an instance: `decline_suggested_post = client.DeclineSuggestedPost()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `chat_id` | `str` |  |
-| `description` | `str` |  |
-| `error_code` | `int` |  |
+| `description` | `str` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
 | `message_id` | `int` |  |
-| `ok` | `bool` |  |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `dict` |  |
-| `result` | `list` |  |
+| `result` | `list` | The result of the query |
 
 #### Example: Create
 
@@ -684,12 +684,12 @@ Create an instance: `delete_forum_topic = client.DeleteForumTopic()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `chat_id` | `str` |  |
-| `description` | `str` |  |
-| `error_code` | `int` |  |
+| `description` | `str` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
 | `message_thread_id` | `int` |  |
-| `ok` | `bool` |  |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `dict` |  |
-| `result` | `list` |  |
+| `result` | `list` | The result of the query |
 
 #### Example: Create
 
@@ -717,14 +717,14 @@ Create an instance: `edit_forum_topic = client.EditForumTopic()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `chat_id` | `str` |  |
-| `description` | `str` |  |
-| `error_code` | `int` |  |
+| `description` | `str` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
 | `icon_custom_emoji_id` | `str` |  |
 | `message_thread_id` | `int` |  |
 | `name` | `str` |  |
-| `ok` | `bool` |  |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `dict` |  |
-| `result` | `list` |  |
+| `result` | `list` | The result of the query |
 
 #### Example: Create
 
@@ -805,14 +805,14 @@ Create an instance: `get_business_account_gift = client.GetBusinessAccountGift()
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `str` |  |
-| `error_code` | `int` |  |
+| `description` | `str` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
 | `exclude_from_blockchain` | `bool` |  |
 | `exclude_limited_non_upgradable` | `bool` |  |
 | `exclude_limited_upgradable` | `bool` |  |
-| `ok` | `bool` |  |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `dict` |  |
-| `result` | `list` |  |
+| `result` | `list` | The result of the query |
 
 #### Example: Create
 
@@ -838,11 +838,11 @@ Create an instance: `get_chat_gift = client.GetChatGift()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `chat_id` | `str` |  |
-| `description` | `str` |  |
-| `error_code` | `int` |  |
-| `ok` | `bool` |  |
+| `description` | `str` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `dict` |  |
-| `result` | `list` |  |
+| `result` | `list` | The result of the query |
 
 #### Example: Create
 
@@ -869,11 +869,11 @@ Create an instance: `get_me = client.GetMe()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `str` |  |
-| `error_code` | `int` |  |
-| `ok` | `bool` |  |
+| `description` | `str` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `dict` |  |
-| `result` | `list` |  |
+| `result` | `list` | The result of the query |
 
 #### Example: Load
 
@@ -904,11 +904,11 @@ Create an instance: `get_user_gift = client.GetUserGift()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `str` |  |
-| `error_code` | `int` |  |
-| `ok` | `bool` |  |
+| `description` | `str` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `dict` |  |
-| `result` | `list` |  |
+| `result` | `list` | The result of the query |
 | `user_id` | `int` |  |
 
 #### Example: Create
@@ -935,11 +935,11 @@ Create an instance: `get_user_profile_audio = client.GetUserProfileAudio()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `str` |  |
-| `error_code` | `int` |  |
-| `ok` | `bool` |  |
+| `description` | `str` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `dict` |  |
-| `result` | `list` |  |
+| `result` | `list` | The result of the query |
 | `user_id` | `int` |  |
 
 #### Example: Create
@@ -966,22 +966,22 @@ Create an instance: `message = client.Message()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chat_id` | `str` |  |
-| `direct_messages_topic_id` | `int` |  |
-| `disable_notification` | `bool` |  |
-| `disable_web_page_preview` | `bool` |  |
+| `chat_id` | `str` | Unique identifier for the target chat or username |
+| `direct_messages_topic_id` | `int` | Unique identifier for the target direct messages topic |
+| `disable_notification` | `bool` | Sends the message silently |
+| `disable_web_page_preview` | `bool` | Disables link previews for links in this message |
 | `from_chat_id` | `str` |  |
 | `latitude` | `float` |  |
 | `longitude` | `float` |  |
-| `message_effect_id` | `str` |  |
+| `message_effect_id` | `str` | Unique identifier of the message effect to be added to the message |
 | `message_id` | `int` |  |
-| `message_thread_id` | `int` |  |
+| `message_thread_id` | `int` | Unique identifier for the target message thread (topic) of the forum |
 | `options` | `list` |  |
-| `parse_mode` | `str` |  |
-| `protect_content` | `bool` |  |
+| `parse_mode` | `str` | Mode for parsing entities in the message text |
+| `protect_content` | `bool` | Protects the contents of the sent message from forwarding and saving |
 | `question` | `str` |  |
-| `reply_to_message_id` | `int` |  |
-| `text` | `str` |  |
+| `reply_to_message_id` | `int` | If the message is a reply, ID of the original message |
+| `text` | `str` | Text of the message to be sent |
 
 #### Example: Create
 
@@ -1051,11 +1051,11 @@ Create an instance: `promote_chat_member = client.PromoteChatMember()`
 | `can_manage_direct_messages` | `bool` |  |
 | `can_post_messages` | `bool` |  |
 | `chat_id` | `str` |  |
-| `description` | `str` |  |
-| `error_code` | `int` |  |
-| `ok` | `bool` |  |
+| `description` | `str` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `dict` |  |
-| `result` | `list` |  |
+| `result` | `list` | The result of the query |
 | `user_id` | `int` |  |
 
 #### Example: Create
@@ -1083,11 +1083,11 @@ Create an instance: `remove_my_profile_photo = client.RemoveMyProfilePhoto()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `str` |  |
-| `error_code` | `int` |  |
-| `ok` | `bool` |  |
+| `description` | `str` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `dict` |  |
-| `result` | `list` |  |
+| `result` | `list` | The result of the query |
 
 #### Example: Create
 
@@ -1113,11 +1113,11 @@ Create an instance: `repost_story = client.RepostStory()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `chat_id` | `str` |  |
-| `description` | `str` |  |
-| `error_code` | `int` |  |
-| `ok` | `bool` |  |
+| `description` | `str` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `dict` |  |
-| `result` | `list` |  |
+| `result` | `list` | The result of the query |
 | `story_id` | `int` |  |
 
 #### Example: Create
@@ -1147,12 +1147,12 @@ Create an instance: `send_chat_action = client.SendChatAction()`
 | --- | --- | --- |
 | `action` | `str` |  |
 | `chat_id` | `str` |  |
-| `description` | `str` |  |
-| `error_code` | `int` |  |
+| `description` | `str` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
 | `message_thread_id` | `int` |  |
-| `ok` | `bool` |  |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `dict` |  |
-| `result` | `list` |  |
+| `result` | `list` | The result of the query |
 
 #### Example: Create
 
@@ -1180,12 +1180,12 @@ Create an instance: `send_message_draft = client.SendMessageDraft()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `chat_id` | `str` |  |
-| `description` | `str` |  |
-| `error_code` | `int` |  |
+| `description` | `str` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
 | `message_thread_id` | `int` |  |
-| `ok` | `bool` |  |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `dict` |  |
-| `result` | `list` |  |
+| `result` | `list` | The result of the query |
 | `text` | `str` |  |
 
 #### Example: Create
@@ -1213,11 +1213,11 @@ Create an instance: `set_my_profile_photo = client.SetMyProfilePhoto()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `str` |  |
-| `error_code` | `int` |  |
-| `ok` | `bool` |  |
+| `description` | `str` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `dict` |  |
-| `result` | `list` |  |
+| `result` | `list` | The result of the query |
 
 #### Example: Create
 
@@ -1243,12 +1243,12 @@ Create an instance: `unpin_all_forum_topic_message = client.UnpinAllForumTopicMe
 | Field | Type | Description |
 | --- | --- | --- |
 | `chat_id` | `str` |  |
-| `description` | `str` |  |
-| `error_code` | `int` |  |
+| `description` | `str` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
 | `message_thread_id` | `int` |  |
-| `ok` | `bool` |  |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `dict` |  |
-| `result` | `list` |  |
+| `result` | `list` | The result of the query |
 
 #### Example: Create
 
@@ -1277,13 +1277,13 @@ Create an instance: `update = client.Update()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `allowed_updates` | `list` |  |
-| `description` | `str` |  |
-| `error_code` | `int` |  |
+| `description` | `str` | Human-readable description of the result |
+| `error_code` | `int` | Error code |
 | `limit` | `int` |  |
 | `offset` | `int` |  |
-| `ok` | `bool` |  |
+| `ok` | `bool` | If true, the request was successful |
 | `parameters` | `dict` |  |
-| `result` | `list` |  |
+| `result` | `list` | The result of the query |
 | `timeout` | `int` |  |
 
 #### Example: List

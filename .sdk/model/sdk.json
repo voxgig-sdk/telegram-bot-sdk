@@ -47,12 +47,14 @@
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Human-readable description of the result",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "error_code",
               "req": false,
+              "short": "Error code",
               "type": "`$INTEGER`"
             },
             {
@@ -65,6 +67,7 @@
               "active": true,
               "name": "ok",
               "req": true,
+              "short": "If true, the request was successful",
               "type": "`$BOOLEAN`"
             },
             {
@@ -77,6 +80,7 @@
               "active": true,
               "name": "result",
               "req": false,
+              "short": "The result of the query",
               "type": "`$ARRAY`"
             }
           ],
@@ -129,12 +133,14 @@
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Human-readable description of the result",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "error_code",
               "req": false,
+              "short": "Error code",
               "type": "`$INTEGER`"
             },
             {
@@ -147,6 +153,7 @@
               "active": true,
               "name": "ok",
               "req": true,
+              "short": "If true, the request was successful",
               "type": "`$BOOLEAN`"
             },
             {
@@ -159,6 +166,7 @@
               "active": true,
               "name": "result",
               "req": false,
+              "short": "The result of the query",
               "type": "`$ARRAY`"
             }
           ],
@@ -211,12 +219,14 @@
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Human-readable description of the result",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "error_code",
               "req": false,
+              "short": "Error code",
               "type": "`$INTEGER`"
             },
             {
@@ -229,6 +239,7 @@
               "active": true,
               "name": "ok",
               "req": true,
+              "short": "If true, the request was successful",
               "type": "`$BOOLEAN`"
             },
             {
@@ -241,6 +252,7 @@
               "active": true,
               "name": "result",
               "req": false,
+              "short": "The result of the query",
               "type": "`$ARRAY`"
             }
           ],
@@ -293,12 +305,14 @@
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Human-readable description of the result",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "error_code",
               "req": false,
+              "short": "Error code",
               "type": "`$INTEGER`"
             },
             {
@@ -323,6 +337,7 @@
               "active": true,
               "name": "ok",
               "req": true,
+              "short": "If true, the request was successful",
               "type": "`$BOOLEAN`"
             },
             {
@@ -335,6 +350,7 @@
               "active": true,
               "name": "result",
               "req": false,
+              "short": "The result of the query",
               "type": "`$ARRAY`"
             }
           ],
@@ -481,12 +497,14 @@
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Human-readable description of the result",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "error_code",
               "req": false,
+              "short": "Error code",
               "type": "`$INTEGER`"
             },
             {
@@ -511,6 +529,7 @@
               "active": true,
               "name": "ok",
               "req": true,
+              "short": "If true, the request was successful",
               "type": "`$BOOLEAN`"
             },
             {
@@ -523,6 +542,7 @@
               "active": true,
               "name": "result",
               "req": false,
+              "short": "The result of the query",
               "type": "`$ARRAY`"
             }
           ],
@@ -575,18 +595,21 @@
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Human-readable description of the result",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "error_code",
               "req": false,
+              "short": "Error code",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "ok",
               "req": true,
+              "short": "If true, the request was successful",
               "type": "`$BOOLEAN`"
             },
             {
@@ -599,6 +622,7 @@
               "active": true,
               "name": "result",
               "req": false,
+              "short": "The result of the query",
               "type": "`$ARRAY`"
             }
           ],
@@ -640,18 +664,21 @@
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Human-readable description of the result",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "error_code",
               "req": false,
+              "short": "Error code",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "ok",
               "req": true,
+              "short": "If true, the request was successful",
               "type": "`$BOOLEAN`"
             },
             {
@@ -664,6 +691,7 @@
               "active": true,
               "name": "result",
               "req": false,
+              "short": "The result of the query",
               "type": "`$ARRAY`"
             }
           ],
@@ -726,18 +754,21 @@
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Human-readable description of the result",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "error_code",
               "req": false,
+              "short": "Error code",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "ok",
               "req": true,
+              "short": "If true, the request was successful",
               "type": "`$BOOLEAN`"
             },
             {
@@ -750,6 +781,7 @@
               "active": true,
               "name": "result",
               "req": false,
+              "short": "The result of the query",
               "type": "`$ARRAY`"
             },
             {
@@ -797,18 +829,21 @@
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Human-readable description of the result",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "error_code",
               "req": false,
+              "short": "Error code",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "ok",
               "req": true,
+              "short": "If true, the request was successful",
               "type": "`$BOOLEAN`"
             },
             {
@@ -821,6 +856,7 @@
               "active": true,
               "name": "result",
               "req": false,
+              "short": "The result of the query",
               "type": "`$ARRAY`"
             },
             {
@@ -868,6 +904,7 @@
               "active": true,
               "name": "chat_id",
               "req": true,
+              "short": "Unique identifier for the target chat or username",
               "type": "`$STRING`",
               "union": {
                 "branches": 2,
@@ -879,18 +916,21 @@
               "active": true,
               "name": "direct_messages_topic_id",
               "req": false,
+              "short": "Unique identifier for the target direct messages topic",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "disable_notification",
               "req": false,
+              "short": "Sends the message silently",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "disable_web_page_preview",
               "req": false,
+              "short": "Disables link previews for links in this message",
               "type": "`$BOOLEAN`"
             },
             {
@@ -920,6 +960,7 @@
               "active": true,
               "name": "message_effect_id",
               "req": false,
+              "short": "Unique identifier of the message effect to be added to the message",
               "type": "`$STRING`"
             },
             {
@@ -932,6 +973,7 @@
               "active": true,
               "name": "message_thread_id",
               "req": false,
+              "short": "Unique identifier for the target message thread (topic) of the forum",
               "type": "`$INTEGER`"
             },
             {
@@ -944,12 +986,14 @@
               "active": true,
               "name": "parse_mode",
               "req": false,
+              "short": "Mode for parsing entities in the message text",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "protect_content",
               "req": false,
+              "short": "Protects the contents of the sent message from forwarding and saving",
               "type": "`$BOOLEAN`"
             },
             {
@@ -962,12 +1006,14 @@
               "active": true,
               "name": "reply_to_message_id",
               "req": false,
+              "short": "If the message is a reply, ID of the original message",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "text",
               "req": true,
+              "short": "Text of the message to be sent",
               "type": "`$STRING`"
             }
           ],
@@ -1268,18 +1314,21 @@
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Human-readable description of the result",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "error_code",
               "req": false,
+              "short": "Error code",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "ok",
               "req": true,
+              "short": "If true, the request was successful",
               "type": "`$BOOLEAN`"
             },
             {
@@ -1292,6 +1341,7 @@
               "active": true,
               "name": "result",
               "req": false,
+              "short": "The result of the query",
               "type": "`$ARRAY`"
             },
             {
@@ -1339,18 +1389,21 @@
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Human-readable description of the result",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "error_code",
               "req": false,
+              "short": "Error code",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "ok",
               "req": true,
+              "short": "If true, the request was successful",
               "type": "`$BOOLEAN`"
             },
             {
@@ -1363,6 +1416,7 @@
               "active": true,
               "name": "result",
               "req": false,
+              "short": "The result of the query",
               "type": "`$ARRAY`"
             }
           ],
@@ -1415,18 +1469,21 @@
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Human-readable description of the result",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "error_code",
               "req": false,
+              "short": "Error code",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "ok",
               "req": true,
+              "short": "If true, the request was successful",
               "type": "`$BOOLEAN`"
             },
             {
@@ -1439,6 +1496,7 @@
               "active": true,
               "name": "result",
               "req": false,
+              "short": "The result of the query",
               "type": "`$ARRAY`"
             },
             {
@@ -1503,12 +1561,14 @@
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Human-readable description of the result",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "error_code",
               "req": false,
+              "short": "Error code",
               "type": "`$INTEGER`"
             },
             {
@@ -1521,6 +1581,7 @@
               "active": true,
               "name": "ok",
               "req": true,
+              "short": "If true, the request was successful",
               "type": "`$BOOLEAN`"
             },
             {
@@ -1533,6 +1594,7 @@
               "active": true,
               "name": "result",
               "req": false,
+              "short": "The result of the query",
               "type": "`$ARRAY`"
             }
           ],
@@ -1585,12 +1647,14 @@
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Human-readable description of the result",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "error_code",
               "req": false,
+              "short": "Error code",
               "type": "`$INTEGER`"
             },
             {
@@ -1603,6 +1667,7 @@
               "active": true,
               "name": "ok",
               "req": true,
+              "short": "If true, the request was successful",
               "type": "`$BOOLEAN`"
             },
             {
@@ -1615,6 +1680,7 @@
               "active": true,
               "name": "result",
               "req": false,
+              "short": "The result of the query",
               "type": "`$ARRAY`"
             },
             {
@@ -1662,18 +1728,21 @@
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Human-readable description of the result",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "error_code",
               "req": false,
+              "short": "Error code",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "ok",
               "req": true,
+              "short": "If true, the request was successful",
               "type": "`$BOOLEAN`"
             },
             {
@@ -1686,6 +1755,7 @@
               "active": true,
               "name": "result",
               "req": false,
+              "short": "The result of the query",
               "type": "`$ARRAY`"
             }
           ],
@@ -1738,12 +1808,14 @@
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Human-readable description of the result",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "error_code",
               "req": false,
+              "short": "Error code",
               "type": "`$INTEGER`"
             },
             {
@@ -1756,6 +1828,7 @@
               "active": true,
               "name": "ok",
               "req": true,
+              "short": "If true, the request was successful",
               "type": "`$BOOLEAN`"
             },
             {
@@ -1768,6 +1841,7 @@
               "active": true,
               "name": "result",
               "req": false,
+              "short": "The result of the query",
               "type": "`$ARRAY`"
             }
           ],
@@ -1815,12 +1889,14 @@
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Human-readable description of the result",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "error_code",
               "req": false,
+              "short": "Error code",
               "type": "`$INTEGER`"
             },
             {
@@ -1839,6 +1915,7 @@
               "active": true,
               "name": "ok",
               "req": true,
+              "short": "If true, the request was successful",
               "type": "`$BOOLEAN`"
             },
             {
@@ -1851,6 +1928,7 @@
               "active": true,
               "name": "result",
               "req": false,
+              "short": "The result of the query",
               "type": "`$ARRAY`"
             },
             {

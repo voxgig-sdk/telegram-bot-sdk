@@ -1,0 +1,61 @@
+# Entity: remove_my_profile_photo
+
+main: kit: entity: remove_my_profile_photo: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "description"
+      req: false
+      short: "Human-readable description of the result"
+      type: "`$STRING`"
+    }
+    {
+      name: "error_code"
+      req: false
+      short: "Error code"
+      type: "`$INTEGER`"
+    }
+    {
+      name: "ok"
+      req: true
+      short: "If true, the request was successful"
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "parameters"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "result"
+      req: false
+      short: "The result of the query"
+      type: "`$ARRAY`"
+    }
+  ]
+
+  name: "remove_my_profile_photo"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/removeMyProfilePhoto"
+          parts: [
+            "removeMyProfilePhoto"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'TelegramBot',
+        slug: "telegram-bot",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -134,10 +145,12 @@ class Config {
         },
         {
           "name": "description",
+          "short": "Human-readable description of the result",
           "type": "`$STRING`"
         },
         {
           "name": "error_code",
+          "short": "Error code",
           "type": "`$INTEGER`"
         },
         {
@@ -148,6 +161,7 @@ class Config {
         {
           "name": "ok",
           "req": true,
+          "short": "If true, the request was successful",
           "type": "`$BOOLEAN`"
         },
         {
@@ -156,6 +170,7 @@ class Config {
         },
         {
           "name": "result",
+          "short": "The result of the query",
           "type": "`$ARRAY`"
         }
       ],
@@ -200,10 +215,12 @@ class Config {
         },
         {
           "name": "description",
+          "short": "Human-readable description of the result",
           "type": "`$STRING`"
         },
         {
           "name": "error_code",
+          "short": "Error code",
           "type": "`$INTEGER`"
         },
         {
@@ -214,6 +231,7 @@ class Config {
         {
           "name": "ok",
           "req": true,
+          "short": "If true, the request was successful",
           "type": "`$BOOLEAN`"
         },
         {
@@ -222,6 +240,7 @@ class Config {
         },
         {
           "name": "result",
+          "short": "The result of the query",
           "type": "`$ARRAY`"
         }
       ],
@@ -266,10 +285,12 @@ class Config {
         },
         {
           "name": "description",
+          "short": "Human-readable description of the result",
           "type": "`$STRING`"
         },
         {
           "name": "error_code",
+          "short": "Error code",
           "type": "`$INTEGER`"
         },
         {
@@ -280,6 +301,7 @@ class Config {
         {
           "name": "ok",
           "req": true,
+          "short": "If true, the request was successful",
           "type": "`$BOOLEAN`"
         },
         {
@@ -288,6 +310,7 @@ class Config {
         },
         {
           "name": "result",
+          "short": "The result of the query",
           "type": "`$ARRAY`"
         }
       ],
@@ -332,10 +355,12 @@ class Config {
         },
         {
           "name": "description",
+          "short": "Human-readable description of the result",
           "type": "`$STRING`"
         },
         {
           "name": "error_code",
+          "short": "Error code",
           "type": "`$INTEGER`"
         },
         {
@@ -354,6 +379,7 @@ class Config {
         {
           "name": "ok",
           "req": true,
+          "short": "If true, the request was successful",
           "type": "`$BOOLEAN`"
         },
         {
@@ -362,6 +388,7 @@ class Config {
         },
         {
           "name": "result",
+          "short": "The result of the query",
           "type": "`$ARRAY`"
         }
       ],
@@ -484,10 +511,12 @@ class Config {
       "fields": [
         {
           "name": "description",
+          "short": "Human-readable description of the result",
           "type": "`$STRING`"
         },
         {
           "name": "error_code",
+          "short": "Error code",
           "type": "`$INTEGER`"
         },
         {
@@ -505,6 +534,7 @@ class Config {
         {
           "name": "ok",
           "req": true,
+          "short": "If true, the request was successful",
           "type": "`$BOOLEAN`"
         },
         {
@@ -513,6 +543,7 @@ class Config {
         },
         {
           "name": "result",
+          "short": "The result of the query",
           "type": "`$ARRAY`"
         }
       ],
@@ -557,15 +588,18 @@ class Config {
         },
         {
           "name": "description",
+          "short": "Human-readable description of the result",
           "type": "`$STRING`"
         },
         {
           "name": "error_code",
+          "short": "Error code",
           "type": "`$INTEGER`"
         },
         {
           "name": "ok",
           "req": true,
+          "short": "If true, the request was successful",
           "type": "`$BOOLEAN`"
         },
         {
@@ -574,6 +608,7 @@ class Config {
         },
         {
           "name": "result",
+          "short": "The result of the query",
           "type": "`$ARRAY`"
         }
       ],
@@ -608,15 +643,18 @@ class Config {
       "fields": [
         {
           "name": "description",
+          "short": "Human-readable description of the result",
           "type": "`$STRING`"
         },
         {
           "name": "error_code",
+          "short": "Error code",
           "type": "`$INTEGER`"
         },
         {
           "name": "ok",
           "req": true,
+          "short": "If true, the request was successful",
           "type": "`$BOOLEAN`"
         },
         {
@@ -625,6 +663,7 @@ class Config {
         },
         {
           "name": "result",
+          "short": "The result of the query",
           "type": "`$ARRAY`"
         }
       ],
@@ -679,15 +718,18 @@ class Config {
       "fields": [
         {
           "name": "description",
+          "short": "Human-readable description of the result",
           "type": "`$STRING`"
         },
         {
           "name": "error_code",
+          "short": "Error code",
           "type": "`$INTEGER`"
         },
         {
           "name": "ok",
           "req": true,
+          "short": "If true, the request was successful",
           "type": "`$BOOLEAN`"
         },
         {
@@ -696,6 +738,7 @@ class Config {
         },
         {
           "name": "result",
+          "short": "The result of the query",
           "type": "`$ARRAY`"
         },
         {
@@ -735,15 +778,18 @@ class Config {
       "fields": [
         {
           "name": "description",
+          "short": "Human-readable description of the result",
           "type": "`$STRING`"
         },
         {
           "name": "error_code",
+          "short": "Error code",
           "type": "`$INTEGER`"
         },
         {
           "name": "ok",
           "req": true,
+          "short": "If true, the request was successful",
           "type": "`$BOOLEAN`"
         },
         {
@@ -752,6 +798,7 @@ class Config {
         },
         {
           "name": "result",
+          "short": "The result of the query",
           "type": "`$ARRAY`"
         },
         {
@@ -792,6 +839,7 @@ class Config {
         {
           "name": "chat_id",
           "req": true,
+          "short": "Unique identifier for the target chat or username",
           "type": "`$STRING`",
           "union": {
             "branches": 2,
@@ -801,14 +849,17 @@ class Config {
         },
         {
           "name": "direct_messages_topic_id",
+          "short": "Unique identifier for the target direct messages topic",
           "type": "`$INTEGER`"
         },
         {
           "name": "disable_notification",
+          "short": "Sends the message silently",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "disable_web_page_preview",
+          "short": "Disables link previews for links in this message",
           "type": "`$BOOLEAN`"
         },
         {
@@ -833,6 +884,7 @@ class Config {
         },
         {
           "name": "message_effect_id",
+          "short": "Unique identifier of the message effect to be added to the message",
           "type": "`$STRING`"
         },
         {
@@ -842,6 +894,7 @@ class Config {
         },
         {
           "name": "message_thread_id",
+          "short": "Unique identifier for the target message thread (topic) of the forum",
           "type": "`$INTEGER`"
         },
         {
@@ -851,10 +904,12 @@ class Config {
         },
         {
           "name": "parse_mode",
+          "short": "Mode for parsing entities in the message text",
           "type": "`$STRING`"
         },
         {
           "name": "protect_content",
+          "short": "Protects the contents of the sent message from forwarding and saving",
           "type": "`$BOOLEAN`"
         },
         {
@@ -864,11 +919,13 @@ class Config {
         },
         {
           "name": "reply_to_message_id",
+          "short": "If the message is a reply, ID of the original message",
           "type": "`$INTEGER`"
         },
         {
           "name": "text",
           "req": true,
+          "short": "Text of the message to be sent",
           "type": "`$STRING`"
         }
       ],
@@ -1128,15 +1185,18 @@ class Config {
         },
         {
           "name": "description",
+          "short": "Human-readable description of the result",
           "type": "`$STRING`"
         },
         {
           "name": "error_code",
+          "short": "Error code",
           "type": "`$INTEGER`"
         },
         {
           "name": "ok",
           "req": true,
+          "short": "If true, the request was successful",
           "type": "`$BOOLEAN`"
         },
         {
@@ -1145,6 +1205,7 @@ class Config {
         },
         {
           "name": "result",
+          "short": "The result of the query",
           "type": "`$ARRAY`"
         },
         {
@@ -1184,15 +1245,18 @@ class Config {
       "fields": [
         {
           "name": "description",
+          "short": "Human-readable description of the result",
           "type": "`$STRING`"
         },
         {
           "name": "error_code",
+          "short": "Error code",
           "type": "`$INTEGER`"
         },
         {
           "name": "ok",
           "req": true,
+          "short": "If true, the request was successful",
           "type": "`$BOOLEAN`"
         },
         {
@@ -1201,6 +1265,7 @@ class Config {
         },
         {
           "name": "result",
+          "short": "The result of the query",
           "type": "`$ARRAY`"
         }
       ],
@@ -1245,15 +1310,18 @@ class Config {
         },
         {
           "name": "description",
+          "short": "Human-readable description of the result",
           "type": "`$STRING`"
         },
         {
           "name": "error_code",
+          "short": "Error code",
           "type": "`$INTEGER`"
         },
         {
           "name": "ok",
           "req": true,
+          "short": "If true, the request was successful",
           "type": "`$BOOLEAN`"
         },
         {
@@ -1262,6 +1330,7 @@ class Config {
         },
         {
           "name": "result",
+          "short": "The result of the query",
           "type": "`$ARRAY`"
         },
         {
@@ -1316,10 +1385,12 @@ class Config {
         },
         {
           "name": "description",
+          "short": "Human-readable description of the result",
           "type": "`$STRING`"
         },
         {
           "name": "error_code",
+          "short": "Error code",
           "type": "`$INTEGER`"
         },
         {
@@ -1329,6 +1400,7 @@ class Config {
         {
           "name": "ok",
           "req": true,
+          "short": "If true, the request was successful",
           "type": "`$BOOLEAN`"
         },
         {
@@ -1337,6 +1409,7 @@ class Config {
         },
         {
           "name": "result",
+          "short": "The result of the query",
           "type": "`$ARRAY`"
         }
       ],
@@ -1381,10 +1454,12 @@ class Config {
         },
         {
           "name": "description",
+          "short": "Human-readable description of the result",
           "type": "`$STRING`"
         },
         {
           "name": "error_code",
+          "short": "Error code",
           "type": "`$INTEGER`"
         },
         {
@@ -1394,6 +1469,7 @@ class Config {
         {
           "name": "ok",
           "req": true,
+          "short": "If true, the request was successful",
           "type": "`$BOOLEAN`"
         },
         {
@@ -1402,6 +1478,7 @@ class Config {
         },
         {
           "name": "result",
+          "short": "The result of the query",
           "type": "`$ARRAY`"
         },
         {
@@ -1441,15 +1518,18 @@ class Config {
       "fields": [
         {
           "name": "description",
+          "short": "Human-readable description of the result",
           "type": "`$STRING`"
         },
         {
           "name": "error_code",
+          "short": "Error code",
           "type": "`$INTEGER`"
         },
         {
           "name": "ok",
           "req": true,
+          "short": "If true, the request was successful",
           "type": "`$BOOLEAN`"
         },
         {
@@ -1458,6 +1538,7 @@ class Config {
         },
         {
           "name": "result",
+          "short": "The result of the query",
           "type": "`$ARRAY`"
         }
       ],
@@ -1502,10 +1583,12 @@ class Config {
         },
         {
           "name": "description",
+          "short": "Human-readable description of the result",
           "type": "`$STRING`"
         },
         {
           "name": "error_code",
+          "short": "Error code",
           "type": "`$INTEGER`"
         },
         {
@@ -1516,6 +1599,7 @@ class Config {
         {
           "name": "ok",
           "req": true,
+          "short": "If true, the request was successful",
           "type": "`$BOOLEAN`"
         },
         {
@@ -1524,6 +1608,7 @@ class Config {
         },
         {
           "name": "result",
+          "short": "The result of the query",
           "type": "`$ARRAY`"
         }
       ],
@@ -1562,10 +1647,12 @@ class Config {
         },
         {
           "name": "description",
+          "short": "Human-readable description of the result",
           "type": "`$STRING`"
         },
         {
           "name": "error_code",
+          "short": "Error code",
           "type": "`$INTEGER`"
         },
         {
@@ -1579,6 +1666,7 @@ class Config {
         {
           "name": "ok",
           "req": true,
+          "short": "If true, the request was successful",
           "type": "`$BOOLEAN`"
         },
         {
@@ -1587,6 +1675,7 @@ class Config {
         },
         {
           "name": "result",
+          "short": "The result of the query",
           "type": "`$ARRAY`"
         },
         {

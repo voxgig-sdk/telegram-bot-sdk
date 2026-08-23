@@ -169,12 +169,12 @@ approve_suggested_post = client.ApproveSuggestedPost()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `str` | Yes |  |
-| `description` | `str` | No |  |
-| `error_code` | `int` | No |  |
+| `description` | `str` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
 | `message_id` | `int` | Yes |  |
-| `ok` | `bool` | Yes |  |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `dict` | No |  |
-| `result` | `list` | No |  |
+| `result` | `list` | No | The result of the query |
 
 ### Operations
 
@@ -230,12 +230,12 @@ decline_suggested_post = client.DeclineSuggestedPost()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `str` | Yes |  |
-| `description` | `str` | No |  |
-| `error_code` | `int` | No |  |
+| `description` | `str` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
 | `message_id` | `int` | Yes |  |
-| `ok` | `bool` | Yes |  |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `dict` | No |  |
-| `result` | `list` | No |  |
+| `result` | `list` | No | The result of the query |
 
 ### Operations
 
@@ -291,12 +291,12 @@ delete_forum_topic = client.DeleteForumTopic()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `str` | Yes |  |
-| `description` | `str` | No |  |
-| `error_code` | `int` | No |  |
+| `description` | `str` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
 | `message_thread_id` | `int` | Yes |  |
-| `ok` | `bool` | Yes |  |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `dict` | No |  |
-| `result` | `list` | No |  |
+| `result` | `list` | No | The result of the query |
 
 ### Operations
 
@@ -352,14 +352,14 @@ edit_forum_topic = client.EditForumTopic()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `str` | Yes |  |
-| `description` | `str` | No |  |
-| `error_code` | `int` | No |  |
+| `description` | `str` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
 | `icon_custom_emoji_id` | `str` | No |  |
 | `message_thread_id` | `int` | Yes |  |
 | `name` | `str` | No |  |
-| `ok` | `bool` | Yes |  |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `dict` | No |  |
-| `result` | `list` | No |  |
+| `result` | `list` | No | The result of the query |
 
 ### Operations
 
@@ -524,14 +524,14 @@ get_business_account_gift = client.GetBusinessAccountGift()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `str` | No |  |
-| `error_code` | `int` | No |  |
+| `description` | `str` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
 | `exclude_from_blockchain` | `bool` | No |  |
 | `exclude_limited_non_upgradable` | `bool` | No |  |
 | `exclude_limited_upgradable` | `bool` | No |  |
-| `ok` | `bool` | Yes |  |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `dict` | No |  |
-| `result` | `list` | No |  |
+| `result` | `list` | No | The result of the query |
 
 ### Operations
 
@@ -585,11 +585,11 @@ get_chat_gift = client.GetChatGift()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `str` | Yes |  |
-| `description` | `str` | No |  |
-| `error_code` | `int` | No |  |
-| `ok` | `bool` | Yes |  |
+| `description` | `str` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `dict` | No |  |
-| `result` | `list` | No |  |
+| `result` | `list` | No | The result of the query |
 
 ### Operations
 
@@ -643,11 +643,11 @@ get_me = client.GetMe()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `str` | No |  |
-| `error_code` | `int` | No |  |
-| `ok` | `bool` | Yes |  |
+| `description` | `str` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `dict` | No |  |
-| `result` | `list` | No |  |
+| `result` | `list` | No | The result of the query |
 
 ### Operations
 
@@ -708,11 +708,11 @@ get_user_gift = client.GetUserGift()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `str` | No |  |
-| `error_code` | `int` | No |  |
-| `ok` | `bool` | Yes |  |
+| `description` | `str` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `dict` | No |  |
-| `result` | `list` | No |  |
+| `result` | `list` | No | The result of the query |
 | `user_id` | `int` | Yes |  |
 
 ### Operations
@@ -767,11 +767,11 @@ get_user_profile_audio = client.GetUserProfileAudio()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `str` | No |  |
-| `error_code` | `int` | No |  |
-| `ok` | `bool` | Yes |  |
+| `description` | `str` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `dict` | No |  |
-| `result` | `list` | No |  |
+| `result` | `list` | No | The result of the query |
 | `user_id` | `int` | Yes |  |
 
 ### Operations
@@ -826,22 +826,22 @@ message = client.Message()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chat_id` | `str` | Yes |  |
-| `direct_messages_topic_id` | `int` | No |  |
-| `disable_notification` | `bool` | No |  |
-| `disable_web_page_preview` | `bool` | No |  |
+| `chat_id` | `str` | Yes | Unique identifier for the target chat or username |
+| `direct_messages_topic_id` | `int` | No | Unique identifier for the target direct messages topic |
+| `disable_notification` | `bool` | No | Sends the message silently |
+| `disable_web_page_preview` | `bool` | No | Disables link previews for links in this message |
 | `from_chat_id` | `str` | Yes |  |
 | `latitude` | `float` | Yes |  |
 | `longitude` | `float` | Yes |  |
-| `message_effect_id` | `str` | No |  |
+| `message_effect_id` | `str` | No | Unique identifier of the message effect to be added to the message |
 | `message_id` | `int` | Yes |  |
-| `message_thread_id` | `int` | No |  |
+| `message_thread_id` | `int` | No | Unique identifier for the target message thread (topic) of the forum |
 | `options` | `list` | Yes |  |
-| `parse_mode` | `str` | No |  |
-| `protect_content` | `bool` | No |  |
+| `parse_mode` | `str` | No | Mode for parsing entities in the message text |
+| `protect_content` | `bool` | No | Protects the contents of the sent message from forwarding and saving |
 | `question` | `str` | Yes |  |
-| `reply_to_message_id` | `int` | No |  |
-| `text` | `str` | Yes |  |
+| `reply_to_message_id` | `int` | No | If the message is a reply, ID of the original message |
+| `text` | `str` | Yes | Text of the message to be sent |
 
 ### Operations
 
@@ -967,11 +967,11 @@ promote_chat_member = client.PromoteChatMember()
 | `can_manage_direct_messages` | `bool` | No |  |
 | `can_post_messages` | `bool` | No |  |
 | `chat_id` | `str` | Yes |  |
-| `description` | `str` | No |  |
-| `error_code` | `int` | No |  |
-| `ok` | `bool` | Yes |  |
+| `description` | `str` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `dict` | No |  |
-| `result` | `list` | No |  |
+| `result` | `list` | No | The result of the query |
 | `user_id` | `int` | Yes |  |
 
 ### Operations
@@ -1027,11 +1027,11 @@ remove_my_profile_photo = client.RemoveMyProfilePhoto()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `str` | No |  |
-| `error_code` | `int` | No |  |
-| `ok` | `bool` | Yes |  |
+| `description` | `str` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `dict` | No |  |
-| `result` | `list` | No |  |
+| `result` | `list` | No | The result of the query |
 
 ### Operations
 
@@ -1085,11 +1085,11 @@ repost_story = client.RepostStory()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `str` | Yes |  |
-| `description` | `str` | No |  |
-| `error_code` | `int` | No |  |
-| `ok` | `bool` | Yes |  |
+| `description` | `str` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `dict` | No |  |
-| `result` | `list` | No |  |
+| `result` | `list` | No | The result of the query |
 | `story_id` | `int` | Yes |  |
 
 ### Operations
@@ -1147,12 +1147,12 @@ send_chat_action = client.SendChatAction()
 | --- | --- | --- | --- |
 | `action` | `str` | Yes |  |
 | `chat_id` | `str` | Yes |  |
-| `description` | `str` | No |  |
-| `error_code` | `int` | No |  |
+| `description` | `str` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
 | `message_thread_id` | `int` | No |  |
-| `ok` | `bool` | Yes |  |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `dict` | No |  |
-| `result` | `list` | No |  |
+| `result` | `list` | No | The result of the query |
 
 ### Operations
 
@@ -1208,12 +1208,12 @@ send_message_draft = client.SendMessageDraft()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `str` | Yes |  |
-| `description` | `str` | No |  |
-| `error_code` | `int` | No |  |
+| `description` | `str` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
 | `message_thread_id` | `int` | No |  |
-| `ok` | `bool` | Yes |  |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `dict` | No |  |
-| `result` | `list` | No |  |
+| `result` | `list` | No | The result of the query |
 | `text` | `str` | Yes |  |
 
 ### Operations
@@ -1269,11 +1269,11 @@ set_my_profile_photo = client.SetMyProfilePhoto()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `str` | No |  |
-| `error_code` | `int` | No |  |
-| `ok` | `bool` | Yes |  |
+| `description` | `str` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `dict` | No |  |
-| `result` | `list` | No |  |
+| `result` | `list` | No | The result of the query |
 
 ### Operations
 
@@ -1327,12 +1327,12 @@ unpin_all_forum_topic_message = client.UnpinAllForumTopicMessage()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `chat_id` | `str` | Yes |  |
-| `description` | `str` | No |  |
-| `error_code` | `int` | No |  |
+| `description` | `str` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
 | `message_thread_id` | `int` | Yes |  |
-| `ok` | `bool` | Yes |  |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `dict` | No |  |
-| `result` | `list` | No |  |
+| `result` | `list` | No | The result of the query |
 
 ### Operations
 
@@ -1388,13 +1388,13 @@ update = client.Update()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `allowed_updates` | `list` | No |  |
-| `description` | `str` | No |  |
-| `error_code` | `int` | No |  |
+| `description` | `str` | No | Human-readable description of the result |
+| `error_code` | `int` | No | Error code |
 | `limit` | `int` | No |  |
 | `offset` | `int` | No |  |
-| `ok` | `bool` | Yes |  |
+| `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `dict` | No |  |
-| `result` | `list` | No |  |
+| `result` | `list` | No | The result of the query |
 | `timeout` | `int` | No |  |
 
 ### Operations

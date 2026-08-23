@@ -1,0 +1,76 @@
+# Entity: delete_forum_topic
+
+main: kit: entity: delete_forum_topic: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "chat_id"
+      req: true
+      type: "`$STRING`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
+    {
+      name: "description"
+      req: false
+      short: "Human-readable description of the result"
+      type: "`$STRING`"
+    }
+    {
+      name: "error_code"
+      req: false
+      short: "Error code"
+      type: "`$INTEGER`"
+    }
+    {
+      name: "message_thread_id"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "ok"
+      req: true
+      short: "If true, the request was successful"
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "parameters"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "result"
+      req: false
+      short: "The result of the query"
+      type: "`$ARRAY`"
+    }
+  ]
+
+  name: "delete_forum_topic"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/deleteForumTopic"
+          parts: [
+            "deleteForumTopic"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body.parameters`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
