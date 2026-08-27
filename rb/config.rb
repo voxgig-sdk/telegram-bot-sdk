@@ -28,6 +28,7 @@ module TelegramBotConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {

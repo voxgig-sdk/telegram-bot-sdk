@@ -44,7 +44,8 @@ class SetMyProfilePhotoEntity extends TelegramBotEntityBase<SetMyProfilePhoto> {
     const {
       makeContext,
       done,
-      error,
+      // The registry name is `makeError`; `error` is the local alias.
+      makeError: error,
       featureHook,
       makePoint,
       makeRequest,
