@@ -426,14 +426,9 @@ export interface Update {
 }
 
 export interface UpdateListMatch {
-  allowed_updates?: any[]
-  description?: string
-  error_code?: number
+  allowed_update?: any[]
   limit?: number
   offset?: number
-  ok?: boolean
-  parameters?: Record<string, any>
-  result?: any[]
   timeout?: number
 }
 

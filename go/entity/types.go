@@ -476,14 +476,9 @@ type Update struct {
 
 // UpdateListMatch is the typed request payload for Update.ListTyped.
 type UpdateListMatch struct {
-	AllowedUpdates *[]any `json:"allowed_updates,omitempty"`
-	Description *string `json:"description,omitempty"`
-	ErrorCode *int `json:"error_code,omitempty"`
+	AllowedUpdate *[]any `json:"allowed_update,omitempty"`
 	Limit *int `json:"limit,omitempty"`
 	Offset *int `json:"offset,omitempty"`
-	Ok *bool `json:"ok,omitempty"`
-	Parameters *map[string]any `json:"parameters,omitempty"`
-	Result *[]any `json:"result,omitempty"`
 	Timeout *int `json:"timeout,omitempty"`
 }
 

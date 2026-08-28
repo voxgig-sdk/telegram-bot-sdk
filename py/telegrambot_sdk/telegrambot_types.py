@@ -554,14 +554,9 @@ class Update(UpdateRequired, total=False):
 
 
 class UpdateListMatch(TypedDict, total=False):
-    allowed_updates: list
-    description: str
-    error_code: int
+    allowed_update: list
     limit: int
     offset: int
-    ok: bool
-    parameters: dict
-    result: list
     timeout: int
 
 

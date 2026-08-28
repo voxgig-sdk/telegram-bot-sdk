@@ -1396,14 +1396,8 @@ Update = Struct.new(
 
 # Request payload for Update#list.
 #
-# @!attribute [rw] allowed_updates
+# @!attribute [rw] allowed_update
 #   @return [Array, nil]
-#
-# @!attribute [rw] description
-#   @return [String, nil]
-#
-# @!attribute [rw] error_code
-#   @return [Integer, nil]
 #
 # @!attribute [rw] limit
 #   @return [Integer, nil]
@@ -1411,26 +1405,12 @@ Update = Struct.new(
 # @!attribute [rw] offset
 #   @return [Integer, nil]
 #
-# @!attribute [rw] ok
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] parameters
-#   @return [Hash, nil]
-#
-# @!attribute [rw] result
-#   @return [Array, nil]
-#
 # @!attribute [rw] timeout
 #   @return [Integer, nil]
 UpdateListMatch = Struct.new(
-  :allowed_updates,
-  :description,
-  :error_code,
+  :allowed_update,
   :limit,
   :offset,
-  :ok,
-  :parameters,
-  :result,
   :timeout,
   keyword_init: true
 )

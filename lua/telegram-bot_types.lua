@@ -385,14 +385,9 @@
 ---@field timeout? number
 
 ---@class UpdateListMatch
----@field allowed_updates? table
----@field description? string
----@field error_code? number
+---@field allowed_update? table
 ---@field limit? number
 ---@field offset? number
----@field ok? boolean
----@field parameters? table
----@field result? table
 ---@field timeout? number
 
 ---@class UpdateCreateData

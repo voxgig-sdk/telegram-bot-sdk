@@ -519,14 +519,9 @@ class Update
 /** Request payload for Update#list. */
 class UpdateListMatch
 {
-    public ?array $allowed_updates = null;
-    public ?string $description = null;
-    public ?int $error_code = null;
+    public ?array $allowed_update = null;
     public ?int $limit = null;
     public ?int $offset = null;
-    public ?bool $ok = null;
-    public ?array $parameters = null;
-    public ?array $result = null;
     public ?int $timeout = null;
 }
 
