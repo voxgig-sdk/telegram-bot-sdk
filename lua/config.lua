@@ -109,13 +109,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/approveSuggestedPost",
-                ["parts"] = {
-                  "approveSuggestedPost",
+                ["segments"] = {
+                  {
+                    ["lit"] = "approveSuggestedPost",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.parameters`",
+                },
+                ["parts"] = {
+                  "approveSuggestedPost",
                 },
               },
             },
@@ -179,13 +184,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/declineSuggestedPost",
-                ["parts"] = {
-                  "declineSuggestedPost",
+                ["segments"] = {
+                  {
+                    ["lit"] = "declineSuggestedPost",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.parameters`",
+                },
+                ["parts"] = {
+                  "declineSuggestedPost",
                 },
               },
             },
@@ -249,13 +259,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/deleteForumTopic",
-                ["parts"] = {
-                  "deleteForumTopic",
+                ["segments"] = {
+                  {
+                    ["lit"] = "deleteForumTopic",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.parameters`",
+                },
+                ["parts"] = {
+                  "deleteForumTopic",
                 },
               },
             },
@@ -327,13 +342,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/editForumTopic",
-                ["parts"] = {
-                  "editForumTopic",
+                ["segments"] = {
+                  {
+                    ["lit"] = "editForumTopic",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.parameters`",
+                },
+                ["parts"] = {
+                  "editForumTopic",
                 },
               },
             },
@@ -362,13 +382,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/getFile",
-                ["parts"] = {
-                  "getFile",
+                ["segments"] = {
+                  {
+                    ["lit"] = "getFile",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "getFile",
                 },
               },
             },
@@ -415,13 +440,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/createForumTopic",
-                ["parts"] = {
-                  "createForumTopic",
+                ["segments"] = {
+                  {
+                    ["lit"] = "createForumTopic",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "createForumTopic",
                 },
               },
             },
@@ -482,13 +512,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/getBusinessAccountGifts",
-                ["parts"] = {
-                  "getBusinessAccountGifts",
+                ["segments"] = {
+                  {
+                    ["lit"] = "getBusinessAccountGifts",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.parameters`",
+                },
+                ["parts"] = {
+                  "getBusinessAccountGifts",
                 },
               },
             },
@@ -547,13 +582,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/getChatGifts",
-                ["parts"] = {
-                  "getChatGifts",
+                ["segments"] = {
+                  {
+                    ["lit"] = "getChatGifts",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.parameters`",
+                },
+                ["parts"] = {
+                  "getChatGifts",
                 },
               },
             },
@@ -602,13 +642,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/getMe",
-                ["parts"] = {
-                  "getMe",
+                ["segments"] = {
+                  {
+                    ["lit"] = "getMe",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.parameters`",
+                },
+                ["parts"] = {
+                  "getMe",
                 },
               },
             },
@@ -622,13 +667,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/getMe",
-                ["parts"] = {
-                  "getMe",
+                ["segments"] = {
+                  {
+                    ["lit"] = "getMe",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.parameters`",
+                },
+                ["parts"] = {
+                  "getMe",
                 },
               },
             },
@@ -682,13 +732,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/getUserGifts",
-                ["parts"] = {
-                  "getUserGifts",
+                ["segments"] = {
+                  {
+                    ["lit"] = "getUserGifts",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "getUserGifts",
                 },
               },
             },
@@ -742,13 +797,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/getUserProfileAudios",
-                ["parts"] = {
-                  "getUserProfileAudios",
+                ["segments"] = {
+                  {
+                    ["lit"] = "getUserProfileAudios",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "getUserProfileAudios",
                 },
               },
             },
@@ -797,11 +857,13 @@ local function make_config()
             },
           },
           {
+            ["format"] = "float",
             ["name"] = "latitude",
             ["req"] = true,
             ["type"] = "`$NUMBER`",
           },
           {
+            ["format"] = "float",
             ["name"] = "longitude",
             ["req"] = true,
             ["type"] = "`$NUMBER`",
@@ -864,13 +926,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/forwardMessage",
-                ["parts"] = {
-                  "forwardMessage",
+                ["segments"] = {
+                  {
+                    ["lit"] = "forwardMessage",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "forwardMessage",
                 },
               },
               {
@@ -878,13 +945,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/sendAnimation",
-                ["parts"] = {
-                  "sendAnimation",
+                ["segments"] = {
+                  {
+                    ["lit"] = "sendAnimation",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "sendAnimation",
                 },
               },
               {
@@ -892,13 +964,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/sendAudio",
-                ["parts"] = {
-                  "sendAudio",
+                ["segments"] = {
+                  {
+                    ["lit"] = "sendAudio",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "sendAudio",
                 },
               },
               {
@@ -906,13 +983,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/sendDocument",
-                ["parts"] = {
-                  "sendDocument",
+                ["segments"] = {
+                  {
+                    ["lit"] = "sendDocument",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "sendDocument",
                 },
               },
               {
@@ -920,13 +1002,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/sendLocation",
-                ["parts"] = {
-                  "sendLocation",
+                ["segments"] = {
+                  {
+                    ["lit"] = "sendLocation",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "sendLocation",
                 },
               },
               {
@@ -934,13 +1021,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/sendMessage",
-                ["parts"] = {
-                  "sendMessage",
+                ["segments"] = {
+                  {
+                    ["lit"] = "sendMessage",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "sendMessage",
                 },
               },
               {
@@ -948,13 +1040,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/sendPhoto",
-                ["parts"] = {
-                  "sendPhoto",
+                ["segments"] = {
+                  {
+                    ["lit"] = "sendPhoto",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "sendPhoto",
                 },
               },
               {
@@ -962,13 +1059,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/sendPoll",
-                ["parts"] = {
-                  "sendPoll",
+                ["segments"] = {
+                  {
+                    ["lit"] = "sendPoll",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "sendPoll",
                 },
               },
               {
@@ -976,13 +1078,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/sendSticker",
-                ["parts"] = {
-                  "sendSticker",
+                ["segments"] = {
+                  {
+                    ["lit"] = "sendSticker",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "sendSticker",
                 },
               },
               {
@@ -990,13 +1097,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/sendVideo",
-                ["parts"] = {
-                  "sendVideo",
+                ["segments"] = {
+                  {
+                    ["lit"] = "sendVideo",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "sendVideo",
                 },
               },
             },
@@ -1057,8 +1169,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/copyMessage",
-                ["parts"] = {
-                  "copyMessage",
+                ["segments"] = {
+                  {
+                    ["lit"] = "copyMessage",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
@@ -1066,6 +1180,9 @@ local function make_config()
                     ["message_id"] = "`reqdata`",
                   },
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "copyMessage",
                 },
               },
             },
@@ -1149,13 +1266,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/promoteChatMember",
-                ["parts"] = {
-                  "promoteChatMember",
+                ["segments"] = {
+                  {
+                    ["lit"] = "promoteChatMember",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "promoteChatMember",
                 },
               },
             },
@@ -1204,13 +1326,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/removeMyProfilePhoto",
-                ["parts"] = {
-                  "removeMyProfilePhoto",
+                ["segments"] = {
+                  {
+                    ["lit"] = "removeMyProfilePhoto",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "removeMyProfilePhoto",
                 },
               },
             },
@@ -1274,13 +1401,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/repostStory",
-                ["parts"] = {
-                  "repostStory",
+                ["segments"] = {
+                  {
+                    ["lit"] = "repostStory",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "repostStory",
                 },
               },
             },
@@ -1348,13 +1480,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/sendChatAction",
-                ["parts"] = {
-                  "sendChatAction",
+                ["segments"] = {
+                  {
+                    ["lit"] = "sendChatAction",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "sendChatAction",
                 },
               },
             },
@@ -1422,13 +1559,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/sendMessageDraft",
-                ["parts"] = {
-                  "sendMessageDraft",
+                ["segments"] = {
+                  {
+                    ["lit"] = "sendMessageDraft",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "sendMessageDraft",
                 },
               },
             },
@@ -1477,13 +1619,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/setMyProfilePhoto",
-                ["parts"] = {
-                  "setMyProfilePhoto",
+                ["segments"] = {
+                  {
+                    ["lit"] = "setMyProfilePhoto",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "setMyProfilePhoto",
                 },
               },
             },
@@ -1547,13 +1694,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/unpinAllForumTopicMessages",
-                ["parts"] = {
-                  "unpinAllForumTopicMessages",
+                ["segments"] = {
+                  {
+                    ["lit"] = "unpinAllForumTopicMessages",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "unpinAllForumTopicMessages",
                 },
               },
             },
@@ -1618,13 +1770,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/getUpdates",
-                ["parts"] = {
-                  "getUpdates",
+                ["segments"] = {
+                  {
+                    ["lit"] = "getUpdates",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "getUpdates",
                 },
               },
             },
@@ -1667,8 +1824,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/getUpdates",
-                ["parts"] = {
-                  "getUpdates",
+                ["segments"] = {
+                  {
+                    ["lit"] = "getUpdates",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -1681,6 +1840,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "getUpdates",
                 },
               },
             },

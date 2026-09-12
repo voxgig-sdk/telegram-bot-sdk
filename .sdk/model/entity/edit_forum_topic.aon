@@ -69,8 +69,10 @@ main: kit: entity: edit_forum_topic: {
         {
           method: "POST"
           orig: "/editForumTopic"
-          parts: [
-            "editForumTopic"
+          segments: [
+            {
+              lit: "editForumTopic"
+            }
           ]
           transform: {
             req: "`reqdata`"

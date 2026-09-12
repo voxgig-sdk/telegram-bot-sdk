@@ -52,7 +52,7 @@ func TestMessageIdEntity(t *testing.T) {
 		// CREATE
 		messageIdRef01Ent := client.MessageId(nil)
 		messageIdRef01Data := core.ToMapAny(vs.GetProp(
-			vs.GetPath([]any{"new", "message_id"}, setup.data), "message_id_ref01"))
+			vs.GetPath(setup.data, []any{"new", "message_id"}), "message_id_ref01"))
 
 		messageIdRef01DataResult, err := messageIdRef01Ent.Create(messageIdRef01Data, nil)
 		if err != nil {
@@ -90,7 +90,7 @@ func message_idBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"message_id01", "message_id02", "message_id03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -110,7 +110,8 @@ func message_idBasicSetup(extra map[string]any) *entityTestSetup {
 		"TELEGRAM_BOT_TEST_MESSAGE_ID_ENTID": idmap,
 		"TELEGRAM_BOT_TEST_LIVE":      "FALSE",
 		"TELEGRAM_BOT_TEST_EXPLAIN":   "FALSE",
-		"TELEGRAM_BOT_APIKEY":         "NONE",
+		"TELEGRAM_BOT_APIKEY":         "",
+		"TELEGRAM_BOT_SERVER_TOKEN": "",
 	})
 
 	idmapResolved := core.ToMapAny(env["TELEGRAM_BOT_TEST_MESSAGE_ID_ENTID"])
@@ -119,11 +120,26 @@ func message_idBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["TELEGRAM_BOT_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["TELEGRAM_BOT_APIKEY"],
+				"server": map[string]any{
+					"token": env["TELEGRAM_BOT_SERVER_TOKEN"],
+				},
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewTelegramBotSDK(core.ToMapAny(mergedOpts))
 	}

@@ -51,6 +51,9 @@ import (
 func main() {
     client := sdk.NewTelegramBotSDK(map[string]any{
         "apikey": os.Getenv("TELEGRAM_BOT_APIKEY"),
+    "server": map[string]any{
+        "token": "<token>",
+    },
     })
 
     // Create a approveSuggestedPost.

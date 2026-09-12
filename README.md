@@ -127,6 +127,10 @@ import { TelegramBotSDK } from '@voxgig-sdk/telegram-bot'
 
 const client = new TelegramBotSDK({
   apikey: process.env.TELEGRAM_BOT_APIKEY,
+  // Required: this API's server URL is templated on these.
+  server: {
+    token: '<token>',
+  },
 })
 
 ```
@@ -204,6 +208,9 @@ from telegrambot_sdk import TelegramBotSDK
 
 client = TelegramBotSDK({
     "apikey": os.environ.get("TELEGRAM_BOT_APIKEY"),
+    "server": {
+        "token": "<token>",
+    },
 })
 
 ```
@@ -227,6 +234,9 @@ import sdk "github.com/voxgig-sdk/telegram-bot-sdk/go"
 
 client := sdk.NewTelegramBotSDK(map[string]any{
     "apikey": os.Getenv("TELEGRAM_BOT_APIKEY"),
+    "server": map[string]any{
+        "token": "<token>",
+    },
 })
 
 ```
@@ -363,7 +373,7 @@ customizable without forking any upstream tool:
 
 - **The model** (`.sdk/model/`) declares everything this project owns:
   package names, versions, active features, per-target settings. It is
-  written in [aontu](https://github.com/aontu-lang/aontu), a JSON-based
+  written in [aontu](https://aontu.dev), a JSON-based
   specification language designed for building ontologies: easy to edit
   by hand, and files unify rather than override, so small declarations
   compose into one model. Regeneration re-reads it every time.

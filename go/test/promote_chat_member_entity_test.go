@@ -52,7 +52,7 @@ func TestPromoteChatMemberEntity(t *testing.T) {
 		// CREATE
 		promoteChatMemberRef01Ent := client.PromoteChatMember(nil)
 		promoteChatMemberRef01Data := core.ToMapAny(vs.GetProp(
-			vs.GetPath([]any{"new", "promote_chat_member"}, setup.data), "promote_chat_member_ref01"))
+			vs.GetPath(setup.data, []any{"new", "promote_chat_member"}), "promote_chat_member_ref01"))
 
 		promoteChatMemberRef01DataResult, err := promoteChatMemberRef01Ent.Create(promoteChatMemberRef01Data, nil)
 		if err != nil {
@@ -90,7 +90,7 @@ func promote_chat_memberBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"promote_chat_member01", "promote_chat_member02", "promote_chat_member03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -110,7 +110,8 @@ func promote_chat_memberBasicSetup(extra map[string]any) *entityTestSetup {
 		"TELEGRAM_BOT_TEST_PROMOTE_CHAT_MEMBER_ENTID": idmap,
 		"TELEGRAM_BOT_TEST_LIVE":      "FALSE",
 		"TELEGRAM_BOT_TEST_EXPLAIN":   "FALSE",
-		"TELEGRAM_BOT_APIKEY":         "NONE",
+		"TELEGRAM_BOT_APIKEY":         "",
+		"TELEGRAM_BOT_SERVER_TOKEN": "",
 	})
 
 	idmapResolved := core.ToMapAny(env["TELEGRAM_BOT_TEST_PROMOTE_CHAT_MEMBER_ENTID"])
@@ -119,11 +120,26 @@ func promote_chat_memberBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["TELEGRAM_BOT_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["TELEGRAM_BOT_APIKEY"],
+				"server": map[string]any{
+					"token": env["TELEGRAM_BOT_SERVER_TOKEN"],
+				},
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewTelegramBotSDK(core.ToMapAny(mergedOpts))
 	}

@@ -63,7 +63,8 @@ function update_direct_setup(mockres)
   local env = runner.env_override({
     ["TELEGRAM_BOT_TEST_UPDATE_ENTID"] = {},
     ["TELEGRAM_BOT_TEST_LIVE"] = "FALSE",
-    ["TELEGRAM_BOT_APIKEY"] = "NONE",
+    ["TELEGRAM_BOT_APIKEY"] = "",
+    ["TELEGRAM_BOT_SERVER_TOKEN"] = "",
   })
 
   local live = env["TELEGRAM_BOT_TEST_LIVE"] == "TRUE"
@@ -71,7 +72,17 @@ function update_direct_setup(mockres)
   if live then
     local merged_opts = {
       apikey = env["TELEGRAM_BOT_APIKEY"],
+      server = {
+        ["token"] = env["TELEGRAM_BOT_SERVER_TOKEN"],
+      },
     }
+    -- sdk-test-control.json's test.client.options goes UNDER the generated
+    -- fields: it adds to the live client, it does not redirect it.
+    for _k, _v in pairs(runner.live_client_options()) do
+      if merged_opts[_k] == nil then
+        merged_opts[_k] = _v
+      end
+    end
     local client = sdk.new(merged_opts)
     return {
       client = client,

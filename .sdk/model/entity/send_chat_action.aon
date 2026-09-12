@@ -64,8 +64,10 @@ main: kit: entity: send_chat_action: {
         {
           method: "POST"
           orig: "/sendChatAction"
-          parts: [
-            "sendChatAction"
+          segments: [
+            {
+              lit: "sendChatAction"
+            }
           ]
           transform: {
             req: "`reqdata`"

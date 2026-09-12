@@ -44,8 +44,10 @@ main: kit: entity: remove_my_profile_photo: {
         {
           method: "POST"
           orig: "/removeMyProfilePhoto"
-          parts: [
-            "removeMyProfilePhoto"
+          segments: [
+            {
+              lit: "removeMyProfilePhoto"
+            }
           ]
           transform: {
             req: "`reqdata`"

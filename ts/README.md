@@ -32,6 +32,10 @@ import { TelegramBotSDK } from '@voxgig-sdk/telegram-bot'
 
 const client = new TelegramBotSDK({
   apikey: process.env.TELEGRAM_BOT_APIKEY,
+  // Required: this API's server URL is templated on these.
+  server: {
+    token: '<token>',
+  },
 })
 ```
 
@@ -196,6 +200,7 @@ cd ts && npm test
 ```ts
 new TelegramBotSDK(options?: {
   apikey?: string
+  server?: { token: string }
   base?: string
   prefix?: string
   suffix?: string
@@ -206,6 +211,7 @@ new TelegramBotSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
+| `server` | `object` | **Required.** Values for the server-URL variables: `token`. The API base URL is a template over them. |
 | `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |

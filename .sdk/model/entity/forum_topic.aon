@@ -40,8 +40,10 @@ main: kit: entity: forum_topic: {
         {
           method: "POST"
           orig: "/createForumTopic"
-          parts: [
-            "createForumTopic"
+          segments: [
+            {
+              lit: "createForumTopic"
+            }
           ]
           transform: {
             req: "`reqdata`"

@@ -49,8 +49,10 @@ main: kit: entity: get_user_gift: {
         {
           method: "POST"
           orig: "/getUserGifts"
-          parts: [
-            "getUserGifts"
+          segments: [
+            {
+              lit: "getUserGifts"
+            }
           ]
           transform: {
             req: "`reqdata`"

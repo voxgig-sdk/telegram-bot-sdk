@@ -125,7 +125,8 @@ def _update_basic_setup(extra):
         "TELEGRAM_BOT_TEST_UPDATE_ENTID": idmap,
         "TELEGRAM_BOT_TEST_LIVE": "FALSE",
         "TELEGRAM_BOT_TEST_EXPLAIN": "FALSE",
-        "TELEGRAM_BOT_APIKEY": "NONE",
+        "TELEGRAM_BOT_APIKEY": "",
+        "TELEGRAM_BOT_SERVER_TOKEN": "",
     })
 
     idmap_resolved = helpers.to_map(
@@ -135,8 +136,15 @@ def _update_basic_setup(extra):
 
     if env.get("TELEGRAM_BOT_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
+            # FIRST, so the generated fields below win: sdk-test-control.json's
+            # test.client.options adds to the live client, it does not
+            # redirect it.
+            runner.live_client_options(),
             {
                 "apikey": env.get("TELEGRAM_BOT_APIKEY"),
+                "server": {
+                    "token": env.get("TELEGRAM_BOT_SERVER_TOKEN"),
+                },
             },
             extra or {},
         ])

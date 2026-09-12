@@ -52,7 +52,7 @@ func TestGetUserProfileAudioEntity(t *testing.T) {
 		// CREATE
 		getUserProfileAudioRef01Ent := client.GetUserProfileAudio(nil)
 		getUserProfileAudioRef01Data := core.ToMapAny(vs.GetProp(
-			vs.GetPath([]any{"new", "get_user_profile_audio"}, setup.data), "get_user_profile_audio_ref01"))
+			vs.GetPath(setup.data, []any{"new", "get_user_profile_audio"}), "get_user_profile_audio_ref01"))
 
 		getUserProfileAudioRef01DataResult, err := getUserProfileAudioRef01Ent.Create(getUserProfileAudioRef01Data, nil)
 		if err != nil {
@@ -90,7 +90,7 @@ func get_user_profile_audioBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"get_user_profile_audio01", "get_user_profile_audio02", "get_user_profile_audio03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -110,7 +110,8 @@ func get_user_profile_audioBasicSetup(extra map[string]any) *entityTestSetup {
 		"TELEGRAM_BOT_TEST_GET_USER_PROFILE_AUDIO_ENTID": idmap,
 		"TELEGRAM_BOT_TEST_LIVE":      "FALSE",
 		"TELEGRAM_BOT_TEST_EXPLAIN":   "FALSE",
-		"TELEGRAM_BOT_APIKEY":         "NONE",
+		"TELEGRAM_BOT_APIKEY":         "",
+		"TELEGRAM_BOT_SERVER_TOKEN": "",
 	})
 
 	idmapResolved := core.ToMapAny(env["TELEGRAM_BOT_TEST_GET_USER_PROFILE_AUDIO_ENTID"])
@@ -119,11 +120,26 @@ func get_user_profile_audioBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["TELEGRAM_BOT_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["TELEGRAM_BOT_APIKEY"],
+				"server": map[string]any{
+					"token": env["TELEGRAM_BOT_SERVER_TOKEN"],
+				},
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewTelegramBotSDK(core.ToMapAny(mergedOpts))
 	}

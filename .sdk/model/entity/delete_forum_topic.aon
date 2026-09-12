@@ -59,8 +59,10 @@ main: kit: entity: delete_forum_topic: {
         {
           method: "POST"
           orig: "/deleteForumTopic"
-          parts: [
-            "deleteForumTopic"
+          segments: [
+            {
+              lit: "deleteForumTopic"
+            }
           ]
           transform: {
             req: "`reqdata`"

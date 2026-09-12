@@ -59,8 +59,10 @@ main: kit: entity: approve_suggested_post: {
         {
           method: "POST"
           orig: "/approveSuggestedPost"
-          parts: [
-            "approveSuggestedPost"
+          segments: [
+            {
+              lit: "approveSuggestedPost"
+            }
           ]
           transform: {
             req: "`reqdata`"

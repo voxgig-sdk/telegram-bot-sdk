@@ -44,8 +44,10 @@ main: kit: entity: set_my_profile_photo: {
         {
           method: "POST"
           orig: "/setMyProfilePhoto"
-          parts: [
-            "setMyProfilePhoto"
+          segments: [
+            {
+              lit: "setMyProfilePhoto"
+            }
           ]
           transform: {
             req: "`reqdata`"

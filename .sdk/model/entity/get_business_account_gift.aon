@@ -59,8 +59,10 @@ main: kit: entity: get_business_account_gift: {
         {
           method: "POST"
           orig: "/getBusinessAccountGifts"
-          parts: [
-            "getBusinessAccountGifts"
+          segments: [
+            {
+              lit: "getBusinessAccountGifts"
+            }
           ]
           transform: {
             req: "`reqdata`"

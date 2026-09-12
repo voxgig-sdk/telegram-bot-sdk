@@ -20,8 +20,10 @@ main: kit: entity: file: {
         {
           method: "POST"
           orig: "/getFile"
-          parts: [
-            "getFile"
+          segments: [
+            {
+              lit: "getFile"
+            }
           ]
           transform: {
             req: "`reqdata`"

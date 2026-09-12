@@ -49,8 +49,10 @@ main: kit: entity: get_user_profile_audio: {
         {
           method: "POST"
           orig: "/getUserProfileAudios"
-          parts: [
-            "getUserProfileAudios"
+          segments: [
+            {
+              lit: "getUserProfileAudios"
+            }
           ]
           transform: {
             req: "`reqdata`"

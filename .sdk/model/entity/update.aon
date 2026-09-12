@@ -64,8 +64,10 @@ main: kit: entity: update: {
         {
           method: "POST"
           orig: "/getUpdates"
-          parts: [
-            "getUpdates"
+          segments: [
+            {
+              lit: "getUpdates"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -114,8 +116,10 @@ main: kit: entity: update: {
           }
           method: "GET"
           orig: "/getUpdates"
-          parts: [
-            "getUpdates"
+          segments: [
+            {
+              lit: "getUpdates"
+            }
           ]
           select: {
             exist: [

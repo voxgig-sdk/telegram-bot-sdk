@@ -113,13 +113,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/approveSuggestedPost",
-								"parts": []any{
-									"approveSuggestedPost",
+								"segments": []any{
+									map[string]any{
+										"lit": "approveSuggestedPost",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.parameters`",
+								},
+								"parts": []any{
+									"approveSuggestedPost",
 								},
 							},
 						},
@@ -183,13 +188,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/declineSuggestedPost",
-								"parts": []any{
-									"declineSuggestedPost",
+								"segments": []any{
+									map[string]any{
+										"lit": "declineSuggestedPost",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.parameters`",
+								},
+								"parts": []any{
+									"declineSuggestedPost",
 								},
 							},
 						},
@@ -253,13 +263,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/deleteForumTopic",
-								"parts": []any{
-									"deleteForumTopic",
+								"segments": []any{
+									map[string]any{
+										"lit": "deleteForumTopic",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.parameters`",
+								},
+								"parts": []any{
+									"deleteForumTopic",
 								},
 							},
 						},
@@ -331,13 +346,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/editForumTopic",
-								"parts": []any{
-									"editForumTopic",
+								"segments": []any{
+									map[string]any{
+										"lit": "editForumTopic",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.parameters`",
+								},
+								"parts": []any{
+									"editForumTopic",
 								},
 							},
 						},
@@ -366,13 +386,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/getFile",
-								"parts": []any{
-									"getFile",
+								"segments": []any{
+									map[string]any{
+										"lit": "getFile",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"getFile",
 								},
 							},
 						},
@@ -419,13 +444,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/createForumTopic",
-								"parts": []any{
-									"createForumTopic",
+								"segments": []any{
+									map[string]any{
+										"lit": "createForumTopic",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"createForumTopic",
 								},
 							},
 						},
@@ -486,13 +516,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/getBusinessAccountGifts",
-								"parts": []any{
-									"getBusinessAccountGifts",
+								"segments": []any{
+									map[string]any{
+										"lit": "getBusinessAccountGifts",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.parameters`",
+								},
+								"parts": []any{
+									"getBusinessAccountGifts",
 								},
 							},
 						},
@@ -551,13 +586,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/getChatGifts",
-								"parts": []any{
-									"getChatGifts",
+								"segments": []any{
+									map[string]any{
+										"lit": "getChatGifts",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.parameters`",
+								},
+								"parts": []any{
+									"getChatGifts",
 								},
 							},
 						},
@@ -606,13 +646,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/getMe",
-								"parts": []any{
-									"getMe",
+								"segments": []any{
+									map[string]any{
+										"lit": "getMe",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.parameters`",
+								},
+								"parts": []any{
+									"getMe",
 								},
 							},
 						},
@@ -626,13 +671,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/getMe",
-								"parts": []any{
-									"getMe",
+								"segments": []any{
+									map[string]any{
+										"lit": "getMe",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.parameters`",
+								},
+								"parts": []any{
+									"getMe",
 								},
 							},
 						},
@@ -686,13 +736,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/getUserGifts",
-								"parts": []any{
-									"getUserGifts",
+								"segments": []any{
+									map[string]any{
+										"lit": "getUserGifts",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"getUserGifts",
 								},
 							},
 						},
@@ -746,13 +801,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/getUserProfileAudios",
-								"parts": []any{
-									"getUserProfileAudios",
+								"segments": []any{
+									map[string]any{
+										"lit": "getUserProfileAudios",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"getUserProfileAudios",
 								},
 							},
 						},
@@ -801,11 +861,13 @@ func MakeConfig() map[string]any {
 						},
 					},
 					map[string]any{
+						"format": "float",
 						"name": "latitude",
 						"req": true,
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
+						"format": "float",
 						"name": "longitude",
 						"req": true,
 						"type": "`$NUMBER`",
@@ -868,13 +930,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/forwardMessage",
-								"parts": []any{
-									"forwardMessage",
+								"segments": []any{
+									map[string]any{
+										"lit": "forwardMessage",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"forwardMessage",
 								},
 							},
 							map[string]any{
@@ -882,13 +949,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/sendAnimation",
-								"parts": []any{
-									"sendAnimation",
+								"segments": []any{
+									map[string]any{
+										"lit": "sendAnimation",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"sendAnimation",
 								},
 							},
 							map[string]any{
@@ -896,13 +968,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/sendAudio",
-								"parts": []any{
-									"sendAudio",
+								"segments": []any{
+									map[string]any{
+										"lit": "sendAudio",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"sendAudio",
 								},
 							},
 							map[string]any{
@@ -910,13 +987,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/sendDocument",
-								"parts": []any{
-									"sendDocument",
+								"segments": []any{
+									map[string]any{
+										"lit": "sendDocument",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"sendDocument",
 								},
 							},
 							map[string]any{
@@ -924,13 +1006,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/sendLocation",
-								"parts": []any{
-									"sendLocation",
+								"segments": []any{
+									map[string]any{
+										"lit": "sendLocation",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"sendLocation",
 								},
 							},
 							map[string]any{
@@ -938,13 +1025,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/sendMessage",
-								"parts": []any{
-									"sendMessage",
+								"segments": []any{
+									map[string]any{
+										"lit": "sendMessage",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"sendMessage",
 								},
 							},
 							map[string]any{
@@ -952,13 +1044,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/sendPhoto",
-								"parts": []any{
-									"sendPhoto",
+								"segments": []any{
+									map[string]any{
+										"lit": "sendPhoto",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"sendPhoto",
 								},
 							},
 							map[string]any{
@@ -966,13 +1063,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/sendPoll",
-								"parts": []any{
-									"sendPoll",
+								"segments": []any{
+									map[string]any{
+										"lit": "sendPoll",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"sendPoll",
 								},
 							},
 							map[string]any{
@@ -980,13 +1082,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/sendSticker",
-								"parts": []any{
-									"sendSticker",
+								"segments": []any{
+									map[string]any{
+										"lit": "sendSticker",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"sendSticker",
 								},
 							},
 							map[string]any{
@@ -994,13 +1101,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/sendVideo",
-								"parts": []any{
-									"sendVideo",
+								"segments": []any{
+									map[string]any{
+										"lit": "sendVideo",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"sendVideo",
 								},
 							},
 						},
@@ -1061,8 +1173,10 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/copyMessage",
-								"parts": []any{
-									"copyMessage",
+								"segments": []any{
+									map[string]any{
+										"lit": "copyMessage",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
@@ -1070,6 +1184,9 @@ func MakeConfig() map[string]any {
 										"message_id": "`reqdata`",
 									},
 									"res": "`body`",
+								},
+								"parts": []any{
+									"copyMessage",
 								},
 							},
 						},
@@ -1153,13 +1270,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/promoteChatMember",
-								"parts": []any{
-									"promoteChatMember",
+								"segments": []any{
+									map[string]any{
+										"lit": "promoteChatMember",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"promoteChatMember",
 								},
 							},
 						},
@@ -1208,13 +1330,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/removeMyProfilePhoto",
-								"parts": []any{
-									"removeMyProfilePhoto",
+								"segments": []any{
+									map[string]any{
+										"lit": "removeMyProfilePhoto",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"removeMyProfilePhoto",
 								},
 							},
 						},
@@ -1278,13 +1405,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/repostStory",
-								"parts": []any{
-									"repostStory",
+								"segments": []any{
+									map[string]any{
+										"lit": "repostStory",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"repostStory",
 								},
 							},
 						},
@@ -1352,13 +1484,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/sendChatAction",
-								"parts": []any{
-									"sendChatAction",
+								"segments": []any{
+									map[string]any{
+										"lit": "sendChatAction",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"sendChatAction",
 								},
 							},
 						},
@@ -1426,13 +1563,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/sendMessageDraft",
-								"parts": []any{
-									"sendMessageDraft",
+								"segments": []any{
+									map[string]any{
+										"lit": "sendMessageDraft",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"sendMessageDraft",
 								},
 							},
 						},
@@ -1481,13 +1623,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/setMyProfilePhoto",
-								"parts": []any{
-									"setMyProfilePhoto",
+								"segments": []any{
+									map[string]any{
+										"lit": "setMyProfilePhoto",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"setMyProfilePhoto",
 								},
 							},
 						},
@@ -1551,13 +1698,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/unpinAllForumTopicMessages",
-								"parts": []any{
-									"unpinAllForumTopicMessages",
+								"segments": []any{
+									map[string]any{
+										"lit": "unpinAllForumTopicMessages",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"unpinAllForumTopicMessages",
 								},
 							},
 						},
@@ -1622,13 +1774,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/getUpdates",
-								"parts": []any{
-									"getUpdates",
+								"segments": []any{
+									map[string]any{
+										"lit": "getUpdates",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"getUpdates",
 								},
 							},
 						},
@@ -1671,8 +1828,10 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/getUpdates",
-								"parts": []any{
-									"getUpdates",
+								"segments": []any{
+									map[string]any{
+										"lit": "getUpdates",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -1686,6 +1845,9 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
+								"parts": []any{
+									"getUpdates",
+								},
 							},
 						},
 					},
@@ -1696,6 +1858,17 @@ func MakeConfig() map[string]any {
 			},
 		},
 	}
+}
+
+// The plugin definitions the model selected per feature, as []any so a
+// feature package can consume them without core naming its types. Empty
+// when no active feature declares active plugin groups for this target.
+var featurePlugins = map[string][]any{
+}
+
+// FeaturePlugins is the definitions list for one feature's chain.
+func FeaturePlugins(name string) []any {
+	return featurePlugins[name]
 }
 
 var (

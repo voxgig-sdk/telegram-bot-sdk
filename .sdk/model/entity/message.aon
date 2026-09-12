@@ -45,11 +45,13 @@ main: kit: entity: message: {
       }
     }
     {
+      format: "float"
       name: "latitude"
       req: true
       type: "`$NUMBER`"
     }
     {
+      format: "float"
       name: "longitude"
       req: true
       type: "`$NUMBER`"
@@ -115,8 +117,10 @@ main: kit: entity: message: {
         {
           method: "POST"
           orig: "/forwardMessage"
-          parts: [
-            "forwardMessage"
+          segments: [
+            {
+              lit: "forwardMessage"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -126,8 +130,10 @@ main: kit: entity: message: {
         {
           method: "POST"
           orig: "/sendAnimation"
-          parts: [
-            "sendAnimation"
+          segments: [
+            {
+              lit: "sendAnimation"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -137,8 +143,10 @@ main: kit: entity: message: {
         {
           method: "POST"
           orig: "/sendAudio"
-          parts: [
-            "sendAudio"
+          segments: [
+            {
+              lit: "sendAudio"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -148,8 +156,10 @@ main: kit: entity: message: {
         {
           method: "POST"
           orig: "/sendDocument"
-          parts: [
-            "sendDocument"
+          segments: [
+            {
+              lit: "sendDocument"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -159,8 +169,10 @@ main: kit: entity: message: {
         {
           method: "POST"
           orig: "/sendLocation"
-          parts: [
-            "sendLocation"
+          segments: [
+            {
+              lit: "sendLocation"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -170,8 +182,10 @@ main: kit: entity: message: {
         {
           method: "POST"
           orig: "/sendMessage"
-          parts: [
-            "sendMessage"
+          segments: [
+            {
+              lit: "sendMessage"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -181,8 +195,10 @@ main: kit: entity: message: {
         {
           method: "POST"
           orig: "/sendPhoto"
-          parts: [
-            "sendPhoto"
+          segments: [
+            {
+              lit: "sendPhoto"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -192,8 +208,10 @@ main: kit: entity: message: {
         {
           method: "POST"
           orig: "/sendPoll"
-          parts: [
-            "sendPoll"
+          segments: [
+            {
+              lit: "sendPoll"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -203,8 +221,10 @@ main: kit: entity: message: {
         {
           method: "POST"
           orig: "/sendSticker"
-          parts: [
-            "sendSticker"
+          segments: [
+            {
+              lit: "sendSticker"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -214,8 +234,10 @@ main: kit: entity: message: {
         {
           method: "POST"
           orig: "/sendVideo"
-          parts: [
-            "sendVideo"
+          segments: [
+            {
+              lit: "sendVideo"
+            }
           ]
           transform: {
             req: "`reqdata`"

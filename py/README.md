@@ -36,6 +36,9 @@ from telegrambot_sdk import TelegramBotSDK
 
 client = TelegramBotSDK({
     "apikey": os.environ.get("TELEGRAM_BOT_APIKEY"),
+    "server": {
+        "token": "<token>",
+    },
 })
 ```
 

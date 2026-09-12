@@ -59,8 +59,10 @@ main: kit: entity: decline_suggested_post: {
         {
           method: "POST"
           orig: "/declineSuggestedPost"
-          parts: [
-            "declineSuggestedPost"
+          segments: [
+            {
+              lit: "declineSuggestedPost"
+            }
           ]
           transform: {
             req: "`reqdata`"

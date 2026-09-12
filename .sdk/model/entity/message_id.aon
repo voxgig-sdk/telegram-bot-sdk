@@ -55,8 +55,10 @@ main: kit: entity: message_id: {
         {
           method: "POST"
           orig: "/copyMessage"
-          parts: [
-            "copyMessage"
+          segments: [
+            {
+              lit: "copyMessage"
+            }
           ]
           transform: {
             req: {

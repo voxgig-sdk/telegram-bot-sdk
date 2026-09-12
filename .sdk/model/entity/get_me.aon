@@ -44,8 +44,10 @@ main: kit: entity: get_me: {
         {
           method: "POST"
           orig: "/getMe"
-          parts: [
-            "getMe"
+          segments: [
+            {
+              lit: "getMe"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -60,8 +62,10 @@ main: kit: entity: get_me: {
         {
           method: "GET"
           orig: "/getMe"
-          parts: [
-            "getMe"
+          segments: [
+            {
+              lit: "getMe"
+            }
           ]
           transform: {
             req: "`reqdata`"

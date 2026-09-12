@@ -52,7 +52,7 @@ func TestUnpinAllForumTopicMessageEntity(t *testing.T) {
 		// CREATE
 		unpinAllForumTopicMessageRef01Ent := client.UnpinAllForumTopicMessage(nil)
 		unpinAllForumTopicMessageRef01Data := core.ToMapAny(vs.GetProp(
-			vs.GetPath([]any{"new", "unpin_all_forum_topic_message"}, setup.data), "unpin_all_forum_topic_message_ref01"))
+			vs.GetPath(setup.data, []any{"new", "unpin_all_forum_topic_message"}), "unpin_all_forum_topic_message_ref01"))
 
 		unpinAllForumTopicMessageRef01DataResult, err := unpinAllForumTopicMessageRef01Ent.Create(unpinAllForumTopicMessageRef01Data, nil)
 		if err != nil {
@@ -90,7 +90,7 @@ func unpin_all_forum_topic_messageBasicSetup(extra map[string]any) *entityTestSe
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"unpin_all_forum_topic_message01", "unpin_all_forum_topic_message02", "unpin_all_forum_topic_message03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -110,7 +110,8 @@ func unpin_all_forum_topic_messageBasicSetup(extra map[string]any) *entityTestSe
 		"TELEGRAM_BOT_TEST_UNPIN_ALL_FORUM_TOPIC_MESSAGE_ENTID": idmap,
 		"TELEGRAM_BOT_TEST_LIVE":      "FALSE",
 		"TELEGRAM_BOT_TEST_EXPLAIN":   "FALSE",
-		"TELEGRAM_BOT_APIKEY":         "NONE",
+		"TELEGRAM_BOT_APIKEY":         "",
+		"TELEGRAM_BOT_SERVER_TOKEN": "",
 	})
 
 	idmapResolved := core.ToMapAny(env["TELEGRAM_BOT_TEST_UNPIN_ALL_FORUM_TOPIC_MESSAGE_ENTID"])
@@ -119,11 +120,26 @@ func unpin_all_forum_topic_messageBasicSetup(extra map[string]any) *entityTestSe
 	}
 
 	if env["TELEGRAM_BOT_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["TELEGRAM_BOT_APIKEY"],
+				"server": map[string]any{
+					"token": env["TELEGRAM_BOT_SERVER_TOKEN"],
+				},
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewTelegramBotSDK(core.ToMapAny(mergedOpts))
 	}

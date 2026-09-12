@@ -59,8 +59,10 @@ main: kit: entity: unpin_all_forum_topic_message: {
         {
           method: "POST"
           orig: "/unpinAllForumTopicMessages"
-          parts: [
-            "unpinAllForumTopicMessages"
+          segments: [
+            {
+              lit: "unpinAllForumTopicMessages"
+            }
           ]
           transform: {
             req: "`reqdata`"

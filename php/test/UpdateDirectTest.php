@@ -68,15 +68,21 @@ function update_direct_setup($mockres)
     $env = Runner::env_override([
         "TELEGRAM_BOT_TEST_UPDATE_ENTID" => [],
         "TELEGRAM_BOT_TEST_LIVE" => "FALSE",
-        "TELEGRAM_BOT_APIKEY" => "NONE",
+        "TELEGRAM_BOT_APIKEY" => "",
+        "TELEGRAM_BOT_SERVER_TOKEN" => '',
     ]);
 
     $live = $env["TELEGRAM_BOT_TEST_LIVE"] === "TRUE";
 
     if ($live) {
-        $merged_opts = [
+        // Merged so the generated fields win: sdk-test-control.json's
+        // test.client.options adds to the live client, it does not redirect it.
+        $merged_opts = array_merge(Runner::live_client_options(), [
             "apikey" => $env["TELEGRAM_BOT_APIKEY"],
-        ];
+            "server" => [
+                "token" => $env["TELEGRAM_BOT_SERVER_TOKEN"],
+            ],
+        ]);
         $client = new TelegramBotSDK($merged_opts);
         return [
             "client" => $client,

@@ -59,8 +59,10 @@ main: kit: entity: repost_story: {
         {
           method: "POST"
           orig: "/repostStory"
-          parts: [
-            "repostStory"
+          segments: [
+            {
+              lit: "repostStory"
+            }
           ]
           transform: {
             req: "`reqdata`"

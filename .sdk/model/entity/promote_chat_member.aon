@@ -84,8 +84,10 @@ main: kit: entity: promote_chat_member: {
         {
           method: "POST"
           orig: "/promoteChatMember"
-          parts: [
-            "promoteChatMember"
+          segments: [
+            {
+              lit: "promoteChatMember"
+            }
           ]
           transform: {
             req: "`reqdata`"
