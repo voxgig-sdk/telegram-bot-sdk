@@ -109,7 +109,7 @@ local result, err = client:GetMe():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/telegram-bot` | publish pending — [install from git tag](https://github.com/voxgig-sdk/telegram-bot-sdk/releases) |
+| TypeScript | `@voxgig-sdk/telegram-bot-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/telegram-bot-sdk/releases) |
 | Python | `voxgig-sdk-telegram-bot` | publish pending — [install from git tag](https://github.com/voxgig-sdk/telegram-bot-sdk/releases) |
 | PHP | `voxgig-sdk/telegram-bot` | publish pending — [install from git tag](https://github.com/voxgig-sdk/telegram-bot-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/telegram-bot-sdk/go` | `go get github.com/voxgig-sdk/telegram-bot-sdk/go@latest` |
@@ -123,7 +123,7 @@ local result, err = client:GetMe():load()
 ### TypeScript
 
 ```ts
-import { TelegramBotSDK } from '@voxgig-sdk/telegram-bot'
+import { TelegramBotSDK } from '@voxgig-sdk/telegram-bot-sdk'
 
 const client = new TelegramBotSDK({
   apikey: process.env.TELEGRAM_BOT_APIKEY,

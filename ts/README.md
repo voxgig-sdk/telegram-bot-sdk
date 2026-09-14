@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { TelegramBotSDK } from '@voxgig-sdk/telegram-bot'
+import { TelegramBotSDK } from '@voxgig-sdk/telegram-bot-sdk'
 
 const client = new TelegramBotSDK({
   apikey: process.env.TELEGRAM_BOT_APIKEY,
@@ -1439,7 +1439,7 @@ telegram-bot/
 Import the SDK from the package root:
 
 ```ts
-import { TelegramBotSDK } from '@voxgig-sdk/telegram-bot'
+import { TelegramBotSDK } from '@voxgig-sdk/telegram-bot-sdk'
 ```
 
 ### Entity state
