@@ -1,12 +1,18 @@
 # TelegramBot SDK feature factory
 
 from telegrambot_sdk.feature.base_feature import TelegramBotBaseFeature
+from telegrambot_sdk.feature.ratelimit_feature import TelegramBotRatelimitFeature
+from telegrambot_sdk.feature.retry_feature import TelegramBotRetryFeature
 from telegrambot_sdk.feature.test_feature import TelegramBotTestFeature
+from telegrambot_sdk.feature.timeout_feature import TelegramBotTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: TelegramBotBaseFeature(),
+    "ratelimit": lambda: TelegramBotRatelimitFeature(),
+    "retry": lambda: TelegramBotRetryFeature(),
     "test": lambda: TelegramBotTestFeature(),
+    "timeout": lambda: TelegramBotTimeoutFeature(),
 }
 
 

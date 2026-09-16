@@ -4,7 +4,10 @@ declare(strict_types=1);
 // TelegramBot SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class TelegramBotFeatures
@@ -14,8 +17,14 @@ class TelegramBotFeatures
         switch ($name) {
             case "base":
                 return new TelegramBotBaseFeature();
+            case "ratelimit":
+                return new TelegramBotRatelimitFeature();
+            case "retry":
+                return new TelegramBotRetryFeature();
             case "test":
                 return new TelegramBotTestFeature();
+            case "timeout":
+                return new TelegramBotTimeoutFeature();
             default:
                 return new TelegramBotBaseFeature();
         }
@@ -31,7 +40,10 @@ class TelegramBotFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;
