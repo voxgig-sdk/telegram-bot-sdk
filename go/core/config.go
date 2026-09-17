@@ -84,6 +84,8 @@ func MakeConfig() map[string]any {
 			},
 			"auth": map[string]any{
 				"prefix": "",
+				"in": "path",
+				"name": "token",
 			},
 			"headers": map[string]any{
 				"content-type": "application/json",

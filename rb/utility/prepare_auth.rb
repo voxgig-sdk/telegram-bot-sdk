@@ -1,7 +1,7 @@
 # TelegramBot SDK utility: prepare_auth
 require_relative 'struct/voxgig_struct'
 module TelegramBotUtilities
-  HEADER_AUTH = "authorization"
+  HEADER_AUTH = "token"
   OPTION_APIKEY = "apikey"
   NOT_FOUND = "__NOTFOUND__"
 

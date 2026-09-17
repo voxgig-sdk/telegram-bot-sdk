@@ -127,6 +127,8 @@ class Config {
 
     auth: {
       prefix: '',
+      in: 'path',
+      name: 'token',
     },
 
     headers: {
@@ -135,69 +137,69 @@ class Config {
 
     entity: {
       
-      approve_suggested_post: {
-      },
-
-      decline_suggested_post: {
-      },
-
-      delete_forum_topic: {
-      },
-
-      edit_forum_topic: {
-      },
-
-      file: {
-      },
-
-      forum_topic: {
-      },
-
-      get_business_account_gift: {
-      },
-
-      get_chat_gift: {
-      },
-
-      get_me: {
-      },
-
-      get_user_gift: {
-      },
-
-      get_user_profile_audio: {
-      },
-
-      message: {
-      },
-
-      message_id: {
-      },
-
-      promote_chat_member: {
-      },
-
-      remove_my_profile_photo: {
-      },
-
-      repost_story: {
-      },
-
-      send_chat_action: {
-      },
-
-      send_message_draft: {
-      },
-
-      set_my_profile_photo: {
-      },
-
-      unpin_all_forum_topic_message: {
-      },
-
-      update: {
-      },
-
+        approve_suggested_post: {
+        },
+  
+        decline_suggested_post: {
+        },
+  
+        delete_forum_topic: {
+        },
+  
+        edit_forum_topic: {
+        },
+  
+        file: {
+        },
+  
+        forum_topic: {
+        },
+  
+        get_business_account_gift: {
+        },
+  
+        get_chat_gift: {
+        },
+  
+        get_me: {
+        },
+  
+        get_user_gift: {
+        },
+  
+        get_user_profile_audio: {
+        },
+  
+        message: {
+        },
+  
+        message_id: {
+        },
+  
+        promote_chat_member: {
+        },
+  
+        remove_my_profile_photo: {
+        },
+  
+        repost_story: {
+        },
+  
+        send_chat_action: {
+        },
+  
+        send_message_draft: {
+        },
+  
+        set_my_profile_photo: {
+        },
+  
+        unpin_all_forum_topic_message: {
+        },
+  
+        update: {
+        },
+  
     }
   }
 

@@ -107,6 +107,8 @@ class Config {
         },
         auth: {
             prefix: '',
+            in: 'path',
+            name: 'token',
         },
         headers: {
             "content-type": "application/json"

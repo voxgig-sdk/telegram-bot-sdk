@@ -70,6 +70,8 @@ declare class Config {
         };
         auth: {
             prefix: string;
+            in: string;
+            name: string;
         };
         headers: {
             "content-type": string;
