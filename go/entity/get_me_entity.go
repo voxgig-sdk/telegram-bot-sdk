@@ -50,10 +50,6 @@ func NewGetMeEntity(client *core.TelegramBotSDK, entopts map[string]any) *GetMeE
 
 func (e *GetMeEntity) GetName() string { return e.name }
 
-// Deleted marks this instance as removed. `Remove` resolves to the entity
-// like every other operation, and the instance KEEPS the data it held — a
-// caller can still read what was deleted — but it is no longer a live
-// record. See AGENTS.md "Entity operations return ENTITIES".
 func (e *GetMeEntity) MarkDeleted() {
 	e.deleted = true
 }
@@ -122,15 +118,6 @@ func (e *GetMeEntity) MatchTyped(match ...GetMe) GetMe {
 	return typedFrom[GetMe](e.Match())
 }
 
-// Stream (feature #4). Runs `action` through the full pipeline and returns a
-// channel over result items, so the `streaming` feature's incremental output
-// is reachable from a generated entity (a normal op call materialises the
-// whole result). `callopts` parameterises the call:
-//   - inbound (download): the channel yields items/chunks (from the streaming
-//     feature when active, else the materialised items);
-//   - outbound (upload): a `body` in callopts is attached to the request so the
-//     transport can stream the payload;
-//   - `ctrl` (pipeline control) and `signal` (a done channel) are honoured.
 func (e *GetMeEntity) Stream(action string, args map[string]any, callopts map[string]any) <-chan any {
 	out := make(chan any)
 
@@ -255,11 +242,16 @@ func (e *GetMeEntity) Stream(action string, args map[string]any, callopts map[st
 	return out
 }
 
+func (e *GetMeEntity) Load(_ map[string]any, _ map[string]any) (any, error) {
+	return core.UnsupportedOp("load", e.name)
+}
 
-func (e *GetMeEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, error) {
+
+
+func (e *GetMeEntity) List(reqmatch map[string]any, ctrl map[string]any) (any, error) {
 	utility := e.utility
 	ctx := utility.MakeContext(map[string]any{
-		"opname":   "load",
+		"opname":   "list",
 		"ctrl":     ctrl,
 		"match":    e.match,
 		"data":     e.data,
@@ -271,32 +263,21 @@ func (e *GetMeEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, e
 			if ctx.Result.Resmatch != nil {
 				e.match = ctx.Result.Resmatch
 			}
-			if ctx.Result.Resdata != nil {
-				e.data = core.ToMapAny(vs.Clone(ctx.Result.Resdata))
-				if e.data == nil {
-					e.data = map[string]any{}
-				}
-			}
 		}
 	})
 }
 
-// LoadTyped is the statically-typed variant of Load: it takes an
-// GetMeLoadMatch and returns an GetMe. It delegates to the untyped
-// Load (identical runtime) and converts at the typed boundary.
-func (e *GetMeEntity) LoadTyped(reqmatch GetMeLoadMatch, ctrl map[string]any) (GetMe, error) {
-	res, err := e.Load(asMap(reqmatch), ctrl)
+// ListTyped is the statically-typed variant of List: it takes an
+// GetMeListMatch and returns []GetMe. It delegates to the untyped
+// List (identical runtime) and converts at the typed boundary.
+func (e *GetMeEntity) ListTyped(reqmatch GetMeListMatch, ctrl map[string]any) ([]GetMe, error) {
+	res, err := e.List(asMap(reqmatch), ctrl)
 	if err != nil {
-		return GetMe{}, err
+		return nil, err
 	}
-	return typedFrom[GetMe](res), nil
+	return typedSliceFrom[GetMe](res), nil
 }
 
-
-
-func (e *GetMeEntity) List(_ map[string]any, _ map[string]any) (any, error) {
-	return core.UnsupportedOp("list", e.name)
-}
 
 
 
@@ -391,14 +372,6 @@ func (e *GetMeEntity) runOp(ctx *core.Context, postDone func()) (any, error) {
 		return out, doneErr
 	}
 
-	// An operation resolves to the ENTITY, not the raw data. Entities are
-	// stateful: post_done has just absorbed resdata/resmatch into this
-	// instance, and the caller reaches the record through data(). Two
-	// structural exceptions: `list` resolves to the ARRAY of entity
-	// instances make_result built, and a failed op with throwing disabled
-	// hands back the error payload unchanged. `remove` additionally marks
-	// the entity deleted; it KEEPS its data, so a caller can still read
-	// what was removed. See AGENTS.md "Entity operations return ENTITIES".
 	opname := ""
 	if ctx.Op != nil {
 		opname = ctx.Op.Name

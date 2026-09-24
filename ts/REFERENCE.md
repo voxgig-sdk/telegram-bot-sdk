@@ -824,11 +824,24 @@ const get_me = client.GetMe()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `business_connection` | `Record<string, any>` | No |  |
+| `business_message` | `Record<string, any>` | Yes |  |
+| `channel_post` | `Record<string, any>` | Yes |  |
+| `chosen_inline_result` | `Record<string, any>` | Yes |  |
+| `deleted_business_messages` | `Record<string, any>` | No |  |
 | `description` | `string` | No | Human-readable description of the result |
+| `edited_business_message` | `Record<string, any>` | Yes |  |
+| `edited_channel_post` | `Record<string, any>` | Yes |  |
+| `edited_message` | `Record<string, any>` | Yes |  |
 | `error_code` | `number` | No | Error code |
+| `inline_query` | `Record<string, any>` | Yes |  |
+| `message` | `Record<string, any>` | Yes |  |
+| `message_reaction` | `Record<string, any>` | No |  |
+| `message_reaction_count` | `Record<string, any>` | No |  |
 | `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `Record<string, any>` | No |  |
 | `result` | `any[]` | No | The result of the query |
+| `update_id` | `number` | Yes | The update's unique identifier |
 
 ### Operations
 
@@ -838,16 +851,25 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.GetMe().create({
+  business_message: {},
+  channel_post: {},
+  chosen_inline_result: {},
+  edited_business_message: {},
+  edited_channel_post: {},
+  edited_message: {},
+  inline_query: {},
+  message: {},
   ok: true,
+  update_id: 1,
 })
 ```
 
-#### `load(match: object, ctrl?: object)`
+#### `list(match: object, ctrl?: object)`
 
-Load a single entity matching the given criteria.
+List entities matching the given criteria. Returns an array.
 
 ```ts
-const result = await client.GetMe().load()
+const results = await client.GetMe().list()
 ```
 
 ### Common Methods

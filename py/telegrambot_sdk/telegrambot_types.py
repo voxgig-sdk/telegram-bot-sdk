@@ -1,7 +1,7 @@
 # Typed models for the TelegramBot SDK.
 #
-# GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-# params (op.<name>.points[].args.params[]). Field/param types come from the
+# GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+# params (op.<name>.points[].g.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
 #
@@ -205,31 +205,70 @@ class GetChatGiftCreateData(GetChatGiftCreateDataRequired, total=False):
 
 
 class GetMeRequired(TypedDict):
+    business_message: dict
+    channel_post: dict
+    chosen_inline_result: dict
+    edited_business_message: dict
+    edited_channel_post: dict
+    edited_message: dict
+    inline_query: dict
+    message: dict
     ok: bool
+    update_id: int
 
 
 class GetMe(GetMeRequired, total=False):
+    business_connection: dict
+    deleted_business_messages: dict
     description: str
     error_code: int
+    message_reaction: dict
+    message_reaction_count: dict
     parameters: dict
     result: list
 
 
-class GetMeLoadMatch(TypedDict, total=False):
+class GetMeListMatch(TypedDict, total=False):
+    business_connection: dict
+    business_message: dict
+    channel_post: dict
+    chosen_inline_result: dict
+    deleted_business_messages: dict
     description: str
+    edited_business_message: dict
+    edited_channel_post: dict
+    edited_message: dict
     error_code: int
+    inline_query: dict
+    message: dict
+    message_reaction: dict
+    message_reaction_count: dict
     ok: bool
     parameters: dict
     result: list
+    update_id: int
 
 
 class GetMeCreateDataRequired(TypedDict):
+    business_message: dict
+    channel_post: dict
+    chosen_inline_result: dict
+    edited_business_message: dict
+    edited_channel_post: dict
+    edited_message: dict
+    inline_query: dict
+    message: dict
     ok: bool
+    update_id: int
 
 
 class GetMeCreateData(GetMeCreateDataRequired, total=False):
+    business_connection: dict
+    deleted_business_messages: dict
     description: str
     error_code: int
+    message_reaction: dict
+    message_reaction_count: dict
     parameters: dict
     result: list
 

@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 // Typed models for the TelegramBot SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 //
@@ -193,31 +193,70 @@ class GetChatGiftCreateData
 /** GetMe entity data model. */
 class GetMe
 {
+    public ?array $business_connection = null;
+    public array $business_message;
+    public array $channel_post;
+    public array $chosen_inline_result;
+    public ?array $deleted_business_messages = null;
     public ?string $description = null;
+    public array $edited_business_message;
+    public array $edited_channel_post;
+    public array $edited_message;
     public ?int $error_code = null;
+    public array $inline_query;
+    public array $message;
+    public ?array $message_reaction = null;
+    public ?array $message_reaction_count = null;
     public bool $ok;
     public ?array $parameters = null;
     public ?array $result = null;
+    public int $update_id;
 }
 
-/** Request payload for GetMe#load. */
-class GetMeLoadMatch
+/** Request payload for GetMe#list. */
+class GetMeListMatch
 {
+    public ?array $business_connection = null;
+    public ?array $business_message = null;
+    public ?array $channel_post = null;
+    public ?array $chosen_inline_result = null;
+    public ?array $deleted_business_messages = null;
     public ?string $description = null;
+    public ?array $edited_business_message = null;
+    public ?array $edited_channel_post = null;
+    public ?array $edited_message = null;
     public ?int $error_code = null;
+    public ?array $inline_query = null;
+    public ?array $message = null;
+    public ?array $message_reaction = null;
+    public ?array $message_reaction_count = null;
     public ?bool $ok = null;
     public ?array $parameters = null;
     public ?array $result = null;
+    public ?int $update_id = null;
 }
 
 /** Request payload for GetMe#create. */
 class GetMeCreateData
 {
+    public ?array $business_connection = null;
+    public array $business_message;
+    public array $channel_post;
+    public array $chosen_inline_result;
+    public ?array $deleted_business_messages = null;
     public ?string $description = null;
+    public array $edited_business_message;
+    public array $edited_channel_post;
+    public array $edited_message;
     public ?int $error_code = null;
+    public array $inline_query;
+    public array $message;
+    public ?array $message_reaction = null;
+    public ?array $message_reaction_count = null;
     public bool $ok;
     public ?array $parameters = null;
     public ?array $result = null;
+    public int $update_id;
 }
 
 /** GetUserGift entity data model. */

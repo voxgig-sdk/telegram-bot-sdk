@@ -4,7 +4,7 @@
 
 The Golang SDK for the TelegramBot API — an entity-oriented client using standard Go conventions. No generics required; data flows as `map[string]any`.
 
-It exposes the API as capitalised, semantic **Entities** — e.g. `client.ApproveSuggestedPost(nil)` — each with the same small set of operations (`List`, `Load`, `Create`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
+It exposes the API as capitalised, semantic **Entities** — e.g. `client.ApproveSuggestedPost(nil)` — each with the same small set of operations (`List`, `Create`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
 > Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
@@ -72,12 +72,12 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-getme, err := client.GetMe(nil).Load(nil, nil)
+getmes, err := client.GetMe(nil).List(nil, nil)
 if err != nil {
     // handle err
     return
 }
-_ = getme
+_ = getmes
 ```
 
 `Direct` follows the same `(value, error)` convention:
@@ -141,7 +141,7 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-getMe, err := client.GetMe(nil).Load(
+getMe, err := client.GetMe(nil).List(
     nil, nil,
 )
 if err != nil {
@@ -254,7 +254,6 @@ All entities implement the `TelegramBotEntity` interface.
 
 | Method | Signature | Description |
 | --- | --- | --- |
-| `Load` | `(reqmatch, ctrl map[string]any) (any, error)` | Load a single entity by match criteria. |
 | `List` | `(reqmatch, ctrl map[string]any) (any, error)` | List entities matching the criteria. |
 | `Create` | `(reqdata, ctrl map[string]any) (any, error)` | Create a new entity. |
 | `Data` | `(args ...any) any` | Get or set entity data. |
@@ -269,7 +268,7 @@ operation's data **directly** — there is no wrapper:
 
 | Operation | `value` |
 | --- | --- |
-| `Load` / `Create` | the entity record (`map[string]any`) |
+| `Create` | the entity record (`map[string]any`) |
 | `List` | a `[]any` of entity records |
 
 Check `err` first, then use the value directly (or the typed
@@ -410,13 +409,26 @@ API path: `/getChatGifts`
 
 | Field | Description |
 | --- | --- |
+| `"business_connection"` |  |
+| `"business_message"` |  |
+| `"channel_post"` |  |
+| `"chosen_inline_result"` |  |
+| `"deleted_business_messages"` |  |
 | `"description"` | Human-readable description of the result |
+| `"edited_business_message"` |  |
+| `"edited_channel_post"` |  |
+| `"edited_message"` |  |
 | `"error_code"` | Error code |
+| `"inline_query"` |  |
+| `"message"` |  |
+| `"message_reaction"` |  |
+| `"message_reaction_count"` |  |
 | `"ok"` | If true, the request was successful |
 | `"parameters"` |  |
 | `"result"` | The result of the query |
+| `"update_id"` | The update's unique identifier |
 
-Operations: Create, Load.
+Operations: Create, List.
 
 API path: `/getMe`
 
@@ -919,34 +931,56 @@ Create an instance: `getMe := client.GetMe(nil)`
 
 | Method | Description |
 | --- | --- |
-| `Load(match, ctrl)` | Load a single entity by match criteria. |
+| `List(match, ctrl)` | List entities matching the criteria. |
 | `Create(data, ctrl)` | Create a new entity with the given data. |
 
 #### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `business_connection` | `map[string]any` |  |
+| `business_message` | `map[string]any` |  |
+| `channel_post` | `map[string]any` |  |
+| `chosen_inline_result` | `map[string]any` |  |
+| `deleted_business_messages` | `map[string]any` |  |
 | `description` | `string` | Human-readable description of the result |
+| `edited_business_message` | `map[string]any` |  |
+| `edited_channel_post` | `map[string]any` |  |
+| `edited_message` | `map[string]any` |  |
 | `error_code` | `int` | Error code |
+| `inline_query` | `map[string]any` |  |
+| `message` | `map[string]any` |  |
+| `message_reaction` | `map[string]any` |  |
+| `message_reaction_count` | `map[string]any` |  |
 | `ok` | `bool` | If true, the request was successful |
 | `parameters` | `map[string]any` |  |
 | `result` | `[]any` | The result of the query |
+| `update_id` | `int` | The update's unique identifier |
 
-#### Example: Load
+#### Example: List
 
 ```go
-getMe, err := client.GetMe(nil).Load(nil, nil)
+getMes, err := client.GetMe(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(getMe) // the loaded record
+fmt.Println(getMes) // the array of records
 ```
 
 #### Example: Create
 
 ```go
 result, err := client.GetMe(nil).Create(map[string]any{
+    "business_message": map[string]any{},
+    "channel_post": map[string]any{},
+    "chosen_inline_result": map[string]any{},
+    "edited_business_message": map[string]any{},
+    "edited_channel_post": map[string]any{},
+    "edited_message": map[string]any{},
+    "inline_query": map[string]any{},
+    "message": map[string]any{},
     "ok": true,
+    "update_id": 1,
 }, nil)
 if err != nil {
     panic(err)
@@ -1571,14 +1605,14 @@ like `core.ToMapAny`.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `Load`, the entity
+Entity instances are stateful. After a successful `List`, the entity
 stores the returned data and match criteria internally.
 
 ```go
 getme := client.GetMe(nil)
-getme.Load(nil, nil)
+getme.List(nil, nil)
 
-// getme.Data() now returns the getme data from the last load
+// getme.Data() now returns the getme data from the last list
 // getme.Match() returns the last match criteria
 ```
 

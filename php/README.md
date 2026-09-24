@@ -4,7 +4,7 @@
 
 The PHP SDK for the TelegramBot API — an entity-oriented client using PHP conventions.
 
-The SDK exposes the API as capitalised, semantic **Entities** — for example `$client->ApproveSuggestedPost()` — with named operations (`list`/`load`/`create`) instead of raw URL paths and query strings. Working with resources and verbs keeps call sites self-describing and reduces cognitive load.
+The SDK exposes the API as capitalised, semantic **Entities** — for example `$client->ApproveSuggestedPost()` — with named operations (`list`/`create`) instead of raw URL paths and query strings. Working with resources and verbs keeps call sites self-describing and reduces cognitive load.
 
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
@@ -49,7 +49,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $getme = $client->GetMe()->load();
+    $getmes = $client->GetMe()->list();
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -121,10 +121,10 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = TelegramBotSDK::test();
 
-// Entity ops return the ENTITY (throws on error);
+// list() returns entity instances (throws on error);
 // call data_get() for the mock record.
-$getme = $client->GetMe()->load();
-print_r($getme->data_get());
+$getme = $client->GetMe()->list();
+print_r(array_map(fn($item) => $item->data_get(), $getme));
 ```
 
 ### Use a custom fetch function
@@ -233,7 +233,6 @@ All entities share the same interface.
 
 | Method | Signature | Description |
 | --- | --- | --- |
-| `load` | `($reqmatch, $ctrl): array` | Load a single entity by match criteria. |
 | `list` | `(?array $reqmatch = null, $ctrl): array` | List entities matching the criteria (call with no argument to list all). |
 | `create` | `($reqdata, $ctrl): array` | Create a new entity. |
 | `data_get` | `(): array` | Get entity data. |
@@ -388,13 +387,26 @@ API path: `/getChatGifts`
 
 | Field | Description |
 | --- | --- |
+| `business_connection` |  |
+| `business_message` |  |
+| `channel_post` |  |
+| `chosen_inline_result` |  |
+| `deleted_business_messages` |  |
 | `description` | Human-readable description of the result |
+| `edited_business_message` |  |
+| `edited_channel_post` |  |
+| `edited_message` |  |
 | `error_code` | Error code |
+| `inline_query` |  |
+| `message` |  |
+| `message_reaction` |  |
+| `message_reaction_count` |  |
 | `ok` | If true, the request was successful |
 | `parameters` |  |
 | `result` | The result of the query |
+| `update_id` | The update's unique identifier |
 
-Operations: Create, Load.
+Operations: Create, List.
 
 API path: `/getMe`
 
@@ -866,30 +878,52 @@ Create an instance: `$get_me = $client->GetMe();`
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
-| `load(match)` | Load a single entity by match criteria. |
+| `list(match)` | List entities matching the criteria. |
 
 #### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `business_connection` | `array` |  |
+| `business_message` | `array` |  |
+| `channel_post` | `array` |  |
+| `chosen_inline_result` | `array` |  |
+| `deleted_business_messages` | `array` |  |
 | `description` | `string` | Human-readable description of the result |
+| `edited_business_message` | `array` |  |
+| `edited_channel_post` | `array` |  |
+| `edited_message` | `array` |  |
 | `error_code` | `int` | Error code |
+| `inline_query` | `array` |  |
+| `message` | `array` |  |
+| `message_reaction` | `array` |  |
+| `message_reaction_count` | `array` |  |
 | `ok` | `bool` | If true, the request was successful |
 | `parameters` | `array` |  |
 | `result` | `array` | The result of the query |
+| `update_id` | `int` | The update's unique identifier |
 
-#### Example: Load
+#### Example: List
 
 ```php
-// load() returns the ENTITY — call data_get() for the GetMe record (throws on error).
-$get_me = $client->GetMe()->load();
+// list() returns an array of GetMe records (throws on error).
+$get_mes = $client->GetMe()->list();
 ```
 
 #### Example: Create
 
 ```php
 $get_me = $client->GetMe()->create([
+    "business_message" => null, // array
+    "channel_post" => null, // array
+    "chosen_inline_result" => null, // array
+    "edited_business_message" => null, // array
+    "edited_channel_post" => null, // array
+    "edited_message" => null, // array
+    "inline_query" => null, // array
+    "message" => null, // array
     "ok" => null, // bool
+    "update_id" => null, // int
 ]);
 ```
 
@@ -1463,14 +1497,14 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```php
 $getme = $client->GetMe();
-$getme->load();
+$getme->list();
 
-// $getme->data_get() now returns the getme data from the last load
+// $getme->data_get() now returns the getme data from the last list
 // $getme->match_get() returns the last match criteria
 ```
 

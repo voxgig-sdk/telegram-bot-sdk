@@ -1,0 +1,162 @@
+# Entity: update
+
+main: kit: entity: update: {
+
+  alias: field: {}
+
+  fields: {
+    allowed_updates: {
+      h: "Allowed Updates"
+      n: "allowed_updates"
+      r: false
+      t: "`$ARRAY`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "Human-readable description of the result"
+      t: "`$STRING`"
+    }
+    error_code: {
+      h: "Error Code"
+      n: "error_code"
+      r: false
+      sh: "Error code"
+      t: "`$INTEGER`"
+    }
+    limit: {
+      h: "Limit"
+      n: "limit"
+      r: false
+      t: "`$INTEGER`"
+    }
+    offset: {
+      h: "Offset"
+      n: "offset"
+      r: false
+      t: "`$INTEGER`"
+    }
+    ok: {
+      h: "Ok"
+      n: "ok"
+      r: true
+      sh: "If true, the request was successful"
+      t: "`$BOOLEAN`"
+    }
+    parameters: {
+      h: "Parameters"
+      n: "parameters"
+      r: false
+      t: "`$OBJECT`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      r: false
+      sh: "The result of the query"
+      t: "`$ARRAY`"
+    }
+    timeout: {
+      h: "Timeout"
+      n: "timeout"
+      r: false
+      t: "`$INTEGER`"
+    }
+  }
+
+  name: "update"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /getUpdates"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/getUpdates"
+          s: [
+            {
+              lit: "getUpdates"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /getUpdates"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "allowed_update"
+                or: "allowed_update"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: 100
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "timeout"
+                or: "timeout"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/getUpdates"
+          q: {
+            exist: [
+              "allowed_update"
+              "limit"
+              "offset"
+              "timeout"
+            ]
+          }
+          s: [
+            {
+              lit: "getUpdates"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

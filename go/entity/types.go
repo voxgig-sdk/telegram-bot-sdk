@@ -1,7 +1,7 @@
 // Typed models for the TelegramBot SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,13 +14,6 @@ import (
 
 // ApproveSuggestedPost is the typed data model for the approve_suggested_post entity.
 type ApproveSuggestedPost struct {
-	ChatId string `json:"chat_id"`
-	Description *string `json:"description,omitempty"`
-	ErrorCode *int `json:"error_code,omitempty"`
-	MessageId int `json:"message_id"`
-	Ok bool `json:"ok"`
-	Parameters *map[string]any `json:"parameters,omitempty"`
-	Result *[]any `json:"result,omitempty"`
 }
 
 // ApproveSuggestedPostCreateData is the typed request payload for ApproveSuggestedPost.CreateTyped.
@@ -36,13 +29,6 @@ type ApproveSuggestedPostCreateData struct {
 
 // DeclineSuggestedPost is the typed data model for the decline_suggested_post entity.
 type DeclineSuggestedPost struct {
-	ChatId string `json:"chat_id"`
-	Description *string `json:"description,omitempty"`
-	ErrorCode *int `json:"error_code,omitempty"`
-	MessageId int `json:"message_id"`
-	Ok bool `json:"ok"`
-	Parameters *map[string]any `json:"parameters,omitempty"`
-	Result *[]any `json:"result,omitempty"`
 }
 
 // DeclineSuggestedPostCreateData is the typed request payload for DeclineSuggestedPost.CreateTyped.
@@ -58,13 +44,6 @@ type DeclineSuggestedPostCreateData struct {
 
 // DeleteForumTopic is the typed data model for the delete_forum_topic entity.
 type DeleteForumTopic struct {
-	ChatId string `json:"chat_id"`
-	Description *string `json:"description,omitempty"`
-	ErrorCode *int `json:"error_code,omitempty"`
-	MessageThreadId int `json:"message_thread_id"`
-	Ok bool `json:"ok"`
-	Parameters *map[string]any `json:"parameters,omitempty"`
-	Result *[]any `json:"result,omitempty"`
 }
 
 // DeleteForumTopicCreateData is the typed request payload for DeleteForumTopic.CreateTyped.
@@ -80,15 +59,6 @@ type DeleteForumTopicCreateData struct {
 
 // EditForumTopic is the typed data model for the edit_forum_topic entity.
 type EditForumTopic struct {
-	ChatId string `json:"chat_id"`
-	Description *string `json:"description,omitempty"`
-	ErrorCode *int `json:"error_code,omitempty"`
-	IconCustomEmojiId *string `json:"icon_custom_emoji_id,omitempty"`
-	MessageThreadId int `json:"message_thread_id"`
-	Name *string `json:"name,omitempty"`
-	Ok bool `json:"ok"`
-	Parameters *map[string]any `json:"parameters,omitempty"`
-	Result *[]any `json:"result,omitempty"`
 }
 
 // EditForumTopicCreateData is the typed request payload for EditForumTopic.CreateTyped.
@@ -106,7 +76,6 @@ type EditForumTopicCreateData struct {
 
 // File is the typed data model for the file entity.
 type File struct {
-	FileId string `json:"file_id"`
 }
 
 // FileCreateData is the typed request payload for File.CreateTyped.
@@ -116,10 +85,6 @@ type FileCreateData struct {
 
 // ForumTopic is the typed data model for the forum_topic entity.
 type ForumTopic struct {
-	ChatId string `json:"chat_id"`
-	IconColor *int `json:"icon_color,omitempty"`
-	IconCustomEmojiId *string `json:"icon_custom_emoji_id,omitempty"`
-	Name string `json:"name"`
 }
 
 // ForumTopicCreateData is the typed request payload for ForumTopic.CreateTyped.
@@ -132,14 +97,6 @@ type ForumTopicCreateData struct {
 
 // GetBusinessAccountGift is the typed data model for the get_business_account_gift entity.
 type GetBusinessAccountGift struct {
-	Description *string `json:"description,omitempty"`
-	ErrorCode *int `json:"error_code,omitempty"`
-	ExcludeFromBlockchain *bool `json:"exclude_from_blockchain,omitempty"`
-	ExcludeLimitedNonUpgradable *bool `json:"exclude_limited_non_upgradable,omitempty"`
-	ExcludeLimitedUpgradable *bool `json:"exclude_limited_upgradable,omitempty"`
-	Ok bool `json:"ok"`
-	Parameters *map[string]any `json:"parameters,omitempty"`
-	Result *[]any `json:"result,omitempty"`
 }
 
 // GetBusinessAccountGiftCreateData is the typed request payload for GetBusinessAccountGift.CreateTyped.
@@ -156,12 +113,6 @@ type GetBusinessAccountGiftCreateData struct {
 
 // GetChatGift is the typed data model for the get_chat_gift entity.
 type GetChatGift struct {
-	ChatId string `json:"chat_id"`
-	Description *string `json:"description,omitempty"`
-	ErrorCode *int `json:"error_code,omitempty"`
-	Ok bool `json:"ok"`
-	Parameters *map[string]any `json:"parameters,omitempty"`
-	Result *[]any `json:"result,omitempty"`
 }
 
 // GetChatGiftCreateData is the typed request payload for GetChatGift.CreateTyped.
@@ -176,39 +127,54 @@ type GetChatGiftCreateData struct {
 
 // GetMe is the typed data model for the get_me entity.
 type GetMe struct {
-	Description *string `json:"description,omitempty"`
-	ErrorCode *int `json:"error_code,omitempty"`
-	Ok bool `json:"ok"`
-	Parameters *map[string]any `json:"parameters,omitempty"`
-	Result *[]any `json:"result,omitempty"`
 }
 
-// GetMeLoadMatch is the typed request payload for GetMe.LoadTyped.
-type GetMeLoadMatch struct {
+// GetMeListMatch is the typed request payload for GetMe.ListTyped.
+type GetMeListMatch struct {
+	BusinessConnection *map[string]any `json:"business_connection,omitempty"`
+	BusinessMessage *map[string]any `json:"business_message,omitempty"`
+	ChannelPost *map[string]any `json:"channel_post,omitempty"`
+	ChosenInlineResult *map[string]any `json:"chosen_inline_result,omitempty"`
+	DeletedBusinessMessages *map[string]any `json:"deleted_business_messages,omitempty"`
 	Description *string `json:"description,omitempty"`
+	EditedBusinessMessage *map[string]any `json:"edited_business_message,omitempty"`
+	EditedChannelPost *map[string]any `json:"edited_channel_post,omitempty"`
+	EditedMessage *map[string]any `json:"edited_message,omitempty"`
 	ErrorCode *int `json:"error_code,omitempty"`
+	InlineQuery *map[string]any `json:"inline_query,omitempty"`
+	Message *map[string]any `json:"message,omitempty"`
+	MessageReaction *map[string]any `json:"message_reaction,omitempty"`
+	MessageReactionCount *map[string]any `json:"message_reaction_count,omitempty"`
 	Ok *bool `json:"ok,omitempty"`
 	Parameters *map[string]any `json:"parameters,omitempty"`
 	Result *[]any `json:"result,omitempty"`
+	UpdateId *int `json:"update_id,omitempty"`
 }
 
 // GetMeCreateData is the typed request payload for GetMe.CreateTyped.
 type GetMeCreateData struct {
+	BusinessConnection *map[string]any `json:"business_connection,omitempty"`
+	BusinessMessage map[string]any `json:"business_message"`
+	ChannelPost map[string]any `json:"channel_post"`
+	ChosenInlineResult map[string]any `json:"chosen_inline_result"`
+	DeletedBusinessMessages *map[string]any `json:"deleted_business_messages,omitempty"`
 	Description *string `json:"description,omitempty"`
+	EditedBusinessMessage map[string]any `json:"edited_business_message"`
+	EditedChannelPost map[string]any `json:"edited_channel_post"`
+	EditedMessage map[string]any `json:"edited_message"`
 	ErrorCode *int `json:"error_code,omitempty"`
+	InlineQuery map[string]any `json:"inline_query"`
+	Message map[string]any `json:"message"`
+	MessageReaction *map[string]any `json:"message_reaction,omitempty"`
+	MessageReactionCount *map[string]any `json:"message_reaction_count,omitempty"`
 	Ok bool `json:"ok"`
 	Parameters *map[string]any `json:"parameters,omitempty"`
 	Result *[]any `json:"result,omitempty"`
+	UpdateId int `json:"update_id"`
 }
 
 // GetUserGift is the typed data model for the get_user_gift entity.
 type GetUserGift struct {
-	Description *string `json:"description,omitempty"`
-	ErrorCode *int `json:"error_code,omitempty"`
-	Ok bool `json:"ok"`
-	Parameters *map[string]any `json:"parameters,omitempty"`
-	Result *[]any `json:"result,omitempty"`
-	UserId int `json:"user_id"`
 }
 
 // GetUserGiftCreateData is the typed request payload for GetUserGift.CreateTyped.
@@ -223,12 +189,6 @@ type GetUserGiftCreateData struct {
 
 // GetUserProfileAudio is the typed data model for the get_user_profile_audio entity.
 type GetUserProfileAudio struct {
-	Description *string `json:"description,omitempty"`
-	ErrorCode *int `json:"error_code,omitempty"`
-	Ok bool `json:"ok"`
-	Parameters *map[string]any `json:"parameters,omitempty"`
-	Result *[]any `json:"result,omitempty"`
-	UserId int `json:"user_id"`
 }
 
 // GetUserProfileAudioCreateData is the typed request payload for GetUserProfileAudio.CreateTyped.
@@ -243,22 +203,6 @@ type GetUserProfileAudioCreateData struct {
 
 // Message is the typed data model for the message entity.
 type Message struct {
-	ChatId string `json:"chat_id"`
-	DirectMessagesTopicId *int `json:"direct_messages_topic_id,omitempty"`
-	DisableNotification *bool `json:"disable_notification,omitempty"`
-	DisableWebPagePreview *bool `json:"disable_web_page_preview,omitempty"`
-	FromChatId string `json:"from_chat_id"`
-	Latitude float64 `json:"latitude"`
-	Longitude float64 `json:"longitude"`
-	MessageEffectId *string `json:"message_effect_id,omitempty"`
-	MessageId int `json:"message_id"`
-	MessageThreadId *int `json:"message_thread_id,omitempty"`
-	Options []any `json:"options"`
-	ParseMode *string `json:"parse_mode,omitempty"`
-	ProtectContent *bool `json:"protect_content,omitempty"`
-	Question string `json:"question"`
-	ReplyToMessageId *int `json:"reply_to_message_id,omitempty"`
-	Text string `json:"text"`
 }
 
 // MessageCreateData is the typed request payload for Message.CreateTyped.
@@ -283,12 +227,6 @@ type MessageCreateData struct {
 
 // MessageId is the typed data model for the message_id entity.
 type MessageId struct {
-	ChatId string `json:"chat_id"`
-	DirectMessagesTopicId *int `json:"direct_messages_topic_id,omitempty"`
-	FromChatId string `json:"from_chat_id"`
-	MessageEffectId *string `json:"message_effect_id,omitempty"`
-	MessageId int `json:"message_id"`
-	MessageThreadId *int `json:"message_thread_id,omitempty"`
 }
 
 // MessageIdCreateData is the typed request payload for MessageId.CreateTyped.
@@ -303,18 +241,6 @@ type MessageIdCreateData struct {
 
 // PromoteChatMember is the typed data model for the promote_chat_member entity.
 type PromoteChatMember struct {
-	CanDeleteMessages *bool `json:"can_delete_messages,omitempty"`
-	CanEditMessages *bool `json:"can_edit_messages,omitempty"`
-	CanManageChat *bool `json:"can_manage_chat,omitempty"`
-	CanManageDirectMessages *bool `json:"can_manage_direct_messages,omitempty"`
-	CanPostMessages *bool `json:"can_post_messages,omitempty"`
-	ChatId string `json:"chat_id"`
-	Description *string `json:"description,omitempty"`
-	ErrorCode *int `json:"error_code,omitempty"`
-	Ok bool `json:"ok"`
-	Parameters *map[string]any `json:"parameters,omitempty"`
-	Result *[]any `json:"result,omitempty"`
-	UserId int `json:"user_id"`
 }
 
 // PromoteChatMemberCreateData is the typed request payload for PromoteChatMember.CreateTyped.
@@ -335,11 +261,6 @@ type PromoteChatMemberCreateData struct {
 
 // RemoveMyProfilePhoto is the typed data model for the remove_my_profile_photo entity.
 type RemoveMyProfilePhoto struct {
-	Description *string `json:"description,omitempty"`
-	ErrorCode *int `json:"error_code,omitempty"`
-	Ok bool `json:"ok"`
-	Parameters *map[string]any `json:"parameters,omitempty"`
-	Result *[]any `json:"result,omitempty"`
 }
 
 // RemoveMyProfilePhotoCreateData is the typed request payload for RemoveMyProfilePhoto.CreateTyped.
@@ -353,13 +274,6 @@ type RemoveMyProfilePhotoCreateData struct {
 
 // RepostStory is the typed data model for the repost_story entity.
 type RepostStory struct {
-	ChatId string `json:"chat_id"`
-	Description *string `json:"description,omitempty"`
-	ErrorCode *int `json:"error_code,omitempty"`
-	Ok bool `json:"ok"`
-	Parameters *map[string]any `json:"parameters,omitempty"`
-	Result *[]any `json:"result,omitempty"`
-	StoryId int `json:"story_id"`
 }
 
 // RepostStoryCreateData is the typed request payload for RepostStory.CreateTyped.
@@ -375,14 +289,6 @@ type RepostStoryCreateData struct {
 
 // SendChatAction is the typed data model for the send_chat_action entity.
 type SendChatAction struct {
-	Action string `json:"action"`
-	ChatId string `json:"chat_id"`
-	Description *string `json:"description,omitempty"`
-	ErrorCode *int `json:"error_code,omitempty"`
-	MessageThreadId *int `json:"message_thread_id,omitempty"`
-	Ok bool `json:"ok"`
-	Parameters *map[string]any `json:"parameters,omitempty"`
-	Result *[]any `json:"result,omitempty"`
 }
 
 // SendChatActionCreateData is the typed request payload for SendChatAction.CreateTyped.
@@ -399,14 +305,6 @@ type SendChatActionCreateData struct {
 
 // SendMessageDraft is the typed data model for the send_message_draft entity.
 type SendMessageDraft struct {
-	ChatId string `json:"chat_id"`
-	Description *string `json:"description,omitempty"`
-	ErrorCode *int `json:"error_code,omitempty"`
-	MessageThreadId *int `json:"message_thread_id,omitempty"`
-	Ok bool `json:"ok"`
-	Parameters *map[string]any `json:"parameters,omitempty"`
-	Result *[]any `json:"result,omitempty"`
-	Text string `json:"text"`
 }
 
 // SendMessageDraftCreateData is the typed request payload for SendMessageDraft.CreateTyped.
@@ -423,11 +321,6 @@ type SendMessageDraftCreateData struct {
 
 // SetMyProfilePhoto is the typed data model for the set_my_profile_photo entity.
 type SetMyProfilePhoto struct {
-	Description *string `json:"description,omitempty"`
-	ErrorCode *int `json:"error_code,omitempty"`
-	Ok bool `json:"ok"`
-	Parameters *map[string]any `json:"parameters,omitempty"`
-	Result *[]any `json:"result,omitempty"`
 }
 
 // SetMyProfilePhotoCreateData is the typed request payload for SetMyProfilePhoto.CreateTyped.
@@ -441,13 +334,6 @@ type SetMyProfilePhotoCreateData struct {
 
 // UnpinAllForumTopicMessage is the typed data model for the unpin_all_forum_topic_message entity.
 type UnpinAllForumTopicMessage struct {
-	ChatId string `json:"chat_id"`
-	Description *string `json:"description,omitempty"`
-	ErrorCode *int `json:"error_code,omitempty"`
-	MessageThreadId int `json:"message_thread_id"`
-	Ok bool `json:"ok"`
-	Parameters *map[string]any `json:"parameters,omitempty"`
-	Result *[]any `json:"result,omitempty"`
 }
 
 // UnpinAllForumTopicMessageCreateData is the typed request payload for UnpinAllForumTopicMessage.CreateTyped.
@@ -463,15 +349,6 @@ type UnpinAllForumTopicMessageCreateData struct {
 
 // Update is the typed data model for the update entity.
 type Update struct {
-	AllowedUpdates *[]any `json:"allowed_updates,omitempty"`
-	Description *string `json:"description,omitempty"`
-	ErrorCode *int `json:"error_code,omitempty"`
-	Limit *int `json:"limit,omitempty"`
-	Offset *int `json:"offset,omitempty"`
-	Ok bool `json:"ok"`
-	Parameters *map[string]any `json:"parameters,omitempty"`
-	Result *[]any `json:"result,omitempty"`
-	Timeout *int `json:"timeout,omitempty"`
 }
 
 // UpdateListMatch is the typed request payload for Update.ListTyped.

@@ -14,7 +14,7 @@ Metadata kindly supplied by [www.freepublicapis.com](https://www.freepublicapis.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI with an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
 
-> **Features:** `ratelimit`, `retry`, `test`, `timeout` — opt-in,
+> **Features:** `undefined`, `undefined`, `undefined`, `undefined` — opt-in,
 > inactive until switched on, and configured per client. See the Features
 > section of any SDK README below for what each one does.
 
@@ -23,7 +23,7 @@ Metadata kindly supplied by [www.freepublicapis.com](https://www.freepublicapis.
 This SDK exposes the API as **21 semantic entities** that you
 call directly, instead of assembling URL paths and query strings. See the [Entities](#entities) table below for the full list. Entities are
 **Capitalised** to mark them as the primary surface, each with the operations they
-support (`list`, `load`, `create`):
+support (`list`, `create`):
 
 ```ts
 const client = new TelegramBotSDK()
@@ -51,22 +51,22 @@ network, and no credentials:
 const client = TelegramBotSDK.test({
   entity: {
     get_me: {
-      test01: { id: 'test01', ok: true },
+      test01: { id: 'test01', business_message: {}, channel_post: {}, chosen_inline_result: {} },
     },
   },
 })
-const getme = await client.GetMe().load()
-// getme is the GetMe entity, populated with mock data
-// — call getme.data() for the record itself
-console.log(getme)
+const getmes = await client.GetMe().list()
+// getmes is an array of GetMe entities, populated with mock data
+// — call getmes[0].data() for the record itself
+console.log(getmes)
 ```
 
 ### Python
 
 ```python
 client = TelegramBotSDK.test()
-getme = client.GetMe().load()
-print(getme)
+getmes = client.GetMe().list()
+print(getmes)
 ```
 
 ### PHP
@@ -76,14 +76,14 @@ print(getme)
 $client = TelegramBotSDK::test([
     "entity" => ["getme" => ["test01" => []]],
 ]);
-$getme = $client->GetMe()->load();
+$getmes = $client->GetMe()->list();
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.GetMe(nil).Load(
+result, err := client.GetMe(nil).List(
     nil, nil,
 )
 ```
@@ -95,14 +95,14 @@ result, err := client.GetMe(nil).Load(
 client = TelegramBotSDK.test({
   "entity" => { "getme" => { "test01" => {} } },
 })
-getme = client.GetMe.load()
+getmes = client.GetMe.list()
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:GetMe():load()
+local results, err = client:GetMe():list()
 ```
 
 ## Packages
@@ -181,7 +181,7 @@ The API exposes 21 entities:
 | **ForumTopic** | The ForumTopic entity (create). | `/createForumTopic` |
 | **GetBusinessAccountGift** | The GetBusinessAccountGift entity (create). | `/getBusinessAccountGifts` |
 | **GetChatGift** | The GetChatGift entity (create). | `/getChatGifts` |
-| **GetMe** | The GetMe entity (create, load). | `/getMe` |
+| **GetMe** | The GetMe entity (create, list). | `/getMe` |
 | **GetUserGift** | The GetUserGift entity (create). | `/getUserGifts` |
 | **GetUserProfileAudio** | The GetUserProfileAudio entity (create). | `/getUserProfileAudios` |
 | **Message** | The Message entity (create). | `/forwardMessage` |
@@ -195,7 +195,7 @@ The API exposes 21 entities:
 | **UnpinAllForumTopicMessage** | The UnpinAllForumTopicMessage entity (create). | `/unpinAllForumTopicMessages` |
 | **Update** | The Update entity (create, list). | `/getUpdates` |
 
-The operations available across these entities are **load**, **list**, **create** — see each entity's
+The operations available across these entities are **list**, **create** — see each entity's
 own list above for exactly which it supports.
 
 ## Quickstart in other languages

@@ -5,7 +5,7 @@
 The Python SDK for the TelegramBot API — an entity-oriented client following Pythonic conventions.
 
 The SDK exposes the API as capitalised, semantic **Entities** — for example `client.ApproveSuggestedPost()` — each
-carrying a small, uniform set of operations (`list`, `load`, `create`) instead of raw URL
+carrying a small, uniform set of operations (`list`, `create`) instead of raw URL
 paths and query strings. You work with named resources and verbs, which
 keeps the cognitive load low.
 
@@ -57,10 +57,10 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    getme = client.GetMe().load()
-    print(getme)
+    getmes = client.GetMe().list()
+    print(getmes)
 except Exception as err:
-    print(f"load failed: {err}")
+    print(f"list failed: {err}")
 ```
 
 `direct()` does **not** raise — it returns the result envelope. Branch
@@ -126,7 +126,7 @@ client = TelegramBotSDK.test()
 
 # Entity ops return the ENTITY and raises on error;
 # call data_get() for the record.
-getme = client.GetMe().load()
+getme = client.GetMe().list()
 # getme contains the mock response record
 ```
 
@@ -233,7 +233,6 @@ All entities share the same interface.
 
 | Method | Signature | Description |
 | --- | --- | --- |
-| `load` | `(reqmatch, ctrl) -> any` | Load a single entity by match criteria. Raises on error. |
 | `list` | `(reqmatch, ctrl) -> list` | List entities matching the criteria. Raises on error. |
 | `create` | `(reqdata, ctrl) -> any` | Create a new entity. Raises on error. |
 | `data_get` | `() -> dict` | Get entity data. |
@@ -388,13 +387,26 @@ API path: `/getChatGifts`
 
 | Field | Description |
 | --- | --- |
+| `business_connection` |  |
+| `business_message` |  |
+| `channel_post` |  |
+| `chosen_inline_result` |  |
+| `deleted_business_messages` |  |
 | `description` | Human-readable description of the result |
+| `edited_business_message` |  |
+| `edited_channel_post` |  |
+| `edited_message` |  |
 | `error_code` | Error code |
+| `inline_query` |  |
+| `message` |  |
+| `message_reaction` |  |
+| `message_reaction_count` |  |
 | `ok` | If true, the request was successful |
 | `parameters` |  |
 | `result` | The result of the query |
+| `update_id` | The update's unique identifier |
 
-Operations: Create, Load.
+Operations: Create, List.
 
 API path: `/getMe`
 
@@ -866,29 +878,51 @@ Create an instance: `get_me = client.GetMe()`
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
-| `load(match)` | Load a single entity by match criteria. |
+| `list()` | List entities, optionally matching the given criteria. |
 
 #### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `business_connection` | `dict` |  |
+| `business_message` | `dict` |  |
+| `channel_post` | `dict` |  |
+| `chosen_inline_result` | `dict` |  |
+| `deleted_business_messages` | `dict` |  |
 | `description` | `str` | Human-readable description of the result |
+| `edited_business_message` | `dict` |  |
+| `edited_channel_post` | `dict` |  |
+| `edited_message` | `dict` |  |
 | `error_code` | `int` | Error code |
+| `inline_query` | `dict` |  |
+| `message` | `dict` |  |
+| `message_reaction` | `dict` |  |
+| `message_reaction_count` | `dict` |  |
 | `ok` | `bool` | If true, the request was successful |
 | `parameters` | `dict` |  |
 | `result` | `list` | The result of the query |
+| `update_id` | `int` | The update's unique identifier |
 
-#### Example: Load
+#### Example: List
 
 ```python
-get_me = client.GetMe().load()
+get_mes = client.GetMe().list()
 ```
 
 #### Example: Create
 
 ```python
 get_me = client.GetMe().create({
+    "business_message": {},  # dict
+    "channel_post": {},  # dict
+    "chosen_inline_result": {},  # dict
+    "edited_business_message": {},  # dict
+    "edited_channel_post": {},  # dict
+    "edited_message": {},  # dict
+    "inline_query": {},  # dict
+    "message": {},  # dict
     "ok": True,  # bool
+    "update_id": 1,  # int
 })
 ```
 
@@ -1460,14 +1494,14 @@ Import entity or utility modules directly only when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```python
 getme = client.GetMe()
-getme.load()
+getme.list()
 
-# getme.data_get() now returns the getme data from the last load
+# getme.data_get() now returns the getme data from the last list
 # getme.match_get() returns the last match criteria
 ```
 

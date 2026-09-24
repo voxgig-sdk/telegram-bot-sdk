@@ -654,24 +654,37 @@ fmt.Println(getMe.GetName()) // "get_me"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `business_connection` | `map[string]any` | No |  |
+| `business_message` | `map[string]any` | Yes |  |
+| `channel_post` | `map[string]any` | Yes |  |
+| `chosen_inline_result` | `map[string]any` | Yes |  |
+| `deleted_business_messages` | `map[string]any` | No |  |
 | `description` | `string` | No | Human-readable description of the result |
+| `edited_business_message` | `map[string]any` | Yes |  |
+| `edited_channel_post` | `map[string]any` | Yes |  |
+| `edited_message` | `map[string]any` | Yes |  |
 | `error_code` | `int` | No | Error code |
+| `inline_query` | `map[string]any` | Yes |  |
+| `message` | `map[string]any` | Yes |  |
+| `message_reaction` | `map[string]any` | No |  |
+| `message_reaction_count` | `map[string]any` | No |  |
 | `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `map[string]any` | No |  |
 | `result` | `[]any` | No | The result of the query |
+| `update_id` | `int` | Yes | The update's unique identifier |
 
 ### Operations
 
-#### `Load(reqmatch, ctrl map[string]any) (any, error)`
+#### `List(reqmatch, ctrl map[string]any) (any, error)`
 
-Load a single entity matching the given criteria.
+List entities matching the given criteria. Returns an array.
 
 ```go
-result, err := client.GetMe(nil).Load(nil, nil)
+results, err := client.GetMe(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(result)
+fmt.Println(results)
 ```
 
 #### `Create(reqdata, ctrl map[string]any) (any, error)`
@@ -680,7 +693,16 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.GetMe(nil).Create(map[string]any{
+    "business_message": map[string]any{},
+    "channel_post": map[string]any{},
+    "chosen_inline_result": map[string]any{},
+    "edited_business_message": map[string]any{},
+    "edited_channel_post": map[string]any{},
+    "edited_message": map[string]any{},
+    "inline_query": map[string]any{},
+    "message": map[string]any{},
     "ok": true,
+    "update_id": 1,
 }, nil)
 if err != nil {
     panic(err)

@@ -643,11 +643,24 @@ get_me = client.GetMe()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `business_connection` | `dict` | No |  |
+| `business_message` | `dict` | Yes |  |
+| `channel_post` | `dict` | Yes |  |
+| `chosen_inline_result` | `dict` | Yes |  |
+| `deleted_business_messages` | `dict` | No |  |
 | `description` | `str` | No | Human-readable description of the result |
+| `edited_business_message` | `dict` | Yes |  |
+| `edited_channel_post` | `dict` | Yes |  |
+| `edited_message` | `dict` | Yes |  |
 | `error_code` | `int` | No | Error code |
+| `inline_query` | `dict` | Yes |  |
+| `message` | `dict` | Yes |  |
+| `message_reaction` | `dict` | No |  |
+| `message_reaction_count` | `dict` | No |  |
 | `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `dict` | No |  |
 | `result` | `list` | No | The result of the query |
+| `update_id` | `int` | Yes | The update's unique identifier |
 
 ### Operations
 
@@ -657,16 +670,27 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.GetMe().create({
+    "business_message": {},  # dict
+    "channel_post": {},  # dict
+    "chosen_inline_result": {},  # dict
+    "edited_business_message": {},  # dict
+    "edited_channel_post": {},  # dict
+    "edited_message": {},  # dict
+    "inline_query": {},  # dict
+    "message": {},  # dict
     "ok": True,  # bool
+    "update_id": 1,  # int
 })
 ```
 
-#### `load(reqmatch, ctrl=None) -> dict`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-Load a single entity matching the given criteria. Returns the entity data and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-result = client.GetMe().load()
+results = client.GetMe().list()
+for get_me in results:
+    print(get_me)
 ```
 
 ### Common Methods

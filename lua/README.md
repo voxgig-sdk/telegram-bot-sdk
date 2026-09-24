@@ -4,7 +4,7 @@
 
 The Lua SDK for the TelegramBot API — an entity-oriented client using Lua conventions.
 
-It exposes the API as capitalised, semantic **Entities** — e.g. `client:ApproveSuggestedPost()` — each with the same small set of operations (`list`, `load`, `create`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
+It exposes the API as capitalised, semantic **Entities** — e.g. `client:ApproveSuggestedPost()` — each with the same small set of operations (`list`, `create`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
@@ -51,7 +51,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local getme, err = client:GetMe():load()
+local getmes, err = client:GetMe():list()
 if err then error(err) end
 ```
 
@@ -109,7 +109,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:GetMe():load()
+local result, err = client:GetMe():list()
 -- result is the returned data; err is set on failure
 ```
 
@@ -218,7 +218,6 @@ All entities share the same interface.
 
 | Method | Signature | Description |
 | --- | --- | --- |
-| `load` | `(reqmatch, ctrl) -> any, err` | Load a single entity by match criteria. |
 | `list` | `(reqmatch, ctrl) -> any, err` | List entities matching the criteria. |
 | `create` | `(reqdata, ctrl) -> any, err` | Create a new entity. |
 | `data_get` | `() -> table` | Get entity data. |
@@ -235,14 +234,14 @@ data **directly** — there is no wrapper:
 
 | Operation | `value` |
 | --- | --- |
-| `load` / `create` | the entity record (a `table`) |
+| `create` | the entity record (a `table`) |
 | `list` | an array (`table`) of entity records |
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local get_me, err = client:GetMe():load()
+    local approve_suggested_post, err = client:ApproveSuggestedPost():list()
     if err then error(err) end
-    -- get_me is the loaded record
+    -- approve_suggested_post is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -374,13 +373,26 @@ API path: `/getChatGifts`
 
 | Field | Description |
 | --- | --- |
+| `business_connection` |  |
+| `business_message` |  |
+| `channel_post` |  |
+| `chosen_inline_result` |  |
+| `deleted_business_messages` |  |
 | `description` | Human-readable description of the result |
+| `edited_business_message` |  |
+| `edited_channel_post` |  |
+| `edited_message` |  |
 | `error_code` | Error code |
+| `inline_query` |  |
+| `message` |  |
+| `message_reaction` |  |
+| `message_reaction_count` |  |
 | `ok` | If true, the request was successful |
 | `parameters` |  |
 | `result` | The result of the query |
+| `update_id` | The update's unique identifier |
 
-Operations: Create, Load.
+Operations: Create, List.
 
 API path: `/getMe`
 
@@ -852,29 +864,51 @@ Create an instance: `local get_me = client:GetMe(nil)`
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
-| `load(match)` | Load a single entity by match criteria. |
+| `list(match)` | List entities matching the criteria. |
 
 #### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `business_connection` | `table` |  |
+| `business_message` | `table` |  |
+| `channel_post` | `table` |  |
+| `chosen_inline_result` | `table` |  |
+| `deleted_business_messages` | `table` |  |
 | `description` | `string` | Human-readable description of the result |
+| `edited_business_message` | `table` |  |
+| `edited_channel_post` | `table` |  |
+| `edited_message` | `table` |  |
 | `error_code` | `number` | Error code |
+| `inline_query` | `table` |  |
+| `message` | `table` |  |
+| `message_reaction` | `table` |  |
+| `message_reaction_count` | `table` |  |
 | `ok` | `boolean` | If true, the request was successful |
 | `parameters` | `table` |  |
 | `result` | `table` | The result of the query |
+| `update_id` | `number` | The update's unique identifier |
 
-#### Example: Load
+#### Example: List
 
 ```lua
-local get_me, err = client:GetMe():load()
+local get_mes, err = client:GetMe():list()
 ```
 
 #### Example: Create
 
 ```lua
 local get_me, err = client:GetMe():create({
+  business_message = {}, -- table
+  channel_post = {}, -- table
+  chosen_inline_result = {}, -- table
+  edited_business_message = {}, -- table
+  edited_channel_post = {}, -- table
+  edited_message = {}, -- table
+  inline_query = {}, -- table
+  message = {}, -- table
   ok = true, -- boolean
+  update_id = 1, -- number
 })
 ```
 
@@ -1447,14 +1481,14 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
 local getme = client:GetMe()
-getme:load()
+getme:list()
 
--- getme:data_get() now returns the getme data from the last load
+-- getme:data_get() now returns the getme data from the last list
 -- getme:match_get() returns the last match criteria
 ```
 

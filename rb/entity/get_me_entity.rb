@@ -171,36 +171,44 @@ class GetMeEntity
   end
 
   
-  # Load a single GetMe.
+
+  
+  # List GetMe items matching the given filter.
   #
-  # @param reqmatch [GetMeLoadMatch, Hash, nil] match criteria (id/query fields);
-  #   optional — an entity with no id-like key loads with no match (nil is treated
-  #   as an empty match, so client.GetMe.load works with no args).
+  # @param reqmatch [GetMeListMatch, Hash, nil] match filter (any subset of
+  #   GetMe fields); defaults to nil, treated as an empty match that lists all.
   # @param ctrl [Object, nil] optional per-call control
-  # @return [GetMe, Hash] the loaded GetMe; raises TelegramBotError on failure
-  def load(reqmatch = nil, ctrl = nil)
+  # @return [Array<GetMe>, Array] the matching GetMe items; raises TelegramBotError on failure
+  def list(reqmatch = nil, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({
-      "opname" => "load",
+      "opname" => "list",
       "ctrl" => ctrl,
       "match" => @_match,
       "data" => @_data,
       "reqmatch" => reqmatch,
     }, @_entctx)
 
-    _run_op(ctx) do
+    records = _run_op(ctx) do
       if ctx.result
         @_match = ctx.result.resmatch if ctx.result.resmatch
-        if ctx.result.resdata
-          @_data = TelegramBotHelpers.to_map(VoxgigStruct.clone(ctx.result.resdata)) || {}
-        end
       end
     end
+
+    # list yields the BARE Array of records — each an accessible Hash — so
+    # callers can index item["id"] directly, matching py/lua/go. make_result
+    # wraps each entry as an Entity instance for internal use; unwrap those
+    # back to their bare record Hashes here (load/create/etc. are unaffected).
+    if records.is_a?(Array)
+      records = records.map do |item|
+        item.respond_to?(:data_get) ? item.data_get : item
+      end
+    end
+
+    records
   end
 
 
-
-  
 
   
   # Create a new GetMe.

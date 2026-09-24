@@ -5,7 +5,7 @@
 The TypeScript SDK for the TelegramBot API — a type-safe, entity-oriented client with full async/await support.
 
 The API is exposed as capitalised, semantic **Entities** — e.g.
-`client.ApproveSuggestedPost()` — each with a small set of operations (`list`, `load`, `create`)
+`client.ApproveSuggestedPost()` — each with a small set of operations (`list`, `create`)
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
@@ -58,10 +58,10 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const getme = await client.GetMe().load()
-  console.log(getme)
+  const getmes = await client.GetMe().list()
+  console.log(getmes)
 } catch (err) {
-  console.error('load failed:', err)
+  console.error('list failed:', err)
 }
 ```
 
@@ -125,7 +125,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = TelegramBotSDK.test()
 
-const getme = await client.GetMe().load()
+const getme = await client.GetMe().list()
 // getme is the entity, populated with mock response data
 // — call getme.data() for the record itself
 console.log(getme)
@@ -146,7 +146,7 @@ Entity instances remember their last match and data:
 const entity = client.GetMe()
 
 // First call runs the operation and stores its result
-await entity.load()
+await entity.list()
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
@@ -269,7 +269,6 @@ All entities share the same interface.
 
 | Method | Signature | Description |
 | --- | --- | --- |
-| `load` | `load(reqmatch?, ctrl?): Promise<Entity>` | Load a single entity by match criteria. |
 | `list` | `list(reqmatch?, ctrl?): Promise<Entity[]>` | List entities matching the criteria. |
 | `create` | `create(reqdata?, ctrl?): Promise<Entity>` | Create a new entity. |
 | `data` | `data(data?: Partial<Entity>): Entity` | Get or set entity data. |
@@ -283,7 +282,7 @@ All entities share the same interface.
 Entity operations resolve to the entity data directly — there is no
 result envelope:
 
-- `load` and `create` resolve to a single entity object.
+- `create` resolves to a single entity object.
 - `list` resolves to an **array** of entity objects (iterate it directly;
   there is no `.data` and no `.ok`).
 
@@ -446,13 +445,26 @@ API path: `/getChatGifts`
 
 | Field | Description |
 | --- | --- |
+| `business_connection` |  |
+| `business_message` |  |
+| `channel_post` |  |
+| `chosen_inline_result` |  |
+| `deleted_business_messages` |  |
 | `description` | Human-readable description of the result |
+| `edited_business_message` |  |
+| `edited_channel_post` |  |
+| `edited_message` |  |
 | `error_code` | Error code |
+| `inline_query` |  |
+| `message` |  |
+| `message_reaction` |  |
+| `message_reaction_count` |  |
 | `ok` | If true, the request was successful |
 | `parameters` |  |
 | `result` | The result of the query |
+| `update_id` | The update's unique identifier |
 
-Operations: create, load.
+Operations: create, list.
 
 API path: `/getMe`
 
@@ -924,29 +936,51 @@ Create an instance: `const get_me = client.GetMe()`
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
-| `load(match)` | Load a single entity by match criteria. |
+| `list(match)` | List entities matching the criteria. |
 
 #### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `business_connection` | `Record<string, any>` |  |
+| `business_message` | `Record<string, any>` |  |
+| `channel_post` | `Record<string, any>` |  |
+| `chosen_inline_result` | `Record<string, any>` |  |
+| `deleted_business_messages` | `Record<string, any>` |  |
 | `description` | `string` | Human-readable description of the result |
+| `edited_business_message` | `Record<string, any>` |  |
+| `edited_channel_post` | `Record<string, any>` |  |
+| `edited_message` | `Record<string, any>` |  |
 | `error_code` | `number` | Error code |
+| `inline_query` | `Record<string, any>` |  |
+| `message` | `Record<string, any>` |  |
+| `message_reaction` | `Record<string, any>` |  |
+| `message_reaction_count` | `Record<string, any>` |  |
 | `ok` | `boolean` | If true, the request was successful |
 | `parameters` | `Record<string, any>` |  |
 | `result` | `any[]` | The result of the query |
+| `update_id` | `number` | The update's unique identifier |
 
-#### Example: Load
+#### Example: List
 
 ```ts
-const get_me = await client.GetMe().load()
+const get_mes = await client.GetMe().list()
 ```
 
 #### Example: Create
 
 ```ts
 const get_me = await client.GetMe().create({
+  business_message: {},
+  channel_post: {},
+  chosen_inline_result: {},
+  edited_business_message: {},
+  edited_channel_post: {},
+  edited_message: {},
+  inline_query: {},
+  message: {},
   ok: true,
+  update_id: 1,
 })
 ```
 
@@ -1510,15 +1544,15 @@ import { TelegramBotSDK } from '@voxgig-sdk/telegram-bot-sdk'
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
 const getme = client.GetMe()
-await getme.load()
+await getme.list()
 
-// getme.data() now returns the getme data from the last `load`
+// getme.data() now returns the getme data from the last `list`
 // getme.match() returns the last match criteria
 ```
 

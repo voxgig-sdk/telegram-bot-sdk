@@ -2,8 +2,8 @@
 
 # Typed models for the TelegramBot SDK.
 #
-# GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-# params (op.<name>.points[].args.params[]). Member types come from the
+# GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+# params (op.<name>.points[].g.params[]). Member types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Ruby types are unenforced; these YARD
 # annotations document the shapes. Do not edit by hand.
@@ -482,11 +482,47 @@ GetChatGiftCreateData = Struct.new(
 
 # GetMe entity data model.
 #
+# @!attribute [rw] business_connection
+#   @return [Hash, nil]
+#
+# @!attribute [rw] business_message
+#   @return [Hash]
+#
+# @!attribute [rw] channel_post
+#   @return [Hash]
+#
+# @!attribute [rw] chosen_inline_result
+#   @return [Hash]
+#
+# @!attribute [rw] deleted_business_messages
+#   @return [Hash, nil]
+#
 # @!attribute [rw] description
 #   @return [String, nil]
 #
+# @!attribute [rw] edited_business_message
+#   @return [Hash]
+#
+# @!attribute [rw] edited_channel_post
+#   @return [Hash]
+#
+# @!attribute [rw] edited_message
+#   @return [Hash]
+#
 # @!attribute [rw] error_code
 #   @return [Integer, nil]
+#
+# @!attribute [rw] inline_query
+#   @return [Hash]
+#
+# @!attribute [rw] message
+#   @return [Hash]
+#
+# @!attribute [rw] message_reaction
+#   @return [Hash, nil]
+#
+# @!attribute [rw] message_reaction_count
+#   @return [Hash, nil]
 #
 # @!attribute [rw] ok
 #   @return [Boolean]
@@ -496,22 +532,74 @@ GetChatGiftCreateData = Struct.new(
 #
 # @!attribute [rw] result
 #   @return [Array, nil]
+#
+# @!attribute [rw] update_id
+#   @return [Integer]
 GetMe = Struct.new(
+  :business_connection,
+  :business_message,
+  :channel_post,
+  :chosen_inline_result,
+  :deleted_business_messages,
   :description,
+  :edited_business_message,
+  :edited_channel_post,
+  :edited_message,
   :error_code,
+  :inline_query,
+  :message,
+  :message_reaction,
+  :message_reaction_count,
   :ok,
   :parameters,
   :result,
+  :update_id,
   keyword_init: true
 )
 
-# Request payload for GetMe#load.
+# Request payload for GetMe#list.
+#
+# @!attribute [rw] business_connection
+#   @return [Hash, nil]
+#
+# @!attribute [rw] business_message
+#   @return [Hash, nil]
+#
+# @!attribute [rw] channel_post
+#   @return [Hash, nil]
+#
+# @!attribute [rw] chosen_inline_result
+#   @return [Hash, nil]
+#
+# @!attribute [rw] deleted_business_messages
+#   @return [Hash, nil]
 #
 # @!attribute [rw] description
 #   @return [String, nil]
 #
+# @!attribute [rw] edited_business_message
+#   @return [Hash, nil]
+#
+# @!attribute [rw] edited_channel_post
+#   @return [Hash, nil]
+#
+# @!attribute [rw] edited_message
+#   @return [Hash, nil]
+#
 # @!attribute [rw] error_code
 #   @return [Integer, nil]
+#
+# @!attribute [rw] inline_query
+#   @return [Hash, nil]
+#
+# @!attribute [rw] message
+#   @return [Hash, nil]
+#
+# @!attribute [rw] message_reaction
+#   @return [Hash, nil]
+#
+# @!attribute [rw] message_reaction_count
+#   @return [Hash, nil]
 #
 # @!attribute [rw] ok
 #   @return [Boolean, nil]
@@ -521,22 +609,74 @@ GetMe = Struct.new(
 #
 # @!attribute [rw] result
 #   @return [Array, nil]
-GetMeLoadMatch = Struct.new(
+#
+# @!attribute [rw] update_id
+#   @return [Integer, nil]
+GetMeListMatch = Struct.new(
+  :business_connection,
+  :business_message,
+  :channel_post,
+  :chosen_inline_result,
+  :deleted_business_messages,
   :description,
+  :edited_business_message,
+  :edited_channel_post,
+  :edited_message,
   :error_code,
+  :inline_query,
+  :message,
+  :message_reaction,
+  :message_reaction_count,
   :ok,
   :parameters,
   :result,
+  :update_id,
   keyword_init: true
 )
 
 # Request payload for GetMe#create.
 #
+# @!attribute [rw] business_connection
+#   @return [Hash, nil]
+#
+# @!attribute [rw] business_message
+#   @return [Hash]
+#
+# @!attribute [rw] channel_post
+#   @return [Hash]
+#
+# @!attribute [rw] chosen_inline_result
+#   @return [Hash]
+#
+# @!attribute [rw] deleted_business_messages
+#   @return [Hash, nil]
+#
 # @!attribute [rw] description
 #   @return [String, nil]
 #
+# @!attribute [rw] edited_business_message
+#   @return [Hash]
+#
+# @!attribute [rw] edited_channel_post
+#   @return [Hash]
+#
+# @!attribute [rw] edited_message
+#   @return [Hash]
+#
 # @!attribute [rw] error_code
 #   @return [Integer, nil]
+#
+# @!attribute [rw] inline_query
+#   @return [Hash]
+#
+# @!attribute [rw] message
+#   @return [Hash]
+#
+# @!attribute [rw] message_reaction
+#   @return [Hash, nil]
+#
+# @!attribute [rw] message_reaction_count
+#   @return [Hash, nil]
 #
 # @!attribute [rw] ok
 #   @return [Boolean]
@@ -546,12 +686,28 @@ GetMeLoadMatch = Struct.new(
 #
 # @!attribute [rw] result
 #   @return [Array, nil]
+#
+# @!attribute [rw] update_id
+#   @return [Integer]
 GetMeCreateData = Struct.new(
+  :business_connection,
+  :business_message,
+  :channel_post,
+  :chosen_inline_result,
+  :deleted_business_messages,
   :description,
+  :edited_business_message,
+  :edited_channel_post,
+  :edited_message,
   :error_code,
+  :inline_query,
+  :message,
+  :message_reaction,
+  :message_reaction_count,
   :ok,
   :parameters,
   :result,
+  :update_id,
   keyword_init: true
 )
 

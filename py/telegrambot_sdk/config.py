@@ -144,43 +144,45 @@ def make_config():
         "fields": [
           {
             "name": "chat_id",
-            "req": True,
+            "title": "Chat Id",
             "type": "`$STRING`",
-            "union": {
-              "branches": 2,
-              "count": 1,
-              "depth": 0,
-            },
+            "req": True,
           },
           {
             "name": "description",
-            "short": "Human-readable description of the result",
+            "title": "Description",
             "type": "`$STRING`",
+            "short": "Human-readable description of the result",
           },
           {
             "name": "error_code",
-            "short": "Error code",
+            "title": "Error Code",
             "type": "`$INTEGER`",
+            "short": "Error code",
           },
           {
             "name": "message_id",
-            "req": True,
+            "title": "Message Id",
             "type": "`$INTEGER`",
+            "req": True,
           },
           {
             "name": "ok",
+            "title": "Ok",
+            "type": "`$BOOLEAN`",
             "req": True,
             "short": "If true, the request was successful",
-            "type": "`$BOOLEAN`",
           },
           {
             "name": "parameters",
+            "title": "Parameters",
             "type": "`$OBJECT`",
           },
           {
             "name": "result",
-            "short": "The result of the query",
+            "title": "Result",
             "type": "`$ARRAY`",
+            "short": "The result of the query",
           },
         ],
         "name": "approve_suggested_post",
@@ -190,7 +192,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/approveSuggestedPost",
@@ -199,14 +200,16 @@ def make_config():
                     "lit": "approveSuggestedPost",
                   },
                 ],
-                "select": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.parameters`",
-                },
                 "parts": [
                   "approveSuggestedPost",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -219,43 +222,45 @@ def make_config():
         "fields": [
           {
             "name": "chat_id",
-            "req": True,
+            "title": "Chat Id",
             "type": "`$STRING`",
-            "union": {
-              "branches": 2,
-              "count": 1,
-              "depth": 0,
-            },
+            "req": True,
           },
           {
             "name": "description",
-            "short": "Human-readable description of the result",
+            "title": "Description",
             "type": "`$STRING`",
+            "short": "Human-readable description of the result",
           },
           {
             "name": "error_code",
-            "short": "Error code",
+            "title": "Error Code",
             "type": "`$INTEGER`",
+            "short": "Error code",
           },
           {
             "name": "message_id",
-            "req": True,
+            "title": "Message Id",
             "type": "`$INTEGER`",
+            "req": True,
           },
           {
             "name": "ok",
+            "title": "Ok",
+            "type": "`$BOOLEAN`",
             "req": True,
             "short": "If true, the request was successful",
-            "type": "`$BOOLEAN`",
           },
           {
             "name": "parameters",
+            "title": "Parameters",
             "type": "`$OBJECT`",
           },
           {
             "name": "result",
-            "short": "The result of the query",
+            "title": "Result",
             "type": "`$ARRAY`",
+            "short": "The result of the query",
           },
         ],
         "name": "decline_suggested_post",
@@ -265,7 +270,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/declineSuggestedPost",
@@ -274,14 +278,16 @@ def make_config():
                     "lit": "declineSuggestedPost",
                   },
                 ],
-                "select": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.parameters`",
-                },
                 "parts": [
                   "declineSuggestedPost",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -294,43 +300,45 @@ def make_config():
         "fields": [
           {
             "name": "chat_id",
-            "req": True,
+            "title": "Chat Id",
             "type": "`$STRING`",
-            "union": {
-              "branches": 2,
-              "count": 1,
-              "depth": 0,
-            },
+            "req": True,
           },
           {
             "name": "description",
-            "short": "Human-readable description of the result",
+            "title": "Description",
             "type": "`$STRING`",
+            "short": "Human-readable description of the result",
           },
           {
             "name": "error_code",
-            "short": "Error code",
+            "title": "Error Code",
             "type": "`$INTEGER`",
+            "short": "Error code",
           },
           {
             "name": "message_thread_id",
-            "req": True,
+            "title": "Message Thread Id",
             "type": "`$INTEGER`",
+            "req": True,
           },
           {
             "name": "ok",
+            "title": "Ok",
+            "type": "`$BOOLEAN`",
             "req": True,
             "short": "If true, the request was successful",
-            "type": "`$BOOLEAN`",
           },
           {
             "name": "parameters",
+            "title": "Parameters",
             "type": "`$OBJECT`",
           },
           {
             "name": "result",
-            "short": "The result of the query",
+            "title": "Result",
             "type": "`$ARRAY`",
+            "short": "The result of the query",
           },
         ],
         "name": "delete_forum_topic",
@@ -340,7 +348,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/deleteForumTopic",
@@ -349,14 +356,16 @@ def make_config():
                     "lit": "deleteForumTopic",
                   },
                 ],
-                "select": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.parameters`",
-                },
                 "parts": [
                   "deleteForumTopic",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -369,51 +378,55 @@ def make_config():
         "fields": [
           {
             "name": "chat_id",
-            "req": True,
+            "title": "Chat Id",
             "type": "`$STRING`",
-            "union": {
-              "branches": 2,
-              "count": 1,
-              "depth": 0,
-            },
+            "req": True,
           },
           {
             "name": "description",
-            "short": "Human-readable description of the result",
+            "title": "Description",
             "type": "`$STRING`",
+            "short": "Human-readable description of the result",
           },
           {
             "name": "error_code",
-            "short": "Error code",
+            "title": "Error Code",
             "type": "`$INTEGER`",
+            "short": "Error code",
           },
           {
             "name": "icon_custom_emoji_id",
+            "title": "Icon Custom Emoji Id",
             "type": "`$STRING`",
           },
           {
             "name": "message_thread_id",
-            "req": True,
+            "title": "Message Thread Id",
             "type": "`$INTEGER`",
+            "req": True,
           },
           {
             "name": "name",
+            "title": "Name",
             "type": "`$STRING`",
           },
           {
             "name": "ok",
+            "title": "Ok",
+            "type": "`$BOOLEAN`",
             "req": True,
             "short": "If true, the request was successful",
-            "type": "`$BOOLEAN`",
           },
           {
             "name": "parameters",
+            "title": "Parameters",
             "type": "`$OBJECT`",
           },
           {
             "name": "result",
-            "short": "The result of the query",
+            "title": "Result",
             "type": "`$ARRAY`",
+            "short": "The result of the query",
           },
         ],
         "name": "edit_forum_topic",
@@ -423,7 +436,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/editForumTopic",
@@ -432,14 +444,16 @@ def make_config():
                     "lit": "editForumTopic",
                   },
                 ],
-                "select": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.parameters`",
-                },
                 "parts": [
                   "editForumTopic",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -452,8 +466,9 @@ def make_config():
         "fields": [
           {
             "name": "file_id",
-            "req": True,
+            "title": "File Id",
             "type": "`$STRING`",
+            "req": True,
           },
         ],
         "name": "file",
@@ -463,7 +478,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/getFile",
@@ -472,14 +486,16 @@ def make_config():
                     "lit": "getFile",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "getFile",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "getFile",
-                ],
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -492,26 +508,25 @@ def make_config():
         "fields": [
           {
             "name": "chat_id",
-            "req": True,
+            "title": "Chat Id",
             "type": "`$STRING`",
-            "union": {
-              "branches": 2,
-              "count": 1,
-              "depth": 0,
-            },
+            "req": True,
           },
           {
             "name": "icon_color",
+            "title": "Icon Color",
             "type": "`$INTEGER`",
           },
           {
             "name": "icon_custom_emoji_id",
+            "title": "Icon Custom Emoji Id",
             "type": "`$STRING`",
           },
           {
             "name": "name",
-            "req": True,
+            "title": "Name",
             "type": "`$STRING`",
+            "req": True,
           },
         ],
         "name": "forum_topic",
@@ -521,7 +536,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/createForumTopic",
@@ -530,14 +544,16 @@ def make_config():
                     "lit": "createForumTopic",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "createForumTopic",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "createForumTopic",
-                ],
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -550,40 +566,48 @@ def make_config():
         "fields": [
           {
             "name": "description",
-            "short": "Human-readable description of the result",
+            "title": "Description",
             "type": "`$STRING`",
+            "short": "Human-readable description of the result",
           },
           {
             "name": "error_code",
-            "short": "Error code",
+            "title": "Error Code",
             "type": "`$INTEGER`",
+            "short": "Error code",
           },
           {
             "name": "exclude_from_blockchain",
+            "title": "Exclude From Blockchain",
             "type": "`$BOOLEAN`",
           },
           {
             "name": "exclude_limited_non_upgradable",
+            "title": "Exclude Limited Non Upgradable",
             "type": "`$BOOLEAN`",
           },
           {
             "name": "exclude_limited_upgradable",
+            "title": "Exclude Limited Upgradable",
             "type": "`$BOOLEAN`",
           },
           {
             "name": "ok",
+            "title": "Ok",
+            "type": "`$BOOLEAN`",
             "req": True,
             "short": "If true, the request was successful",
-            "type": "`$BOOLEAN`",
           },
           {
             "name": "parameters",
+            "title": "Parameters",
             "type": "`$OBJECT`",
           },
           {
             "name": "result",
-            "short": "The result of the query",
+            "title": "Result",
             "type": "`$ARRAY`",
+            "short": "The result of the query",
           },
         ],
         "name": "get_business_account_gift",
@@ -593,7 +617,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/getBusinessAccountGifts",
@@ -602,14 +625,16 @@ def make_config():
                     "lit": "getBusinessAccountGifts",
                   },
                 ],
-                "select": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.parameters`",
-                },
                 "parts": [
                   "getBusinessAccountGifts",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -622,38 +647,39 @@ def make_config():
         "fields": [
           {
             "name": "chat_id",
-            "req": True,
+            "title": "Chat Id",
             "type": "`$STRING`",
-            "union": {
-              "branches": 2,
-              "count": 1,
-              "depth": 0,
-            },
+            "req": True,
           },
           {
             "name": "description",
-            "short": "Human-readable description of the result",
+            "title": "Description",
             "type": "`$STRING`",
+            "short": "Human-readable description of the result",
           },
           {
             "name": "error_code",
-            "short": "Error code",
+            "title": "Error Code",
             "type": "`$INTEGER`",
+            "short": "Error code",
           },
           {
             "name": "ok",
+            "title": "Ok",
+            "type": "`$BOOLEAN`",
             "req": True,
             "short": "If true, the request was successful",
-            "type": "`$BOOLEAN`",
           },
           {
             "name": "parameters",
+            "title": "Parameters",
             "type": "`$OBJECT`",
           },
           {
             "name": "result",
-            "short": "The result of the query",
+            "title": "Result",
             "type": "`$ARRAY`",
+            "short": "The result of the query",
           },
         ],
         "name": "get_chat_gift",
@@ -663,7 +689,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/getChatGifts",
@@ -672,14 +697,16 @@ def make_config():
                     "lit": "getChatGifts",
                   },
                 ],
-                "select": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.parameters`",
-                },
                 "parts": [
                   "getChatGifts",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -691,29 +718,109 @@ def make_config():
       "get_me": {
         "fields": [
           {
+            "name": "business_connection",
+            "title": "Business Connection",
+            "type": "`$OBJECT`",
+          },
+          {
+            "name": "business_message",
+            "title": "Business Message",
+            "type": "`$OBJECT`",
+            "req": True,
+          },
+          {
+            "name": "channel_post",
+            "title": "Channel Post",
+            "type": "`$OBJECT`",
+            "req": True,
+          },
+          {
+            "name": "chosen_inline_result",
+            "title": "Chosen Inline Result",
+            "type": "`$OBJECT`",
+            "req": True,
+          },
+          {
+            "name": "deleted_business_messages",
+            "title": "Deleted Business Messages",
+            "type": "`$OBJECT`",
+          },
+          {
             "name": "description",
-            "short": "Human-readable description of the result",
+            "title": "Description",
             "type": "`$STRING`",
+            "short": "Human-readable description of the result",
+          },
+          {
+            "name": "edited_business_message",
+            "title": "Edited Business Message",
+            "type": "`$OBJECT`",
+            "req": True,
+          },
+          {
+            "name": "edited_channel_post",
+            "title": "Edited Channel Post",
+            "type": "`$OBJECT`",
+            "req": True,
+          },
+          {
+            "name": "edited_message",
+            "title": "Edited Message",
+            "type": "`$OBJECT`",
+            "req": True,
           },
           {
             "name": "error_code",
-            "short": "Error code",
+            "title": "Error Code",
             "type": "`$INTEGER`",
+            "short": "Error code",
+          },
+          {
+            "name": "inline_query",
+            "title": "Inline Query",
+            "type": "`$OBJECT`",
+            "req": True,
+          },
+          {
+            "name": "message",
+            "title": "Message",
+            "type": "`$OBJECT`",
+            "req": True,
+          },
+          {
+            "name": "message_reaction",
+            "title": "Message Reaction",
+            "type": "`$OBJECT`",
+          },
+          {
+            "name": "message_reaction_count",
+            "title": "Message Reaction Count",
+            "type": "`$OBJECT`",
           },
           {
             "name": "ok",
+            "title": "Ok",
+            "type": "`$BOOLEAN`",
             "req": True,
             "short": "If true, the request was successful",
-            "type": "`$BOOLEAN`",
           },
           {
             "name": "parameters",
+            "title": "Parameters",
             "type": "`$OBJECT`",
           },
           {
             "name": "result",
-            "short": "The result of the query",
+            "title": "Result",
             "type": "`$ARRAY`",
+            "short": "The result of the query",
+          },
+          {
+            "name": "update_id",
+            "title": "Update Id",
+            "type": "`$INTEGER`",
+            "req": True,
+            "short": "The update's unique identifier",
           },
         ],
         "name": "get_me",
@@ -723,7 +830,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/getMe",
@@ -732,23 +838,24 @@ def make_config():
                     "lit": "getMe",
                   },
                 ],
-                "select": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.parameters`",
-                },
                 "parts": [
                   "getMe",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {},
+                "select": {},
               },
             ],
           },
-          "load": {
+          "list": {
             "input": "data",
-            "name": "load",
+            "name": "list",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/getMe",
@@ -757,14 +864,16 @@ def make_config():
                     "lit": "getMe",
                   },
                 ],
-                "select": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.parameters`",
-                },
                 "parts": [
                   "getMe",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -777,33 +886,39 @@ def make_config():
         "fields": [
           {
             "name": "description",
-            "short": "Human-readable description of the result",
+            "title": "Description",
             "type": "`$STRING`",
+            "short": "Human-readable description of the result",
           },
           {
             "name": "error_code",
-            "short": "Error code",
+            "title": "Error Code",
             "type": "`$INTEGER`",
+            "short": "Error code",
           },
           {
             "name": "ok",
+            "title": "Ok",
+            "type": "`$BOOLEAN`",
             "req": True,
             "short": "If true, the request was successful",
-            "type": "`$BOOLEAN`",
           },
           {
             "name": "parameters",
+            "title": "Parameters",
             "type": "`$OBJECT`",
           },
           {
             "name": "result",
-            "short": "The result of the query",
+            "title": "Result",
             "type": "`$ARRAY`",
+            "short": "The result of the query",
           },
           {
             "name": "user_id",
-            "req": True,
+            "title": "User Id",
             "type": "`$INTEGER`",
+            "req": True,
           },
         ],
         "name": "get_user_gift",
@@ -813,7 +928,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/getUserGifts",
@@ -822,14 +936,16 @@ def make_config():
                     "lit": "getUserGifts",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "getUserGifts",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "getUserGifts",
-                ],
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -842,33 +958,39 @@ def make_config():
         "fields": [
           {
             "name": "description",
-            "short": "Human-readable description of the result",
+            "title": "Description",
             "type": "`$STRING`",
+            "short": "Human-readable description of the result",
           },
           {
             "name": "error_code",
-            "short": "Error code",
+            "title": "Error Code",
             "type": "`$INTEGER`",
+            "short": "Error code",
           },
           {
             "name": "ok",
+            "title": "Ok",
+            "type": "`$BOOLEAN`",
             "req": True,
             "short": "If true, the request was successful",
-            "type": "`$BOOLEAN`",
           },
           {
             "name": "parameters",
+            "title": "Parameters",
             "type": "`$OBJECT`",
           },
           {
             "name": "result",
-            "short": "The result of the query",
+            "title": "Result",
             "type": "`$ARRAY`",
+            "short": "The result of the query",
           },
           {
             "name": "user_id",
-            "req": True,
+            "title": "User Id",
             "type": "`$INTEGER`",
+            "req": True,
           },
         ],
         "name": "get_user_profile_audio",
@@ -878,7 +1000,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/getUserProfileAudios",
@@ -887,14 +1008,16 @@ def make_config():
                     "lit": "getUserProfileAudios",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "getUserProfileAudios",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "getUserProfileAudios",
-                ],
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -907,97 +1030,103 @@ def make_config():
         "fields": [
           {
             "name": "chat_id",
+            "title": "Chat Id",
+            "type": "`$STRING`",
             "req": True,
             "short": "Unique identifier for the target chat or username",
-            "type": "`$STRING`",
-            "union": {
-              "branches": 2,
-              "count": 1,
-              "depth": 0,
-            },
           },
           {
             "name": "direct_messages_topic_id",
-            "short": "Unique identifier for the target direct messages topic",
+            "title": "Direct Messages Topic Id",
             "type": "`$INTEGER`",
+            "short": "Unique identifier for the target direct messages topic",
           },
           {
             "name": "disable_notification",
-            "short": "Sends the message silently",
+            "title": "Disable Notification",
             "type": "`$BOOLEAN`",
+            "short": "Sends the message silently",
           },
           {
             "name": "disable_web_page_preview",
-            "short": "Disables link previews for links in this message",
+            "title": "Disable Web Page Preview",
             "type": "`$BOOLEAN`",
+            "short": "Disables link previews for links in this message",
           },
           {
             "name": "from_chat_id",
-            "req": True,
+            "title": "From Chat Id",
             "type": "`$STRING`",
-            "union": {
-              "branches": 2,
-              "count": 1,
-              "depth": 0,
-            },
+            "req": True,
           },
           {
-            "format": "float",
             "name": "latitude",
-            "req": True,
+            "title": "Latitude",
             "type": "`$NUMBER`",
+            "req": True,
+            "format": "float",
           },
           {
-            "format": "float",
             "name": "longitude",
-            "req": True,
+            "title": "Longitude",
             "type": "`$NUMBER`",
+            "req": True,
+            "format": "float",
           },
           {
             "name": "message_effect_id",
-            "short": "Unique identifier of the message effect to be added to the message",
+            "title": "Message Effect Id",
             "type": "`$STRING`",
+            "short": "Unique identifier of the message effect to be added to the message",
           },
           {
             "name": "message_id",
-            "req": True,
+            "title": "Message Id",
             "type": "`$INTEGER`",
+            "req": True,
           },
           {
             "name": "message_thread_id",
-            "short": "Unique identifier for the target message thread (topic) of the forum",
+            "title": "Message Thread Id",
             "type": "`$INTEGER`",
+            "short": "Unique identifier for the target message thread (topic) of the forum",
           },
           {
             "name": "options",
-            "req": True,
+            "title": "Options",
             "type": "`$ARRAY`",
+            "req": True,
           },
           {
             "name": "parse_mode",
-            "short": "Mode for parsing entities in the message text",
+            "title": "Parse Mode",
             "type": "`$STRING`",
+            "short": "Mode for parsing entities in the message text",
           },
           {
             "name": "protect_content",
-            "short": "Protects the contents of the sent message from forwarding and saving",
+            "title": "Protect Content",
             "type": "`$BOOLEAN`",
+            "short": "Protects the contents of the sent message from forwarding and saving",
           },
           {
             "name": "question",
-            "req": True,
+            "title": "Question",
             "type": "`$STRING`",
+            "req": True,
           },
           {
             "name": "reply_to_message_id",
-            "short": "If the message is a reply, ID of the original message",
+            "title": "Reply To Message Id",
             "type": "`$INTEGER`",
+            "short": "If the message is a reply, ID of the original message",
           },
           {
             "name": "text",
+            "title": "Text",
+            "type": "`$STRING`",
             "req": True,
             "short": "Text of the message to be sent",
-            "type": "`$STRING`",
           },
         ],
         "name": "message",
@@ -1007,7 +1136,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/forwardMessage",
@@ -1016,17 +1144,18 @@ def make_config():
                     "lit": "forwardMessage",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "forwardMessage",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "forwardMessage",
-                ],
+                "args": {},
+                "select": {},
               },
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/sendAnimation",
@@ -1035,17 +1164,18 @@ def make_config():
                     "lit": "sendAnimation",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "sendAnimation",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "sendAnimation",
-                ],
+                "args": {},
+                "select": {},
               },
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/sendAudio",
@@ -1054,17 +1184,18 @@ def make_config():
                     "lit": "sendAudio",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "sendAudio",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "sendAudio",
-                ],
+                "args": {},
+                "select": {},
               },
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/sendDocument",
@@ -1073,17 +1204,18 @@ def make_config():
                     "lit": "sendDocument",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "sendDocument",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "sendDocument",
-                ],
+                "args": {},
+                "select": {},
               },
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/sendLocation",
@@ -1092,17 +1224,18 @@ def make_config():
                     "lit": "sendLocation",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "sendLocation",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "sendLocation",
-                ],
+                "args": {},
+                "select": {},
               },
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/sendMessage",
@@ -1111,17 +1244,18 @@ def make_config():
                     "lit": "sendMessage",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "sendMessage",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "sendMessage",
-                ],
+                "args": {},
+                "select": {},
               },
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/sendPhoto",
@@ -1130,17 +1264,18 @@ def make_config():
                     "lit": "sendPhoto",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "sendPhoto",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "sendPhoto",
-                ],
+                "args": {},
+                "select": {},
               },
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/sendPoll",
@@ -1149,17 +1284,18 @@ def make_config():
                     "lit": "sendPoll",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "sendPoll",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "sendPoll",
-                ],
+                "args": {},
+                "select": {},
               },
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/sendSticker",
@@ -1168,17 +1304,18 @@ def make_config():
                     "lit": "sendSticker",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "sendSticker",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "sendSticker",
-                ],
+                "args": {},
+                "select": {},
               },
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/sendVideo",
@@ -1187,14 +1324,16 @@ def make_config():
                     "lit": "sendVideo",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "sendVideo",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "sendVideo",
-                ],
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -1207,39 +1346,35 @@ def make_config():
         "fields": [
           {
             "name": "chat_id",
-            "req": True,
+            "title": "Chat Id",
             "type": "`$STRING`",
-            "union": {
-              "branches": 2,
-              "count": 1,
-              "depth": 0,
-            },
+            "req": True,
           },
           {
             "name": "direct_messages_topic_id",
+            "title": "Direct Messages Topic Id",
             "type": "`$INTEGER`",
           },
           {
             "name": "from_chat_id",
-            "req": True,
+            "title": "From Chat Id",
             "type": "`$STRING`",
-            "union": {
-              "branches": 2,
-              "count": 1,
-              "depth": 0,
-            },
+            "req": True,
           },
           {
             "name": "message_effect_id",
+            "title": "Message Effect Id",
             "type": "`$STRING`",
           },
           {
             "name": "message_id",
-            "req": True,
+            "title": "Message Id",
             "type": "`$INTEGER`",
+            "req": True,
           },
           {
             "name": "message_thread_id",
+            "title": "Message Thread Id",
             "type": "`$INTEGER`",
           },
         ],
@@ -1250,7 +1385,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/copyMessage",
@@ -1259,16 +1393,18 @@ def make_config():
                     "lit": "copyMessage",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "copyMessage",
+                ],
+                "rename": {},
                 "transform": {
                   "req": {
                     "message_id": "`reqdata`",
                   },
                   "res": "`body`",
                 },
-                "parts": [
-                  "copyMessage",
-                ],
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -1281,63 +1417,70 @@ def make_config():
         "fields": [
           {
             "name": "can_delete_messages",
+            "title": "Can Delete Messages",
             "type": "`$BOOLEAN`",
           },
           {
             "name": "can_edit_messages",
+            "title": "Can Edit Messages",
             "type": "`$BOOLEAN`",
           },
           {
             "name": "can_manage_chat",
+            "title": "Can Manage Chat",
             "type": "`$BOOLEAN`",
           },
           {
             "name": "can_manage_direct_messages",
+            "title": "Can Manage Direct Messages",
             "type": "`$BOOLEAN`",
           },
           {
             "name": "can_post_messages",
+            "title": "Can Post Messages",
             "type": "`$BOOLEAN`",
           },
           {
             "name": "chat_id",
-            "req": True,
+            "title": "Chat Id",
             "type": "`$STRING`",
-            "union": {
-              "branches": 2,
-              "count": 1,
-              "depth": 0,
-            },
+            "req": True,
           },
           {
             "name": "description",
-            "short": "Human-readable description of the result",
+            "title": "Description",
             "type": "`$STRING`",
+            "short": "Human-readable description of the result",
           },
           {
             "name": "error_code",
-            "short": "Error code",
+            "title": "Error Code",
             "type": "`$INTEGER`",
+            "short": "Error code",
           },
           {
             "name": "ok",
+            "title": "Ok",
+            "type": "`$BOOLEAN`",
             "req": True,
             "short": "If true, the request was successful",
-            "type": "`$BOOLEAN`",
           },
           {
             "name": "parameters",
+            "title": "Parameters",
             "type": "`$OBJECT`",
           },
           {
             "name": "result",
-            "short": "The result of the query",
+            "title": "Result",
             "type": "`$ARRAY`",
+            "short": "The result of the query",
           },
           {
             "name": "user_id",
-            "req": True,
+            "title": "User Id",
             "type": "`$INTEGER`",
+            "req": True,
           },
         ],
         "name": "promote_chat_member",
@@ -1347,7 +1490,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/promoteChatMember",
@@ -1356,14 +1498,16 @@ def make_config():
                     "lit": "promoteChatMember",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "promoteChatMember",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "promoteChatMember",
-                ],
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -1376,28 +1520,33 @@ def make_config():
         "fields": [
           {
             "name": "description",
-            "short": "Human-readable description of the result",
+            "title": "Description",
             "type": "`$STRING`",
+            "short": "Human-readable description of the result",
           },
           {
             "name": "error_code",
-            "short": "Error code",
+            "title": "Error Code",
             "type": "`$INTEGER`",
+            "short": "Error code",
           },
           {
             "name": "ok",
+            "title": "Ok",
+            "type": "`$BOOLEAN`",
             "req": True,
             "short": "If true, the request was successful",
-            "type": "`$BOOLEAN`",
           },
           {
             "name": "parameters",
+            "title": "Parameters",
             "type": "`$OBJECT`",
           },
           {
             "name": "result",
-            "short": "The result of the query",
+            "title": "Result",
             "type": "`$ARRAY`",
+            "short": "The result of the query",
           },
         ],
         "name": "remove_my_profile_photo",
@@ -1407,7 +1556,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/removeMyProfilePhoto",
@@ -1416,14 +1564,16 @@ def make_config():
                     "lit": "removeMyProfilePhoto",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "removeMyProfilePhoto",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "removeMyProfilePhoto",
-                ],
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -1436,43 +1586,45 @@ def make_config():
         "fields": [
           {
             "name": "chat_id",
-            "req": True,
+            "title": "Chat Id",
             "type": "`$STRING`",
-            "union": {
-              "branches": 2,
-              "count": 1,
-              "depth": 0,
-            },
+            "req": True,
           },
           {
             "name": "description",
-            "short": "Human-readable description of the result",
+            "title": "Description",
             "type": "`$STRING`",
+            "short": "Human-readable description of the result",
           },
           {
             "name": "error_code",
-            "short": "Error code",
+            "title": "Error Code",
             "type": "`$INTEGER`",
+            "short": "Error code",
           },
           {
             "name": "ok",
+            "title": "Ok",
+            "type": "`$BOOLEAN`",
             "req": True,
             "short": "If true, the request was successful",
-            "type": "`$BOOLEAN`",
           },
           {
             "name": "parameters",
+            "title": "Parameters",
             "type": "`$OBJECT`",
           },
           {
             "name": "result",
-            "short": "The result of the query",
+            "title": "Result",
             "type": "`$ARRAY`",
+            "short": "The result of the query",
           },
           {
             "name": "story_id",
-            "req": True,
+            "title": "Story Id",
             "type": "`$INTEGER`",
+            "req": True,
           },
         ],
         "name": "repost_story",
@@ -1482,7 +1634,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/repostStory",
@@ -1491,14 +1642,16 @@ def make_config():
                     "lit": "repostStory",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "repostStory",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "repostStory",
-                ],
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -1511,47 +1664,50 @@ def make_config():
         "fields": [
           {
             "name": "action",
-            "req": True,
+            "title": "Action",
             "type": "`$STRING`",
+            "req": True,
           },
           {
             "name": "chat_id",
-            "req": True,
+            "title": "Chat Id",
             "type": "`$STRING`",
-            "union": {
-              "branches": 2,
-              "count": 1,
-              "depth": 0,
-            },
+            "req": True,
           },
           {
             "name": "description",
-            "short": "Human-readable description of the result",
+            "title": "Description",
             "type": "`$STRING`",
+            "short": "Human-readable description of the result",
           },
           {
             "name": "error_code",
-            "short": "Error code",
+            "title": "Error Code",
             "type": "`$INTEGER`",
+            "short": "Error code",
           },
           {
             "name": "message_thread_id",
+            "title": "Message Thread Id",
             "type": "`$INTEGER`",
           },
           {
             "name": "ok",
+            "title": "Ok",
+            "type": "`$BOOLEAN`",
             "req": True,
             "short": "If true, the request was successful",
-            "type": "`$BOOLEAN`",
           },
           {
             "name": "parameters",
+            "title": "Parameters",
             "type": "`$OBJECT`",
           },
           {
             "name": "result",
-            "short": "The result of the query",
+            "title": "Result",
             "type": "`$ARRAY`",
+            "short": "The result of the query",
           },
         ],
         "name": "send_chat_action",
@@ -1561,7 +1717,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/sendChatAction",
@@ -1570,14 +1725,16 @@ def make_config():
                     "lit": "sendChatAction",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "sendChatAction",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "sendChatAction",
-                ],
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -1590,47 +1747,50 @@ def make_config():
         "fields": [
           {
             "name": "chat_id",
-            "req": True,
+            "title": "Chat Id",
             "type": "`$STRING`",
-            "union": {
-              "branches": 2,
-              "count": 1,
-              "depth": 0,
-            },
+            "req": True,
           },
           {
             "name": "description",
-            "short": "Human-readable description of the result",
+            "title": "Description",
             "type": "`$STRING`",
+            "short": "Human-readable description of the result",
           },
           {
             "name": "error_code",
-            "short": "Error code",
+            "title": "Error Code",
             "type": "`$INTEGER`",
+            "short": "Error code",
           },
           {
             "name": "message_thread_id",
+            "title": "Message Thread Id",
             "type": "`$INTEGER`",
           },
           {
             "name": "ok",
+            "title": "Ok",
+            "type": "`$BOOLEAN`",
             "req": True,
             "short": "If true, the request was successful",
-            "type": "`$BOOLEAN`",
           },
           {
             "name": "parameters",
+            "title": "Parameters",
             "type": "`$OBJECT`",
           },
           {
             "name": "result",
-            "short": "The result of the query",
+            "title": "Result",
             "type": "`$ARRAY`",
+            "short": "The result of the query",
           },
           {
             "name": "text",
-            "req": True,
+            "title": "Text",
             "type": "`$STRING`",
+            "req": True,
           },
         ],
         "name": "send_message_draft",
@@ -1640,7 +1800,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/sendMessageDraft",
@@ -1649,14 +1808,16 @@ def make_config():
                     "lit": "sendMessageDraft",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "sendMessageDraft",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "sendMessageDraft",
-                ],
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -1669,28 +1830,33 @@ def make_config():
         "fields": [
           {
             "name": "description",
-            "short": "Human-readable description of the result",
+            "title": "Description",
             "type": "`$STRING`",
+            "short": "Human-readable description of the result",
           },
           {
             "name": "error_code",
-            "short": "Error code",
+            "title": "Error Code",
             "type": "`$INTEGER`",
+            "short": "Error code",
           },
           {
             "name": "ok",
+            "title": "Ok",
+            "type": "`$BOOLEAN`",
             "req": True,
             "short": "If true, the request was successful",
-            "type": "`$BOOLEAN`",
           },
           {
             "name": "parameters",
+            "title": "Parameters",
             "type": "`$OBJECT`",
           },
           {
             "name": "result",
-            "short": "The result of the query",
+            "title": "Result",
             "type": "`$ARRAY`",
+            "short": "The result of the query",
           },
         ],
         "name": "set_my_profile_photo",
@@ -1700,7 +1866,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/setMyProfilePhoto",
@@ -1709,14 +1874,16 @@ def make_config():
                     "lit": "setMyProfilePhoto",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "setMyProfilePhoto",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "setMyProfilePhoto",
-                ],
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -1729,43 +1896,45 @@ def make_config():
         "fields": [
           {
             "name": "chat_id",
-            "req": True,
+            "title": "Chat Id",
             "type": "`$STRING`",
-            "union": {
-              "branches": 2,
-              "count": 1,
-              "depth": 0,
-            },
+            "req": True,
           },
           {
             "name": "description",
-            "short": "Human-readable description of the result",
+            "title": "Description",
             "type": "`$STRING`",
+            "short": "Human-readable description of the result",
           },
           {
             "name": "error_code",
-            "short": "Error code",
+            "title": "Error Code",
             "type": "`$INTEGER`",
+            "short": "Error code",
           },
           {
             "name": "message_thread_id",
-            "req": True,
+            "title": "Message Thread Id",
             "type": "`$INTEGER`",
+            "req": True,
           },
           {
             "name": "ok",
+            "title": "Ok",
+            "type": "`$BOOLEAN`",
             "req": True,
             "short": "If true, the request was successful",
-            "type": "`$BOOLEAN`",
           },
           {
             "name": "parameters",
+            "title": "Parameters",
             "type": "`$OBJECT`",
           },
           {
             "name": "result",
-            "short": "The result of the query",
+            "title": "Result",
             "type": "`$ARRAY`",
+            "short": "The result of the query",
           },
         ],
         "name": "unpin_all_forum_topic_message",
@@ -1775,7 +1944,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/unpinAllForumTopicMessages",
@@ -1784,14 +1952,16 @@ def make_config():
                     "lit": "unpinAllForumTopicMessages",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "unpinAllForumTopicMessages",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "unpinAllForumTopicMessages",
-                ],
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -1804,43 +1974,52 @@ def make_config():
         "fields": [
           {
             "name": "allowed_updates",
+            "title": "Allowed Updates",
             "type": "`$ARRAY`",
           },
           {
             "name": "description",
-            "short": "Human-readable description of the result",
+            "title": "Description",
             "type": "`$STRING`",
+            "short": "Human-readable description of the result",
           },
           {
             "name": "error_code",
-            "short": "Error code",
+            "title": "Error Code",
             "type": "`$INTEGER`",
+            "short": "Error code",
           },
           {
             "name": "limit",
+            "title": "Limit",
             "type": "`$INTEGER`",
           },
           {
             "name": "offset",
+            "title": "Offset",
             "type": "`$INTEGER`",
           },
           {
             "name": "ok",
+            "title": "Ok",
+            "type": "`$BOOLEAN`",
             "req": True,
             "short": "If true, the request was successful",
-            "type": "`$BOOLEAN`",
           },
           {
             "name": "parameters",
+            "title": "Parameters",
             "type": "`$OBJECT`",
           },
           {
             "name": "result",
-            "short": "The result of the query",
+            "title": "Result",
             "type": "`$ARRAY`",
+            "short": "The result of the query",
           },
           {
             "name": "timeout",
+            "title": "Timeout",
             "type": "`$INTEGER`",
           },
         ],
@@ -1851,7 +2030,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/getUpdates",
@@ -1860,14 +2038,16 @@ def make_config():
                     "lit": "getUpdates",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "getUpdates",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "getUpdates",
-                ],
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -1876,36 +2056,6 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "args": {
-                  "query": [
-                    {
-                      "kind": "query",
-                      "name": "allowed_update",
-                      "orig": "allowed_update",
-                      "type": "`$ARRAY`",
-                    },
-                    {
-                      "example": 100,
-                      "kind": "query",
-                      "name": "limit",
-                      "orig": "limit",
-                      "type": "`$INTEGER`",
-                    },
-                    {
-                      "kind": "query",
-                      "name": "offset",
-                      "orig": "offset",
-                      "type": "`$INTEGER`",
-                    },
-                    {
-                      "example": 0,
-                      "kind": "query",
-                      "name": "timeout",
-                      "orig": "timeout",
-                      "type": "`$INTEGER`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/getUpdates",
@@ -1914,6 +2064,44 @@ def make_config():
                     "lit": "getUpdates",
                   },
                 ],
+                "parts": [
+                  "getUpdates",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "allowed_update",
+                      "orig": "allowed_update",
+                      "type": "`$ARRAY`",
+                      "kind": "query",
+                    },
+                    {
+                      "name": "limit",
+                      "orig": "limit",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 100,
+                    },
+                    {
+                      "name": "offset",
+                      "orig": "offset",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                    },
+                    {
+                      "name": "timeout",
+                      "orig": "timeout",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 0,
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "allowed_update",
@@ -1922,13 +2110,6 @@ def make_config():
                     "timeout",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "parts": [
-                  "getUpdates",
-                ],
               },
             ],
           },

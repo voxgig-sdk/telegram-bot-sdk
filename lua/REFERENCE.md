@@ -654,11 +654,24 @@ local get_me = client:GetMe(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `business_connection` | `table` | No |  |
+| `business_message` | `table` | Yes |  |
+| `channel_post` | `table` | Yes |  |
+| `chosen_inline_result` | `table` | Yes |  |
+| `deleted_business_messages` | `table` | No |  |
 | `description` | `string` | No | Human-readable description of the result |
+| `edited_business_message` | `table` | Yes |  |
+| `edited_channel_post` | `table` | Yes |  |
+| `edited_message` | `table` | Yes |  |
 | `error_code` | `number` | No | Error code |
+| `inline_query` | `table` | Yes |  |
+| `message` | `table` | Yes |  |
+| `message_reaction` | `table` | No |  |
+| `message_reaction_count` | `table` | No |  |
 | `ok` | `boolean` | Yes | If true, the request was successful |
 | `parameters` | `table` | No |  |
 | `result` | `table` | No | The result of the query |
+| `update_id` | `number` | Yes | The update's unique identifier |
 
 ### Operations
 
@@ -668,16 +681,25 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:GetMe():create({
+  business_message = --[[ table ]],
+  channel_post = --[[ table ]],
+  chosen_inline_result = --[[ table ]],
+  edited_business_message = --[[ table ]],
+  edited_channel_post = --[[ table ]],
+  edited_message = --[[ table ]],
+  inline_query = --[[ table ]],
+  message = --[[ table ]],
   ok = --[[ boolean ]],
+  update_id = --[[ number ]],
 })
 ```
 
-#### `load(reqmatch, ctrl) -> any, err`
+#### `list(reqmatch, ctrl) -> any, err`
 
-Load a single entity matching the given criteria.
+List entities matching the given criteria. Returns an array.
 
 ```lua
-local result, err = client:GetMe():load()
+local results, err = client:GetMe():list()
 ```
 
 ### Common Methods

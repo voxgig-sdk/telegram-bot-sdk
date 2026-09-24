@@ -1,0 +1,68 @@
+# Entity: forum_topic
+
+main: kit: entity: forum_topic: {
+
+  alias: field: {}
+
+  fields: {
+    chat_id: {
+      h: "Chat Id"
+      n: "chat_id"
+      r: true
+      t: "`$STRING`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
+    icon_color: {
+      h: "Icon Color"
+      n: "icon_color"
+      r: false
+      t: "`$INTEGER`"
+    }
+    icon_custom_emoji_id: {
+      h: "Icon Custom Emoji Id"
+      n: "icon_custom_emoji_id"
+      r: false
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      t: "`$STRING`"
+    }
+  }
+
+  name: "forum_topic"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /createForumTopic"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/createForumTopic"
+          s: [
+            {
+              lit: "createForumTopic"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,87 @@
+# Entity: message_id
+
+main: kit: entity: message_id: {
+
+  alias: field: {}
+
+  fields: {
+    chat_id: {
+      h: "Chat Id"
+      n: "chat_id"
+      r: true
+      t: "`$STRING`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
+    direct_messages_topic_id: {
+      h: "Direct Messages Topic Id"
+      n: "direct_messages_topic_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    from_chat_id: {
+      h: "From Chat Id"
+      n: "from_chat_id"
+      r: true
+      t: "`$STRING`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
+    message_effect_id: {
+      h: "Message Effect Id"
+      n: "message_effect_id"
+      r: false
+      t: "`$STRING`"
+    }
+    message_id: {
+      h: "Message Id"
+      n: "message_id"
+      r: true
+      t: "`$INTEGER`"
+    }
+    message_thread_id: {
+      h: "Message Thread Id"
+      n: "message_thread_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+  }
+
+  name: "message_id"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /copyMessage"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/copyMessage"
+          s: [
+            {
+              lit: "copyMessage"
+            }
+          ]
+          t: {
+            req: {
+              message_id: "`reqdata`"
+            }
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

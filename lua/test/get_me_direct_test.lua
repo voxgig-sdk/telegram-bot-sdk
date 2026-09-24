@@ -7,9 +7,12 @@ local helpers = require("core.helpers")
 local runner = require("test.runner")
 
 describe("GetMeDirect", function()
-  it("should direct-load-get_me", function()
-    local setup = get_me_direct_setup({ id = "direct01" })
-    local _should_skip, _reason = runner.is_control_skipped("direct", "direct-load-get_me", setup.live and "live" or "unit")
+  it("should direct-list-get_me", function()
+    local setup = get_me_direct_setup({
+      { id = "direct01" },
+      { id = "direct02" },
+    })
+    local _should_skip, _reason = runner.is_control_skipped("direct", "direct-list-get_me", setup.live and "live" or "unit")
     if _should_skip then
       pending(_reason or "skipped via sdk-test-control.json")
       return
@@ -23,15 +26,15 @@ describe("GetMeDirect", function()
       params = {},
     })
     if setup.live then
-      -- Live mode is lenient: synthetic IDs frequently 4xx. Skip rather
-      -- than fail when the load endpoint isn't reachable with the IDs we
-      -- can construct from setup.idmap.
+      -- Live mode is lenient: synthetic IDs frequently 4xx and the list-
+      -- response shape varies wildly across public APIs. Skip rather than
+      -- fail when the call doesn't return a usable list.
       if err ~= nil then
-        pending("load call failed (likely synthetic IDs against live API): " .. tostring(err))
+        pending("list call failed (likely synthetic IDs against live API): " .. tostring(err))
         return
       end
       if not result["ok"] then
-        pending("load call not ok (likely synthetic IDs against live API)")
+        pending("list call not ok (likely synthetic IDs against live API)")
         return
       end
       local status = helpers.to_int(result["status"])
@@ -43,10 +46,8 @@ describe("GetMeDirect", function()
       assert.is_nil(err)
       assert.is_true(result["ok"])
       assert.are.equal(200, helpers.to_int(result["status"]))
-      assert.is_not_nil(result["data"])
-      if type(result["data"]) == "table" then
-        assert.are.equal("direct01", result["data"]["id"])
-      end
+      assert.is_table(result["data"])
+      assert.are.equal(2, #result["data"])
       assert.are.equal(1, #setup.calls)
     end
   end)

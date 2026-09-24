@@ -1,0 +1,91 @@
+# Entity: get_business_account_gift
+
+main: kit: entity: get_business_account_gift: {
+
+  alias: field: {}
+
+  fields: {
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "Human-readable description of the result"
+      t: "`$STRING`"
+    }
+    error_code: {
+      h: "Error Code"
+      n: "error_code"
+      r: false
+      sh: "Error code"
+      t: "`$INTEGER`"
+    }
+    exclude_from_blockchain: {
+      h: "Exclude From Blockchain"
+      n: "exclude_from_blockchain"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    exclude_limited_non_upgradable: {
+      h: "Exclude Limited Non Upgradable"
+      n: "exclude_limited_non_upgradable"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    exclude_limited_upgradable: {
+      h: "Exclude Limited Upgradable"
+      n: "exclude_limited_upgradable"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    ok: {
+      h: "Ok"
+      n: "ok"
+      r: true
+      sh: "If true, the request was successful"
+      t: "`$BOOLEAN`"
+    }
+    parameters: {
+      h: "Parameters"
+      n: "parameters"
+      r: false
+      t: "`$OBJECT`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      r: false
+      sh: "The result of the query"
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "get_business_account_gift"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /getBusinessAccountGifts"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/getBusinessAccountGifts"
+          s: [
+            {
+              lit: "getBusinessAccountGifts"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

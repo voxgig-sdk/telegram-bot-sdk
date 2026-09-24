@@ -1,0 +1,30 @@
+# BasicGetMeFlow
+
+main: kit: flow: BasicGetMeFlow:
+{
+  entity: "get_me",
+  kind: "basic",
+  name: "BasicGetMeFlow",
+  step: [
+    {
+      i: {
+        ref: "get_me_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "get_me_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGetMeFlow"
+}

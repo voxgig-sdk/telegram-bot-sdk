@@ -657,11 +657,24 @@ get_me = client.GetMe
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `business_connection` | `Hash` | No |  |
+| `business_message` | `Hash` | Yes |  |
+| `channel_post` | `Hash` | Yes |  |
+| `chosen_inline_result` | `Hash` | Yes |  |
+| `deleted_business_messages` | `Hash` | No |  |
 | `description` | `String` | No | Human-readable description of the result |
+| `edited_business_message` | `Hash` | Yes |  |
+| `edited_channel_post` | `Hash` | Yes |  |
+| `edited_message` | `Hash` | Yes |  |
 | `error_code` | `Integer` | No | Error code |
+| `inline_query` | `Hash` | Yes |  |
+| `message` | `Hash` | Yes |  |
+| `message_reaction` | `Hash` | No |  |
+| `message_reaction_count` | `Hash` | No |  |
 | `ok` | `Boolean` | Yes | If true, the request was successful |
 | `parameters` | `Hash` | No |  |
 | `result` | `Array` | No | The result of the query |
+| `update_id` | `Integer` | Yes | The update's unique identifier |
 
 ### Operations
 
@@ -671,16 +684,25 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.GetMe.create({
+  "business_message" => {}, # Hash
+  "channel_post" => {}, # Hash
+  "chosen_inline_result" => {}, # Hash
+  "edited_business_message" => {}, # Hash
+  "edited_channel_post" => {}, # Hash
+  "edited_message" => {}, # Hash
+  "inline_query" => {}, # Hash
+  "message" => {}, # Hash
   "ok" => true, # Boolean
+  "update_id" => 1, # Integer
 })
 ```
 
-#### `load(reqmatch, ctrl = nil) -> result`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-Load a single entity matching the given criteria. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-result = client.GetMe.load()
+results = client.GetMe.list
 ```
 
 ### Common Methods

@@ -6,9 +6,12 @@ require_relative "../TelegramBot_sdk"
 require_relative "runner"
 
 class GetMeDirectTest < Minitest::Test
-  def test_direct_load_get_me
-    setup = get_me_direct_setup({ "id" => "direct01" })
-    _should_skip, _reason = Runner.is_control_skipped("direct", "direct-load-get_me", setup[:live] ? "live" : "unit")
+  def test_direct_list_get_me
+    setup = get_me_direct_setup([
+      { "id" => "direct01" },
+      { "id" => "direct02" },
+    ])
+    _should_skip, _reason = Runner.is_control_skipped("direct", "direct-list-get_me", setup[:live] ? "live" : "unit")
     if _should_skip
       skip(_reason || "skipped via sdk-test-control.json")
       return
@@ -22,15 +25,15 @@ class GetMeDirectTest < Minitest::Test
       "params" => {},
     })
     if setup[:live]
-      # Live mode is lenient: synthetic IDs frequently 4xx. Skip rather
-      # than fail when the load endpoint isn't reachable with the IDs
-      # we can construct from setup.idmap.
+      # Live mode is lenient: synthetic IDs frequently 4xx and the list-
+      # response shape varies wildly across public APIs. Skip rather than
+      # fail when the call doesn't return a usable list.
       if !result["err"].nil?
-        skip("load call failed (likely synthetic IDs against live API): #{result["err"]}")
+        skip("list call failed (likely synthetic IDs against live API): #{result["err"]}")
         return
       end
       unless result["ok"]
-        skip("load call not ok (likely synthetic IDs against live API)")
+        skip("list call not ok (likely synthetic IDs against live API)")
         return
       end
       status = Helpers.to_int(result["status"])
@@ -42,10 +45,8 @@ class GetMeDirectTest < Minitest::Test
       assert_nil result["err"]
       assert result["ok"]
       assert_equal 200, Helpers.to_int(result["status"])
-      assert !result["data"].nil?
-      if result["data"].is_a?(Hash)
-        assert_equal "direct01", result["data"]["id"]
-      end
+      assert result["data"].is_a?(Array)
+      assert_equal 2, result["data"].length
       assert_equal 1, setup[:calls].length
     end
   end

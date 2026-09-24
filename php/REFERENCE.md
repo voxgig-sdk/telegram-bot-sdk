@@ -656,11 +656,24 @@ $get_me = $client->GetMe();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `business_connection` | `array` | No |  |
+| `business_message` | `array` | Yes |  |
+| `channel_post` | `array` | Yes |  |
+| `chosen_inline_result` | `array` | Yes |  |
+| `deleted_business_messages` | `array` | No |  |
 | `description` | `string` | No | Human-readable description of the result |
+| `edited_business_message` | `array` | Yes |  |
+| `edited_channel_post` | `array` | Yes |  |
+| `edited_message` | `array` | Yes |  |
 | `error_code` | `int` | No | Error code |
+| `inline_query` | `array` | Yes |  |
+| `message` | `array` | Yes |  |
+| `message_reaction` | `array` | No |  |
+| `message_reaction_count` | `array` | No |  |
 | `ok` | `bool` | Yes | If true, the request was successful |
 | `parameters` | `array` | No |  |
 | `result` | `array` | No | The result of the query |
+| `update_id` | `int` | Yes | The update's unique identifier |
 
 ### Operations
 
@@ -670,16 +683,25 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->GetMe()->create([
+  "business_message" => null, // array
+  "channel_post" => null, // array
+  "chosen_inline_result" => null, // array
+  "edited_business_message" => null, // array
+  "edited_channel_post" => null, // array
+  "edited_message" => null, // array
+  "inline_query" => null, // array
+  "message" => null, // array
   "ok" => null, // bool
+  "update_id" => null, // int
 ]);
 ```
 
-#### `load(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-Load a single entity matching the given criteria. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$result = $client->GetMe()->load();
+$results = $client->GetMe()->list();
 ```
 
 ### Common Methods

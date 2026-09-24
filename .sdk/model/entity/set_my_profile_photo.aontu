@@ -1,0 +1,73 @@
+# Entity: set_my_profile_photo
+
+main: kit: entity: set_my_profile_photo: {
+
+  alias: field: {}
+
+  fields: {
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "Human-readable description of the result"
+      t: "`$STRING`"
+    }
+    error_code: {
+      h: "Error Code"
+      n: "error_code"
+      r: false
+      sh: "Error code"
+      t: "`$INTEGER`"
+    }
+    ok: {
+      h: "Ok"
+      n: "ok"
+      r: true
+      sh: "If true, the request was successful"
+      t: "`$BOOLEAN`"
+    }
+    parameters: {
+      h: "Parameters"
+      n: "parameters"
+      r: false
+      t: "`$OBJECT`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      r: false
+      sh: "The result of the query"
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "set_my_profile_photo"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /setMyProfilePhoto"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/setMyProfilePhoto"
+          s: [
+            {
+              lit: "setMyProfilePhoto"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,18 @@
+# BasicForumTopicFlow
+
+main: kit: flow: BasicForumTopicFlow:
+{
+  entity: "forum_topic",
+  kind: "basic",
+  name: "BasicForumTopicFlow",
+  step: [
+    {
+      i: {
+        ref: "forum_topic_ref01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicForumTopicFlow"
+}

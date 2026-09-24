@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GetMeEntity = void 0;
 const TelegramBotEntityBase_1 = require("../TelegramBotEntityBase");
-// TODO: needs Entity superclass
 class GetMeEntity extends TelegramBotEntityBase_1.TelegramBotEntityBase {
     constructor(client, entopts) {
         super(client, entopts);
@@ -13,14 +12,14 @@ class GetMeEntity extends TelegramBotEntityBase_1.TelegramBotEntityBase {
     make() {
         return new GetMeEntity(this._client, this.entopts());
     }
-    async load(reqmatch, ctrl) {
+    async list(reqmatch, ctrl) {
         const utility = this._utility;
         const { makeContext, done, 
         // The registry name is `makeError`; `error` is the local alias.
         makeError: error, featureHook, makePoint, makeRequest, makeResponse, makeResult, makeSpec, } = utility;
         let fres = undefined;
         let ctx = makeContext({
-            opname: 'load',
+            opname: 'list',
             ctrl,
             match: this._match,
             data: this._data,
@@ -75,18 +74,8 @@ class GetMeEntity extends TelegramBotEntityBase_1.TelegramBotEntityBase {
                 if (null != ctx.result.resmatch) {
                     this._match = ctx.result.resmatch;
                 }
-                if (null != ctx.result.resdata) {
-                    this._data = ctx.result.resdata;
-                }
             }
-            const out = done(ctx);
-            // An operation resolves to the ENTITY, not the raw data — the record
-            // has just been absorbed into this instance and is reached through
-            // data(). `done` still runs: it completes the pipeline and raises on
-            // failure, and when throwing is disabled it hands back the error
-            // payload, which passes through unchanged. See AGENTS.md "Entity
-            // operations return ENTITIES".
-            return (ctx.result && ctx.result.ok) ? this : out;
+            return done(ctx);
         }
         catch (err) {
             fres = featureHook(ctx, 'PreUnexpected');
@@ -99,7 +88,7 @@ class GetMeEntity extends TelegramBotEntityBase_1.TelegramBotEntityBase {
             }
             else {
                 // Off-happy-path (throw disabled): typed as any so the method's
-                // Promise<GetMe> return stays clean under strict null checks.
+                // Promise<GetMe[]> return stays clean under strict null checks.
                 return undefined;
             }
         }
@@ -168,12 +157,6 @@ class GetMeEntity extends TelegramBotEntityBase_1.TelegramBotEntityBase {
                 }
             }
             const out = done(ctx);
-            // An operation resolves to the ENTITY, not the raw data — the record
-            // has just been absorbed into this instance and is reached through
-            // data(). `done` still runs: it completes the pipeline and raises on
-            // failure, and when throwing is disabled it hands back the error
-            // payload, which passes through unchanged. See AGENTS.md "Entity
-            // operations return ENTITIES".
             return (ctx.result && ctx.result.ok) ? this : out;
         }
         catch (err) {

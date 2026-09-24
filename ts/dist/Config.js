@@ -11,19 +11,12 @@ const FEATURE_CLASS = {
     test: TestFeature_1.TestFeature,
     timeout: TimeoutFeature_1.TimeoutFeature,
 };
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS = {};
 exports.FEATURE_PLUGINS = FEATURE_PLUGINS;
 class Config {
     makeFeature(fn) {
         const fc = FEATURE_CLASS[fn];
         const fi = new fc();
-        // TODO: errors etc
         return fi;
     }
     // False for a feature added at runtime via options.extend (station's
@@ -142,43 +135,45 @@ class Config {
             "fields": [
                 {
                     "name": "chat_id",
-                    "req": true,
+                    "title": "Chat Id",
                     "type": "`$STRING`",
-                    "union": {
-                        "branches": 2,
-                        "count": 1,
-                        "depth": 0
-                    }
+                    "req": true
                 },
                 {
                     "name": "description",
-                    "short": "Human-readable description of the result",
-                    "type": "`$STRING`"
+                    "title": "Description",
+                    "type": "`$STRING`",
+                    "short": "Human-readable description of the result"
                 },
                 {
                     "name": "error_code",
-                    "short": "Error code",
-                    "type": "`$INTEGER`"
+                    "title": "Error Code",
+                    "type": "`$INTEGER`",
+                    "short": "Error code"
                 },
                 {
                     "name": "message_id",
-                    "req": true,
-                    "type": "`$INTEGER`"
+                    "title": "Message Id",
+                    "type": "`$INTEGER`",
+                    "req": true
                 },
                 {
                     "name": "ok",
+                    "title": "Ok",
+                    "type": "`$BOOLEAN`",
                     "req": true,
-                    "short": "If true, the request was successful",
-                    "type": "`$BOOLEAN`"
+                    "short": "If true, the request was successful"
                 },
                 {
                     "name": "parameters",
+                    "title": "Parameters",
                     "type": "`$OBJECT`"
                 },
                 {
                     "name": "result",
-                    "short": "The result of the query",
-                    "type": "`$ARRAY`"
+                    "title": "Result",
+                    "type": "`$ARRAY`",
+                    "short": "The result of the query"
                 }
             ],
             "name": "approve_suggested_post",
@@ -188,7 +183,6 @@ class Config {
                     "name": "create",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "POST",
                             "orig": "/approveSuggestedPost",
@@ -197,14 +191,16 @@ class Config {
                                     "lit": "approveSuggestedPost"
                                 }
                             ],
-                            "select": {},
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body.parameters`"
-                            },
                             "parts": [
                                 "approveSuggestedPost"
-                            ]
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }
@@ -217,43 +213,45 @@ class Config {
             "fields": [
                 {
                     "name": "chat_id",
-                    "req": true,
+                    "title": "Chat Id",
                     "type": "`$STRING`",
-                    "union": {
-                        "branches": 2,
-                        "count": 1,
-                        "depth": 0
-                    }
+                    "req": true
                 },
                 {
                     "name": "description",
-                    "short": "Human-readable description of the result",
-                    "type": "`$STRING`"
+                    "title": "Description",
+                    "type": "`$STRING`",
+                    "short": "Human-readable description of the result"
                 },
                 {
                     "name": "error_code",
-                    "short": "Error code",
-                    "type": "`$INTEGER`"
+                    "title": "Error Code",
+                    "type": "`$INTEGER`",
+                    "short": "Error code"
                 },
                 {
                     "name": "message_id",
-                    "req": true,
-                    "type": "`$INTEGER`"
+                    "title": "Message Id",
+                    "type": "`$INTEGER`",
+                    "req": true
                 },
                 {
                     "name": "ok",
+                    "title": "Ok",
+                    "type": "`$BOOLEAN`",
                     "req": true,
-                    "short": "If true, the request was successful",
-                    "type": "`$BOOLEAN`"
+                    "short": "If true, the request was successful"
                 },
                 {
                     "name": "parameters",
+                    "title": "Parameters",
                     "type": "`$OBJECT`"
                 },
                 {
                     "name": "result",
-                    "short": "The result of the query",
-                    "type": "`$ARRAY`"
+                    "title": "Result",
+                    "type": "`$ARRAY`",
+                    "short": "The result of the query"
                 }
             ],
             "name": "decline_suggested_post",
@@ -263,7 +261,6 @@ class Config {
                     "name": "create",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "POST",
                             "orig": "/declineSuggestedPost",
@@ -272,14 +269,16 @@ class Config {
                                     "lit": "declineSuggestedPost"
                                 }
                             ],
-                            "select": {},
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body.parameters`"
-                            },
                             "parts": [
                                 "declineSuggestedPost"
-                            ]
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }
@@ -292,43 +291,45 @@ class Config {
             "fields": [
                 {
                     "name": "chat_id",
-                    "req": true,
+                    "title": "Chat Id",
                     "type": "`$STRING`",
-                    "union": {
-                        "branches": 2,
-                        "count": 1,
-                        "depth": 0
-                    }
+                    "req": true
                 },
                 {
                     "name": "description",
-                    "short": "Human-readable description of the result",
-                    "type": "`$STRING`"
+                    "title": "Description",
+                    "type": "`$STRING`",
+                    "short": "Human-readable description of the result"
                 },
                 {
                     "name": "error_code",
-                    "short": "Error code",
-                    "type": "`$INTEGER`"
+                    "title": "Error Code",
+                    "type": "`$INTEGER`",
+                    "short": "Error code"
                 },
                 {
                     "name": "message_thread_id",
-                    "req": true,
-                    "type": "`$INTEGER`"
+                    "title": "Message Thread Id",
+                    "type": "`$INTEGER`",
+                    "req": true
                 },
                 {
                     "name": "ok",
+                    "title": "Ok",
+                    "type": "`$BOOLEAN`",
                     "req": true,
-                    "short": "If true, the request was successful",
-                    "type": "`$BOOLEAN`"
+                    "short": "If true, the request was successful"
                 },
                 {
                     "name": "parameters",
+                    "title": "Parameters",
                     "type": "`$OBJECT`"
                 },
                 {
                     "name": "result",
-                    "short": "The result of the query",
-                    "type": "`$ARRAY`"
+                    "title": "Result",
+                    "type": "`$ARRAY`",
+                    "short": "The result of the query"
                 }
             ],
             "name": "delete_forum_topic",
@@ -338,7 +339,6 @@ class Config {
                     "name": "create",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "POST",
                             "orig": "/deleteForumTopic",
@@ -347,14 +347,16 @@ class Config {
                                     "lit": "deleteForumTopic"
                                 }
                             ],
-                            "select": {},
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body.parameters`"
-                            },
                             "parts": [
                                 "deleteForumTopic"
-                            ]
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }
@@ -367,51 +369,55 @@ class Config {
             "fields": [
                 {
                     "name": "chat_id",
-                    "req": true,
+                    "title": "Chat Id",
                     "type": "`$STRING`",
-                    "union": {
-                        "branches": 2,
-                        "count": 1,
-                        "depth": 0
-                    }
+                    "req": true
                 },
                 {
                     "name": "description",
-                    "short": "Human-readable description of the result",
-                    "type": "`$STRING`"
+                    "title": "Description",
+                    "type": "`$STRING`",
+                    "short": "Human-readable description of the result"
                 },
                 {
                     "name": "error_code",
-                    "short": "Error code",
-                    "type": "`$INTEGER`"
+                    "title": "Error Code",
+                    "type": "`$INTEGER`",
+                    "short": "Error code"
                 },
                 {
                     "name": "icon_custom_emoji_id",
+                    "title": "Icon Custom Emoji Id",
                     "type": "`$STRING`"
                 },
                 {
                     "name": "message_thread_id",
-                    "req": true,
-                    "type": "`$INTEGER`"
+                    "title": "Message Thread Id",
+                    "type": "`$INTEGER`",
+                    "req": true
                 },
                 {
                     "name": "name",
+                    "title": "Name",
                     "type": "`$STRING`"
                 },
                 {
                     "name": "ok",
+                    "title": "Ok",
+                    "type": "`$BOOLEAN`",
                     "req": true,
-                    "short": "If true, the request was successful",
-                    "type": "`$BOOLEAN`"
+                    "short": "If true, the request was successful"
                 },
                 {
                     "name": "parameters",
+                    "title": "Parameters",
                     "type": "`$OBJECT`"
                 },
                 {
                     "name": "result",
-                    "short": "The result of the query",
-                    "type": "`$ARRAY`"
+                    "title": "Result",
+                    "type": "`$ARRAY`",
+                    "short": "The result of the query"
                 }
             ],
             "name": "edit_forum_topic",
@@ -421,7 +427,6 @@ class Config {
                     "name": "create",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "POST",
                             "orig": "/editForumTopic",
@@ -430,14 +435,16 @@ class Config {
                                     "lit": "editForumTopic"
                                 }
                             ],
-                            "select": {},
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body.parameters`"
-                            },
                             "parts": [
                                 "editForumTopic"
-                            ]
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }
@@ -450,8 +457,9 @@ class Config {
             "fields": [
                 {
                     "name": "file_id",
-                    "req": true,
-                    "type": "`$STRING`"
+                    "title": "File Id",
+                    "type": "`$STRING`",
+                    "req": true
                 }
             ],
             "name": "file",
@@ -461,7 +469,6 @@ class Config {
                     "name": "create",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "POST",
                             "orig": "/getFile",
@@ -470,14 +477,16 @@ class Config {
                                     "lit": "getFile"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "getFile"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "getFile"
-                            ]
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }
@@ -490,26 +499,25 @@ class Config {
             "fields": [
                 {
                     "name": "chat_id",
-                    "req": true,
+                    "title": "Chat Id",
                     "type": "`$STRING`",
-                    "union": {
-                        "branches": 2,
-                        "count": 1,
-                        "depth": 0
-                    }
+                    "req": true
                 },
                 {
                     "name": "icon_color",
+                    "title": "Icon Color",
                     "type": "`$INTEGER`"
                 },
                 {
                     "name": "icon_custom_emoji_id",
+                    "title": "Icon Custom Emoji Id",
                     "type": "`$STRING`"
                 },
                 {
                     "name": "name",
-                    "req": true,
-                    "type": "`$STRING`"
+                    "title": "Name",
+                    "type": "`$STRING`",
+                    "req": true
                 }
             ],
             "name": "forum_topic",
@@ -519,7 +527,6 @@ class Config {
                     "name": "create",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "POST",
                             "orig": "/createForumTopic",
@@ -528,14 +535,16 @@ class Config {
                                     "lit": "createForumTopic"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "createForumTopic"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "createForumTopic"
-                            ]
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }
@@ -548,40 +557,48 @@ class Config {
             "fields": [
                 {
                     "name": "description",
-                    "short": "Human-readable description of the result",
-                    "type": "`$STRING`"
+                    "title": "Description",
+                    "type": "`$STRING`",
+                    "short": "Human-readable description of the result"
                 },
                 {
                     "name": "error_code",
-                    "short": "Error code",
-                    "type": "`$INTEGER`"
+                    "title": "Error Code",
+                    "type": "`$INTEGER`",
+                    "short": "Error code"
                 },
                 {
                     "name": "exclude_from_blockchain",
+                    "title": "Exclude From Blockchain",
                     "type": "`$BOOLEAN`"
                 },
                 {
                     "name": "exclude_limited_non_upgradable",
+                    "title": "Exclude Limited Non Upgradable",
                     "type": "`$BOOLEAN`"
                 },
                 {
                     "name": "exclude_limited_upgradable",
+                    "title": "Exclude Limited Upgradable",
                     "type": "`$BOOLEAN`"
                 },
                 {
                     "name": "ok",
+                    "title": "Ok",
+                    "type": "`$BOOLEAN`",
                     "req": true,
-                    "short": "If true, the request was successful",
-                    "type": "`$BOOLEAN`"
+                    "short": "If true, the request was successful"
                 },
                 {
                     "name": "parameters",
+                    "title": "Parameters",
                     "type": "`$OBJECT`"
                 },
                 {
                     "name": "result",
-                    "short": "The result of the query",
-                    "type": "`$ARRAY`"
+                    "title": "Result",
+                    "type": "`$ARRAY`",
+                    "short": "The result of the query"
                 }
             ],
             "name": "get_business_account_gift",
@@ -591,7 +608,6 @@ class Config {
                     "name": "create",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "POST",
                             "orig": "/getBusinessAccountGifts",
@@ -600,14 +616,16 @@ class Config {
                                     "lit": "getBusinessAccountGifts"
                                 }
                             ],
-                            "select": {},
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body.parameters`"
-                            },
                             "parts": [
                                 "getBusinessAccountGifts"
-                            ]
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }
@@ -620,38 +638,39 @@ class Config {
             "fields": [
                 {
                     "name": "chat_id",
-                    "req": true,
+                    "title": "Chat Id",
                     "type": "`$STRING`",
-                    "union": {
-                        "branches": 2,
-                        "count": 1,
-                        "depth": 0
-                    }
+                    "req": true
                 },
                 {
                     "name": "description",
-                    "short": "Human-readable description of the result",
-                    "type": "`$STRING`"
+                    "title": "Description",
+                    "type": "`$STRING`",
+                    "short": "Human-readable description of the result"
                 },
                 {
                     "name": "error_code",
-                    "short": "Error code",
-                    "type": "`$INTEGER`"
+                    "title": "Error Code",
+                    "type": "`$INTEGER`",
+                    "short": "Error code"
                 },
                 {
                     "name": "ok",
+                    "title": "Ok",
+                    "type": "`$BOOLEAN`",
                     "req": true,
-                    "short": "If true, the request was successful",
-                    "type": "`$BOOLEAN`"
+                    "short": "If true, the request was successful"
                 },
                 {
                     "name": "parameters",
+                    "title": "Parameters",
                     "type": "`$OBJECT`"
                 },
                 {
                     "name": "result",
-                    "short": "The result of the query",
-                    "type": "`$ARRAY`"
+                    "title": "Result",
+                    "type": "`$ARRAY`",
+                    "short": "The result of the query"
                 }
             ],
             "name": "get_chat_gift",
@@ -661,7 +680,6 @@ class Config {
                     "name": "create",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "POST",
                             "orig": "/getChatGifts",
@@ -670,14 +688,16 @@ class Config {
                                     "lit": "getChatGifts"
                                 }
                             ],
-                            "select": {},
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body.parameters`"
-                            },
                             "parts": [
                                 "getChatGifts"
-                            ]
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }
@@ -689,29 +709,109 @@ class Config {
         "get_me": {
             "fields": [
                 {
+                    "name": "business_connection",
+                    "title": "Business Connection",
+                    "type": "`$OBJECT`"
+                },
+                {
+                    "name": "business_message",
+                    "title": "Business Message",
+                    "type": "`$OBJECT`",
+                    "req": true
+                },
+                {
+                    "name": "channel_post",
+                    "title": "Channel Post",
+                    "type": "`$OBJECT`",
+                    "req": true
+                },
+                {
+                    "name": "chosen_inline_result",
+                    "title": "Chosen Inline Result",
+                    "type": "`$OBJECT`",
+                    "req": true
+                },
+                {
+                    "name": "deleted_business_messages",
+                    "title": "Deleted Business Messages",
+                    "type": "`$OBJECT`"
+                },
+                {
                     "name": "description",
-                    "short": "Human-readable description of the result",
-                    "type": "`$STRING`"
+                    "title": "Description",
+                    "type": "`$STRING`",
+                    "short": "Human-readable description of the result"
+                },
+                {
+                    "name": "edited_business_message",
+                    "title": "Edited Business Message",
+                    "type": "`$OBJECT`",
+                    "req": true
+                },
+                {
+                    "name": "edited_channel_post",
+                    "title": "Edited Channel Post",
+                    "type": "`$OBJECT`",
+                    "req": true
+                },
+                {
+                    "name": "edited_message",
+                    "title": "Edited Message",
+                    "type": "`$OBJECT`",
+                    "req": true
                 },
                 {
                     "name": "error_code",
-                    "short": "Error code",
-                    "type": "`$INTEGER`"
+                    "title": "Error Code",
+                    "type": "`$INTEGER`",
+                    "short": "Error code"
+                },
+                {
+                    "name": "inline_query",
+                    "title": "Inline Query",
+                    "type": "`$OBJECT`",
+                    "req": true
+                },
+                {
+                    "name": "message",
+                    "title": "Message",
+                    "type": "`$OBJECT`",
+                    "req": true
+                },
+                {
+                    "name": "message_reaction",
+                    "title": "Message Reaction",
+                    "type": "`$OBJECT`"
+                },
+                {
+                    "name": "message_reaction_count",
+                    "title": "Message Reaction Count",
+                    "type": "`$OBJECT`"
                 },
                 {
                     "name": "ok",
+                    "title": "Ok",
+                    "type": "`$BOOLEAN`",
                     "req": true,
-                    "short": "If true, the request was successful",
-                    "type": "`$BOOLEAN`"
+                    "short": "If true, the request was successful"
                 },
                 {
                     "name": "parameters",
+                    "title": "Parameters",
                     "type": "`$OBJECT`"
                 },
                 {
                     "name": "result",
-                    "short": "The result of the query",
-                    "type": "`$ARRAY`"
+                    "title": "Result",
+                    "type": "`$ARRAY`",
+                    "short": "The result of the query"
+                },
+                {
+                    "name": "update_id",
+                    "title": "Update Id",
+                    "type": "`$INTEGER`",
+                    "req": true,
+                    "short": "The update's unique identifier"
                 }
             ],
             "name": "get_me",
@@ -721,7 +821,6 @@ class Config {
                     "name": "create",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "POST",
                             "orig": "/getMe",
@@ -730,23 +829,24 @@ class Config {
                                     "lit": "getMe"
                                 }
                             ],
-                            "select": {},
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body.parameters`"
-                            },
                             "parts": [
                                 "getMe"
-                            ]
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 },
-                "load": {
+                "list": {
                     "input": "data",
-                    "name": "load",
+                    "name": "list",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "GET",
                             "orig": "/getMe",
@@ -755,14 +855,16 @@ class Config {
                                     "lit": "getMe"
                                 }
                             ],
-                            "select": {},
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body.parameters`"
-                            },
                             "parts": [
                                 "getMe"
-                            ]
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }
@@ -775,33 +877,39 @@ class Config {
             "fields": [
                 {
                     "name": "description",
-                    "short": "Human-readable description of the result",
-                    "type": "`$STRING`"
+                    "title": "Description",
+                    "type": "`$STRING`",
+                    "short": "Human-readable description of the result"
                 },
                 {
                     "name": "error_code",
-                    "short": "Error code",
-                    "type": "`$INTEGER`"
+                    "title": "Error Code",
+                    "type": "`$INTEGER`",
+                    "short": "Error code"
                 },
                 {
                     "name": "ok",
+                    "title": "Ok",
+                    "type": "`$BOOLEAN`",
                     "req": true,
-                    "short": "If true, the request was successful",
-                    "type": "`$BOOLEAN`"
+                    "short": "If true, the request was successful"
                 },
                 {
                     "name": "parameters",
+                    "title": "Parameters",
                     "type": "`$OBJECT`"
                 },
                 {
                     "name": "result",
-                    "short": "The result of the query",
-                    "type": "`$ARRAY`"
+                    "title": "Result",
+                    "type": "`$ARRAY`",
+                    "short": "The result of the query"
                 },
                 {
                     "name": "user_id",
-                    "req": true,
-                    "type": "`$INTEGER`"
+                    "title": "User Id",
+                    "type": "`$INTEGER`",
+                    "req": true
                 }
             ],
             "name": "get_user_gift",
@@ -811,7 +919,6 @@ class Config {
                     "name": "create",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "POST",
                             "orig": "/getUserGifts",
@@ -820,14 +927,16 @@ class Config {
                                     "lit": "getUserGifts"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "getUserGifts"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "getUserGifts"
-                            ]
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }
@@ -840,33 +949,39 @@ class Config {
             "fields": [
                 {
                     "name": "description",
-                    "short": "Human-readable description of the result",
-                    "type": "`$STRING`"
+                    "title": "Description",
+                    "type": "`$STRING`",
+                    "short": "Human-readable description of the result"
                 },
                 {
                     "name": "error_code",
-                    "short": "Error code",
-                    "type": "`$INTEGER`"
+                    "title": "Error Code",
+                    "type": "`$INTEGER`",
+                    "short": "Error code"
                 },
                 {
                     "name": "ok",
+                    "title": "Ok",
+                    "type": "`$BOOLEAN`",
                     "req": true,
-                    "short": "If true, the request was successful",
-                    "type": "`$BOOLEAN`"
+                    "short": "If true, the request was successful"
                 },
                 {
                     "name": "parameters",
+                    "title": "Parameters",
                     "type": "`$OBJECT`"
                 },
                 {
                     "name": "result",
-                    "short": "The result of the query",
-                    "type": "`$ARRAY`"
+                    "title": "Result",
+                    "type": "`$ARRAY`",
+                    "short": "The result of the query"
                 },
                 {
                     "name": "user_id",
-                    "req": true,
-                    "type": "`$INTEGER`"
+                    "title": "User Id",
+                    "type": "`$INTEGER`",
+                    "req": true
                 }
             ],
             "name": "get_user_profile_audio",
@@ -876,7 +991,6 @@ class Config {
                     "name": "create",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "POST",
                             "orig": "/getUserProfileAudios",
@@ -885,14 +999,16 @@ class Config {
                                     "lit": "getUserProfileAudios"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "getUserProfileAudios"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "getUserProfileAudios"
-                            ]
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }
@@ -905,97 +1021,103 @@ class Config {
             "fields": [
                 {
                     "name": "chat_id",
-                    "req": true,
-                    "short": "Unique identifier for the target chat or username",
+                    "title": "Chat Id",
                     "type": "`$STRING`",
-                    "union": {
-                        "branches": 2,
-                        "count": 1,
-                        "depth": 0
-                    }
+                    "req": true,
+                    "short": "Unique identifier for the target chat or username"
                 },
                 {
                     "name": "direct_messages_topic_id",
-                    "short": "Unique identifier for the target direct messages topic",
-                    "type": "`$INTEGER`"
+                    "title": "Direct Messages Topic Id",
+                    "type": "`$INTEGER`",
+                    "short": "Unique identifier for the target direct messages topic"
                 },
                 {
                     "name": "disable_notification",
-                    "short": "Sends the message silently",
-                    "type": "`$BOOLEAN`"
+                    "title": "Disable Notification",
+                    "type": "`$BOOLEAN`",
+                    "short": "Sends the message silently"
                 },
                 {
                     "name": "disable_web_page_preview",
-                    "short": "Disables link previews for links in this message",
-                    "type": "`$BOOLEAN`"
+                    "title": "Disable Web Page Preview",
+                    "type": "`$BOOLEAN`",
+                    "short": "Disables link previews for links in this message"
                 },
                 {
                     "name": "from_chat_id",
-                    "req": true,
+                    "title": "From Chat Id",
                     "type": "`$STRING`",
-                    "union": {
-                        "branches": 2,
-                        "count": 1,
-                        "depth": 0
-                    }
+                    "req": true
                 },
                 {
-                    "format": "float",
                     "name": "latitude",
+                    "title": "Latitude",
+                    "type": "`$NUMBER`",
                     "req": true,
-                    "type": "`$NUMBER`"
+                    "format": "float"
                 },
                 {
-                    "format": "float",
                     "name": "longitude",
+                    "title": "Longitude",
+                    "type": "`$NUMBER`",
                     "req": true,
-                    "type": "`$NUMBER`"
+                    "format": "float"
                 },
                 {
                     "name": "message_effect_id",
-                    "short": "Unique identifier of the message effect to be added to the message",
-                    "type": "`$STRING`"
+                    "title": "Message Effect Id",
+                    "type": "`$STRING`",
+                    "short": "Unique identifier of the message effect to be added to the message"
                 },
                 {
                     "name": "message_id",
-                    "req": true,
-                    "type": "`$INTEGER`"
+                    "title": "Message Id",
+                    "type": "`$INTEGER`",
+                    "req": true
                 },
                 {
                     "name": "message_thread_id",
-                    "short": "Unique identifier for the target message thread (topic) of the forum",
-                    "type": "`$INTEGER`"
+                    "title": "Message Thread Id",
+                    "type": "`$INTEGER`",
+                    "short": "Unique identifier for the target message thread (topic) of the forum"
                 },
                 {
                     "name": "options",
-                    "req": true,
-                    "type": "`$ARRAY`"
+                    "title": "Options",
+                    "type": "`$ARRAY`",
+                    "req": true
                 },
                 {
                     "name": "parse_mode",
-                    "short": "Mode for parsing entities in the message text",
-                    "type": "`$STRING`"
+                    "title": "Parse Mode",
+                    "type": "`$STRING`",
+                    "short": "Mode for parsing entities in the message text"
                 },
                 {
                     "name": "protect_content",
-                    "short": "Protects the contents of the sent message from forwarding and saving",
-                    "type": "`$BOOLEAN`"
+                    "title": "Protect Content",
+                    "type": "`$BOOLEAN`",
+                    "short": "Protects the contents of the sent message from forwarding and saving"
                 },
                 {
                     "name": "question",
-                    "req": true,
-                    "type": "`$STRING`"
+                    "title": "Question",
+                    "type": "`$STRING`",
+                    "req": true
                 },
                 {
                     "name": "reply_to_message_id",
-                    "short": "If the message is a reply, ID of the original message",
-                    "type": "`$INTEGER`"
+                    "title": "Reply To Message Id",
+                    "type": "`$INTEGER`",
+                    "short": "If the message is a reply, ID of the original message"
                 },
                 {
                     "name": "text",
+                    "title": "Text",
+                    "type": "`$STRING`",
                     "req": true,
-                    "short": "Text of the message to be sent",
-                    "type": "`$STRING`"
+                    "short": "Text of the message to be sent"
                 }
             ],
             "name": "message",
@@ -1005,7 +1127,6 @@ class Config {
                     "name": "create",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "POST",
                             "orig": "/forwardMessage",
@@ -1014,17 +1135,18 @@ class Config {
                                     "lit": "forwardMessage"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "forwardMessage"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "forwardMessage"
-                            ]
+                            "args": {},
+                            "select": {}
                         },
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "POST",
                             "orig": "/sendAnimation",
@@ -1033,17 +1155,18 @@ class Config {
                                     "lit": "sendAnimation"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "sendAnimation"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "sendAnimation"
-                            ]
+                            "args": {},
+                            "select": {}
                         },
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "POST",
                             "orig": "/sendAudio",
@@ -1052,17 +1175,18 @@ class Config {
                                     "lit": "sendAudio"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "sendAudio"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "sendAudio"
-                            ]
+                            "args": {},
+                            "select": {}
                         },
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "POST",
                             "orig": "/sendDocument",
@@ -1071,17 +1195,18 @@ class Config {
                                     "lit": "sendDocument"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "sendDocument"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "sendDocument"
-                            ]
+                            "args": {},
+                            "select": {}
                         },
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "POST",
                             "orig": "/sendLocation",
@@ -1090,17 +1215,18 @@ class Config {
                                     "lit": "sendLocation"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "sendLocation"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "sendLocation"
-                            ]
+                            "args": {},
+                            "select": {}
                         },
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "POST",
                             "orig": "/sendMessage",
@@ -1109,17 +1235,18 @@ class Config {
                                     "lit": "sendMessage"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "sendMessage"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "sendMessage"
-                            ]
+                            "args": {},
+                            "select": {}
                         },
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "POST",
                             "orig": "/sendPhoto",
@@ -1128,17 +1255,18 @@ class Config {
                                     "lit": "sendPhoto"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "sendPhoto"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "sendPhoto"
-                            ]
+                            "args": {},
+                            "select": {}
                         },
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "POST",
                             "orig": "/sendPoll",
@@ -1147,17 +1275,18 @@ class Config {
                                     "lit": "sendPoll"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "sendPoll"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "sendPoll"
-                            ]
+                            "args": {},
+                            "select": {}
                         },
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "POST",
                             "orig": "/sendSticker",
@@ -1166,17 +1295,18 @@ class Config {
                                     "lit": "sendSticker"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "sendSticker"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "sendSticker"
-                            ]
+                            "args": {},
+                            "select": {}
                         },
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "POST",
                             "orig": "/sendVideo",
@@ -1185,14 +1315,16 @@ class Config {
                                     "lit": "sendVideo"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "sendVideo"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "sendVideo"
-                            ]
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }
@@ -1205,39 +1337,35 @@ class Config {
             "fields": [
                 {
                     "name": "chat_id",
-                    "req": true,
+                    "title": "Chat Id",
                     "type": "`$STRING`",
-                    "union": {
-                        "branches": 2,
-                        "count": 1,
-                        "depth": 0
-                    }
+                    "req": true
                 },
                 {
                     "name": "direct_messages_topic_id",
+                    "title": "Direct Messages Topic Id",
                     "type": "`$INTEGER`"
                 },
                 {
                     "name": "from_chat_id",
-                    "req": true,
+                    "title": "From Chat Id",
                     "type": "`$STRING`",
-                    "union": {
-                        "branches": 2,
-                        "count": 1,
-                        "depth": 0
-                    }
+                    "req": true
                 },
                 {
                     "name": "message_effect_id",
+                    "title": "Message Effect Id",
                     "type": "`$STRING`"
                 },
                 {
                     "name": "message_id",
-                    "req": true,
-                    "type": "`$INTEGER`"
+                    "title": "Message Id",
+                    "type": "`$INTEGER`",
+                    "req": true
                 },
                 {
                     "name": "message_thread_id",
+                    "title": "Message Thread Id",
                     "type": "`$INTEGER`"
                 }
             ],
@@ -1248,7 +1376,6 @@ class Config {
                     "name": "create",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "POST",
                             "orig": "/copyMessage",
@@ -1257,16 +1384,18 @@ class Config {
                                     "lit": "copyMessage"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "copyMessage"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": {
                                     "message_id": "`reqdata`"
                                 },
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "copyMessage"
-                            ]
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }
@@ -1279,63 +1408,70 @@ class Config {
             "fields": [
                 {
                     "name": "can_delete_messages",
+                    "title": "Can Delete Messages",
                     "type": "`$BOOLEAN`"
                 },
                 {
                     "name": "can_edit_messages",
+                    "title": "Can Edit Messages",
                     "type": "`$BOOLEAN`"
                 },
                 {
                     "name": "can_manage_chat",
+                    "title": "Can Manage Chat",
                     "type": "`$BOOLEAN`"
                 },
                 {
                     "name": "can_manage_direct_messages",
+                    "title": "Can Manage Direct Messages",
                     "type": "`$BOOLEAN`"
                 },
                 {
                     "name": "can_post_messages",
+                    "title": "Can Post Messages",
                     "type": "`$BOOLEAN`"
                 },
                 {
                     "name": "chat_id",
-                    "req": true,
+                    "title": "Chat Id",
                     "type": "`$STRING`",
-                    "union": {
-                        "branches": 2,
-                        "count": 1,
-                        "depth": 0
-                    }
+                    "req": true
                 },
                 {
                     "name": "description",
-                    "short": "Human-readable description of the result",
-                    "type": "`$STRING`"
+                    "title": "Description",
+                    "type": "`$STRING`",
+                    "short": "Human-readable description of the result"
                 },
                 {
                     "name": "error_code",
-                    "short": "Error code",
-                    "type": "`$INTEGER`"
+                    "title": "Error Code",
+                    "type": "`$INTEGER`",
+                    "short": "Error code"
                 },
                 {
                     "name": "ok",
+                    "title": "Ok",
+                    "type": "`$BOOLEAN`",
                     "req": true,
-                    "short": "If true, the request was successful",
-                    "type": "`$BOOLEAN`"
+                    "short": "If true, the request was successful"
                 },
                 {
                     "name": "parameters",
+                    "title": "Parameters",
                     "type": "`$OBJECT`"
                 },
                 {
                     "name": "result",
-                    "short": "The result of the query",
-                    "type": "`$ARRAY`"
+                    "title": "Result",
+                    "type": "`$ARRAY`",
+                    "short": "The result of the query"
                 },
                 {
                     "name": "user_id",
-                    "req": true,
-                    "type": "`$INTEGER`"
+                    "title": "User Id",
+                    "type": "`$INTEGER`",
+                    "req": true
                 }
             ],
             "name": "promote_chat_member",
@@ -1345,7 +1481,6 @@ class Config {
                     "name": "create",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "POST",
                             "orig": "/promoteChatMember",
@@ -1354,14 +1489,16 @@ class Config {
                                     "lit": "promoteChatMember"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "promoteChatMember"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "promoteChatMember"
-                            ]
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }
@@ -1374,28 +1511,33 @@ class Config {
             "fields": [
                 {
                     "name": "description",
-                    "short": "Human-readable description of the result",
-                    "type": "`$STRING`"
+                    "title": "Description",
+                    "type": "`$STRING`",
+                    "short": "Human-readable description of the result"
                 },
                 {
                     "name": "error_code",
-                    "short": "Error code",
-                    "type": "`$INTEGER`"
+                    "title": "Error Code",
+                    "type": "`$INTEGER`",
+                    "short": "Error code"
                 },
                 {
                     "name": "ok",
+                    "title": "Ok",
+                    "type": "`$BOOLEAN`",
                     "req": true,
-                    "short": "If true, the request was successful",
-                    "type": "`$BOOLEAN`"
+                    "short": "If true, the request was successful"
                 },
                 {
                     "name": "parameters",
+                    "title": "Parameters",
                     "type": "`$OBJECT`"
                 },
                 {
                     "name": "result",
-                    "short": "The result of the query",
-                    "type": "`$ARRAY`"
+                    "title": "Result",
+                    "type": "`$ARRAY`",
+                    "short": "The result of the query"
                 }
             ],
             "name": "remove_my_profile_photo",
@@ -1405,7 +1547,6 @@ class Config {
                     "name": "create",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "POST",
                             "orig": "/removeMyProfilePhoto",
@@ -1414,14 +1555,16 @@ class Config {
                                     "lit": "removeMyProfilePhoto"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "removeMyProfilePhoto"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "removeMyProfilePhoto"
-                            ]
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }
@@ -1434,43 +1577,45 @@ class Config {
             "fields": [
                 {
                     "name": "chat_id",
-                    "req": true,
+                    "title": "Chat Id",
                     "type": "`$STRING`",
-                    "union": {
-                        "branches": 2,
-                        "count": 1,
-                        "depth": 0
-                    }
+                    "req": true
                 },
                 {
                     "name": "description",
-                    "short": "Human-readable description of the result",
-                    "type": "`$STRING`"
+                    "title": "Description",
+                    "type": "`$STRING`",
+                    "short": "Human-readable description of the result"
                 },
                 {
                     "name": "error_code",
-                    "short": "Error code",
-                    "type": "`$INTEGER`"
+                    "title": "Error Code",
+                    "type": "`$INTEGER`",
+                    "short": "Error code"
                 },
                 {
                     "name": "ok",
+                    "title": "Ok",
+                    "type": "`$BOOLEAN`",
                     "req": true,
-                    "short": "If true, the request was successful",
-                    "type": "`$BOOLEAN`"
+                    "short": "If true, the request was successful"
                 },
                 {
                     "name": "parameters",
+                    "title": "Parameters",
                     "type": "`$OBJECT`"
                 },
                 {
                     "name": "result",
-                    "short": "The result of the query",
-                    "type": "`$ARRAY`"
+                    "title": "Result",
+                    "type": "`$ARRAY`",
+                    "short": "The result of the query"
                 },
                 {
                     "name": "story_id",
-                    "req": true,
-                    "type": "`$INTEGER`"
+                    "title": "Story Id",
+                    "type": "`$INTEGER`",
+                    "req": true
                 }
             ],
             "name": "repost_story",
@@ -1480,7 +1625,6 @@ class Config {
                     "name": "create",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "POST",
                             "orig": "/repostStory",
@@ -1489,14 +1633,16 @@ class Config {
                                     "lit": "repostStory"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "repostStory"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "repostStory"
-                            ]
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }
@@ -1509,47 +1655,50 @@ class Config {
             "fields": [
                 {
                     "name": "action",
-                    "req": true,
-                    "type": "`$STRING`"
+                    "title": "Action",
+                    "type": "`$STRING`",
+                    "req": true
                 },
                 {
                     "name": "chat_id",
-                    "req": true,
+                    "title": "Chat Id",
                     "type": "`$STRING`",
-                    "union": {
-                        "branches": 2,
-                        "count": 1,
-                        "depth": 0
-                    }
+                    "req": true
                 },
                 {
                     "name": "description",
-                    "short": "Human-readable description of the result",
-                    "type": "`$STRING`"
+                    "title": "Description",
+                    "type": "`$STRING`",
+                    "short": "Human-readable description of the result"
                 },
                 {
                     "name": "error_code",
-                    "short": "Error code",
-                    "type": "`$INTEGER`"
+                    "title": "Error Code",
+                    "type": "`$INTEGER`",
+                    "short": "Error code"
                 },
                 {
                     "name": "message_thread_id",
+                    "title": "Message Thread Id",
                     "type": "`$INTEGER`"
                 },
                 {
                     "name": "ok",
+                    "title": "Ok",
+                    "type": "`$BOOLEAN`",
                     "req": true,
-                    "short": "If true, the request was successful",
-                    "type": "`$BOOLEAN`"
+                    "short": "If true, the request was successful"
                 },
                 {
                     "name": "parameters",
+                    "title": "Parameters",
                     "type": "`$OBJECT`"
                 },
                 {
                     "name": "result",
-                    "short": "The result of the query",
-                    "type": "`$ARRAY`"
+                    "title": "Result",
+                    "type": "`$ARRAY`",
+                    "short": "The result of the query"
                 }
             ],
             "name": "send_chat_action",
@@ -1559,7 +1708,6 @@ class Config {
                     "name": "create",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "POST",
                             "orig": "/sendChatAction",
@@ -1568,14 +1716,16 @@ class Config {
                                     "lit": "sendChatAction"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "sendChatAction"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "sendChatAction"
-                            ]
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }
@@ -1588,47 +1738,50 @@ class Config {
             "fields": [
                 {
                     "name": "chat_id",
-                    "req": true,
+                    "title": "Chat Id",
                     "type": "`$STRING`",
-                    "union": {
-                        "branches": 2,
-                        "count": 1,
-                        "depth": 0
-                    }
+                    "req": true
                 },
                 {
                     "name": "description",
-                    "short": "Human-readable description of the result",
-                    "type": "`$STRING`"
+                    "title": "Description",
+                    "type": "`$STRING`",
+                    "short": "Human-readable description of the result"
                 },
                 {
                     "name": "error_code",
-                    "short": "Error code",
-                    "type": "`$INTEGER`"
+                    "title": "Error Code",
+                    "type": "`$INTEGER`",
+                    "short": "Error code"
                 },
                 {
                     "name": "message_thread_id",
+                    "title": "Message Thread Id",
                     "type": "`$INTEGER`"
                 },
                 {
                     "name": "ok",
+                    "title": "Ok",
+                    "type": "`$BOOLEAN`",
                     "req": true,
-                    "short": "If true, the request was successful",
-                    "type": "`$BOOLEAN`"
+                    "short": "If true, the request was successful"
                 },
                 {
                     "name": "parameters",
+                    "title": "Parameters",
                     "type": "`$OBJECT`"
                 },
                 {
                     "name": "result",
-                    "short": "The result of the query",
-                    "type": "`$ARRAY`"
+                    "title": "Result",
+                    "type": "`$ARRAY`",
+                    "short": "The result of the query"
                 },
                 {
                     "name": "text",
-                    "req": true,
-                    "type": "`$STRING`"
+                    "title": "Text",
+                    "type": "`$STRING`",
+                    "req": true
                 }
             ],
             "name": "send_message_draft",
@@ -1638,7 +1791,6 @@ class Config {
                     "name": "create",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "POST",
                             "orig": "/sendMessageDraft",
@@ -1647,14 +1799,16 @@ class Config {
                                     "lit": "sendMessageDraft"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "sendMessageDraft"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "sendMessageDraft"
-                            ]
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }
@@ -1667,28 +1821,33 @@ class Config {
             "fields": [
                 {
                     "name": "description",
-                    "short": "Human-readable description of the result",
-                    "type": "`$STRING`"
+                    "title": "Description",
+                    "type": "`$STRING`",
+                    "short": "Human-readable description of the result"
                 },
                 {
                     "name": "error_code",
-                    "short": "Error code",
-                    "type": "`$INTEGER`"
+                    "title": "Error Code",
+                    "type": "`$INTEGER`",
+                    "short": "Error code"
                 },
                 {
                     "name": "ok",
+                    "title": "Ok",
+                    "type": "`$BOOLEAN`",
                     "req": true,
-                    "short": "If true, the request was successful",
-                    "type": "`$BOOLEAN`"
+                    "short": "If true, the request was successful"
                 },
                 {
                     "name": "parameters",
+                    "title": "Parameters",
                     "type": "`$OBJECT`"
                 },
                 {
                     "name": "result",
-                    "short": "The result of the query",
-                    "type": "`$ARRAY`"
+                    "title": "Result",
+                    "type": "`$ARRAY`",
+                    "short": "The result of the query"
                 }
             ],
             "name": "set_my_profile_photo",
@@ -1698,7 +1857,6 @@ class Config {
                     "name": "create",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "POST",
                             "orig": "/setMyProfilePhoto",
@@ -1707,14 +1865,16 @@ class Config {
                                     "lit": "setMyProfilePhoto"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "setMyProfilePhoto"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "setMyProfilePhoto"
-                            ]
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }
@@ -1727,43 +1887,45 @@ class Config {
             "fields": [
                 {
                     "name": "chat_id",
-                    "req": true,
+                    "title": "Chat Id",
                     "type": "`$STRING`",
-                    "union": {
-                        "branches": 2,
-                        "count": 1,
-                        "depth": 0
-                    }
+                    "req": true
                 },
                 {
                     "name": "description",
-                    "short": "Human-readable description of the result",
-                    "type": "`$STRING`"
+                    "title": "Description",
+                    "type": "`$STRING`",
+                    "short": "Human-readable description of the result"
                 },
                 {
                     "name": "error_code",
-                    "short": "Error code",
-                    "type": "`$INTEGER`"
+                    "title": "Error Code",
+                    "type": "`$INTEGER`",
+                    "short": "Error code"
                 },
                 {
                     "name": "message_thread_id",
-                    "req": true,
-                    "type": "`$INTEGER`"
+                    "title": "Message Thread Id",
+                    "type": "`$INTEGER`",
+                    "req": true
                 },
                 {
                     "name": "ok",
+                    "title": "Ok",
+                    "type": "`$BOOLEAN`",
                     "req": true,
-                    "short": "If true, the request was successful",
-                    "type": "`$BOOLEAN`"
+                    "short": "If true, the request was successful"
                 },
                 {
                     "name": "parameters",
+                    "title": "Parameters",
                     "type": "`$OBJECT`"
                 },
                 {
                     "name": "result",
-                    "short": "The result of the query",
-                    "type": "`$ARRAY`"
+                    "title": "Result",
+                    "type": "`$ARRAY`",
+                    "short": "The result of the query"
                 }
             ],
             "name": "unpin_all_forum_topic_message",
@@ -1773,7 +1935,6 @@ class Config {
                     "name": "create",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "POST",
                             "orig": "/unpinAllForumTopicMessages",
@@ -1782,14 +1943,16 @@ class Config {
                                     "lit": "unpinAllForumTopicMessages"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "unpinAllForumTopicMessages"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "unpinAllForumTopicMessages"
-                            ]
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }
@@ -1802,43 +1965,52 @@ class Config {
             "fields": [
                 {
                     "name": "allowed_updates",
+                    "title": "Allowed Updates",
                     "type": "`$ARRAY`"
                 },
                 {
                     "name": "description",
-                    "short": "Human-readable description of the result",
-                    "type": "`$STRING`"
+                    "title": "Description",
+                    "type": "`$STRING`",
+                    "short": "Human-readable description of the result"
                 },
                 {
                     "name": "error_code",
-                    "short": "Error code",
-                    "type": "`$INTEGER`"
+                    "title": "Error Code",
+                    "type": "`$INTEGER`",
+                    "short": "Error code"
                 },
                 {
                     "name": "limit",
+                    "title": "Limit",
                     "type": "`$INTEGER`"
                 },
                 {
                     "name": "offset",
+                    "title": "Offset",
                     "type": "`$INTEGER`"
                 },
                 {
                     "name": "ok",
+                    "title": "Ok",
+                    "type": "`$BOOLEAN`",
                     "req": true,
-                    "short": "If true, the request was successful",
-                    "type": "`$BOOLEAN`"
+                    "short": "If true, the request was successful"
                 },
                 {
                     "name": "parameters",
+                    "title": "Parameters",
                     "type": "`$OBJECT`"
                 },
                 {
                     "name": "result",
-                    "short": "The result of the query",
-                    "type": "`$ARRAY`"
+                    "title": "Result",
+                    "type": "`$ARRAY`",
+                    "short": "The result of the query"
                 },
                 {
                     "name": "timeout",
+                    "title": "Timeout",
                     "type": "`$INTEGER`"
                 }
             ],
@@ -1849,7 +2021,6 @@ class Config {
                     "name": "create",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "POST",
                             "orig": "/getUpdates",
@@ -1858,14 +2029,16 @@ class Config {
                                     "lit": "getUpdates"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "getUpdates"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "getUpdates"
-                            ]
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 },
@@ -1874,36 +2047,6 @@ class Config {
                     "name": "list",
                     "points": [
                         {
-                            "args": {
-                                "query": [
-                                    {
-                                        "kind": "query",
-                                        "name": "allowed_update",
-                                        "orig": "allowed_update",
-                                        "type": "`$ARRAY`"
-                                    },
-                                    {
-                                        "example": 100,
-                                        "kind": "query",
-                                        "name": "limit",
-                                        "orig": "limit",
-                                        "type": "`$INTEGER`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "offset",
-                                        "orig": "offset",
-                                        "type": "`$INTEGER`"
-                                    },
-                                    {
-                                        "example": 0,
-                                        "kind": "query",
-                                        "name": "timeout",
-                                        "orig": "timeout",
-                                        "type": "`$INTEGER`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/getUpdates",
@@ -1912,6 +2055,44 @@ class Config {
                                     "lit": "getUpdates"
                                 }
                             ],
+                            "parts": [
+                                "getUpdates"
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {
+                                "query": [
+                                    {
+                                        "name": "allowed_update",
+                                        "orig": "allowed_update",
+                                        "type": "`$ARRAY`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "limit",
+                                        "orig": "limit",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 100
+                                    },
+                                    {
+                                        "name": "offset",
+                                        "orig": "offset",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "timeout",
+                                        "orig": "timeout",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 0
+                                    }
+                                ]
+                            },
                             "select": {
                                 "exist": [
                                     "allowed_update",
@@ -1919,14 +2100,7 @@ class Config {
                                     "offset",
                                     "timeout"
                                 ]
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body`"
-                            },
-                            "parts": [
-                                "getUpdates"
-                            ]
+                            }
                         }
                     ]
                 }

@@ -1,0 +1,45 @@
+# Entity: file
+
+main: kit: entity: file: {
+
+  alias: field: {}
+
+  fields: {
+    file_id: {
+      h: "File Id"
+      n: "file_id"
+      r: true
+      t: "`$STRING`"
+    }
+  }
+
+  name: "file"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /getFile"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/getFile"
+          s: [
+            {
+              lit: "getFile"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

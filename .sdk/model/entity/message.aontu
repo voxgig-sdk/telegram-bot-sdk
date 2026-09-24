@@ -1,0 +1,319 @@
+# Entity: message
+
+main: kit: entity: message: {
+
+  alias: field: {}
+
+  fields: {
+    chat_id: {
+      h: "Chat Id"
+      n: "chat_id"
+      r: true
+      sh: "Unique identifier for the target chat or username"
+      t: "`$STRING`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
+    direct_messages_topic_id: {
+      h: "Direct Messages Topic Id"
+      n: "direct_messages_topic_id"
+      r: false
+      sh: "Unique identifier for the target direct messages topic"
+      t: "`$INTEGER`"
+    }
+    disable_notification: {
+      h: "Disable Notification"
+      n: "disable_notification"
+      r: false
+      sh: "Sends the message silently"
+      t: "`$BOOLEAN`"
+    }
+    disable_web_page_preview: {
+      h: "Disable Web Page Preview"
+      n: "disable_web_page_preview"
+      r: false
+      sh: "Disables link previews for links in this message"
+      t: "`$BOOLEAN`"
+    }
+    from_chat_id: {
+      h: "From Chat Id"
+      n: "from_chat_id"
+      r: true
+      t: "`$STRING`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
+    latitude: {
+      fo: "float"
+      h: "Latitude"
+      n: "latitude"
+      r: true
+      t: "`$NUMBER`"
+    }
+    longitude: {
+      fo: "float"
+      h: "Longitude"
+      n: "longitude"
+      r: true
+      t: "`$NUMBER`"
+    }
+    message_effect_id: {
+      h: "Message Effect Id"
+      n: "message_effect_id"
+      r: false
+      sh: "Unique identifier of the message effect to be added to the message"
+      t: "`$STRING`"
+    }
+    message_id: {
+      h: "Message Id"
+      n: "message_id"
+      r: true
+      t: "`$INTEGER`"
+    }
+    message_thread_id: {
+      h: "Message Thread Id"
+      n: "message_thread_id"
+      r: false
+      sh: "Unique identifier for the target message thread (topic) of the forum"
+      t: "`$INTEGER`"
+    }
+    options: {
+      h: "Options"
+      n: "options"
+      r: true
+      t: "`$ARRAY`"
+    }
+    parse_mode: {
+      h: "Parse Mode"
+      n: "parse_mode"
+      r: false
+      sh: "Mode for parsing entities in the message text"
+      t: "`$STRING`"
+    }
+    protect_content: {
+      h: "Protect Content"
+      n: "protect_content"
+      r: false
+      sh: "Protects the contents of the sent message from forwarding and saving"
+      t: "`$BOOLEAN`"
+    }
+    question: {
+      h: "Question"
+      n: "question"
+      r: true
+      t: "`$STRING`"
+    }
+    reply_to_message_id: {
+      h: "Reply To Message Id"
+      n: "reply_to_message_id"
+      r: false
+      sh: "If the message is a reply, ID of the original message"
+      t: "`$INTEGER`"
+    }
+    text: {
+      h: "Text"
+      n: "text"
+      r: true
+      sh: "Text of the message to be sent"
+      t: "`$STRING`"
+    }
+  }
+
+  name: "message"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /forwardMessage"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/forwardMessage"
+          s: [
+            {
+              lit: "forwardMessage"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /sendAnimation"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/sendAnimation"
+          s: [
+            {
+              lit: "sendAnimation"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /sendAudio"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/sendAudio"
+          s: [
+            {
+              lit: "sendAudio"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /sendDocument"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/sendDocument"
+          s: [
+            {
+              lit: "sendDocument"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /sendLocation"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/sendLocation"
+          s: [
+            {
+              lit: "sendLocation"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /sendMessage"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/sendMessage"
+          s: [
+            {
+              lit: "sendMessage"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /sendPhoto"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/sendPhoto"
+          s: [
+            {
+              lit: "sendPhoto"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /sendPoll"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/sendPoll"
+          s: [
+            {
+              lit: "sendPoll"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /sendSticker"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/sendSticker"
+          s: [
+            {
+              lit: "sendSticker"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /sendVideo"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/sendVideo"
+          s: [
+            {
+              lit: "sendVideo"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -17,10 +17,6 @@ import {
 } from '../../utility'
 
 
-// AFTER the imports on purpose: TypeScript hoists `import` above any
-// statement in the emitted CommonJS, so a loader placed above them would
-// run only after every imported module had already been evaluated - and
-// anything reading process.env at module scope would miss these values.
 loadEnvLocal(__dirname + '/../../../.env.local')
 
 
@@ -32,9 +28,6 @@ describe('GetMeDirect', async () => {
 
   test('direct-exists', async () => {
     const sdk = new TelegramBotSDK({
-      // Concrete base: a live construction must satisfy any server
-      // variables a templated base URL declares; overriding base with a
-      // literal (as the direct flow tests do) sidesteps the requirement.
       base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
@@ -43,15 +36,14 @@ describe('GetMeDirect', async () => {
   })
 
 
-  test('direct-load-get_me', async (t: any) => {
+  test('direct-list-get_me', async (t: any) => {
     if (liveScenariosActive()) { t.skip('Covered by live operation scenarios'); return }
-    const setup = directSetup({ id: 'direct01' })
-    if (maybeSkipControl(t, 'direct', 'direct-load-get_me', setup.live)) return
+    const setup = directSetup([{ id: 'direct01' }, { id: 'direct02' }])
+    if (maybeSkipControl(t, 'direct', 'direct-list-get_me', setup.live)) return
     const { client, calls } = setup
 
     const params: any = {}
     const query: any = {}
-
 
     const result: any = await client.direct({
       path: 'getMe',
@@ -72,12 +64,14 @@ describe('GetMeDirect', async () => {
       assert(result.ok === true,
         'Live request failed: HTTP ' + result.status)
       assert(result.status >= 200 && result.status < 300)
-      assert(null != result.data)
+      assert(Array.isArray(unwrapListData(result.data)), 'Expected live list response')
     } else {
       assert(result.ok === true)
       assert(result.status === 200)
       assert(null != result.data)
-      assert(result.data.id === 'direct01')
+      const listArr = unwrapListData(result.data)
+      assert(Array.isArray(listArr))
+      assert(listArr!.length === 2)
       assert(calls.length === 1)
       assert(calls[0].init.method === 'GET')
     }

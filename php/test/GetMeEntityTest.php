@@ -18,12 +18,51 @@ class GetMeEntityTest extends TestCase
         $this->assertNotNull($ent);
     }
 
+    // Feature #4: the entity stream(action, ...) method runs the op pipeline
+    // and yields result items. With the streaming feature active it yields the
+    // feature's incremental output; otherwise it falls back to the materialised
+    // list so stream always yields.
+    public function test_stream(): void
+    {
+        $seed = [
+            "entity" => [
+                "get_me" => [
+                    "s1" => ["id" => "s1"],
+                    "s2" => ["id" => "s2"],
+                    "s3" => ["id" => "s3"],
+                ],
+            ],
+        ];
+
+        // Fallback: streaming inactive -> yields the materialised list items.
+        $base = TelegramBotSDK::test($seed, null);
+        $seen = iterator_to_array($base->GetMe(null)->stream("list", null, null), false);
+        $this->assertCount(3, $seen);
+
+        // Inbound: streaming active -> yields each item from the feature.
+        $cfg = TelegramBotConfig::shared_config();
+        if (isset($cfg["feature"]) && is_array($cfg["feature"]) && isset($cfg["feature"]["streaming"])) {
+            $sdk = TelegramBotSDK::test($seed, ["feature" => ["streaming" => ["active" => true]]]);
+            $got = [];
+            foreach ($sdk->GetMe(null)->stream("list", null, null) as $item) {
+                if (is_array($item) && array_is_list($item)) {
+                    foreach ($item as $sub) {
+                        $got[] = $sub;
+                    }
+                } else {
+                    $got[] = $item;
+                }
+            }
+            $this->assertCount(3, $got);
+        }
+    }
+
     public function test_basic_flow(): void
     {
         $setup = get_me_basic_setup(null);
         // Per-op sdk-test-control.json skip.
         $_live = !empty($setup["live"]);
-        foreach (["create", "load"] as $_op) {
+        foreach (["create", "list"] as $_op) {
             [$_shouldSkip, $_reason] = Runner::is_control_skipped("entityOp", "get_me." . $_op, $_live ? "live" : "unit");
             if ($_shouldSkip) {
                 $this->markTestSkipped($_reason ?? "skipped via sdk-test-control.json");
@@ -47,10 +86,11 @@ class GetMeEntityTest extends TestCase
         $get_me_ref01_data = Helpers::to_map(is_object($get_me_ref01_data_result) && method_exists($get_me_ref01_data_result, 'data_get') ? $get_me_ref01_data_result->data_get() : $get_me_ref01_data_result);
         $this->assertNotNull($get_me_ref01_data);
 
-        // LOAD
-        $get_me_ref01_match_dt0 = [];
-        $get_me_ref01_data_dt0_loaded = $get_me_ref01_ent->load($get_me_ref01_match_dt0, null);
-        $this->assertNotNull($get_me_ref01_data_dt0_loaded);
+        // LIST
+        $get_me_ref01_match = [];
+
+        $get_me_ref01_list_result = $get_me_ref01_ent->list($get_me_ref01_match, null);
+        $this->assertIsArray($get_me_ref01_list_result);
 
     }
 }

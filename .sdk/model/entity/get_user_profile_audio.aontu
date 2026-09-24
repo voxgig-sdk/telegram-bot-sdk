@@ -1,0 +1,79 @@
+# Entity: get_user_profile_audio
+
+main: kit: entity: get_user_profile_audio: {
+
+  alias: field: {}
+
+  fields: {
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "Human-readable description of the result"
+      t: "`$STRING`"
+    }
+    error_code: {
+      h: "Error Code"
+      n: "error_code"
+      r: false
+      sh: "Error code"
+      t: "`$INTEGER`"
+    }
+    ok: {
+      h: "Ok"
+      n: "ok"
+      r: true
+      sh: "If true, the request was successful"
+      t: "`$BOOLEAN`"
+    }
+    parameters: {
+      h: "Parameters"
+      n: "parameters"
+      r: false
+      t: "`$OBJECT`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      r: false
+      sh: "The result of the query"
+      t: "`$ARRAY`"
+    }
+    user_id: {
+      h: "User Id"
+      n: "user_id"
+      r: true
+      t: "`$INTEGER`"
+    }
+  }
+
+  name: "get_user_profile_audio"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /getUserProfileAudios"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/getUserProfileAudios"
+          s: [
+            {
+              lit: "getUserProfileAudios"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

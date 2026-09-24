@@ -4,7 +4,7 @@
 
 The Ruby SDK for the TelegramBot API — an entity-oriented client using idiomatic Ruby conventions.
 
-The SDK exposes the API as capitalised, semantic **Entities** — for example `client.ApproveSuggestedPost` — with named operations (`list`/`load`/`create`) instead of raw URL paths and query strings. Working with resources and verbs keeps call sites self-describing and reduces cognitive load.
+The SDK exposes the API as capitalised, semantic **Entities** — for example `client.ApproveSuggestedPost` — with named operations (`list`/`create`) instead of raw URL paths and query strings. Working with resources and verbs keeps call sites self-describing and reduces cognitive load.
 
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
@@ -47,9 +47,9 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  getme = client.GetMe.load()
+  getmes = client.GetMe.list()
 rescue => err
-  warn "load failed: #{err}"
+  warn "list failed: #{err}"
 end
 ```
 
@@ -117,7 +117,7 @@ client = TelegramBotSDK.test
 
 # Entity ops return the ENTITY (raises on error);
 # call data_get for the mock record.
-getme = client.GetMe.load()
+getme = client.GetMe.list()
 puts getme
 ```
 
@@ -224,7 +224,6 @@ All entities share the same interface.
 
 | Method | Signature | Description |
 | --- | --- | --- |
-| `load` | `(reqmatch, ctrl) -> any` | Load a single entity by match criteria. Raises on error. |
 | `list` | `(reqmatch = nil, ctrl) -> Array` | List entities matching the criteria (call with no argument to list all). Raises on error. |
 | `create` | `(reqdata, ctrl) -> any` | Create a new entity. Raises on error. |
 | `data_get` | `() -> Hash` | Get entity data. |
@@ -378,13 +377,26 @@ API path: `/getChatGifts`
 
 | Field | Description |
 | --- | --- |
+| `business_connection` |  |
+| `business_message` |  |
+| `channel_post` |  |
+| `chosen_inline_result` |  |
+| `deleted_business_messages` |  |
 | `description` | Human-readable description of the result |
+| `edited_business_message` |  |
+| `edited_channel_post` |  |
+| `edited_message` |  |
 | `error_code` | Error code |
+| `inline_query` |  |
+| `message` |  |
+| `message_reaction` |  |
+| `message_reaction_count` |  |
 | `ok` | If true, the request was successful |
 | `parameters` |  |
 | `result` | The result of the query |
+| `update_id` | The update's unique identifier |
 
-Operations: Create, Load.
+Operations: Create, List.
 
 API path: `/getMe`
 
@@ -856,30 +868,52 @@ Create an instance: `get_me = client.GetMe`
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
-| `load(match)` | Load a single entity by match criteria. |
+| `list(match)` | List entities matching the criteria. |
 
 #### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `business_connection` | `Hash` |  |
+| `business_message` | `Hash` |  |
+| `channel_post` | `Hash` |  |
+| `chosen_inline_result` | `Hash` |  |
+| `deleted_business_messages` | `Hash` |  |
 | `description` | `String` | Human-readable description of the result |
+| `edited_business_message` | `Hash` |  |
+| `edited_channel_post` | `Hash` |  |
+| `edited_message` | `Hash` |  |
 | `error_code` | `Integer` | Error code |
+| `inline_query` | `Hash` |  |
+| `message` | `Hash` |  |
+| `message_reaction` | `Hash` |  |
+| `message_reaction_count` | `Hash` |  |
 | `ok` | `Boolean` | If true, the request was successful |
 | `parameters` | `Hash` |  |
 | `result` | `Array` | The result of the query |
+| `update_id` | `Integer` | The update's unique identifier |
 
-#### Example: Load
+#### Example: List
 
 ```ruby
-# load returns the ENTITY — call data_get for the GetMe record (raises on error).
-get_me = client.GetMe.load()
+# list returns an Array of GetMe records (raises on error).
+get_mes = client.GetMe.list
 ```
 
 #### Example: Create
 
 ```ruby
 get_me = client.GetMe.create({
+  "business_message" => {}, # Hash
+  "channel_post" => {}, # Hash
+  "chosen_inline_result" => {}, # Hash
+  "edited_business_message" => {}, # Hash
+  "edited_channel_post" => {}, # Hash
+  "edited_message" => {}, # Hash
+  "inline_query" => {}, # Hash
+  "message" => {}, # Hash
   "ok" => true, # Boolean
+  "update_id" => 1, # Integer
 })
 ```
 
@@ -1453,14 +1487,14 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
 getme = client.GetMe
-getme.load()
+getme.list()
 
-# getme.data_get now returns the getme data from the last load
+# getme.data_get now returns the getme data from the last list
 # getme.match_get returns the last match criteria
 ```
 

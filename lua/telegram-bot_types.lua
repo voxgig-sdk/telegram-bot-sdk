@@ -1,7 +1,7 @@
 -- Typed models for the TelegramBot SDK (LuaLS annotations).
 --
--- GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
--- params (op.<name>.points[].args.params[]). Field/param types come from the
+-- GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+-- params (op.<name>.points[].g.params[]). Field/param types come from the
 -- canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 -- @voxgig/apidef VALID_CANON). Annotations only — no runtime effect. Do not
 -- edit by hand.
@@ -137,25 +137,64 @@
 ---@field result? table
 
 ---@class GetMe
+---@field business_connection? table
+---@field business_message table
+---@field channel_post table
+---@field chosen_inline_result table
+---@field deleted_business_messages? table
 ---@field description? string
+---@field edited_business_message table
+---@field edited_channel_post table
+---@field edited_message table
 ---@field error_code? number
+---@field inline_query table
+---@field message table
+---@field message_reaction? table
+---@field message_reaction_count? table
 ---@field ok boolean
 ---@field parameters? table
 ---@field result? table
+---@field update_id number
 
----@class GetMeLoadMatch
+---@class GetMeListMatch
+---@field business_connection? table
+---@field business_message? table
+---@field channel_post? table
+---@field chosen_inline_result? table
+---@field deleted_business_messages? table
 ---@field description? string
+---@field edited_business_message? table
+---@field edited_channel_post? table
+---@field edited_message? table
 ---@field error_code? number
+---@field inline_query? table
+---@field message? table
+---@field message_reaction? table
+---@field message_reaction_count? table
 ---@field ok? boolean
 ---@field parameters? table
 ---@field result? table
+---@field update_id? number
 
 ---@class GetMeCreateData
+---@field business_connection? table
+---@field business_message table
+---@field channel_post table
+---@field chosen_inline_result table
+---@field deleted_business_messages? table
 ---@field description? string
+---@field edited_business_message table
+---@field edited_channel_post table
+---@field edited_message table
 ---@field error_code? number
+---@field inline_query table
+---@field message table
+---@field message_reaction? table
+---@field message_reaction_count? table
 ---@field ok boolean
 ---@field parameters? table
 ---@field result? table
+---@field update_id number
 
 ---@class GetUserGift
 ---@field description? string

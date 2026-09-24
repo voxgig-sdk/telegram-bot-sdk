@@ -242,20 +242,22 @@ class GetMeEntity
     }
 
     
+
+    
     /**
-     * Load a single GetMe.
+     * List GetMe items matching the given filter.
      *
-     * @param GetMeLoadMatch|array|null $reqmatch Match criteria (id/query
-     *   fields) as an assoc-array; a typed GetMeLoadMatch names the shape.
+     * @param GetMeListMatch|array|null $reqmatch Match filter (any subset
+     *   of GetMe fields) as an assoc-array; GetMeListMatch names the shape.
      * @param mixed $ctrl Optional per-call control overrides.
-     * @return GetMe|array The loaded GetMe as an assoc-array at the
-     *   SDK boundary; throws TelegramBotError on failure (item-5 convention).
+     * @return GetMe[]|array A list of GetMe items as assoc-arrays at
+     *   the SDK boundary; throws TelegramBotError on failure (item-5 convention).
      */
-    public function load(?array $reqmatch = null, $ctrl = null): mixed
+    public function list(?array $reqmatch = null, $ctrl = null): mixed
     {
         $utility = $this->_utility;
         $ctx = ($utility->make_context)([
-            "opname" => "load",
+            "opname" => "list",
             "ctrl" => $ctrl,
             "match" => $this->_match,
             "data" => $this->_data,
@@ -267,16 +269,11 @@ class GetMeEntity
                 if ($ctx->result->resmatch) {
                     $this->_match = $ctx->result->resmatch;
                 }
-                if ($ctx->result->resdata) {
-                    $this->_data = TelegramBotHelpers::to_map(Struct::clone($ctx->result->resdata)) ?? [];
-                }
             }
         });
     }
 
 
-
-    
 
     
     /**

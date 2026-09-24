@@ -119,43 +119,45 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "chat_id",
-						"req": true,
+						"title": "Chat Id",
 						"type": "`$STRING`",
-						"union": map[string]any{
-							"branches": 2,
-							"count": 1,
-							"depth": 0,
-						},
+						"req": true,
 					},
 					map[string]any{
 						"name": "description",
-						"short": "Human-readable description of the result",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "Human-readable description of the result",
 					},
 					map[string]any{
 						"name": "error_code",
-						"short": "Error code",
+						"title": "Error Code",
 						"type": "`$INTEGER`",
+						"short": "Error code",
 					},
 					map[string]any{
 						"name": "message_id",
-						"req": true,
+						"title": "Message Id",
 						"type": "`$INTEGER`",
+						"req": true,
 					},
 					map[string]any{
 						"name": "ok",
+						"title": "Ok",
+						"type": "`$BOOLEAN`",
 						"req": true,
 						"short": "If true, the request was successful",
-						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "parameters",
+						"title": "Parameters",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "result",
-						"short": "The result of the query",
+						"title": "Result",
 						"type": "`$ARRAY`",
+						"short": "The result of the query",
 					},
 				},
 				"name": "approve_suggested_post",
@@ -165,7 +167,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/approveSuggestedPost",
@@ -174,14 +175,16 @@ func MakeConfig() map[string]any {
 										"lit": "approveSuggestedPost",
 									},
 								},
-								"select": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.parameters`",
-								},
 								"parts": []any{
 									"approveSuggestedPost",
 								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -194,43 +197,45 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "chat_id",
-						"req": true,
+						"title": "Chat Id",
 						"type": "`$STRING`",
-						"union": map[string]any{
-							"branches": 2,
-							"count": 1,
-							"depth": 0,
-						},
+						"req": true,
 					},
 					map[string]any{
 						"name": "description",
-						"short": "Human-readable description of the result",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "Human-readable description of the result",
 					},
 					map[string]any{
 						"name": "error_code",
-						"short": "Error code",
+						"title": "Error Code",
 						"type": "`$INTEGER`",
+						"short": "Error code",
 					},
 					map[string]any{
 						"name": "message_id",
-						"req": true,
+						"title": "Message Id",
 						"type": "`$INTEGER`",
+						"req": true,
 					},
 					map[string]any{
 						"name": "ok",
+						"title": "Ok",
+						"type": "`$BOOLEAN`",
 						"req": true,
 						"short": "If true, the request was successful",
-						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "parameters",
+						"title": "Parameters",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "result",
-						"short": "The result of the query",
+						"title": "Result",
 						"type": "`$ARRAY`",
+						"short": "The result of the query",
 					},
 				},
 				"name": "decline_suggested_post",
@@ -240,7 +245,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/declineSuggestedPost",
@@ -249,14 +253,16 @@ func MakeConfig() map[string]any {
 										"lit": "declineSuggestedPost",
 									},
 								},
-								"select": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.parameters`",
-								},
 								"parts": []any{
 									"declineSuggestedPost",
 								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -269,43 +275,45 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "chat_id",
-						"req": true,
+						"title": "Chat Id",
 						"type": "`$STRING`",
-						"union": map[string]any{
-							"branches": 2,
-							"count": 1,
-							"depth": 0,
-						},
+						"req": true,
 					},
 					map[string]any{
 						"name": "description",
-						"short": "Human-readable description of the result",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "Human-readable description of the result",
 					},
 					map[string]any{
 						"name": "error_code",
-						"short": "Error code",
+						"title": "Error Code",
 						"type": "`$INTEGER`",
+						"short": "Error code",
 					},
 					map[string]any{
 						"name": "message_thread_id",
-						"req": true,
+						"title": "Message Thread Id",
 						"type": "`$INTEGER`",
+						"req": true,
 					},
 					map[string]any{
 						"name": "ok",
+						"title": "Ok",
+						"type": "`$BOOLEAN`",
 						"req": true,
 						"short": "If true, the request was successful",
-						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "parameters",
+						"title": "Parameters",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "result",
-						"short": "The result of the query",
+						"title": "Result",
 						"type": "`$ARRAY`",
+						"short": "The result of the query",
 					},
 				},
 				"name": "delete_forum_topic",
@@ -315,7 +323,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/deleteForumTopic",
@@ -324,14 +331,16 @@ func MakeConfig() map[string]any {
 										"lit": "deleteForumTopic",
 									},
 								},
-								"select": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.parameters`",
-								},
 								"parts": []any{
 									"deleteForumTopic",
 								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -344,51 +353,55 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "chat_id",
-						"req": true,
+						"title": "Chat Id",
 						"type": "`$STRING`",
-						"union": map[string]any{
-							"branches": 2,
-							"count": 1,
-							"depth": 0,
-						},
+						"req": true,
 					},
 					map[string]any{
 						"name": "description",
-						"short": "Human-readable description of the result",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "Human-readable description of the result",
 					},
 					map[string]any{
 						"name": "error_code",
-						"short": "Error code",
+						"title": "Error Code",
 						"type": "`$INTEGER`",
+						"short": "Error code",
 					},
 					map[string]any{
 						"name": "icon_custom_emoji_id",
+						"title": "Icon Custom Emoji Id",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "message_thread_id",
-						"req": true,
+						"title": "Message Thread Id",
 						"type": "`$INTEGER`",
+						"req": true,
 					},
 					map[string]any{
 						"name": "name",
+						"title": "Name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "ok",
+						"title": "Ok",
+						"type": "`$BOOLEAN`",
 						"req": true,
 						"short": "If true, the request was successful",
-						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "parameters",
+						"title": "Parameters",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "result",
-						"short": "The result of the query",
+						"title": "Result",
 						"type": "`$ARRAY`",
+						"short": "The result of the query",
 					},
 				},
 				"name": "edit_forum_topic",
@@ -398,7 +411,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/editForumTopic",
@@ -407,14 +419,16 @@ func MakeConfig() map[string]any {
 										"lit": "editForumTopic",
 									},
 								},
-								"select": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.parameters`",
-								},
 								"parts": []any{
 									"editForumTopic",
 								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -427,8 +441,9 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "file_id",
-						"req": true,
+						"title": "File Id",
 						"type": "`$STRING`",
+						"req": true,
 					},
 				},
 				"name": "file",
@@ -438,7 +453,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/getFile",
@@ -447,14 +461,16 @@ func MakeConfig() map[string]any {
 										"lit": "getFile",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"getFile",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"getFile",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -467,26 +483,25 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "chat_id",
-						"req": true,
+						"title": "Chat Id",
 						"type": "`$STRING`",
-						"union": map[string]any{
-							"branches": 2,
-							"count": 1,
-							"depth": 0,
-						},
+						"req": true,
 					},
 					map[string]any{
 						"name": "icon_color",
+						"title": "Icon Color",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "icon_custom_emoji_id",
+						"title": "Icon Custom Emoji Id",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "name",
-						"req": true,
+						"title": "Name",
 						"type": "`$STRING`",
+						"req": true,
 					},
 				},
 				"name": "forum_topic",
@@ -496,7 +511,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/createForumTopic",
@@ -505,14 +519,16 @@ func MakeConfig() map[string]any {
 										"lit": "createForumTopic",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"createForumTopic",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"createForumTopic",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -525,40 +541,48 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "description",
-						"short": "Human-readable description of the result",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "Human-readable description of the result",
 					},
 					map[string]any{
 						"name": "error_code",
-						"short": "Error code",
+						"title": "Error Code",
 						"type": "`$INTEGER`",
+						"short": "Error code",
 					},
 					map[string]any{
 						"name": "exclude_from_blockchain",
+						"title": "Exclude From Blockchain",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "exclude_limited_non_upgradable",
+						"title": "Exclude Limited Non Upgradable",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "exclude_limited_upgradable",
+						"title": "Exclude Limited Upgradable",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "ok",
+						"title": "Ok",
+						"type": "`$BOOLEAN`",
 						"req": true,
 						"short": "If true, the request was successful",
-						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "parameters",
+						"title": "Parameters",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "result",
-						"short": "The result of the query",
+						"title": "Result",
 						"type": "`$ARRAY`",
+						"short": "The result of the query",
 					},
 				},
 				"name": "get_business_account_gift",
@@ -568,7 +592,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/getBusinessAccountGifts",
@@ -577,14 +600,16 @@ func MakeConfig() map[string]any {
 										"lit": "getBusinessAccountGifts",
 									},
 								},
-								"select": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.parameters`",
-								},
 								"parts": []any{
 									"getBusinessAccountGifts",
 								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -597,38 +622,39 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "chat_id",
-						"req": true,
+						"title": "Chat Id",
 						"type": "`$STRING`",
-						"union": map[string]any{
-							"branches": 2,
-							"count": 1,
-							"depth": 0,
-						},
+						"req": true,
 					},
 					map[string]any{
 						"name": "description",
-						"short": "Human-readable description of the result",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "Human-readable description of the result",
 					},
 					map[string]any{
 						"name": "error_code",
-						"short": "Error code",
+						"title": "Error Code",
 						"type": "`$INTEGER`",
+						"short": "Error code",
 					},
 					map[string]any{
 						"name": "ok",
+						"title": "Ok",
+						"type": "`$BOOLEAN`",
 						"req": true,
 						"short": "If true, the request was successful",
-						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "parameters",
+						"title": "Parameters",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "result",
-						"short": "The result of the query",
+						"title": "Result",
 						"type": "`$ARRAY`",
+						"short": "The result of the query",
 					},
 				},
 				"name": "get_chat_gift",
@@ -638,7 +664,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/getChatGifts",
@@ -647,14 +672,16 @@ func MakeConfig() map[string]any {
 										"lit": "getChatGifts",
 									},
 								},
-								"select": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.parameters`",
-								},
 								"parts": []any{
 									"getChatGifts",
 								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -666,29 +693,109 @@ func MakeConfig() map[string]any {
 			"get_me": map[string]any{
 				"fields": []any{
 					map[string]any{
+						"name": "business_connection",
+						"title": "Business Connection",
+						"type": "`$OBJECT`",
+					},
+					map[string]any{
+						"name": "business_message",
+						"title": "Business Message",
+						"type": "`$OBJECT`",
+						"req": true,
+					},
+					map[string]any{
+						"name": "channel_post",
+						"title": "Channel Post",
+						"type": "`$OBJECT`",
+						"req": true,
+					},
+					map[string]any{
+						"name": "chosen_inline_result",
+						"title": "Chosen Inline Result",
+						"type": "`$OBJECT`",
+						"req": true,
+					},
+					map[string]any{
+						"name": "deleted_business_messages",
+						"title": "Deleted Business Messages",
+						"type": "`$OBJECT`",
+					},
+					map[string]any{
 						"name": "description",
-						"short": "Human-readable description of the result",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "Human-readable description of the result",
+					},
+					map[string]any{
+						"name": "edited_business_message",
+						"title": "Edited Business Message",
+						"type": "`$OBJECT`",
+						"req": true,
+					},
+					map[string]any{
+						"name": "edited_channel_post",
+						"title": "Edited Channel Post",
+						"type": "`$OBJECT`",
+						"req": true,
+					},
+					map[string]any{
+						"name": "edited_message",
+						"title": "Edited Message",
+						"type": "`$OBJECT`",
+						"req": true,
 					},
 					map[string]any{
 						"name": "error_code",
-						"short": "Error code",
+						"title": "Error Code",
 						"type": "`$INTEGER`",
+						"short": "Error code",
+					},
+					map[string]any{
+						"name": "inline_query",
+						"title": "Inline Query",
+						"type": "`$OBJECT`",
+						"req": true,
+					},
+					map[string]any{
+						"name": "message",
+						"title": "Message",
+						"type": "`$OBJECT`",
+						"req": true,
+					},
+					map[string]any{
+						"name": "message_reaction",
+						"title": "Message Reaction",
+						"type": "`$OBJECT`",
+					},
+					map[string]any{
+						"name": "message_reaction_count",
+						"title": "Message Reaction Count",
+						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "ok",
+						"title": "Ok",
+						"type": "`$BOOLEAN`",
 						"req": true,
 						"short": "If true, the request was successful",
-						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "parameters",
+						"title": "Parameters",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "result",
-						"short": "The result of the query",
+						"title": "Result",
 						"type": "`$ARRAY`",
+						"short": "The result of the query",
+					},
+					map[string]any{
+						"name": "update_id",
+						"title": "Update Id",
+						"type": "`$INTEGER`",
+						"req": true,
+						"short": "The update's unique identifier",
 					},
 				},
 				"name": "get_me",
@@ -698,7 +805,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/getMe",
@@ -707,23 +813,24 @@ func MakeConfig() map[string]any {
 										"lit": "getMe",
 									},
 								},
-								"select": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.parameters`",
-								},
 								"parts": []any{
 									"getMe",
 								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
-					"load": map[string]any{
+					"list": map[string]any{
 						"input": "data",
-						"name": "load",
+						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/getMe",
@@ -732,14 +839,16 @@ func MakeConfig() map[string]any {
 										"lit": "getMe",
 									},
 								},
-								"select": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.parameters`",
-								},
 								"parts": []any{
 									"getMe",
 								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -752,33 +861,39 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "description",
-						"short": "Human-readable description of the result",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "Human-readable description of the result",
 					},
 					map[string]any{
 						"name": "error_code",
-						"short": "Error code",
+						"title": "Error Code",
 						"type": "`$INTEGER`",
+						"short": "Error code",
 					},
 					map[string]any{
 						"name": "ok",
+						"title": "Ok",
+						"type": "`$BOOLEAN`",
 						"req": true,
 						"short": "If true, the request was successful",
-						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "parameters",
+						"title": "Parameters",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "result",
-						"short": "The result of the query",
+						"title": "Result",
 						"type": "`$ARRAY`",
+						"short": "The result of the query",
 					},
 					map[string]any{
 						"name": "user_id",
-						"req": true,
+						"title": "User Id",
 						"type": "`$INTEGER`",
+						"req": true,
 					},
 				},
 				"name": "get_user_gift",
@@ -788,7 +903,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/getUserGifts",
@@ -797,14 +911,16 @@ func MakeConfig() map[string]any {
 										"lit": "getUserGifts",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"getUserGifts",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"getUserGifts",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -817,33 +933,39 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "description",
-						"short": "Human-readable description of the result",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "Human-readable description of the result",
 					},
 					map[string]any{
 						"name": "error_code",
-						"short": "Error code",
+						"title": "Error Code",
 						"type": "`$INTEGER`",
+						"short": "Error code",
 					},
 					map[string]any{
 						"name": "ok",
+						"title": "Ok",
+						"type": "`$BOOLEAN`",
 						"req": true,
 						"short": "If true, the request was successful",
-						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "parameters",
+						"title": "Parameters",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "result",
-						"short": "The result of the query",
+						"title": "Result",
 						"type": "`$ARRAY`",
+						"short": "The result of the query",
 					},
 					map[string]any{
 						"name": "user_id",
-						"req": true,
+						"title": "User Id",
 						"type": "`$INTEGER`",
+						"req": true,
 					},
 				},
 				"name": "get_user_profile_audio",
@@ -853,7 +975,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/getUserProfileAudios",
@@ -862,14 +983,16 @@ func MakeConfig() map[string]any {
 										"lit": "getUserProfileAudios",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"getUserProfileAudios",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"getUserProfileAudios",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -882,97 +1005,103 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "chat_id",
+						"title": "Chat Id",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Unique identifier for the target chat or username",
-						"type": "`$STRING`",
-						"union": map[string]any{
-							"branches": 2,
-							"count": 1,
-							"depth": 0,
-						},
 					},
 					map[string]any{
 						"name": "direct_messages_topic_id",
-						"short": "Unique identifier for the target direct messages topic",
+						"title": "Direct Messages Topic Id",
 						"type": "`$INTEGER`",
+						"short": "Unique identifier for the target direct messages topic",
 					},
 					map[string]any{
 						"name": "disable_notification",
-						"short": "Sends the message silently",
+						"title": "Disable Notification",
 						"type": "`$BOOLEAN`",
+						"short": "Sends the message silently",
 					},
 					map[string]any{
 						"name": "disable_web_page_preview",
-						"short": "Disables link previews for links in this message",
+						"title": "Disable Web Page Preview",
 						"type": "`$BOOLEAN`",
+						"short": "Disables link previews for links in this message",
 					},
 					map[string]any{
 						"name": "from_chat_id",
-						"req": true,
+						"title": "From Chat Id",
 						"type": "`$STRING`",
-						"union": map[string]any{
-							"branches": 2,
-							"count": 1,
-							"depth": 0,
-						},
+						"req": true,
 					},
 					map[string]any{
-						"format": "float",
 						"name": "latitude",
-						"req": true,
+						"title": "Latitude",
 						"type": "`$NUMBER`",
+						"req": true,
+						"format": "float",
 					},
 					map[string]any{
-						"format": "float",
 						"name": "longitude",
-						"req": true,
+						"title": "Longitude",
 						"type": "`$NUMBER`",
+						"req": true,
+						"format": "float",
 					},
 					map[string]any{
 						"name": "message_effect_id",
-						"short": "Unique identifier of the message effect to be added to the message",
+						"title": "Message Effect Id",
 						"type": "`$STRING`",
+						"short": "Unique identifier of the message effect to be added to the message",
 					},
 					map[string]any{
 						"name": "message_id",
-						"req": true,
+						"title": "Message Id",
 						"type": "`$INTEGER`",
+						"req": true,
 					},
 					map[string]any{
 						"name": "message_thread_id",
-						"short": "Unique identifier for the target message thread (topic) of the forum",
+						"title": "Message Thread Id",
 						"type": "`$INTEGER`",
+						"short": "Unique identifier for the target message thread (topic) of the forum",
 					},
 					map[string]any{
 						"name": "options",
-						"req": true,
+						"title": "Options",
 						"type": "`$ARRAY`",
+						"req": true,
 					},
 					map[string]any{
 						"name": "parse_mode",
-						"short": "Mode for parsing entities in the message text",
+						"title": "Parse Mode",
 						"type": "`$STRING`",
+						"short": "Mode for parsing entities in the message text",
 					},
 					map[string]any{
 						"name": "protect_content",
-						"short": "Protects the contents of the sent message from forwarding and saving",
+						"title": "Protect Content",
 						"type": "`$BOOLEAN`",
+						"short": "Protects the contents of the sent message from forwarding and saving",
 					},
 					map[string]any{
 						"name": "question",
-						"req": true,
+						"title": "Question",
 						"type": "`$STRING`",
+						"req": true,
 					},
 					map[string]any{
 						"name": "reply_to_message_id",
-						"short": "If the message is a reply, ID of the original message",
+						"title": "Reply To Message Id",
 						"type": "`$INTEGER`",
+						"short": "If the message is a reply, ID of the original message",
 					},
 					map[string]any{
 						"name": "text",
+						"title": "Text",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Text of the message to be sent",
-						"type": "`$STRING`",
 					},
 				},
 				"name": "message",
@@ -982,7 +1111,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/forwardMessage",
@@ -991,17 +1119,18 @@ func MakeConfig() map[string]any {
 										"lit": "forwardMessage",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"forwardMessage",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"forwardMessage",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/sendAnimation",
@@ -1010,17 +1139,18 @@ func MakeConfig() map[string]any {
 										"lit": "sendAnimation",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"sendAnimation",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"sendAnimation",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/sendAudio",
@@ -1029,17 +1159,18 @@ func MakeConfig() map[string]any {
 										"lit": "sendAudio",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"sendAudio",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"sendAudio",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/sendDocument",
@@ -1048,17 +1179,18 @@ func MakeConfig() map[string]any {
 										"lit": "sendDocument",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"sendDocument",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"sendDocument",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/sendLocation",
@@ -1067,17 +1199,18 @@ func MakeConfig() map[string]any {
 										"lit": "sendLocation",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"sendLocation",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"sendLocation",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/sendMessage",
@@ -1086,17 +1219,18 @@ func MakeConfig() map[string]any {
 										"lit": "sendMessage",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"sendMessage",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"sendMessage",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/sendPhoto",
@@ -1105,17 +1239,18 @@ func MakeConfig() map[string]any {
 										"lit": "sendPhoto",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"sendPhoto",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"sendPhoto",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/sendPoll",
@@ -1124,17 +1259,18 @@ func MakeConfig() map[string]any {
 										"lit": "sendPoll",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"sendPoll",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"sendPoll",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/sendSticker",
@@ -1143,17 +1279,18 @@ func MakeConfig() map[string]any {
 										"lit": "sendSticker",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"sendSticker",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"sendSticker",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/sendVideo",
@@ -1162,14 +1299,16 @@ func MakeConfig() map[string]any {
 										"lit": "sendVideo",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"sendVideo",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"sendVideo",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -1182,39 +1321,35 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "chat_id",
-						"req": true,
+						"title": "Chat Id",
 						"type": "`$STRING`",
-						"union": map[string]any{
-							"branches": 2,
-							"count": 1,
-							"depth": 0,
-						},
+						"req": true,
 					},
 					map[string]any{
 						"name": "direct_messages_topic_id",
+						"title": "Direct Messages Topic Id",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "from_chat_id",
-						"req": true,
+						"title": "From Chat Id",
 						"type": "`$STRING`",
-						"union": map[string]any{
-							"branches": 2,
-							"count": 1,
-							"depth": 0,
-						},
+						"req": true,
 					},
 					map[string]any{
 						"name": "message_effect_id",
+						"title": "Message Effect Id",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "message_id",
-						"req": true,
+						"title": "Message Id",
 						"type": "`$INTEGER`",
+						"req": true,
 					},
 					map[string]any{
 						"name": "message_thread_id",
+						"title": "Message Thread Id",
 						"type": "`$INTEGER`",
 					},
 				},
@@ -1225,7 +1360,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/copyMessage",
@@ -1234,16 +1368,18 @@ func MakeConfig() map[string]any {
 										"lit": "copyMessage",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"copyMessage",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": map[string]any{
 										"message_id": "`reqdata`",
 									},
 									"res": "`body`",
 								},
-								"parts": []any{
-									"copyMessage",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -1256,63 +1392,70 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "can_delete_messages",
+						"title": "Can Delete Messages",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "can_edit_messages",
+						"title": "Can Edit Messages",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "can_manage_chat",
+						"title": "Can Manage Chat",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "can_manage_direct_messages",
+						"title": "Can Manage Direct Messages",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "can_post_messages",
+						"title": "Can Post Messages",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "chat_id",
-						"req": true,
+						"title": "Chat Id",
 						"type": "`$STRING`",
-						"union": map[string]any{
-							"branches": 2,
-							"count": 1,
-							"depth": 0,
-						},
+						"req": true,
 					},
 					map[string]any{
 						"name": "description",
-						"short": "Human-readable description of the result",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "Human-readable description of the result",
 					},
 					map[string]any{
 						"name": "error_code",
-						"short": "Error code",
+						"title": "Error Code",
 						"type": "`$INTEGER`",
+						"short": "Error code",
 					},
 					map[string]any{
 						"name": "ok",
+						"title": "Ok",
+						"type": "`$BOOLEAN`",
 						"req": true,
 						"short": "If true, the request was successful",
-						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "parameters",
+						"title": "Parameters",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "result",
-						"short": "The result of the query",
+						"title": "Result",
 						"type": "`$ARRAY`",
+						"short": "The result of the query",
 					},
 					map[string]any{
 						"name": "user_id",
-						"req": true,
+						"title": "User Id",
 						"type": "`$INTEGER`",
+						"req": true,
 					},
 				},
 				"name": "promote_chat_member",
@@ -1322,7 +1465,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/promoteChatMember",
@@ -1331,14 +1473,16 @@ func MakeConfig() map[string]any {
 										"lit": "promoteChatMember",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"promoteChatMember",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"promoteChatMember",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -1351,28 +1495,33 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "description",
-						"short": "Human-readable description of the result",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "Human-readable description of the result",
 					},
 					map[string]any{
 						"name": "error_code",
-						"short": "Error code",
+						"title": "Error Code",
 						"type": "`$INTEGER`",
+						"short": "Error code",
 					},
 					map[string]any{
 						"name": "ok",
+						"title": "Ok",
+						"type": "`$BOOLEAN`",
 						"req": true,
 						"short": "If true, the request was successful",
-						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "parameters",
+						"title": "Parameters",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "result",
-						"short": "The result of the query",
+						"title": "Result",
 						"type": "`$ARRAY`",
+						"short": "The result of the query",
 					},
 				},
 				"name": "remove_my_profile_photo",
@@ -1382,7 +1531,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/removeMyProfilePhoto",
@@ -1391,14 +1539,16 @@ func MakeConfig() map[string]any {
 										"lit": "removeMyProfilePhoto",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"removeMyProfilePhoto",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"removeMyProfilePhoto",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -1411,43 +1561,45 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "chat_id",
-						"req": true,
+						"title": "Chat Id",
 						"type": "`$STRING`",
-						"union": map[string]any{
-							"branches": 2,
-							"count": 1,
-							"depth": 0,
-						},
+						"req": true,
 					},
 					map[string]any{
 						"name": "description",
-						"short": "Human-readable description of the result",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "Human-readable description of the result",
 					},
 					map[string]any{
 						"name": "error_code",
-						"short": "Error code",
+						"title": "Error Code",
 						"type": "`$INTEGER`",
+						"short": "Error code",
 					},
 					map[string]any{
 						"name": "ok",
+						"title": "Ok",
+						"type": "`$BOOLEAN`",
 						"req": true,
 						"short": "If true, the request was successful",
-						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "parameters",
+						"title": "Parameters",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "result",
-						"short": "The result of the query",
+						"title": "Result",
 						"type": "`$ARRAY`",
+						"short": "The result of the query",
 					},
 					map[string]any{
 						"name": "story_id",
-						"req": true,
+						"title": "Story Id",
 						"type": "`$INTEGER`",
+						"req": true,
 					},
 				},
 				"name": "repost_story",
@@ -1457,7 +1609,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/repostStory",
@@ -1466,14 +1617,16 @@ func MakeConfig() map[string]any {
 										"lit": "repostStory",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"repostStory",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"repostStory",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -1486,47 +1639,50 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "action",
-						"req": true,
+						"title": "Action",
 						"type": "`$STRING`",
+						"req": true,
 					},
 					map[string]any{
 						"name": "chat_id",
-						"req": true,
+						"title": "Chat Id",
 						"type": "`$STRING`",
-						"union": map[string]any{
-							"branches": 2,
-							"count": 1,
-							"depth": 0,
-						},
+						"req": true,
 					},
 					map[string]any{
 						"name": "description",
-						"short": "Human-readable description of the result",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "Human-readable description of the result",
 					},
 					map[string]any{
 						"name": "error_code",
-						"short": "Error code",
+						"title": "Error Code",
 						"type": "`$INTEGER`",
+						"short": "Error code",
 					},
 					map[string]any{
 						"name": "message_thread_id",
+						"title": "Message Thread Id",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "ok",
+						"title": "Ok",
+						"type": "`$BOOLEAN`",
 						"req": true,
 						"short": "If true, the request was successful",
-						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "parameters",
+						"title": "Parameters",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "result",
-						"short": "The result of the query",
+						"title": "Result",
 						"type": "`$ARRAY`",
+						"short": "The result of the query",
 					},
 				},
 				"name": "send_chat_action",
@@ -1536,7 +1692,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/sendChatAction",
@@ -1545,14 +1700,16 @@ func MakeConfig() map[string]any {
 										"lit": "sendChatAction",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"sendChatAction",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"sendChatAction",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -1565,47 +1722,50 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "chat_id",
-						"req": true,
+						"title": "Chat Id",
 						"type": "`$STRING`",
-						"union": map[string]any{
-							"branches": 2,
-							"count": 1,
-							"depth": 0,
-						},
+						"req": true,
 					},
 					map[string]any{
 						"name": "description",
-						"short": "Human-readable description of the result",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "Human-readable description of the result",
 					},
 					map[string]any{
 						"name": "error_code",
-						"short": "Error code",
+						"title": "Error Code",
 						"type": "`$INTEGER`",
+						"short": "Error code",
 					},
 					map[string]any{
 						"name": "message_thread_id",
+						"title": "Message Thread Id",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "ok",
+						"title": "Ok",
+						"type": "`$BOOLEAN`",
 						"req": true,
 						"short": "If true, the request was successful",
-						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "parameters",
+						"title": "Parameters",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "result",
-						"short": "The result of the query",
+						"title": "Result",
 						"type": "`$ARRAY`",
+						"short": "The result of the query",
 					},
 					map[string]any{
 						"name": "text",
-						"req": true,
+						"title": "Text",
 						"type": "`$STRING`",
+						"req": true,
 					},
 				},
 				"name": "send_message_draft",
@@ -1615,7 +1775,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/sendMessageDraft",
@@ -1624,14 +1783,16 @@ func MakeConfig() map[string]any {
 										"lit": "sendMessageDraft",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"sendMessageDraft",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"sendMessageDraft",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -1644,28 +1805,33 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "description",
-						"short": "Human-readable description of the result",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "Human-readable description of the result",
 					},
 					map[string]any{
 						"name": "error_code",
-						"short": "Error code",
+						"title": "Error Code",
 						"type": "`$INTEGER`",
+						"short": "Error code",
 					},
 					map[string]any{
 						"name": "ok",
+						"title": "Ok",
+						"type": "`$BOOLEAN`",
 						"req": true,
 						"short": "If true, the request was successful",
-						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "parameters",
+						"title": "Parameters",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "result",
-						"short": "The result of the query",
+						"title": "Result",
 						"type": "`$ARRAY`",
+						"short": "The result of the query",
 					},
 				},
 				"name": "set_my_profile_photo",
@@ -1675,7 +1841,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/setMyProfilePhoto",
@@ -1684,14 +1849,16 @@ func MakeConfig() map[string]any {
 										"lit": "setMyProfilePhoto",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"setMyProfilePhoto",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"setMyProfilePhoto",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -1704,43 +1871,45 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "chat_id",
-						"req": true,
+						"title": "Chat Id",
 						"type": "`$STRING`",
-						"union": map[string]any{
-							"branches": 2,
-							"count": 1,
-							"depth": 0,
-						},
+						"req": true,
 					},
 					map[string]any{
 						"name": "description",
-						"short": "Human-readable description of the result",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "Human-readable description of the result",
 					},
 					map[string]any{
 						"name": "error_code",
-						"short": "Error code",
+						"title": "Error Code",
 						"type": "`$INTEGER`",
+						"short": "Error code",
 					},
 					map[string]any{
 						"name": "message_thread_id",
-						"req": true,
+						"title": "Message Thread Id",
 						"type": "`$INTEGER`",
+						"req": true,
 					},
 					map[string]any{
 						"name": "ok",
+						"title": "Ok",
+						"type": "`$BOOLEAN`",
 						"req": true,
 						"short": "If true, the request was successful",
-						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "parameters",
+						"title": "Parameters",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "result",
-						"short": "The result of the query",
+						"title": "Result",
 						"type": "`$ARRAY`",
+						"short": "The result of the query",
 					},
 				},
 				"name": "unpin_all_forum_topic_message",
@@ -1750,7 +1919,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/unpinAllForumTopicMessages",
@@ -1759,14 +1927,16 @@ func MakeConfig() map[string]any {
 										"lit": "unpinAllForumTopicMessages",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"unpinAllForumTopicMessages",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"unpinAllForumTopicMessages",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -1779,43 +1949,52 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "allowed_updates",
+						"title": "Allowed Updates",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "description",
-						"short": "Human-readable description of the result",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "Human-readable description of the result",
 					},
 					map[string]any{
 						"name": "error_code",
-						"short": "Error code",
+						"title": "Error Code",
 						"type": "`$INTEGER`",
+						"short": "Error code",
 					},
 					map[string]any{
 						"name": "limit",
+						"title": "Limit",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "offset",
+						"title": "Offset",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "ok",
+						"title": "Ok",
+						"type": "`$BOOLEAN`",
 						"req": true,
 						"short": "If true, the request was successful",
-						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "parameters",
+						"title": "Parameters",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "result",
-						"short": "The result of the query",
+						"title": "Result",
 						"type": "`$ARRAY`",
+						"short": "The result of the query",
 					},
 					map[string]any{
 						"name": "timeout",
+						"title": "Timeout",
 						"type": "`$INTEGER`",
 					},
 				},
@@ -1826,7 +2005,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/getUpdates",
@@ -1835,14 +2013,16 @@ func MakeConfig() map[string]any {
 										"lit": "getUpdates",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"getUpdates",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"getUpdates",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -1851,42 +2031,50 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "allowed_update",
-											"orig": "allowed_update",
-											"type": "`$ARRAY`",
-										},
-										map[string]any{
-											"example": 100,
-											"kind": "query",
-											"name": "limit",
-											"orig": "limit",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "offset",
-											"orig": "offset",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": 0,
-											"kind": "query",
-											"name": "timeout",
-											"orig": "timeout",
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/getUpdates",
 								"segments": []any{
 									map[string]any{
 										"lit": "getUpdates",
+									},
+								},
+								"parts": []any{
+									"getUpdates",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "allowed_update",
+											"orig": "allowed_update",
+											"type": "`$ARRAY`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "limit",
+											"orig": "limit",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 100,
+										},
+										map[string]any{
+											"name": "offset",
+											"orig": "offset",
+											"type": "`$INTEGER`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "timeout",
+											"orig": "timeout",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 0,
+										},
 									},
 								},
 								"select": map[string]any{
@@ -1896,13 +2084,6 @@ func MakeConfig() map[string]any {
 										"offset",
 										"timeout",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"getUpdates",
 								},
 							},
 						},

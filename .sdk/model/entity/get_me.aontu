@@ -1,0 +1,175 @@
+# Entity: get_me
+
+main: kit: entity: get_me: {
+
+  alias: field: {}
+
+  fields: {
+    business_connection: {
+      h: "Business Connection"
+      n: "business_connection"
+      r: false
+      t: "`$OBJECT`"
+    }
+    business_message: {
+      h: "Business Message"
+      n: "business_message"
+      r: true
+      t: "`$OBJECT`"
+    }
+    channel_post: {
+      h: "Channel Post"
+      n: "channel_post"
+      r: true
+      t: "`$OBJECT`"
+    }
+    chosen_inline_result: {
+      h: "Chosen Inline Result"
+      n: "chosen_inline_result"
+      r: true
+      t: "`$OBJECT`"
+    }
+    deleted_business_messages: {
+      h: "Deleted Business Messages"
+      n: "deleted_business_messages"
+      r: false
+      t: "`$OBJECT`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "Human-readable description of the result"
+      t: "`$STRING`"
+    }
+    edited_business_message: {
+      h: "Edited Business Message"
+      n: "edited_business_message"
+      r: true
+      t: "`$OBJECT`"
+    }
+    edited_channel_post: {
+      h: "Edited Channel Post"
+      n: "edited_channel_post"
+      r: true
+      t: "`$OBJECT`"
+    }
+    edited_message: {
+      h: "Edited Message"
+      n: "edited_message"
+      r: true
+      t: "`$OBJECT`"
+    }
+    error_code: {
+      h: "Error Code"
+      n: "error_code"
+      r: false
+      sh: "Error code"
+      t: "`$INTEGER`"
+    }
+    inline_query: {
+      h: "Inline Query"
+      n: "inline_query"
+      r: true
+      t: "`$OBJECT`"
+    }
+    message: {
+      h: "Message"
+      n: "message"
+      r: true
+      t: "`$OBJECT`"
+    }
+    message_reaction: {
+      h: "Message Reaction"
+      n: "message_reaction"
+      r: false
+      t: "`$OBJECT`"
+    }
+    message_reaction_count: {
+      h: "Message Reaction Count"
+      n: "message_reaction_count"
+      r: false
+      t: "`$OBJECT`"
+    }
+    ok: {
+      h: "Ok"
+      n: "ok"
+      r: true
+      sh: "If true, the request was successful"
+      t: "`$BOOLEAN`"
+    }
+    parameters: {
+      h: "Parameters"
+      n: "parameters"
+      r: false
+      t: "`$OBJECT`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      r: false
+      sh: "The result of the query"
+      t: "`$ARRAY`"
+    }
+    update_id: {
+      h: "Update Id"
+      n: "update_id"
+      r: true
+      sh: "The update's unique identifier"
+      t: "`$INTEGER`"
+    }
+  }
+
+  name: "get_me"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /getMe"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/getMe"
+          s: [
+            {
+              lit: "getMe"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /getMe"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/getMe"
+          s: [
+            {
+              lit: "getMe"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

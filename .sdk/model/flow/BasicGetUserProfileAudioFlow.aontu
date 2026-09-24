@@ -1,0 +1,18 @@
+# BasicGetUserProfileAudioFlow
+
+main: kit: flow: BasicGetUserProfileAudioFlow:
+{
+  entity: "get_user_profile_audio",
+  kind: "basic",
+  name: "BasicGetUserProfileAudioFlow",
+  step: [
+    {
+      i: {
+        ref: "get_user_profile_audio_ref01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicGetUserProfileAudioFlow"
+}

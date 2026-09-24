@@ -105,7 +105,6 @@ The CLI registers these boru words, each bound to the SDK:
 | Word     | Signatures                                    | Returns                        |
 |----------|-----------------------------------------------|--------------------------------|
 | `list`   | `list <entity>` · `list <query> <entity>`     | First page of records          |
-| `load`   | `load <entity>` · `load <query> <entity>`     | A single record                |
 
 - `<entity>` is a bareword, auto-quoted as an boru atom (e.g. `approve_suggested_post`).
 - `<query>` is either a **Map** (`{id:1}`) or a **Scalar** (`1`, treated as

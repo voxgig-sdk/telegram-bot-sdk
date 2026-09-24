@@ -1,7 +1,7 @@
 // Typed models for the TelegramBot SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
@@ -152,27 +152,66 @@ export interface GetChatGiftCreateData {
 }
 
 export interface GetMe {
+  business_connection?: Record<string, any>
+  business_message: Record<string, any>
+  channel_post: Record<string, any>
+  chosen_inline_result: Record<string, any>
+  deleted_business_messages?: Record<string, any>
   description?: string
+  edited_business_message: Record<string, any>
+  edited_channel_post: Record<string, any>
+  edited_message: Record<string, any>
   error_code?: number
+  inline_query: Record<string, any>
+  message: Record<string, any>
+  message_reaction?: Record<string, any>
+  message_reaction_count?: Record<string, any>
   ok: boolean
   parameters?: Record<string, any>
   result?: any[]
+  update_id: number
 }
 
-export interface GetMeLoadMatch {
+export interface GetMeListMatch {
+  business_connection?: Record<string, any>
+  business_message?: Record<string, any>
+  channel_post?: Record<string, any>
+  chosen_inline_result?: Record<string, any>
+  deleted_business_messages?: Record<string, any>
   description?: string
+  edited_business_message?: Record<string, any>
+  edited_channel_post?: Record<string, any>
+  edited_message?: Record<string, any>
   error_code?: number
+  inline_query?: Record<string, any>
+  message?: Record<string, any>
+  message_reaction?: Record<string, any>
+  message_reaction_count?: Record<string, any>
   ok?: boolean
   parameters?: Record<string, any>
   result?: any[]
+  update_id?: number
 }
 
 export interface GetMeCreateData {
+  business_connection?: Record<string, any>
+  business_message: Record<string, any>
+  channel_post: Record<string, any>
+  chosen_inline_result: Record<string, any>
+  deleted_business_messages?: Record<string, any>
   description?: string
+  edited_business_message: Record<string, any>
+  edited_channel_post: Record<string, any>
+  edited_message: Record<string, any>
   error_code?: number
+  inline_query: Record<string, any>
+  message: Record<string, any>
+  message_reaction?: Record<string, any>
+  message_reaction_count?: Record<string, any>
   ok: boolean
   parameters?: Record<string, any>
   result?: any[]
+  update_id: number
 }
 
 export interface GetUserGift {
